@@ -1,0 +1,1692 @@
+﻿define("CT_Cart_IS.model$ModifiedByRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ModifiedByRec = (function (_super) {
+__extends(ModifiedByRec, _super);
+function ModifiedByRec(defaults) {
+_super.apply(this, arguments);
+}
+ModifiedByRec.attributesToDeclare = function () {
+return [
+this.attr("ClientId", "clientIdAttr", "clientId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsPlatformClient", "isPlatformClientAttr", "isPlatformClient", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ModifiedByRec.init();
+return ModifiedByRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ModifiedByRec = ModifiedByRec;
+
+});
+define("CT_Cart_IS.model$ResourceTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ResourceTypeRec = (function (_super) {
+__extends(ResourceTypeRec, _super);
+function ResourceTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+ResourceTypeRec.attributesToDeclare = function () {
+return [
+this.attr("TypeId", "typeIdAttr", "typeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ResourceTypeRec.init();
+return ResourceTypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ResourceTypeRec = ResourceTypeRec;
+
+});
+define("CT_Cart_IS.model$LastModifiedByRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$ResourceTypeRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var LastModifiedByRec = (function (_super) {
+__extends(LastModifiedByRec, _super);
+function LastModifiedByRec(defaults) {
+_super.apply(this, arguments);
+}
+LastModifiedByRec.attributesToDeclare = function () {
+return [
+this.attr("IsPlatformClient", "isPlatformClientAttr", "isPlatformClient", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("User", "userAttr", "user", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.ResourceTypeRec());
+}, true, CT_Cart_ISModel.ResourceTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+LastModifiedByRec.init();
+return LastModifiedByRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.LastModifiedByRec = LastModifiedByRec;
+
+});
+define("CT_Cart_IS.model$LocationItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var LocationItemRec = (function (_super) {
+__extends(LocationItemRec, _super);
+function LocationItemRec(defaults) {
+_super.apply(this, arguments);
+}
+LocationItemRec.attributesToDeclare = function () {
+return [
+this.attr("Country", "countryAttr", "country", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("State", "stateAttr", "state", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LocationItemRec.init();
+return LocationItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.LocationItemRec = LocationItemRec;
+
+});
+define("CT_Cart_IS.model$LocationItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$LocationItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var LocationItemList = (function (_super) {
+__extends(LocationItemList, _super);
+function LocationItemList(defaults) {
+_super.apply(this, arguments);
+}
+LocationItemList.itemType = CT_Cart_ISModel.LocationItemRec;
+return LocationItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.LocationItemList = LocationItemList;
+
+});
+define("CT_Cart_IS.model$ResultItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$LastModifiedByRec", "CT_Cart_IS.model$LocationItemList"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ResultItemRec = (function (_super) {
+__extends(ResultItemRec, _super);
+function ResultItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ResultItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "createdBy", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.LastModifiedByRec());
+}, true, CT_Cart_ISModel.LastModifiedByRec), 
+this.attr("LastModifiedAt", "lastModifiedAtAttr", "lastModifiedAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("LastModifiedBy", "lastModifiedByAttr", "lastModifiedBy", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.LastModifiedByRec());
+}, true, CT_Cart_ISModel.LastModifiedByRec), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Locations", "locationsAttr", "locations", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.LocationItemList());
+}, true, CT_Cart_ISModel.LocationItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ResultItemRec.init();
+return ResultItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ResultItemRec = ResultItemRec;
+
+});
+define("CT_Cart_IS.model$ResultItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$ResultItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ResultItemList = (function (_super) {
+__extends(ResultItemList, _super);
+function ResultItemList(defaults) {
+_super.apply(this, arguments);
+}
+ResultItemList.itemType = CT_Cart_ISModel.ResultItemRec;
+return ResultItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.ResultItemList = ResultItemList;
+
+});
+define("CT_Cart_IS.model$ZonePagedQueryRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$ResultItemList"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ZonePagedQueryRec = (function (_super) {
+__extends(ZonePagedQueryRec, _super);
+function ZonePagedQueryRec(defaults) {
+_super.apply(this, arguments);
+}
+ZonePagedQueryRec.attributesToDeclare = function () {
+return [
+this.attr("Limit", "limitAttr", "limit", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Offset", "offsetAttr", "offset", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Count", "countAttr", "count", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Total", "totalAttr", "total", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Results", "resultsAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.ResultItemList());
+}, true, CT_Cart_ISModel.ResultItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ZonePagedQueryRec.init();
+return ZonePagedQueryRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ZonePagedQueryRec = ZonePagedQueryRec;
+
+});
+define("CT_Cart_IS.model$MyCart_CartDiscountItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_CartDiscountItemRec = (function (_super) {
+__extends(MyCart_CartDiscountItemRec, _super);
+function MyCart_CartDiscountItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_CartDiscountItemRec.attributesToDeclare = function () {
+return [
+this.attr("CartDiscountId", "cartDiscountIdAttr", "CartDiscountId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DiscountedPrice", "discountedPriceAttr", "DiscountedPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DiscountPrice", "discountPriceAttr", "DiscountPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductID", "productIDAttr", "ProductID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsServiceItem", "isServiceItemAttr", "IsServiceItem", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyCart_CartDiscountItemRec.init();
+return MyCart_CartDiscountItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MyCart_CartDiscountItemRec = MyCart_CartDiscountItemRec;
+
+});
+define("CT_Cart_IS.model$TaxRateRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var TaxRateRec = (function (_super) {
+__extends(TaxRateRec, _super);
+function TaxRateRec(defaults) {
+_super.apply(this, arguments);
+}
+TaxRateRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Amount", "amountAttr", "amount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IncludedInPrice", "includedInPriceAttr", "includedInPrice", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Country", "countryAttr", "country", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TaxRateRec.init();
+return TaxRateRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.TaxRateRec = TaxRateRec;
+
+});
+define("CT_Cart_IS.model$DiscountCodeStateRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var DiscountCodeStateRec = (function (_super) {
+__extends(DiscountCodeStateRec, _super);
+function DiscountCodeStateRec(defaults) {
+_super.apply(this, arguments);
+}
+DiscountCodeStateRec.attributesToDeclare = function () {
+return [
+this.attr("DiscountCodeStateCode", "discountCodeStateCodeAttr", "DiscountCodeStateCode", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DiscountCodeStateRec.fromStructure = function (str) {
+return new DiscountCodeStateRec(new DiscountCodeStateRec.RecordClass({
+discountCodeStateCodeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DiscountCodeStateRec.init();
+return DiscountCodeStateRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.DiscountCodeStateRec = DiscountCodeStateRec;
+
+});
+define("CT_Cart_IS.model$CentPrecisionRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var CentPrecisionRec = (function (_super) {
+__extends(CentPrecisionRec, _super);
+function CentPrecisionRec(defaults) {
+_super.apply(this, arguments);
+}
+CentPrecisionRec.attributesToDeclare = function () {
+return [
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CurrencyCode", "currencyCodeAttr", "currencyCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CentAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("FractionDigits", "fractionDigitsAttr", "fractionDigits", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PreciseAmount", "preciseAmountAttr", "preciseAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CentPrecisionRec.init();
+return CentPrecisionRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.CentPrecisionRec = CentPrecisionRec;
+
+});
+define("CT_Cart_IS.model$TaxPortionItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$CentPrecisionRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var TaxPortionItemRec = (function (_super) {
+__extends(TaxPortionItemRec, _super);
+function TaxPortionItemRec(defaults) {
+_super.apply(this, arguments);
+}
+TaxPortionItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Rate", "rateAttr", "rate", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Amount", "amountAttr", "amount", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+TaxPortionItemRec.init();
+return TaxPortionItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.TaxPortionItemRec = TaxPortionItemRec;
+
+});
+define("CT_Cart_IS.model$CartCustomFieldRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var CartCustomFieldRec = (function (_super) {
+__extends(CartCustomFieldRec, _super);
+function CartCustomFieldRec(defaults) {
+_super.apply(this, arguments);
+}
+CartCustomFieldRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CartCustomFieldRec.init();
+return CartCustomFieldRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.CartCustomFieldRec = CartCustomFieldRec;
+
+});
+define("CT_Cart_IS.model$ErrorItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorItemRec = (function (_super) {
+__extends(ErrorItemRec, _super);
+function ErrorItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemRec.attributesToDeclare = function () {
+return [
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CurrentVersion", "currentVersionAttr", "currentVersion", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ErrorItemRec.init();
+return ErrorItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ErrorItemRec = ErrorItemRec;
+
+});
+define("CT_Cart_IS.model$PriceCustomFieldRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var PriceCustomFieldRec = (function (_super) {
+__extends(PriceCustomFieldRec, _super);
+function PriceCustomFieldRec(defaults) {
+_super.apply(this, arguments);
+}
+PriceCustomFieldRec.attributesToDeclare = function () {
+return [
+this.attr("DisplayPrice_Text", "displayPrice_TextAttr", "DisplayPrice_Text", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PriceCustomFieldRec.fromStructure = function (str) {
+return new PriceCustomFieldRec(new PriceCustomFieldRec.RecordClass({
+displayPrice_TextAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PriceCustomFieldRec.init();
+return PriceCustomFieldRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.PriceCustomFieldRec = PriceCustomFieldRec;
+
+});
+define("CT_Cart_IS.model$PriceCustomRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$PriceCustomFieldRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var PriceCustomRec = (function (_super) {
+__extends(PriceCustomRec, _super);
+function PriceCustomRec(defaults) {
+_super.apply(this, arguments);
+}
+PriceCustomRec.attributesToDeclare = function () {
+return [
+this.attr("Fields", "fieldsAttr", "fields", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.PriceCustomFieldRec());
+}, true, CT_Cart_ISModel.PriceCustomFieldRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PriceCustomRec.fromStructure = function (str) {
+return new PriceCustomRec(new PriceCustomRec.RecordClass({
+fieldsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PriceCustomRec.init();
+return PriceCustomRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.PriceCustomRec = PriceCustomRec;
+
+});
+define("CT_Cart_IS.model$PriceItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$CentPrecisionRec", "CT_Cart_IS.model$PriceCustomRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var PriceItemRec = (function (_super) {
+__extends(PriceItemRec, _super);
+function PriceItemRec(defaults) {
+_super.apply(this, arguments);
+}
+PriceItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec), 
+this.attr("Custom", "customAttr", "custom", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.PriceCustomRec());
+}, true, CT_Cart_ISModel.PriceCustomRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PriceItemRec.init();
+return PriceItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.PriceItemRec = PriceItemRec;
+
+});
+define("CT_Cart_IS.model$ExternalTotalPriceRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$CentPrecisionRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ExternalTotalPriceRec = (function (_super) {
+__extends(ExternalTotalPriceRec, _super);
+function ExternalTotalPriceRec(defaults) {
+_super.apply(this, arguments);
+}
+ExternalTotalPriceRec.attributesToDeclare = function () {
+return [
+this.attr("Price", "priceAttr", "price", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec), 
+this.attr("TotalPrice", "totalPriceAttr", "totalPrice", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExternalTotalPriceRec.init();
+return ExternalTotalPriceRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ExternalTotalPriceRec = ExternalTotalPriceRec;
+
+});
+define("CT_Cart_IS.model$CartStateRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var CartStateRec = (function (_super) {
+__extends(CartStateRec, _super);
+function CartStateRec(defaults) {
+_super.apply(this, arguments);
+}
+CartStateRec.attributesToDeclare = function () {
+return [
+this.attr("CartStateCode", "cartStateCodeAttr", "CartStateCode", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CartStateRec.fromStructure = function (str) {
+return new CartStateRec(new CartStateRec.RecordClass({
+cartStateCodeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+CartStateRec.init();
+return CartStateRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.CartStateRec = CartStateRec;
+
+});
+define("CT_Cart_IS.model$MyCart_DiscountCodeItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_DiscountCodeItemRec = (function (_super) {
+__extends(MyCart_DiscountCodeItemRec, _super);
+function MyCart_DiscountCodeItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_DiscountCodeItemRec.attributesToDeclare = function () {
+return [
+this.attr("DiscountCodeId", "discountCodeIdAttr", "DiscountCodeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("State", "stateAttr", "state", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyCart_DiscountCodeItemRec.init();
+return MyCart_DiscountCodeItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MyCart_DiscountCodeItemRec = MyCart_DiscountCodeItemRec;
+
+});
+define("CT_Cart_IS.model$MyCart_TaxPortionRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_TaxPortionRec = (function (_super) {
+__extends(MyCart_TaxPortionRec, _super);
+function MyCart_TaxPortionRec(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_TaxPortionRec.attributesToDeclare = function () {
+return [
+this.attr("Rate", "rateAttr", "rate", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Amount", "amountAttr", "Amount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyCart_TaxPortionRec.init();
+return MyCart_TaxPortionRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MyCart_TaxPortionRec = MyCart_TaxPortionRec;
+
+});
+define("CT_Cart_IS.model$TypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var TypeRec = (function (_super) {
+__extends(TypeRec, _super);
+function TypeRec(defaults) {
+_super.apply(this, arguments);
+}
+TypeRec.attributesToDeclare = function () {
+return [
+this.attr("TypeId", "typeIdAttr", "typeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TypeRec.init();
+return TypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.TypeRec = TypeRec;
+
+});
+define("CT_Cart_IS.model$LineItemModeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var LineItemModeRec = (function (_super) {
+__extends(LineItemModeRec, _super);
+function LineItemModeRec(defaults) {
+_super.apply(this, arguments);
+}
+LineItemModeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LineItemModeRec.fromStructure = function (str) {
+return new LineItemModeRec(new LineItemModeRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+LineItemModeRec.init();
+return LineItemModeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.LineItemModeRec = LineItemModeRec;
+
+});
+define("CT_Cart_IS.model$CartActionsRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var CartActionsRec = (function (_super) {
+__extends(CartActionsRec, _super);
+function CartActionsRec(defaults) {
+_super.apply(this, arguments);
+}
+CartActionsRec.attributesToDeclare = function () {
+return [
+this.attr("ActionCode", "actionCodeAttr", "ActionCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CartActionsRec.init();
+return CartActionsRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.CartActionsRec = CartActionsRec;
+
+});
+define("CT_Cart_IS.model$FieldRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var FieldRec = (function (_super) {
+__extends(FieldRec, _super);
+function FieldRec(defaults) {
+_super.apply(this, arguments);
+}
+FieldRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "storeId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PLUSStoreNumber", "pLUSStoreNumberAttr", "plusStoreNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "deliveryTypeId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryDate", "deliveryDateAttr", "deliveryDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("DeliveryStartTime", "deliveryStartTimeAttr", "slotStartTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("DeliveryEndTime", "deliveryEndTimeAttr", "slotEndTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("ReservedUntil", "reservedUntilAttr", "slotReservedUntil", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CutOffMoment", "cutOffMomentAttr", "cutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Remarks", "remarksAttr", "remarks", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SavingList", "savingListAttr", "savings", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PLUSPointsCollection", "pLUSPointsCollectionAttr", "plusPointsCollection", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PLUSPoints", "pLUSPointsAttr", "totalPlusPoints", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PLUSPointsCosts", "pLUSPointsCostsAttr", "totalPlusPointsCosts", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("ProductCosts", "productCostsAttr", "totalProductCosts", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DepositFee", "depositFeeAttr", "totalDepositFee", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("LineItemDiscount", "lineItemDiscountAttr", "totalLineItemDiscount", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ShippingRebates", "shippingRebatesAttr", "totalShippingRebates", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasAlternativeProduct", "hasAlternativeProductAttr", "hasAlternativeProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PromotionDeliveryDate", "promotionDeliveryDateAttr", "promotionDeliveryDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("BusinessInterface", "businessInterfaceAttr", "businessInterface", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("PromotionList", "promotionListAttr", "promotions", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DiscountCodeList", "discountCodeListAttr", "discountCodes", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "customerId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AttributionReference", "attributionReferenceAttr", "attributionReference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExternalSessionReference", "externalSessionReferenceAttr", "externalSessionReference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SmallOrderFee", "smallOrderFeeAttr", "smallOrderFee", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IsEntitlementApplied", "isEntitlementAppliedAttr", "isEntitlementApplied", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PaymentMethod", "paymentMethodAttr", "paymentMethod", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StoreNumberPLUS", "storeNumberPLUSAttr", "storeNumberPlus", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FieldRec.init();
+return FieldRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.FieldRec = FieldRec;
+
+});
+define("CT_Cart_IS.model$BusinessInterfaceRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var BusinessInterfaceRec = (function (_super) {
+__extends(BusinessInterfaceRec, _super);
+function BusinessInterfaceRec(defaults) {
+_super.apply(this, arguments);
+}
+BusinessInterfaceRec.attributesToDeclare = function () {
+return [
+this.attr("Identifier", "identifierAttr", "Identifier", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+BusinessInterfaceRec.init();
+return BusinessInterfaceRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.BusinessInterfaceRec = BusinessInterfaceRec;
+
+});
+define("CT_Cart_IS.model$NameRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var NameRec = (function (_super) {
+__extends(NameRec, _super);
+function NameRec(defaults) {
+_super.apply(this, arguments);
+}
+NameRec.attributesToDeclare = function () {
+return [
+this.attr("EnUS", "enUSAttr", "en-US", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NlNL", "nlNLAttr", "nl-NL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+NameRec.init();
+return NameRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.NameRec = NameRec;
+
+});
+define("CT_Cart_IS.model$TaxCategoryRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var TaxCategoryRec = (function (_super) {
+__extends(TaxCategoryRec, _super);
+function TaxCategoryRec(defaults) {
+_super.apply(this, arguments);
+}
+TaxCategoryRec.attributesToDeclare = function () {
+return [
+this.attr("typeId", "typeIdAttr", "typeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TaxCategoryRec.init();
+return TaxCategoryRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.TaxCategoryRec = TaxCategoryRec;
+
+});
+define("CT_Cart_IS.model$CustomLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$CentPrecisionRec", "CT_Cart_IS.model$NameRec", "CT_Cart_IS.model$TaxCategoryRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var CustomLineItemRec = (function (_super) {
+__extends(CustomLineItemRec, _super);
+function CustomLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Money", "moneyAttr", "money", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec), 
+this.attr("Slug", "slugAttr", "slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.NameRec());
+}, true, CT_Cart_ISModel.NameRec), 
+this.attr("TaxCategory", "taxCategoryAttr", "taxCategory", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.TaxCategoryRec());
+}, true, CT_Cart_ISModel.TaxCategoryRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomLineItemRec.init();
+return CustomLineItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.CustomLineItemRec = CustomLineItemRec;
+
+});
+define("CT_Cart_IS.model$ExternalTaxRateDraftRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ExternalTaxRateDraftRec = (function (_super) {
+__extends(ExternalTaxRateDraftRec, _super);
+function ExternalTaxRateDraftRec(defaults) {
+_super.apply(this, arguments);
+}
+ExternalTaxRateDraftRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Amount", "amountAttr", "amount", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IncludedInPrice", "includedInPriceAttr", "includedInPrice", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Country", "countryAttr", "country", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExternalTaxRateDraftRec.init();
+return ExternalTaxRateDraftRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ExternalTaxRateDraftRec = ExternalTaxRateDraftRec;
+
+});
+define("CT_Cart_IS.model$MoneyRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MoneyRec = (function (_super) {
+__extends(MoneyRec, _super);
+function MoneyRec(defaults) {
+_super.apply(this, arguments);
+}
+MoneyRec.attributesToDeclare = function () {
+return [
+this.attr("currencyCode", "currencyCodeAttr", "currencyCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("centAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MoneyRec.init();
+return MoneyRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MoneyRec = MoneyRec;
+
+});
+define("CT_Cart_IS.model$ActionItemCustomLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$NameRec", "CT_Cart_IS.model$MoneyRec", "CT_Cart_IS.model$TaxCategoryRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ActionItemCustomLineItemRec = (function (_super) {
+__extends(ActionItemCustomLineItemRec, _super);
+function ActionItemCustomLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ActionItemCustomLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomLineItemId", "customLineItemIdAttr", "customLineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.NameRec());
+}, true, CT_Cart_ISModel.NameRec), 
+this.attr("Money", "moneyAttr", "money", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MoneyRec());
+}, true, CT_Cart_ISModel.MoneyRec), 
+this.attr("Slug", "slugAttr", "slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("TaxCategory", "taxCategoryAttr", "taxCategory", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.TaxCategoryRec());
+}, true, CT_Cart_ISModel.TaxCategoryRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ActionItemCustomLineItemRec.init();
+return ActionItemCustomLineItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ActionItemCustomLineItemRec = ActionItemCustomLineItemRec;
+
+});
+define("CT_Cart_IS.model$ActionItemCustomLineItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$ActionItemCustomLineItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ActionItemCustomLineItemList = (function (_super) {
+__extends(ActionItemCustomLineItemList, _super);
+function ActionItemCustomLineItemList(defaults) {
+_super.apply(this, arguments);
+}
+ActionItemCustomLineItemList.itemType = CT_Cart_ISModel.ActionItemCustomLineItemRec;
+return ActionItemCustomLineItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.ActionItemCustomLineItemList = ActionItemCustomLineItemList;
+
+});
+define("CT_Cart_IS.model$CartCustomLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$ActionItemCustomLineItemList"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var CartCustomLineItemRec = (function (_super) {
+__extends(CartCustomLineItemRec, _super);
+function CartCustomLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+CartCustomLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Actions", "actionsAttr", "actions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.ActionItemCustomLineItemList());
+}, true, CT_Cart_ISModel.ActionItemCustomLineItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CartCustomLineItemRec.init();
+return CartCustomLineItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.CartCustomLineItemRec = CartCustomLineItemRec;
+
+});
+define("CT_Cart_IS.model$MyCart_CustomLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$CentPrecisionRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_CustomLineItemRec = (function (_super) {
+__extends(MyCart_CustomLineItemRec, _super);
+function MyCart_CustomLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_CustomLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Money", "moneyAttr", "money", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec), 
+this.attr("Slug", "slugAttr", "slug", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyCart_CustomLineItemRec.init();
+return MyCart_CustomLineItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MyCart_CustomLineItemRec = MyCart_CustomLineItemRec;
+
+});
+define("CT_Cart_IS.model$AttributeItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var AttributeItemRec = (function (_super) {
+__extends(AttributeItemRec, _super);
+function AttributeItemRec(defaults) {
+_super.apply(this, arguments);
+}
+AttributeItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AttributeItemRec.init();
+return AttributeItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.AttributeItemRec = AttributeItemRec;
+
+});
+define("CT_Cart_IS.model$ShippingRateRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$CentPrecisionRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ShippingRateRec = (function (_super) {
+__extends(ShippingRateRec, _super);
+function ShippingRateRec(defaults) {
+_super.apply(this, arguments);
+}
+ShippingRateRec.attributesToDeclare = function () {
+return [
+this.attr("Price", "priceAttr", "price", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShippingRateRec.fromStructure = function (str) {
+return new ShippingRateRec(new ShippingRateRec.RecordClass({
+priceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShippingRateRec.init();
+return ShippingRateRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ShippingRateRec = ShippingRateRec;
+
+});
+define("CT_Cart_IS.model$AttributeItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$AttributeItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var AttributeItemList = (function (_super) {
+__extends(AttributeItemList, _super);
+function AttributeItemList(defaults) {
+_super.apply(this, arguments);
+}
+AttributeItemList.itemType = CT_Cart_ISModel.AttributeItemRec;
+return AttributeItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.AttributeItemList = AttributeItemList;
+
+});
+define("CT_Cart_IS.model$FieldLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var FieldLineItemRec = (function (_super) {
+__extends(FieldLineItemRec, _super);
+function FieldLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+FieldLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("QuantityOfFreeProducts", "quantityOfFreeProductsAttr", "quantityOfFreeProducts", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FieldLineItemRec.fromStructure = function (str) {
+return new FieldLineItemRec(new FieldLineItemRec.RecordClass({
+quantityOfFreeProductsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+FieldLineItemRec.init();
+return FieldLineItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.FieldLineItemRec = FieldLineItemRec;
+
+});
+define("CT_Cart_IS.model$CustomFields_LineItemsRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$TypeRec", "CT_Cart_IS.model$FieldLineItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var CustomFields_LineItemsRec = (function (_super) {
+__extends(CustomFields_LineItemsRec, _super);
+function CustomFields_LineItemsRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomFields_LineItemsRec.attributesToDeclare = function () {
+return [
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.TypeRec());
+}, true, CT_Cart_ISModel.TypeRec), 
+this.attr("Fields", "fieldsAttr", "fields", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.FieldLineItemRec());
+}, true, CT_Cart_ISModel.FieldLineItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomFields_LineItemsRec.init();
+return CustomFields_LineItemsRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.CustomFields_LineItemsRec = CustomFields_LineItemsRec;
+
+});
+define("CT_Cart_IS.model$MyCart_LineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$AttributeItemList", "CT_Cart_IS.model$CustomFields_LineItemsRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_LineItemRec = (function (_super) {
+__extends(MyCart_LineItemRec, _super);
+function MyCart_LineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_LineItemRec.attributesToDeclare = function () {
+return [
+this.attr("LineItemId", "lineItemIdAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "url", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attributes", "attributesAttr", "attributes", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.AttributeItemList());
+}, true, CT_Cart_ISModel.AttributeItemList), 
+this.attr("ChannelId", "channelIdAttr", "ChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RoutePosition", "routePositionAttr", "RoutePosition", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DisplayPrice", "displayPriceAttr", "DisplayPrice", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomFields", "customFieldsAttr", "custom", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CustomFields_LineItemsRec());
+}, true, CT_Cart_ISModel.CustomFields_LineItemsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyCart_LineItemRec.init();
+return MyCart_LineItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MyCart_LineItemRec = MyCart_LineItemRec;
+
+});
+define("CT_Cart_IS.model$MyCart_LineItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$MyCart_LineItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_LineItemList = (function (_super) {
+__extends(MyCart_LineItemList, _super);
+function MyCart_LineItemList(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_LineItemList.itemType = CT_Cart_ISModel.MyCart_LineItemRec;
+return MyCart_LineItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.MyCart_LineItemList = MyCart_LineItemList;
+
+});
+define("CT_Cart_IS.model$MyCart_TaxPortionList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$MyCart_TaxPortionRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_TaxPortionList = (function (_super) {
+__extends(MyCart_TaxPortionList, _super);
+function MyCart_TaxPortionList(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_TaxPortionList.itemType = CT_Cart_ISModel.MyCart_TaxPortionRec;
+return MyCart_TaxPortionList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.MyCart_TaxPortionList = MyCart_TaxPortionList;
+
+});
+define("CT_Cart_IS.model$MyAddressDraftRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyAddressDraftRec = (function (_super) {
+__extends(MyAddressDraftRec, _super);
+function MyAddressDraftRec(defaults) {
+_super.apply(this, arguments);
+}
+MyAddressDraftRec.attributesToDeclare = function () {
+return [
+this.attr("Country", "countryAttr", "country", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FirstName", "firstNameAttr", "firstName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LastName", "lastNameAttr", "lastName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetName", "streetNameAttr", "streetName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetNumber", "streetNumberAttr", "streetNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AdditionalStreetInfo", "additionalStreetInfoAttr", "additionalStreetInfo", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PostalCode", "postalCodeAttr", "postalCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "city", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Region", "regionAttr", "region", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Company", "companyAttr", "company", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Department", "departmentAttr", "department", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("pOBox", "pOBoxAttr", "pOBox", false, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("Phone", "phoneAttr", "phone", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Email", "emailAttr", "email", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AdditionalAddressInfo", "additionalAddressInfoAttr", "additionalAddressInfo", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Addtional_HasAdditionalEmail", "addtional_HasAdditionalEmailAttr", "Addtional_HasAdditionalEmail", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyAddressDraftRec.init();
+return MyAddressDraftRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MyAddressDraftRec = MyAddressDraftRec;
+
+});
+define("CT_Cart_IS.model$MyCart_CartDiscountItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$MyCart_CartDiscountItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_CartDiscountItemList = (function (_super) {
+__extends(MyCart_CartDiscountItemList, _super);
+function MyCart_CartDiscountItemList(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_CartDiscountItemList.itemType = CT_Cart_ISModel.MyCart_CartDiscountItemRec;
+return MyCart_CartDiscountItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.MyCart_CartDiscountItemList = MyCart_CartDiscountItemList;
+
+});
+define("CT_Cart_IS.model$MyCart_DiscountCodeItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$MyCart_DiscountCodeItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_DiscountCodeItemList = (function (_super) {
+__extends(MyCart_DiscountCodeItemList, _super);
+function MyCart_DiscountCodeItemList(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_DiscountCodeItemList.itemType = CT_Cart_ISModel.MyCart_DiscountCodeItemRec;
+return MyCart_DiscountCodeItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.MyCart_DiscountCodeItemList = MyCart_DiscountCodeItemList;
+
+});
+define("CT_Cart_IS.model$MyCart_CustomLineItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$MyCart_CustomLineItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_CustomLineItemList = (function (_super) {
+__extends(MyCart_CustomLineItemList, _super);
+function MyCart_CustomLineItemList(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_CustomLineItemList.itemType = CT_Cart_ISModel.MyCart_CustomLineItemRec;
+return MyCart_CustomLineItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.MyCart_CustomLineItemList = MyCart_CustomLineItemList;
+
+});
+define("CT_Cart_IS.model$ErrorItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$ErrorItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorItemList = (function (_super) {
+__extends(ErrorItemList, _super);
+function ErrorItemList(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemList.itemType = CT_Cart_ISModel.ErrorItemRec;
+return ErrorItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.ErrorItemList = ErrorItemList;
+
+});
+define("CT_Cart_IS.model$MyCart_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$MyCart_LineItemList", "CT_Cart_IS.model$FieldRec", "CT_Cart_IS.model$MyCart_TaxPortionList", "CT_Cart_IS.model$MyAddressDraftRec", "CT_Cart_IS.model$MyCart_CartDiscountItemList", "CT_Cart_IS.model$MyCart_DiscountCodeItemList", "CT_Cart_IS.model$MyCart_CustomLineItemList", "CT_Cart_IS.model$ErrorItemList"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyCart_StrRec = (function (_super) {
+__extends(MyCart_StrRec, _super);
+function MyCart_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+MyCart_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("AnonymousId", "anonymousIdAttr", "anonymousId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineItems", "lineItemsAttr", "lineItems", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MyCart_LineItemList());
+}, true, CT_Cart_ISModel.MyCart_LineItemList), 
+this.attr("CustomFields", "customFieldsAttr", "CustomFields", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.FieldRec());
+}, true, CT_Cart_ISModel.FieldRec), 
+this.attr("TotalLineItemQuantity", "totalLineItemQuantityAttr", "totalLineItemQuantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("TotalPrice", "totalPriceAttr", "TotalPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("TotalPrice_TaxedNet", "totalPrice_TaxedNetAttr", "TotalPrice_TaxedNet", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("TotalPrice_TaxedGross", "totalPrice_TaxedGrossAttr", "TotalPrice_TaxedGross", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("TaxedTaxPortions", "taxedTaxPortionsAttr", "taxPortions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MyCart_TaxPortionList());
+}, true, CT_Cart_ISModel.MyCart_TaxPortionList), 
+this.attr("CartState", "cartStateAttr", "cartState", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ShippingAddress", "shippingAddressAttr", "shippingAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MyAddressDraftRec());
+}, true, CT_Cart_ISModel.MyAddressDraftRec), 
+this.attr("BillingAddress", "billingAddressAttr", "billingAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MyAddressDraftRec());
+}, true, CT_Cart_ISModel.MyAddressDraftRec), 
+this.attr("CartDiscountList", "cartDiscountListAttr", "CartDiscountList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MyCart_CartDiscountItemList());
+}, true, CT_Cart_ISModel.MyCart_CartDiscountItemList), 
+this.attr("DiscountCodeList", "discountCodeListAttr", "DiscountCodeList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MyCart_DiscountCodeItemList());
+}, true, CT_Cart_ISModel.MyCart_DiscountCodeItemList), 
+this.attr("ShippingMethodName", "shippingMethodNameAttr", "shippingMethodName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ShippingTotalPrice", "shippingTotalPriceAttr", "ShippingTotalPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("ShippingTotalTaxedPrice", "shippingTotalTaxedPriceAttr", "ShippingTotalTaxedPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("CustomLineItems", "customLineItemsAttr", "customLineItems", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MyCart_CustomLineItemList());
+}, true, CT_Cart_ISModel.MyCart_CustomLineItemList), 
+this.attr("Additional_HasUnderAgeProducts", "additional_HasUnderAgeProductsAttr", "Additional_HasUnderAgeProducts", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ErrorStatusCode", "errorStatusCodeAttr", "statusCode", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ErrorMessage", "errorMessageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ErrorList", "errorListAttr", "errors", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.ErrorItemList());
+}, true, CT_Cart_ISModel.ErrorItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyCart_StrRec.init();
+return MyCart_StrRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MyCart_StrRec = MyCart_StrRec;
+
+});
+define("CT_Cart_IS.model$ActionItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$TypeRec", "CT_Cart_IS.model$FieldRec", "CT_Cart_IS.model$PriceItemRec", "CT_Cart_IS.model$MyAddressDraftRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ActionItemRec = (function (_super) {
+__extends(ActionItemRec, _super);
+function ActionItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ActionItemRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AnonymousId", "anonymousIdAttr", "anonymousId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineItemId", "lineItemIdAttr", "lineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "sku", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DistributionChannel", "distributionChannelAttr", "distributionChannel", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.TypeRec());
+}, true, CT_Cart_ISModel.TypeRec), 
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("UpdateProductData", "updateProductDataAttr", "updateProductData", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Fields", "fieldsAttr", "fields", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.FieldRec());
+}, true, CT_Cart_ISModel.FieldRec), 
+this.attr("ShippingMethod", "shippingMethodAttr", "shippingMethod", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.PriceItemRec());
+}, true, CT_Cart_ISModel.PriceItemRec), 
+this.attr("Address", "addressAttr", "address", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.MyAddressDraftRec());
+}, true, CT_Cart_ISModel.MyAddressDraftRec), 
+this.attr("DiscountCode", "discountCodeAttr", "discountCode", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.TypeRec());
+}, true, CT_Cart_ISModel.TypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ActionItemRec.init();
+return ActionItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ActionItemRec = ActionItemRec;
+
+});
+define("CT_Cart_IS.model$CustomLineItemFieldsRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var CustomLineItemFieldsRec = (function (_super) {
+__extends(CustomLineItemFieldsRec, _super);
+function CustomLineItemFieldsRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomLineItemFieldsRec.attributesToDeclare = function () {
+return [
+this.attr("DeliveryBundleReference", "deliveryBundleReferenceAttr", "deliveryBundleReference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DeliveryBundlePriceReference", "deliveryBundlePriceReferenceAttr", "deliveryBundlePriceReference", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomLineItemFieldsRec.init();
+return CustomLineItemFieldsRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.CustomLineItemFieldsRec = CustomLineItemFieldsRec;
+
+});
+define("CT_Cart_IS.model$TaxPortionItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$TaxPortionItemRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var TaxPortionItemList = (function (_super) {
+__extends(TaxPortionItemList, _super);
+function TaxPortionItemList(defaults) {
+_super.apply(this, arguments);
+}
+TaxPortionItemList.itemType = CT_Cart_ISModel.TaxPortionItemRec;
+return TaxPortionItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Cart_ISModel.TaxPortionItemList = TaxPortionItemList;
+
+});
+define("CT_Cart_IS.model$TaxedPriceRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$CentPrecisionRec", "CT_Cart_IS.model$TaxPortionItemList"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var TaxedPriceRec = (function (_super) {
+__extends(TaxedPriceRec, _super);
+function TaxedPriceRec(defaults) {
+_super.apply(this, arguments);
+}
+TaxedPriceRec.attributesToDeclare = function () {
+return [
+this.attr("TotalNet", "totalNetAttr", "totalNet", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec), 
+this.attr("TotalGross", "totalGrossAttr", "totalGross", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec), 
+this.attr("TaxPortions", "taxPortionsAttr", "taxPortions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.TaxPortionItemList());
+}, true, CT_Cart_ISModel.TaxPortionItemList), 
+this.attr("TotalTax", "totalTaxAttr", "totalTax", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CentPrecisionRec());
+}, true, CT_Cart_ISModel.CentPrecisionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+TaxedPriceRec.init();
+return TaxedPriceRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.TaxedPriceRec = TaxedPriceRec;
+
+});
+define("CT_Cart_IS.model$ShippingMethodActionsRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var ShippingMethodActionsRec = (function (_super) {
+__extends(ShippingMethodActionsRec, _super);
+function ShippingMethodActionsRec(defaults) {
+_super.apply(this, arguments);
+}
+ShippingMethodActionsRec.attributesToDeclare = function () {
+return [
+this.attr("ActionCode", "actionCodeAttr", "ActionCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShippingMethodActionsRec.init();
+return ShippingMethodActionsRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.ShippingMethodActionsRec = ShippingMethodActionsRec;
+
+});
+define("CT_Cart_IS.model$MyLineItemDraftRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model", "CT_Cart_IS.model$ExternalTotalPriceRec", "CT_Cart_IS.model$TypeRec", "CT_Cart_IS.model$CustomFields_LineItemsRec"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var MyLineItemDraftRec = (function (_super) {
+__extends(MyLineItemDraftRec, _super);
+function MyLineItemDraftRec(defaults) {
+_super.apply(this, arguments);
+}
+MyLineItemDraftRec.attributesToDeclare = function () {
+return [
+this.attr("SKU", "sKUAttr", "sku", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ExternalTotalPrice", "externalTotalPriceAttr", "externalTotalPrice", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.ExternalTotalPriceRec());
+}, true, CT_Cart_ISModel.ExternalTotalPriceRec), 
+this.attr("DistributionChannel", "distributionChannelAttr", "distributionChannel", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.TypeRec());
+}, true, CT_Cart_ISModel.TypeRec), 
+this.attr("CustomFields", "customFieldsAttr", "custom", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Cart_ISModel.CustomFields_LineItemsRec());
+}, true, CT_Cart_ISModel.CustomFields_LineItemsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyLineItemDraftRec.init();
+return MyLineItemDraftRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.MyLineItemDraftRec = MyLineItemDraftRec;
+
+});
+define("CT_Cart_IS.model$Field_OptionalRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var Field_OptionalRec = (function (_super) {
+__extends(Field_OptionalRec, _super);
+function Field_OptionalRec(defaults) {
+_super.apply(this, arguments);
+}
+Field_OptionalRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "storeId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "deliveryTypeId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryDate", "deliveryDateAttr", "deliveryDate", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DeliveryStartTime", "deliveryStartTimeAttr", "slotStartTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("DeliveryEndTime", "deliveryEndTimeAttr", "slotEndTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("ReservedUntil", "reservedUntilAttr", "slotReservedUntil", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CutOffMoment", "cutOffMomentAttr", "cutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Remarks", "remarksAttr", "remarks", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SavingList", "savingListAttr", "savings", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PLUSPointsCollection", "pLUSPointsCollectionAttr", "plusPointsCollection", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PLUSPoints", "pLUSPointsAttr", "totalPlusPoints", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PLUSPointsCosts", "pLUSPointsCostsAttr", "totalPlusPointsCosts", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductCosts", "productCostsAttr", "totalProductCosts", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DepositFee", "depositFeeAttr", "totalDepositFee", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineItemDiscount", "lineItemDiscountAttr", "totalLineItemDiscount", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ShippingRebates", "shippingRebatesAttr", "totalShippingRebates", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasAlternativeProduct", "hasAlternativeProductAttr", "hasAlternativeProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PromotionDeliveryDate", "promotionDeliveryDateAttr", "promotionDeliveryDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("BusinessInterface", "businessInterfaceAttr", "businessInterface", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionList", "promotionListAttr", "promotions", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "customerId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DiscountCodeList", "discountCodeListAttr", "discountCodes", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Field_OptionalRec.init();
+return Field_OptionalRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.Field_OptionalRec = Field_OptionalRec;
+
+});
+define("CT_Cart_IS.model$LineItemCustomFieldRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Cart_IS.model"], function (exports, OutSystems, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+var LineItemCustomFieldRec = (function (_super) {
+__extends(LineItemCustomFieldRec, _super);
+function LineItemCustomFieldRec(defaults) {
+_super.apply(this, arguments);
+}
+LineItemCustomFieldRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LineItemCustomFieldRec.init();
+return LineItemCustomFieldRec;
+})(OS.DataTypes.GenericRecord);
+CT_Cart_ISModel.LineItemCustomFieldRec = LineItemCustomFieldRec;
+
+});
+define("CT_Cart_IS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var CT_Cart_ISModel = exports;
+});

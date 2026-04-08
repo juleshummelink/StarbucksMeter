@@ -1,0 +1,346 @@
+﻿define("ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model"], function (OutSystems, ECOP_Base_RPatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.ProductHeaderCard");
+});
+define("ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$model", "ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$controller", "OutSystems/ReactWidgets/Main"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, React, OSView, ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_model, ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.ProductHeaderCard";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("pwUF4K9kEEufzVLs8HrIZA.Style"), function () {
+return ("product-header background-neutral-0 padding-x-base padding-bottom-base" + (((model.variables.extendedClassIn === "")) ? ("") : ((" " + model.variables.extendedClassIn))));
+}, function () {
+return model.variables.extendedClassIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._extendedClassInDataFetchStatus)
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "text-align-center product-detail-image-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.image,
+style: "product-header-image",
+_idProps: {
+service: idService,
+name: "Image"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.topLeftLogo,
+style: "product-header-logo-top-left ph",
+_idProps: {
+service: idService,
+name: "TopLeftLogo"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "product-detail-content-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.title,
+style: "heading1 bold margin-top-m product-header-title",
+_idProps: {
+service: idService,
+name: "Title"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.additionalInfo,
+style: "text-neutral-5 margin-top-s product-header-additional-info",
+_idProps: {
+service: idService,
+name: "AdditionalInfo"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "product-price-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.priceTopLogo,
+style: "product-header-logo-price-top ph",
+_idProps: {
+service: idService,
+name: "PriceTopLogo"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "product-price margin-top-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.priceInteger,
+style: "font-bold product-header-price-integer",
+_idProps: {
+service: idService,
+name: "PriceInteger"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.priceDecimals,
+style: "heading1 font-black product-header-price-decimals",
+_idProps: {
+service: idService,
+name: "PriceDecimals"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.pricePrevious,
+style: "product-header-price-previous ph",
+_idProps: {
+service: idService,
+name: "PricePrevious"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base product-header-button-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.button,
+style: "product-header-button ph",
+_idProps: {
+service: idService,
+name: "Button"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.likeLabel,
+style: "margin-left-m ph",
+_idProps: {
+service: idService,
+name: "LikeLabel"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.logosBottomInfo,
+style: "product-header-logos-bottom-info ph",
+_idProps: {
+service: idService,
+name: "LogosBottomInfo"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.languageResources", "ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$translationsResources"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, ECOP_Base_RPatLanguageResources, ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Base_RPatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Base_RPatLanguageResources);
+});
+
+define("ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

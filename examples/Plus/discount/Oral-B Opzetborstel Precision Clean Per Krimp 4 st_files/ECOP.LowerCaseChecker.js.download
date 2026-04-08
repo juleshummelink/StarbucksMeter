@@ -1,0 +1,2 @@
+﻿//Checks if the url contains lowercase. If it contains any lowercase, the user is redirected to a Page Not Found. This script is only enabled in environments other than dev
+"plus-dev.outsystemsenterprise.com"!==window.location.host&&(/^[a-z0-9:./_-]+$/.test(window.location.pathname)||window.location.search.includes("waitForClient")||window.location.pathname.includes("Callback")||window.location.pathname.includes("coupon")||location.replace(location.origin+"/pagina-niet-gevonden"));

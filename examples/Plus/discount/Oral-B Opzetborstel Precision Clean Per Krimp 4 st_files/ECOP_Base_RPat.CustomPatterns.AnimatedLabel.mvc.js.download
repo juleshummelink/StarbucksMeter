@@ -1,0 +1,326 @@
+﻿define("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model"], function (OutSystems, ECOP_Base_RPatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("AnimatedLabelObj", "animatedLabelObjVar", "AnimatedLabelObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("InputId", "inputIdVar", "InputId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.AnimatedLabel");
+});
+define("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$model", "ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$controller", "OutSystems/ReactWidgets/Main"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, React, OSView, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_model, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.AnimatedLabel";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return ["scripts/ECOP_Base_RPat.BundledJS.js"];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: (("animated-label" + " ") + model.variables.extendedClassIn),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._extendedClassInDataFetchStatus)
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.label,
+style: "animated-label-text",
+_idProps: {
+service: idService,
+name: "Label"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.input,
+style: "animated-label-input",
+_idProps: {
+service: idService,
+name: "Input"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.languageResources", "ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$translationsResources", "ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$controller.OnDestroy.DestroyAnimatedLabelJS", "ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$controller.OnRender.UpdateLabelJS", "ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$controller.OnReady.InitJS"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, ECOP_Base_RPatLanguageResources, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_TranslationsResources, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_controller_OnDestroy_DestroyAnimatedLabelJS, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_controller_OnRender_UpdateLabelJS, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_controller_OnReady_InitJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_controller_OnDestroy_DestroyAnimatedLabelJS, "DestroyAnimatedLabel", "OnDestroy", {
+Obj: OS.DataConversion.JSNodeParamConverter.to(model.variables.animatedLabelObjVar, OS.Types.Object),
+InputId: OS.DataConversion.JSNodeParamConverter.to(model.variables.inputIdVar, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onRender$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnRender");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_controller_OnRender_UpdateLabelJS, "UpdateLabel", "OnRender", {
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("Input"), OS.Types.Text),
+AnimatedLabel: OS.DataConversion.JSNodeParamConverter.to(model.variables.animatedLabelObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var initJSResult = new OS.DataTypes.VariableHolder();
+initJSResult.value = controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_controller_OnReady_InitJS, "Init", "OnReady", {
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("Input"), OS.Types.Text),
+AnimatedLabel: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.OnReady$initJSResult"))();
+jsNodeResult.animatedLabelOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AnimatedLabel, OS.Types.Object);
+return jsNodeResult;
+}, {}, {});
+// AnimatedLabelObj = Init.AnimatedLabel
+model.variables.animatedLabelObjVar = initJSResult.value.animatedLabelOut;
+// InputId = Input.Id
+model.variables.inputIdVar = idService.getId("Input");
+};
+Controller.registerVariableGroupType("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.OnReady$initJSResult", [{
+name: "AnimatedLabel",
+attrName: "animatedLabelOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.onRender$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onRender$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onRender$Action(callContext);
+
+};
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Base_RPatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Base_RPatLanguageResources);
+});
+define("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$controller.OnDestroy.DestroyAnimatedLabelJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.Obj.destroy($parameters.InputId)
+};
+});
+define("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$controller.OnRender.UpdateLabelJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+try{
+    if($parameters.AnimatedLabel && document.getElementById($parameters.WidgetId) !== null){
+        $parameters.AnimatedLabel.update($parameters.WidgetId);
+    }
+} catch(e) {
+    console.log(e);
+}
+};
+});
+define("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$controller.OnReady.InitJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.AnimatedLabel = new AnimatedLabel();
+$parameters.AnimatedLabel.init($parameters.WidgetId);
+
+};
+});
+
+define("ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

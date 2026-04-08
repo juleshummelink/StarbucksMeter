@@ -1,0 +1,917 @@
+﻿define("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECOP_FE_Core.controller", "ECP_ExceptionHandling_Lib.controller", "CT_Supporting_IS.model", "ECP_ShoppingList_RCW.model$MyShoppingListDraft_StrList", "ECOP_FE_Core.controller$GTMEvent_Custom", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_FE_Core", "ECP_ShoppingList_RCW.model$ShoppingList_AddToListList", "ECP_ExceptionHandling_Lib.controller$ValidateAndReturnExceptionType", "ECP_ShoppingList_RCW.referencesHealth$ECP_ExceptionHandling_Lib", "ECP_ShoppingList_RCW.model$ShoppingList_LineItemList", "ECP_ShoppingList_RCW.model$ShoppingList_AddMultipleList", "CT_Supporting_IS.model$ErrorRec", "ECP_ShoppingList_RCW.referencesHealth$CT_Supporting_IS"], function (OutSystems, ECP_ShoppingList_RCWModel, ECOP_FE_CoreController, ECP_ExceptionHandling_LibController, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+
+var GetShoppingListsDataActRec = (function (_super) {
+__extends(GetShoppingListsDataActRec, _super);
+function GetShoppingListsDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetShoppingListsDataActRec.attributesToDeclare = function () {
+return [
+this.attr("ShoppingLists", "shoppingListsOut", "ShoppingLists", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_RCWModel.ShoppingList_AddToListList());
+}, true, ECP_ShoppingList_RCWModel.ShoppingList_AddToListList), 
+this.attr("CustomerId", "customerIdOut", "CustomerId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetShoppingListsDataActRec.init();
+return GetShoppingListsDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ShowPopup", "showPopupVar", "ShowPopup", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsAddButtonEnabled", "isAddButtonEnabledVar", "IsAddButtonEnabled", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Products", "productsIn", "Products", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_RCWModel.MyShoppingListDraft_StrList());
+}, false, ECP_ShoppingList_RCWModel.MyShoppingListDraft_StrList), 
+this.attr("_productsInDataFetchStatus", "_productsInDataFetchStatus", "_productsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetShoppingLists", "getShoppingListsDataAct", "getShoppingListsDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetShoppingListsDataActRec());
+}, true, GetShoppingListsDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {
+Checkbox1: OS.Model.ValidationWidgetRecord
+};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return true;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("Products" in inputs) {
+this.variables.productsIn = inputs.Products;
+if("_productsInDataFetchStatus" in inputs) {
+this.variables._productsInDataFetchStatus = inputs._productsInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "ShoppingLists.AddToShoppingList");
+});
+define("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.controller", "ECOP_FE_Core.controller", "ECP_ExceptionHandling_Lib.controller", "CT_Supporting_IS.model", "react", "OutSystems/ReactView/Main", "ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$model", "ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Adaptive.ColumnsMediumLeft.mvc$view", "ECP_ShoppingList_RCW.model$MyShoppingListDraft_StrList", "ECOP_FE_Core.controller$GTMEvent_Custom", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_FE_Core", "ECP_ShoppingList_RCW.model$ShoppingList_AddToListList", "ECP_ExceptionHandling_Lib.controller$ValidateAndReturnExceptionType", "ECP_ShoppingList_RCW.referencesHealth$ECP_ExceptionHandling_Lib", "ECP_ShoppingList_RCW.model$ShoppingList_LineItemList", "ECP_ShoppingList_RCW.model$ShoppingList_AddMultipleList", "CT_Supporting_IS.model$ErrorRec", "ECP_ShoppingList_RCW.referencesHealth$CT_Supporting_IS"], function (OutSystems, ECP_ShoppingList_RCWModel, ECP_ShoppingList_RCWController, ECOP_FE_CoreController, ECP_ExceptionHandling_LibController, CT_Supporting_ISModel, React, OSView, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_model, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_controller, OSWidgets, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_ColumnsMediumLeft_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "ShoppingLists.AddToShoppingList";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_ColumnsMediumLeft_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "MainDiv"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Popup, {
+showPopup: model.variables.showPopupVar,
+style: "popup-dialog add-to-shopping-list__popup",
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+close$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.togglePopup$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+header: new PlaceholderContent(function () {
+return [$text(getTranslation("3mADg5HyIE2U786Qo5Eu0Q#Value", "Save to your list"))];
+}),
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: !(model.variables.isAddButtonEnabledVar),
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_CreateNewListLink$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "link-with-icon add-to-shopping-list__new-list-link gtm-add-to-shopping-list-create-list-link",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "font-semi-bold",
+text: [$text(getTranslation("EMOTvOIelkevWv8D4BsDgA#Value", "Create a new list"))],
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_ShoppingList_RCWModel.staticEntities.iconSize.size_s,
+Name: "add-to-cart",
+ExtendedClass: "margin-left-s"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "6",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-m",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "font-semi-bold",
+text: [$text(getTranslation("ED9CT3NaGkKgTc7atMKlpg#Value", "Existing lists"))],
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.List, {
+animateItems: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getShoppingListsDataAct.shoppingListsOut,
+style: "list list-group margin-top-base add-to-shopping-list__list",
+tag: "div",
+_idProps: {
+service: idService,
+name: "ShoppingListsList"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getShoppingListsDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.getShoppingListsDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrent(callContext.iterationContext).nameAttr), asPrimitiveValue(model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrent(callContext.iterationContext).isSelectedAttr), asPrimitiveValue(model.variables.getShoppingListsDataAct.shoppingListsOut.length), asPrimitiveValue(model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrentRowNumber(callContext.iterationContext))]
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("jzyX+J+PEEyRnoQ7XwNYkQ.Style"), function () {
+return ("display-flex" + ((((model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrentRowNumber(callContext.iterationContext) + 1) === model.variables.getShoppingListsDataAct.shoppingListsOut.length)) ? ("") : (" margin-bottom-s")));
+}, function () {
+return model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.getShoppingListsDataAct.shoppingListsOut.length;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getShoppingListsDataAct.dataFetchStatusAttr)
+}, React.createElement(OSWidgets.Checkbox, {
+_validationProps: {
+validationService: validationService
+},
+enabled: true,
+onChange: function () {
+var eventHandlerContext = callContext.clone();
+controller.onChange_ListCheckBox$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "checkbox gtm-shopping-lists-checkbox",
+variable: model.createVariable(OS.Types.Boolean, model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrent(callContext.iterationContext).isSelectedAttr, function (value) {
+model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrent(callContext.iterationContext).isSelectedAttr = value;
+}),
+_idProps: {
+service: idService,
+name: "Checkbox1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+variable_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getShoppingListsDataAct.dataFetchStatusAttr)
+}), React.createElement(OSWidgets.Label, {
+gridProperties: {
+classes: "OSFillParent"
+},
+targetWidget: "Checkbox1",
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrent(callContext.iterationContext).nameAttr,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getShoppingListsDataAct.dataFetchStatusAttr)
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: true,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.componentDidMount$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+style: "hidden",
+visible: ((model.variables.getShoppingListsDataAct.shoppingListsOut.getCurrentRowNumber(callContext.iterationContext) + 1) === model.variables.getShoppingListsDataAct.shoppingListsOut.length),
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+visible_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getShoppingListsDataAct.dataFetchStatusAttr)
+}))];
+}, callContext, idService, "1")
+},
+_dependencies: [asPrimitiveValue(model.variables.getShoppingListsDataAct.dataFetchStatusAttr)]
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Adaptive_ColumnsMediumLeft_mvc_view, {
+inputs: {
+GutterSize: ECP_ShoppingList_RCWModel.staticEntities.gutterSize.none
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "17",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+column1: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "full-width full-height display-flex center",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.togglePopup$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "text-underline gtm-add-to-shopping-list-cancel-link",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("Xjf7avUqgEa9tKXODbO8ig#Value", "Cancel"))))];
+}),
+column2: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: model.variables.isAddButtonEnabledVar,
+isDefault: false,
+onClick: function () {
+_this.validateWidget("");
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_AddButton$Action(controller.callContext(eventHandlerContext));
+});
+
+;
+},
+style: "btn btn-primary create-shopping-list__create-button gtm-add-to-shopping-list-confirm-button",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("atimtt_4SESdx_WZa7pPXw#Value", "Add")))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.isAddButtonEnabledVar)]
+}))];
+}),
+footerLeftButton: PlaceholderContent.Empty,
+footerRightButtom: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables.getShoppingListsDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getShoppingListsDataAct.shoppingListsOut), asPrimitiveValue(model.variables.isAddButtonEnabledVar)]
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.controller", "ECOP_FE_Core.controller", "ECP_ExceptionHandling_Lib.controller", "CT_Supporting_IS.model", "ECP_ShoppingList_RCW.languageResources", "ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$translationsResources", "ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$controller.OnReady.JSCreateFunctionJS", "ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$controller.ComponentDidMount.JSListHeightJS", "ECP_ShoppingList_RCW.model$MyShoppingListDraft_StrList", "ECOP_FE_Core.controller$GTMEvent_Custom", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_FE_Core", "ECP_ShoppingList_RCW.model$ShoppingList_AddToListList", "ECP_ExceptionHandling_Lib.controller$ValidateAndReturnExceptionType", "ECP_ShoppingList_RCW.referencesHealth$ECP_ExceptionHandling_Lib", "ECP_ShoppingList_RCW.model$ShoppingList_LineItemList", "ECP_ShoppingList_RCW.model$ShoppingList_AddMultipleList", "CT_Supporting_IS.model$ErrorRec", "ECP_ShoppingList_RCW.referencesHealth$CT_Supporting_IS"], function (OutSystems, ECP_ShoppingList_RCWModel, ECP_ShoppingList_RCWController, ECOP_FE_CoreController, ECP_ExceptionHandling_LibController, CT_Supporting_ISModel, ECP_ShoppingList_RCWLanguageResources, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_TranslationsResources, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_controller_OnReady_JSCreateFunctionJS, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_controller_ComponentDidMount_JSListHeightJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+togglePopup$Action: function () {
+return controller.executeActionInsideJSNode(controller._togglePopup$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "TogglePopup");
+},
+refreshShoppingLists$Action: function () {
+return controller.executeActionInsideJSNode(controller._refreshShoppingLists$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "RefreshShoppingLists");
+}
+};
+this.dataFetchDependenciesOriginal = {
+getShoppingLists$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getShoppingLists$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_TranslationsResources;
+// Server Actions
+Controller.prototype.shoppingList_AddItemToMultiple$ServerAction = function (oneWelcomeUserIdIn, lineItemsIn, shoppingListsIn, callContext) {
+var controller = this.controller;
+var inputs = {
+OneWelcomeUserId: OS.DataConversion.ServerDataConverter.to(oneWelcomeUserIdIn, OS.Types.Text),
+LineItems: OS.DataConversion.ServerDataConverter.to(lineItemsIn, OS.Types.RecordList),
+ShoppingLists: OS.DataConversion.ServerDataConverter.to(shoppingListsIn, OS.Types.RecordList)
+};
+return controller.callServerAction("ShoppingList_AddItemToMultiple", "screenservices/ECP_ShoppingList_RCW/ShoppingLists/AddToShoppingList/ActionShoppingList_AddItemToMultiple", "z10973srtdcUr6uaTx7cnA", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList$rssespaceecp_shoppinglist_bl_ActionShoppingList_AddItemToMultiple"))();
+executeServerActionResult.errorOut = OS.DataConversion.ServerDataConverter.from(outputs.Error, CT_Supporting_ISModel.ErrorRec);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList$rssespaceecp_shoppinglist_bl_ActionShoppingList_AddItemToMultiple", [{
+name: "Error",
+attrName: "errorOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new CT_Supporting_ISModel.ErrorRec();
+},
+complexType: CT_Supporting_ISModel.ErrorRec
+}]);
+
+// Aggregates and Data Actions
+Controller.prototype.getShoppingLists$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetShoppingLists", "screenservices/ECP_ShoppingList_RCW/ShoppingLists/AddToShoppingList/DataActionGetShoppingLists", "89NdgGgwbLqH6Z1_pHVeyA", function (b) {
+model.variables.getShoppingListsDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getShoppingListsDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getShoppingListsDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true);
+};
+
+Controller.prototype.dataFetchActionNames = ["getShoppingLists$DataActRefresh"];
+// Client Actions
+Controller.prototype._togglePopup$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("TogglePopup");
+callContext = controller.callContext(callContext);
+// ShowPopup = notShowPopup
+model.variables.showPopupVar = !(model.variables.showPopupVar);
+if((model.variables.showPopupVar)) {
+// Execute Action: GTMEvent_PopupOpen
+ECOP_FE_CoreController.default.gTMEvent_Custom$Action("gtm-add-to-shopping-list-popup-open", callContext);
+} else {
+// Execute Action: GTMEvent_PopupClose
+ECOP_FE_CoreController.default.gTMEvent_Custom$Action("gtm-add-to-shopping-list-popup-close", callContext);
+}
+
+// Execute Action: ResetCheckBoxes
+controller._resetCheckBoxes$Action(callContext);
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var jSCreateFunctionJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+jSCreateFunctionJSResult.value = controller.safeExecuteJSNode(ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_controller_OnReady_JSCreateFunctionJS, "JSCreateFunction", "OnReady", {
+RefreshShoppingLists_JS: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object),
+TogglePopup_JS: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.OnReady$jSCreateFunctionJSResult"))();
+jsNodeResult.refreshShoppingLists_JSOut = OS.DataConversion.JSNodeParamConverter.from($parameters.RefreshShoppingLists_JS, OS.Types.Object);
+jsNodeResult.togglePopup_JSOut = OS.DataConversion.JSNodeParamConverter.from($parameters.TogglePopup_JS, OS.Types.Object);
+return jsNodeResult;
+}, {
+TogglePopup: controller.clientActionProxies.togglePopup$Action,
+RefreshShoppingLists: controller.clientActionProxies.refreshShoppingLists$Action
+}, {});
+// Trigger Event: ExposedActions
+return controller.exposedActions$Action(jSCreateFunctionJSResult.value.refreshShoppingLists_JSOut, jSCreateFunctionJSResult.value.togglePopup_JSOut, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.OnReady$jSCreateFunctionJSResult", [{
+name: "RefreshShoppingLists_JS",
+attrName: "refreshShoppingLists_JSOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "TogglePopup_JS",
+attrName: "togglePopup_JSOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._resetCheckBoxes$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ResetCheckBoxes");
+callContext = controller.callContext(callContext);
+// Shopping lists
+// Foreach GetShoppingLists.ShoppingLists
+callContext.iterationContext.registerIterationStart(model.variables.getShoppingListsDataAct.shoppingListsOut);
+try {var shoppingListsIterator = callContext.iterationContext.getIterator(model.variables.getShoppingListsDataAct.shoppingListsOut);
+var shoppingListsIndex = 0;
+while (((shoppingListsIndex < model.variables.getShoppingListsDataAct.shoppingListsOut.length))) {
+shoppingListsIterator.currentRowNumber = shoppingListsIndex;
+// IsSelected = False
+// GetShoppingLists.ShoppingLists.Current.IsSelected = False
+model.variables.getShoppingListsDataAct.shoppingListsOut.getItem(shoppingListsIndex.valueOf()).isSelectedAttr = false;
+shoppingListsIndex++;
+}
+
+} finally {
+callContext.iterationContext.registerIterationEnd(model.variables.getShoppingListsDataAct.shoppingListsOut);
+}
+
+// IsAddButtonEnabled = False
+model.variables.isAddButtonEnabledVar = false;
+};
+Controller.prototype._refreshShoppingLists$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("RefreshShoppingLists");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Refresh Query: GetShoppingLists
+var result = controller.getShoppingLists$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+Controller.prototype._componentDidMount$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComponentDidMount");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.ComponentDidMount$vars"))());
+// List length > Limit?
+if(((model.variables.getShoppingListsDataAct.shoppingListsOut.length > vars.value.maxVisibleItemsVar))) {
+controller.safeExecuteJSNode(ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_controller_ComponentDidMount_JSListHeightJS, "JSListHeight", "ComponentDidMount", {
+MaxVisibleItems: OS.DataConversion.JSNodeParamConverter.to(vars.value.maxVisibleItemsVar, OS.Types.Integer),
+ListId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("ShoppingListsList"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+}
+
+};
+Controller.registerVariableGroupType("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.ComponentDidMount$vars", [{
+name: "MaxVisibleItems",
+attrName: "maxVisibleItemsVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 4;
+}
+}]);
+Controller.prototype._onChange_ListCheckBox$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnChange_ListCheckBox");
+callContext = controller.callContext(callContext);
+var listAnyVar = new OS.DataTypes.VariableHolder();
+// Execute Action: ListAny
+listAnyVar.value = OS.SystemActions.listAny(model.variables.getShoppingListsDataAct.shoppingListsOut, function (p) {
+return p.isSelectedAttr;
+}, callContext);
+
+// IsAddButtonEnabled = ListAny.Result
+model.variables.isAddButtonEnabledVar = listAnyVar.value.resultOut;
+};
+Controller.prototype._onClick_AddButton$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_AddButton");
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var shoppingList_AddItemToMultipleVar = new OS.DataTypes.VariableHolder();
+var validateAndReturnExceptionTypeVar = new OS.DataTypes.VariableHolder();
+var listFilterVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((model.variables.isAddButtonEnabledVar)) {
+// IsAddButtonEnabled = False
+model.variables.isAddButtonEnabledVar = false;
+// Execute Action: ListFilter
+listFilterVar.value = OS.SystemActions.listFilter(model.variables.getShoppingListsDataAct.shoppingListsOut, function (p) {
+return p.isSelectedAttr;
+}, callContext);
+
+// Execute Action: ShoppingList_AddItemToMultiple
+model.flush();
+return controller.shoppingList_AddItemToMultiple$ServerAction(model.variables.oneWelcomeUserIdIn, OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.productsIn, new ECP_ShoppingList_RCWModel.ShoppingList_LineItemList(), function (source, target) {
+target.sKUAttr = source.sKUAttr;
+target.quantityAttr = source.quantityAttr;
+return target;
+}), OS.DataConversion.JSConversions.typeConvertRecordList(listFilterVar.value.filteredListOut, new ECP_ShoppingList_RCWModel.ShoppingList_AddMultipleList(), function (source, target) {
+target.idAttr = source.idAttr;
+target.versionAttr = source.versionAttr;
+target.numberOfProductsAttr = source.numberOfProductsAttr;
+return target;
+}), callContext).then(function (value) {
+shoppingList_AddItemToMultipleVar.value = value;
+}).then(function () {
+// Error?
+return OS.Flow.executeSequence(function () {
+if((((shoppingList_AddItemToMultipleVar.value.errorOut.messageAttr) !== ("")))) {
+// Raise Error: ShoppingListException
+throw new OS.Exceptions.Exceptions.UserException("ECP_ShoppingList_RCW.ShoppingListException", shoppingList_AddItemToMultipleVar.value.errorOut.messageAttr);
+} else {
+// Refresh Query: GetShoppingLists
+var result = controller.getShoppingLists$DataActRefresh(callContext);
+model.flush();
+return result.then(function () {
+// Execute Action: TogglePopup
+controller._togglePopup$Action(callContext);
+// Trigger Event: AddedToLists
+return controller.addedToLists$Action(callContext);
+}).then(function () {
+// Success message
+OS.FeedbackMessageService.showFeedbackMessage((((listFilterVar.value.filteredListOut.length > 1)) ? (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("OtKM6pZBjkuJ6lxsYKjOAw#Message.-135503243.1", "Product(s) saved in your lists.")) : (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("OtKM6pZBjkuJ6lxsYKjOAw#Message.-1251297132.1", "Product(s) saved in your list."))), /*Success*/ 1);
+});
+}
+
+});
+});
+}
+
+});
+}).catch(function (ex) {
+OS.Logger.trace("AddToShoppingList.OnClick_AddButton", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ValidateAndReturnExceptionType
+validateAndReturnExceptionTypeVar.value = ECP_ExceptionHandling_LibController.default.validateAndReturnExceptionType$Action(allExceptionsVar.value.exceptionMessageAttr, callContext);
+
+// ExceptionType = InvalidParameter
+if(((validateAndReturnExceptionTypeVar.value.userExceptionTypeIdOut === ECP_ShoppingList_RCWModel.staticEntities.exceptionType.invalidParameter))) {
+OS.FeedbackMessageService.showFeedbackMessage(validateAndReturnExceptionTypeVar.value.exceptionMessageOut, /*Error*/ 3);
+return OS.Flow.returnAsync();
+
+} else {
+// IsAddButtonEnabled = True
+model.variables.isAddButtonEnabledVar = true;
+// Raise Error: ShoppingListException
+throw new OS.Exceptions.Exceptions.UserException("ECP_ShoppingList_RCW.ShoppingListException", allExceptionsVar.value.exceptionMessageAttr);
+}
+
+});
+}
+
+throw ex;
+});
+};
+Controller.prototype._onClick_CreateNewListLink$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_CreateNewListLink");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: TogglePopup
+controller._togglePopup$Action(callContext);
+// Trigger Event: CreateNewListSelected
+return controller.createNewListSelected$Action(callContext);
+});
+};
+
+Controller.prototype.togglePopup$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._togglePopup$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.resetCheckBoxes$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._resetCheckBoxes$Action, callContext);
+
+};
+Controller.prototype.refreshShoppingLists$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._refreshShoppingLists$Action, callContext);
+
+};
+Controller.prototype.componentDidMount$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._componentDidMount$Action, callContext);
+
+};
+Controller.prototype.onChange_ListCheckBox$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onChange_ListCheckBox$Action, callContext);
+
+};
+Controller.prototype.onClick_AddButton$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_AddButton$Action, callContext);
+
+};
+Controller.prototype.onClick_CreateNewListLink$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_CreateNewListLink$Action, callContext);
+
+};
+Controller.prototype.exposedActions$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.addedToLists$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.createNewListSelected$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_ShoppingList_RCWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_ShoppingList_RCWLanguageResources);
+});
+define("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$controller.OnReady.JSCreateFunctionJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.TogglePopup_JS =  $actions.TogglePopup;
+$parameters.RefreshShoppingLists_JS =  $actions.RefreshShoppingLists;
+};
+});
+define("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$controller.ComponentDidMount.JSListHeightJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var list = document.getElementById($parameters.ListId);
+var totalHeight = 0;
+
+for(var i = 0; i <= $parameters.MaxVisibleItems - 1; i++) {
+    var itemStyle = getComputedStyle(list.querySelectorAll('div.margin-bottom-s')[i]);
+    totalHeight += parseInt(itemStyle.height) + parseInt(itemStyle.marginBottom);
+}
+
+list.style.maxHeight = totalHeight + 'px';
+};
+});
+
+define("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$translationsResources", ["exports", "ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$translationsResources.nl-NL"], function (exports, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$translationsResources.nl-NL", [], function () {
+return {
+"atimtt_4SESdx_WZa7pPXw#Value": "Toevoegen",
+"Xjf7avUqgEa9tKXODbO8ig#Value": "Annuleren",
+"ED9CT3NaGkKgTc7atMKlpg#Value": "Bestaande lijstjes",
+"EMOTvOIelkevWv8D4BsDgA#Value": "Maak een nieuw lijstje",
+"3mADg5HyIE2U786Qo5Eu0Q#Value": "Bewaar in je lijstje",
+"OtKM6pZBjkuJ6lxsYKjOAw#Message.-1251297132.1": "Product(en) bewaard in je lijstje.",
+"OtKM6pZBjkuJ6lxsYKjOAw#Message.-135503243.1": "Product(en) bewaard in je lijstjes."
+};
+});

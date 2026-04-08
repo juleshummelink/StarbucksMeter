@@ -1,0 +1,444 @@
+﻿define("ECOP_Base_RPat.CustomPatterns.Badge.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model"], function (OutSystems, ECOP_Base_RPatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ShowBounce", "showBounceVar", "ShowBounce", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("TimeoutId", "timeoutIdVar", "TimeoutId", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("Number", "numberIn", "Number", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("_numberInDataFetchStatus", "_numberInDataFetchStatus", "_numberInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Color", "colorIn", "Color", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_colorInDataFetchStatus", "_colorInDataFetchStatus", "_colorInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Size", "sizeIn", "Size", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_sizeInDataFetchStatus", "_sizeInDataFetchStatus", "_sizeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Shape", "shapeIn", "Shape", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_shapeInDataFetchStatus", "_shapeInDataFetchStatus", "_shapeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsLight", "isLightIn", "IsLight", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isLightInDataFetchStatus", "_isLightInDataFetchStatus", "_isLightInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowFullNumber", "showFullNumberIn", "ShowFullNumber", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_showFullNumberInDataFetchStatus", "_showFullNumberInDataFetchStatus", "_showFullNumberInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsAnimated", "isAnimatedIn", "IsAnimated", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isAnimatedInDataFetchStatus", "_isAnimatedInDataFetchStatus", "_isAnimatedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("Number" in inputs) {
+this.variables.numberIn = inputs.Number;
+if("_numberInDataFetchStatus" in inputs) {
+this.variables._numberInDataFetchStatus = inputs._numberInDataFetchStatus;
+}
+
+}
+
+if("Color" in inputs) {
+this.variables.colorIn = inputs.Color;
+if("_colorInDataFetchStatus" in inputs) {
+this.variables._colorInDataFetchStatus = inputs._colorInDataFetchStatus;
+}
+
+}
+
+if("Size" in inputs) {
+this.variables.sizeIn = inputs.Size;
+if("_sizeInDataFetchStatus" in inputs) {
+this.variables._sizeInDataFetchStatus = inputs._sizeInDataFetchStatus;
+}
+
+}
+
+if("Shape" in inputs) {
+this.variables.shapeIn = inputs.Shape;
+if("_shapeInDataFetchStatus" in inputs) {
+this.variables._shapeInDataFetchStatus = inputs._shapeInDataFetchStatus;
+}
+
+}
+
+if("IsLight" in inputs) {
+this.variables.isLightIn = inputs.IsLight;
+if("_isLightInDataFetchStatus" in inputs) {
+this.variables._isLightInDataFetchStatus = inputs._isLightInDataFetchStatus;
+}
+
+}
+
+if("ShowFullNumber" in inputs) {
+this.variables.showFullNumberIn = inputs.ShowFullNumber;
+if("_showFullNumberInDataFetchStatus" in inputs) {
+this.variables._showFullNumberInDataFetchStatus = inputs._showFullNumberInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+if("IsAnimated" in inputs) {
+this.variables.isAnimatedIn = inputs.IsAnimated;
+if("_isAnimatedInDataFetchStatus" in inputs) {
+this.variables._isAnimatedInDataFetchStatus = inputs._isAnimatedInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.Badge");
+});
+define("ECOP_Base_RPat.CustomPatterns.Badge.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$model", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$controller", "OutSystems/ReactWidgets/Main"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, React, OSView, ECOP_Base_RPat_CustomPatterns_Badge_mvc_model, ECOP_Base_RPat_CustomPatterns_Badge_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.Badge";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_Badge_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_Badge_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: model.getCachedValue(idService.getId("+xElY6N5UkKt9k_PwvRFuw.Style"), function () {
+return (((((((("badge" + ((((model.variables.sizeIn) !== (OS.BuiltinFunctions.nullTextIdentifier()))) ? ((" badge-" + model.variables.sizeIn)) : (""))) + " ") + "border-radius-") + model.variables.shapeIn) + ((model.variables.isLightIn) ? ((((((" " + "background-") + model.variables.colorIn) + "-lightest text-") + model.variables.colorIn) + "-darker")) : (((" " + "background-") + model.variables.colorIn)))) + (((model.variables.isAnimatedIn && model.variables.showBounceVar)) ? (" anim_bouncein") : (""))) + " ") + model.variables.extendedClassIn);
+}, function () {
+return model.variables.sizeIn;
+}, function () {
+return model.variables.shapeIn;
+}, function () {
+return model.variables.isLightIn;
+}, function () {
+return model.variables.colorIn;
+}, function () {
+return model.variables.isAnimatedIn;
+}, function () {
+return model.variables.showBounceVar;
+}, function () {
+return model.variables.extendedClassIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._sizeInDataFetchStatus, model.variables._shapeInDataFetchStatus, model.variables._isLightInDataFetchStatus, model.variables._colorInDataFetchStatus, model.variables._isAnimatedInDataFetchStatus, model.variables._extendedClassInDataFetchStatus)
+}, React.createElement(OSWidgets.Expression, {
+extendedEvents: {
+"componentDidUpdate": function () {
+var eventHandlerContext = callContext.clone();
+controller.componentDidUpdate$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.getCachedValue(idService.getId("IErAv_vfE0+M+Caj0t6kgA.Value"), function () {
+return (((model.variables.numberIn.gt(OS.BuiltinFunctions.integerToLongInteger(99)) && !(model.variables.showFullNumberIn))) ? ("99+") : (OS.BuiltinFunctions.longIntegerToText(model.variables.numberIn)));
+}, function () {
+return model.variables.numberIn;
+}, function () {
+return model.variables.showFullNumberIn;
+}),
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._numberInDataFetchStatus, model.variables._showFullNumberInDataFetchStatus)
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Base_RPat.CustomPatterns.Badge.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.languageResources", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$translationsResources", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$controller.ComponentDidUpdate.setTimeoutJS", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$controller.OnDestroy.clearTimeoutJS"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, ECOP_Base_RPatLanguageResources, ECOP_Base_RPat_CustomPatterns_Badge_mvc_TranslationsResources, ECOP_Base_RPat_CustomPatterns_Badge_mvc_controller_ComponentDidUpdate_setTimeoutJS, ECOP_Base_RPat_CustomPatterns_Badge_mvc_controller_OnDestroy_clearTimeoutJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+toogleBounce$Action: function (isBounceIn) {
+isBounceIn = (isBounceIn === undefined) ? false : isBounceIn;
+return controller.executeActionInsideJSNode(controller._toogleBounce$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(isBounceIn, OS.Types.Boolean)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ToogleBounce");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Base_RPat_CustomPatterns_Badge_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._toogleBounce$Action = function (isBounceIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ToogleBounce");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Base_RPat.CustomPatterns.Badge.ToogleBounce$vars"))());
+vars.value.isBounceInLocal = isBounceIn;
+// ShowBounce = IsBounce
+model.variables.showBounceVar = vars.value.isBounceInLocal;
+};
+Controller.registerVariableGroupType("ECOP_Base_RPat.CustomPatterns.Badge.ToogleBounce$vars", [{
+name: "IsBounce",
+attrName: "isBounceInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._componentDidUpdate$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComponentDidUpdate");
+callContext = controller.callContext(callContext);
+var setTimeoutJSResult = new OS.DataTypes.VariableHolder();
+if((model.variables.isAnimatedIn)) {
+// Execute Action: ToogleBounce
+controller._toogleBounce$Action(true, callContext);
+setTimeoutJSResult.value = controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_Badge_mvc_controller_ComponentDidUpdate_setTimeoutJS, "setTimeout", "ComponentDidUpdate", {
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Base_RPat.CustomPatterns.Badge.ComponentDidUpdate$setTimeoutJSResult"))();
+jsNodeResult.timeoutIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.TimeoutId, OS.Types.Integer);
+return jsNodeResult;
+}, {
+ToogleBounce: controller.clientActionProxies.toogleBounce$Action
+}, {});
+// TimeoutId = setTimeout.TimeoutId
+model.variables.timeoutIdVar = setTimeoutJSResult.value.timeoutIdOut;
+}
+
+};
+Controller.registerVariableGroupType("ECOP_Base_RPat.CustomPatterns.Badge.ComponentDidUpdate$setTimeoutJSResult", [{
+name: "TimeoutId",
+attrName: "timeoutIdOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_Badge_mvc_controller_OnDestroy_clearTimeoutJS, "clearTimeout", "OnDestroy", {
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(model.variables.timeoutIdVar, OS.Types.Integer)
+}, function ($parameters) {
+}, {}, {});
+};
+
+Controller.prototype.toogleBounce$Action = function (isBounceIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toogleBounce$Action, callContext, isBounceIn);
+
+};
+Controller.prototype.componentDidUpdate$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._componentDidUpdate$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Base_RPatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Base_RPatLanguageResources);
+});
+define("ECOP_Base_RPat.CustomPatterns.Badge.mvc$controller.ComponentDidUpdate.setTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+$parameters.TimeoutId = setTimeout($actions.ToogleBounce,750, false);
+};
+});
+define("ECOP_Base_RPat.CustomPatterns.Badge.mvc$controller.OnDestroy.clearTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+clearTimeout($parameters.TimeoutId);
+};
+});
+
+define("ECOP_Base_RPat.CustomPatterns.Badge.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

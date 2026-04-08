@@ -1,0 +1,936 @@
+﻿define("PL_MT_Logs_BL.controller$CloseTransaction", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$CloseTransaction.CallCloseTransactionAsyncJS", "PL_MT_Logs_BL.controller$CloseTransactionAsync"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController, PL_MT_Logs_BL_controller_CloseTransaction_CallCloseTransactionAsyncJS) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.closeTransaction$Action = function (startInMillisIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.CloseTransaction$vars"))());
+vars.value.startInMillisInLocal = startInMillisIn;
+vars.value.globalTypeIdInLocal = globalTypeIdIn;
+vars.value.actionInLocal = actionIn;
+vars.value.externalAppInLocal = externalAppIn;
+vars.value.messageInLocal = messageIn;
+vars.value.flowTypeIdInLocal = flowTypeIdIn;
+vars.value.auxJSONInLocal = auxJSONIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var callCloseTransactionAsyncJSResult = new OS.DataTypes.VariableHolder();
+try {callCloseTransactionAsyncJSResult.value = controller.safeExecuteJSNode(PL_MT_Logs_BL_controller_CloseTransaction_CallCloseTransactionAsyncJS, "CallCloseTransactionAsync", "CloseTransaction", {
+FlowTypeId: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.identifierToInteger(vars.value.flowTypeIdInLocal), OS.Types.Integer),
+Action: OS.DataConversion.JSNodeParamConverter.to(vars.value.actionInLocal, OS.Types.Text),
+AuxJSON: OS.DataConversion.JSNodeParamConverter.to(vars.value.auxJSONInLocal, OS.Types.Text),
+GlobalTypeId: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.identifierToInteger(vars.value.globalTypeIdInLocal), OS.Types.Integer),
+StartInMillis: OS.DataConversion.JSNodeParamConverter.to(vars.value.startInMillisInLocal, OS.Types.LongInteger),
+Message: OS.DataConversion.JSNodeParamConverter.to(vars.value.messageInLocal, OS.Types.Text),
+ExternalApp: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.identifierToInteger(vars.value.externalAppInLocal), OS.Types.Integer),
+Latency: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.CloseTransaction$callCloseTransactionAsyncJSResult"))();
+jsNodeResult.latencyOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Latency, OS.Types.Integer);
+return jsNodeResult;
+}, {
+CloseTransactionAsync: PL_MT_Logs_BLController.default.clientActionProxies.closeTransactionAsync$Action
+}, {});
+} catch (ex) {
+(function () {
+OS.Logger.trace("CloseTransaction.CloseTransaction", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return ;
+
+}
+
+throw ex;
+})();
+}
+
+return ;
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.CloseTransaction$vars", [{
+name: "StartInMillis",
+attrName: "startInMillisInLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}, {
+name: "GlobalTypeId",
+attrName: "globalTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalApp",
+attrName: "externalAppInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "FlowTypeId",
+attrName: "flowTypeIdInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "AuxJSON",
+attrName: "auxJSONInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.CloseTransaction$callCloseTransactionAsyncJSResult", [{
+name: "Latency",
+attrName: "latencyOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.closeTransaction$Action = function (startInMillisIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn) {
+startInMillisIn = (startInMillisIn === undefined) ? OS.DataTypes.LongInteger.defaultValue : startInMillisIn;
+globalTypeIdIn = (globalTypeIdIn === undefined) ? 0 : globalTypeIdIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+externalAppIn = (externalAppIn === undefined) ? 0 : externalAppIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+flowTypeIdIn = (flowTypeIdIn === undefined) ? 0 : flowTypeIdIn;
+auxJSONIn = (auxJSONIn === undefined) ? "" : auxJSONIn;
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.closeTransaction$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(startInMillisIn, OS.Types.LongInteger), globalTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), externalAppIn, OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), flowTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(auxJSONIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("PL_MT_Logs_BL.controller$CloseTransaction.CallCloseTransactionAsyncJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var currTime = Date.now();
+
+$parameters.Latency = currTime - $parameters.StartInMillis
+
+let resolved = false;
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(function() { 
+        $actions.CloseTransactionAsync($parameters.Latency, $parameters.GlobalTypeId, $parameters.Action, $parameters.ExternalApp, $parameters.Message, $parameters.FlowTypeId, $parameters.AuxJSON)
+    }, 2000);
+    resolved = true;
+    resolve("Synced to server");
+});
+};
+});
+
+define("PL_MT_Logs_BL.controller$CloseTransactionAsync", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$ServerAction.CloseTransactionAsync"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.closeTransactionAsync$Action = function (latencyIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.CloseTransactionAsync$vars"))());
+vars.value.latencyInLocal = latencyIn;
+vars.value.globalTypeIdInLocal = globalTypeIdIn;
+vars.value.actionInLocal = actionIn;
+vars.value.externalAppInLocal = externalAppIn;
+vars.value.messageInLocal = messageIn;
+vars.value.flowTypeIdInLocal = flowTypeIdIn;
+vars.value.auxJSONInLocal = auxJSONIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: CloseTransactionAsync
+return controller.closeTransactionAsync$ServerAction(vars.value.latencyInLocal, vars.value.globalTypeIdInLocal, vars.value.actionInLocal, vars.value.externalAppInLocal, vars.value.messageInLocal, vars.value.flowTypeIdInLocal, vars.value.auxJSONInLocal, callContext);
+}).catch(function (ex) {
+OS.Logger.trace("CloseTransactionAsync.CloseTransactionAsync", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync();
+
+});
+}
+
+throw ex;
+}).then(function () {
+return ;
+});
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.CloseTransactionAsync$vars", [{
+name: "Latency",
+attrName: "latencyInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "GlobalTypeId",
+attrName: "globalTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalApp",
+attrName: "externalAppInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "FlowTypeId",
+attrName: "flowTypeIdInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "AuxJSON",
+attrName: "auxJSONInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.closeTransactionAsync$Action = function (latencyIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn) {
+latencyIn = (latencyIn === undefined) ? 0 : latencyIn;
+globalTypeIdIn = (globalTypeIdIn === undefined) ? 0 : globalTypeIdIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+externalAppIn = (externalAppIn === undefined) ? 0 : externalAppIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+flowTypeIdIn = (flowTypeIdIn === undefined) ? 0 : flowTypeIdIn;
+auxJSONIn = (auxJSONIn === undefined) ? "" : auxJSONIn;
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.closeTransactionAsync$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(latencyIn, OS.Types.Integer), globalTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), externalAppIn, OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), flowTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(auxJSONIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("PL_MT_Logs_BL.controller$CreateGenericLog", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$ServerAction.CreateGenericLogAsync"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.createGenericLog$Action = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.CreateGenericLog$vars"))());
+vars.value.globalTypeIdInLocal = globalTypeIdIn;
+vars.value.actionInLocal = actionIn;
+vars.value.externalAppInLocal = externalAppIn;
+vars.value.messageInLocal = messageIn;
+vars.value.auxJSONInLocal = auxJSONIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: CreateGenericLogAsync
+return controller.createGenericLogAsync$ServerAction(vars.value.globalTypeIdInLocal, vars.value.actionInLocal, vars.value.externalAppInLocal, vars.value.messageInLocal, vars.value.auxJSONInLocal, callContext);
+}).catch(function (ex) {
+OS.Logger.trace("CreateGenericLog.CreateGenericLog", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync();
+
+});
+}
+
+throw ex;
+}).then(function () {
+return ;
+});
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.CreateGenericLog$vars", [{
+name: "GlobalTypeId",
+attrName: "globalTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalApp",
+attrName: "externalAppInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AuxJSON",
+attrName: "auxJSONInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.createGenericLog$Action = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn) {
+globalTypeIdIn = (globalTypeIdIn === undefined) ? 0 : globalTypeIdIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+externalAppIn = (externalAppIn === undefined) ? 0 : externalAppIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+auxJSONIn = (auxJSONIn === undefined) ? "" : auxJSONIn;
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.createGenericLog$Action.bind(controller, globalTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), externalAppIn, OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(auxJSONIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("PL_MT_Logs_BL.controller$CreateGlobalLog", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$ServerAction.CreateGlobalLogAsync"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.createGlobalLog$Action = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn, sendDirectlyToElasticIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.CreateGlobalLog$vars"))());
+vars.value.globalTypeIdInLocal = globalTypeIdIn;
+vars.value.actionInLocal = actionIn;
+vars.value.externalAppInLocal = externalAppIn;
+vars.value.messageInLocal = messageIn;
+vars.value.auxJSONInLocal = auxJSONIn;
+vars.value.sendDirectlyToElasticInLocal = sendDirectlyToElasticIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: CreateGlobalLogAsync
+return controller.createGlobalLogAsync$ServerAction(vars.value.globalTypeIdInLocal, vars.value.actionInLocal, vars.value.externalAppInLocal, vars.value.messageInLocal, vars.value.auxJSONInLocal, vars.value.sendDirectlyToElasticInLocal, callContext);
+}).catch(function (ex) {
+OS.Logger.trace("CreateGlobalLog.CreateGlobalLog", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync();
+
+});
+}
+
+throw ex;
+}).then(function () {
+return ;
+});
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.CreateGlobalLog$vars", [{
+name: "GlobalTypeId",
+attrName: "globalTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalApp",
+attrName: "externalAppInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AuxJSON",
+attrName: "auxJSONInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "SendDirectlyToElastic",
+attrName: "sendDirectlyToElasticInLocal",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.createGlobalLog$Action = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn, sendDirectlyToElasticIn) {
+globalTypeIdIn = (globalTypeIdIn === undefined) ? 0 : globalTypeIdIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+externalAppIn = (externalAppIn === undefined) ? 0 : externalAppIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+auxJSONIn = (auxJSONIn === undefined) ? "" : auxJSONIn;
+sendDirectlyToElasticIn = (sendDirectlyToElasticIn === undefined) ? false : sendDirectlyToElasticIn;
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.createGlobalLog$Action.bind(controller, globalTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), externalAppIn, OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(auxJSONIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(sendDirectlyToElasticIn, OS.Types.Boolean)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("PL_MT_Logs_BL.controller$GetEnvironment", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$ServerAction.GetEnvironment"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.getEnvironment$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var getEnvironmentVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.GetEnvironment$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GetEnvironment
+return controller.getEnvironment$ServerAction(callContext).then(function (value) {
+getEnvironmentVar.value = value;
+}).then(function () {
+// Environment = GetEnvironment.Environment
+outVars.value.environmentOut = getEnvironmentVar.value.environmentOut;
+});
+}).catch(function (ex) {
+OS.Logger.trace("GetEnvironment.GetEnvironment", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.GetEnvironment$outVars", [{
+name: "Environment",
+attrName: "environmentOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.getEnvironment$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.getEnvironment$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Environment: OS.DataConversion.JSNodeParamConverter.to(actionResults.environmentOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("PL_MT_Logs_BL.controller$GetTimestamp", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$GetTimestamp.GetCurrTimeStampInMillisJS"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController, PL_MT_Logs_BL_controller_GetTimestamp_GetCurrTimeStampInMillisJS) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.getTimestamp$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var getCurrTimeStampInMillisJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.GetTimestamp$outVars"))());
+try {getCurrTimeStampInMillisJSResult.value = controller.safeExecuteJSNode(PL_MT_Logs_BL_controller_GetTimestamp_GetCurrTimeStampInMillisJS, "GetCurrTimeStampInMillis", "GetTimestamp", {
+CurrMillis: OS.DataConversion.JSNodeParamConverter.to(OS.DataTypes.LongInteger.defaultValue, OS.Types.LongInteger)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.GetTimestamp$getCurrTimeStampInMillisJSResult"))();
+jsNodeResult.currMillisOut = OS.DataConversion.JSNodeParamConverter.from($parameters.CurrMillis, OS.Types.LongInteger);
+return jsNodeResult;
+}, {}, {});
+// Timestamp = GetCurrTimeStampInMillis.CurrMillis
+outVars.value.timestampOut = getCurrTimeStampInMillisJSResult.value.currMillisOut;
+} catch (ex) {
+(function () {
+OS.Logger.trace("GetTimestamp.GetTimestamp", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.GetTimestamp$getCurrTimeStampInMillisJSResult", [{
+name: "CurrMillis",
+attrName: "currMillisOut",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}]);
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.GetTimestamp$outVars", [{
+name: "Timestamp",
+attrName: "timestampOut",
+mandatory: false,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.getTimestamp$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.getTimestamp$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Timestamp: OS.DataConversion.JSNodeParamConverter.to(actionResults.timestampOut, OS.Types.LongInteger)
+};
+});
+};
+});
+define("PL_MT_Logs_BL.controller$GetTimestamp.GetCurrTimeStampInMillisJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CurrMillis = Date.now();
+};
+});
+
+define("PL_MT_Logs_BL.controller$LoginInformation", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$ServerAction.LoginInformation"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.loginInformation$Action = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.LoginInformation$vars"))());
+vars.value.globalTypeIdInLocal = globalTypeIdIn;
+vars.value.actionInLocal = actionIn;
+vars.value.externalAppInLocal = externalAppIn;
+vars.value.messageInLocal = messageIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: LoginInformation
+return controller.loginInformation$ServerAction(vars.value.globalTypeIdInLocal, vars.value.actionInLocal, vars.value.externalAppInLocal, vars.value.messageInLocal, callContext);
+}).catch(function (ex) {
+OS.Logger.trace("LoginInformation.LoginInformation", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync();
+
+});
+}
+
+throw ex;
+}).then(function () {
+return ;
+});
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.LoginInformation$vars", [{
+name: "GlobalTypeId",
+attrName: "globalTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalApp",
+attrName: "externalAppInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.loginInformation$Action = function (globalTypeIdIn, actionIn, externalAppIn, messageIn) {
+globalTypeIdIn = (globalTypeIdIn === undefined) ? 0 : globalTypeIdIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+externalAppIn = (externalAppIn === undefined) ? 0 : externalAppIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.loginInformation$Action.bind(controller, globalTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), externalAppIn, OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("PL_MT_Logs_BL.controller$OpenTransaction", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$OpenTransaction.GetCurrTimeStampInMillisJS"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController, PL_MT_Logs_BL_controller_OpenTransaction_GetCurrTimeStampInMillisJS) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.openTransaction$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var getCurrTimeStampInMillisJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.OpenTransaction$outVars"))());
+try {getCurrTimeStampInMillisJSResult.value = controller.safeExecuteJSNode(PL_MT_Logs_BL_controller_OpenTransaction_GetCurrTimeStampInMillisJS, "GetCurrTimeStampInMillis", "OpenTransaction", {
+CurrMillis: OS.DataConversion.JSNodeParamConverter.to(OS.DataTypes.LongInteger.defaultValue, OS.Types.LongInteger)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.OpenTransaction$getCurrTimeStampInMillisJSResult"))();
+jsNodeResult.currMillisOut = OS.DataConversion.JSNodeParamConverter.from($parameters.CurrMillis, OS.Types.LongInteger);
+return jsNodeResult;
+}, {}, {});
+// StartTimestamp = GetCurrTimeStampInMillis.CurrMillis
+outVars.value.startTimestampOut = getCurrTimeStampInMillisJSResult.value.currMillisOut;
+} catch (ex) {
+(function () {
+OS.Logger.trace("OpenTransaction.OpenTransaction", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.OpenTransaction$getCurrTimeStampInMillisJSResult", [{
+name: "CurrMillis",
+attrName: "currMillisOut",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}]);
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.OpenTransaction$outVars", [{
+name: "StartTimestamp",
+attrName: "startTimestampOut",
+mandatory: false,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.openTransaction$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.openTransaction$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+StartTimestamp: OS.DataConversion.JSNodeParamConverter.to(actionResults.startTimestampOut, OS.Types.LongInteger)
+};
+});
+};
+});
+define("PL_MT_Logs_BL.controller$OpenTransaction.GetCurrTimeStampInMillisJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CurrMillis = Date.now();
+};
+});
+
+define("PL_MT_Logs_BL.controller$TODELETE_SendTraceLogToElastic", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.controller$TODELETE_SendTraceLogToElastic.CallSendTraceLogToElasticAsyncJS", "PL_MT_Logs_BL.model$MonitoringTraceList", "PL_MT_Logs_BL.controller$TODELETE_SendTraceLogToElasticAsync"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController, PL_MT_Logs_BL_controller_TODELETE_SendTraceLogToElastic_CallSendTraceLogToElasticAsyncJS) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.tODELETE_SendTraceLogToElastic$Action = function (startInMillisIn, structureTraceParentIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.TODELETE_SendTraceLogToElastic$vars"))());
+vars.value.startInMillisInLocal = startInMillisIn;
+vars.value.structureTraceParentInLocal = structureTraceParentIn.clone();
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var callSendTraceLogToElasticAsyncJSResult = new OS.DataTypes.VariableHolder();
+try {callSendTraceLogToElasticAsyncJSResult.value = controller.safeExecuteJSNode(PL_MT_Logs_BL_controller_TODELETE_SendTraceLogToElastic_CallSendTraceLogToElasticAsyncJS, "CallSendTraceLogToElasticAsync", "TODELETE_SendTraceLogToElastic", {
+StartInMillis: OS.DataConversion.JSNodeParamConverter.to(vars.value.startInMillisInLocal, OS.Types.LongInteger),
+In1: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.toObject(vars.value.structureTraceParentInLocal), OS.Types.Object),
+Latency: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.TODELETE_SendTraceLogToElastic$callSendTraceLogToElasticAsyncJSResult"))();
+jsNodeResult.latencyOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Latency, OS.Types.Integer);
+return jsNodeResult;
+}, {
+TODELETE_SendTraceLogToElasticAsync: PL_MT_Logs_BLController.default.clientActionProxies.tODELETE_SendTraceLogToElasticAsync$Action
+}, {});
+} catch (ex) {
+(function () {
+OS.Logger.trace("TODELETE_SendTraceLogToElastic.TODELETE_SendTraceLogToElastic", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return ;
+
+}
+
+throw ex;
+})();
+}
+
+return ;
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.TODELETE_SendTraceLogToElastic$vars", [{
+name: "StartInMillis",
+attrName: "startInMillisInLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}, {
+name: "StructureTraceParent",
+attrName: "structureTraceParentInLocal",
+mandatory: true,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new PL_MT_Logs_BLModel.MonitoringTraceList();
+},
+complexType: PL_MT_Logs_BLModel.MonitoringTraceList
+}]);
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.TODELETE_SendTraceLogToElastic$callSendTraceLogToElasticAsyncJSResult", [{
+name: "Latency",
+attrName: "latencyOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.tODELETE_SendTraceLogToElastic$Action = function (startInMillisIn, structureTraceParentIn) {
+startInMillisIn = (startInMillisIn === undefined) ? OS.DataTypes.LongInteger.defaultValue : startInMillisIn;
+structureTraceParentIn = (structureTraceParentIn === undefined) ? new PL_MT_Logs_BLModel.MonitoringTraceList() : structureTraceParentIn;
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.tODELETE_SendTraceLogToElastic$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(startInMillisIn, OS.Types.LongInteger), structureTraceParentIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("PL_MT_Logs_BL.controller$TODELETE_SendTraceLogToElastic.CallSendTraceLogToElasticAsyncJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var currTime = Date.now();
+
+$parameters.Latency = currTime - $parameters.StartInMillis
+
+let resolved = false;
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(function() { 
+        $actions.TODELETE_SendTraceLogToElasticAsync($parameters.In1)
+    }, 2000);
+    resolved = true;
+    resolve("Synced to server");
+});
+};
+});
+
+define("PL_MT_Logs_BL.controller$TODELETE_SendTraceLogToElasticAsync", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller", "PL_MT_Logs_BL.model$MonitoringTraceList", "PL_MT_Logs_BL.controller$ServerAction.SendTraceLogToElastic"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.tODELETE_SendTraceLogToElasticAsync$Action = function (structureTraceParentIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL.TODELETE_SendTraceLogToElasticAsync$vars"))());
+vars.value.structureTraceParentInLocal = structureTraceParentIn.clone();
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: SendTraceLogToElastic
+return controller.sendTraceLogToElastic$ServerAction(vars.value.structureTraceParentInLocal, callContext);
+}).catch(function (ex) {
+OS.Logger.trace("TODELETE_SendTraceLogToElasticAsync.TODELETE_SendTraceLogToElasticAsync", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync();
+
+});
+}
+
+throw ex;
+}).then(function () {
+return ;
+});
+};
+var controller = PL_MT_Logs_BLController.default;
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL.TODELETE_SendTraceLogToElasticAsync$vars", [{
+name: "StructureTraceParent",
+attrName: "structureTraceParentInLocal",
+mandatory: true,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new PL_MT_Logs_BLModel.MonitoringTraceList();
+},
+complexType: PL_MT_Logs_BLModel.MonitoringTraceList
+}]);
+PL_MT_Logs_BLController.default.clientActionProxies.tODELETE_SendTraceLogToElasticAsync$Action = function (structureTraceParentIn) {
+structureTraceParentIn = (structureTraceParentIn === undefined) ? new PL_MT_Logs_BLModel.MonitoringTraceList() : structureTraceParentIn;
+return controller.executeActionInsideJSNode(PL_MT_Logs_BLController.default.tODELETE_SendTraceLogToElasticAsync$Action.bind(controller, structureTraceParentIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("PL_MT_Logs_BL.controller$ServerAction.CloseTransactionAsync", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.closeTransactionAsync$ServerAction = function (latencyIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn, callContext) {
+var controller = this.controller;
+var inputs = {
+Latency: OS.DataConversion.ServerDataConverter.to(latencyIn, OS.Types.Integer),
+GlobalTypeId: OS.DataConversion.ServerDataConverter.to(globalTypeIdIn, OS.Types.Integer),
+Action: OS.DataConversion.ServerDataConverter.to(actionIn, OS.Types.Text),
+ExternalApp: OS.DataConversion.ServerDataConverter.to(externalAppIn, OS.Types.Integer),
+Message: OS.DataConversion.ServerDataConverter.to(messageIn, OS.Types.Text),
+FlowTypeId: OS.DataConversion.ServerDataConverter.to(flowTypeIdIn, OS.Types.Integer),
+AuxJSON: OS.DataConversion.ServerDataConverter.to(auxJSONIn, OS.Types.Text)
+};
+return controller.callServerAction("CloseTransactionAsync", "screenservices/PL_MT_Logs_BL/ActionCloseTransactionAsync", "fSijlwYwn5IIlXjBi9AQew", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+});
+};
+});
+define("PL_MT_Logs_BL.controller$ServerAction.CreateGenericLogAsync", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.createGenericLogAsync$ServerAction = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn, callContext) {
+var controller = this.controller;
+var inputs = {
+GlobalTypeId: OS.DataConversion.ServerDataConverter.to(globalTypeIdIn, OS.Types.Integer),
+Action: OS.DataConversion.ServerDataConverter.to(actionIn, OS.Types.Text),
+ExternalApp: OS.DataConversion.ServerDataConverter.to(externalAppIn, OS.Types.Integer),
+Message: OS.DataConversion.ServerDataConverter.to(messageIn, OS.Types.Text),
+AuxJSON: OS.DataConversion.ServerDataConverter.to(auxJSONIn, OS.Types.Text)
+};
+return controller.callServerAction("CreateGenericLogAsync", "screenservices/PL_MT_Logs_BL/ActionCreateGenericLogAsync", "B0KjQ6v6qBflgJH6ac2_dQ", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+});
+};
+});
+define("PL_MT_Logs_BL.controller$ServerAction.CreateGlobalLogAsync", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.createGlobalLogAsync$ServerAction = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn, sendDirectlyToElasticIn, callContext) {
+var controller = this.controller;
+var inputs = {
+GlobalTypeId: OS.DataConversion.ServerDataConverter.to(globalTypeIdIn, OS.Types.Integer),
+Action: OS.DataConversion.ServerDataConverter.to(actionIn, OS.Types.Text),
+ExternalApp: OS.DataConversion.ServerDataConverter.to(externalAppIn, OS.Types.Integer),
+Message: OS.DataConversion.ServerDataConverter.to(messageIn, OS.Types.Text),
+AuxJSON: OS.DataConversion.ServerDataConverter.to(auxJSONIn, OS.Types.Text),
+SendDirectlyToElastic: OS.DataConversion.ServerDataConverter.to(sendDirectlyToElasticIn, OS.Types.Boolean)
+};
+return controller.callServerAction("CreateGlobalLogAsync", "screenservices/PL_MT_Logs_BL/ActionCreateGlobalLogAsync", "OUkisdWKXMjq8Dr+EzbOCw", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+});
+};
+});
+define("PL_MT_Logs_BL.controller$ServerAction.GetEnvironment", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.getEnvironment$ServerAction = function (callContext) {
+var controller = this.controller;
+return controller.callServerAction("GetEnvironment", "screenservices/PL_MT_Logs_BL/ActionGetEnvironment", "MicaSMKFzFB8CTVfDROEXQ", {}, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_Logs_BL$rssespacepl_mt_utils_lib_ActionGetEnvironment"))();
+executeServerActionResult.environmentOut = OS.DataConversion.ServerDataConverter.from(outputs.Environment, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_Logs_BLController.default.constructor.registerVariableGroupType("PL_MT_Logs_BL$rssespacepl_mt_utils_lib_ActionGetEnvironment", [{
+name: "Environment",
+attrName: "environmentOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_Logs_BL.controller$ServerAction.LoginInformation", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.loginInformation$ServerAction = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, callContext) {
+var controller = this.controller;
+var inputs = {
+GlobalTypeId: OS.DataConversion.ServerDataConverter.to(globalTypeIdIn, OS.Types.Integer),
+Action: OS.DataConversion.ServerDataConverter.to(actionIn, OS.Types.Text),
+ExternalApp: OS.DataConversion.ServerDataConverter.to(externalAppIn, OS.Types.Integer),
+Message: OS.DataConversion.ServerDataConverter.to(messageIn, OS.Types.Text)
+};
+return controller.callServerAction("LoginInformation", "screenservices/PL_MT_Logs_BL/ActionLoginInformation", "fq2KIO6mrNMJAxQ4q6ogvw", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+});
+};
+});
+define("PL_MT_Logs_BL.controller$ServerAction.SendTraceLogToElastic", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.controller"], function (exports, OutSystems, PL_MT_Logs_BLModel, PL_MT_Logs_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_Logs_BLController.default.sendTraceLogToElastic$ServerAction = function (structureTraceParentIn, callContext) {
+var controller = this.controller;
+var inputs = {
+StructureTraceParent: OS.DataConversion.ServerDataConverter.to(structureTraceParentIn, OS.Types.RecordList)
+};
+return controller.callServerAction("SendTraceLogToElastic", "screenservices/PL_MT_Logs_BL/ActionSendTraceLogToElastic", "8epzRYGXL1sJSZe1_kl2Ig", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+});
+};
+});
+define("PL_MT_Logs_BL.controller", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var PL_MT_Logs_BLController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return PL_MT_Logs_BLController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+PL_MT_Logs_BLController.default = new Controller(null, "PL_MT_Logs_BL");
+});

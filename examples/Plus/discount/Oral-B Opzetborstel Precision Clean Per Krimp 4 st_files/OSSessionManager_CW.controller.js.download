@@ -1,0 +1,149 @@
+﻿define("OSSessionManager_CW.controller$API_TerminateAllUserSessions", ["exports", "OutSystems/ClientRuntime/Main", "OSSessionManager_CW.model", "OSSessionManager_CW.controller", "OSSessionManager_CW.clientVariables", "OSSessionManager_CW.model$TextLiteralRecordList", "OSSessionManager_CW.controller$ServerAction.SessionAPI_TerminateAllUserSessions"], function (exports, OutSystems, OSSessionManager_CWModel, OSSessionManager_CWController, OSSessionManager_CWClientVariables) {
+var OS = OutSystems.Internal;
+OSSessionManager_CWController.default.aPI_TerminateAllUserSessions$Action = function (userIdIn, exceptionSessionsIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("OSSessionManager_CW.API_TerminateAllUserSessions$vars"))());
+vars.value.userIdInLocal = userIdIn;
+vars.value.exceptionSessionsInLocal = exceptionSessionsIn.clone();
+var sessionAPI_TerminateAllUserSessionsVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: SessionAPI_TerminateAllUserSessions
+return controller.sessionAPI_TerminateAllUserSessions$ServerAction(vars.value.userIdInLocal, vars.value.exceptionSessionsInLocal, callContext).then(function (value) {
+sessionAPI_TerminateAllUserSessionsVar.value = value;
+});
+}).then(function () {
+return ;
+});
+};
+var controller = OSSessionManager_CWController.default;
+OSSessionManager_CWController.default.constructor.registerVariableGroupType("OSSessionManager_CW.API_TerminateAllUserSessions$vars", [{
+name: "UserId",
+attrName: "userIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "ExceptionSessions",
+attrName: "exceptionSessionsInLocal",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new OSSessionManager_CWModel.TextLiteralRecordList();
+},
+complexType: OSSessionManager_CWModel.TextLiteralRecordList
+}]);
+OSSessionManager_CWController.default.clientActionProxies.aPI_TerminateAllUserSessions$Action = function (userIdIn, exceptionSessionsIn) {
+userIdIn = (userIdIn === undefined) ? 0 : userIdIn;
+exceptionSessionsIn = (exceptionSessionsIn === undefined) ? new OSSessionManager_CWModel.TextLiteralRecordList() : exceptionSessionsIn;
+return controller.executeActionInsideJSNode(OSSessionManager_CWController.default.aPI_TerminateAllUserSessions$Action.bind(controller, userIdIn, exceptionSessionsIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("OSSessionManager_CW.controller$Get_SessionIdValue", ["exports", "OutSystems/ClientRuntime/Main", "OSSessionManager_CW.model", "OSSessionManager_CW.controller", "OSSessionManager_CW.clientVariables"], function (exports, OutSystems, OSSessionManager_CWModel, OSSessionManager_CWController, OSSessionManager_CWClientVariables) {
+var OS = OutSystems.Internal;
+OSSessionManager_CWController.default.get_SessionIdValue$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("OSSessionManager_CW.Get_SessionIdValue$outVars"))());
+// SessionId = SessionId
+outVars.value.sessionIdOut = OSSessionManager_CWClientVariables.getSessionId();
+return outVars.value;
+};
+var controller = OSSessionManager_CWController.default;
+OSSessionManager_CWController.default.constructor.registerVariableGroupType("OSSessionManager_CW.Get_SessionIdValue$outVars", [{
+name: "SessionId",
+attrName: "sessionIdOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+OSSessionManager_CWController.default.clientActionProxies.get_SessionIdValue$Action = function () {
+return controller.executeActionInsideJSNode(OSSessionManager_CWController.default.get_SessionIdValue$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+SessionId: OS.DataConversion.JSNodeParamConverter.to(actionResults.sessionIdOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("OSSessionManager_CW.controller$Set_SessionIdValue", ["exports", "OutSystems/ClientRuntime/Main", "OSSessionManager_CW.model", "OSSessionManager_CW.controller", "OSSessionManager_CW.clientVariables"], function (exports, OutSystems, OSSessionManager_CWModel, OSSessionManager_CWController, OSSessionManager_CWClientVariables) {
+var OS = OutSystems.Internal;
+OSSessionManager_CWController.default.set_SessionIdValue$Action = function (sessionIdIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("OSSessionManager_CW.Set_SessionIdValue$vars"))());
+vars.value.sessionIdInLocal = sessionIdIn;
+// SessionId = SessionId
+OSSessionManager_CWClientVariables.setSessionId(vars.value.sessionIdInLocal);
+return ;
+};
+var controller = OSSessionManager_CWController.default;
+OSSessionManager_CWController.default.constructor.registerVariableGroupType("OSSessionManager_CW.Set_SessionIdValue$vars", [{
+name: "SessionId",
+attrName: "sessionIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+OSSessionManager_CWController.default.clientActionProxies.set_SessionIdValue$Action = function (sessionIdIn) {
+sessionIdIn = (sessionIdIn === undefined) ? "" : sessionIdIn;
+return controller.executeActionInsideJSNode(OSSessionManager_CWController.default.set_SessionIdValue$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(sessionIdIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("OSSessionManager_CW.controller$ServerAction.SessionAPI_TerminateAllUserSessions", ["exports", "OutSystems/ClientRuntime/Main", "OSSessionManager_CW.model", "OSSessionManager_CW.controller"], function (exports, OutSystems, OSSessionManager_CWModel, OSSessionManager_CWController) {
+var OS = OutSystems.Internal;
+OSSessionManager_CWController.default.sessionAPI_TerminateAllUserSessions$ServerAction = function (userIdIn, exceptionSessionsIn, callContext) {
+var controller = this.controller;
+var inputs = {
+UserId: OS.DataConversion.ServerDataConverter.to(userIdIn, OS.Types.Integer),
+ExceptionSessions: OS.DataConversion.ServerDataConverter.to(exceptionSessionsIn, OS.Types.RecordList)
+};
+return controller.callServerAction("SessionAPI_TerminateAllUserSessions", "screenservices/OSSessionManager_CW/ActionSessionAPI_TerminateAllUserSessions", "a8uiKSxEKeYOLEGnaAUh1w", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("OSSessionManager_CW$rssespaceossessionmanager_cs_ActionSessionAPI_TerminateAllUserSessions"))();
+executeServerActionResult.expiredSessionsOut = OS.DataConversion.ServerDataConverter.from(outputs.ExpiredSessions, OS.DataTypes.TextList);
+return executeServerActionResult;
+});
+};
+OSSessionManager_CWController.default.constructor.registerVariableGroupType("OSSessionManager_CW$rssespaceossessionmanager_cs_ActionSessionAPI_TerminateAllUserSessions", [{
+name: "ExpiredSessions",
+attrName: "expiredSessionsOut",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new OS.DataTypes.TextList();
+},
+complexType: OS.DataTypes.TextList
+}]);
+});
+define("OSSessionManager_CW.controller", ["exports", "OutSystems/ClientRuntime/Main", "OSSessionManager_CW.model"], function (exports, OutSystems, OSSessionManager_CWModel) {
+var OS = OutSystems.Internal;
+var OSSessionManager_CWController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {
+OS_ECOP_Customer: {
+roleKey: "Qljn2zneH0GNdhc7fQ4HCA*uXcnR5zNXU6E3CGDGYIEVA",
+roleException: new OS.Exceptions.Exceptions.NotRegisteredException("ECP_Authorization_Lib.NotOS_ECOP_Customer", "OS_ECOP_Customer role required")
+}
+};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return OSSessionManager_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+OSSessionManager_CWController.default = new Controller(null, "OSSessionManager_CW");
+});

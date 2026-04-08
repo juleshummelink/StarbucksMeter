@@ -1,0 +1,176 @@
+﻿define("ECOP.clientVariables", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+var ClientVariables = (function (_super) {
+var clientVarsService;
+function ClientVariables() {
+clientVarsService = OS.Injector.resolve(OS.ServiceNames.ClientVariablesService);
+}
+ClientVariables.prototype.getIsUserLoggedIn = function () {
+return clientVarsService.getVariable("IsUserLoggedIn", "ECOP", OS.Types.Boolean, false);
+};
+ClientVariables.prototype.setIsUserLoggedIn = function (value) {
+return clientVarsService.setVariable("IsUserLoggedIn", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getIsDesktop = function () {
+return clientVarsService.getVariable("IsDesktop", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setIsDesktop = function (value) {
+return clientVarsService.setVariable("IsDesktop", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getPunchOut_ExternalSessionReference = function () {
+return clientVarsService.getVariable("PunchOut_ExternalSessionReference", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setPunchOut_ExternalSessionReference = function (value) {
+return clientVarsService.setVariable("PunchOut_ExternalSessionReference", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getLastKeyWasShift = function () {
+return clientVarsService.getVariable("LastKeyWasShift", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setLastKeyWasShift = function (value) {
+return clientVarsService.setVariable("LastKeyWasShift", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getNotFount_BackURL = function () {
+return clientVarsService.getVariable("NotFount_BackURL", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setNotFount_BackURL = function (value) {
+return clientVarsService.setVariable("NotFount_BackURL", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getLastKeyPressDown = function () {
+return clientVarsService.getVariable("LastKeyPressDown", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setLastKeyPressDown = function (value) {
+return clientVarsService.setVariable("LastKeyPressDown", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getCurrentDevice = function () {
+return clientVarsService.getVariable("CurrentDevice", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setCurrentDevice = function (value) {
+return clientVarsService.setVariable("CurrentDevice", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getChatSupport_Enabled = function () {
+return clientVarsService.getVariable("ChatSupport_Enabled", "ECOP", OS.Types.Boolean, false);
+};
+ClientVariables.prototype.setChatSupport_Enabled = function (value) {
+return clientVarsService.setVariable("ChatSupport_Enabled", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getBundlesCallbackRendered = function () {
+return clientVarsService.getVariable("BundlesCallbackRendered", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setBundlesCallbackRendered = function (value) {
+return clientVarsService.setVariable("BundlesCallbackRendered", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getPunchOut_IsRedirect = function () {
+return clientVarsService.getVariable("PunchOut_IsRedirect", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setPunchOut_IsRedirect = function (value) {
+return clientVarsService.setVariable("PunchOut_IsRedirect", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getIsPhone = function () {
+return clientVarsService.getVariable("IsPhone", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setIsPhone = function (value) {
+return clientVarsService.setVariable("IsPhone", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getnr1UserCookie = function () {
+return clientVarsService.getVariable("nr1UserCookie", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setnr1UserCookie = function (value) {
+return clientVarsService.setVariable("nr1UserCookie", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getPersistentNotification_IsEnabled = function () {
+return clientVarsService.getVariable("PersistentNotification_IsEnabled", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setPersistentNotification_IsEnabled = function (value) {
+return clientVarsService.setVariable("PersistentNotification_IsEnabled", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getAccountConversion_IsRedirect = function () {
+return clientVarsService.getVariable("AccountConversion_IsRedirect", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setAccountConversion_IsRedirect = function (value) {
+return clientVarsService.setVariable("AccountConversion_IsRedirect", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getPersistentNotification_Content = function () {
+return clientVarsService.getVariable("PersistentNotification_Content", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setPersistentNotification_Content = function (value) {
+return clientVarsService.setVariable("PersistentNotification_Content", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getHasStoreSelected = function () {
+return clientVarsService.getVariable("HasStoreSelected", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setHasStoreSelected = function (value) {
+return clientVarsService.setVariable("HasStoreSelected", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getBundleInfo = function () {
+return clientVarsService.getVariable("BundleInfo", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setBundleInfo = function (value) {
+return clientVarsService.setVariable("BundleInfo", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getFirstName = function () {
+return clientVarsService.getVariable("FirstName", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setFirstName = function (value) {
+return clientVarsService.setVariable("FirstName", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getIsTablet = function () {
+return clientVarsService.getVariable("IsTablet", "ECOP", OS.Types.Boolean);
+};
+ClientVariables.prototype.setIsTablet = function (value) {
+return clientVarsService.setVariable("IsTablet", "ECOP", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getNotices = function () {
+return clientVarsService.getVariable("Notices", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setNotices = function (value) {
+return clientVarsService.setVariable("Notices", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getLastKnownURL = function () {
+return clientVarsService.getVariable("LastKnownURL", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setLastKnownURL = function (value) {
+return clientVarsService.setVariable("LastKnownURL", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getGTMID = function () {
+return clientVarsService.getVariable("GTMID", "ECOP", OS.Types.Text, "GTM-W3R6S9B");
+};
+ClientVariables.prototype.setGTMID = function (value) {
+return clientVarsService.setVariable("GTMID", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.getNotFount_CurrentURL = function () {
+return clientVarsService.getVariable("NotFount_CurrentURL", "ECOP", OS.Types.Text);
+};
+ClientVariables.prototype.setNotFount_CurrentURL = function (value) {
+return clientVarsService.setVariable("NotFount_CurrentURL", "ECOP", OS.Types.Text, value);
+};
+ClientVariables.prototype.serialize = function () {
+return {
+IsUserLoggedIn: OS.DataConversion.ServerDataConverter.to(this.getIsUserLoggedIn(), OS.Types.Boolean),
+IsDesktop: OS.DataConversion.ServerDataConverter.to(this.getIsDesktop(), OS.Types.Boolean),
+PunchOut_ExternalSessionReference: OS.DataConversion.ServerDataConverter.to(this.getPunchOut_ExternalSessionReference(), OS.Types.Text),
+LastKeyWasShift: OS.DataConversion.ServerDataConverter.to(this.getLastKeyWasShift(), OS.Types.Boolean),
+NotFount_BackURL: OS.DataConversion.ServerDataConverter.to(this.getNotFount_BackURL(), OS.Types.Text),
+LastKeyPressDown: OS.DataConversion.ServerDataConverter.to(this.getLastKeyPressDown(), OS.Types.Text),
+CurrentDevice: OS.DataConversion.ServerDataConverter.to(this.getCurrentDevice(), OS.Types.Text),
+ChatSupport_Enabled: OS.DataConversion.ServerDataConverter.to(this.getChatSupport_Enabled(), OS.Types.Boolean),
+BundlesCallbackRendered: OS.DataConversion.ServerDataConverter.to(this.getBundlesCallbackRendered(), OS.Types.Boolean),
+PunchOut_IsRedirect: OS.DataConversion.ServerDataConverter.to(this.getPunchOut_IsRedirect(), OS.Types.Boolean),
+IsPhone: OS.DataConversion.ServerDataConverter.to(this.getIsPhone(), OS.Types.Boolean),
+nr1UserCookie: OS.DataConversion.ServerDataConverter.to(this.getnr1UserCookie(), OS.Types.Text),
+PersistentNotification_IsEnabled: OS.DataConversion.ServerDataConverter.to(this.getPersistentNotification_IsEnabled(), OS.Types.Boolean),
+AccountConversion_IsRedirect: OS.DataConversion.ServerDataConverter.to(this.getAccountConversion_IsRedirect(), OS.Types.Boolean),
+PersistentNotification_Content: OS.DataConversion.ServerDataConverter.to(this.getPersistentNotification_Content(), OS.Types.Text),
+HasStoreSelected: OS.DataConversion.ServerDataConverter.to(this.getHasStoreSelected(), OS.Types.Boolean),
+BundleInfo: OS.DataConversion.ServerDataConverter.to(this.getBundleInfo(), OS.Types.Text),
+FirstName: OS.DataConversion.ServerDataConverter.to(this.getFirstName(), OS.Types.Text),
+IsTablet: OS.DataConversion.ServerDataConverter.to(this.getIsTablet(), OS.Types.Boolean),
+Notices: OS.DataConversion.ServerDataConverter.to(this.getNotices(), OS.Types.Text),
+LastKnownURL: OS.DataConversion.ServerDataConverter.to(this.getLastKnownURL(), OS.Types.Text),
+GTMID: OS.DataConversion.ServerDataConverter.to(this.getGTMID(), OS.Types.Text),
+NotFount_CurrentURL: OS.DataConversion.ServerDataConverter.to(this.getNotFount_CurrentURL(), OS.Types.Text)
+};
+};
+return ClientVariables;
+})();
+return new ClientVariables();
+});

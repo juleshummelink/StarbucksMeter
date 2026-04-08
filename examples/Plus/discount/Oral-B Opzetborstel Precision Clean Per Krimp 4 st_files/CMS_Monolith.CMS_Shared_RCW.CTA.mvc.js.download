@@ -1,0 +1,345 @@
+﻿define("CMS_Monolith.CMS_Shared_RCW.CTA.mvc$model", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "CMS_Monolith.controller$IsOpenInNewTab", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.controller$CTA_Get", "ECOP_Base_RPat.controller$Error_Log", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_Base_RPat"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_Base_RPatController, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("EntryId", "entryIdIn", "EntryId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_entryIdInDataFetchStatus", "_entryIdInDataFetchStatus", "_entryIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CTA_Inp", "cTA_InpIn", "CTA_Inp", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_Link2PdfOrPageRec());
+}, false, CMS_MonolithModel.Shared_Link2PdfOrPageRec), 
+this.attr("_cTA_InpInDataFetchStatus", "_cTA_InpInDataFetchStatus", "_cTA_InpInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets;
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("EntryId" in inputs) {
+this.variables.entryIdIn = inputs.EntryId;
+if("_entryIdInDataFetchStatus" in inputs) {
+this.variables._entryIdInDataFetchStatus = inputs._entryIdInDataFetchStatus;
+}
+
+}
+
+if("CTA_Inp" in inputs) {
+this.variables.cTA_InpIn = inputs.CTA_Inp;
+if("_cTA_InpInDataFetchStatus" in inputs) {
+this.variables._cTA_InpInDataFetchStatus = inputs._cTA_InpInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CMS_Shared_RCW.CTA");
+});
+define("CMS_Monolith.CMS_Shared_RCW.CTA.mvc$view", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "CMS_Monolith.CMS_Shared_RCW.CTA.mvc$model", "CMS_Monolith.CMS_Shared_RCW.CTA.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "CMS_Monolith.controller$IsOpenInNewTab", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.controller$CTA_Get", "ECOP_Base_RPat.controller$Error_Log", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_Base_RPat"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_Base_RPatController, React, OSView, CMS_Monolith_CMS_Shared_RCW_CTA_mvc_model, CMS_Monolith_CMS_Shared_RCW_CTA_mvc_controller, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CMS_Shared_RCW.CTA";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return CMS_Monolith_CMS_Shared_RCW_CTA_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return CMS_Monolith_CMS_Shared_RCW_CTA_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("yHqn3RQyd0mUVACcxAT4vg.class"), function () {
+return ("cf-cta" + ((((OS.BuiltinFunctions.trim(model.variables.extendedClassIn)) !== (""))) ? ((" " + model.variables.extendedClassIn)) : ("")));
+}, function () {
+return model.variables.extendedClassIn;
+})
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: ((model.variables.cTA_InpIn.urlAttr) !== ("")),
+extendedProperties: {
+target: model.getCachedValue(idService.getId("LinkElement.target"), function () {
+return (((CMS_MonolithController.default.isOpenInNewTab$Action(model.variables.cTA_InpIn.urlAttr, callContext).isOpenInNewTabOut || model.variables.cTA_InpIn.isPdfAttr)) ? ("_blank") : (""));
+}, function () {
+return model.variables.cTA_InpIn.urlAttr;
+}, function () {
+return model.variables.cTA_InpIn.isPdfAttr;
+}),
+alt: model.variables.cTA_InpIn.altTextAttr
+},
+style: "cf-link-wrapper-web text-arrow-wrapper",
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL(model.variables.cTA_InpIn.urlAttr, {}),
+visible: true,
+_idProps: {
+service: idService,
+name: "LinkElement"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+enabled_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._cTA_InpInDataFetchStatus)
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-link-wrapper-web__content vertical-align flex-direction-row",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "margin-right-s trunc-lines-1",
+value: model.variables.cTA_InpIn.titleAttr,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._cTA_InpInDataFetchStatus)
+}), React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "arrow-right",
+Size: CMS_MonolithModel.staticEntities.iconSize.size_s
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "4",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("CMS_Monolith.CMS_Shared_RCW.CTA.mvc$controller", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_Base_RPat.controller", "CMS_Monolith.languageResources", "CMS_Monolith.CMS_Shared_RCW.CTA.mvc$translationsResources", "CMS_Monolith.controller$IsOpenInNewTab", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.controller$CTA_Get", "ECOP_Base_RPat.controller$Error_Log", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_Base_RPat"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_Base_RPatController, CMS_MonolithLanguageResources, CMS_Monolith_CMS_Shared_RCW_CTA_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = CMS_Monolith_CMS_Shared_RCW_CTA_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._cTA_Entry_Get$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CTA_Entry_Get");
+callContext = controller.callContext(callContext);
+var cTA_GetVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if(((model.variables.entryIdIn === ""))) {
+// CTA input also empty?
+return OS.Flow.executeSequence(function () {
+if(((OS.BuiltinFunctions.trim(model.variables.cTA_InpIn.titleAttr) === ""))) {
+// Execute Action: Error_Log
+model.flush();
+return ECOP_Base_RPatController.default.error_Log$Action("Invalid input provided while getting the CTA", "Please set entryId or CTA variable", "WB: CTA", "CTA_Entry_Get", CMS_MonolithModel.staticEntities.cMSErrorType.invalidInput, callContext).then(function () {
+// Raise Error: InvalidInput
+throw new OS.Exceptions.Exceptions.UserException("CMS_Monolith.InvalidInput", "Please set entryId or CTA variable");
+});
+}
+
+});
+} else {
+// Execute Action: CTA_Get
+model.flush();
+return CMS_MonolithController.default.cTA_Get$Action(model.variables.entryIdIn, false, callContext).then(function (value) {
+cTA_GetVar.value = value;
+}).then(function () {
+// CTA
+// CTA_Inp = CTA_Get.CTA.Link
+model.variables.cTA_InpIn = cTA_GetVar.value.cTAOut.linkAttr;
+});
+}
+
+});
+});
+};
+
+Controller.prototype.cTA_Entry_Get$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._cTA_Entry_Get$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.cTA_Entry_Get$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.cTA_Entry_Get$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return CMS_MonolithController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, CMS_MonolithLanguageResources);
+});
+
+define("CMS_Monolith.CMS_Shared_RCW.CTA.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

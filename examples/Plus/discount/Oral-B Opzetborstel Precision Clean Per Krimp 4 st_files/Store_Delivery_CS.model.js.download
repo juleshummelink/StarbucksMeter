@@ -1,0 +1,1017 @@
+﻿define("Store_Delivery_CS.model$priceRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var priceRec = (function (_super) {
+__extends(priceRec, _super);
+function priceRec(defaults) {
+_super.apply(this, arguments);
+}
+priceRec.attributesToDeclare = function () {
+return [
+this.attr("type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("currencyCode", "currencyCodeAttr", "currencyCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("centAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("fractionDigits", "fractionDigitsAttr", "fractionDigits", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+priceRec.init();
+return priceRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.priceRec = priceRec;
+
+});
+define("Store_Delivery_CS.model$shippingRatesRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$priceRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var shippingRatesRec = (function (_super) {
+__extends(shippingRatesRec, _super);
+function shippingRatesRec(defaults) {
+_super.apply(this, arguments);
+}
+shippingRatesRec.attributesToDeclare = function () {
+return [
+this.attr("Price", "priceAttr", "price", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.priceRec());
+}, true, Store_Delivery_CSModel.priceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+shippingRatesRec.fromStructure = function (str) {
+return new shippingRatesRec(new shippingRatesRec.RecordClass({
+priceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+shippingRatesRec.init();
+return shippingRatesRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.shippingRatesRec = shippingRatesRec;
+
+});
+define("Store_Delivery_CS.model$shippingRatesList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$shippingRatesRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var shippingRatesList = (function (_super) {
+__extends(shippingRatesList, _super);
+function shippingRatesList(defaults) {
+_super.apply(this, arguments);
+}
+shippingRatesList.itemType = Store_Delivery_CSModel.shippingRatesRec;
+return shippingRatesList;
+})(OS.DataTypes.GenericRecordList);
+Store_Delivery_CSModel.shippingRatesList = shippingRatesList;
+
+});
+define("Store_Delivery_CS.model$zoneRatesRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$shippingRatesList"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var zoneRatesRec = (function (_super) {
+__extends(zoneRatesRec, _super);
+function zoneRatesRec(defaults) {
+_super.apply(this, arguments);
+}
+zoneRatesRec.attributesToDeclare = function () {
+return [
+this.attr("ShippingRates", "shippingRatesAttr", "shippingRates", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.shippingRatesList());
+}, true, Store_Delivery_CSModel.shippingRatesList)
+].concat(_super.attributesToDeclare.call(this));
+};
+zoneRatesRec.fromStructure = function (str) {
+return new zoneRatesRec(new zoneRatesRec.RecordClass({
+shippingRatesAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+zoneRatesRec.init();
+return zoneRatesRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.zoneRatesRec = zoneRatesRec;
+
+});
+define("Store_Delivery_CS.model$zoneRatesList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$zoneRatesRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var zoneRatesList = (function (_super) {
+__extends(zoneRatesList, _super);
+function zoneRatesList(defaults) {
+_super.apply(this, arguments);
+}
+zoneRatesList.itemType = Store_Delivery_CSModel.zoneRatesRec;
+return zoneRatesList;
+})(OS.DataTypes.GenericRecordList);
+Store_Delivery_CSModel.zoneRatesList = zoneRatesList;
+
+});
+define("Store_Delivery_CS.model$ResultItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$zoneRatesList"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ResultItemRec = (function (_super) {
+__extends(ResultItemRec, _super);
+function ResultItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ResultItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ZoneRates", "zoneRatesAttr", "zoneRates", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.zoneRatesList());
+}, true, Store_Delivery_CSModel.zoneRatesList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ResultItemRec.init();
+return ResultItemRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.ResultItemRec = ResultItemRec;
+
+});
+define("Store_Delivery_CS.model$ResultItemList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$ResultItemRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ResultItemList = (function (_super) {
+__extends(ResultItemList, _super);
+function ResultItemList(defaults) {
+_super.apply(this, arguments);
+}
+ResultItemList.itemType = Store_Delivery_CSModel.ResultItemRec;
+return ResultItemList;
+})(OS.DataTypes.GenericRecordList);
+Store_Delivery_CSModel.ResultItemList = ResultItemList;
+
+});
+define("Store_Delivery_CS.model$ShippingMethodRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$ResultItemList"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ShippingMethodRec = (function (_super) {
+__extends(ShippingMethodRec, _super);
+function ShippingMethodRec(defaults) {
+_super.apply(this, arguments);
+}
+ShippingMethodRec.attributesToDeclare = function () {
+return [
+this.attr("Results", "resultsAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.ResultItemList());
+}, true, Store_Delivery_CSModel.ResultItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShippingMethodRec.fromStructure = function (str) {
+return new ShippingMethodRec(new ShippingMethodRec.RecordClass({
+resultsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShippingMethodRec.init();
+return ShippingMethodRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.ShippingMethodRec = ShippingMethodRec;
+
+});
+define("Store_Delivery_CS.model$DatumRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$ShippingMethodRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var DatumRec = (function (_super) {
+__extends(DatumRec, _super);
+function DatumRec(defaults) {
+_super.apply(this, arguments);
+}
+DatumRec.attributesToDeclare = function () {
+return [
+this.attr("ShippingMethods", "shippingMethodsAttr", "shippingMethods", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.ShippingMethodRec());
+}, true, Store_Delivery_CSModel.ShippingMethodRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DatumRec.fromStructure = function (str) {
+return new DatumRec(new DatumRec.RecordClass({
+shippingMethodsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DatumRec.init();
+return DatumRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.DatumRec = DatumRec;
+
+});
+define("Store_Delivery_CS.model$ShippingMethodResponseRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$DatumRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ShippingMethodResponseRec = (function (_super) {
+__extends(ShippingMethodResponseRec, _super);
+function ShippingMethodResponseRec(defaults) {
+_super.apply(this, arguments);
+}
+ShippingMethodResponseRec.attributesToDeclare = function () {
+return [
+this.attr("Data", "dataAttr", "data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.DatumRec());
+}, true, Store_Delivery_CSModel.DatumRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShippingMethodResponseRec.fromStructure = function (str) {
+return new ShippingMethodResponseRec(new ShippingMethodResponseRec.RecordClass({
+dataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShippingMethodResponseRec.init();
+return ShippingMethodResponseRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.ShippingMethodResponseRec = ShippingMethodResponseRec;
+
+});
+define("Store_Delivery_CS.model$Store_ZipCodeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var Store_ZipCodeRec = (function (_super) {
+__extends(Store_ZipCodeRec, _super);
+function Store_ZipCodeRec(defaults) {
+_super.apply(this, arguments);
+}
+Store_ZipCodeRec.attributesToDeclare = function () {
+return [
+this.attr("ZipCode", "zipCodeAttr", "ZipCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsPrimary", "isPrimaryAttr", "IsPrimary", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CountryAddressId", "countryAddressIdAttr", "CountryAddressId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Store_ZipCodeRec.init();
+return Store_ZipCodeRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.Store_ZipCodeRec = Store_ZipCodeRec;
+
+});
+define("Store_Delivery_CS.model$ZipCode_AreaRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ZipCode_AreaRec = (function (_super) {
+__extends(ZipCode_AreaRec, _super);
+function ZipCode_AreaRec(defaults) {
+_super.apply(this, arguments);
+}
+ZipCode_AreaRec.attributesToDeclare = function () {
+return [
+this.attr("StoreTimeslotZipCodeAreaId", "storeTimeslotZipCodeAreaIdAttr", "StoreTimeslotZipCodeAreaId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Area", "areaAttr", "Area", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasDelivey", "hasDeliveyAttr", "HasDelivey", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ZipCode_AreaRec.init();
+return ZipCode_AreaRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.ZipCode_AreaRec = ZipCode_AreaRec;
+
+});
+define("Store_Delivery_CS.model$ZipCode_AreaList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$ZipCode_AreaRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ZipCode_AreaList = (function (_super) {
+__extends(ZipCode_AreaList, _super);
+function ZipCode_AreaList(defaults) {
+_super.apply(this, arguments);
+}
+ZipCode_AreaList.itemType = Store_Delivery_CSModel.ZipCode_AreaRec;
+return ZipCode_AreaList;
+})(OS.DataTypes.GenericRecordList);
+Store_Delivery_CSModel.ZipCode_AreaList = ZipCode_AreaList;
+
+});
+define("Store_Delivery_CS.model$ZipCode_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$ZipCode_AreaList"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ZipCode_StrRec = (function (_super) {
+__extends(ZipCode_StrRec, _super);
+function ZipCode_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+ZipCode_StrRec.attributesToDeclare = function () {
+return [
+this.attr("StoreTimeslotZipCodeId", "storeTimeslotZipCodeIdAttr", "StoreTimeslotZipCodeId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ZipCode", "zipCodeAttr", "ZipCode", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsPrimaryZipCode", "isPrimaryZipCodeAttr", "IsPrimaryZipCode", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsActiveZipCode", "isActiveZipCodeAttr", "IsActiveZipCode", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("HasChangedZipCodeStatus", "hasChangedZipCodeStatusAttr", "HasChangedZipCodeStatus", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PlainTextAreaList", "plainTextAreaListAttr", "PlainTextAreaList", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsActiveArea", "isActiveAreaAttr", "IsActiveArea", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsAreaChanged", "isAreaChangedAttr", "IsAreaChanged", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CountryAddressId", "countryAddressIdAttr", "CountryAddressId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ZipCodeAreaList", "zipCodeAreaListAttr", "ZipCodeAreaList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.ZipCode_AreaList());
+}, true, Store_Delivery_CSModel.ZipCode_AreaList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ZipCode_StrRec.init();
+return ZipCode_StrRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.ZipCode_StrRec = ZipCode_StrRec;
+
+});
+define("Store_Delivery_CS.model$ZipCode_StrList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$ZipCode_StrRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ZipCode_StrList = (function (_super) {
+__extends(ZipCode_StrList, _super);
+function ZipCode_StrList(defaults) {
+_super.apply(this, arguments);
+}
+ZipCode_StrList.itemType = Store_Delivery_CSModel.ZipCode_StrRec;
+return ZipCode_StrList;
+})(OS.DataTypes.GenericRecordList);
+Store_Delivery_CSModel.ZipCode_StrList = ZipCode_StrList;
+
+});
+define("Store_Delivery_CS.model$Store_TimeslotZipCodeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$ZipCode_StrList"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var Store_TimeslotZipCodeRec = (function (_super) {
+__extends(Store_TimeslotZipCodeRec, _super);
+function Store_TimeslotZipCodeRec(defaults) {
+_super.apply(this, arguments);
+}
+Store_TimeslotZipCodeRec.attributesToDeclare = function () {
+return [
+this.attr("TimeslotRange", "timeslotRangeAttr", "TimeslotRange", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RegularActiveList", "regularActiveListAttr", "RegularActiveList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.ZipCode_StrList());
+}, true, Store_Delivery_CSModel.ZipCode_StrList), 
+this.attr("RegularInactiveList", "regularInactiveListAttr", "RegularInactiveList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.ZipCode_StrList());
+}, true, Store_Delivery_CSModel.ZipCode_StrList), 
+this.attr("ExpressActiveList", "expressActiveListAttr", "ExpressActiveList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.ZipCode_StrList());
+}, true, Store_Delivery_CSModel.ZipCode_StrList), 
+this.attr("ExpressInactiveList", "expressInactiveListAttr", "ExpressInactiveList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.ZipCode_StrList());
+}, true, Store_Delivery_CSModel.ZipCode_StrList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Store_TimeslotZipCodeRec.init();
+return Store_TimeslotZipCodeRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.Store_TimeslotZipCodeRec = Store_TimeslotZipCodeRec;
+
+});
+define("Store_Delivery_CS.model$StoreLocator_NearbyRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var StoreLocator_NearbyRec = (function (_super) {
+__extends(StoreLocator_NearbyRec, _super);
+function StoreLocator_NearbyRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreLocator_NearbyRec.attributesToDeclare = function () {
+return [
+this.attr("Store_Id", "store_IdAttr", "Store_Id", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Store_Name", "store_NameAttr", "Store_Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Store_Number", "store_NumberAttr", "Store_Number", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Distance", "distanceAttr", "Distance", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DistanceDecimal", "distanceDecimalAttr", "DistanceDecimal", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Store_Address", "store_AddressAttr", "Store_Address", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Store_HasDelivery", "store_HasDeliveryAttr", "Store_HasDelivery", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Store_HasPickUp", "store_HasPickUpAttr", "Store_HasPickUp", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DeliversAtZipCode", "deliversAtZipCodeAttr", "DeliversAtZipCode", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Store_ExternalChannelId", "store_ExternalChannelIdAttr", "Store_ExternalChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Store_Lat", "store_LatAttr", "Store_Lat", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Store_Long", "store_LongAttr", "Store_Long", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("OpenTime", "openTimeAttr", "OpenTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CloseTime", "closeTimeAttr", "CloseTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsStoreOpened", "isStoreOpenedAttr", "IsStoreOpened", false, false, OS.Types.Boolean, function () {
+return true;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreLocator_NearbyRec.init();
+return StoreLocator_NearbyRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.StoreLocator_NearbyRec = StoreLocator_NearbyRec;
+
+});
+define("Store_Delivery_CS.model$V1_StoreOverview_SQL_APIRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var V1_StoreOverview_SQL_APIRec = (function (_super) {
+__extends(V1_StoreOverview_SQL_APIRec, _super);
+function V1_StoreOverview_SQL_APIRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_StoreOverview_SQL_APIRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreNumber", "storeNumberAttr", "StoreNumber", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreName", "storeNameAttr", "StoreName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetName", "streetNameAttr", "StreetName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "City", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PickUpFlag", "pickUpFlagAttr", "PickUpFlag", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DeliveryFlag", "deliveryFlagAttr", "DeliveryFlag", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Longitude", "longitudeAttr", "Longitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Latitude", "latitudeAttr", "Latitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DeliversToZipCode", "deliversToZipCodeAttr", "DeliversToZipCode", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_StoreOverview_SQL_APIRec.init();
+return V1_StoreOverview_SQL_APIRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.V1_StoreOverview_SQL_APIRec = V1_StoreOverview_SQL_APIRec;
+
+});
+define("Store_Delivery_CS.model$DeliveryTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var DeliveryTypeRec = (function (_super) {
+__extends(DeliveryTypeRec, _super);
+function DeliveryTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ParentDeliveryTypeId", "parentDeliveryTypeIdAttr", "ParentDeliveryTypeId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BootstrapLabel", "bootstrapLabelAttr", "BootstrapLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BootstapVariantLabel", "bootstapVariantLabelAttr", "BootstapVariantLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ESBOrderLabel", "eSBOrderLabelAttr", "ESBOrderLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryTypeRec.init();
+return DeliveryTypeRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.DeliveryTypeRec = DeliveryTypeRec;
+
+});
+define("Store_Delivery_CS.model$StoreZipCodeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var StoreZipCodeRec = (function (_super) {
+__extends(StoreZipCodeRec, _super);
+function StoreZipCodeRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreZipCodeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ZipCodeId", "zipCodeIdAttr", "ZipCodeId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("HasDelivery", "hasDeliveryAttr", "HasDelivery", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("HasPickup", "hasPickupAttr", "HasPickup", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreZipCodeRec.init();
+return StoreZipCodeRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.StoreZipCodeRec = StoreZipCodeRec;
+
+});
+define("Store_Delivery_CS.model$", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+Store_Delivery_CSModel.TextList = TextList;
+
+});
+define("Store_Delivery_CS.model$ZipCode_CopyConfigurationRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var ZipCode_CopyConfigurationRec = (function (_super) {
+__extends(ZipCode_CopyConfigurationRec, _super);
+function ZipCode_CopyConfigurationRec(defaults) {
+_super.apply(this, arguments);
+}
+ZipCode_CopyConfigurationRec.attributesToDeclare = function () {
+return [
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("TimeslotRangeList", "timeslotRangeListAttr", "TimeslotRangeList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ZipCode_CopyConfigurationRec.init();
+return ZipCode_CopyConfigurationRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.ZipCode_CopyConfigurationRec = ZipCode_CopyConfigurationRec;
+
+});
+define("Store_Delivery_CS.model$V1_WeekRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var V1_WeekRec = (function (_super) {
+__extends(V1_WeekRec, _super);
+function V1_WeekRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_WeekRec.attributesToDeclare = function () {
+return [
+this.attr("Monday", "mondayAttr", "Monday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Tuesday", "tuesdayAttr", "Tuesday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Wednesday", "wednesdayAttr", "Wednesday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Thursday", "thursdayAttr", "Thursday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Friday", "fridayAttr", "Friday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Saturday", "saturdayAttr", "Saturday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Sunday", "sundayAttr", "Sunday", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_WeekRec.init();
+return V1_WeekRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.V1_WeekRec = V1_WeekRec;
+
+});
+define("Store_Delivery_CS.model$V1_OpeningHoursRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$V1_WeekRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var V1_OpeningHoursRec = (function (_super) {
+__extends(V1_OpeningHoursRec, _super);
+function V1_OpeningHoursRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_OpeningHoursRec.attributesToDeclare = function () {
+return [
+this.attr("ThisWeek", "thisWeekAttr", "ThisWeek", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.V1_WeekRec());
+}, true, Store_Delivery_CSModel.V1_WeekRec), 
+this.attr("NextWeek", "nextWeekAttr", "NextWeek", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.V1_WeekRec());
+}, true, Store_Delivery_CSModel.V1_WeekRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_OpeningHoursRec.init();
+return V1_OpeningHoursRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.V1_OpeningHoursRec = V1_OpeningHoursRec;
+
+});
+define("Store_Delivery_CS.model$DeliveryTypeExtendedRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var DeliveryTypeExtendedRec = (function (_super) {
+__extends(DeliveryTypeExtendedRec, _super);
+function DeliveryTypeExtendedRec(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryTypeExtendedRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ExternalId", "externalIdAttr", "ExternalId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryTypeExtendedRec.init();
+return DeliveryTypeExtendedRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.DeliveryTypeExtendedRec = DeliveryTypeExtendedRec;
+
+});
+define("Store_Delivery_CS.model$StoreTimeslotZipCodeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotZipCodeRec = (function (_super) {
+__extends(StoreTimeslotZipCodeRec, _super);
+function StoreTimeslotZipCodeRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotZipCodeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("WeekdayId", "weekdayIdAttr", "WeekdayId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("TimeslotId", "timeslotIdAttr", "TimeslotId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StoreZipCodeId", "storeZipCodeIdAttr", "StoreZipCodeId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsActive", "isActiveAttr", "IsActive", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreTimeslotZipCodeRec.init();
+return StoreTimeslotZipCodeRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.StoreTimeslotZipCodeRec = StoreTimeslotZipCodeRec;
+
+});
+define("Store_Delivery_CS.model$V1_StoreDetail_SQL_APIRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var V1_StoreDetail_SQL_APIRec = (function (_super) {
+__extends(V1_StoreDetail_SQL_APIRec, _super);
+function V1_StoreDetail_SQL_APIRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_StoreDetail_SQL_APIRec.attributesToDeclare = function () {
+return [
+this.attr("StoreNumber", "storeNumberAttr", "StoreNumber", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreName", "storeNameAttr", "StoreName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetName", "streetNameAttr", "StreetName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "City", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PickUpFlag", "pickUpFlagAttr", "PickUpFlag", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DeliveryFlag", "deliveryFlagAttr", "DeliveryFlag", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Longitude", "longitudeAttr", "Longitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Latitude", "latitudeAttr", "Latitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PhoneNumber", "phoneNumberAttr", "PhoneNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_StoreDetail_SQL_APIRec.init();
+return V1_StoreDetail_SQL_APIRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.V1_StoreDetail_SQL_APIRec = V1_StoreDetail_SQL_APIRec;
+
+});
+define("Store_Delivery_CS.model$V1_StoreOverview_APIRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var V1_StoreOverview_APIRec = (function (_super) {
+__extends(V1_StoreOverview_APIRec, _super);
+function V1_StoreOverview_APIRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_StoreOverview_APIRec.attributesToDeclare = function () {
+return [
+this.attr("StoreNumber", "storeNumberAttr", "StoreNumber", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreName", "storeNameAttr", "StoreName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetName", "streetNameAttr", "StreetName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "City", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PickUpFlag", "pickUpFlagAttr", "PickUpFlag", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DeliveryFlag", "deliveryFlagAttr", "DeliveryFlag", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Longitude", "longitudeAttr", "Longitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Latitude", "latitudeAttr", "Latitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DeliversToZipCode", "deliversToZipCodeAttr", "DeliversToZipCode", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_StoreOverview_APIRec.init();
+return V1_StoreOverview_APIRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.V1_StoreOverview_APIRec = V1_StoreOverview_APIRec;
+
+});
+define("Store_Delivery_CS.model$Timeslot_RangeAndIdRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var Timeslot_RangeAndIdRec = (function (_super) {
+__extends(Timeslot_RangeAndIdRec, _super);
+function Timeslot_RangeAndIdRec(defaults) {
+_super.apply(this, arguments);
+}
+Timeslot_RangeAndIdRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Range", "rangeAttr", "Range", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Timeslot_RangeAndIdRec.init();
+return Timeslot_RangeAndIdRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.Timeslot_RangeAndIdRec = Timeslot_RangeAndIdRec;
+
+});
+define("Store_Delivery_CS.model$TimeslotRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var TimeslotRec = (function (_super) {
+__extends(TimeslotRec, _super);
+function TimeslotRec(defaults) {
+_super.apply(this, arguments);
+}
+TimeslotRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Is_Active", "is_ActiveAttr", "Is_Active", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("TimeFormat", "timeFormatAttr", "TimeFormat", false, false, OS.Types.Text, function () {
+return "HH:mm";
+}, true), 
+this.attr("TimeslotCode", "timeslotCodeAttr", "TimeslotCode", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TimeslotRec.init();
+return TimeslotRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.TimeslotRec = TimeslotRec;
+
+});
+define("Store_Delivery_CS.model$StoreTimeslotZipCodeAreaRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotZipCodeAreaRec = (function (_super) {
+__extends(StoreTimeslotZipCodeAreaRec, _super);
+function StoreTimeslotZipCodeAreaRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotZipCodeAreaRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreTimeslotZipCodeId", "storeTimeslotZipCodeIdAttr", "StoreTimeslotZipCodeId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Area", "areaAttr", "Area", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasDelivery", "hasDeliveryAttr", "HasDelivery", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreTimeslotZipCodeAreaRec.init();
+return StoreTimeslotZipCodeAreaRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.StoreTimeslotZipCodeAreaRec = StoreTimeslotZipCodeAreaRec;
+
+});
+define("Store_Delivery_CS.model$TextList", ["exports", "OutSystems/ClientRuntime/Main", "Extension.Text.model", "Store_Delivery_CS.model", "Extension.Text.model$TextRec", "Store_Delivery_CS.referencesHealth", "Store_Delivery_CS.referencesHealth$Text"], function (exports, OutSystems, Extension_TextModel, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = Extension_TextModel.TextRec;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+Store_Delivery_CSModel.TextList = TextList;
+
+});
+define("Store_Delivery_CS.model$StoreLocator_FilterRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$TextList"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var StoreLocator_FilterRec = (function (_super) {
+__extends(StoreLocator_FilterRec, _super);
+function StoreLocator_FilterRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreLocator_FilterRec.attributesToDeclare = function () {
+return [
+this.attr("IsStoreNowOpen", "isStoreNowOpenAttr", "IsStoreNowOpen", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsStoreSundayOpen", "isStoreSundayOpenAttr", "IsStoreSundayOpen", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StoreServicesRL", "storeServicesRLAttr", "StoreServicesRL", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.TextList());
+}, true, Store_Delivery_CSModel.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreLocator_FilterRec.init();
+return StoreLocator_FilterRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.StoreLocator_FilterRec = StoreLocator_FilterRec;
+
+});
+define("Store_Delivery_CS.model$V1_StoreDetail_APIRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "Store_Delivery_CS.model$V1_OpeningHoursRec"], function (exports, OutSystems, Store_Delivery_CSModel) {
+var OS = OutSystems.Internal;
+var V1_StoreDetail_APIRec = (function (_super) {
+__extends(V1_StoreDetail_APIRec, _super);
+function V1_StoreDetail_APIRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_StoreDetail_APIRec.attributesToDeclare = function () {
+return [
+this.attr("StoreNumber", "storeNumberAttr", "StoreNumber", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreName", "storeNameAttr", "StoreName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetName", "streetNameAttr", "StreetName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "City", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PickUpFlag", "pickUpFlagAttr", "PickUpFlag", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DeliveryFlag", "deliveryFlagAttr", "DeliveryFlag", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Longitude", "longitudeAttr", "Longitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Latitude", "latitudeAttr", "Latitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PhoneNumber", "phoneNumberAttr", "PhoneNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OpeningHours", "openingHoursAttr", "OpeningHours", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.V1_OpeningHoursRec());
+}, true, Store_Delivery_CSModel.V1_OpeningHoursRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_StoreDetail_APIRec.init();
+return V1_StoreDetail_APIRec;
+})(OS.DataTypes.GenericRecord);
+Store_Delivery_CSModel.V1_StoreDetail_APIRec = V1_StoreDetail_APIRec;
+
+});
+define("Store_Delivery_CS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var Store_Delivery_CSModel = exports;
+});

@@ -1,0 +1,1109 @@
+﻿define("CloneOfOutSystemsMaps.Maps.Map.mvc$model", ["OutSystems/ClientRuntime/Main", "CloneOfOutSystemsMaps.model", "CloneOfOutSystemsMaps.controller", "CloneOfOutSystemsMaps.Styles.ImagesCSS.mvc$model", "CloneOfOutSystemsMaps.Styles.MapCSS.mvc$model", "CloneOfOutSystemsMaps.model$Internal_ConfigsRec", "CloneOfOutSystemsMaps.model$OptionalMapConfigsRec", "CloneOfOutSystemsMaps.controller$RemoveMap", "CloneOfOutSystemsMaps.controller$MapEventUnsubscribe", "CloneOfOutSystemsMaps.controller$MapEventSubscribe", "CloneOfOutSystemsMaps.controller$ChangeMapApiKey", "CloneOfOutSystemsMaps.controller$CreateMap", "CloneOfOutSystemsMaps.controller$LogEvent", "CloneOfOutSystemsMaps.controller$GenerateUniqueId", "CloneOfOutSystemsMaps.model$MarkerClustererRec", "CloneOfOutSystemsMaps.model$Private_MarkerClustererRec", "CloneOfOutSystemsMaps.model$OffsetRec", "CloneOfOutSystemsMaps.model$Internal_to_provider_configsRec", "CloneOfOutSystemsMaps.controller$InitMap", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringMaxZoom", "CloneOfOutSystemsMaps.controller$ChangeMapZoom", "CloneOfOutSystemsMaps.controller$SetMapHeight", "CloneOfOutSystemsMaps.controller$ChangeMapLocation", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringMinClusterSize", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringZoomOnClick", "CloneOfOutSystemsMaps.controller$ChangeMapType", "CloneOfOutSystemsMaps.controller$ChangeMapStyle", "CloneOfOutSystemsMaps.controller$ChangeMapShowTraffic", "CloneOfOutSystemsMaps.controller$ChangeMapOffset", "CloneOfOutSystemsMaps.controller$ChangeMapAdvancedFormat", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringActive"], function (OutSystems, CloneOfOutSystemsMapsModel, CloneOfOutSystemsMapsController, CloneOfOutSystemsMaps_Styles_ImagesCSS_mvcModel, CloneOfOutSystemsMaps_Styles_MapCSS_mvcModel) {
+var OS = OutSystems.Internal;
+
+var GetServerAPIKeyDataActRec = (function (_super) {
+__extends(GetServerAPIKeyDataActRec, _super);
+function GetServerAPIKeyDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetServerAPIKeyDataActRec.attributesToDeclare = function () {
+return [
+this.attr("ServerAPIKey", "serverAPIKeyOut", "ServerAPIKey", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetServerAPIKeyDataActRec.fromStructure = function (str) {
+return new GetServerAPIKeyDataActRec(new GetServerAPIKeyDataActRec.RecordClass({
+serverAPIKeyOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetServerAPIKeyDataActRec.init();
+return GetServerAPIKeyDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("Internal_Configs", "internal_ConfigsVar", "Internal_Configs", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CloneOfOutSystemsMapsModel.Internal_ConfigsRec());
+}, false, CloneOfOutSystemsMapsModel.Internal_ConfigsRec), 
+this.attr("IsSecondRound", "isSecondRoundVar", "IsSecondRound", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("APIKey", "aPIKeyIn", "APIKey", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_aPIKeyInDataFetchStatus", "_aPIKeyInDataFetchStatus", "_aPIKeyInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Center", "centerIn", "Center", true, false, OS.Types.Text, function () {
+return "42.3517926,-71.0467845";
+}, false), 
+this.attr("_centerInDataFetchStatus", "_centerInDataFetchStatus", "_centerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Height", "heightIn", "Height", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_heightInDataFetchStatus", "_heightInDataFetchStatus", "_heightInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OptionalConfigs", "optionalConfigsIn", "OptionalConfigs", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CloneOfOutSystemsMapsModel.OptionalMapConfigsRec());
+}, false, CloneOfOutSystemsMapsModel.OptionalMapConfigsRec), 
+this.attr("_optionalConfigsInDataFetchStatus", "_optionalConfigsInDataFetchStatus", "_optionalConfigsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetServerAPIKey", "getServerAPIKeyDataAct", "getServerAPIKeyDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetServerAPIKeyDataActRec());
+}, true, GetServerAPIKeyDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (CloneOfOutSystemsMaps_Styles_ImagesCSS_mvcModel.hasValidationWidgets || CloneOfOutSystemsMaps_Styles_MapCSS_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("APIKey" in inputs) {
+this.variables.aPIKeyIn = inputs.APIKey;
+if("_aPIKeyInDataFetchStatus" in inputs) {
+this.variables._aPIKeyInDataFetchStatus = inputs._aPIKeyInDataFetchStatus;
+}
+
+}
+
+if("Center" in inputs) {
+this.variables.centerIn = inputs.Center;
+if("_centerInDataFetchStatus" in inputs) {
+this.variables._centerInDataFetchStatus = inputs._centerInDataFetchStatus;
+}
+
+}
+
+if("Height" in inputs) {
+this.variables.heightIn = inputs.Height;
+if("_heightInDataFetchStatus" in inputs) {
+this.variables._heightInDataFetchStatus = inputs._heightInDataFetchStatus;
+}
+
+}
+
+if("OptionalConfigs" in inputs) {
+this.variables.optionalConfigsIn = inputs.OptionalConfigs;
+if("_optionalConfigsInDataFetchStatus" in inputs) {
+this.variables._optionalConfigsInDataFetchStatus = inputs._optionalConfigsInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Maps.Map");
+});
+define("CloneOfOutSystemsMaps.Maps.Map.mvc$view", ["OutSystems/ClientRuntime/Main", "CloneOfOutSystemsMaps.model", "CloneOfOutSystemsMaps.controller", "react", "OutSystems/ReactView/Main", "CloneOfOutSystemsMaps.Maps.Map.mvc$model", "CloneOfOutSystemsMaps.Maps.Map.mvc$controller", "OutSystems/ReactWidgets/Main", "CloneOfOutSystemsMaps.Styles.ImagesCSS.mvc$view", "CloneOfOutSystemsMaps.Styles.MapCSS.mvc$view", "CloneOfOutSystemsMaps.model$Internal_ConfigsRec", "CloneOfOutSystemsMaps.model$OptionalMapConfigsRec", "CloneOfOutSystemsMaps.controller$RemoveMap", "CloneOfOutSystemsMaps.controller$MapEventUnsubscribe", "CloneOfOutSystemsMaps.controller$MapEventSubscribe", "CloneOfOutSystemsMaps.controller$ChangeMapApiKey", "CloneOfOutSystemsMaps.controller$CreateMap", "CloneOfOutSystemsMaps.controller$LogEvent", "CloneOfOutSystemsMaps.controller$GenerateUniqueId", "CloneOfOutSystemsMaps.model$MarkerClustererRec", "CloneOfOutSystemsMaps.model$Private_MarkerClustererRec", "CloneOfOutSystemsMaps.model$OffsetRec", "CloneOfOutSystemsMaps.model$Internal_to_provider_configsRec", "CloneOfOutSystemsMaps.controller$InitMap", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringMaxZoom", "CloneOfOutSystemsMaps.controller$ChangeMapZoom", "CloneOfOutSystemsMaps.controller$SetMapHeight", "CloneOfOutSystemsMaps.controller$ChangeMapLocation", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringMinClusterSize", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringZoomOnClick", "CloneOfOutSystemsMaps.controller$ChangeMapType", "CloneOfOutSystemsMaps.controller$ChangeMapStyle", "CloneOfOutSystemsMaps.controller$ChangeMapShowTraffic", "CloneOfOutSystemsMaps.controller$ChangeMapOffset", "CloneOfOutSystemsMaps.controller$ChangeMapAdvancedFormat", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringActive"], function (OutSystems, CloneOfOutSystemsMapsModel, CloneOfOutSystemsMapsController, React, OSView, CloneOfOutSystemsMaps_Maps_Map_mvc_model, CloneOfOutSystemsMaps_Maps_Map_mvc_controller, OSWidgets, CloneOfOutSystemsMaps_Styles_ImagesCSS_mvc_view, CloneOfOutSystemsMaps_Styles_MapCSS_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Maps.Map";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return ["scripts/CloneOfOutSystemsMaps.markerclusterer.js", "scripts/CloneOfOutSystemsMaps.OutSystemsMaps.js"];
+        };
+        View.getBlocks = function() {
+            return [CloneOfOutSystemsMaps_Styles_ImagesCSS_mvc_view, CloneOfOutSystemsMaps_Styles_MapCSS_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return CloneOfOutSystemsMaps_Maps_Map_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return CloneOfOutSystemsMaps_Maps_Map_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("V6qLoU5c_EO8orRbwmXRHA.Style"), function () {
+return ("map-wrapper" + (((model.variables.internal_ConfigsVar.extendedClassAttr === "")) ? ("") : ((" " + model.variables.internal_ConfigsVar.extendedClassAttr))));
+}, function () {
+return model.variables.internal_ConfigsVar.extendedClassAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+"data-type": "map-container",
+name: model.variables.internal_ConfigsVar.uniqueIdAttr
+},
+style: "map-container",
+visible: true,
+_idProps: {
+service: idService,
+name: "MapContainer"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "map-preview",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "map-preview-ss",
+visible: false,
+_idProps: {
+service: idService,
+name: "MapImagePreview"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "control-type",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Image, {
+image: OS.Navigation.VersionedURL.getVersionedUrl("img/CloneOfOutSystemsMaps.controltype.png"),
+type: /*Static*/ 0,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "control-zoom",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Image, {
+image: OS.Navigation.VersionedURL.getVersionedUrl("img/CloneOfOutSystemsMaps.controlzoom.png"),
+type: /*Static*/ 0,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "control-full",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Image, {
+image: OS.Navigation.VersionedURL.getVersionedUrl("img/CloneOfOutSystemsMaps.controlfull.png"),
+type: /*Static*/ 0,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "map-preview-message-container",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "map-preview-height",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "map-preview-location",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))), $if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.addOns_Placeholder,
+style: "map-preview-addons",
+_idProps: {
+service: idService,
+name: "AddOns_Placeholder"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "runtime-map-container",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CloneOfOutSystemsMaps_Styles_ImagesCSS_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "15",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(CloneOfOutSystemsMaps_Styles_MapCSS_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "16",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.events_Placeholder,
+style: "map-preview-events",
+_idProps: {
+service: idService,
+name: "Events_Placeholder"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "hide-true-branch",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(true, false, this, function () {
+return [];
+}, function () {
+return [];
+}))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("CloneOfOutSystemsMaps.Maps.Map.mvc$controller", ["OutSystems/ClientRuntime/Main", "CloneOfOutSystemsMaps.model", "CloneOfOutSystemsMaps.controller", "CloneOfOutSystemsMaps.languageResources", "CloneOfOutSystemsMaps.Maps.Map.mvc$controller.UnsubscribeEvents.GetCallbackHandlerJS", "CloneOfOutSystemsMaps.Maps.Map.mvc$controller.SubscribeEvents.GetCallbackHandlerJS", "CloneOfOutSystemsMaps.model$Internal_ConfigsRec", "CloneOfOutSystemsMaps.model$OptionalMapConfigsRec", "CloneOfOutSystemsMaps.controller$RemoveMap", "CloneOfOutSystemsMaps.controller$MapEventUnsubscribe", "CloneOfOutSystemsMaps.controller$MapEventSubscribe", "CloneOfOutSystemsMaps.controller$ChangeMapApiKey", "CloneOfOutSystemsMaps.controller$CreateMap", "CloneOfOutSystemsMaps.controller$LogEvent", "CloneOfOutSystemsMaps.controller$GenerateUniqueId", "CloneOfOutSystemsMaps.model$MarkerClustererRec", "CloneOfOutSystemsMaps.model$Private_MarkerClustererRec", "CloneOfOutSystemsMaps.model$OffsetRec", "CloneOfOutSystemsMaps.model$Internal_to_provider_configsRec", "CloneOfOutSystemsMaps.controller$InitMap", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringMaxZoom", "CloneOfOutSystemsMaps.controller$ChangeMapZoom", "CloneOfOutSystemsMaps.controller$SetMapHeight", "CloneOfOutSystemsMaps.controller$ChangeMapLocation", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringMinClusterSize", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringZoomOnClick", "CloneOfOutSystemsMaps.controller$ChangeMapType", "CloneOfOutSystemsMaps.controller$ChangeMapStyle", "CloneOfOutSystemsMaps.controller$ChangeMapShowTraffic", "CloneOfOutSystemsMaps.controller$ChangeMapOffset", "CloneOfOutSystemsMaps.controller$ChangeMapAdvancedFormat", "CloneOfOutSystemsMaps.controller$ChangeMapMarkerClusteringActive"], function (OutSystems, CloneOfOutSystemsMapsModel, CloneOfOutSystemsMapsController, CloneOfOutSystemsMapsLanguageResources, CloneOfOutSystemsMaps_Maps_Map_mvc_controller_UnsubscribeEvents_GetCallbackHandlerJS, CloneOfOutSystemsMaps_Maps_Map_mvc_controller_SubscribeEvents_GetCallbackHandlerJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+mapInitialized_Callback$Action: function (mapObjIn, mapIdIn) {
+mapObjIn = (mapObjIn === undefined) ? null : mapObjIn;
+mapIdIn = (mapIdIn === undefined) ? "" : mapIdIn;
+return controller.executeActionInsideJSNode(controller._mapInitialized_Callback$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(mapObjIn, OS.Types.Object), OS.DataConversion.JSNodeParamConverter.from(mapIdIn, OS.Types.Text)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "MapInitialized_Callback");
+},
+mapOnError_Callback$Action: function (mapObjIn, mapIdIn, errorCodeIn, extraErrorMessageIn) {
+mapObjIn = (mapObjIn === undefined) ? null : mapObjIn;
+mapIdIn = (mapIdIn === undefined) ? "" : mapIdIn;
+errorCodeIn = (errorCodeIn === undefined) ? "" : errorCodeIn;
+extraErrorMessageIn = (extraErrorMessageIn === undefined) ? "" : extraErrorMessageIn;
+return controller.executeActionInsideJSNode(controller._mapOnError_Callback$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(mapObjIn, OS.Types.Object), OS.DataConversion.JSNodeParamConverter.from(mapIdIn, OS.Types.Text), errorCodeIn, OS.DataConversion.JSNodeParamConverter.from(extraErrorMessageIn, OS.Types.Text)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "MapOnError_Callback");
+}
+};
+this.dataFetchDependenciesOriginal = {
+getServerAPIKey$DataActRefresh: -1
+};
+this.dataFetchDependentsGraph = {
+getServerAPIKey$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+// Server Actions
+Controller.prototype.getMapErrorByMapErrorCode$ServerAction = function (mapErrorCodeIn, callContext) {
+var controller = this.controller;
+var inputs = {
+MapErrorCode: OS.DataConversion.ServerDataConverter.to(mapErrorCodeIn, OS.Types.Text)
+};
+return controller.callServerAction("GetMapErrorByMapErrorCode", "screenservices/CloneOfOutSystemsMaps/Maps/Map/ActionGetMapErrorByMapErrorCode", "RXITIP6LYzN8r8ZKXVaIVA", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("CloneOfOutSystemsMaps.Maps.Map$ActionGetMapErrorByMapErrorCode"))();
+executeServerActionResult.errorMessageOut = OS.DataConversion.ServerDataConverter.from(outputs.ErrorMessage, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("CloneOfOutSystemsMaps.Maps.Map$ActionGetMapErrorByMapErrorCode", [{
+name: "ErrorMessage",
+attrName: "errorMessageOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+
+// Aggregates and Data Actions
+Controller.prototype.getServerAPIKey$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetServerAPIKey", "screenservices/CloneOfOutSystemsMaps/Maps/Map/DataActionGetServerAPIKey", "0p_Um+oS0ufB+Sfhcnvp8g", function (b) {
+model.variables.getServerAPIKeyDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getServerAPIKeyDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getServerAPIKeyDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, false).then(function () {
+return controller._obtainMapKey_OnAfterFetch$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["getServerAPIKey$DataActRefresh"];
+// Client Actions
+Controller.prototype._obtainMapKey_OnAfterFetch$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ObtainMapKey_OnAfterFetch");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// IsSecondRound = True
+model.variables.isSecondRoundVar = true;
+// Execute Action: SetApiKey
+return controller._setApiKey$Action(model.variables.getServerAPIKeyDataAct.serverAPIKeyOut, callContext);
+});
+};
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+// Execute Action: UnsubscribeEvents
+controller._unsubscribeEvents$Action(callContext);
+// Execute Action: RemoveMap
+CloneOfOutSystemsMapsController.default.removeMap$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, callContext);
+};
+Controller.prototype._mapInitialized_Callback$Action = function (mapObjIn, mapIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("MapInitialized_Callback");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.MapInitialized_Callback$vars"))());
+vars.value.mapObjInLocal = mapObjIn;
+vars.value.mapIdInLocal = mapIdIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: Map_Initialized
+return controller.map_Initialized$Action(vars.value.mapIdInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.MapInitialized_Callback$vars", [{
+name: "MapObj",
+attrName: "mapObjInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "MapId",
+attrName: "mapIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._unsubscribeEvents$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("UnsubscribeEvents");
+callContext = controller.callContext(callContext);
+var getCallbackHandlerJSResult = new OS.DataTypes.VariableHolder();
+getCallbackHandlerJSResult.value = controller.safeExecuteJSNode(CloneOfOutSystemsMaps_Maps_Map_mvc_controller_UnsubscribeEvents_GetCallbackHandlerJS, "GetCallbackHandler", "UnsubscribeEvents", {
+MapInitialized_Callback: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object),
+MapOnError_Callback: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.UnsubscribeEvents$getCallbackHandlerJSResult"))();
+jsNodeResult.mapInitialized_CallbackOut = OS.DataConversion.JSNodeParamConverter.from($parameters.MapInitialized_Callback, OS.Types.Object);
+jsNodeResult.mapOnError_CallbackOut = OS.DataConversion.JSNodeParamConverter.from($parameters.MapOnError_Callback, OS.Types.Object);
+return jsNodeResult;
+}, {
+MapInitialized_Callback: controller.clientActionProxies.mapInitialized_Callback$Action,
+MapOnError_Callback: controller.clientActionProxies.mapOnError_Callback$Action
+}, {});
+// Execute Action: MapInitialized_Unsubscribe
+CloneOfOutSystemsMapsController.default.mapEventUnsubscribe$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, CloneOfOutSystemsMapsModel.staticEntities.mapEvent.initialized, getCallbackHandlerJSResult.value.mapInitialized_CallbackOut, callContext);
+// Execute Action: MapOnError_Unsubscribe
+CloneOfOutSystemsMapsController.default.mapEventUnsubscribe$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, CloneOfOutSystemsMapsModel.staticEntities.mapEvent.onError, getCallbackHandlerJSResult.value.mapOnError_CallbackOut, callContext);
+};
+Controller.registerVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.UnsubscribeEvents$getCallbackHandlerJSResult", [{
+name: "MapInitialized_Callback",
+attrName: "mapInitialized_CallbackOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "MapOnError_Callback",
+attrName: "mapOnError_CallbackOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._subscribeEvents$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SubscribeEvents");
+callContext = controller.callContext(callContext);
+var getCallbackHandlerJSResult = new OS.DataTypes.VariableHolder();
+getCallbackHandlerJSResult.value = controller.safeExecuteJSNode(CloneOfOutSystemsMaps_Maps_Map_mvc_controller_SubscribeEvents_GetCallbackHandlerJS, "GetCallbackHandler", "SubscribeEvents", {
+MapInitialized_Callback: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object),
+MapOnError_Callback: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.SubscribeEvents$getCallbackHandlerJSResult"))();
+jsNodeResult.mapInitialized_CallbackOut = OS.DataConversion.JSNodeParamConverter.from($parameters.MapInitialized_Callback, OS.Types.Object);
+jsNodeResult.mapOnError_CallbackOut = OS.DataConversion.JSNodeParamConverter.from($parameters.MapOnError_Callback, OS.Types.Object);
+return jsNodeResult;
+}, {
+MapInitialized_Callback: controller.clientActionProxies.mapInitialized_Callback$Action,
+MapOnError_Callback: controller.clientActionProxies.mapOnError_Callback$Action
+}, {});
+// Execute Action: MapInitialized_Subscribe
+CloneOfOutSystemsMapsController.default.mapEventSubscribe$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, CloneOfOutSystemsMapsModel.staticEntities.mapEvent.initialized, getCallbackHandlerJSResult.value.mapInitialized_CallbackOut, callContext);
+// Execute Action: MapOnError_Subscribe
+CloneOfOutSystemsMapsController.default.mapEventSubscribe$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, CloneOfOutSystemsMapsModel.staticEntities.mapEvent.onError, getCallbackHandlerJSResult.value.mapOnError_CallbackOut, callContext);
+};
+Controller.registerVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.SubscribeEvents$getCallbackHandlerJSResult", [{
+name: "MapInitialized_Callback",
+attrName: "mapInitialized_CallbackOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "MapOnError_Callback",
+attrName: "mapOnError_CallbackOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._setApiKey$Action = function (mapAPIKeyIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetApiKey");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.SetApiKey$vars"))());
+vars.value.mapAPIKeyInLocal = mapAPIKeyIn;
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if(((model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.apiKeyAttr === ""))) {
+// Set APIKey
+// APIKey = MapAPIKey
+model.variables.aPIKeyIn = vars.value.mapAPIKeyInLocal;
+// Internal_Configs.Internal_to_provider_configs.apiKey = MapAPIKey
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.apiKeyAttr = vars.value.mapAPIKeyInLocal;
+// Execute Action: ChangeMapApiKey
+CloneOfOutSystemsMapsController.default.changeMapApiKey$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.aPIKeyIn, callContext);
+// Execute Action: InitializeProviderMap
+return controller._initializeProviderMap$Action(callContext);
+} else {
+// Trigger Event: OnError
+return controller.onError$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, CloneOfOutSystemsMapsModel.staticEntities.mapErrors.lIB_InvalidApiKeyMap, "The APIKey can\'t be empty.", callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.SetApiKey$vars", [{
+name: "MapAPIKey",
+attrName: "mapAPIKeyInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var generateUniqueIdVar = new OS.DataTypes.VariableHolder();
+var serialize_configsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+// Execute Action: LogStart
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.general, "Going to create Map", callContext);
+// Execute Action: GenerateUniqueId
+generateUniqueIdVar.value = CloneOfOutSystemsMapsController.default.generateUniqueId$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, callContext);
+
+// Configs_Local
+// Internal_Configs.Internal_to_provider_configs.apiKey = APIKey
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.apiKeyAttr = model.variables.aPIKeyIn;
+// Internal_Configs.UniqueId = GenerateUniqueId.Unique_ID
+model.variables.internal_ConfigsVar.uniqueIdAttr = generateUniqueIdVar.value.unique_IDOut;
+// Internal_Configs.Internal_to_provider_configs.advancedFormat = OptionalConfigs.DEPRECATED_AdvancedFormat
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.advancedFormatAttr = model.variables.optionalConfigsIn.dEPRECATED_AdvancedFormatAttr;
+// Internal_Configs.Height = Height
+model.variables.internal_ConfigsVar.heightAttr = model.variables.heightIn;
+// Internal_Configs.Internal_to_provider_configs.offset = OptionalConfigs.Offset
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.offsetAttr = model.variables.optionalConfigsIn.offsetAttr;
+// Internal_Configs.Internal_to_provider_configs.showTraffic = OptionalConfigs.ShowTraffic
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.showTrafficAttr = model.variables.optionalConfigsIn.showTrafficAttr;
+// Internal_Configs.Internal_to_provider_configs.style = If
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.styleAttr = (((model.variables.optionalConfigsIn.styleAttr === OS.BuiltinFunctions.nullIdentifier())) ? (CloneOfOutSystemsMapsModel.staticEntities.style.standard) : (model.variables.optionalConfigsIn.styleAttr));
+// Internal_Configs.Internal_to_provider_configs.type = If
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.typeAttr = (((model.variables.optionalConfigsIn.typeAttr === OS.BuiltinFunctions.nullTextIdentifier())) ? (CloneOfOutSystemsMapsModel.staticEntities.type.roadmap) : (model.variables.optionalConfigsIn.typeAttr));
+// Internal_Configs.Internal_to_provider_configs.zoom = OptionalConfigs.Zoom
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.zoomAttr = model.variables.optionalConfigsIn.zoomAttr;
+// Internal_Configs.Internal_to_provider_configs.center = Center
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.centerAttr = model.variables.centerIn;
+// Internal_Configs.Internal_to_provider_configs.height = Height
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.heightAttr = model.variables.heightIn;
+// Internal_Configs.Internal_to_provider_configs.markerClusterer = OptionalConfigs.MarkerClusterer
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr = OS.DataConversion.JSConversions.typeConvertRecord(model.variables.optionalConfigsIn.markerClustererAttr, new CloneOfOutSystemsMapsModel.Private_MarkerClustererRec(), function (source, target) {
+target.activeAttr = source.activeAttr;
+target.maxZoomAttr = source.maxZoomAttr;
+target.zoomOnClickAttr = source.zoomOnClickAttr;
+target.minClusterSizeAttr = source.minClusterSizeAttr;
+return target;
+});
+// JSON Serialize: Serialize_configs
+serialize_configsVar.value.jSONOut = OS.JSONUtils.serializeToJSON(model.variables.internal_ConfigsVar.internal_to_provider_configsAttr, true, false);
+// Execute Action: CreateMap
+CloneOfOutSystemsMapsController.default.createMap$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, CloneOfOutSystemsMapsModel.staticEntities.provider.google, CloneOfOutSystemsMapsModel.staticEntities.mapType.map, serialize_configsVar.value.jSONOut, callContext);
+// Execute Action: SubscribeEvents
+controller._subscribeEvents$Action(callContext);
+// Execute Action: LogEnd
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.general, "Map created", callContext);
+};
+Controller.prototype._initializeProviderMap$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("InitializeProviderMap");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: LogStart
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.general, "Going to instantiate Map", callContext);
+// Has Maps Key?
+return OS.Flow.executeSequence(function () {
+if((!(((model.variables.aPIKeyIn) !== (""))))) {
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.isSecondRoundVar))) {
+// Refresh Query: GetServerAPIKey
+var result = controller.getServerAPIKey$DataActRefresh(callContext);
+model.flush();
+return result.then(function () {
+// Execute Action: LogEnd_Waiting
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.general, "Waiting for API Key from server", callContext);
+return OS.Flow.returnAsync();
+
+});
+}
+
+});
+}
+
+}).then(function () {
+// Execute Action: InitMap
+CloneOfOutSystemsMapsController.default.initMap$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, callContext);
+// Execute Action: LogEnd
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.general, "Map instantiated", callContext);
+});
+});
+};
+Controller.prototype._mapOnError_Callback$Action = function (mapObjIn, mapIdIn, errorCodeIn, extraErrorMessageIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("MapOnError_Callback");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.MapOnError_Callback$vars"))());
+vars.value.mapObjInLocal = mapObjIn;
+vars.value.mapIdInLocal = mapIdIn;
+vars.value.errorCodeInLocal = errorCodeIn;
+vars.value.extraErrorMessageInLocal = extraErrorMessageIn;
+var getMapErrorByMapErrorCodeVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GetMapErrorByMapErrorCode
+model.flush();
+return controller.getMapErrorByMapErrorCode$ServerAction(vars.value.errorCodeInLocal, callContext).then(function (value) {
+getMapErrorByMapErrorCodeVar.value = value;
+}).then(function () {
+// Trigger Event: OnError
+return controller.onError$Action(vars.value.mapIdInLocal, OS.BuiltinFunctions.textToIdentifier(vars.value.errorCodeInLocal), ((((vars.value.extraErrorMessageInLocal) !== (""))) ? ((getMapErrorByMapErrorCodeVar.value.errorMessageOut + vars.value.extraErrorMessageInLocal)) : (getMapErrorByMapErrorCodeVar.value.errorMessageOut)), callContext);
+});
+});
+};
+Controller.registerVariableGroupType("CloneOfOutSystemsMaps.Maps.Map.MapOnError_Callback$vars", [{
+name: "MapObj",
+attrName: "mapObjInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "MapId",
+attrName: "mapIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ErrorCode",
+attrName: "errorCodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExtraErrorMessage",
+attrName: "extraErrorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// API Key changed?
+return OS.Flow.executeSequence(function () {
+if((((model.variables.aPIKeyIn) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.apiKeyAttr)))) {
+// Execute Action: LogApiKeyChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter API Key has changed.", callContext);
+// Execute Action: ChangeMapApiKey
+CloneOfOutSystemsMapsController.default.changeMapApiKey$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.aPIKeyIn, callContext);
+// Execute Action: SetApiKey
+return controller._setApiKey$Action(model.variables.aPIKeyIn, callContext);
+}
+
+}).then(function () {
+// Location changed?
+if((((model.variables.centerIn) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.centerAttr)))) {
+// Execute Action: LogLocationChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter Location has changed.", callContext);
+// Execute Action: ChangeMapLocation
+CloneOfOutSystemsMapsController.default.changeMapLocation$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.centerIn, callContext);
+// Set new Location
+// Internal_Configs.Internal_to_provider_configs.center = Center
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.centerAttr = model.variables.centerIn;
+}
+
+// Zoom changed?
+if((((model.variables.optionalConfigsIn.zoomAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.zoomAttr)))) {
+// Execute Action: LogZoomChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter Zoom has changed.", callContext);
+// Execute Action: ChangeMapZoom
+CloneOfOutSystemsMapsController.default.changeMapZoom$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.zoomAttr, callContext);
+// Set new Zoom
+// Internal_Configs.Internal_to_provider_configs.zoom = OptionalConfigs.Zoom
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.zoomAttr = model.variables.optionalConfigsIn.zoomAttr;
+}
+
+// Height changed?
+if((((model.variables.heightIn) !== (model.variables.internal_ConfigsVar.heightAttr)))) {
+// Execute Action: LogHeightChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter Height has changed.", callContext);
+// Execute Action: SetMapHeight
+CloneOfOutSystemsMapsController.default.setMapHeight$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.heightIn, callContext);
+// Set new height
+// Internal_Configs.Height = Height
+model.variables.internal_ConfigsVar.heightAttr = model.variables.heightIn;
+}
+
+// Style changed?
+if((((model.variables.optionalConfigsIn.styleAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.styleAttr)))) {
+// Execute Action: LogStyleChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter Style has changed.", callContext);
+// Execute Action: ChangeMapStyle
+CloneOfOutSystemsMapsController.default.changeMapStyle$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.styleAttr, callContext);
+// Set new style
+// Internal_Configs.Internal_to_provider_configs.style = OptionalConfigs.Style
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.styleAttr = model.variables.optionalConfigsIn.styleAttr;
+}
+
+// Type changed?
+if((((model.variables.optionalConfigsIn.typeAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.typeAttr)))) {
+// Execute Action: LogTypeChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter Type has changed.", callContext);
+// Execute Action: ChangeMapType
+CloneOfOutSystemsMapsController.default.changeMapType$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.typeAttr, callContext);
+// Set new type
+// Internal_Configs.Internal_to_provider_configs.type = OptionalConfigs.Type
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.typeAttr = model.variables.optionalConfigsIn.typeAttr;
+}
+
+// Offset changed?
+if(((((model.variables.optionalConfigsIn.offsetAttr.offsetXAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.offsetAttr.offsetXAttr)) || ((model.variables.optionalConfigsIn.offsetAttr.offsetYAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.offsetAttr.offsetYAttr))))) {
+// Execute Action: LogOffsetChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter Offset has changed.", callContext);
+// Execute Action: ChangeMapOffset
+CloneOfOutSystemsMapsController.default.changeMapOffset$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.offsetAttr, callContext);
+// Set new offset
+// Internal_Configs.Internal_to_provider_configs.offset = OptionalConfigs.Offset
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.offsetAttr = model.variables.optionalConfigsIn.offsetAttr;
+}
+
+// ShowTraffic changed?
+if((((model.variables.optionalConfigsIn.showTrafficAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.showTrafficAttr)))) {
+// Execute Action: LogShowTrafficChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter ShowTraffic has changed.", callContext);
+// Execute Action: ChangeMapShowTraffic
+CloneOfOutSystemsMapsController.default.changeMapShowTraffic$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.showTrafficAttr, callContext);
+// Set show traffic
+// Internal_Configs.Internal_to_provider_configs.showTraffic = OptionalConfigs.ShowTraffic
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.showTrafficAttr = model.variables.optionalConfigsIn.showTrafficAttr;
+}
+
+// AdvancedFormat changed?
+if((((model.variables.optionalConfigsIn.dEPRECATED_AdvancedFormatAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.advancedFormatAttr)))) {
+// Execute Action: LogAdvancedFormatChange
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter AdvancedFormat has changed.", callContext);
+// Execute Action: ChangeMapAdvancedFormat
+CloneOfOutSystemsMapsController.default.changeMapAdvancedFormat$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.dEPRECATED_AdvancedFormatAttr, callContext);
+// Set advanced format
+// Internal_Configs.Internal_to_provider_configs.advancedFormat = OptionalConfigs.DEPRECATED_AdvancedFormat
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.advancedFormatAttr = model.variables.optionalConfigsIn.dEPRECATED_AdvancedFormatAttr;
+}
+
+// MarkerClusteringActive changed?
+if((((model.variables.optionalConfigsIn.markerClustererAttr.activeAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr.activeAttr)))) {
+// Execute Action: LogMarkerClusteringChangeActive
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter MarkerClustering Active has changed.", callContext);
+// Execute Action: ChangeMapMarkerClusteringActive
+CloneOfOutSystemsMapsController.default.changeMapMarkerClusteringActive$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.markerClustererAttr.activeAttr, callContext);
+// Set new MarkerClustering Active
+// Internal_Configs.Internal_to_provider_configs.markerClusterer.Active = OptionalConfigs.MarkerClusterer.Active
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr.activeAttr = model.variables.optionalConfigsIn.markerClustererAttr.activeAttr;
+}
+
+// MarkerClustering MaxZoom changed?
+if((((model.variables.optionalConfigsIn.markerClustererAttr.maxZoomAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr.maxZoomAttr)))) {
+// Execute Action: LogMarkerClusteringChangeMaxZoom
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter MarkerClustering MaxZoom has changed.", callContext);
+// Execute Action: ChangeMapMarkerClusteringMaxZoom
+CloneOfOutSystemsMapsController.default.changeMapMarkerClusteringMaxZoom$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.markerClustererAttr.maxZoomAttr, callContext);
+// Set new MarkerClustering MaxZoom
+// Internal_Configs.Internal_to_provider_configs.markerClusterer.MaxZoom = OptionalConfigs.MarkerClusterer.MaxZoom
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr.maxZoomAttr = model.variables.optionalConfigsIn.markerClustererAttr.maxZoomAttr;
+}
+
+// MarkerClusteringZoomOnClick changed?
+if((((model.variables.optionalConfigsIn.markerClustererAttr.zoomOnClickAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr.zoomOnClickAttr)))) {
+// Execute Action: LogMarkerClusteringChangeZoomOnClick
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter MarkerClustering ZoomOnClick has changed.", callContext);
+// Execute Action: ChangeMapMarkerClusteringZoomOnClickoomOnClick
+CloneOfOutSystemsMapsController.default.changeMapMarkerClusteringZoomOnClick$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.markerClustererAttr.zoomOnClickAttr, callContext);
+// Set new MarkerClustering ZoomOnClick
+// Internal_Configs.Internal_to_provider_configs.markerClusterer.ZoomOnClick = OptionalConfigs.MarkerClusterer.ZoomOnClick
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr.zoomOnClickAttr = model.variables.optionalConfigsIn.markerClustererAttr.zoomOnClickAttr;
+}
+
+// MarkerClusteringMinClusterSize changed?
+if((((model.variables.optionalConfigsIn.markerClustererAttr.minClusterSizeAttr) !== (model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr.minClusterSizeAttr)))) {
+// Execute Action: LogMarkerClusteringChangeMinClusterSize
+CloneOfOutSystemsMapsController.default.logEvent$Action(CloneOfOutSystemsMapsModel.staticEntities.logType.debug, "The parameter MarkerClustering MinClusterSize has changed.", callContext);
+// Execute Action: ChangeMapMarkerClusteringMinClusterSize
+CloneOfOutSystemsMapsController.default.changeMapMarkerClusteringMinClusterSize$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.optionalConfigsIn.markerClustererAttr.minClusterSizeAttr, callContext);
+// Set new MarkerClustering MinClusterSize
+// Internal_Configs.Internal_to_provider_configs.markerClusterer.MinClusterSize = OptionalConfigs.MarkerClusterer.MinClusterSize
+model.variables.internal_ConfigsVar.internal_to_provider_configsAttr.markerClustererAttr.minClusterSizeAttr = model.variables.optionalConfigsIn.markerClustererAttr.minClusterSizeAttr;
+}
+
+});
+});
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: SetMapHeight
+CloneOfOutSystemsMapsController.default.setMapHeight$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, model.variables.heightIn, callContext);
+// Execute Action: InitializeProviderMap
+return controller._initializeProviderMap$Action(callContext);
+});
+};
+
+Controller.prototype.obtainMapKey_OnAfterFetch$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._obtainMapKey_OnAfterFetch$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.mapInitialized_Callback$Action = function (mapObjIn, mapIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._mapInitialized_Callback$Action, callContext, mapObjIn, mapIdIn);
+
+};
+Controller.prototype.unsubscribeEvents$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._unsubscribeEvents$Action, callContext);
+
+};
+Controller.prototype.subscribeEvents$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._subscribeEvents$Action, callContext);
+
+};
+Controller.prototype.setApiKey$Action = function (mapAPIKeyIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setApiKey$Action, callContext, mapAPIKeyIn);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.initializeProviderMap$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._initializeProviderMap$Action, callContext);
+
+};
+Controller.prototype.mapOnError_Callback$Action = function (mapObjIn, mapIdIn, errorCodeIn, extraErrorMessageIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._mapOnError_Callback$Action, callContext, mapObjIn, mapIdIn, errorCodeIn, extraErrorMessageIn);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.map_Initialized$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.onError$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return CloneOfOutSystemsMapsController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, CloneOfOutSystemsMapsLanguageResources);
+});
+define("CloneOfOutSystemsMaps.Maps.Map.mvc$controller.UnsubscribeEvents.GetCallbackHandlerJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.MapInitialized_Callback = $actions.MapInitialized_Callback;
+
+$parameters.MapOnError_Callback = $actions.MapOnError_Callback;
+};
+});
+define("CloneOfOutSystemsMaps.Maps.Map.mvc$controller.SubscribeEvents.GetCallbackHandlerJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.MapInitialized_Callback = $actions.MapInitialized_Callback;
+
+$parameters.MapOnError_Callback = $actions.MapOnError_Callback;
+};
+});
+

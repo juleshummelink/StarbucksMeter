@@ -1,0 +1,271 @@
+﻿define("CT_ShoppingList_IS.model$MyLineItem_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var MyLineItem_StrRec = (function (_super) {
+__extends(MyLineItem_StrRec, _super);
+function MyLineItem_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+MyLineItem_StrRec.attributesToDeclare = function () {
+return [
+this.attr("LineItemId", "lineItemIdAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductId", "productIdAttr", "ProductId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "sku", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AddedAt", "addedAtAttr", "addedAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyLineItem_StrRec.init();
+return MyLineItem_StrRec;
+})(OS.DataTypes.GenericRecord);
+CT_ShoppingList_ISModel.MyLineItem_StrRec = MyLineItem_StrRec;
+
+});
+define("CT_ShoppingList_IS.model$MyLineItem_StrList", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "CT_ShoppingList_IS.model$MyLineItem_StrRec"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var MyLineItem_StrList = (function (_super) {
+__extends(MyLineItem_StrList, _super);
+function MyLineItem_StrList(defaults) {
+_super.apply(this, arguments);
+}
+MyLineItem_StrList.itemType = CT_ShoppingList_ISModel.MyLineItem_StrRec;
+return MyLineItem_StrList;
+})(OS.DataTypes.GenericRecordList);
+CT_ShoppingList_ISModel.MyLineItem_StrList = MyLineItem_StrList;
+
+});
+define("CT_ShoppingList_IS.model$ErrorItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_ShoppingList_IS.model", "CT_Supporting_IS.model$ErrorItemRec", "CT_ShoppingList_IS.referencesHealth", "CT_ShoppingList_IS.referencesHealth$CT_Supporting_IS"], function (exports, OutSystems, CT_Supporting_ISModel, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorItemList = (function (_super) {
+__extends(ErrorItemList, _super);
+function ErrorItemList(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemList.itemType = CT_Supporting_ISModel.ErrorItemRec;
+return ErrorItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_ShoppingList_ISModel.ErrorItemList = ErrorItemList;
+
+});
+define("CT_ShoppingList_IS.model$MyShoppingList_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "CT_ShoppingList_IS.model$MyLineItem_StrList", "CT_ShoppingList_IS.model$ErrorItemList"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var MyShoppingList_StrRec = (function (_super) {
+__extends(MyShoppingList_StrRec, _super);
+function MyShoppingList_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingList_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("LastModifiedAt", "lastModifiedAtAttr", "lastModifiedAt", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineItems", "lineItemsAttr", "lineItems", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_ShoppingList_ISModel.MyLineItem_StrList());
+}, true, CT_ShoppingList_ISModel.MyLineItem_StrList), 
+this.attr("ErrorStatusCode", "errorStatusCodeAttr", "statusCode", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ErrorMessage", "errorMessageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ErrorList", "errorListAttr", "errors", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_ShoppingList_ISModel.ErrorItemList());
+}, true, CT_ShoppingList_ISModel.ErrorItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyShoppingList_StrRec.init();
+return MyShoppingList_StrRec;
+})(OS.DataTypes.GenericRecord);
+CT_ShoppingList_ISModel.MyShoppingList_StrRec = MyShoppingList_StrRec;
+
+});
+define("CT_ShoppingList_IS.model$Filter_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var Filter_StrRec = (function (_super) {
+__extends(Filter_StrRec, _super);
+function Filter_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Filter_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Offset", "offsetAttr", "Offset", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Sort", "sortAttr", "Sort", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WithTotal", "withTotalAttr", "withTotal", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Where", "whereAttr", "where", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Limit", "limitAttr", "limit", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Filter_StrRec.init();
+return Filter_StrRec;
+})(OS.DataTypes.GenericRecord);
+CT_ShoppingList_ISModel.Filter_StrRec = Filter_StrRec;
+
+});
+define("CT_ShoppingList_IS.model$MyShoppingListDraft_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var MyShoppingListDraft_StrRec = (function (_super) {
+__extends(MyShoppingListDraft_StrRec, _super);
+function MyShoppingListDraft_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingListDraft_StrRec.attributesToDeclare = function () {
+return [
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyShoppingListDraft_StrRec.init();
+return MyShoppingListDraft_StrRec;
+})(OS.DataTypes.GenericRecord);
+CT_ShoppingList_ISModel.MyShoppingListDraft_StrRec = MyShoppingListDraft_StrRec;
+
+});
+define("CT_ShoppingList_IS.model$NameRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var NameRec = (function (_super) {
+__extends(NameRec, _super);
+function NameRec(defaults) {
+_super.apply(this, arguments);
+}
+NameRec.attributesToDeclare = function () {
+return [
+this.attr("EnUS", "enUSAttr", "en-US", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NlNL", "nlNLAttr", "nl-NL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+NameRec.init();
+return NameRec;
+})(OS.DataTypes.GenericRecord);
+CT_ShoppingList_ISModel.NameRec = NameRec;
+
+});
+define("CT_ShoppingList_IS.model$ActionItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "CT_ShoppingList_IS.model$NameRec"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var ActionItemRec = (function (_super) {
+__extends(ActionItemRec, _super);
+function ActionItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ActionItemRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "sku", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("LineItemId", "lineItemIdAttr", "lineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_ShoppingList_ISModel.NameRec());
+}, true, CT_ShoppingList_ISModel.NameRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ActionItemRec.init();
+return ActionItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_ShoppingList_ISModel.ActionItemRec = ActionItemRec;
+
+});
+define("CT_ShoppingList_IS.model$ShoppingList_ActionsRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_ActionsRec = (function (_super) {
+__extends(ShoppingList_ActionsRec, _super);
+function ShoppingList_ActionsRec(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_ActionsRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "Action", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_ActionsRec.init();
+return ShoppingList_ActionsRec;
+})(OS.DataTypes.GenericRecord);
+CT_ShoppingList_ISModel.ShoppingList_ActionsRec = ShoppingList_ActionsRec;
+
+});
+define("CT_ShoppingList_IS.model$MyShoppingList_LiteStrRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model"], function (exports, OutSystems, CT_ShoppingList_ISModel) {
+var OS = OutSystems.Internal;
+var MyShoppingList_LiteStrRec = (function (_super) {
+__extends(MyShoppingList_LiteStrRec, _super);
+function MyShoppingList_LiteStrRec(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingList_LiteStrRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyShoppingList_LiteStrRec.init();
+return MyShoppingList_LiteStrRec;
+})(OS.DataTypes.GenericRecord);
+CT_ShoppingList_ISModel.MyShoppingList_LiteStrRec = MyShoppingList_LiteStrRec;
+
+});
+define("CT_ShoppingList_IS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var CT_ShoppingList_ISModel = exports;
+});

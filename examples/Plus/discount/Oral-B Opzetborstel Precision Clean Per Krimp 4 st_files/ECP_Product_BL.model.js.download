@@ -1,0 +1,2271 @@
+﻿define("ECP_Product_BL.model$AncestorRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var AncestorRec = (function (_super) {
+__extends(AncestorRec, _super);
+function AncestorRec(defaults) {
+_super.apply(this, arguments);
+}
+AncestorRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderHint", "orderHintAttr", "OrderHint", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AncestorRec.init();
+return AncestorRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.AncestorRec = AncestorRec;
+
+});
+define("ECP_Product_BL.model$AncestorList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$AncestorRec"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var AncestorList = (function (_super) {
+__extends(AncestorList, _super);
+function AncestorList(defaults) {
+_super.apply(this, arguments);
+}
+AncestorList.itemType = ECP_Product_BLModel.AncestorRec;
+return AncestorList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.AncestorList = AncestorList;
+
+});
+define("ECP_Product_BL.model$CategoryRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$AncestorList"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var CategoryRec = (function (_super) {
+__extends(CategoryRec, _super);
+function CategoryRec(defaults) {
+_super.apply(this, arguments);
+}
+CategoryRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderHint", "orderHintAttr", "OrderHint", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Ancestors", "ancestorsAttr", "Ancestors", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.AncestorList());
+}, true, ECP_Product_BLModel.AncestorList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CategoryRec.init();
+return CategoryRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.CategoryRec = CategoryRec;
+
+});
+define("ECP_Product_BL.model$TextText6Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText6Record = (function (_super) {
+__extends(TextText6Record, _super);
+function TextText6Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText6Record.attributesToDeclare = function () {
+return [
+this.attr("Instructions", "instructionsAttr", "Instructions", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Type", "typeAttr", "Type", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText6Record._isAnonymousRecord = true;
+TextText6Record.UniqueId = "70a98eaa-7942-ee0f-4862-e8db54920091";
+TextText6Record.init();
+return TextText6Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText6Record = TextText6Record;
+
+});
+define("ECP_Product_BL.model$TextTextText2Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextTextText2Record = (function (_super) {
+__extends(TextTextText2Record, _super);
+function TextTextText2Record(defaults) {
+_super.apply(this, arguments);
+}
+TextTextText2Record.attributesToDeclare = function () {
+return [
+this.attr("Additive", "additiveAttr", "Additive", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AnalyticalConstituents", "analyticalConstituentsAttr", "AnalyticalConstituents", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Composition", "compositionAttr", "Composition", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextText2Record._isAnonymousRecord = true;
+TextTextText2Record.UniqueId = "b530adbb-a7d9-0ce3-e362-7d9502479118";
+TextTextText2Record.init();
+return TextTextText2Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextTextText2Record = TextTextText2Record;
+
+});
+define("ECP_Product_BL.model$PDP_PetFoodRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextText6Record", "ECP_Product_BL.model$TextTextText2Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_PetFoodRec = (function (_super) {
+__extends(PDP_PetFoodRec, _super);
+function PDP_PetFoodRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_PetFoodRec.attributesToDeclare = function () {
+return [
+this.attr("TargetConsumptionBy", "targetConsumptionByAttr", "TargetConsumptionBy", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Feed", "feedAttr", "Feed", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText6Record());
+}, true, ECP_Product_BLModel.TextText6Record), 
+this.attr("FoodStatetment", "foodStatetmentAttr", "FoodStatetment", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextText2Record());
+}, true, ECP_Product_BLModel.TextTextText2Record)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_PetFoodRec.init();
+return PDP_PetFoodRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_PetFoodRec = PDP_PetFoodRec;
+
+});
+define("ECP_Product_BL.model$TextTextRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextTextRecord = (function (_super) {
+__extends(TextTextRecord, _super);
+function TextTextRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextRecord.attributesToDeclare = function () {
+return [
+this.attr("Address", "addressAttr", "Address", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextRecord._isAnonymousRecord = true;
+TextTextRecord.UniqueId = "009c3cf0-03b6-8bce-b1c1-9430692ebcba";
+TextTextRecord.init();
+return TextTextRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextTextRecord = TextTextRecord;
+
+});
+define("ECP_Product_BL.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.TextList = TextList;
+
+});
+define("ECP_Product_BL.model$PDP_ProductMeansRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_ProductMeansRec = (function (_super) {
+__extends(PDP_ProductMeansRec, _super);
+function PDP_ProductMeansRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_ProductMeansRec.attributesToDeclare = function () {
+return [
+this.attr("Email_List", "email_ListAttr", "Emails", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("SocialMedia_List", "socialMedia_ListAttr", "SocialMedia", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("Contact_List", "contact_ListAttr", "Phones", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("WebSites_List", "webSites_ListAttr", "WebSites", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_ProductMeansRec.init();
+return PDP_ProductMeansRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_ProductMeansRec = PDP_ProductMeansRec;
+
+});
+define("ECP_Product_BL.model$PDP_SupplierContactRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextTextRecord", "ECP_Product_BL.model$PDP_ProductMeansRec"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_SupplierContactRec = (function (_super) {
+__extends(PDP_SupplierContactRec, _super);
+function PDP_SupplierContactRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_SupplierContactRec.attributesToDeclare = function () {
+return [
+this.attr("LegalContact", "legalContactAttr", "LegalContact", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextRecord());
+}, true, ECP_Product_BLModel.TextTextRecord), 
+this.attr("LegalSupplier", "legalSupplierAttr", "LegalSupplier", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextRecord());
+}, true, ECP_Product_BLModel.TextTextRecord), 
+this.attr("PDP_ProductMeans", "pDP_ProductMeansAttr", "PDP_ProductMeans", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_ProductMeansRec());
+}, true, ECP_Product_BLModel.PDP_ProductMeansRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_SupplierContactRec.init();
+return PDP_SupplierContactRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_SupplierContactRec = PDP_SupplierContactRec;
+
+});
+define("ECP_Product_BL.model$Logo_InfoRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoRec = (function (_super) {
+__extends(Logo_InfoRec, _super);
+function Logo_InfoRec(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LongDescription", "longDescriptionAttr", "LongDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("URL", "uRLAttr", "URL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Logo_InfoRec.init();
+return Logo_InfoRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.Logo_InfoRec = Logo_InfoRec;
+
+});
+define("ECP_Product_BL.model$Logo_InfoList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$Logo_InfoRec"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoList = (function (_super) {
+__extends(Logo_InfoList, _super);
+function Logo_InfoList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoList.itemType = ECP_Product_BLModel.Logo_InfoRec;
+return Logo_InfoList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.Logo_InfoList = Logo_InfoList;
+
+});
+define("ECP_Product_BL.model$Logo_PDPRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$Logo_InfoList"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Logo_PDPRec = (function (_super) {
+__extends(Logo_PDPRec, _super);
+function Logo_PDPRec(defaults) {
+_super.apply(this, arguments);
+}
+Logo_PDPRec.attributesToDeclare = function () {
+return [
+this.attr("PDPInUpperLeft", "pDPInUpperLeftAttr", "PDPInUpperLeft", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList), 
+this.attr("PDPInProductInformation", "pDPInProductInformationAttr", "PDPInProductInformation", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList), 
+this.attr("PDPBehindSizeUnit", "pDPBehindSizeUnitAttr", "PDPBehindSizeUnit", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList), 
+this.attr("PDPBelowAddToCart", "pDPBelowAddToCartAttr", "PDPBelowAddToCart", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList), 
+this.attr("PDPAboveTitle", "pDPAboveTitleAttr", "PDPAboveTitle", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList), 
+this.attr("PDPInRemarks", "pDPInRemarksAttr", "PDPInRemarks", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Logo_PDPRec.init();
+return Logo_PDPRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.Logo_PDPRec = Logo_PDPRec;
+
+});
+define("ECP_Product_BL.model$PDP_UsageDuringRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_UsageDuringRec = (function (_super) {
+__extends(PDP_UsageDuringRec, _super);
+function PDP_UsageDuringRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_UsageDuringRec.attributesToDeclare = function () {
+return [
+this.attr("BreastFeeding", "breastFeedingAttr", "BreastFeeding", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Pregnancy", "pregnancyAttr", "Pregnancy", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SafePeriodAfterOpening", "safePeriodAfterOpeningAttr", "SafePeriodAfterOpening", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_UsageDuringRec.init();
+return PDP_UsageDuringRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_UsageDuringRec = PDP_UsageDuringRec;
+
+});
+define("ECP_Product_BL.model$TextIntegerRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextIntegerRecord = (function (_super) {
+__extends(TextIntegerRecord, _super);
+function TextIntegerRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextIntegerRecord.attributesToDeclare = function () {
+return [
+this.attr("UoM", "uoMAttr", "UoM", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextIntegerRecord._isAnonymousRecord = true;
+TextIntegerRecord.UniqueId = "9a852835-ab3b-e615-150a-42b5548fc202";
+TextIntegerRecord.init();
+return TextIntegerRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextIntegerRecord = TextIntegerRecord;
+
+});
+define("ECP_Product_BL.model$TextUoMValueRecordUoMValueRecordRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextIntegerRecord"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextUoMValueRecordUoMValueRecordRecord = (function (_super) {
+__extends(TextUoMValueRecordUoMValueRecordRecord, _super);
+function TextUoMValueRecordUoMValueRecordRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextUoMValueRecordUoMValueRecordRecord.attributesToDeclare = function () {
+return [
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Max", "maxAttr", "Max", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("Min", "minAttr", "Min", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextUoMValueRecordUoMValueRecordRecord._isAnonymousRecord = true;
+TextUoMValueRecordUoMValueRecordRecord.UniqueId = "35857076-6c8a-470c-0e1b-b6aaa63c710e";
+TextUoMValueRecordUoMValueRecordRecord.init();
+return TextUoMValueRecordUoMValueRecordRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextUoMValueRecordUoMValueRecordRecord = TextUoMValueRecordUoMValueRecordRecord;
+
+});
+define("ECP_Product_BL.model$TextText10Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText10Record = (function (_super) {
+__extends(TextText10Record, _super);
+function TextText10Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText10Record.attributesToDeclare = function () {
+return [
+this.attr("Category", "categoryAttr", "Category", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Factor", "factorAttr", "Factor", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText10Record._isAnonymousRecord = true;
+TextText10Record.UniqueId = "dc81ae07-ae2d-d565-cdd0-950d5fd47082";
+TextText10Record.init();
+return TextText10Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText10Record = TextText10Record;
+
+});
+define("ECP_Product_BL.model$PDP_HealthCareRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextUoMValueRecordUoMValueRecordRecord", "ECP_Product_BL.model$TextText10Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_HealthCareRec = (function (_super) {
+__extends(PDP_HealthCareRec, _super);
+function PDP_HealthCareRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_HealthCareRec.attributesToDeclare = function () {
+return [
+this.attr("UsageAge", "usageAgeAttr", "UsageAge", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextUoMValueRecordUoMValueRecordRecord());
+}, true, ECP_Product_BLModel.TextUoMValueRecordUoMValueRecordRecord), 
+this.attr("SunProtection", "sunProtectionAttr", "SunProtection", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText10Record());
+}, true, ECP_Product_BLModel.TextText10Record)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_HealthCareRec.init();
+return PDP_HealthCareRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_HealthCareRec = PDP_HealthCareRec;
+
+});
+define("ECP_Product_BL.model$Product_PromotionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Product_PromotionRec = (function (_super) {
+__extends(Product_PromotionRec, _super);
+function Product_PromotionRec(defaults) {
+_super.apply(this, arguments);
+}
+Product_PromotionRec.attributesToDeclare = function () {
+return [
+this.attr("PromotionId", "promotionIdAttr", "PromotionId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionLabel", "promotionLabelAttr", "PromotionLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionBasedLabel", "promotionBasedLabelAttr", "PromotionBasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionStartDate", "promotionStartDateAttr", "PromotionStartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("PromotionEndDate", "promotionEndDateAttr", "PromotionEndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsFreeDeliveryOffer", "isFreeDeliveryOfferAttr", "IsFreeDeliveryOffer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Promotion_NewPrice", "promotion_NewPriceAttr", "Promotion_NewPrice", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Product_PromotionRec.init();
+return Product_PromotionRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.Product_PromotionRec = Product_PromotionRec;
+
+});
+define("ECP_Product_BL.model$Product_AttributesRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$Product_PromotionRec"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Product_AttributesRec = (function (_super) {
+__extends(Product_AttributesRec, _super);
+function Product_AttributesRec(defaults) {
+_super.apply(this, arguments);
+}
+Product_AttributesRec.attributesToDeclare = function () {
+return [
+this.attr("Brand", "brandAttr", "Brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Size", "sizeAttr", "Size", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Unit", "unitAttr", "Unit", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Packaging", "packagingAttr", "Packaging", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BaseUnit", "baseUnitAttr", "BaseUnit", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PackagingFee", "packagingFeeAttr", "PackagingFee", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("HierarchyGroupId", "hierarchyGroupIdAttr", "HierarchyGroupId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsPLUSpointsAllowed", "isPLUSpointsAllowedAttr", "IsPLUSpointsAllowed", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsOnlyOnlineSale", "isOnlyOnlineSaleAttr", "IsOnlyOnlineSale", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ItemTypeAttributeId", "itemTypeAttributeIdAttr", "ItemTypeAttributeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Promotion", "promotionAttr", "Promotion", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Product_PromotionRec());
+}, true, ECP_Product_BLModel.Product_PromotionRec), 
+this.attr("MaxOrderLimit", "maxOrderLimitAttr", "MaxOrderLimit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Symbol", "symbolAttr", "Symbol", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Product_AttributesRec.init();
+return Product_AttributesRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.Product_AttributesRec = Product_AttributesRec;
+
+});
+define("ECP_Product_BL.model$TextDecimalRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextDecimalRecord = (function (_super) {
+__extends(TextDecimalRecord, _super);
+function TextDecimalRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextDecimalRecord.attributesToDeclare = function () {
+return [
+this.attr("UoM", "uoMAttr", "UoM", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextDecimalRecord._isAnonymousRecord = true;
+TextDecimalRecord.UniqueId = "4a0e70dc-f585-f201-394a-2df6819a1642";
+TextDecimalRecord.init();
+return TextDecimalRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextDecimalRecord = TextDecimalRecord;
+
+});
+define("ECP_Product_BL.model$BooleanIntegerRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var BooleanIntegerRecord = (function (_super) {
+__extends(BooleanIntegerRecord, _super);
+function BooleanIntegerRecord(defaults) {
+_super.apply(this, arguments);
+}
+BooleanIntegerRecord.attributesToDeclare = function () {
+return [
+this.attr("IsBuiltIn", "isBuiltInAttr", "IsBuiltIn", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+BooleanIntegerRecord._isAnonymousRecord = true;
+BooleanIntegerRecord.UniqueId = "bdf0cbaf-8acb-5880-497b-42f33f9874e9";
+BooleanIntegerRecord.init();
+return BooleanIntegerRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.BooleanIntegerRecord = BooleanIntegerRecord;
+
+});
+define("ECP_Product_BL.model$PDP_BatteryRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextDecimalRecord", "ECP_Product_BL.model$TextIntegerRecord", "ECP_Product_BL.model$BooleanIntegerRecord"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_BatteryRec = (function (_super) {
+__extends(PDP_BatteryRec, _super);
+function PDP_BatteryRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_BatteryRec.attributesToDeclare = function () {
+return [
+this.attr("Voltage", "voltageAttr", "Voltage", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextDecimalRecord());
+}, true, ECP_Product_BLModel.TextDecimalRecord), 
+this.attr("Capacity", "capacityAttr", "Capacity", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("Weight", "weightAttr", "Weight", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextDecimalRecord());
+}, true, ECP_Product_BLModel.TextDecimalRecord), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("MaterialAgency", "materialAgencyAttr", "MaterialAgency", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Type", "typeAttr", "Type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("TechnologyTypes", "technologyTypesAttr", "TechnologyTypes", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("IsRechargeable", "isRechargeableAttr", "IsRechargeable", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("BuiltIn", "builtInAttr", "BuiltIn", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.BooleanIntegerRecord());
+}, true, ECP_Product_BLModel.BooleanIntegerRecord)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_BatteryRec.init();
+return PDP_BatteryRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_BatteryRec = PDP_BatteryRec;
+
+});
+define("ECP_Product_BL.model$TextText9Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText9Record = (function (_super) {
+__extends(TextText9Record, _super);
+function TextText9Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText9Record.attributesToDeclare = function () {
+return [
+this.attr("Long", "longAttr", "Long", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Short", "shortAttr", "Short", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText9Record._isAnonymousRecord = true;
+TextText9Record.UniqueId = "b84e946d-7f45-7617-90a8-ad2a777f6b47";
+TextText9Record.init();
+return TextText9Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText9Record = TextText9Record;
+
+});
+define("ECP_Product_BL.model$PDP_BeerRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextText9Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_BeerRec = (function (_super) {
+__extends(PDP_BeerRec, _super);
+function PDP_BeerRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_BeerRec.attributesToDeclare = function () {
+return [
+this.attr("Kind", "kindAttr", "Kind", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Taste", "tasteAttr", "Taste", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FoodAdvice", "foodAdviceAttr", "FoodAdvice", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText9Record());
+}, true, ECP_Product_BLModel.TextText9Record)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_BeerRec.init();
+return PDP_BeerRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_BeerRec = PDP_BeerRec;
+
+});
+define("ECP_Product_BL.model$PDP_NutrientQuantityItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_NutrientQuantityItemRec = (function (_super) {
+__extends(PDP_NutrientQuantityItemRec, _super);
+function PDP_NutrientQuantityItemRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_NutrientQuantityItemRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("UoM", "uoMAttr", "UoM", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_NutrientQuantityItemRec.init();
+return PDP_NutrientQuantityItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_NutrientQuantityItemRec = PDP_NutrientQuantityItemRec;
+
+});
+define("ECP_Product_BL.model$PDP_NutrientItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$PDP_NutrientQuantityItemRec"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_NutrientItemRec = (function (_super) {
+__extends(PDP_NutrientItemRec, _super);
+function PDP_NutrientItemRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_NutrientItemRec.attributesToDeclare = function () {
+return [
+this.attr("TypeCode", "typeCodeAttr", "TypeCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UnitCode", "unitCodeAttr", "eenheid_code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ParentCode", "parentCodeAttr", "ParentCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DailyValueIntakePercent", "dailyValueIntakePercentAttr", "dailyvalueintakepercent", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("QuantityContained", "quantityContainedAttr", "QuantityContained", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_NutrientQuantityItemRec());
+}, true, ECP_Product_BLModel.PDP_NutrientQuantityItemRec), 
+this.attr("SortOrder", "sortOrderAttr", "sortorder", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_NutrientItemRec.init();
+return PDP_NutrientItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_NutrientItemRec = PDP_NutrientItemRec;
+
+});
+define("ECP_Product_BL.model$CategoryItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var CategoryItemRec = (function (_super) {
+__extends(CategoryItemRec, _super);
+function CategoryItemRec(defaults) {
+_super.apply(this, arguments);
+}
+CategoryItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AncestorId", "ancestorIdAttr", "AncestorId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AncestorName", "ancestorNameAttr", "AncestorName", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CategoryItemRec.init();
+return CategoryItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.CategoryItemRec = CategoryItemRec;
+
+});
+define("ECP_Product_BL.model$PDP_AllergenRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_AllergenRec = (function (_super) {
+__extends(PDP_AllergenRec, _super);
+function PDP_AllergenRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_AllergenRec.attributesToDeclare = function () {
+return [
+this.attr("Warning", "warningAttr", "Warning", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description_Contains", "description_ContainsAttr", "Description_Contains", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description_MayContain", "description_MayContainAttr", "Description_MayContain", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_AllergenRec.init();
+return PDP_AllergenRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_AllergenRec = PDP_AllergenRec;
+
+});
+define("ECP_Product_BL.model$TextText5Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText5Record = (function (_super) {
+__extends(TextText5Record, _super);
+function TextText5Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText5Record.attributesToDeclare = function () {
+return [
+this.attr("Label", "labelAttr", "Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("URL", "uRLAttr", "URL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText5Record._isAnonymousRecord = true;
+TextText5Record.UniqueId = "629e7732-61c2-8a00-ccee-573f075880ed";
+TextText5Record.init();
+return TextText5Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText5Record = TextText5Record;
+
+});
+define("ECP_Product_BL.model$TextText11Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText11Record = (function (_super) {
+__extends(TextText11Record, _super);
+function TextText11Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText11Record.attributesToDeclare = function () {
+return [
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Title", "titleAttr", "Title", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText11Record._isAnonymousRecord = true;
+TextText11Record.UniqueId = "e4f74f82-a326-d294-48fa-d0f91b6a02c8";
+TextText11Record.init();
+return TextText11Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText11Record = TextText11Record;
+
+});
+define("ECP_Product_BL.model$TextInteger1Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextInteger1Record = (function (_super) {
+__extends(TextInteger1Record, _super);
+function TextInteger1Record(defaults) {
+_super.apply(this, arguments);
+}
+TextInteger1Record.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextInteger1Record._isAnonymousRecord = true;
+TextInteger1Record.UniqueId = "a77da88c-c899-268c-7ad5-e71b4e7f2f6e";
+TextInteger1Record.init();
+return TextInteger1Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextInteger1Record = TextInteger1Record;
+
+});
+define("ECP_Product_BL.model$PDP_HeaderRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextText5Record", "ECP_Product_BL.model$TextText11Record", "ECP_Product_BL.model$TextInteger1Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_HeaderRec = (function (_super) {
+__extends(PDP_HeaderRec, _super);
+function PDP_HeaderRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_HeaderRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Subtitle", "subtitleAttr", "Subtitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Brand", "brandAttr", "Brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Image", "imageAttr", "Image", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText5Record());
+}, true, ECP_Product_BLModel.TextText5Record), 
+this.attr("Meta", "metaAttr", "Meta", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText11Record());
+}, true, ECP_Product_BLModel.TextText11Record), 
+this.attr("IsNIX18", "isNIX18Attr", "IsNIX18", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("BaseUnitPrice", "baseUnitPriceAttr", "BaseUnitPrice", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineItem", "lineItemAttr", "LineItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextInteger1Record());
+}, true, ECP_Product_BLModel.TextInteger1Record), 
+this.attr("IsOfflineSaleOnly", "isOfflineSaleOnlyAttr", "IsOfflineSaleOnly", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsServiceItem", "isServiceItemAttr", "IsServiceItem", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsAvailableInStore", "isAvailableInStoreAttr", "IsAvailableInStore", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("MaxOrderLimit", "maxOrderLimitAttr", "MaxOrderLimit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsNoIndex", "isNoIndexAttr", "IsNoIndex", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsLocalItem", "isLocalItemAttr", "IsLocalItem", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_HeaderRec.init();
+return PDP_HeaderRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_HeaderRec = PDP_HeaderRec;
+
+});
+define("ECP_Product_BL.model$TextText3Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText3Record = (function (_super) {
+__extends(TextText3Record, _super);
+function TextText3Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText3Record.attributesToDeclare = function () {
+return [
+this.attr("System", "systemAttr", "System", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Trades", "tradesAttr", "Trades", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText3Record._isAnonymousRecord = true;
+TextText3Record.UniqueId = "39ff1db2-c581-05c7-ce09-fce32eda84f2";
+TextText3Record.init();
+return TextText3Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText3Record = TextText3Record;
+
+});
+define("ECP_Product_BL.model$PDP_LegalRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextIntegerRecord", "ECP_Product_BL.model$TextText3Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_LegalRec = (function (_super) {
+__extends(PDP_LegalRec, _super);
+function PDP_LegalRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_LegalRec.attributesToDeclare = function () {
+return [
+this.attr("RegulatedName", "regulatedNameAttr", "RegulatedName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HealthClaim", "healthClaimAttr", "HealthClaim", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DrainWeight", "drainWeightAttr", "DrainWeight", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("RequiredNotificationByLaw", "requiredNotificationByLawAttr", "RequiredNotificationByLaw", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AppointedAuthority", "appointedAuthorityAttr", "AppointedAuthority", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AdittionalClassification", "adittionalClassificationAttr", "AdittionalClassification", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText3Record());
+}, true, ECP_Product_BLModel.TextText3Record)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_LegalRec.init();
+return PDP_LegalRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_LegalRec = PDP_LegalRec;
+
+});
+define("ECP_Product_BL.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var IntegerList = (function (_super) {
+__extends(IntegerList, _super);
+function IntegerList(defaults) {
+_super.apply(this, arguments);
+}
+IntegerList.itemType = OS.Types.Integer;
+return IntegerList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.IntegerList = IntegerList;
+
+});
+define("ECP_Product_BL.model$PromotionStoreSpecificRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PromotionStoreSpecificRec = (function (_super) {
+__extends(PromotionStoreSpecificRec, _super);
+function PromotionStoreSpecificRec(defaults) {
+_super.apply(this, arguments);
+}
+PromotionStoreSpecificRec.attributesToDeclare = function () {
+return [
+this.attr("Promotion", "promotionAttr", "promotion", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StoreNumber", "storeNumberAttr", "storeNumber", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.IntegerList());
+}, true, OS.DataTypes.IntegerList)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionStoreSpecificRec.init();
+return PromotionStoreSpecificRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PromotionStoreSpecificRec = PromotionStoreSpecificRec;
+
+});
+define("ECP_Product_BL.model$TextTextTextRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextTextTextRecord = (function (_super) {
+__extends(TextTextTextRecord, _super);
+function TextTextTextRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextTextRecord.attributesToDeclare = function () {
+return [
+this.attr("Preparation", "preparationAttr", "Preparation", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Storage", "storageAttr", "Storage", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Usage", "usageAttr", "Usage", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextTextRecord._isAnonymousRecord = true;
+TextTextTextRecord.UniqueId = "2adf8e02-ab28-ee12-acd6-b548b967b16a";
+TextTextTextRecord.init();
+return TextTextTextRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextTextTextRecord = TextTextTextRecord;
+
+});
+define("ECP_Product_BL.model$Text3Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Text3Record = (function (_super) {
+__extends(Text3Record, _super);
+function Text3Record(defaults) {
+_super.apply(this, arguments);
+}
+Text3Record.attributesToDeclare = function () {
+return [
+this.attr("Serving", "servingAttr", "Serving", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Text3Record.fromStructure = function (str) {
+return new Text3Record(new Text3Record.RecordClass({
+servingAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Text3Record._isAnonymousRecord = true;
+Text3Record.UniqueId = "b3852ded-bd5c-80a0-06da-e6752c654d7f";
+Text3Record.init();
+return Text3Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.Text3Record = Text3Record;
+
+});
+define("ECP_Product_BL.model$PDP_InstructionsAndSuggestionsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextTextTextRecord", "ECP_Product_BL.model$Text3Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_InstructionsAndSuggestionsRec = (function (_super) {
+__extends(PDP_InstructionsAndSuggestionsRec, _super);
+function PDP_InstructionsAndSuggestionsRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_InstructionsAndSuggestionsRec.attributesToDeclare = function () {
+return [
+this.attr("Instructions", "instructionsAttr", "Instructions", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextTextRecord());
+}, true, ECP_Product_BLModel.TextTextTextRecord), 
+this.attr("Suggestions", "suggestionsAttr", "Suggestions", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Text3Record());
+}, true, ECP_Product_BLModel.Text3Record)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_InstructionsAndSuggestionsRec.init();
+return PDP_InstructionsAndSuggestionsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_InstructionsAndSuggestionsRec = PDP_InstructionsAndSuggestionsRec;
+
+});
+define("ECP_Product_BL.model$TextTextText1Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextTextText1Record = (function (_super) {
+__extends(TextTextText1Record, _super);
+function TextTextText1Record(defaults) {
+_super.apply(this, arguments);
+}
+TextTextText1Record.attributesToDeclare = function () {
+return [
+this.attr("NutricionalClaim", "nutricionalClaimAttr", "NutricionalClaim", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PreparedDeviation", "preparedDeviationAttr", "PreparedDeviation", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ReferenceIntake", "referenceIntakeAttr", "ReferenceIntake", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextText1Record._isAnonymousRecord = true;
+TextTextText1Record.UniqueId = "92423ef3-1ca7-fb07-4048-2fcd5e0e2fd5";
+TextTextText1Record.init();
+return TextTextText1Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextTextText1Record = TextTextText1Record;
+
+});
+define("ECP_Product_BL.model$PDP_NutrientItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$PDP_NutrientItemRec"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_NutrientItemList = (function (_super) {
+__extends(PDP_NutrientItemList, _super);
+function PDP_NutrientItemList(defaults) {
+_super.apply(this, arguments);
+}
+PDP_NutrientItemList.itemType = ECP_Product_BLModel.PDP_NutrientItemRec;
+return PDP_NutrientItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.PDP_NutrientItemList = PDP_NutrientItemList;
+
+});
+define("ECP_Product_BL.model$PDP_NutrientRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextIntegerRecord", "ECP_Product_BL.model$TextTextText1Record", "ECP_Product_BL.model$PDP_NutrientItemList"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_NutrientRec = (function (_super) {
+__extends(PDP_NutrientRec, _super);
+function PDP_NutrientRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_NutrientRec.attributesToDeclare = function () {
+return [
+this.attr("Base", "baseAttr", "Base", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("Additional", "additionalAttr", "Additional", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextText1Record());
+}, true, ECP_Product_BLModel.TextTextText1Record), 
+this.attr("Nutrients", "nutrientsAttr", "Nutrients", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_NutrientItemList());
+}, true, ECP_Product_BLModel.PDP_NutrientItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_NutrientRec.init();
+return PDP_NutrientRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_NutrientRec = PDP_NutrientRec;
+
+});
+define("ECP_Product_BL.model$TextText2Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText2Record = (function (_super) {
+__extends(TextText2Record, _super);
+function TextText2Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText2Record.attributesToDeclare = function () {
+return [
+this.attr("RVG", "rVGAttr", "RVG", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RVH", "rVHAttr", "RVH", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText2Record._isAnonymousRecord = true;
+TextText2Record.UniqueId = "36f2031f-746f-9dee-c0f1-8264cc01dcc0";
+TextText2Record.init();
+return TextText2Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText2Record = TextText2Record;
+
+});
+define("ECP_Product_BL.model$TextText12Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText12Record = (function (_super) {
+__extends(TextText12Record, _super);
+function TextText12Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText12Record.attributesToDeclare = function () {
+return [
+this.attr("Agency", "agencyAttr", "Agency", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Standard", "standardAttr", "Standard", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText12Record._isAnonymousRecord = true;
+TextText12Record.UniqueId = "eb007d12-bc60-a577-31eb-55ef5e88ccf2";
+TextText12Record.init();
+return TextText12Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText12Record = TextText12Record;
+
+});
+define("ECP_Product_BL.model$TextRVGRVHRecordAgencyStandardRecordRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextText2Record", "ECP_Product_BL.model$TextText12Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextRVGRVHRecordAgencyStandardRecordRecord = (function (_super) {
+__extends(TextRVGRVHRecordAgencyStandardRecordRecord, _super);
+function TextRVGRVHRecordAgencyStandardRecordRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextRVGRVHRecordAgencyStandardRecordRecord.attributesToDeclare = function () {
+return [
+this.attr("Origin", "originAttr", "Origin", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Number", "numberAttr", "Number", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText2Record());
+}, true, ECP_Product_BLModel.TextText2Record), 
+this.attr("Certification", "certificationAttr", "Certification", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText12Record());
+}, true, ECP_Product_BLModel.TextText12Record)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextRVGRVHRecordAgencyStandardRecordRecord._isAnonymousRecord = true;
+TextRVGRVHRecordAgencyStandardRecordRecord.UniqueId = "15d3b9f1-8335-37f4-24d0-b0c5b60d035e";
+TextRVGRVHRecordAgencyStandardRecordRecord.init();
+return TextRVGRVHRecordAgencyStandardRecordRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextRVGRVHRecordAgencyStandardRecordRecord = TextRVGRVHRecordAgencyStandardRecordRecord;
+
+});
+define("ECP_Product_BL.model$TextText4Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText4Record = (function (_super) {
+__extends(TextText4Record, _super);
+function TextText4Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText4Record.attributesToDeclare = function () {
+return [
+this.attr("Admnistration", "admnistrationAttr", "Admnistration", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Recommendation", "recommendationAttr", "Recommendation", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText4Record._isAnonymousRecord = true;
+TextText4Record.UniqueId = "4aeb0836-fefc-b659-64d1-81545c71a44c";
+TextText4Record.init();
+return TextText4Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText4Record = TextText4Record;
+
+});
+define("ECP_Product_BL.model$PDP_DrugStoreRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextRVGRVHRecordAgencyStandardRecordRecord", "ECP_Product_BL.model$TextText4Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_DrugStoreRec = (function (_super) {
+__extends(PDP_DrugStoreRec, _super);
+function PDP_DrugStoreRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_DrugStoreRec.attributesToDeclare = function () {
+return [
+this.attr("Store", "storeAttr", "Store", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextRVGRVHRecordAgencyStandardRecordRecord());
+}, true, ECP_Product_BLModel.TextRVGRVHRecordAgencyStandardRecordRecord), 
+this.attr("Dosage", "dosageAttr", "Dosage", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText4Record());
+}, true, ECP_Product_BLModel.TextText4Record), 
+this.attr("SideEffectsAndWarnings", "sideEffectsAndWarningsAttr", "SideEffectsAndWarnings", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_DrugStoreRec.init();
+return PDP_DrugStoreRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_DrugStoreRec = PDP_DrugStoreRec;
+
+});
+define("ECP_Product_BL.model$TextTextTextListRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextTextTextListRecord = (function (_super) {
+__extends(TextTextTextListRecord, _super);
+function TextTextTextListRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextTextListRecord.attributesToDeclare = function () {
+return [
+this.attr("FoodAdvice", "foodAdviceAttr", "FoodAdvice", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SmellAndTaste", "smellAndTasteAttr", "SmellAndTaste", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FoodAdvices", "foodAdvicesAttr", "FoodAdvices", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextTextListRecord._isAnonymousRecord = true;
+TextTextTextListRecord.UniqueId = "30c3034b-3392-b8e6-ce3f-e7a30d8b0b30";
+TextTextTextListRecord.init();
+return TextTextTextListRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextTextTextListRecord = TextTextTextListRecord;
+
+});
+define("ECP_Product_BL.model$PDP_WineRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextTextTextListRecord"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_WineRec = (function (_super) {
+__extends(PDP_WineRec, _super);
+function PDP_WineRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_WineRec.attributesToDeclare = function () {
+return [
+this.attr("Type", "typeAttr", "Type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quote", "quoteAttr", "Quote", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LongDescription", "longDescriptionAttr", "LongDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Flavour", "flavourAttr", "Flavour", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("GrapeVariety", "grapeVarietyAttr", "GrapeVarietyCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Country", "countryAttr", "Country", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Region", "regionAttr", "Region", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WineTastingNote", "wineTastingNoteAttr", "WineTastingNote", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextTextListRecord());
+}, true, ECP_Product_BLModel.TextTextTextListRecord), 
+this.attr("Awards", "awardsAttr", "Awards", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_WineRec.init();
+return PDP_WineRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_WineRec = PDP_WineRec;
+
+});
+define("ECP_Product_BL.model$Text5Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Text5Record = (function (_super) {
+__extends(Text5Record, _super);
+function Text5Record(defaults) {
+_super.apply(this, arguments);
+}
+Text5Record.attributesToDeclare = function () {
+return [
+this.attr("Method", "methodAttr", "Method", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Text5Record.fromStructure = function (str) {
+return new Text5Record(new Text5Record.RecordClass({
+methodAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Text5Record._isAnonymousRecord = true;
+Text5Record.UniqueId = "ef3fc526-c2e4-c52d-8a76-e86c2a50facd";
+Text5Record.init();
+return Text5Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.Text5Record = Text5Record;
+
+});
+define("ECP_Product_BL.model$TextText8Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText8Record = (function (_super) {
+__extends(TextText8Record, _super);
+function TextText8Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText8Record.attributesToDeclare = function () {
+return [
+this.attr("Areas", "areasAttr", "Areas", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Methods", "methodsAttr", "Methods", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText8Record._isAnonymousRecord = true;
+TextText8Record.UniqueId = "97dba959-6b31-247c-d14f-7dc0cc3299cd";
+TextText8Record.init();
+return TextText8Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText8Record = TextText8Record;
+
+});
+define("ECP_Product_BL.model$PDP_SeaFoodRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$Text5Record", "ECP_Product_BL.model$TextText8Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_SeaFoodRec = (function (_super) {
+__extends(PDP_SeaFoodRec, _super);
+function PDP_SeaFoodRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_SeaFoodRec.attributesToDeclare = function () {
+return [
+this.attr("Production", "productionAttr", "Production", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Text5Record());
+}, true, ECP_Product_BLModel.Text5Record), 
+this.attr("Catch", "catchAttr", "Catch", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText8Record());
+}, true, ECP_Product_BLModel.TextText8Record)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_SeaFoodRec.init();
+return PDP_SeaFoodRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_SeaFoodRec = PDP_SeaFoodRec;
+
+});
+define("ECP_Product_BL.model$Logo_PLPRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$Logo_InfoList"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Logo_PLPRec = (function (_super) {
+__extends(Logo_PLPRec, _super);
+function Logo_PLPRec(defaults) {
+_super.apply(this, arguments);
+}
+Logo_PLPRec.attributesToDeclare = function () {
+return [
+this.attr("PLPInUpperLeft", "pLPInUpperLeftAttr", "PLPInUpperLeft", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList), 
+this.attr("PLPAboveTitle", "pLPAboveTitleAttr", "PLPAboveTitle", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList), 
+this.attr("PLPBehindSizeUnit", "pLPBehindSizeUnitAttr", "PLPBehindSizeUnit", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoList());
+}, true, ECP_Product_BLModel.Logo_InfoList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Logo_PLPRec.init();
+return Logo_PLPRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.Logo_PLPRec = Logo_PLPRec;
+
+});
+define("ECP_Product_BL.model$Text1Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Text1Record = (function (_super) {
+__extends(Text1Record, _super);
+function Text1Record(defaults) {
+_super.apply(this, arguments);
+}
+Text1Record.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Text1Record.fromStructure = function (str) {
+return new Text1Record(new Text1Record.RecordClass({
+nameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Text1Record._isAnonymousRecord = true;
+Text1Record.UniqueId = "140ae763-5b5c-550e-5f93-324b123e0b4f";
+Text1Record.init();
+return Text1Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.Text1Record = Text1Record;
+
+});
+define("ECP_Product_BL.model$Text1RecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$Text1Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Text1RecordList = (function (_super) {
+__extends(Text1RecordList, _super);
+function Text1RecordList(defaults) {
+_super.apply(this, arguments);
+}
+Text1RecordList.itemType = ECP_Product_BLModel.Text1Record;
+return Text1RecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.Text1RecordList = Text1RecordList;
+
+});
+define("ECP_Product_BL.model$PLP_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$Logo_PLPRec", "ECP_Product_BL.model$Text1RecordList"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PLP_StrRec = (function (_super) {
+__extends(PLP_StrRec, _super);
+function PLP_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+PLP_StrRec.attributesToDeclare = function () {
+return [
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Brand", "brandAttr", "Brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Product_Subtitle", "product_SubtitleAttr", "Product_Subtitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaTitle", "metaTitleAttr", "MetaTitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaDescription", "metaDescriptionAttr", "MetaDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OriginalPrice", "originalPriceAttr", "OriginalPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("NewPrice", "newPriceAttr", "NewPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("LineItemId", "lineItemIdAttr", "LineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsProductOverMajorityAge", "isProductOverMajorityAgeAttr", "IsProductOverMajorityAge", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Logos", "logosAttr", "Logos", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_PLPRec());
+}, true, ECP_Product_BLModel.Logo_PLPRec), 
+this.attr("EAN", "eANAttr", "EAN", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Packging", "packgingAttr", "Packging", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Categories", "categoriesAttr", "Categories", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Text1RecordList());
+}, true, ECP_Product_BLModel.Text1RecordList), 
+this.attr("IsAvailable", "isAvailableAttr", "IsAvailable", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PromotionLabel", "promotionLabelAttr", "PromotionLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionBasedLabel", "promotionBasedLabelAttr", "PromotionBasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionStartDate", "promotionStartDateAttr", "PromotionStartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("PromotionEndDate", "promotionEndDateAttr", "PromotionEndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsFreeDeliveryOffer", "isFreeDeliveryOfferAttr", "IsFreeDeliveryOffer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsOfflineSaleOnly", "isOfflineSaleOnlyAttr", "IsOfflineSaleOnly", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("MaxOrderLimit", "maxOrderLimitAttr", "MaxOrderLimit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CitrusAdId", "citrusAdIdAttr", "CitrusAdId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsLocalItem", "isLocalItemAttr", "IsLocalItem", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PLP_StrRec.init();
+return PLP_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PLP_StrRec = PLP_StrRec;
+
+});
+define("ECP_Product_BL.model$PDP_MarketingRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_MarketingRec = (function (_super) {
+__extends(PDP_MarketingRec, _super);
+function PDP_MarketingRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_MarketingRec.attributesToDeclare = function () {
+return [
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UniqueSellingPoint", "uniqueSellingPointAttr", "UniqueSellingPoint", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "Message", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_MarketingRec.init();
+return PDP_MarketingRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_MarketingRec = PDP_MarketingRec;
+
+});
+define("ECP_Product_BL.model$PDP_MedicineRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_MedicineRec = (function (_super) {
+__extends(PDP_MedicineRec, _super);
+function PDP_MedicineRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_MedicineRec.attributesToDeclare = function () {
+return [
+this.attr("EAN", "eANAttr", "EAN", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_MedicineRec.fromStructure = function (str) {
+return new PDP_MedicineRec(new PDP_MedicineRec.RecordClass({
+eANAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PDP_MedicineRec.init();
+return PDP_MedicineRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_MedicineRec = PDP_MedicineRec;
+
+});
+define("ECP_Product_BL.model$UoMValueRecordUoMValueRecordUoMValueRecordRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextIntegerRecord"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var UoMValueRecordUoMValueRecordUoMValueRecordRecord = (function (_super) {
+__extends(UoMValueRecordUoMValueRecordUoMValueRecordRecord, _super);
+function UoMValueRecordUoMValueRecordUoMValueRecordRecord(defaults) {
+_super.apply(this, arguments);
+}
+UoMValueRecordUoMValueRecordUoMValueRecordRecord.attributesToDeclare = function () {
+return [
+this.attr("Avg", "avgAttr", "Avg", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("Max", "maxAttr", "Max", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("Min", "minAttr", "Min", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord)
+].concat(_super.attributesToDeclare.call(this));
+};
+UoMValueRecordUoMValueRecordUoMValueRecordRecord._isAnonymousRecord = true;
+UoMValueRecordUoMValueRecordUoMValueRecordRecord.UniqueId = "a70eacbf-0ea4-805c-bbf0-bd473fa67a75";
+UoMValueRecordUoMValueRecordUoMValueRecordRecord.init();
+return UoMValueRecordUoMValueRecordUoMValueRecordRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.UoMValueRecordUoMValueRecordUoMValueRecordRecord = UoMValueRecordUoMValueRecordUoMValueRecordRecord;
+
+});
+define("ECP_Product_BL.model$PDP_LightBulbRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextIntegerRecord", "ECP_Product_BL.model$UoMValueRecordUoMValueRecordUoMValueRecordRecord"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_LightBulbRec = (function (_super) {
+__extends(PDP_LightBulbRec, _super);
+function PDP_LightBulbRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_LightBulbRec.attributesToDeclare = function () {
+return [
+this.attr("BaseType", "baseTypeAttr", "BaseType", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LampTypeCode", "lampTypeCodeAttr", "LampTypeCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NumberOfSwitches", "numberOfSwitchesAttr", "NumberOfSwitches", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SuitableForAccentLighting", "suitableForAccentLightingAttr", "SuitableForAccentLighting", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DeclaredPower", "declaredPowerAttr", "DeclaredPower", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("EquivalentPower", "equivalentPowerAttr", "EquivalentPower", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("Diameter", "diameterAttr", "Diameter", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("VisibleLight", "visibleLightAttr", "VisibleLight", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord), 
+this.attr("ColourTemperature", "colourTemperatureAttr", "ColourTemperature", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.UoMValueRecordUoMValueRecordUoMValueRecordRecord());
+}, true, ECP_Product_BLModel.UoMValueRecordUoMValueRecordUoMValueRecordRecord), 
+this.attr("WarmUpTime", "warmUpTimeAttr", "WarmUpTime", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextIntegerRecord());
+}, true, ECP_Product_BLModel.TextIntegerRecord)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_LightBulbRec.init();
+return PDP_LightBulbRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_LightBulbRec = PDP_LightBulbRec;
+
+});
+define("ECP_Product_BL.model$TextTextTextIntegerRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextTextTextIntegerRecord = (function (_super) {
+__extends(TextTextTextIntegerRecord, _super);
+function TextTextTextIntegerRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextTextIntegerRecord.attributesToDeclare = function () {
+return [
+this.attr("Identification", "identificationAttr", "Identification", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Organisation", "organisationAttr", "Organisation", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Concentration", "concentrationAttr", "Concentration", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextTextIntegerRecord._isAnonymousRecord = true;
+TextTextTextIntegerRecord.UniqueId = "295d7640-7d81-bd7a-c75e-dbdb0e41db77";
+TextTextTextIntegerRecord.init();
+return TextTextTextIntegerRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextTextTextIntegerRecord = TextTextTextIntegerRecord;
+
+});
+define("ECP_Product_BL.model$TextText1Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText1Record = (function (_super) {
+__extends(TextText1Record, _super);
+function TextText1Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText1Record.attributesToDeclare = function () {
+return [
+this.attr("Key", "keyAttr", "Key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText1Record._isAnonymousRecord = true;
+TextText1Record.UniqueId = "2825ecd7-c0cd-fd81-3512-8e95c9d6dd61";
+TextText1Record.init();
+return TextText1Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText1Record = TextText1Record;
+
+});
+define("ECP_Product_BL.model$TextTextRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextText1Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextTextRecordList = (function (_super) {
+__extends(TextTextRecordList, _super);
+function TextTextRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextRecordList.itemType = ECP_Product_BLModel.TextText1Record;
+return TextTextRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.TextTextRecordList = TextTextRecordList;
+
+});
+define("ECP_Product_BL.model$TextText7Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var TextText7Record = (function (_super) {
+__extends(TextText7Record, _super);
+function TextText7Record(defaults) {
+_super.apply(this, arguments);
+}
+TextText7Record.attributesToDeclare = function () {
+return [
+this.attr("Symbols", "symbolsAttr", "Symbols", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Word", "wordAttr", "Word", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextText7Record._isAnonymousRecord = true;
+TextText7Record.UniqueId = "9623c6c8-7451-34a1-ddc2-37e05ecb1876";
+TextText7Record.init();
+return TextText7Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.TextText7Record = TextText7Record;
+
+});
+define("ECP_Product_BL.model$PDP_HazardousRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$TextTextTextIntegerRecord", "ECP_Product_BL.model$TextTextRecordList", "ECP_Product_BL.model$TextText7Record"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_HazardousRec = (function (_super) {
+__extends(PDP_HazardousRec, _super);
+function PDP_HazardousRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_HazardousRec.attributesToDeclare = function () {
+return [
+this.attr("ChildSafeClosure", "childSafeClosureAttr", "ChildSafeClosure", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Chemical", "chemicalAttr", "Chemical", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextTextIntegerRecord());
+}, true, ECP_Product_BLModel.TextTextTextIntegerRecord), 
+this.attr("SafetyRecommendations", "safetyRecommendationsAttr", "SafetyRecommendations", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextRecordList());
+}, true, ECP_Product_BLModel.TextTextRecordList), 
+this.attr("HazardDesignations", "hazardDesignationsAttr", "HazardDesignations", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextTextRecordList());
+}, true, ECP_Product_BLModel.TextTextRecordList), 
+this.attr("GHSSignal", "gHSSignalAttr", "GHSSignal", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.TextText7Record());
+}, true, ECP_Product_BLModel.TextText7Record)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_HazardousRec.init();
+return PDP_HazardousRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_HazardousRec = PDP_HazardousRec;
+
+});
+define("ECP_Product_BL.model$BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord = (function (_super) {
+__extends(BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord, _super);
+function BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord(defaults) {
+_super.apply(this, arguments);
+}
+BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord.attributesToDeclare = function () {
+return [
+this.attr("AboutThisBeer", "aboutThisBeerAttr", "AboutThisBeer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("AboutThisProduct", "aboutThisProductAttr", "AboutThisProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("AboutThisWine", "aboutThisWineAttr", "AboutThisWine", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("AllergieInfo", "allergieInfoAttr", "AllergieInfo", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("HandyInfo", "handyInfoAttr", "HandyInfo", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Ingredients", "ingredientsAttr", "Ingredients", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("LegalInfo", "legalInfoAttr", "LegalInfo", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("NutrionalValues", "nutrionalValuesAttr", "NutrionalValues", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PreparationInstruction", "preparationInstructionAttr", "PreparationInstruction", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ServingSuggestions", "servingSuggestionsAttr", "ServingSuggestions", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("SupplierContact", "supplierContactAttr", "SupplierContact", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("TasteInfo", "tasteInfoAttr", "TasteInfo", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UsageAndStorage", "usageAndStorageAttr", "UsageAndStorage", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord._isAnonymousRecord = true;
+BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord.UniqueId = "96164e2c-d1e4-95e1-ee62-d3287dae3ca3";
+BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord.init();
+return BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord = BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord;
+
+});
+define("ECP_Product_BL.model$PDP_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$PDP_HeaderRec", "ECP_Product_BL.model$Text1RecordList", "ECP_Product_BL.model$Logo_PDPRec", "ECP_Product_BL.model$PDP_LegalRec", "ECP_Product_BL.model$PDP_UsageDuringRec", "ECP_Product_BL.model$PDP_MarketingRec", "ECP_Product_BL.model$PDP_SupplierContactRec", "ECP_Product_BL.model$PDP_NutrientRec", "ECP_Product_BL.model$PDP_AllergenRec", "ECP_Product_BL.model$PDP_InstructionsAndSuggestionsRec", "ECP_Product_BL.model$PDP_BeerRec", "ECP_Product_BL.model$PDP_WineRec", "ECP_Product_BL.model$PDP_SeaFoodRec", "ECP_Product_BL.model$PDP_PetFoodRec", "ECP_Product_BL.model$PDP_MedicineRec", "ECP_Product_BL.model$PDP_DrugStoreRec", "ECP_Product_BL.model$PDP_HealthCareRec", "ECP_Product_BL.model$PDP_LightBulbRec", "ECP_Product_BL.model$PDP_BatteryRec", "ECP_Product_BL.model$PDP_HazardousRec", "ECP_Product_BL.model$BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PDP_StrRec = (function (_super) {
+__extends(PDP_StrRec, _super);
+function PDP_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+PDP_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Overview", "overviewAttr", "Overview", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_HeaderRec());
+}, true, ECP_Product_BLModel.PDP_HeaderRec), 
+this.attr("ProductClassificationId", "productClassificationIdAttr", "ProductClassificationId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Categories", "categoriesAttr", "Categories", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Text1RecordList());
+}, true, ECP_Product_BLModel.Text1RecordList), 
+this.attr("Logos", "logosAttr", "Logos", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_PDPRec());
+}, true, ECP_Product_BLModel.Logo_PDPRec), 
+this.attr("Legal", "legalAttr", "Legal", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_LegalRec());
+}, true, ECP_Product_BLModel.PDP_LegalRec), 
+this.attr("UsageDuring", "usageDuringAttr", "UsageDuring", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_UsageDuringRec());
+}, true, ECP_Product_BLModel.PDP_UsageDuringRec), 
+this.attr("Marketing", "marketingAttr", "Marketing", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_MarketingRec());
+}, true, ECP_Product_BLModel.PDP_MarketingRec), 
+this.attr("SupplierContact", "supplierContactAttr", "SupplierContact", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_SupplierContactRec());
+}, true, ECP_Product_BLModel.PDP_SupplierContactRec), 
+this.attr("Composition", "compositionAttr", "Composition", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Ingredients", "ingredientsAttr", "Ingredients", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Nutrient", "nutrientAttr", "Nutrient", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_NutrientRec());
+}, true, ECP_Product_BLModel.PDP_NutrientRec), 
+this.attr("Allergen", "allergenAttr", "Allergen", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_AllergenRec());
+}, true, ECP_Product_BLModel.PDP_AllergenRec), 
+this.attr("InstructionsAndSuggestions", "instructionsAndSuggestionsAttr", "InstructionsAndSuggestions", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_InstructionsAndSuggestionsRec());
+}, true, ECP_Product_BLModel.PDP_InstructionsAndSuggestionsRec), 
+this.attr("PercentageOfAlcohol", "percentageOfAlcoholAttr", "PercentageOfAlcohol", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Beer", "beerAttr", "Beer", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_BeerRec());
+}, true, ECP_Product_BLModel.PDP_BeerRec), 
+this.attr("Wine", "wineAttr", "Wine", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_WineRec());
+}, true, ECP_Product_BLModel.PDP_WineRec), 
+this.attr("SeaFood", "seaFoodAttr", "SeaFood", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_SeaFoodRec());
+}, true, ECP_Product_BLModel.PDP_SeaFoodRec), 
+this.attr("PetFood", "petFoodAttr", "PetFood", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_PetFoodRec());
+}, true, ECP_Product_BLModel.PDP_PetFoodRec), 
+this.attr("Medicine", "medicineAttr", "Medicine", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_MedicineRec());
+}, true, ECP_Product_BLModel.PDP_MedicineRec), 
+this.attr("DrugStore", "drugStoreAttr", "DrugStore", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_DrugStoreRec());
+}, true, ECP_Product_BLModel.PDP_DrugStoreRec), 
+this.attr("HealthCare", "healthCareAttr", "HealthCare", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_HealthCareRec());
+}, true, ECP_Product_BLModel.PDP_HealthCareRec), 
+this.attr("LightBulb", "lightBulbAttr", "LightBulb", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_LightBulbRec());
+}, true, ECP_Product_BLModel.PDP_LightBulbRec), 
+this.attr("Battery", "batteryAttr", "Battery", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_BatteryRec());
+}, true, ECP_Product_BLModel.PDP_BatteryRec), 
+this.attr("Hazardous", "hazardousAttr", "Hazardous", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PDP_HazardousRec());
+}, true, ECP_Product_BLModel.PDP_HazardousRec), 
+this.attr("IsVisibleSection", "isVisibleSectionAttr", "IsVisibleSection", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord());
+}, true, ECP_Product_BLModel.BooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanBooleanRecord), 
+this.attr("IsNoIndex", "isNoIndexAttr", "IsNoIndex", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PDP_StrRec.init();
+return PDP_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PDP_StrRec = PDP_StrRec;
+
+});
+define("ECP_Product_BL.model$Product_AttributesRawItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Product_IS.model", "ECP_Product_BL.model", "CT_Product_IS.model$Product_AttributesRawItemRec", "ECP_Product_BL.referencesHealth", "ECP_Product_BL.referencesHealth$CT_Product_IS"], function (exports, OutSystems, CT_Product_ISModel, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var Product_AttributesRawItemList = (function (_super) {
+__extends(Product_AttributesRawItemList, _super);
+function Product_AttributesRawItemList(defaults) {
+_super.apply(this, arguments);
+}
+Product_AttributesRawItemList.itemType = CT_Product_ISModel.Product_AttributesRawItemRec;
+return Product_AttributesRawItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.Product_AttributesRawItemList = Product_AttributesRawItemList;
+
+});
+define("ECP_Product_BL.model$PLP_ProductStrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$Product_AttributesRawItemList", "ECP_Product_BL.model$Logo_PLPRec", "ECP_Product_BL.model$CategoryItemRec"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PLP_ProductStrRec = (function (_super) {
+__extends(PLP_ProductStrRec, _super);
+function PLP_ProductStrRec(defaults) {
+_super.apply(this, arguments);
+}
+PLP_ProductStrRec.attributesToDeclare = function () {
+return [
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaTitle", "metaTitleAttr", "MetaTitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaDescription", "metaDescriptionAttr", "MetaDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DisplayPrice", "displayPriceAttr", "\"\"", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsProductOverMajorityAge", "isProductOverMajorityAgeAttr", "IsProductOverMajorityAge", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsOfflineSaleOnly", "isOfflineSaleOnlyAttr", "IsOfflineSaleOnly", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Attributes", "attributesAttr", "Attributes", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Product_AttributesRawItemList());
+}, true, ECP_Product_BLModel.Product_AttributesRawItemList), 
+this.attr("Remarks", "remarksAttr", "Remarks", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_PLPRec());
+}, true, ECP_Product_BLModel.Logo_PLPRec), 
+this.attr("Category", "categoryAttr", "Category", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.CategoryItemRec());
+}, true, ECP_Product_BLModel.CategoryItemRec), 
+this.attr("Order", "orderAttr", "Order", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsAvailable", "isAvailableAttr", "IsAvailable", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PLP_ProductStrRec.init();
+return PLP_ProductStrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PLP_ProductStrRec = PLP_ProductStrRec;
+
+});
+define("ECP_Product_BL.model$OverviewRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var OverviewRec = (function (_super) {
+__extends(OverviewRec, _super);
+function OverviewRec(defaults) {
+_super.apply(this, arguments);
+}
+OverviewRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Subtitle", "subtitleAttr", "Subtitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Brand", "brandAttr", "Brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("URL", "uRLAttr", "URL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaTitle", "metaTitleAttr", "MetaTitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaDescription", "metaDescriptionAttr", "MetaDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Packaging", "packagingAttr", "Packaging", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsNIX18", "isNIX18Attr", "IsNIX18", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DiscountPrice", "discountPriceAttr", "DiscountPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("LineItemId", "lineItemIdAttr", "LineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineItemQuantity", "lineItemQuantityAttr", "LineItemQuantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsOfflineSaleOnly", "isOfflineSaleOnlyAttr", "IsOfflineSaleOnly", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsAvailableInStore", "isAvailableInStoreAttr", "IsAvailableInStore", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("MaxOrderLimit", "maxOrderLimitAttr", "MaxOrderLimit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsNoIndex", "isNoIndexAttr", "IsNoIndex", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OverviewRec.init();
+return OverviewRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.OverviewRec = OverviewRec;
+
+});
+define("ECP_Product_BL.model$ItemTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var ItemTypeRec = (function (_super) {
+__extends(ItemTypeRec, _super);
+function ItemTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+ItemTypeRec.attributesToDeclare = function () {
+return [
+this.attr("ItemId", "itemIdAttr", "ItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ItemType", "itemTypeAttr", "ItemType", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ItemTypeRec.init();
+return ItemTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.ItemTypeRec = ItemTypeRec;
+
+});
+define("ECP_Product_BL.model$PLP_CustomFieldsRawItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PLP_CustomFieldsRawItemRec = (function (_super) {
+__extends(PLP_CustomFieldsRawItemRec, _super);
+function PLP_CustomFieldsRawItemRec(defaults) {
+_super.apply(this, arguments);
+}
+PLP_CustomFieldsRawItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PLP_CustomFieldsRawItemRec.init();
+return PLP_CustomFieldsRawItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.PLP_CustomFieldsRawItemRec = PLP_CustomFieldsRawItemRec;
+
+});
+define("ECP_Product_BL.model$PromotionStoreSpecificList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$PromotionStoreSpecificRec"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var PromotionStoreSpecificList = (function (_super) {
+__extends(PromotionStoreSpecificList, _super);
+function PromotionStoreSpecificList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionStoreSpecificList.itemType = ECP_Product_BLModel.PromotionStoreSpecificRec;
+return PromotionStoreSpecificList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Product_BLModel.PromotionStoreSpecificList = PromotionStoreSpecificList;
+
+});
+define("ECP_Product_BL.model$ProductPromotionStoreRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Product_BL.model$PromotionStoreSpecificList"], function (exports, OutSystems, ECP_Product_BLModel) {
+var OS = OutSystems.Internal;
+var ProductPromotionStoreRec = (function (_super) {
+__extends(ProductPromotionStoreRec, _super);
+function ProductPromotionStoreRec(defaults) {
+_super.apply(this, arguments);
+}
+ProductPromotionStoreRec.attributesToDeclare = function () {
+return [
+this.attr("ListOfPromotions", "listOfPromotionsAttr", "listOfPromotions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PromotionStoreSpecificList());
+}, true, ECP_Product_BLModel.PromotionStoreSpecificList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ProductPromotionStoreRec.fromStructure = function (str) {
+return new ProductPromotionStoreRec(new ProductPromotionStoreRec.RecordClass({
+listOfPromotionsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ProductPromotionStoreRec.init();
+return ProductPromotionStoreRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Product_BLModel.ProductPromotionStoreRec = ProductPromotionStoreRec;
+
+});
+define("ECP_Product_BL.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_Product_BLModel = exports;
+});

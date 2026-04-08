@@ -1,0 +1,28 @@
+﻿define("CMS_Monolith_CW.languageResources", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+var MessagesProvider = (function (_super) {
+__extends(MessagesProvider, _super);
+function MessagesProvider(translationResources) {
+_super.apply(this, arguments);
+this.setMessage("Validation.Mandatory", "");
+this.setMessage("Validation.Integer", "");
+this.setMessage("Validation.LongInteger", "");
+this.setMessage("Validation.Decimal", "");
+this.setMessage("Validation.Currency", "");
+this.setMessage("Validation.Date", "");
+this.setMessage("Validation.Time", "");
+this.setMessage("Validation.DateTime", "");
+this.setMessage("Validation.Text", "");
+this.setMessage("Validation.PhoneNumber", "");
+this.setMessage("Validation.Email", "");
+this.setMessage("UpgradeComplete", "");
+this.setMessage("AppInitError.Generic", "");
+this.setMessage("AppInitError.Resources", "");
+this.setMessage("AppInitError.DataModel", "");
+this.setMessage("UpgradeRequired", "");
+this.setMessage("UpgradeRequiredDataLoss", "");
+}
+return MessagesProvider;
+})(OS.LanguageResources.BaseMessagesProvider);
+return new MessagesProvider();
+});

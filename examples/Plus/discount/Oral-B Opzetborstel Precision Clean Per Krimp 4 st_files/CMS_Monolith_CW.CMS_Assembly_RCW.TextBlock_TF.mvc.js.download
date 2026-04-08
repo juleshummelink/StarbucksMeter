@@ -1,0 +1,695 @@
+﻿define("CMS_Monolith_CW.CMS_Assembly_RCW.TextBlock_TF.mvc$model", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith.controller", "CMS_Monolith.model", "PLUS_OutSystemsUI_2_8_0.Adaptive.Columns2.mvc$model", "ECOP_Base_RPat.InjectHTML.InjectHTML.mvc$model", "CMS_Monolith.CMS_Shared_RCW.CTA_TF.mvc$model", "CMS_Monolith.CMS_Shared_RCW.ImageWrapperProgressiveJPG_TF.mvc$model", "CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$model", "CMS_Monolith.controller$Text_Slugify", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.model$CMS_Assembly_TextBlockRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$Shared_ImageParametersRec"], function (OutSystems, CMS_Monolith_CWModel, CMS_MonolithController, CMS_MonolithModel, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvcModel, ECOP_Base_RPat_InjectHTML_InjectHTML_mvcModel, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvcModel, CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvcModel, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("TextBlock", "textBlockIn", "TextBlock", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.CMS_Assembly_TextBlockRec());
+}, false, CMS_MonolithModel.CMS_Assembly_TextBlockRec), 
+this.attr("_textBlockInDataFetchStatus", "_textBlockInDataFetchStatus", "_textBlockInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ActiveDevice", "activeDeviceIn", "ActiveDevice", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_ActiveDeviceRec());
+}, false, CMS_MonolithModel.Shared_ActiveDeviceRec), 
+this.attr("_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsSectionComponent", "isSectionComponentIn", "IsSectionComponent", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isSectionComponentInDataFetchStatus", "_isSectionComponentInDataFetchStatus", "_isSectionComponentInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OtherTextBlockHasTitle", "otherTextBlockHasTitleIn", "OtherTextBlockHasTitle", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_otherTextBlockHasTitleInDataFetchStatus", "_otherTextBlockHasTitleInDataFetchStatus", "_otherTextBlockHasTitleInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((((PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvcModel.hasValidationWidgets || ECOP_Base_RPat_InjectHTML_InjectHTML_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("TextBlock" in inputs) {
+this.variables.textBlockIn = inputs.TextBlock;
+if("_textBlockInDataFetchStatus" in inputs) {
+this.variables._textBlockInDataFetchStatus = inputs._textBlockInDataFetchStatus;
+}
+
+}
+
+if("ActiveDevice" in inputs) {
+this.variables.activeDeviceIn = inputs.ActiveDevice;
+if("_activeDeviceInDataFetchStatus" in inputs) {
+this.variables._activeDeviceInDataFetchStatus = inputs._activeDeviceInDataFetchStatus;
+}
+
+}
+
+if("IsSectionComponent" in inputs) {
+this.variables.isSectionComponentIn = inputs.IsSectionComponent;
+if("_isSectionComponentInDataFetchStatus" in inputs) {
+this.variables._isSectionComponentInDataFetchStatus = inputs._isSectionComponentInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+if("OtherTextBlockHasTitle" in inputs) {
+this.variables.otherTextBlockHasTitleIn = inputs.OtherTextBlockHasTitle;
+if("_otherTextBlockHasTitleInDataFetchStatus" in inputs) {
+this.variables._otherTextBlockHasTitleInDataFetchStatus = inputs._otherTextBlockHasTitleInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CMS_Assembly_RCW.TextBlock_TF");
+});
+define("CMS_Monolith_CW.CMS_Assembly_RCW.TextBlock_TF.mvc$view", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith_CW.controller", "CMS_Monolith.controller", "CMS_Monolith.model", "react", "OutSystems/ReactView/Main", "CMS_Monolith_CW.CMS_Assembly_RCW.TextBlock_TF.mvc$model", "CMS_Monolith_CW.CMS_Assembly_RCW.TextBlock_TF.mvc$controller", "OutSystems/ReactWidgets/Main", "PLUS_OutSystemsUI_2_8_0.Adaptive.Columns2.mvc$view", "ECOP_Base_RPat.InjectHTML.InjectHTML.mvc$view", "CMS_Monolith.CMS_Shared_RCW.CTA_TF.mvc$view", "CMS_Monolith.CMS_Shared_RCW.ImageWrapperProgressiveJPG_TF.mvc$view", "CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$view", "CMS_Monolith.controller$Text_Slugify", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.model$CMS_Assembly_TextBlockRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$Shared_ImageParametersRec"], function (OutSystems, CMS_Monolith_CWModel, CMS_Monolith_CWController, CMS_MonolithController, CMS_MonolithModel, React, OSView, CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvc_model, CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvc_controller, OSWidgets, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvc_view, ECOP_Base_RPat_InjectHTML_InjectHTML_mvc_view, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvc_view, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CMS_Assembly_RCW.TextBlock_TF";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvc_view, ECOP_Base_RPat_InjectHTML_InjectHTML_mvc_view, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvc_view, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("9vYW4eLPqUCdUHDwNTQ6dQ.class"), function () {
+return ("cf-text-block cf-body-text-wrapper" + ((((OS.BuiltinFunctions.trim(model.variables.extendedClassIn)) !== (""))) ? ((" " + model.variables.extendedClassIn)) : ("")));
+}, function () {
+return model.variables.extendedClassIn;
+})
+},
+gridProperties: {
+classes: "OSInline"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.isSectionComponentIn, false, this, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("frx9e2ltE0OWfe4lvvowiQ.ExtendedClass"), function () {
+return ("cf-text-block__columns-wrapper" + ((model.variables.textBlockIn.isTextPositionLeftAttr) ? (" text-position-left") : (" text-position-right")));
+}, function () {
+return model.variables.textBlockIn.isTextPositionLeftAttr;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus),
+PhoneBehavior: CMS_Monolith_CWModel.staticEntities.breakColumns.all,
+TabletBehavior: CMS_Monolith_CWModel.staticEntities.breakColumns.all,
+GutterSize: CMS_Monolith_CWModel.staticEntities.gutterSize.none
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+column1: new PlaceholderContent(function () {
+return [$if((((((model.variables.textBlockIn.titleAttr) !== ("")) || !(model.variables.textBlockIn.textHtmlAttr.isEmpty)) || ((model.variables.textBlockIn.cTAAttr.linkAttr.urlAttr) !== (""))) || ((model.variables.textBlockIn.parsedHTMLAttr) !== (""))), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-text-block__column-text",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.textBlockIn.titleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("f2+W5In8AkqUnBs7uX70Zw.Style"), function () {
+return ("cf-text-block__title " + ((!(model.variables.textBlockIn.textHtmlAttr.isEmpty)) ? (" margin-bottom-base") : ("")));
+}, function () {
+return model.variables.textBlockIn.textHtmlAttr.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+name: model.getCachedValue(idService.getId("Zp4vSnjTsUO+w_Fq54actg.name"), function () {
+return CMS_MonolithController.default.text_Slugify$Action(model.variables.textBlockIn.titleAttr, callContext).slugifiedTextOut;
+}, function () {
+return model.variables.textBlockIn.titleAttr;
+}),
+className: "heading2"
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.textBlockIn.titleAttr,
+_idProps: {
+service: idService,
+name: "H2Element3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+})))];
+}, function () {
+return [];
+}), $if(((model.variables.textBlockIn.parsedHTMLAttr) !== ("")), false, this, function () {
+return [React.createElement(ECOP_Base_RPat_InjectHTML_InjectHTML_mvc_view, {
+inputs: {
+HTML: model.variables.textBlockIn.parsedHTMLAttr,
+_hTMLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "6",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+}), $if(((model.variables.textBlockIn.cTAAttr.linkAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, {
+inputs: {
+CTA_Inp: model.getCachedValue(idService.getId("uO_XVy_oVU+YdeCiDn6seg.CTA_Inp"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.textBlockIn.cTAAttr, new CMS_MonolithModel.Shared_Link2PdfOrPageRec(), function (source, target) {
+target = source.linkAttr;
+return target;
+});
+}, function () {
+return model.variables.textBlockIn.cTAAttr;
+}),
+_cTA_InpInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+}))];
+}, function () {
+return [];
+})];
+}),
+column2: new PlaceholderContent(function () {
+return [$if((((model.variables.textBlockIn.imageAttr.urlAttr) !== ("")) || ((model.variables.textBlockIn.videoAttr.urlAttr) !== (""))), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("WQ_spZ5os0uc6KFNLrNSKw.Style"), function () {
+return ("cf-text-block__column-media" + ((!(model.variables.activeDeviceIn.isDesktopAttr)) ? (" margin-bottom-m") : ("")));
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+}, $if(((model.variables.textBlockIn.imageAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvc_view, {
+inputs: {
+Image: model.variables.textBlockIn.imageAttr,
+_imageInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus),
+ExtendedClass: "cf-text-block__image",
+ImageParameters: model.getCachedValue(idService.getId("fvoJHGXte0WVGJXplMdlEA.ImageParameters"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_ImageParametersRec();
+rec.widthAttr = 708;
+rec.heightAttr = 255;
+rec.resizeBehaviorAttr = CMS_Monolith_CWModel.staticEntities.contentfulImageResizeBehavior.fill;
+return rec;
+}();
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+}), $if(((model.variables.textBlockIn.videoAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_view, {
+inputs: {
+ExtendedClass: "cf-text-block__video",
+VideoWrapper: model.getCachedValue(idService.getId("S2tzPcMxn0OIFXcS7kT9OQ.VideoWrapper"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_MediaRec();
+rec.urlAttr = model.variables.textBlockIn.videoAttr.urlAttr;
+rec.altTextAttr = model.variables.textBlockIn.videoAttr.altTextAttr;
+return rec;
+}();
+}, function () {
+return model.variables.textBlockIn.videoAttr.urlAttr;
+}, function () {
+return model.variables.textBlockIn.videoAttr.altTextAttr;
+}),
+_videoWrapperInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+}))];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.activeDeviceIn.isDesktopAttr), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables._textBlockInDataFetchStatus), asPrimitiveValue(model.variables.textBlockIn.videoAttr.altTextAttr), asPrimitiveValue(model.variables.textBlockIn.videoAttr.urlAttr), asPrimitiveValue(model.variables.textBlockIn.imageAttr), asPrimitiveValue(model.variables.textBlockIn.parsedHTMLAttr), asPrimitiveValue(model.variables.textBlockIn.cTAAttr), asPrimitiveValue(model.variables.textBlockIn.textHtmlAttr.isEmpty), asPrimitiveValue(model.variables.textBlockIn.titleAttr)]
+})];
+}, function () {
+return [$if(((model.variables.textBlockIn.imageAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("2t1FzQ+VIU+sGnsgUfNyJQ.Style"), function () {
+return (((((model.variables.textBlockIn.titleAttr) !== ("")) || !(model.variables.textBlockIn.textHtmlAttr.isEmpty))) ? (" margin-bottom-m") : (""));
+}, function () {
+return model.variables.textBlockIn.titleAttr;
+}, function () {
+return model.variables.textBlockIn.textHtmlAttr.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+}, React.createElement(CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvc_view, {
+inputs: {
+Image: model.variables.textBlockIn.imageAttr,
+_imageInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus),
+ExtendedClass: "cf-text-block__image",
+ImageParameters: model.getCachedValue(idService.getId("hnrh_uC2KE+34uFUX9en2g.ImageParameters"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_ImageParametersRec();
+rec.widthAttr = 708;
+rec.heightAttr = 255;
+rec.resizeBehaviorAttr = CMS_Monolith_CWModel.staticEntities.contentfulImageResizeBehavior.fill;
+return rec;
+}();
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+}), $if(((model.variables.textBlockIn.videoAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("u+53SP41DUCpo86BvuzvGA.Style"), function () {
+return (((((model.variables.textBlockIn.titleAttr) !== ("")) || !(model.variables.textBlockIn.textHtmlAttr.isEmpty))) ? (" margin-bottom-m") : (""));
+}, function () {
+return model.variables.textBlockIn.titleAttr;
+}, function () {
+return model.variables.textBlockIn.textHtmlAttr.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+}, React.createElement(CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_view, {
+inputs: {
+VideoWrapper: model.getCachedValue(idService.getId("iI3GeLgF+ECghhRXIRGVjQ.VideoWrapper"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_MediaRec();
+rec.urlAttr = model.variables.textBlockIn.videoAttr.urlAttr;
+rec.altTextAttr = model.variables.textBlockIn.videoAttr.altTextAttr;
+return rec;
+}();
+}, function () {
+return model.variables.textBlockIn.videoAttr.urlAttr;
+}, function () {
+return model.variables.textBlockIn.videoAttr.altTextAttr;
+}),
+_videoWrapperInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus),
+ExtendedClass: "cf-text-block__video"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "14",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+}), $if((((model.variables.textBlockIn.titleAttr) !== ("")) || (((((model.variables.textBlockIn.imageAttr.urlAttr === "") && (model.variables.textBlockIn.videoAttr.urlAttr === "")) && !(model.variables.textBlockIn.textHtmlAttr.isEmpty)) && model.variables.otherTextBlockHasTitleIn) && model.variables.activeDeviceIn.isDesktopAttr)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("fLzcvU7AFEe04K_KkY4JMw.Style"), function () {
+return ("cf-text-block__title" + ((!(model.variables.textBlockIn.textHtmlAttr.isEmpty)) ? (" margin-bottom-base") : ("")));
+}, function () {
+return model.variables.textBlockIn.textHtmlAttr.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+name: model.getCachedValue(idService.getId("npH0gzp7yUqR3XnvI5k53Q.name"), function () {
+return CMS_MonolithController.default.text_Slugify$Action(model.variables.textBlockIn.titleAttr, callContext).slugifiedTextOut;
+}, function () {
+return model.variables.textBlockIn.titleAttr;
+}),
+className: "heading2"
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.textBlockIn.titleAttr,
+_idProps: {
+service: idService,
+name: "H2Element2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+})))];
+}, function () {
+return [];
+}), $if(((model.variables.textBlockIn.parsedHTMLAttr) !== ("")), false, this, function () {
+return [React.createElement(ECOP_Base_RPat_InjectHTML_InjectHTML_mvc_view, {
+inputs: {
+HTML: model.variables.textBlockIn.parsedHTMLAttr,
+_hTMLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "18",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+}), $if(((model.variables.textBlockIn.cTAAttr.linkAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, {
+inputs: {
+CTA_Inp: model.getCachedValue(idService.getId("Q0kXY0_0VUirPJPRNLYM2A.CTA_Inp"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.textBlockIn.cTAAttr, new CMS_MonolithModel.Shared_Link2PdfOrPageRec(), function (source, target) {
+target = source.linkAttr;
+return target;
+});
+}, function () {
+return model.variables.textBlockIn.cTAAttr;
+}),
+_cTA_InpInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._textBlockInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "19",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("CMS_Monolith_CW.CMS_Assembly_RCW.TextBlock_TF.mvc$controller", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith_CW.controller", "CMS_Monolith.controller", "CMS_Monolith.model", "CMS_Monolith_CW.languageResources", "CMS_Monolith.controller$Text_Slugify", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.model$CMS_Assembly_TextBlockRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$Shared_ImageParametersRec"], function (OutSystems, CMS_Monolith_CWModel, CMS_Monolith_CWController, CMS_MonolithController, CMS_MonolithModel, CMS_Monolith_CWLanguageResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return CMS_Monolith_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, CMS_Monolith_CWLanguageResources);
+});
+

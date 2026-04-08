@@ -1,0 +1,14 @@
+﻿define("PL_MT_ExceptionHandling_BL.referencesHealth$PL_MT_ExceptionHandling_Lib", [], function () {
+// Reference to producer 'PL_MT_ExceptionHandling_Lib' is OK.
+});
+define("PL_MT_ExceptionHandling_BL.referencesHealth$PL_MT_Utils_Lib", [], function () {
+// Reference to producer 'PL_MT_Utils_Lib' is OK.
+});
+define("PL_MT_ExceptionHandling_BL.referencesHealth$ServiceCenter", [], function () {
+// Reference to producer 'ServiceCenter' is OK.
+});
+define("PL_MT_ExceptionHandling_BL.referencesHealth$Users", [], function () {
+// Reference to producer 'Users' is OK.
+});
+define("PL_MT_ExceptionHandling_BL.referencesHealth", [], function () {
+});

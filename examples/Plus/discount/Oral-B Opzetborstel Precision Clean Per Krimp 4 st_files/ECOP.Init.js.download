@@ -1,0 +1,338 @@
+﻿//########################################################//
+//                                                        //
+//                                                        //
+//      ██╗███╗░░██╗██╗████████╗░░░░░░░░██╗░██████╗       //
+//      ██║████╗░██║██║╚══██╔══╝░░░░░░░░██║██╔════╝       //
+//      ██║██╔██╗██║██║░░░██║░░░░░░░░░░░██║╚█████╗░       //
+//      ██║██║╚████║██║░░░██║░░░░░░██╗░░██║░╚═══██╗       //
+//      ██║██║░╚███║██║░░░██║░░░██╗╚█████╔╝██████╔╝       //
+//      ╚═╝╚═╝░░╚══╝╚═╝░░░╚═╝░░░╚═╝░╚════╝░╚═════╝░       //
+//    This file needs to be updated at the same time      //
+//       as DOMLoaded.js. The changes of one file         //
+//            must reflect in the other file              //
+//                                                        //
+//########################################################//
+
+//Checks if the code already ran and if the website is ECOP
+if (typeof (__ECOP_initExecuted) === 'undefined' && document.querySelector('script[src*="ECOP.appDefinition.js"')) {
+    __ECOP_initExecuted = true;
+
+    console.log("Executing Init.js");
+
+    (function () {
+        // -- START -- Extract from OutSystemsReactView.js adapted and unminified
+        //Gets the viewport dimensions
+        function getBrowserViewportDimensions() {
+            return {
+                width: window.innerWidth || document.documentElement.clientWidth,
+                height: window.innerHeight || document.documentElement.clientHeight
+            }
+        }
+        //Gets the viewport dependent css classes. Checks if it is phone, tablet or desktop according the viewport width
+        function getViewportDependentCssClasses() {
+            let orientationCssClass, deviceTypeCssClass, browserViewportDimensions = getBrowserViewportDimensions();
+
+            if (browserViewportDimensions.width < 768)
+                deviceTypeCssClass = 'phone';
+            else if (browserViewportDimensions.width <= 1024)
+                deviceTypeCssClass = 'tablet';
+            else {
+                deviceTypeCssClass = 'desktop';
+            }
+
+            orientationCssClass = browserViewportDimensions.width > browserViewportDimensions.height ? 'landscape' : 'portrait';
+            return [deviceTypeCssClass, orientationCssClass];
+        }
+
+        //Adds viewport dependent css classes to the body
+        function refreshDocumentBodyCssClasses() {
+            getViewportDependentCssClasses().forEach(function (cssClass) {
+                return document.body.classList.add(cssClass);
+            });
+        }
+        // -- END -- Extract from OutSystemsReactView.js adapted and unminified
+
+        //Appends the prerender to the html body        
+        function appendContentToReactContainer(text) {
+
+            if (!document.querySelector(".screen-container") && !localStorage.getItem('$OS_Users$ECOP_FE_Core$ClientVars$OWAccountType')) {
+                refreshDocumentBodyCssClasses();
+
+                var fast_cont = document.createElement('div');
+                fast_cont.id = "fast_cont";
+
+
+                var css = document.createElement('style');
+                var styles = ":root{--color-primary:#80bd1d;--color-secondary:#007f38;--header-size:80px;--header-top-bar-height:32px}#fast_cont{height:100%;overflow-y:auto;overflow-x:hidden;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999}#transitionContainer{opacity:0}#fast_cont .cart-badge-price,#fast_cont .login-button span{color:transparent}#fast_cont .cart-banner-wrapper a,#fast_cont .cart-item-wrapper-action__link,#fast_cont .cf-footer-newsletter__btn,#fast_cont .header-menubar a.gtm-header-choose-store,#fast_cont .login-button,#fast_cont .osui-submenu,#fast_cont .plp-filters-wrapper,#fast_cont .product-header-button-wrapper a{pointer-events:none}#fast_cont .heading1:not([class*=text-]),#fast_cont h1:not([class*=text-]){color:var(--color-neutral-10)}.phone #fast_cont .disclaimer-warning__wrapper,[data-popup-backdrop]{display:none}.phone #fast_cont div[data-block='Promotions.CategoryOffers']>div+div .content-section-full{padding-left:0;padding-right:0}.phone #fast_cont .plp-list-section .content-section-full,.phone #fast_cont div[data-block='Cart.CartContent']>div+div .content-section-full:first-of-type,.phone #fast_cont div[data-block='Cart.CartContent']>div+div>div{padding:0}.phone #fast_cont .cart-content-wrapper>div+div{padding:var(--space-base)}.phone #fast_cont .plp-list-section .plp-content-wrapper{padding-top:var(--space-s)}.phone #fast_cont .plp-list-section .list-item-content{position:relative}.phone #fast_cont .plp-list-section .cart-item-wrapper.list-item .list-item-content-right{position:absolute;right:0;bottom:0}.phone #fast_cont .plp-list-section .plp-item-wrapper .list-item-content{align-items:stretch}.phone #fast_cont .plp-list-section .plp-item-wrapper .list-item-content .list-item-content-text{display:flex;flex-direction:column;justify-content:space-between;flex:1}.phone #fast_cont .plp-list-section .plp-item-wrapper .list-item-content .list-item-content-center{display:flex;flex-direction:column}.phone #fast_cont .recipes-section .cf-overview-page__image-wrapper{margin-bottom:var(--space-m)}.phone #fast_cont .recipes-section .cf-overview-page__intro-text{margin-bottom:var(--space-l)}.phone #fast_cont .columns.cf-two-column-container__wrapper.gutter-m.phone-break-all:only-child>.columns-item:not(:last-child){margin-bottom:var(--space-xl)}";
+                css.appendChild(document.createTextNode(styles));
+                fast_cont.appendChild(css);
+
+
+                var phtml = text;
+                let parser = new DOMParser();
+                const doc = parser.parseFromString(phtml, 'text/html');
+                var lay = doc.querySelector('.layout');
+                if (lay) {
+                    // [START] Loads only first images the content
+                    window.imgCounter = 0;
+                    lay.querySelectorAll("img").forEach((el, position) => {
+                        if (lay.querySelectorAll(".content-middle-main-content")[0].contains(el)) {
+
+                            if (window.imgCounter > 20) {
+                                el.parentElement.removeChild(el);
+                            }
+                            window.imgCounter++;
+                        }
+                    });
+                    // [END] Loads only first images the content
+                    
+                    // [Start] obfuscate prices for PDP pages
+                    if(window.location.href.indexOf("/product/") > -1){
+                        lay.querySelectorAll(".product-price-wrapper").forEach((el) => {
+                            el.classList.add("easy-placeholder"); 
+                            el.classList.add("animation");
+                            el.style = "margin-top:0";
+                            el.innerHTML = '<div class="product-header-logo-price-top ph" id="b4-b122-PriceTopLogo"><div data-container="" class="place"></div></div><div data-container="" class="product-price margin-top-s OSInline"><div class="font-bold product-header-price-integer" id="b4-b122-PriceInteger"><span data-expression="" class="place">0.</span></div><div class="heading1 font-black product-header-price-decimals" id="b4-b122-PriceDecimals"><span data-expression="" class="place">86</span></div><div class="product-header-price-previous ph" id="b4-b122-PricePrevious"></div></div>';
+                        });
+
+                        lay.querySelectorAll(".product-header-additional-info").forEach((el) => { el.remove(); });
+                    }
+                    // [END] obfuscate prices for PDP pages
+                    
+                    lay.querySelectorAll("[data-block='Interaction.Sidebar']").forEach((el) => { el.parentElement.removeChild(el) });
+                    fast_cont.appendChild(lay);
+                    document.body.appendChild(fast_cont);
+                    var menu_js = document.createElement("script");
+                    menu_js.innerHTML = "var main_cont=document.querySelector('#fast_cont');main_cont&&main_cont.addEventListener('scroll',(()=>{requestAnimationFrame((()=>{if(!document.body.classList.contains('phone')){var e=getComputedStyle(document.documentElement).getPropertyValue('--header-top-bar-height');e||(e='32'),e=parseInt(e.trim(),10),main_cont.scrollTop>=e&&!main_cont.classList.contains('fixed-header')&&main_cont.classList.add('fixed-header'),main_cont.scrollTop<e&&main_cont.classList.contains('fixed-header')&&main_cont.classList.remove('fixed-header'),this.oldScroll||(this.oldScroll=0),this.oldScroll<main_cont.scrollTop?main_cont.classList.add('hide-menu'):main_cont.classList.remove('hide-menu'),this.oldScroll=main_cont.scrollTop}}))}),{passive:!0}),document.querySelector('.header-search-wrapper input').addEventListener('click',(function(){document.querySelector('.header-search-overlay').classList.add('show')})),document.querySelector('.header-search-overlay').addEventListener('click',(function(){this.classList.remove('show')})),document.querySelector('.header-search-wrapper input').addEventListener('keyup',(function(e){13==e.keyCode&&(window.location='/zoekresultaten?SearchTerm='+this.value)}));";
+                    document.body.querySelector("#fast_cont").appendChild(menu_js);
+                }
+
+                //Fallback in case the page takes longer to load
+                setTimeout(() => {
+                    var fake_el = document.querySelector("#fast_cont");
+                    if (fake_el)
+                        document.body.removeChild(fake_el);
+                }, 60000);
+            }
+        }
+
+        //Function to preconnect domains and add them to the document
+        function preconnectDomains() {
+            const domains = [
+                "https://images.ctfassets.net",
+                "https://downloads.ctfassets.net",
+                "https://cdn.contentful.com",
+                "https://www.googletagmanager.com",
+                "https://metrics.plus.nl",
+                "https://www.google-analytics.com",
+                "https://static.hotjar.com",
+                "https://bat.bing.com",
+                "https://t.contentsquare.net",
+                "https://adservice.google.com"
+            ]
+            //Adds each domain to the document
+            domains.forEach(domain => appendLink3rdParty(domain));
+        }
+
+        function appendiOSSmartBanner(iOSappId, iOSappUrl) {
+            let iosSmartBanner = document.createElement('meta');
+            iosSmartBanner.setAttribute('name', 'apple-itunes-app');
+            iosSmartBanner.setAttribute('content', `app-id=${iOSappId}, app-argument=${iOSappUrl}`);
+            document.head.appendChild(iosSmartBanner);
+        }
+        appendiOSSmartBanner('1078649625', 'https://apple.co/4fQjpNP');
+
+        // //Function to fetch and append to the head tag extra scripts (GTM)
+        // function loadExtraScripts() {
+        //     var url = location.origin + "/ECOP/rest/GTM/GetGTMConfig";
+        //     fetch(url, {
+        //         headers: {
+        //             "Access-Control-Allow-Origin": "*",
+        //         }
+        //     })
+        //         .then(response => response.text())
+        //         .then((text) => {
+        //             var x = JSON.parse(text);
+        //             if (x.IsEnable)
+        //                 if (document.querySelector('.gtm-head-script') === null) {
+        //                     var head = document.getElementsByTagName('head')[0];
+        //                     var script = document.createElement('script');
+        //                     script.setAttribute('type', 'text/javascript');
+        //                     script.setAttribute("defer", "defer");
+        //                     script.classList.add("gtm-head-script");
+        //                     script.innerHTML = "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','" + x.GTM_ID + "');";
+        //                     head.appendChild(script);
+        //                 }
+        //         })
+        // }
+        //Function to hide default upgrade message from OutSystems
+        function hideUpdateMsg() {
+            //Hide app update message if not dev
+            if (!window.location.origin.includes("plus-dev")) {
+                var styleTag = document.createElement('style');
+                styleTag.appendChild(document.createTextNode(".feedback-message-wrapper .upgrade-success {display: none;}"));
+                document.head.appendChild(styleTag);
+            }
+        }
+
+        //Function that appends and preconnects 
+        function appendLink3rdParty(href) {
+            var link1 = document.createElement('link');
+            link1.rel = "dns-prefetch";
+            link1.href = href;
+            document.head.appendChild(link1);
+
+            var link2 = document.createElement('link');
+            link2.rel = "preconnect";
+            link2.href = href;
+            document.head.appendChild(link2);
+        }
+
+        /*function preloadImages(imgUrl) {
+
+            // RC: Preload PDP. Change to generic top 20 image and measure impact
+            // <link rel="preload" href="/img/header.png" as="image">
+            // "https://images.ctfassets.net/s0lodsnpsezb/113882_M/7bf15b8a1a36c8b6ff6fca19629d2db4/113882.png?w=380&h=380&fit=pad&fm=webp&q=85";
+
+            var linkImg = document.createElement('link');
+            linkImg.rel = "preload";
+            linkImg.href = imgUrl; 
+            linkImg.as = "image";
+            document.head.appendChild(linkImg);
+
+        }*/
+
+
+        (function () {
+            //Ensures that the script is not executed when openning the pre render test screen.
+            if (location.href && location.href.includes('/prerender/') || window.navigator.userAgent.includes('Prerender')) {
+                return;
+            }
+
+            //Preconnect the domains
+            preconnectDomains();
+            //Hides the upgrade message from the platforma
+            hideUpdateMsg();
+
+            //Declaration of variables
+            let font_ready = prehtml_done = css_ready = false, loaded_css = 0, prehtml = "";
+
+            // Loading FontFaces via JavaScript is alternative to using CSS's @font-face rule.
+            //Array of objects with the definition for each font
+            const fontsToAdd = [
+                { name: 'Gotham', url: 'url(/ECOP_Base_Theme/fonts/Gotham-Light.woff2)', style: 'normal', weight: '300', display: 'swap' },
+                { name: 'Gotham', url: 'url(/ECOP_Base_Theme/fonts/Gotham-Book.woff2)', style: 'normal', weight: '400', display: 'swap' },
+                { name: 'Gotham', url: 'url(/ECOP_Base_Theme/fonts/Gotham-Medium.woff2)', style: 'normal', weight: '500', display: 'swap' },
+                { name: 'Gotham', url: 'url(/ECOP_Base_Theme/fonts/Gotham-Bold.woff2)', style: 'normal', weight: '700', display: 'swap' },
+                { name: 'Gotham', url: 'url(/ECOP_Base_Theme/fonts/Gotham-Black.woff2)', style: 'normal', weight: '800', display: 'swap' },
+                { name: 'Gotham', url: 'url(/ECOP_Base_Theme/fonts/Gotham-Ultra.woff2)', style: 'normal', weight: '900', display: 'swap' },
+                { name: 'plus-icon', url: 'url(/ECOP_Base_Theme/icons/plus-icon.ttf)', style: 'normal', weight: 'normal', display: 'swap' },
+            ]
+
+            //Loads the fonts from the array
+            const loadFonts = fontsToAdd.map(font => {
+                return new FontFace(font.name, font.url, { style: font.style, weight: font.weight, display: font.display }).load();
+            })
+
+            //Adds the fonts to the document
+            Promise.all(loadFonts).then(loadedFonts => {
+                loadedFonts.forEach(font => document.fonts.add(font));
+                font_ready = true;
+                //if the css and prehtml are ready, add the prerender container to the react container
+                if (prehtml_done && css_ready) {
+                    appendContentToReactContainer(prehtml);
+                    // Prioritize the pre-render: only preconnect and lauch GTM after this is run
+                    // loadExtraScripts();
+                }
+            })
+
+            const env_origin = location.origin;
+
+            //Url for css resource
+            const cssUrl = env_origin + "/ECOP_HotCache_Eng/rest/ResourceManagement/GetCSS";
+
+            //Fetch css resources from url
+            fetch(cssUrl, {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                }
+            })
+                .then(response => response.text())
+                .then(text => {
+                    const arrCSSURLs = text.replace('"', '').split(";");
+                    const filteredCSSURLs = arrCSSURLs.filter(el => el.trim() !== "");
+
+                    //Load css files
+                    const cssPromises = filteredCSSURLs.map(url => {
+                        //Get relative url
+                        const relativeUrl = url.substr(url.indexOf("/css/")).replace('"', '');
+                        if (relativeUrl) {
+                            const link = document.createElement('link');
+                            link.rel = 'stylesheet';
+                            link.type = "text/css";
+                            link.href = relativeUrl;
+
+                            //Promise that resolves when the file is loaded
+                            return new Promise(resolve => {
+                                link.onload = () => {
+                                    resolve();
+                                };
+                                document.head.appendChild(link);
+                            });
+                        }
+                    });
+
+                    //Wait for all css files to load
+                    Promise.all(cssPromises)
+                        .then(() => {
+                            css_ready = true;
+                            if (prehtml_done && font_ready) {
+                                appendContentToReactContainer(prehtml);
+
+                                // Prioritize the pre-render: only preconnect and launch GTM after this is run
+                                // loadExtraScripts();
+                            }
+                        });
+                });
+
+            if (!window.location.pathname.includes('Callback') && document.querySelector('script[src*="ECOP.appDefinition.js"')) {
+                //Fetches the preload html from the server
+
+                let URL_phone_input = "";
+                if(getViewportDependentCssClasses().includes('phone'))
+                    URL_phone_input = "&ismobile=true"
+                    
+                const preloadUrl = env_origin + "/ECOP_HotCache_Eng/rest/ResourceManagement/Preload?url=" + encodeURIComponent(location.href) + URL_phone_input;
+                fetch(preloadUrl, {
+                    headers: {
+                        "Access-Control-Allow-Origin": "*",
+                    }
+                })
+                    .then(response => response.text())
+                    .then((text) => {
+                        prehtml = text;
+                        if (prehtml !== "") {
+                            prehtml_done = true;
+                            if (font_ready && css_ready) {
+                                //Appends the html to the react container
+                                appendContentToReactContainer(prehtml);
+
+                                // Prioritize the pre-render: only preconnect and lauch GTM after this is run
+                                // loadExtraScripts();
+                            }
+                        }
+                        else {
+                            //The GTM needs to be executed even if there's no preloaded content
+                            // loadExtraScripts();
+                        }
+                    })
+            }
+            else{
+                //The GTM needs to be executed even if the user is logged in
+                // loadExtraScripts();
+            }
+
+
+        })();
+    })();
+}

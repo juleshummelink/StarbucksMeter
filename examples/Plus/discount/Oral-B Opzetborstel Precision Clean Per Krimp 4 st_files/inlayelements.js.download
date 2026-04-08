@@ -1,0 +1,541 @@
+var issues;
+let listenerCount = 0;
+var alertMessages = {
+	"Online bestellen": null,
+	"Winkelinformatie" : null,
+	"Aanbiedingen" : null,
+	"Assortiment" : null,
+	"Anders" : null
+};
+
+window.addEventListener("message", receiveMessage, false);
+function receiveMessage(event)
+{
+  if (event.origin !== "https://plus-consumentenservice.custhelp.com" && event.origin !== "https://www.plus.nl")
+     return;
+  if (event.data == "scrollTop"){
+	window.parent.scrollTo(0,0);
+  }
+}
+
+async function getChatIssue(){
+	var url = 'https://plus-consumentenservice.custhelp.com/cgi-bin/plus_consumentenservice.cfg/php/custom/check_category_issue.php';
+	var xhr = new XMLHttpRequest();
+	if (!('withCredentials' in xhr)) xhr = new XDomainRequest(); // fix IE8/9
+	xhr.open('POST', url);
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState === 4) {
+			var response = JSON.parse(xhr.response);
+			if(response.ChatIssueCategory) {
+				var issueCategories = response.ChatIssueCategory;
+				issues = issueCategories.split(',');
+			}
+			console.log(response);
+			alertMessages['Online bestellen'] = response.Online_bestellen;
+			alertMessages['Winkelinformatie'] = response.Winkelinformatie;
+			alertMessages['Aanbiedingen'] = response.Aanbiedingen;
+			alertMessages['Assortiment'] = response.Assortiment;
+			alertMessages['Anders'] = response.Anders;
+		}
+	};
+	xhr.send();
+}
+
+
+var inlayccl = document.createElement('inlay-oracle-chat-ccl');
+inlayccl.setAttribute('id', 'chatInlayccl');
+inlayccl.setAttribute('class', 'inlay');
+inlayccl.setAttribute('link-action', 'fireEvent');
+inlayccl.setAttribute('inlay-mode', 'BOTTOM_RIGHT');
+inlayccl.setAttribute('agent-check-enabled', 'true');
+inlayccl.setAttribute('agent-minimum', '1');
+inlayccl.setAttribute('agent-polling-enabled', 'true');
+inlayccl.setAttribute('agent-hide-if-unavailable', 'true');
+inlayccl.setAttribute('site-url', 'plus-consumentenservice.widget.custhelp.com');
+
+var inlayembed = document.createElement('inlay-oracle-chat-embedded');
+inlayembed.setAttribute('id', 'chatInlay');
+inlayembed.setAttribute('class', 'inlay');
+inlayembed.setAttribute('anonymous-chat-enabled', 'false');
+inlayembed.setAttribute('chat-bubble-name-enabled', 'false');
+inlayembed.setAttribute('launch-form-fields', '["FIRST_NAME","LAST_NAME","EMAIL*","c$chat_category*", {"name": "c$chat_launch_url", "hidden": true, "required": false, "value": "'+window.parent.location+'"}]');
+inlayembed.setAttribute('inlay-hidden', 'true');
+inlayembed.setAttribute('file-upload-enabled', 'true');
+inlayembed.setAttribute('post-chat-print-transcript-enabled', 'false');
+inlayembed.setAttribute('off-the-record-patterns', '[]');
+
+inlayembed.setAttribute('log-level', 'none');
+inlayembed.setAttribute('site-url', 'plus-consumentenservice.widget.custhelp.com');
+
+document.body.appendChild(inlayccl);
+document.body.appendChild(inlayembed);
+
+
+function changeHeight(mutations){
+	 mutations.forEach((mutation) => {
+		console.log(mutation);
+		switch (mutation.type) {
+		  case "attributes":
+			switch (mutation.target.dataset.oitMode) {
+			  case "overlay-br-min":
+				window.parent.document.getElementById("chatInlay").setAttribute("style", "height: 90px !important; width:78px");
+				break;
+			  case "overlay-br-max":
+				window.parent.document.getElementById("initial-chatInlay").innerHTML = '#chatInlay{height: 90px;}';
+				window.parent.document.getElementById("initial-chatInlayCcl").innerHTML = '#chatInlayCcl{height: 90px; border:0;}';
+				var invalidEmail = contentElement.getElementById("launch-form-email|input").getAttribute('aria-invalid');
+				var invalidCategory = contentElement.getElementById("custom-field-chat_category|input").getAttribute('aria-invalid');
+				if(invalidEmail == "true" && invalidCategory == "true"){
+					window.parent.document.getElementById("chatInlay").setAttribute("style", "height: 430px !important;");
+				} else if (invalidEmail == "true" || invalidCategory == "true"){
+					window.parent.document.getElementById("chatInlay").setAttribute("style", "height: 425px !important;");
+				} else {
+					window.parent.document.getElementById("chatInlay").setAttribute("style", "height: 363px !important;");
+				}				
+				break;
+			  case "fullscreen":
+				window.parent.document.getElementById("chatInlay").setAttribute("style", "height: 100% !important; width: 100% !important");
+			}
+			break;
+		}
+	});
+}
+
+var numberofmessagesWhenVisible = 0;
+var numberofmessagesWhenNotVisible = 0;
+var myFrame1;
+var contentElement;
+var secondContentElement;
+var title = document.title;
+
+
+var vis = (function () {
+	var stateKey, eventKey, keys = {
+		hidden: "visibilitychange",
+		webkitHidden: "webkitvisibilitychange",
+		mozHidden: "mozvisibilitychange",
+		msHidden: "msvisibilitychange"
+	};
+	for (stateKey in keys) {
+		if (stateKey in document) {
+			eventKey = keys[stateKey];
+			break;
+		}
+	}
+	return function (c) {
+		if (c) document.addEventListener(eventKey, c);
+		return !document[stateKey];
+	}
+})();
+
+timeoutMain();
+
+function timeoutMain() {
+	setTimeout(function () {
+		if (document.getElementById("chatInlay") != null && document.getElementById("chatInlay").contentDocument != null && document.getElementById("chatInlay").contentDocument.getElementsByClassName("oit-inlay-header-actions-close").length > 0) {			
+			customizeChatInlay();
+			customizeChatInlayccl();
+			clickevent();
+			start();
+		} else timeoutMain();
+	}, 0);
+}
+
+function customizeChatInlay() {
+	myFrame = document.getElementById("chatInlayccl");
+	myFrame1 = document.getElementById("chatInlay");
+	contentElement = myFrame1.contentDocument || myFrame1.contentWindow.document;
+	secondContentElement = myFrame.contentDocument || myFrame.contentWindow.document;
+	var body = contentElement.querySelectorAll('head');
+	console.log(body);
+	body[0].innerHTML += "<style>iframe[data-oit-mode=overlay-br-min], iframe[data-oit-mode=overlay-bl-min] {width: 91px !important;height: 91px !important;}.oit-inlay-header-title-text{padding: 0 0px 0 0px;font-weight:600}.oit-chat-bubble-user .oit-chat-bubble {background-color: #333333;}.oj-hover .{background: transparent !important}.oj-button.oj-default.oj-button-full-chrome .oj-button-button{color:#fff !important}, .oit-inlay-status-details{display:none}.oit-inlay-header{background:#333333; }.oj-button-primary.oj-buttonset .oj-button-jqui.oj-default.oj-button-full-chrome, .oj-button-primary.oj-buttonset .oj-button-jqui.oj-focus-only.oj-button-full-chrome, .oj-button-primary.oj-button-jqui.oj-default.oj-button-full-chrome, .oj-button-primary.oj-button-jqui.oj-focus-only.oj-button-full-chrome, .oj-button-primary.oj-button.oj-default.oj-button-full-chrome .oj-button-button, .oj-button-primary.oj-button.oj-focus-only.oj-button-full-chrome .oj-button-button,.oj-button-button,.oj-hover .oj-button-button {background-color: #333333 !important; background-image: none !important; color:#fff;}.oj-button.oj-default.oj-button-full-chrome .oj-button-button {background-color: #e2f0bf !important}.oj-button-text{color:#fff;}.chatInlay{width: 9.1875rem !important;height:89px !important;} iframe[data-oit-mode=dialog], iframe[data-oit-mode=overlay-br-max], iframe[data-oit-mode=overlay-bl-max] {border: 0px !important;}#chatInlayccl{}.screen-launch, .screen-transcript{/*border: 1px solid #cbcccd !important*/;background-color:white}</style>";
+	
+	var style = "<style>";	
+	style +=  "#chatInlay{height:84px !important;}#chatInlayccl{width: 83px !important; height: 84px !important;border-radius: 50px  !important; background: #333333 !important; bottom: 40px !important;  right: 20px !important;} iframe[data-oit-mode=overlay-br-min], iframe[data-oit-mode=overlay-bl-min] { width: 83px !important;height: 41px !important; border-radius: 50px  !important;bottom: 40px !important; right: 20px !important;}iframe[data-oit-mode=overlay-br-max] {   bottom: 40px !important;  right: 20px !important;}"
+	style += "body[data-oit-mode=overlay-bl-min] .oit-inlay, body[data-oit-mode=overlay-br-min] .oit-inlay {width: auto !important;}";
+	style += "iframe[data-oit-mode=overlay-br-min], iframe[data-oit-mode=overlay-bl-min] {width: 91px !important;height: 91px !important;}";
+	style += ".oit-inlay-header-title-icon .fa-comment-o{display:none}";	
+	//style += ".chatInlay{width: 9.1875rem !important;height:89px !important;}";
+	style += ".oit-inlay {overflow: hidden;}";
+	style += "inlay-oracle-chat-embedded .chat-send-form-message textarea {height:auto !important;}";
+	style += "inlay-oracle-chat-embedded .screen-launch .oit-inlay-body .launch-form-header, inlay-oracle-chat-embedded .screen-launch .oit-inlay-body .launch-form-footer {font-size:inherit !important;color: rgba(0,0,0,0.6);}";
+	style += "inlay-oracle-chat-embedded .screen-launch .oit-inlay-body {font-size:1rem !important;}";	
+	style += ".oit-chat-bubble-user .oit-chat-bubble {background-color: #e2f0bf;}";
+	style += ".oj-hover .{background: transparent !important}";
+	style += ".oj-button.oj-default.oj-button-full-chrome .oj-button-button{color:#fff !important}";
+	style += ".oit-inlay-status-details{display:none}";//#333333
+	style += ".screen-minimized .oit-inlay-header{background:#333333;white-space:normal !important;border-radius: 50px;text-align: center;}";
+	style += ".oj-button-primary.oj-buttonset .oj-button-jqui.oj-default.oj-button-full-chrome, .oj-button-primary.oj-buttonset .oj-button-jqui.oj-focus-only.oj-button-full-chrome, .oj-button-primary.oj-button-jqui.oj-default.oj-button-full-chrome, .oj-button-primary.oj-button-jqui.oj-focus-only.oj-button-full-chrome, .oj-button-primary.oj-button.oj-default.oj-button-full-chrome .oj-button-button, .oj-button-primary.oj-button.oj-focus-only.oj-button-full-chrome .oj-button-button,.oj-button-button,.oj-hover .oj-button-button {background-color: #e2f0bf !important; background-image: none !important; color:#fff;}";
+	style += ".oj-button.oj-default.oj-button-full-chrome .oj-button-button , .rn_FeedbackFieldset #submit_btn {background-color: #e2f0bf  !important;color: #333333;}";
+	style += ".oj-button-text{color:#fff;}";
+	style += ".oit-chat-bubble-user .oit-chat-bubble-message, #submit_btn {color: #333333;}";
+	style += ".screen-searching .oit-inlay-header {background:#333333; padding: 10px; border-top-right-radius: 8px; border-top-left-radius: 8px;}";
+	style += ".screen-transcript .oit-inlay-header {background:#333333; padding: 10px; border-top-right-radius: 8px; border-top-left-radius: 8px;}";
+	style += ".screen-transcript .oit-chat-bubble-agent .oit-chat-bubble { background-color: #f5f5f5;}";
+	style += " inlay-oracle-chat-embedded .screen-transcript .oit-inlay-footer .oj-button-button { border-radius: 0;}";
+	style += " .chat-send-form-submit { position: absolute;right: 59px;}";
+	style += " .oit-inlay-footer {border-top: 1px solid #ededee;}";
+	style += " .oj-textarea .oj-text-field-container {PADDING-RIGHT: 33PX;}";
+	style += " .oit-chat-bubble-footer, .oit-chat-bubble-message, .oit-chat-bubble-name {font-size: .88571rem;}";
+	style += " .transcript-message-container:focus {border:0;outline:none}";
+	style += " .oj-dialog-footer .oj-button-button , .oj-dialog-footer .oj-button-primary.oj-button.oj-default.oj-button-full-chrome .oj-button-button {background-color: #e2f0bf !important;color: #333333 !important;}";
+	style += "  #StartSurvey{background-color: #e2f0bf !important;color: #333333 !important;display: inline-block;margin: 0 auto; text-align: center; border: 0px;    text-align: center; padding: 10px; display: block;}";
+	style += "  #StartSurvey button{border:0px;padding:10px;}";
+	style += "  iframe{width:100% !important;border:0px !important;height: 100% !important;}";
+	style += "  #rn_SkipNav , #rn_Header , #rn_Navigation , .oit-chat-bubble-agent .oit-chat-bubble-name{display: none !important;}";
+	style += "  #rn_Container{width:100% !important;}";
+	style += "  .oj-button-text {color: #333333;}";
+	style += "  .custom-btn {background-color: #e2f0bf  !important;color: #333333;padding: 10px; margin-right: 6px;display: inline-block;margin-block: 3px;cursor: pointer;}";
+	style += "  .custom-btn-block {margin:10px auto;text-align:center;}";
+	style += "  .oj-button-primary.oj-button-full-chrome path {fill: #020202;}";
+	style += "  .rn_FeedbackFieldset {text-align:center}";
+	style += "  #rn_Body {  background: #FFF; border-right: 0px solid #DDD;border-left: 0px solid #DDD; overflow: hidden; padding: 0;text-align: left; -moz-box-shadow: none; -webkit-box-shadow:none;box-shadow: none;}";
+	style += "iframe[data-oit-mode=dialog], iframe[data-oit-mode=overlay-br-max], iframe[data-oit-mode=overlay-bl-max] {border: 0px !important;}#chatInlayccl{}";
+	style += "#alert {     background-color: #ffcddd;     padding: 6;     margin-top: -12px;     margin-left: -11px;     width: 100%;     padding-right: 16px; }  .closebtn {     font-weight: bold;     float: right;     font-size: 22px;     line-height: 20px;     cursor: pointer;     transition: 0.3s; }";
+	style += "</style>";
+	body[0].innerHTML += style;
+	setTimeout(function(){checkCategoryIssue()}, 2000);
+	var head = window.parent.document.head || window.parent.document.getElementsByTagName('head')[0];
+	var styleElement = document.createElement('style');
+	styleElement.id = "initial-chatInlay";
+	head.appendChild(styleElement);
+	styleElement.type = 'text/css';
+	var css = '#chatInlayccl{ height: 90px !important; border:0; width:78px !important;}';
+	styleElement.appendChild(document.createTextNode(css));
+	//window.parent.document.getElementById("chatInlayccl").setAttribute("style", "height: 90px; width:78px !important;border:0");
+}
+
+function customizeChatInlayccl() {
+	myFrame = document.getElementById("chatInlayccl");
+	myFrame1 = document.getElementById("chatInlay");
+	contentElement = myFrame1.contentDocument || myFrame1.contentWindow.document;
+	secondContentElement = myFrame.contentDocument || myFrame.contentWindow.document;
+	console.log(secondContentElement);
+	var body = secondContentElement.querySelectorAll('head');
+	body[0].innerHTML += "<style>a {color:white !important;} a:visited {color:white !important;}.fa-comment-o path{fill:white;}html .oit-inlay-body{background:#333333; border-radius: 50px;font-size: 1.28571rem;font-weight:600}html .oit-inlay-container{background:#333333; border-radius: 50px;}#chat-ccl-link{display:inline-block;fill:white;}.oit-inlay-body{background:#333333; padding:0.6rem !important;}.fa-comment-o{fill:white;}.chatInlayccl{width: 9.1875rem !important;height:89px !important;}iframe[data-oit-mode=dialog], iframe[data-oit-mode=overlay-br-max], iframe[data-oit-mode=overlay-bl-max] {border: 0px ;}#chatInlayccl{}</style>";
+
+	var style = "<style>";	
+	style += "#chatInlay{height:84px !important;}#chatInlayccl{width: 83px !important; height: 84px !important;border-radius: 50px  !important; background: #333333 !important; bottom: 40px !important;  right: 20px !important;} iframe[data-oit-mode=overlay-br-min], iframe[data-oit-mode=overlay-bl-min] { width: 83px !important;height: 41px !important; border-radius: 50px  !important;bottom: 40px !important; right: 20px !important;}iframe[data-oit-mode=overlay-br-max] {   bottom: 40px !important;  right: 20px !important;}"
+	
+	style += ".oit-inlay-header-title-icon .fa-comment-o{display:none}";
+	style += ".chatInlayccl{width: 9.1875rem !important;height:89px !important;}";
+	style += ".oit-inlay {overflow: initial;border-radius: 50px;}";
+	style += ".oit-chat-bubble-user .oit-chat-bubble {background-color: #e2f0bf;}";
+	style += ".oj-hover .{background: transparent !important}";
+	style += ".oj-button.oj-default.oj-button-full-chrome .oj-button-button{color:#fff !important}";
+	style += ".oit-inlay-status-details{display:none}";
+	style += ".screen-minimized .oit-inlay-header{background:#333333;white-space:normal !important;border-radius: 50px;text-align: center;}";
+	style += ".oj-button-primary.oj-buttonset .oj-button-jqui.oj-default.oj-button-full-chrome, .oj-button-primary.oj-buttonset .oj-button-jqui.oj-focus-only.oj-button-full-chrome, .oj-button-primary.oj-button-jqui.oj-default.oj-button-full-chrome, .oj-button-primary.oj-button-jqui.oj-focus-only.oj-button-full-chrome, .oj-button-primary.oj-button.oj-default.oj-button-full-chrome .oj-button-button, .oj-button-primary.oj-button.oj-focus-only.oj-button-full-chrome .oj-button-button,.oj-button-button,.oj-hover .oj-button-button {background-color: #e2f0bf !important; background-image: none !important; color:#fff;}";
+	style += ".oj-button.oj-default.oj-button-full-chrome .oj-button-button , .rn_FeedbackFieldset #submit_btn {background-color: #e2f0bf  !important;color: #333333;}";
+	style += ".oj-button-text{color:#fff;}";
+	style += ".oit-chat-bubble-user .oit-chat-bubble-message, #submit_btn {color: #333333;}";
+	style += ".screen-searching .oit-inlay-header {background:#333333; padding: 10px; border-top-right-radius: 8px; border-top-left-radius: 8px;}";
+	style += ".screen-transcript .oit-inlay-header {background:#333333; padding: 10px; border-top-right-radius: 8px; border-top-left-radius: 8px;}";
+	style += ".screen-transcript .oit-chat-bubble-agent .oit-chat-bubble { background-color: #f5f5f5;}";
+	style += " inlay-oracle-chat-ccl .screen-transcript .oit-inlay-footer .oj-button-button { border-radius: 0;}";
+	style += " .chat-send-form-submit { position: absolute;right: 59px;}";
+	style += " .oit-inlay-footer {border-top: 1px solid #ededee;}";
+	style += " .oj-textarea .oj-text-field-container {PADDING-RIGHT: 33PX;}";
+	style += " .oit-chat-bubble-footer, .oit-chat-bubble-message, .oit-chat-bubble-name {font-size: .88571rem;}";
+	style += " .transcript-message-container:focus {border:0;outline:none}";
+	style += " .oj-dialog-footer .oj-button-button , .oj-dialog-footer .oj-button-primary.oj-button.oj-default.oj-button-full-chrome .oj-button-button {background-color: #e2f0bf !important;color: #333333 !important;}";
+	style += "  #StartSurvey{background-color: #e2f0bf !important;color: #333333 !important;display: inline-block;margin: 0 auto; text-align: center; border: 0px;    text-align: center; padding: 10px; display: block;}";
+	style += "  #StartSurvey button{border:0px;padding:10px;}";
+	style += "  iframe{width:100% !important;border:0px !important;height: 100% !important;}";
+	style += "  #rn_SkipNav , #rn_Header , #rn_Navigation , .oit-chat-bubble-agent .oit-chat-bubble-name{display: none !important;}";
+	style += "  #rn_Container{width:100% !important;}";
+	style += "  .oj-button-text {color: #333333;}";
+	style += "  .custom-btn {background-color: #e2f0bf  !important;color: #333333;padding: 10px; margin-right: 6px;display: inline-block;margin-block: 3px;cursor: pointer;}";
+	style += "  .custom-btn-block {margin:10px auto;text-align:center;}";
+	style += "  .oj-button-primary.oj-button-full-chrome path {fill: #020202;}";
+	style += "  .rn_FeedbackFieldset {text-align:center}";
+	style += "  #rn_Body {  background: #FFF; border-right: 0px solid #DDD;border-left: 0px solid #DDD; overflow: hidden; padding: 0;text-align: left; -moz-box-shadow: none; -webkit-box-shadow:none;box-shadow: none;}";
+	style += "  #chat-ccl-link:hover { text-decoration: none !important; } .fa-comment-o { fill: white; display: none; }";
+	style += "  #chat-ccl-link{ display: inline-block; fill: white; text-decoration: none; }";
+	style += "iframe[data-oit-mode=dialog], iframe[data-oit-mode=overlay-br-max], iframe[data-oit-mode=overlay-bl-max] {border: 0px !important;}#chatInlayccl{}";	
+	
+	style += "  </style>";
+	body[0].innerHTML += style;
+	var head = window.parent.document.head || window.parent.document.getElementsByTagName('head')[0];
+	var styleElement = document.createElement('style');
+	styleElement.id = "initial-chatInlayCcl";
+	head.appendChild(styleElement);
+	styleElement.type = 'text/css';
+	var css = '#chatInlay{ height: 90px !important; width:78px;}';
+	styleElement.appendChild(document.createTextNode(css));
+	//window.parent.document.getElementById("chatInlay").setAttribute("style", "height: 90px; width:78px");
+}
+
+var clickedalready = 0;
+var timer2 = "";
+
+function clickevent() {
+
+	setTimeout(function () {		
+		myFrame = document.getElementById("chatInlayccl");
+		myFrame1 = document.getElementById("chatInlay");
+
+		var timer = "";
+		var chatEndMsgTimer = "";
+		contentElement = myFrame1.contentDocument || myFrame1.contentWindow.document;
+		secondContentElement = myFrame.contentDocument || myFrame.contentWindow.document;
+		//Update typing message
+		var targetNodes = myFrame1.contentWindow.document.querySelectorAll(".agent-activity");
+		var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+		var myObserver = new MutationObserver(mutationHandler);
+		var obsConfig = { childList: true, characterData: true, subtree: true };
+
+		//--- Add a target node to the observer. Can only add one node at a time.
+		myObserver.observe(targetNodes[0], obsConfig);
+
+		function mutationHandler(mutationRecords) {		
+			mutationRecords.forEach(function (mutation) {
+				if (mutation.type == "characterData") {
+					
+					var el = contentElement.querySelectorAll(".agent-activity");
+					for (var i = 0; i < el.length; i++) {
+						var typingmessage = el[i].innerHTML;
+						if (typingmessage != "") {
+							var FirstName = typingmessage.substr(0, typingmessage.indexOf(' '));
+							var message = typingmessage.substr(typingmessage.indexOf('is aan het typen...') - 1);
+							el[i].text(FirstName + message);
+						}
+					}
+				}
+
+			});
+		}
+		var el = contentElement.querySelectorAll(".screen-minimized");
+		for (var i = 0; i < el.length; i++) {
+			el[i].addEventListener('click', handleClick);
+		}
+
+		var contentframe = myFrame.contentDocument || myFrame.contentWindow.document;
+
+		var element = contentframe.querySelectorAll(".oit-inlay-body");
+		for (var j = 0; j < element.length; j++) {
+			element[j].addEventListener('click', removechatinlay);
+		}
+		function removechatinlay(){
+			document.getElementById("chatInlayccl").remove();
+		}
+		function handleClick() {
+			hideSurvey();
+			if (timer == "")
+				timer = setInterval(setCategorySelector, 1000);
+		}
+
+		if (timer == "")
+			timer = setInterval(setCategorySelector, 1000);
+		
+		function setCategorySelector() {
+			var el = contentElement.querySelectorAll(".screen-transcript .oit-chat-bubble-message");
+			for (var i = 0; i < el.length; i++) {
+				if (el[i].innerHTML.includes("Dag, mijn naam is") && el[i].innerHTML.includes("Hoe kan ik u van dienst zijn?")) {
+					var str = el[i].innerHTML;
+					var agentName = str.substr(18, str.indexOf('. Hoe kan ik u van dienst zijn?') - 18);
+					var agentFirstName = agentName.substr(0, agentName.indexOf(' '));
+					if (agentFirstName != "") {
+						str = str.replace(agentName, agentFirstName);
+					}
+					str = str.replace(". Hoe kan ik u van dienst zijn?", ", waar kan ik je mee helpen?");
+					str = str.replace("Dag, mijn naam is", "Hoi, welkom bij PLUS. Ik ben");
+					el[i].innerHTML = str;
+				}
+			}
+			var el1 = contentElement.querySelectorAll(".oit-chat-bubble-container.oit-chat-bubble-warning > .oit-chat-bubble > .oit-chat-bubble-standard > .oit-chat-bubble-content");
+			for (var i = 0; i < el1.length; i++) {
+				if (el1[i].innerText.includes("heeft de chat verlaten.")) {
+					var str = el1[i].innerText.trim();
+					var agentName = str.substr(0, str.indexOf(' heeft de chat verlaten.'));
+					var agentFirstName = agentName.substr(0, agentName.indexOf(' '));
+					if (agentFirstName != "") {
+						str = str.replace(agentName, agentFirstName);
+						el1[i].innerText = str;
+					}
+				}
+
+				if (el1[i].innerText.includes(" heeft de verbinding verbroken.")) {
+					var str1 = el1[i].innerText.trim();
+					var agentName1 = str1.substr(0, str1.indexOf(' heeft de verbinding verbroken.'));
+					var agentFirstName1 = agentName1.substr(0, agentName1.indexOf(' '));
+					if (agentFirstName1 != "") {
+						str1 = str1.replace(agentName1, agentFirstName1);
+						el1[i].innerText = str1;
+						clearInterval(timer);
+					}
+				}
+			}
+			
+			var el2 = contentElement.querySelectorAll(".oit-chat-bubble-container.oit-chat-bubble-warning > .oit-chat-bubble > .oit-chat-bubble-standard > .oit-chat-bubble-content > .oit-chat-bubble-message"); 
+			for (var i = 0; i < el2.length; i++) {
+					if (el2[i].innerText.includes(" heeft de verbinding verbroken.")) {
+						var str1 = el2[i].innerText.trim();
+						var agentName1 = str1.substr(0, str1.indexOf(' heeft de verbinding verbroken.'));
+						var agentFirstName1 = agentName1.substr(0, agentName1.indexOf(' '));
+						if (agentFirstName1 != "") {
+							str1 = str1.replace(agentName1, agentFirstName1);
+							el2[i].innerText = str1;
+							clearInterval(timer);
+						}
+					}
+
+			}
+
+			
+			if (contentElement.querySelectorAll(".oit-chat-bubble-message").length == 0) {
+				return;
+			}
+			if (contentElement.querySelectorAll(".categorymenuoption").length == 1) {
+				timer = "";
+				return;
+			}
+			if (contentElement.querySelectorAll(".oit-chat-bubble-message").length > 1) {
+				timer = "";
+				return;
+			}
+
+
+		}
+		
+		
+		if (chatEndMsgTimer == "")
+			chatEndMsgTimer = setInterval(changeChatEndMessage, 1000);
+		
+		function changeChatEndMessage(){
+			var el = contentElement.querySelectorAll(".screen-transcript .oit-chat-bubble-message");
+			for (var i = 0; i < el.length; i++) {
+				if (el[i].innerText.includes("U kunt dit venster sluiten.")) {
+					var str = el[i].innerText.trim();
+					var stringNeedToBeChanged = "U kunt dit venster sluiten.";
+					var stringBeforeChange = str.substr(0, str.indexOf(stringNeedToBeChanged));
+					var stringForChange = "Je kunt dit venster sluiten.";
+					el[i].innerText = stringBeforeChange + stringForChange;
+					clearInterval(chatEndMsgTimer);
+				}
+			}
+		}
+
+		function hideSurvey()
+		{
+			if (window.parent.document.getElementById("chatInlay")!=null && window.parent.document.getElementById("chatInlay").contentDocument!=null)
+			{
+				if (window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("oit-inlay-status")!=null &&
+					window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("oit-inlay-status")[1]!=null)
+				{
+					window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("oit-inlay-status")[1].style.display = "block";
+				}
+				if (window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("transcript-datetime")!=null &&
+					window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("transcript-datetime")[0]!=null)
+				{
+					window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("transcript-datetime")[0].style.display = "block";
+				}
+				if (window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("transcript-message-container")!=null && 
+					window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("transcript-message-container")[0]!=null)
+				{
+					window.parent.document.getElementById("chatInlay").contentDocument.getElementsByClassName("transcript-message-container")[0].style.display = "block";
+				}
+			}
+		}
+		
+		myFrame1.contentWindow.document.getElementById("closeChatButton").onclick = function (e) {	
+			setTimeout(function () {
+				var ojDialog = window.parent.document.getElementById("chatInlay").contentDocument.getElementsByTagName("oj-dialog");
+				if (ojDialog != null) {//sluiten or verbinding verbreken														
+					ojDialog[0].getElementsByTagName("oj-button")[0].onclick = function () {
+						
+						if ( this.innerText.includes("Sluiten")
+						)
+						{
+							//hiding survey
+							hideSurvey();	
+							
+						}
+					}
+				}
+
+				if (window.parent.document.getElementById("chatInlay").contentDocument.getElementById("ui-id-10") != null) {
+					window.parent.document.getElementById("chatInlay").contentDocument.getElementById("ui-id-10").onclick = function () {
+						hideSurvey();					
+					};
+				}
+			}, 0);
+		};
+	}, 0);
+}
+
+
+function start() {
+	var frame = document.getElementById('chatInlay');
+	var c = frame.contentDocument || frame.contentWindow.document;
+	var inner_wp = c.querySelectorAll('.oit-inlay-header-actions-close svg');
+	console.log(inner_wp);
+	inner_wp[inner_wp.length - 1].setAttribute("id", "closeChatButton");
+	const elementToObserve = window.parent.document.getElementById("chatInlay");
+	const observer = new MutationObserver(changeHeight);
+	observer.observe(elementToObserve, {subtree: false, childList: false, attributes: true, attributeFilter: ['data-oit-mode']});
+}
+
+async function checkCategoryIssue(){	
+	await getChatIssue();
+	var frame = document.getElementById('chatInlay');
+	var c = frame.contentDocument || frame.contentWindow.document;
+	var el = c.getElementById("title-link");
+	console.log(el);
+	if(el)
+		el.removeEventListener("click", function(){});
+	if(el.parentElement.parentElement.style.display != "none"){
+		if(listenerCount == 0){
+			el.addEventListener("click", function(){
+				checkCategoryIssue();
+				listenerCount++;
+			});
+		}
+	}
+	const elementToObserve = c.getElementById("custom-field-chat_category|input");
+	const observer = new MutationObserver(Callback);
+	observer.observe(elementToObserve, {subtree: false, childList: false, attributes: true, attributeFilter: ['aria-expanded']});
+}
+
+function Callback (mutations) {
+	var frame = document.getElementById('chatInlay');
+	var c = frame.contentDocument || frame.contentWindow.document;
+	for (let mutation of mutations) {
+		if (mutation.type === 'attributes') {
+			if(mutation.attributeName === 'aria-expanded'){
+				var expanded = contentElement.getElementById("custom-field-chat_category|input").getAttribute('aria-expanded');
+				if(expanded == 'false'){
+					var warning = c.getElementById("alert");
+					if(warning)
+						warning.remove();
+					var selectedCategory = contentElement.getElementById("custom-field-chat_category|input").value;
+					if(selectedCategory){
+						var issueCategories = issues;
+						console.log(issueCategories);
+						if(issueCategories){
+							//issueCategories = issueCategories.split(',');
+							console.log(issueCategories);
+							if(issueCategories.includes(selectedCategory)){
+								var info;
+								if(alertMessages[selectedCategory]) info = alertMessages[selectedCategory];
+								var div = document.createElement("div");
+								div.setAttribute("id", "alert");
+								div.innerHTML += '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>'; 
+								div.innerHTML += info;
+								c.getElementById("launch-form-tracker").prepend(div);
+							}
+						}
+					}
+					/*if(selectedCategory == "Shoppingcart"){
+						var info = sessionStorage.getItem(selectedCategory);
+						var div = document.createElement("div");						
+						div.setAttribute("id", "alert");
+						
+						c.getElementById("launch-form-tracker").prepend(div);
+					}*/
+				}
+			}
+		}	
+	}
+}
+

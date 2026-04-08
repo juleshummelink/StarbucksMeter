@@ -1,0 +1,1576 @@
+﻿define("PL_MT_ECOP_FE.controller$APM_Settings", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$APM_Settings.GetAppIdJS", "PL_MT_ECOP_FE.controller$ServerAction.APM_RUM_Settings"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController, PL_MT_ECOP_FE_controller_APM_Settings_GetAppIdJS) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.aPM_Settings$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var aPM_RUM_SettingsVar = new OS.DataTypes.VariableHolder();
+var getAppIdJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.APM_Settings$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+getAppIdJSResult.value = controller.safeExecuteJSNode(PL_MT_ECOP_FE_controller_APM_Settings_GetAppIdJS, "GetAppId", "APM_Settings", {
+AppId: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.APM_Settings$getAppIdJSResult"))();
+jsNodeResult.appIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AppId, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// Execute Action: APM_RUM_Settings
+return controller.aPM_RUM_Settings$ServerAction(getAppIdJSResult.value.appIdOut, callContext).then(function (value) {
+aPM_RUM_SettingsVar.value = value;
+}).then(function () {
+// MonitoringAPM = APM_RUM_Settings.MonitoringRUM
+outVars.value.monitoringAPMOut = aPM_RUM_SettingsVar.value.monitoringRUMOut;
+// APM_Enabled = APM_RUM_Settings.APM_Enabled
+outVars.value.aPM_EnabledOut = aPM_RUM_SettingsVar.value.aPM_EnabledOut;
+// RUM_Enabled = APM_RUM_Settings.RUM_Enabled
+outVars.value.rUM_EnabledOut = aPM_RUM_SettingsVar.value.rUM_EnabledOut;
+// APMTransaction_Enabled = APM_RUM_Settings.APMTransaction_Enabled
+outVars.value.aPMTransaction_EnabledOut = aPM_RUM_SettingsVar.value.aPMTransaction_EnabledOut;
+});
+}).catch(function (ex) {
+OS.Logger.trace("APM_Settings.APM_Settings", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.APM_Settings$getAppIdJSResult", [{
+name: "AppId",
+attrName: "appIdOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.APM_Settings$outVars", [{
+name: "MonitoringAPM",
+attrName: "monitoringAPMOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "APM_Enabled",
+attrName: "aPM_EnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "RUM_Enabled",
+attrName: "rUM_EnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "APMTransaction_Enabled",
+attrName: "aPMTransaction_EnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.aPM_Settings$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.aPM_Settings$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+MonitoringAPM: OS.DataConversion.JSNodeParamConverter.to(actionResults.monitoringAPMOut, OS.Types.Text),
+APM_Enabled: OS.DataConversion.JSNodeParamConverter.to(actionResults.aPM_EnabledOut, OS.Types.Boolean),
+RUM_Enabled: OS.DataConversion.JSNodeParamConverter.to(actionResults.rUM_EnabledOut, OS.Types.Boolean),
+APMTransaction_Enabled: OS.DataConversion.JSNodeParamConverter.to(actionResults.aPMTransaction_EnabledOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$APM_Settings.GetAppIdJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var context = $public.ApplicationContext.getCurrentContext();
+$parameters.AppId = context.applicationKey;
+};
+});
+
+define("PL_MT_ECOP_FE.controller$CheckElastic", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$CheckElastic.IsElasticLoadedJS"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController, PL_MT_ECOP_FE_controller_CheckElastic_IsElasticLoadedJS) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.checkElastic$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var isElasticLoadedJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.CheckElastic$outVars"))());
+try {isElasticLoadedJSResult.value = controller.safeExecuteJSNode(PL_MT_ECOP_FE_controller_CheckElastic_IsElasticLoadedJS, "IsElasticLoaded", "CheckElastic", {
+IsAvailable: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.CheckElastic$isElasticLoadedJSResult"))();
+jsNodeResult.isAvailableOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsAvailable, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+if((isElasticLoadedJSResult.value.isAvailableOut)) {
+// IsAvailable = True
+// IsAvailable = True
+outVars.value.isAvailableOut = true;
+}
+
+} catch (ex) {
+(function () {
+OS.Logger.trace("CheckElastic.CheckElastic", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.CheckElastic$isElasticLoadedJSResult", [{
+name: "IsAvailable",
+attrName: "isAvailableOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.CheckElastic$outVars", [{
+name: "IsAvailable",
+attrName: "isAvailableOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.checkElastic$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.checkElastic$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAvailable: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAvailableOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$CheckElastic.IsElasticLoadedJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.IsAvailable = window.elasticApm !== undefined;
+};
+});
+
+define("PL_MT_ECOP_FE.controller$CloseTransaction", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$CloseTransaction.CallCloseTransactionAsyncJS", "PL_MT_ECOP_FE.controller$CloseTransactionAsync"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController, PL_MT_ECOP_FE_controller_CloseTransaction_CallCloseTransactionAsyncJS) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.closeTransaction$Action = function (startInMillisIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.CloseTransaction$vars"))());
+vars.value.startInMillisInLocal = startInMillisIn;
+vars.value.globalTypeIdInLocal = globalTypeIdIn;
+vars.value.actionInLocal = actionIn;
+vars.value.externalAppInLocal = externalAppIn;
+vars.value.messageInLocal = messageIn;
+vars.value.flowTypeIdInLocal = flowTypeIdIn;
+vars.value.auxJSONInLocal = auxJSONIn;
+var callCloseTransactionAsyncJSResult = new OS.DataTypes.VariableHolder();
+callCloseTransactionAsyncJSResult.value = controller.safeExecuteJSNode(PL_MT_ECOP_FE_controller_CloseTransaction_CallCloseTransactionAsyncJS, "CallCloseTransactionAsync", "CloseTransaction", {
+StartInMillis: OS.DataConversion.JSNodeParamConverter.to(vars.value.startInMillisInLocal, OS.Types.LongInteger),
+GlobalTypeId: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.identifierToInteger(vars.value.globalTypeIdInLocal), OS.Types.Integer),
+Message: OS.DataConversion.JSNodeParamConverter.to(vars.value.messageInLocal, OS.Types.Text),
+FlowTypeId: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.identifierToInteger(vars.value.flowTypeIdInLocal), OS.Types.Integer),
+Action: OS.DataConversion.JSNodeParamConverter.to(vars.value.actionInLocal, OS.Types.Text),
+ExternalApp: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.identifierToInteger(vars.value.externalAppInLocal), OS.Types.Integer),
+AuxJSON: OS.DataConversion.JSNodeParamConverter.to(vars.value.auxJSONInLocal, OS.Types.Text),
+Latency: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.CloseTransaction$callCloseTransactionAsyncJSResult"))();
+jsNodeResult.latencyOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Latency, OS.Types.Integer);
+return jsNodeResult;
+}, {
+CloseTransactionAsync: PL_MT_ECOP_FEController.default.clientActionProxies.closeTransactionAsync$Action
+}, {});
+return ;
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.CloseTransaction$vars", [{
+name: "StartInMillis",
+attrName: "startInMillisInLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}, {
+name: "GlobalTypeId",
+attrName: "globalTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalApp",
+attrName: "externalAppInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "FlowTypeId",
+attrName: "flowTypeIdInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "AuxJSON",
+attrName: "auxJSONInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.CloseTransaction$callCloseTransactionAsyncJSResult", [{
+name: "Latency",
+attrName: "latencyOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.closeTransaction$Action = function (startInMillisIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn) {
+startInMillisIn = (startInMillisIn === undefined) ? OS.DataTypes.LongInteger.defaultValue : startInMillisIn;
+globalTypeIdIn = (globalTypeIdIn === undefined) ? 0 : globalTypeIdIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+externalAppIn = (externalAppIn === undefined) ? 0 : externalAppIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+flowTypeIdIn = (flowTypeIdIn === undefined) ? 0 : flowTypeIdIn;
+auxJSONIn = (auxJSONIn === undefined) ? "" : auxJSONIn;
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.closeTransaction$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(startInMillisIn, OS.Types.LongInteger), globalTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), externalAppIn, OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), flowTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(auxJSONIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$CloseTransaction.CallCloseTransactionAsyncJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var currTime = Date.now();
+
+$parameters.Latency = currTime - $parameters.StartInMillis
+
+let resolved = false;
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(function() { 
+        $actions.CloseTransactionAsync($parameters.Latency, $parameters.GlobalTypeId, $parameters.Action, $parameters.ExternalApp, $parameters.Message, $parameters.FlowTypeId, $parameters.AuxJSON)
+    }, 2000);
+    resolved = true;
+    resolve("Synced to server");
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$CloseTransactionAsync", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$ServerAction.CloseTransactionAsync"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.closeTransactionAsync$Action = function (latencyIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.CloseTransactionAsync$vars"))());
+vars.value.latencyInLocal = latencyIn;
+vars.value.globalTypeIdInLocal = globalTypeIdIn;
+vars.value.actionInLocal = actionIn;
+vars.value.externalAppInLocal = externalAppIn;
+vars.value.messageInLocal = messageIn;
+vars.value.flowTypeIdInLocal = flowTypeIdIn;
+vars.value.auxJSONInLocal = auxJSONIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: CloseTransactionAsync
+return controller.closeTransactionAsync$ServerAction(vars.value.latencyInLocal, vars.value.globalTypeIdInLocal, vars.value.actionInLocal, vars.value.externalAppInLocal, vars.value.messageInLocal, vars.value.flowTypeIdInLocal, vars.value.auxJSONInLocal, callContext);
+}).then(function () {
+return ;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.CloseTransactionAsync$vars", [{
+name: "Latency",
+attrName: "latencyInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "GlobalTypeId",
+attrName: "globalTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalApp",
+attrName: "externalAppInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "FlowTypeId",
+attrName: "flowTypeIdInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "AuxJSON",
+attrName: "auxJSONInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.closeTransactionAsync$Action = function (latencyIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn) {
+latencyIn = (latencyIn === undefined) ? 0 : latencyIn;
+globalTypeIdIn = (globalTypeIdIn === undefined) ? 0 : globalTypeIdIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+externalAppIn = (externalAppIn === undefined) ? 0 : externalAppIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+flowTypeIdIn = (flowTypeIdIn === undefined) ? 0 : flowTypeIdIn;
+auxJSONIn = (auxJSONIn === undefined) ? "" : auxJSONIn;
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.closeTransactionAsync$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(latencyIn, OS.Types.Integer), globalTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), externalAppIn, OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), flowTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(auxJSONIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$CONST_Secret_Cache", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.cONST_Secret_Cache$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.CONST_Secret_Cache$outVars"))());
+// Set Secret
+// Secret = "rwj6S2cEzF21Hu$7V88aWospkGnQZE#@Htmm1GaA&o0eHyF@Cd#qRb2cvtfTj099PQ=ZA%XB&xFw*Q9&@5jfh@OkapzAsp1D0pNT"
+outVars.value.secretOut = "rwj6S2cEzF21Hu$7V88aWospkGnQZE#@Htmm1GaA&o0eHyF@Cd#qRb2cvtfTj099PQ=ZA%XB&xFw*Q9&@5jfh@OkapzAsp1D0pNT";
+return outVars.value;
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.CONST_Secret_Cache$outVars", [{
+name: "Secret",
+attrName: "secretOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.cONST_Secret_Cache$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.cONST_Secret_Cache$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Secret: OS.DataConversion.JSNodeParamConverter.to(actionResults.secretOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$CreateGenericLog", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$ServerAction.CreateGlobalLogAsync"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.createGenericLog$Action = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.CreateGenericLog$vars"))());
+vars.value.globalTypeIdInLocal = globalTypeIdIn;
+vars.value.actionInLocal = actionIn;
+vars.value.externalAppInLocal = externalAppIn;
+vars.value.messageInLocal = messageIn;
+vars.value.auxJSONInLocal = auxJSONIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: CreateGlobalLogAsync
+return controller.createGlobalLogAsync$ServerAction(vars.value.globalTypeIdInLocal, vars.value.actionInLocal, vars.value.externalAppInLocal, vars.value.messageInLocal, vars.value.auxJSONInLocal, false, callContext);
+}).then(function () {
+return ;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.CreateGenericLog$vars", [{
+name: "GlobalTypeId",
+attrName: "globalTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalApp",
+attrName: "externalAppInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AuxJSON",
+attrName: "auxJSONInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.createGenericLog$Action = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn) {
+globalTypeIdIn = (globalTypeIdIn === undefined) ? 0 : globalTypeIdIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+externalAppIn = (externalAppIn === undefined) ? 0 : externalAppIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+auxJSONIn = (auxJSONIn === undefined) ? "" : auxJSONIn;
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.createGenericLog$Action.bind(controller, globalTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), externalAppIn, OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(auxJSONIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$Elastic_Initialize", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$Elastic_Initialize.Initialize_ElasticJS", "PL_MT_ECOP_FE.controller$CheckElastic", "PL_MT_ECOP_FE.controller$ServerAction.DecryptText_Cache", "PL_MT_ECOP_FE.controller$CONST_Secret_Cache", "PL_MT_ECOP_FE.model$APM_SettingsRec"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController, PL_MT_ECOP_FE_controller_Elastic_Initialize_Initialize_ElasticJS) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.elastic_Initialize$Action = function (monitoringAPMIn, pageNameIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.Elastic_Initialize$vars"))());
+vars.value.monitoringAPMInLocal = monitoringAPMIn;
+vars.value.pageNameInLocal = pageNameIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var decryptText_CacheVar = new OS.DataTypes.VariableHolder();
+var checkElasticVar = new OS.DataTypes.VariableHolder();
+var jSON_APM_SettingsVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(PL_MT_ECOP_FEModel.APM_SettingsRec))());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.Elastic_Initialize$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: CheckElastic
+checkElasticVar.value = PL_MT_ECOP_FEController.default.checkElastic$Action(callContext);
+
+return OS.Flow.executeSequence(function () {
+if((!(checkElasticVar.value.isAvailableOut))) {
+// Execute Action: LoadElasticRUM
+return OS.SystemActions.requireScript(OS.Navigation.VersionedURL.getVersionedUrl("scripts/PL_MT_ECOP_FE.elasticapmrum_umd_min.js"), callContext).then(function () {
+// Execute Action: DecryptText_Cache
+return controller.decryptText_Cache$ServerAction(vars.value.monitoringAPMInLocal, PL_MT_ECOP_FEController.default.cONST_Secret_Cache$Action(callContext).secretOut, callContext).then(function (value) {
+decryptText_CacheVar.value = value;
+});
+}).then(function () {
+// JSON Deserialize: JSON_APM_Settings
+jSON_APM_SettingsVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(decryptText_CacheVar.value.plainTextOut, PL_MT_ECOP_FEModel.APM_SettingsRec, false);
+controller.safeExecuteJSNode(PL_MT_ECOP_FE_controller_Elastic_Initialize_Initialize_ElasticJS, "Initialize_Elastic", "Elastic_Initialize", {
+ServerUrl: OS.DataConversion.JSNodeParamConverter.to(jSON_APM_SettingsVar.value.dataOut.serverURLAttr, OS.Types.Text),
+Environment: OS.DataConversion.JSNodeParamConverter.to(jSON_APM_SettingsVar.value.dataOut.environmentNameAttr, OS.Types.Text),
+ServiceVersion: OS.DataConversion.JSNodeParamConverter.to(jSON_APM_SettingsVar.value.dataOut.serviceVersionAttr, OS.Types.Text),
+ServiceName: OS.DataConversion.JSNodeParamConverter.to(jSON_APM_SettingsVar.value.dataOut.serviceNameAttr, OS.Types.Text),
+PageName: OS.DataConversion.JSNodeParamConverter.to(vars.value.pageNameInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+// Success = true
+// Success = True
+outVars.value.successOut = true;
+});
+}
+
+});
+}).catch(function (ex) {
+OS.Logger.trace("Elastic_Initialize.Elastic_Initialize", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.Elastic_Initialize$vars", [{
+name: "MonitoringAPM",
+attrName: "monitoringAPMInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "PageName",
+attrName: "pageNameInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.Elastic_Initialize$outVars", [{
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.elastic_Initialize$Action = function (monitoringAPMIn, pageNameIn) {
+monitoringAPMIn = (monitoringAPMIn === undefined) ? "" : monitoringAPMIn;
+pageNameIn = (pageNameIn === undefined) ? "" : pageNameIn;
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.elastic_Initialize$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(monitoringAPMIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(pageNameIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Success: OS.DataConversion.JSNodeParamConverter.to(actionResults.successOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$Elastic_Initialize.Initialize_ElasticJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+elasticApm.init({
+    serviceName: $parameters.ServiceName,
+    serverUrl: $parameters.ServerUrl,
+    serviceVersion: $parameters.ServiceVersion,
+    pageLoadTransactionName: $parameters.PageName,
+    environment : $parameters.Environment,
+    monitorLongtasks: true,
+    eventsLimit: 500
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$EndTransaction", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$ServerAction.EndTransaction"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.endTransaction$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: EndTransaction
+return controller.endTransaction$ServerAction("", callContext);
+}).catch(function (ex) {
+OS.Logger.trace("EndTransaction.EndTransaction", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync();
+
+});
+}
+
+throw ex;
+}).then(function () {
+return ;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.clientActionProxies.endTransaction$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.endTransaction$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$GetEnvironment", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$ServerAction.GetEnvironment"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.getEnvironment$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var getEnvironmentVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.GetEnvironment$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GetEnvironment
+return controller.getEnvironment$ServerAction(callContext).then(function (value) {
+getEnvironmentVar.value = value;
+}).then(function () {
+// Environment = GetEnvironment.Environment
+outVars.value.environmentOut = getEnvironmentVar.value.environmentOut;
+});
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.GetEnvironment$outVars", [{
+name: "Environment",
+attrName: "environmentOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.getEnvironment$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.getEnvironment$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Environment: OS.DataConversion.JSNodeParamConverter.to(actionResults.environmentOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$GetTokenForReactive", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$GetTokenForReactive.GetAppKeyJS", "PL_MT_ECOP_FE.controller$ServerAction.MT_GetToken"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController, PL_MT_ECOP_FE_controller_GetTokenForReactive_GetAppKeyJS) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.getTokenForReactive$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var mT_GetTokenVar = new OS.DataTypes.VariableHolder();
+var getAppKeyJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.GetTokenForReactive$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+getAppKeyJSResult.value = controller.safeExecuteJSNode(PL_MT_ECOP_FE_controller_GetTokenForReactive_GetAppKeyJS, "GetAppKey", "GetTokenForReactive", {
+AppKey: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.GetTokenForReactive$getAppKeyJSResult"))();
+jsNodeResult.appKeyOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AppKey, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// Execute Action: MT_GetToken
+return controller.mT_GetToken$ServerAction(getAppKeyJSResult.value.appKeyOut, callContext).then(function (value) {
+mT_GetTokenVar.value = value;
+}).then(function () {
+// Key = MT_GetToken.Key
+outVars.value.keyOut = mT_GetTokenVar.value.keyOut;
+});
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.GetTokenForReactive$getAppKeyJSResult", [{
+name: "AppKey",
+attrName: "appKeyOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.GetTokenForReactive$outVars", [{
+name: "Key",
+attrName: "keyOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.getTokenForReactive$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.getTokenForReactive$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Key: OS.DataConversion.JSNodeParamConverter.to(actionResults.keyOut, OS.Types.Text)
+};
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$GetTokenForReactive.GetAppKeyJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var context = $public.ApplicationContext.getCurrentContext();
+$parameters.AppKey = context.applicationKey;
+};
+});
+
+define("PL_MT_ECOP_FE.controller$Initialize_APM_RUM", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$InitializeServer", "PL_MT_ECOP_FE.controller$Elastic_Initialize", "PL_MT_ECOP_FE.controller$APM_Settings"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.initialize_APM_RUM$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var initializeServerVar = new OS.DataTypes.VariableHolder();
+var elastic_InitializeVar = new OS.DataTypes.VariableHolder();
+var aPM_SettingsVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.Initialize_APM_RUM$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: APM_Settings
+return PL_MT_ECOP_FEController.default.aPM_Settings$Action(callContext).then(function (value) {
+aPM_SettingsVar.value = value;
+}).then(function () {
+// APM_Enabled
+return OS.Flow.executeSequence(function () {
+if((aPM_SettingsVar.value.aPM_EnabledOut)) {
+// Execute Action: InitializeServer
+return PL_MT_ECOP_FEController.default.initializeServer$Action(aPM_SettingsVar.value.monitoringAPMOut, aPM_SettingsVar.value.aPMTransaction_EnabledOut, callContext).then(function (value) {
+initializeServerVar.value = value;
+}).then(function () {
+// Monitoring_Enabled = InitializeServer.Success
+outVars.value.monitoring_EnabledOut = initializeServerVar.value.successOut;
+});
+}
+
+});
+}).then(function () {
+// RUM_Enabled
+return OS.Flow.executeSequence(function () {
+if((aPM_SettingsVar.value.rUM_EnabledOut)) {
+// Execute Action: Elastic_Initialize
+return PL_MT_ECOP_FEController.default.elastic_Initialize$Action(aPM_SettingsVar.value.monitoringAPMOut, "", callContext).then(function (value) {
+elastic_InitializeVar.value = value;
+});
+}
+
+});
+});
+}).catch(function (ex) {
+OS.Logger.trace("Initialize_APM_RUM.Initialize_APM_RUM", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.Initialize_APM_RUM$outVars", [{
+name: "Monitoring_Enabled",
+attrName: "monitoring_EnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.initialize_APM_RUM$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.initialize_APM_RUM$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Monitoring_Enabled: OS.DataConversion.JSNodeParamConverter.to(actionResults.monitoring_EnabledOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$InitializeServer", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$InitializeServer.HandleRequestsJS", "PL_MT_ECOP_FE.controller$ServerAction.Initialize_Server", "PL_MT_ECOP_FE.controller$StartTransaction", "PL_MT_ECOP_FE.controller$EndTransaction"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController, PL_MT_ECOP_FE_controller_InitializeServer_HandleRequestsJS) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.initializeServer$Action = function (monitoringAPMIn, isAPMTransactionEnabledIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.InitializeServer$vars"))());
+vars.value.monitoringAPMInLocal = monitoringAPMIn;
+vars.value.isAPMTransactionEnabledInLocal = isAPMTransactionEnabledIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var initialize_ServerVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.InitializeServer$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: Initialize_Server
+return controller.initialize_Server$ServerAction(vars.value.monitoringAPMInLocal, callContext).then(function (value) {
+initialize_ServerVar.value = value;
+}).then(function () {
+if((vars.value.isAPMTransactionEnabledInLocal)) {
+controller.safeExecuteJSNode(PL_MT_ECOP_FE_controller_InitializeServer_HandleRequestsJS, "HandleRequests", "InitializeServer", {
+ServiceName: OS.DataConversion.JSNodeParamConverter.to(initialize_ServerVar.value.serviceNameOut, OS.Types.Text),
+ServiceVersion: OS.DataConversion.JSNodeParamConverter.to(initialize_ServerVar.value.serviceVersionOut, OS.Types.Text)
+}, function ($parameters) {
+}, {
+StartTransaction: PL_MT_ECOP_FEController.default.clientActionProxies.startTransaction$Action,
+EndTransaction: PL_MT_ECOP_FEController.default.clientActionProxies.endTransaction$Action
+}, {});
+}
+
+// Set Success
+// Success = Initialize_Server.Success
+outVars.value.successOut = initialize_ServerVar.value.successOut;
+});
+}).catch(function (ex) {
+OS.Logger.trace("InitializeServer.InitializeServer", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+// Success = False
+outVars.value.successOut = false;
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.InitializeServer$vars", [{
+name: "MonitoringAPM",
+attrName: "monitoringAPMInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "IsAPMTransactionEnabled",
+attrName: "isAPMTransactionEnabledInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.InitializeServer$outVars", [{
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.initializeServer$Action = function (monitoringAPMIn, isAPMTransactionEnabledIn) {
+monitoringAPMIn = (monitoringAPMIn === undefined) ? "" : monitoringAPMIn;
+isAPMTransactionEnabledIn = (isAPMTransactionEnabledIn === undefined) ? false : isAPMTransactionEnabledIn;
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.initializeServer$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(monitoringAPMIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(isAPMTransactionEnabledIn, OS.Types.Boolean)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Success: OS.DataConversion.JSNodeParamConverter.to(actionResults.successOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$InitializeServer.HandleRequestsJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+(function(open) {
+    XMLHttpRequest.prototype.open = function(method, url, async, user, pass) {
+        this.addEventListener("readystatechange", function() {
+            if (!url.includes("ActionStartTransaction") && !url.includes("ActionEndTransaction") && 
+            !url.includes("Transaction") && !url.includes("rum/events") && !url.includes("moduleservices") && !url.includes("ElasticRUM"))
+            {
+                if (this.readyState == 1){
+                    $actions.StartTransaction($parameters.ServiceName, $parameters.ServiceVersion, url, "xhr_server");
+                } else if (this.readyState == 4){
+                    $actions.EndTransaction();
+                }
+            }
+        }, false);
+
+        open.call(this, method, url, async, user, pass);
+    };
+
+})(XMLHttpRequest.prototype.open);
+};
+});
+
+define("PL_MT_ECOP_FE.controller$LogException", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$LogException.GetAppKeyJS", "PL_MT_ECOP_FE.controller$ServerAction.MT_ExceptionHandlingJson_SA", "PL_MT_ECOP_FE.controller$GetEnvironment", "PL_MT_ECOP_FE.model$LogExceptionStrRec"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController, PL_MT_ECOP_FE_controller_LogException_GetAppKeyJS) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.logException$Action = function (keyIn, exceptionTypeIdIn, exceptionSubTypeNameIn, requestKeyIn, moduleIn, screenIn, actionIn, userIn, messageIn, exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.LogException$vars"))());
+vars.value.keyInLocal = keyIn;
+vars.value.exceptionTypeIdInLocal = exceptionTypeIdIn;
+vars.value.exceptionSubTypeNameInLocal = exceptionSubTypeNameIn;
+vars.value.requestKeyInLocal = requestKeyIn;
+vars.value.moduleInLocal = moduleIn;
+vars.value.screenInLocal = screenIn;
+vars.value.actionInLocal = actionIn;
+vars.value.userInLocal = userIn;
+vars.value.messageInLocal = messageIn;
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var mT_ExceptionHandlingJson_SAVar = new OS.DataTypes.VariableHolder();
+var getEnvironmentVar = new OS.DataTypes.VariableHolder();
+var getAppKeyJSResult = new OS.DataTypes.VariableHolder();
+var jSONSerialize_LogExceptionStrVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.LogException$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GetEnvironment
+return PL_MT_ECOP_FEController.default.getEnvironment$Action(callContext).then(function (value) {
+getEnvironmentVar.value = value;
+}).then(function () {
+// LogExceptionStr.Environment = GetEnvironment.Environment
+vars.value.logExceptionStrVar.environmentAttr = getEnvironmentVar.value.environmentOut;
+// LogExceptionStr.Customer = ""
+vars.value.logExceptionStrVar.customerAttr = "";
+// LogExceptionStr.RequestKey = RequestKey
+vars.value.logExceptionStrVar.requestKeyAttr = vars.value.requestKeyInLocal;
+// LogExceptionStr.ExceptionSubTypeName = ExceptionSubTypeName
+vars.value.logExceptionStrVar.exceptionSubTypeNameAttr = vars.value.exceptionSubTypeNameInLocal;
+// LogExceptionStr.ExceptionType = ExceptionTypeId
+vars.value.logExceptionStrVar.exceptionTypeAttr = (vars.value.exceptionTypeIdInLocal).toString();
+// LogExceptionStr.Screen = Screen
+vars.value.logExceptionStrVar.screenAttr = vars.value.screenInLocal;
+// LogExceptionStr.Module = Module
+vars.value.logExceptionStrVar.moduleAttr = vars.value.moduleInLocal;
+// LogExceptionStr.Action = Action
+vars.value.logExceptionStrVar.actionAttr = vars.value.actionInLocal;
+// LogExceptionStr.User = User
+vars.value.logExceptionStrVar.userAttr = vars.value.userInLocal;
+// LogExceptionStr.Message = Message
+vars.value.logExceptionStrVar.messageAttr = vars.value.messageInLocal;
+// LogExceptionStr.ExceptionMessage = ExceptionMessage
+vars.value.logExceptionStrVar.exceptionMessageAttr = vars.value.exceptionMessageInLocal;
+// LogExceptionStr.CreatedOn = CurrDateTime
+vars.value.logExceptionStrVar.createdOnAttr = OS.BuiltinFunctions.currDateTime();
+// LogExceptionStr.CreatedBy = GetUserId
+vars.value.logExceptionStrVar.createdByAttr = (OS.BuiltinFunctions.getUserId()).toString();
+// JSON Serialize: JSONSerialize_LogExceptionStr
+jSONSerialize_LogExceptionStrVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.logExceptionStrVar, false, false);
+getAppKeyJSResult.value = controller.safeExecuteJSNode(PL_MT_ECOP_FE_controller_LogException_GetAppKeyJS, "GetAppKey", "LogException", {
+AppKey: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.LogException$getAppKeyJSResult"))();
+jsNodeResult.appKeyOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AppKey, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// Execute Action: MT_ExceptionHandlingJson_SA
+return controller.mT_ExceptionHandlingJson_SA$ServerAction(jSONSerialize_LogExceptionStrVar.value.jSONOut, vars.value.keyInLocal, getAppKeyJSResult.value.appKeyOut, callContext).then(function (value) {
+mT_ExceptionHandlingJson_SAVar.value = value;
+});
+}).then(function () {
+// Return_Key = MT_ExceptionHandlingJson_SA.NewToken
+outVars.value.return_KeyOut = mT_ExceptionHandlingJson_SAVar.value.newTokenOut;
+});
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.LogException$vars", [{
+name: "Key",
+attrName: "keyInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExceptionTypeId",
+attrName: "exceptionTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "ExceptionSubTypeName",
+attrName: "exceptionSubTypeNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "RequestKey",
+attrName: "requestKeyInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Module",
+attrName: "moduleInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Screen",
+attrName: "screenInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "User",
+attrName: "userInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "LogExceptionStr",
+attrName: "logExceptionStrVar",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new PL_MT_ECOP_FEModel.LogExceptionStrRec();
+},
+complexType: PL_MT_ECOP_FEModel.LogExceptionStrRec
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.LogException$getAppKeyJSResult", [{
+name: "AppKey",
+attrName: "appKeyOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.LogException$outVars", [{
+name: "Return_Key",
+attrName: "return_KeyOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.logException$Action = function (keyIn, exceptionTypeIdIn, exceptionSubTypeNameIn, requestKeyIn, moduleIn, screenIn, actionIn, userIn, messageIn, exceptionMessageIn) {
+keyIn = (keyIn === undefined) ? "" : keyIn;
+exceptionTypeIdIn = (exceptionTypeIdIn === undefined) ? 0 : exceptionTypeIdIn;
+exceptionSubTypeNameIn = (exceptionSubTypeNameIn === undefined) ? "" : exceptionSubTypeNameIn;
+requestKeyIn = (requestKeyIn === undefined) ? "" : requestKeyIn;
+moduleIn = (moduleIn === undefined) ? "" : moduleIn;
+screenIn = (screenIn === undefined) ? "" : screenIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+userIn = (userIn === undefined) ? "" : userIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.logException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(keyIn, OS.Types.Text), exceptionTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(exceptionSubTypeNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(requestKeyIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(moduleIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(screenIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(userIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Return_Key: OS.DataConversion.JSNodeParamConverter.to(actionResults.return_KeyOut, OS.Types.Text)
+};
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$LogException.GetAppKeyJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var context = $public.ApplicationContext.getCurrentContext();
+$parameters.AppKey = context.applicationKey;
+};
+});
+
+define("PL_MT_ECOP_FE.controller$OpenTransaction", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$OpenTransaction.GetCurrTimeStampInMillisJS"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController, PL_MT_ECOP_FE_controller_OpenTransaction_GetCurrTimeStampInMillisJS) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.openTransaction$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var getCurrTimeStampInMillisJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.OpenTransaction$outVars"))());
+try {getCurrTimeStampInMillisJSResult.value = controller.safeExecuteJSNode(PL_MT_ECOP_FE_controller_OpenTransaction_GetCurrTimeStampInMillisJS, "GetCurrTimeStampInMillis", "OpenTransaction", {
+CurrMillis: OS.DataConversion.JSNodeParamConverter.to(OS.DataTypes.LongInteger.defaultValue, OS.Types.LongInteger)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.OpenTransaction$getCurrTimeStampInMillisJSResult"))();
+jsNodeResult.currMillisOut = OS.DataConversion.JSNodeParamConverter.from($parameters.CurrMillis, OS.Types.LongInteger);
+return jsNodeResult;
+}, {}, {});
+// StartTimestamp = GetCurrTimeStampInMillis.CurrMillis
+outVars.value.startTimestampOut = getCurrTimeStampInMillisJSResult.value.currMillisOut;
+} catch (ex) {
+(function () {
+OS.Logger.trace("OpenTransaction.OpenTransaction", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.OpenTransaction$getCurrTimeStampInMillisJSResult", [{
+name: "CurrMillis",
+attrName: "currMillisOut",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.OpenTransaction$outVars", [{
+name: "StartTimestamp",
+attrName: "startTimestampOut",
+mandatory: false,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.openTransaction$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.openTransaction$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+StartTimestamp: OS.DataConversion.JSNodeParamConverter.to(actionResults.startTimestampOut, OS.Types.LongInteger)
+};
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$OpenTransaction.GetCurrTimeStampInMillisJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CurrMillis = Date.now();
+};
+});
+
+define("PL_MT_ECOP_FE.controller$StartTransaction", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller", "PL_MT_ECOP_FE.controller$ServerAction.StartTransaction"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.startTransaction$Action = function (serviceNameIn, serviceVersionIn, transactionNameIn, transactionTypeIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.StartTransaction$vars"))());
+vars.value.serviceNameInLocal = serviceNameIn;
+vars.value.serviceVersionInLocal = serviceVersionIn;
+vars.value.transactionNameInLocal = transactionNameIn;
+vars.value.transactionTypeInLocal = transactionTypeIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var startTransactionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE.StartTransaction$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: StartTransaction
+return controller.startTransaction$ServerAction(vars.value.serviceNameInLocal, vars.value.serviceVersionInLocal, vars.value.transactionNameInLocal, vars.value.transactionTypeInLocal, "", callContext).then(function (value) {
+startTransactionVar.value = value;
+}).then(function () {
+// TraceId = StartTransaction.TraceId
+outVars.value.traceIdOut = startTransactionVar.value.traceIdOut;
+});
+}).catch(function (ex) {
+OS.Logger.trace("StartTransaction.StartTransaction", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ECOP_FEController.default;
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.StartTransaction$vars", [{
+name: "ServiceName",
+attrName: "serviceNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ServiceVersion",
+attrName: "serviceVersionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "TransactionName",
+attrName: "transactionNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "TransactionType",
+attrName: "transactionTypeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE.StartTransaction$outVars", [{
+name: "TraceId",
+attrName: "traceIdOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ECOP_FEController.default.clientActionProxies.startTransaction$Action = function (serviceNameIn, serviceVersionIn, transactionNameIn, transactionTypeIn) {
+serviceNameIn = (serviceNameIn === undefined) ? "" : serviceNameIn;
+serviceVersionIn = (serviceVersionIn === undefined) ? "" : serviceVersionIn;
+transactionNameIn = (transactionNameIn === undefined) ? "" : transactionNameIn;
+transactionTypeIn = (transactionTypeIn === undefined) ? "" : transactionTypeIn;
+return controller.executeActionInsideJSNode(PL_MT_ECOP_FEController.default.startTransaction$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(serviceNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(serviceVersionIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(transactionNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(transactionTypeIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+TraceId: OS.DataConversion.JSNodeParamConverter.to(actionResults.traceIdOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("PL_MT_ECOP_FE.controller$ServerAction.APM_RUM_Settings", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.aPM_RUM_Settings$ServerAction = function (appKeyIn, callContext) {
+var controller = this.controller;
+var inputs = {
+AppKey: OS.DataConversion.ServerDataConverter.to(appKeyIn, OS.Types.Text)
+};
+return controller.callServerAction("APM_RUM_Settings", "screenservices/PL_MT_ECOP_FE/ActionAPM_RUM_Settings", "AxT1o1DHyVGCKHlyxHmJ9Q", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_apm_bl_ActionAPM_RUM_Settings"))();
+executeServerActionResult.monitoringRUMOut = OS.DataConversion.ServerDataConverter.from(outputs.MonitoringRUM, OS.Types.Text);
+executeServerActionResult.aPM_EnabledOut = OS.DataConversion.ServerDataConverter.from(outputs.APM_Enabled, OS.Types.Boolean);
+executeServerActionResult.rUM_EnabledOut = OS.DataConversion.ServerDataConverter.from(outputs.RUM_Enabled, OS.Types.Boolean);
+executeServerActionResult.aPMTransaction_EnabledOut = OS.DataConversion.ServerDataConverter.from(outputs.APMTransaction_Enabled, OS.Types.Boolean);
+executeServerActionResult.monitoringAPMOut = OS.DataConversion.ServerDataConverter.from(outputs.MonitoringAPM, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_apm_bl_ActionAPM_RUM_Settings", [{
+name: "MonitoringRUM",
+attrName: "monitoringRUMOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "APM_Enabled",
+attrName: "aPM_EnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "RUM_Enabled",
+attrName: "rUM_EnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "APMTransaction_Enabled",
+attrName: "aPMTransaction_EnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "MonitoringAPM",
+attrName: "monitoringAPMOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.CloseTransactionAsync", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.closeTransactionAsync$ServerAction = function (latencyIn, globalTypeIdIn, actionIn, externalAppIn, messageIn, flowTypeIdIn, auxJSONIn, callContext) {
+var controller = this.controller;
+var inputs = {
+Latency: OS.DataConversion.ServerDataConverter.to(latencyIn, OS.Types.Integer),
+GlobalTypeId: OS.DataConversion.ServerDataConverter.to(globalTypeIdIn, OS.Types.Integer),
+Action: OS.DataConversion.ServerDataConverter.to(actionIn, OS.Types.Text),
+ExternalApp: OS.DataConversion.ServerDataConverter.to(externalAppIn, OS.Types.Integer),
+Message: OS.DataConversion.ServerDataConverter.to(messageIn, OS.Types.Text),
+FlowTypeId: OS.DataConversion.ServerDataConverter.to(flowTypeIdIn, OS.Types.Integer),
+AuxJSON: OS.DataConversion.ServerDataConverter.to(auxJSONIn, OS.Types.Text)
+};
+return controller.callServerAction("CloseTransactionAsync", "screenservices/PL_MT_ECOP_FE/ActionCloseTransactionAsync", "aOk1D5ZrdGsnYuk4vQO6QQ", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.CreateGlobalLogAsync", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.createGlobalLogAsync$ServerAction = function (globalTypeIdIn, actionIn, externalAppIn, messageIn, auxJSONIn, sendDirectlyToElasticIn, callContext) {
+var controller = this.controller;
+var inputs = {
+GlobalTypeId: OS.DataConversion.ServerDataConverter.to(globalTypeIdIn, OS.Types.Integer),
+Action: OS.DataConversion.ServerDataConverter.to(actionIn, OS.Types.Text),
+ExternalApp: OS.DataConversion.ServerDataConverter.to(externalAppIn, OS.Types.Integer),
+Message: OS.DataConversion.ServerDataConverter.to(messageIn, OS.Types.Text),
+AuxJSON: OS.DataConversion.ServerDataConverter.to(auxJSONIn, OS.Types.Text),
+SendDirectlyToElastic: OS.DataConversion.ServerDataConverter.to(sendDirectlyToElasticIn, OS.Types.Boolean)
+};
+return controller.callServerAction("CreateGlobalLogAsync", "screenservices/PL_MT_ECOP_FE/ActionCreateGlobalLogAsync", "OHEjJ3dd2H2wpslp3kRxYw", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.DecryptText_Cache", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.decryptText_Cache$ServerAction = function (cipherTextIn, secretIn, callContext) {
+var controller = this.controller;
+var inputs = {
+CipherText: OS.DataConversion.ServerDataConverter.to(cipherTextIn, OS.Types.Text),
+Secret: OS.DataConversion.ServerDataConverter.to(secretIn, OS.Types.Text)
+};
+return controller.callServerAction("DecryptText_Cache", "screenservices/PL_MT_ECOP_FE/ActionDecryptText_Cache", "OWVYCYBuFP6gqsp+qYerVg", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_utils_lib_ActionDecryptText_Cache"))();
+executeServerActionResult.plainTextOut = OS.DataConversion.ServerDataConverter.from(outputs.PlainText, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_utils_lib_ActionDecryptText_Cache", [{
+name: "PlainText",
+attrName: "plainTextOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.EndTransaction", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.endTransaction$ServerAction = function (parentTraceIdIn, callContext) {
+var controller = this.controller;
+var inputs = {
+ParentTraceId: OS.DataConversion.ServerDataConverter.to(parentTraceIdIn, OS.Types.Text)
+};
+return controller.callServerAction("EndTransaction", "screenservices/PL_MT_ECOP_FE/ActionEndTransaction", "1N3DAxpJD0zDXOSXJCKMkg", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+});
+};
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.GetEnvironment", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.getEnvironment$ServerAction = function (callContext) {
+var controller = this.controller;
+return controller.callServerAction("GetEnvironment", "screenservices/PL_MT_ECOP_FE/ActionGetEnvironment", "MicaSMKFzFB8CTVfDROEXQ", {}, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_utils_lib_ActionGetEnvironment"))();
+executeServerActionResult.environmentOut = OS.DataConversion.ServerDataConverter.from(outputs.Environment, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_utils_lib_ActionGetEnvironment", [{
+name: "Environment",
+attrName: "environmentOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.Initialize_Server", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.initialize_Server$ServerAction = function (monitoringAPMIn, callContext) {
+var controller = this.controller;
+var inputs = {
+MonitoringAPM: OS.DataConversion.ServerDataConverter.to(monitoringAPMIn, OS.Types.Text)
+};
+return controller.callServerAction("Initialize_Server", "screenservices/PL_MT_ECOP_FE/ActionInitialize_Server", "79c_Fy4oQSwYZPe9oDOEdw", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_elasticapm_ActionInitialize_Server"))();
+executeServerActionResult.successOut = OS.DataConversion.ServerDataConverter.from(outputs.Success, OS.Types.Boolean);
+executeServerActionResult.serviceNameOut = OS.DataConversion.ServerDataConverter.from(outputs.ServiceName, OS.Types.Text);
+executeServerActionResult.serviceVersionOut = OS.DataConversion.ServerDataConverter.from(outputs.ServiceVersion, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_elasticapm_ActionInitialize_Server", [{
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "ServiceName",
+attrName: "serviceNameOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ServiceVersion",
+attrName: "serviceVersionOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.MT_ExceptionHandlingJson_SA", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.mT_ExceptionHandlingJson_SA$ServerAction = function (logJsonIn, keyIn, appKeyIn, callContext) {
+var controller = this.controller;
+var inputs = {
+LogJson: OS.DataConversion.ServerDataConverter.to(logJsonIn, OS.Types.Text),
+Key: OS.DataConversion.ServerDataConverter.to(keyIn, OS.Types.Text),
+AppKey: OS.DataConversion.ServerDataConverter.to(appKeyIn, OS.Types.Text)
+};
+return controller.callServerAction("MT_ExceptionHandlingJson_SA", "screenservices/PL_MT_ECOP_FE/ServiceAPIMT_ExceptionHandlingJson_SA", "ilFH5CqMnIvMdgY81DXm5w", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE$ServiceAPIMT_ExceptionHandlingJson_SA"))();
+executeServerActionResult.successOut = OS.DataConversion.ServerDataConverter.from(outputs.Success, OS.Types.Boolean);
+executeServerActionResult.newTokenOut = OS.DataConversion.ServerDataConverter.from(outputs.NewToken, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE$ServiceAPIMT_ExceptionHandlingJson_SA", [{
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "NewToken",
+attrName: "newTokenOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.MT_GetToken", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.mT_GetToken$ServerAction = function (appKeyIn, callContext) {
+var controller = this.controller;
+var inputs = {
+AppKey: OS.DataConversion.ServerDataConverter.to(appKeyIn, OS.Types.Text)
+};
+return controller.callServerAction("MT_GetToken", "screenservices/PL_MT_ECOP_FE/ServiceAPIMT_GetToken", "yJrW6MByagiV1FQ3F75NCw", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE$ServiceAPIMT_GetToken"))();
+executeServerActionResult.keyOut = OS.DataConversion.ServerDataConverter.from(outputs.Key, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE$ServiceAPIMT_GetToken", [{
+name: "Key",
+attrName: "keyOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ECOP_FE.controller$ServerAction.StartTransaction", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.controller"], function (exports, OutSystems, PL_MT_ECOP_FEModel, PL_MT_ECOP_FEController) {
+var OS = OutSystems.Internal;
+PL_MT_ECOP_FEController.default.startTransaction$ServerAction = function (serviceNameIn, serviceVersionIn, transactionNameIn, transactionTypeIn, parentTraceIdIn, callContext) {
+var controller = this.controller;
+var inputs = {
+ServiceName: OS.DataConversion.ServerDataConverter.to(serviceNameIn, OS.Types.Text),
+ServiceVersion: OS.DataConversion.ServerDataConverter.to(serviceVersionIn, OS.Types.Text),
+TransactionName: OS.DataConversion.ServerDataConverter.to(transactionNameIn, OS.Types.Text),
+TransactionType: OS.DataConversion.ServerDataConverter.to(transactionTypeIn, OS.Types.Text),
+ParentTraceId: OS.DataConversion.ServerDataConverter.to(parentTraceIdIn, OS.Types.Text)
+};
+return controller.callServerAction("StartTransaction", "screenservices/PL_MT_ECOP_FE/ActionStartTransaction", "7FApB9PZbd8sENp8Jq0TPg", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_elasticapm_ActionStartTransaction"))();
+executeServerActionResult.traceIdOut = OS.DataConversion.ServerDataConverter.from(outputs.TraceId, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ECOP_FEController.default.constructor.registerVariableGroupType("PL_MT_ECOP_FE$rssespacepl_mt_elasticapm_ActionStartTransaction", [{
+name: "TraceId",
+attrName: "traceIdOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ECOP_FE.controller", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var PL_MT_ECOP_FEController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return PL_MT_ECOP_FEController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+PL_MT_ECOP_FEController.default = new Controller(null, "PL_MT_ECOP_FE");
+});

@@ -1,0 +1,1919 @@
+﻿define("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "CT_Cart_IS.model", "ECP_Store_CW.controller", "PLUS_OutSystemsUI_2_8_0.controller", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$GetStaticImage", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Cart_CW.controller$Cart_Update", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECP_Store_CW.model$Text1RecordList", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Cart_CW.controller$GetClientVar_ClickedProductSKU", "CT_Cart_IS.model$MyCart_StrRec", "ECP_Store_CW.referencesHealth$CT_Cart_IS", "ECP_Store_CW.controller$Store_SetNewStore", "ECP_Store_CW.model$Aux_ItemInCartList", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.model$TextBooleanRecord", "ECP_Store_CW.controller$ValidateZipcodeTerm", "ECP_Store_CW.model$StoreLocator_NearbyList", "ECP_Store_CW.controller$UpdateStoreSelector", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECP_Store_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECP_Store_CW.controller$Store_Update", "ECOP_FE_Core.controller$GTMEvent_StorePicker_SearchInvalid"], function (OutSystems, ECP_Store_CWModel, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Cart_CWController, ECOP_FE_CoreController, CT_Cart_ISModel, ECP_Store_CWController, PLUS_OutSystemsUI_2_8_0Controller) {
+var OS = OutSystems.Internal;
+
+var SearchStoresDataActRec = (function (_super) {
+__extends(SearchStoresDataActRec, _super);
+function SearchStoresDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+SearchStoresDataActRec.attributesToDeclare = function () {
+return [
+this.attr("Stores", "storesOut", "Stores", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Store_CWModel.StoreLocator_NearbyList());
+}, true, ECP_Store_CWModel.StoreLocator_NearbyList)
+].concat(_super.attributesToDeclare.call(this));
+};
+SearchStoresDataActRec.fromStructure = function (str) {
+return new SearchStoresDataActRec(new SearchStoresDataActRec.RecordClass({
+storesOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SearchStoresDataActRec.init();
+return SearchStoresDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("SearchTerm", "searchTermVar", "SearchTerm", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("IsCollapsed", "isCollapsedVar", "IsCollapsed", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsSearching", "isSearchingVar", "IsSearching", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsInputFilled", "isInputFilledVar", "IsInputFilled", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("AnyStoreDelivers", "anyStoreDeliversVar", "AnyStoreDelivers", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("isKeyboardOpen", "isKeyboardOpenVar", "isKeyboardOpen", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsLoading", "isLoadingVar", "IsLoading", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("CurrDate", "currDateVar", "CurrDate", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, false), 
+this.attr("CurrTime", "currTimeVar", "CurrTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, false), 
+this.attr("IsSearchByZipCode", "isSearchByZipCodeVar", "IsSearchByZipCode", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("HasResults", "hasResultsVar", "HasResults", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsShowToolTip", "isShowToolTipVar", "IsShowToolTip", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowCloseLink", "showCloseLinkIn", "ShowCloseLink", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_showCloseLinkInDataFetchStatus", "_showCloseLinkInDataFetchStatus", "_showCloseLinkInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsOpen", "isOpenIn", "IsOpen", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isOpenInDataFetchStatus", "_isOpenInDataFetchStatus", "_isOpenInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsPhoneMenu", "isPhoneMenuIn", "IsPhoneMenu", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isPhoneMenuInDataFetchStatus", "_isPhoneMenuInDataFetchStatus", "_isPhoneMenuInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("SearchStores", "searchStoresDataAct", "searchStoresDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new SearchStoresDataActRec());
+}, true, SearchStoresDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {
+ZipcodeInput: OS.Model.ValidationWidgetRecord
+};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return true;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("ShowCloseLink" in inputs) {
+this.variables.showCloseLinkIn = inputs.ShowCloseLink;
+if("_showCloseLinkInDataFetchStatus" in inputs) {
+this.variables._showCloseLinkInDataFetchStatus = inputs._showCloseLinkInDataFetchStatus;
+}
+
+}
+
+if("IsOpen" in inputs) {
+this.variables.isOpenIn = inputs.IsOpen;
+if("_isOpenInDataFetchStatus" in inputs) {
+this.variables._isOpenInDataFetchStatus = inputs._isOpenInDataFetchStatus;
+}
+
+}
+
+if("IsPhoneMenu" in inputs) {
+this.variables.isPhoneMenuIn = inputs.IsPhoneMenu;
+if("_isPhoneMenuInDataFetchStatus" in inputs) {
+this.variables._isPhoneMenuInDataFetchStatus = inputs._isPhoneMenuInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "StoreFlow.StoreSelection_FlyIIn");
+});
+define("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "CT_Cart_IS.model", "PLUS_OutSystemsUI_2_8_0.controller", "react", "OutSystems/ReactView/Main", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$model", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$controller", "ECP_Store_CW.clientVariables", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$view", "ECOP_Base_RPat.CustomPatterns.StoreCard.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.CheckIfKeyboardOpen.mvc$view", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$GetStaticImage", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Cart_CW.controller$Cart_Update", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECP_Store_CW.model$Text1RecordList", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Cart_CW.controller$GetClientVar_ClickedProductSKU", "CT_Cart_IS.model$MyCart_StrRec", "ECP_Store_CW.referencesHealth$CT_Cart_IS", "ECP_Store_CW.controller$Store_SetNewStore", "ECP_Store_CW.model$Aux_ItemInCartList", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.model$TextBooleanRecord", "ECP_Store_CW.controller$ValidateZipcodeTerm", "ECP_Store_CW.model$StoreLocator_NearbyList", "ECP_Store_CW.controller$UpdateStoreSelector", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECP_Store_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECP_Store_CW.controller$Store_Update", "ECOP_FE_Core.controller$GTMEvent_StorePicker_SearchInvalid"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Cart_CWController, ECOP_FE_CoreController, CT_Cart_ISModel, PLUS_OutSystemsUI_2_8_0Controller, React, OSView, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_model, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_controller, ECP_Store_CWClientVariables, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_view, ECOP_Base_RPat_CustomPatterns_StoreCard_mvc_view, ECOP_Reactive_Pat_CustomPatterns_CheckIfKeyboardOpen_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "StoreFlow.StoreSelection_FlyIIn";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_view, ECOP_Base_RPat_CustomPatterns_StoreCard_mvc_view, ECOP_Reactive_Pat_CustomPatterns_CheckIfKeyboardOpen_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), $if(model.variables.isOpenIn, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.call_ComponentDidMountEvent$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+style: model.getCachedValue(idService.getId("StorePickerWrapper.Style"), function () {
+return (((("store-picker__content-wrapper" + ((model.variables.isCollapsedVar) ? (" is-collapsed") : (""))) + (((model.variables.isKeyboardOpenVar && model.variables.searchStoresDataAct.storesOut.isEmpty)) ? (" is-keyboard-open") : (""))) + ((model.variables.isInputFilledVar) ? (" is-filled") : (""))) + ((model.variables.isLoadingVar) ? (" loading") : ("")));
+}, function () {
+return model.variables.isCollapsedVar;
+}, function () {
+return model.variables.isKeyboardOpenVar;
+}, function () {
+return model.variables.searchStoresDataAct.storesOut.isEmpty;
+}, function () {
+return model.variables.isInputFilledVar;
+}, function () {
+return model.variables.isLoadingVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "StorePickerWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.searchStoresDataAct.dataFetchStatusAttr)
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__image-wrapper ",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Image, {
+style: "place",
+type: /*External*/ 1,
+url: model.getCachedValue(idService.getId("1BZpEI8gS0a2PltTXk_x1w.Url"), function () {
+return CMS_MonolithController.default.getStaticImage$Action("CHANGE_SELECT_STORE_FLY_IN", 440, 120, CMS_MonolithController.default.imageUtils_GetCDNImgCompressionRatio$Action(callContext).cDNImgCompressionRatioOut, ECP_Store_CWModel.staticEntities.contentfulImageResizeBehavior.fill, false, callContext).urlOut;
+}),
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), $if(model.variables.showCloseLinkIn, false, this, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_Close$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "store-picker__close-link gtm-header-store-search-close",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "close",
+Size: ECP_Store_CWModel.staticEntities.iconSize2.size_s,
+AriaLabel: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Ott6zxIxZU+YPIj6fiFQSg#Value.1117828529.1", "Close search store")
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "4",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__top-info",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__description-wrapper StoreSelection_description",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "heading4  padding-bottom-m ",
+visible: true,
+_idProps: {
+service: idService,
+name: "TitleContainer"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+tabIndex: "0"
+},
+tag: "h4",
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("ZqThww7P8kODkT28TVpAMw#Value", "Choose a PLUS supermarket near you for the best help with your order."))],
+_idProps: {
+service: idService,
+name: "Title3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__input-wrapper padding-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+tabIndex: "0"
+},
+style: "position-relative",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_view, {
+inputs: {
+ExtendedClass: "margin-top-s"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+label: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+"aria-label": "Zoek op plaats of postcode",
+"aria-busy": "True",
+"aria-live": "polite"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["Zoek op plaats of postcode"],
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+input: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "gtm-header-store-search-input ",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Input, {
+_validationProps: {
+validationService: validationService
+},
+enabled: true,
+extendedEvents: {
+onFocus: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggle_InputIsFocused$Action(true, controller.callContext(eventHandlerContext));
+
+;
+},
+onBlur: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggle_InputIsFocused$Action(false, controller.callContext(eventHandlerContext));
+
+;
+},
+onKeyUp: function () {
+var eventHandlerContext = callContext.clone();
+controller.onKeyUp_Input$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.setFocusOnTitle$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+extendedProperties: {
+"aria-invalid": model.getCachedValue(idService.getId("ZipcodeInput.aria-invalid"), function () {
+return ((model.widgets.get(idService.getId("ZipcodeInput")).validAttr) ? ("") : ("true"));
+}, function () {
+return model.widgets.get(idService.getId("ZipcodeInput")).validAttr;
+})
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+inputType: /*Search*/ 8,
+mandatory: false,
+maxLength: 50,
+onChange: function () {
+var eventHandlerContext = callContext.clone();
+controller.validateZipcode$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "form-control place",
+variable: model.createVariable(OS.Types.Text, model.variables.searchTermVar, function (value) {
+model.variables.searchTermVar = value;
+}),
+_idProps: {
+service: idService,
+name: "ZipcodeInput"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.widgets.get(idService.getId("ZipcodeInput")).validAttr), asPrimitiveValue(model.variables.searchTermVar)]
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__input-icons-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if((!(model.widgets.get(idService.getId("ZipcodeInput")).validAttr) && ((model.widgets.get(idService.getId("ZipcodeInput")).validationMessageAttr) !== (""))), false, this, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Store_CWModel.staticEntities.iconSize2.size_lg,
+ExtendedClass: "margin-right-base text-error",
+Name: "error-circle"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "18",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+tabIndex: "-1"
+},
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_SearchStore$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "SearchLink"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "search",
+AriaLabel: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("kTA08WsiukGUkY986j0NWw#Value.-1176311671.1", "Search store")
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "20",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+tabIndex: "0"
+},
+style: "store-picker__description-wrapper StoreSelection_description padding-top-base",
+visible: true,
+_idProps: {
+service: idService,
+name: "Tip3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+extendedProperties: {
+style: "font-weight: bold;"
+},
+text: ["Tip"],
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), ": Vul je volledige postcode in om te zien of we bij jou thuis bezorgen"), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+tabIndex: "0"
+},
+style: "store-picker__description-wrapper StoreSelection_description",
+visible: true,
+_idProps: {
+service: idService,
+name: "content"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+className: "store-picker__top-info-list  StoreSelection_list"
+},
+tag: "ul",
+_idProps: {
+service: idService,
+uuid: "24"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+tag: "li",
+_idProps: {
+service: idService,
+uuid: "25"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__description-item",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "check place"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "27",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-left-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("zdKdkgsBBkyQBzj2ck+DZQ#Value", "We show the products from your PLUS."))],
+_idProps: {
+service: idService,
+uuid: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))), React.createElement(OSWidgets.AdvancedHtml, {
+tag: "li",
+_idProps: {
+service: idService,
+uuid: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__description-item",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "31"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "check place"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "32",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-left-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("3V59ucEUbUSlfefk9q9qrQ#Value", "Your order is collected in the store and is therefore always fresh."))],
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))), React.createElement(OSWidgets.AdvancedHtml, {
+tag: "li",
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__description-item",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "check place"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "37",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-left-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("yiYe9zbjY0u170leR7j9vQ#Value", "Je bent natuurlijk ook van harte welkom om zelf te komen winkelen."))],
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))))))), $if(((model.variables.searchStoresDataAct.isDataFetchedAttr && !(model.variables.isSearchingVar)) && ((model.variables.searchTermVar) !== (""))), false, this, function () {
+return [$if(model.variables.hasResultsVar, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: true,
+style: "storeSelection__tooltip",
+visible: (model.variables.isShowToolTipVar === true),
+_idProps: {
+service: idService,
+name: "Tip_CItyName"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "tooltiptext position-relative white-space-normal",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+extendedProperties: {
+style: "font-weight: bold;"
+},
+text: ["Tip"],
+_idProps: {
+service: idService,
+uuid: "42"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), ": Vul je volledige postcode in om te zien of we bij jou thuis bezorgen")), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-search__search-results",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: true,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.searchStoresDataAct.storesOut,
+style: "list list-group",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.searchStoresDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_StoreCard$Action(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_IdAttr, model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_NameAttr, model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_ExternalChannelIdAttr, controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.isSearchByZipCodeVar), asPrimitiveValue(model.variables.searchStoresDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).deliversAtZipCodeAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_HasDeliveryAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_HasPickUpAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_AddressAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).distanceAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_NameAttr)]
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_StoreCard_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "46",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_NameAttr,
+_idProps: {
+service: idService,
+uuid: "47"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.searchStoresDataAct.dataFetchStatusAttr)
+})];
+}),
+distanceTag: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: ((model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).distanceAttr).toString() + " km"),
+_idProps: {
+service: idService,
+uuid: "48"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.searchStoresDataAct.dataFetchStatusAttr)
+})];
+}),
+address: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_AddressAttr,
+_idProps: {
+service: idService,
+uuid: "49"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.searchStoresDataAct.dataFetchStatusAttr)
+})];
+}),
+servicesInfo: new PlaceholderContent(function () {
+return [$if(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_HasPickUpAttr, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "margin-right-s font-regular",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "50"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+AriaLabel: "Pickup",
+Name: "pick-up"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "51",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Text, {
+style: "margin-left-s",
+text: [$text(getTranslation("8Dv7gOmFoUiv3IDnU1MuYg#Value", "Pickup"))],
+_idProps: {
+service: idService,
+uuid: "52"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+}), $if(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_HasDeliveryAttr, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "font-regular",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "53"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "delivery",
+AriaLabel: "delivery"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "54",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Text, {
+style: "margin-left-s",
+text: [$text(getTranslation("_Z7FcdIPUUC0yZ_YcXce3g#Value", "Delivery"))],
+_idProps: {
+service: idService,
+uuid: "55"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+}), $if(model.variables.isSearchByZipCodeVar, false, this, function () {
+return [$if(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).deliversAtZipCodeAttr, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "56"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "text-secondary",
+text: [$text(getTranslation("yxq_QCCYlEuQ0oxa4953Rw#Value", "Delivers to this postal code"))],
+_idProps: {
+service: idService,
+uuid: "57"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "58"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "text-neutral-5",
+text: [$text(getTranslation("jxQgEHRhuE2tnfyd25cmlA#Value", "No delivery to this postal code"))],
+_idProps: {
+service: idService,
+uuid: "59"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})];
+}, function () {
+return [];
+})];
+}),
+infoicon: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables.isSearchByZipCodeVar), asPrimitiveValue(model.variables.searchStoresDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).deliversAtZipCodeAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_HasDeliveryAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_HasPickUpAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_AddressAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).distanceAttr), asPrimitiveValue(model.variables.searchStoresDataAct.storesOut.getCurrent(callContext.iterationContext).store_NameAttr)]
+}))];
+}, callContext, idService, "1")
+},
+_dependencies: [asPrimitiveValue(model.variables.isSearchByZipCodeVar), asPrimitiveValue(model.variables.searchStoresDataAct.dataFetchStatusAttr)]
+}))];
+}, function () {
+return [$if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Store_CWModel.staticEntities.releaseToggle.eCOP_6872, callContext).isEnabledOut === true), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "padding-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "60"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("PwiYWk5JkUCX0QdEX6hs_w#Value", "There is no PLUS supermarket near you that delivers.\n\nWe may also deliver to your work or holiday address.\n\nDo you want to shop yourself or pick up your groceries? Then view our other stores.")))];
+}, function () {
+return [];
+})];
+})];
+}, function () {
+return [];
+}), $if(model.variables.isSearchingVar, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "text-align-center text-neutral-8 padding-y-s font-size-h2",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "61"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Image, {
+type: /*External*/ 1,
+url: model.getCachedValue(idService.getId("oP0u7TyRT0qaSGV+Q2TP0A.Url"), function () {
+return CMS_MonolithController.default.getStaticImage$Action("ecop-spinner-gif", 0, 0, 0, "", true, callContext).urlOut;
+}),
+_idProps: {
+service: idService,
+uuid: "62"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+}))];
+}, function () {
+return [];
+}), React.createElement(ECOP_Reactive_Pat_CustomPatterns_CheckIfKeyboardOpen_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+isKeyboardChanged$Action: function (isOpenIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_IsKeyboardChanged$Action(isOpenIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "63",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "CT_Cart_IS.model", "PLUS_OutSystemsUI_2_8_0.controller", "ECP_Store_CW.languageResources", "ECP_Store_CW.clientVariables", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$translationsResources", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$controller.OnRender.RemoveRoleJS", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$controller.ValidateZipcode.IsZipcodeJS", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$controller.OnKeyUp_Input.EnterKeyPressedJS", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$GetStaticImage", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Cart_CW.controller$Cart_Update", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECP_Store_CW.model$Text1RecordList", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Cart_CW.controller$GetClientVar_ClickedProductSKU", "CT_Cart_IS.model$MyCart_StrRec", "ECP_Store_CW.referencesHealth$CT_Cart_IS", "ECP_Store_CW.controller$Store_SetNewStore", "ECP_Store_CW.model$Aux_ItemInCartList", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.model$TextBooleanRecord", "ECP_Store_CW.controller$ValidateZipcodeTerm", "ECP_Store_CW.model$StoreLocator_NearbyList", "ECP_Store_CW.controller$UpdateStoreSelector", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECP_Store_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECP_Store_CW.controller$Store_Update", "ECOP_FE_Core.controller$GTMEvent_StorePicker_SearchInvalid"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Cart_CWController, ECOP_FE_CoreController, CT_Cart_ISModel, PLUS_OutSystemsUI_2_8_0Controller, ECP_Store_CWLanguageResources, ECP_Store_CWClientVariables, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_TranslationsResources, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_controller_OnRender_RemoveRoleJS, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_controller_ValidateZipcode_IsZipcodeJS, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_controller_OnKeyUp_Input_EnterKeyPressedJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+onClick_SearchStore$Action: function () {
+return controller.executeActionInsideJSNode(controller._onClick_SearchStore$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnClick_SearchStore");
+}
+};
+this.dataFetchDependenciesOriginal = {
+searchStores$DataActRefresh: -1
+};
+this.dataFetchDependentsGraph = {
+searchStores$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_TranslationsResources;
+// Server Actions
+Controller.prototype.product_GetUnavailabilityAtStore$ServerAction = function (sKUListIn, externalChannelIdIn, callContext) {
+var controller = this.controller;
+var inputs = {
+SKUList: OS.DataConversion.ServerDataConverter.to(sKUListIn, OS.Types.RecordList),
+ExternalChannelId: OS.DataConversion.ServerDataConverter.to(externalChannelIdIn, OS.Types.Text)
+};
+return controller.callServerAction("Product_GetUnavailabilityAtStore", "screenservices/ECP_Store_CW/StoreFlow/StoreSelection_FlyIIn/ActionProduct_GetUnavailabilityAtStore", "mAJuVhzUo4fcNSCzG2ECYA", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn$rssespaceecp_product_bl_ActionProduct_GetUnavailabilityAtStore"))();
+executeServerActionResult.isProductFoundOut = OS.DataConversion.ServerDataConverter.from(outputs.IsProductFound, OS.Types.Boolean);
+executeServerActionResult.unavailableSKUListOut = OS.DataConversion.ServerDataConverter.from(outputs.UnavailableSKUList, ECP_Store_CWModel.Text1RecordList);
+executeServerActionResult.errorMessageOut = OS.DataConversion.ServerDataConverter.from(outputs.ErrorMessage, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn$rssespaceecp_product_bl_ActionProduct_GetUnavailabilityAtStore", [{
+name: "IsProductFound",
+attrName: "isProductFoundOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return true;
+}
+}, {
+name: "UnavailableSKUList",
+attrName: "unavailableSKUListOut",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Store_CWModel.Text1RecordList();
+},
+complexType: ECP_Store_CWModel.Text1RecordList
+}, {
+name: "ErrorMessage",
+attrName: "errorMessageOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype.cartStore_GetUnavailableProducts$ServerAction = function (oneWelcomeUserIdIn, storeIdIn, cartIdIn, callContext) {
+var controller = this.controller;
+var inputs = {
+OneWelcomeUserId: OS.DataConversion.ServerDataConverter.to(oneWelcomeUserIdIn, OS.Types.Text),
+StoreId: OS.DataConversion.ServerDataConverter.to(storeIdIn, OS.Types.LongInteger),
+CartId: OS.DataConversion.ServerDataConverter.to(cartIdIn, OS.Types.Text)
+};
+return controller.callServerAction("CartStore_GetUnavailableProducts", "screenservices/ECP_Store_CW/StoreFlow/StoreSelection_FlyIIn/ActionCartStore_GetUnavailableProducts", "DWjZnzWecWW2jby1OXKygQ", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn$rssespaceecp_cart_bl_ActionCartStore_GetUnavailableProducts"))();
+executeServerActionResult.unavailableProductListOut = OS.DataConversion.ServerDataConverter.from(outputs.UnavailableProductList, ECP_Store_CWModel.Aux_ItemInCartList);
+executeServerActionResult.versionOut = OS.DataConversion.ServerDataConverter.from(outputs.Version, OS.Types.Integer);
+executeServerActionResult.isOrderedOut = OS.DataConversion.ServerDataConverter.from(outputs.IsOrdered, OS.Types.Boolean);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn$rssespaceecp_cart_bl_ActionCartStore_GetUnavailableProducts", [{
+name: "UnavailableProductList",
+attrName: "unavailableProductListOut",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Store_CWModel.Aux_ItemInCartList();
+},
+complexType: ECP_Store_CWModel.Aux_ItemInCartList
+}, {
+name: "Version",
+attrName: "versionOut",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "IsOrdered",
+attrName: "isOrderedOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+
+// Aggregates and Data Actions
+Controller.prototype.searchStores$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionSearchStores", "screenservices/ECP_Store_CW/StoreFlow/StoreSelection_FlyIIn/DataActionSearchStores", "M6y1CpmY6KjIe93+xVcWbw", function (b) {
+model.variables.searchStoresDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.searchStoresDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.searchStoresDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true).then(function () {
+controller._onAfterFetch_SearchStores$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["searchStores$DataActRefresh"];
+// Client Actions
+Controller.prototype._call_ComponentDidMountEvent$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Call_ComponentDidMountEvent");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: ComponentDidMount
+return controller.componentDidMount$Action(callContext);
+});
+};
+Controller.prototype._onClick_StoreCard$Action = function (storeIdIn, storeNameIn, externalChannelIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_StoreCard");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.OnClick_StoreCard$vars"))());
+vars.value.storeIdInLocal = storeIdIn;
+vars.value.storeNameInLocal = storeNameIn;
+vars.value.externalChannelIdInLocal = externalChannelIdIn;
+var product_GetUnavailabilityAtStoreVar = new OS.DataTypes.VariableHolder();
+var cartStore_GetUnavailableProductsVar = new OS.DataTypes.VariableHolder();
+var cart_UpdateVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreIdVar = new OS.DataTypes.VariableHolder();
+var cart_Client_GetIdVar = new OS.DataTypes.VariableHolder();
+var getClientVar_ClickedProductSKUVar = new OS.DataTypes.VariableHolder();
+var store_SetNewStoreVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: Toggle_LoadingState
+controller._toggle_LoadingState$Action(true, callContext);
+// ClickedProductSKU = ""
+return OS.Flow.executeSequence(function () {
+if(((ECP_Cart_CWController.default.getClientVar_ClickedProductSKU$Action(callContext).sKUOut === ""))) {
+// Execute Action: Cart_Client_GetId
+cart_Client_GetIdVar.value = ECOP_FE_CoreController.default.cart_Client_GetId$Action(callContext);
+
+// Execute Action: Get_Client_UserStoreId
+get_Client_UserStoreIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext);
+
+// User with Sstore defined?
+return OS.Flow.executeSequence(function () {
+if((!(get_Client_UserStoreIdVar.value.userStoreIdOut.equals(OS.BuiltinFunctions.integerToLongInteger(OS.BuiltinFunctions.nullIdentifier()))))) {
+// Store still the same?
+return OS.Flow.executeSequence(function () {
+if((vars.value.storeIdInLocal.equals(get_Client_UserStoreIdVar.value.userStoreIdOut))) {
+OS.FeedbackMessageService.showFeedbackMessage(OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("MO9hLsZa90qXR8x822Ssig#Message.135801908.1", "Store successfully changed."), /*Success*/ 1);
+// Trigger Event: StoreChanged2
+return controller.storeChanged$Action(vars.value.storeIdInLocal, false, callContext).then(function () {
+// Execute Action: Toggle_LoadingState5
+controller._toggle_LoadingState$Action(false, callContext);
+return OS.Flow.returnAsync();
+
+});
+}
+
+});
+}
+
+}).then(function () {
+// Found cart?
+return OS.Flow.executeSequence(function () {
+if((((cart_Client_GetIdVar.value.cartIdOut) !== ((OS.BuiltinFunctions.nullIdentifier()).toString())))) {
+// Execute Action: CartStore_GetUnavailableProducts
+model.flush();
+return controller.cartStore_GetUnavailableProducts$ServerAction(model.variables.oneWelcomeUserIdIn, vars.value.storeIdInLocal, cart_Client_GetIdVar.value.cartIdOut, callContext).then(function (value) {
+cartStore_GetUnavailableProductsVar.value = value;
+}).then(function () {
+// Has unavailable products?
+return OS.Flow.executeSequence(function () {
+if((!(cartStore_GetUnavailableProductsVar.value.unavailableProductListOut.isEmpty))) {
+// Execute Action: Toggle_LoadingState4
+controller._toggle_LoadingState$Action(false, callContext);
+// Trigger Event: ProductConflictOpened
+return controller.productConflictOpened$Action(cartStore_GetUnavailableProductsVar.value.unavailableProductListOut, vars.value.storeIdInLocal, vars.value.storeNameInLocal, ECP_Store_CWModel.staticEntities.productConflictType.storeChange, callContext).then(function () {
+return OS.Flow.returnAsync();
+
+});
+} else {
+// Execute Action: Store_SetNewStore
+model.flush();
+return ECP_Store_CWController.default.store_SetNewStore$Action(vars.value.storeIdInLocal, cart_Client_GetIdVar.value.cartIdOut, callContext).then(function (value) {
+store_SetNewStoreVar.value = value;
+});
+}
+
+});
+});
+}
+
+});
+}).then(function () {
+// Execute Action: Screen_UpdateStore_New
+return controller._screen_UpdateStore$Action(vars.value.storeIdInLocal, vars.value.storeNameInLocal, callContext).then(function () {
+OS.FeedbackMessageService.showFeedbackMessage(OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Z5EgZ8S5TU+Vlakis6akMA#Message.135801908.1", "Store successfully changed."), /*Success*/ 1);
+// Trigger Event: StoreChanged
+return controller.storeChanged$Action(vars.value.storeIdInLocal, false, callContext);
+});
+});
+} else {
+// Execute Action: Product_GetUnavailabilityAtStore
+model.flush();
+return controller.product_GetUnavailabilityAtStore$ServerAction(function () {
+var list = new OS.DataTypes.TextList();
+list.pushAll([ECP_Cart_CWController.default.getClientVar_ClickedProductSKU$Action(callContext).sKUOut]);
+return list;
+}(), vars.value.externalChannelIdInLocal, callContext).then(function (value) {
+product_GetUnavailabilityAtStoreVar.value = value;
+}).then(function () {
+// IsAvailable
+return OS.Flow.executeSequence(function () {
+if((product_GetUnavailabilityAtStoreVar.value.unavailableSKUListOut.isEmpty)) {
+// Execute Action: GetClientVar_ClickedProductSKU
+getClientVar_ClickedProductSKUVar.value = ECP_Cart_CWController.default.getClientVar_ClickedProductSKU$Action(callContext);
+
+// Execute Action: Screen_UpdateStore_New2
+return controller._screen_UpdateStore$Action(vars.value.storeIdInLocal, vars.value.storeNameInLocal, callContext).then(function () {
+// Execute Action: Cart_Update
+model.flush();
+return ECP_Cart_CWController.default.cart_Update$Action(model.variables.oneWelcomeUserIdIn, "", getClientVar_ClickedProductSKUVar.value.sKUOut, 1, "", "", 0, "", callContext).then(function (value) {
+cart_UpdateVar.value = value;
+});
+}).then(function () {
+OS.FeedbackMessageService.showFeedbackMessage(OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("P2UL5FVrzE+xRPaznm_tZw#Message.1356600400.1", "Your PLUS store has been successfully selected."), /*Success*/ 1);
+// Trigger Event: StoreChanged_CloseAll
+return controller.storeChanged$Action(vars.value.storeIdInLocal, true, callContext);
+});
+} else {
+// Execute Action: Toggle_LoadingState2
+controller._toggle_LoadingState$Action(false, callContext);
+// Trigger Event: SingularProductConflictOpened
+return controller.productConflictOpened$Action(OS.DataConversion.JSConversions.typeConvertRecordList(product_GetUnavailabilityAtStoreVar.value.unavailableSKUListOut, new ECP_Store_CWModel.Aux_ItemInCartList(), function (source, target) {
+target.sKUAttr = source.sKUAttr;
+target.quantityAttr = 1;
+return target;
+}), vars.value.storeIdInLocal, vars.value.storeNameInLocal, ECP_Store_CWModel.staticEntities.productConflictType.firstStoreSelection, callContext).then(function () {
+return OS.Flow.returnAsync();
+
+});
+}
+
+});
+});
+}
+
+}).then(function () {
+// Execute Action: Toggle_LoadingState3
+controller._toggle_LoadingState$Action(false, callContext);
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.OnClick_StoreCard$vars", [{
+name: "StoreId",
+attrName: "storeIdInLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}, {
+name: "StoreName",
+attrName: "storeNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExternalChannelId",
+attrName: "externalChannelIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onRender$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnRender");
+callContext = controller.callContext(callContext);
+if((model.variables.isPhoneMenuIn)) {
+controller.safeExecuteJSNode(ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_controller_OnRender_RemoveRoleJS, "RemoveRole", "OnRender", {
+SearchLinkId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("SearchLink"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+}
+
+};
+Controller.prototype._onClick_Close$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_Close");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ClearClientVar_ClickedProductSKU
+ECP_Cart_CWController.default.clearClientVar_ClickedProductSKU$Action(callContext);
+// Trigger Event: CloseClicked
+return controller.closeClicked$Action(callContext);
+});
+};
+Controller.prototype._validateZipcode$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ValidateZipcode");
+callContext = controller.callContext(callContext);
+var validateZipcodeTermVar = new OS.DataTypes.VariableHolder();
+var isZipcodeJSResult = new OS.DataTypes.VariableHolder();
+// Is text search & term <> "" ?
+if((((OS.BuiltinFunctions.length(model.variables.searchTermVar) <= 3) && (model.variables.isSearchByZipCodeVar === false)))) {
+// Hide tooltip
+// IsShowToolTip = False
+model.variables.isShowToolTipVar = false;
+}
+
+// Starts with 0?
+while (((OS.BuiltinFunctions.index(model.variables.searchTermVar, "0", 0, false, false) === 0))) {
+// SearchTerm = Substr
+model.variables.searchTermVar = OS.BuiltinFunctions.substr(model.variables.searchTermVar, 1, (OS.BuiltinFunctions.length(model.variables.searchTermVar) - 1));
+}
+
+if(((OS.BuiltinFunctions.length(model.variables.searchTermVar) < 3))) {
+// Hide tooltip
+// IsShowToolTip = False
+model.variables.isShowToolTipVar = false;
+// Input Invalid
+// ZipcodeInput.Valid = False
+model.widgets.get(idService.getId("ZipcodeInput")).validAttr = false;
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.searchStoresDataAct.storesOut, callContext);
+} else {
+// ECOP_8920
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Store_CWModel.staticEntities.releaseToggle.eCOP_8920, callContext).isEnabledOut)) {
+// Execute Action: ValidateZipcodeTerm
+validateZipcodeTermVar.value = ECP_Store_CWController.default.validateZipcodeTerm$Action(OS.BuiltinFunctions.trim(model.variables.searchTermVar), callContext);
+
+// ZipcodeInput.Valid = True
+model.widgets.get(idService.getId("ZipcodeInput")).validAttr = true;
+// ZipcodeInput.ValidationMessage = ""
+model.widgets.get(idService.getId("ZipcodeInput")).validationMessageAttr = "";
+// IsSearchByZipCode = ValidateZipcodeTerm.IsSearchByZipCode
+model.variables.isSearchByZipCodeVar = validateZipcodeTermVar.value.isSearchByZipCodeOut;
+} else {
+// Checks if the Searchkeyword is a ducth zipcode.
+isZipcodeJSResult.value = controller.safeExecuteJSNode(ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_controller_ValidateZipcode_IsZipcodeJS, "IsZipcode", "ValidateZipcode", {
+PostalCode: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.trim(model.variables.searchTermVar), OS.Types.Text),
+IsValid: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.ValidateZipcode$isZipcodeJSResult"))();
+jsNodeResult.isValidOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsValid, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// ZipcodeInput.Valid = True
+model.widgets.get(idService.getId("ZipcodeInput")).validAttr = true;
+// ZipcodeInput.ValidationMessage = ""
+model.widgets.get(idService.getId("ZipcodeInput")).validationMessageAttr = "";
+// IsSearchByZipCode = IsZipcode.IsValid
+model.variables.isSearchByZipCodeVar = isZipcodeJSResult.value.isValidOut;
+}
+
+}
+
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.ValidateZipcode$isZipcodeJSResult", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._setFocusOnTitle$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetFocusOnTitle");
+callContext = controller.callContext(callContext);
+// Execute Action: SetFocus
+PLUS_OutSystemsUI_2_8_0Controller.default.setFocus$Action(idService.getId("Title3"), callContext);
+// ECOP_7464
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Store_CWModel.staticEntities.releaseToggle.eCOP_7464, callContext).isEnabledOut)) {
+// Execute Action: UpdateStoreSelector
+ECP_Store_CWController.default.updateStoreSelector$Action(callContext);
+}
+
+};
+Controller.prototype._screen_UpdateStore$Action = function (storeIdIn, storeNameIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Screen_UpdateStore");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.Screen_UpdateStore$vars"))());
+vars.value.storeIdInLocal = storeIdIn;
+vars.value.storeNameInLocal = storeNameIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: Store_Update
+model.flush();
+return ECP_Store_CWController.default.store_Update$Action(model.variables.oneWelcomeUserIdIn, vars.value.storeIdInLocal, vars.value.storeNameInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.Screen_UpdateStore$vars", [{
+name: "StoreId",
+attrName: "storeIdInLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}, {
+name: "StoreName",
+attrName: "storeNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onAfterFetch_SearchStores$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_SearchStores");
+callContext = controller.callContext(callContext);
+var listAnyVar = new OS.DataTypes.VariableHolder();
+// Execute Action: ListAny
+listAnyVar.value = OS.SystemActions.listAny(model.variables.searchStoresDataAct.storesOut, function (p) {
+return p.deliversAtZipCodeAttr;
+}, callContext);
+
+// AnyStoreDelivers = ListAny.Result
+model.variables.anyStoreDeliversVar = listAnyVar.value.resultOut;
+// HasResults = SearchStores.IsDataFetched and notSearchStores.Stores.Empty
+model.variables.hasResultsVar = (model.variables.searchStoresDataAct.isDataFetchedAttr && !(model.variables.searchStoresDataAct.storesOut.isEmpty));
+if((((model.variables.searchTermVar) !== ("")))) {
+// IsSearching = False
+model.variables.isSearchingVar = false;
+// IsShowToolTip = notIsSearchByZipCode
+model.variables.isShowToolTipVar = !(model.variables.isSearchByZipCodeVar);
+} else {
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.searchStoresDataAct.storesOut, callContext);
+// Hide tooltip
+// IsShowToolTip = False
+model.variables.isShowToolTipVar = false;
+// IsSearching = False
+model.variables.isSearchingVar = false;
+}
+
+};
+Controller.prototype._toggle_InputIsFocused$Action = function (isFocusedIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Toggle_InputIsFocused");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.Toggle_InputIsFocused$vars"))());
+vars.value.isFocusedInLocal = isFocusedIn;
+// IsInputFilled = SearchTerm <> ""
+model.variables.isInputFilledVar = ((model.variables.searchTermVar) !== (""));
+if((!(vars.value.isFocusedInLocal))) {
+if((((model.variables.searchTermVar) !== ("")))) {
+return ;
+
+}
+
+}
+
+// IsCollapsed = IsFocused
+model.variables.isCollapsedVar = vars.value.isFocusedInLocal;
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.Toggle_InputIsFocused$vars", [{
+name: "IsFocused",
+attrName: "isFocusedInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+// Set CurrDate & CurrTime
+// CurrDate = CurrDate
+model.variables.currDateVar = OS.BuiltinFunctions.currDate();
+// CurrTime = CurrTime
+model.variables.currTimeVar = OS.BuiltinFunctions.currTime();
+};
+Controller.prototype._toggle_LoadingState$Action = function (loadingIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Toggle_LoadingState");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.Toggle_LoadingState$vars"))());
+vars.value.loadingInLocal = loadingIn;
+// IsLoading = Loading
+model.variables.isLoadingVar = vars.value.loadingInLocal;
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.Toggle_LoadingState$vars", [{
+name: "Loading",
+attrName: "loadingInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onClick_SearchStore$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_SearchStore");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ValidateZipcode
+controller._validateZipcode$Action(callContext);
+return OS.Flow.executeSequence(function () {
+if((model.widgets.get(idService.getId("ZipcodeInput")).validAttr)) {
+// IsSearching = True
+model.variables.isSearchingVar = true;
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.searchStoresDataAct.storesOut, callContext);
+// Refresh Query: SearchStores
+var result = controller.searchStores$DataActRefresh(callContext);
+model.flush();
+return result;
+} else {
+// Execute Action: GTMEvent_StorePicker_SearchInvalid
+ECOP_FE_CoreController.default.gTMEvent_StorePicker_SearchInvalid$Action(model.variables.searchTermVar, callContext);
+}
+
+});
+});
+};
+Controller.prototype._handler_IsKeyboardChanged$Action = function (isVirtualKeyboardOpenIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_IsKeyboardChanged");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.Handler_IsKeyboardChanged$vars"))());
+vars.value.isVirtualKeyboardOpenInLocal = isVirtualKeyboardOpenIn;
+// isKeyboardOpen = IsVirtualKeyboardOpen
+model.variables.isKeyboardOpenVar = vars.value.isVirtualKeyboardOpenInLocal;
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.Handler_IsKeyboardChanged$vars", [{
+name: "IsVirtualKeyboardOpen",
+attrName: "isVirtualKeyboardOpenInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onKeyUp_Input$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnKeyUp_Input");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_controller_OnKeyUp_Input_EnterKeyPressedJS, "EnterKeyPressed", "OnKeyUp_Input", {
+InputId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("ZipcodeInput"), OS.Types.Text)
+}, function ($parameters) {
+}, {
+OnClick_SearchStore: controller.clientActionProxies.onClick_SearchStore$Action
+}, {});
+};
+
+Controller.prototype.call_ComponentDidMountEvent$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._call_ComponentDidMountEvent$Action, callContext);
+
+};
+Controller.prototype.onClick_StoreCard$Action = function (storeIdIn, storeNameIn, externalChannelIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_StoreCard$Action, callContext, storeIdIn, storeNameIn, externalChannelIdIn);
+
+};
+Controller.prototype.onRender$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onRender$Action, callContext);
+
+};
+Controller.prototype.onClick_Close$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_Close$Action, callContext);
+
+};
+Controller.prototype.validateZipcode$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._validateZipcode$Action, callContext);
+
+};
+Controller.prototype.setFocusOnTitle$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setFocusOnTitle$Action, callContext);
+
+};
+Controller.prototype.screen_UpdateStore$Action = function (storeIdIn, storeNameIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._screen_UpdateStore$Action, callContext, storeIdIn, storeNameIn);
+
+};
+Controller.prototype.onAfterFetch_SearchStores$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_SearchStores$Action, callContext);
+
+};
+Controller.prototype.toggle_InputIsFocused$Action = function (isFocusedIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toggle_InputIsFocused$Action, callContext, isFocusedIn);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.toggle_LoadingState$Action = function (loadingIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toggle_LoadingState$Action, callContext, loadingIn);
+
+};
+Controller.prototype.onClick_SearchStore$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_SearchStore$Action, callContext);
+
+};
+Controller.prototype.handler_IsKeyboardChanged$Action = function (isVirtualKeyboardOpenIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_IsKeyboardChanged$Action, callContext, isVirtualKeyboardOpenIn);
+
+};
+Controller.prototype.onKeyUp_Input$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onKeyUp_Input$Action, callContext);
+
+};
+Controller.prototype.productConflictOpened$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.storeChanged$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.componentDidMount$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.closeClicked$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onRender$Action(callContext);
+
+};
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Store_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Store_CWLanguageResources);
+});
+define("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$controller.OnRender.RemoveRoleJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+document.getElementById($parameters.SearchLinkId).removeAttribute("role");
+document.getElementById($parameters.SearchLinkId).removeAttribute("href");
+};
+});
+define("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$controller.ValidateZipcode.IsZipcodeJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.PostalCode.match(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}?$/i)) {
+    $parameters.IsValid = true;
+}else {
+    $parameters.IsValid = false;
+}
+
+
+};
+});
+define("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$controller.OnKeyUp_Input.EnterKeyPressedJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if(event.keyCode==13){
+    var inputElem = document.getElementById($parameters.InputId);
+    if(inputElem)
+        inputElem.blur();
+        
+    $actions.OnClick_SearchStore();
+
+}
+};
+});
+
+define("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$translationsResources", ["exports", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$translationsResources.nl-NL"], function (exports, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$translationsResources.nl-NL", [], function () {
+return {
+"PwiYWk5JkUCX0QdEX6hs_w#Value": "Er bezorgt geen PLUS supermarkt bij jou in de buurt.\n\nWe bezorgen eventueel ook op je werk- of vakantieadres.\n\nWil je zelf winkelen of je boodschappen ophalen? Bekijk dan onze andere winkels.",
+"jxQgEHRhuE2tnfyd25cmlA#Value": "Geen bezorging op deze postcode",
+"yxq_QCCYlEuQ0oxa4953Rw#Value": "Bezorgt op deze postcode",
+"_Z7FcdIPUUC0yZ_YcXce3g#Value": "Bezorgen",
+"8Dv7gOmFoUiv3IDnU1MuYg#Value": "Ophalen",
+"yiYe9zbjY0u170leR7j9vQ#Value": "Je bent natuurlijk ook van harte welkom om zelf te komen winkelen.",
+"3V59ucEUbUSlfefk9q9qrQ#Value": "Je bestelling wordt verzameld in de winkel en is daarom altijd vers.",
+"zdKdkgsBBkyQBzj2ck+DZQ#Value": "We tonen de producten uit jouw PLUS.",
+"kTA08WsiukGUkY986j0NWw#Value.-1176311671.1": "Zoek de winkel in deze buurt",
+"ZqThww7P8kODkT28TVpAMw#Value": "Kies een PLUS supermarkt in de buurt voor de beste hulp bij je bestelling.",
+"Ott6zxIxZU+YPIj6fiFQSg#Value.1117828529.1": "Sluit winkel keuze",
+"P2UL5FVrzE+xRPaznm_tZw#Message.1356600400.1": "Jouw PLUS winkel is succesvol geselecteerd.",
+"Z5EgZ8S5TU+Vlakis6akMA#Message.135801908.1": "Winkelkeuze aangepast.",
+"MO9hLsZa90qXR8x822Ssig#Message.135801908.1": "Winkelkeuze aangepast."
+};
+});

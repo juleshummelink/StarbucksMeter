@@ -1,0 +1,41 @@
+﻿define("ECP_Customer_CW.languageResources", ["OutSystems/ClientRuntime/Main", "ECP_Customer_CW.languageResources.translationsResources"], function (OutSystems, ECP_Customer_CWLanguageResources_translationsResources) {
+var OS = OutSystems.Internal;
+var MessagesProvider = (function (_super) {
+__extends(MessagesProvider, _super);
+function MessagesProvider(translationResources) {
+_super.apply(this, arguments);
+this.setMessage("Validation.Mandatory", "This field is required.");
+this.setMessage("Validation.Integer", "Enter a valid integer.");
+this.setMessage("Validation.LongInteger", "Enter a valid integer.");
+this.setMessage("Validation.Decimal", "Enter a valid decimal.");
+this.setMessage("Validation.Currency", "Enter a valid currency.");
+this.setMessage("Validation.Date", "Enter a valid date.");
+this.setMessage("Validation.Time", "Enter a valid time.");
+this.setMessage("Validation.DateTime", "Enter a valid date and time.");
+this.setMessage("Validation.Text", "Enter a valid text.");
+this.setMessage("Validation.PhoneNumber", "Please enter a valid email address.");
+this.setMessage("Validation.Email", "Enter a valid email.");
+this.setMessage("UpgradeComplete", "");
+this.setMessage("AppInitError.Generic", "An error occurred while trying to update the app. If you want to retry the update, restart the app.");
+this.setMessage("AppInitError.Resources", "An error occurred while trying to update the app. If you want to retry the update, restart the app.");
+this.setMessage("AppInitError.DataModel", "An error occurred while trying to update the app. If you want to retry the update, restart the app. If the problem persists you can reinstall, but all local data will be lost.");
+this.setMessage("UpgradeRequired", "Your application needs to be updated. Click here to update.");
+this.setMessage("UpgradeRequiredDataLoss", "Your application needs to be updated. Unsaved data will be lost. Click here to update.");
+}
+return MessagesProvider;
+})(OS.LanguageResources.BaseMessagesProvider);
+return new MessagesProvider(ECP_Customer_CWLanguageResources_translationsResources);
+});
+define("ECP_Customer_CW.languageResources.translationsResources", ["exports", "ECP_Customer_CW.languageResources.translationsResources.nl-NL"], function (exports, ECP_Customer_CW_languageResources_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Customer_CW_languageResources_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Customer_CW.languageResources.translationsResources.nl-NL", [], function () {
+return {
+"Validation.PhoneNumber": "Vul een geldig e-mailadres in."
+};
+});

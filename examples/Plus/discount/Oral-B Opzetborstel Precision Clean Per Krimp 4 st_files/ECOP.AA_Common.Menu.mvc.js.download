@@ -1,0 +1,2059 @@
+﻿define("ECOP.AA_Common.Menu.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP_FE_Core.controller", "ECOP_ReleaseTogglesReactive.controller", "CMS_Monolith.controller", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Base_RPat.controller", "ECP_Cart_CW.controller", "ECOP.controller", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "PLUS_OutSystemsUI_2_8_0.Navigation.Submenu.mvc$model", "ECP_Product_CW.Categories.CategoryList_TF.mvc$model", "ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$model", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.controller$IsOpenInNewTab", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$Shared_Link_OSList", "PLUS_OutSystemsUI_2_8_0.controller$ToggleSideMenu", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_Base_RPat.controller$CloseSubmenu", "ECOP.referencesHealth$ECOP_Base_RPat", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECOP.referencesHealth$ECP_Cart_CW", "CMS_Monolith.controller$Cache_Get", "CMS_Monolith.controller$Cache_IsInitialized", "CMS_Monolith.controller$Cache_Create", "ECOP.controller$LastKeyPressDocVar_Get", "ECOP_Base_RPat.controller$ToggleSubmenu", "CMS_Monolith.controller$HeaderQuickLinks_Get", "CMS_Monolith.controller$Cache_Set", "ECOP.model$Aux_ItemInCartList"], function (OutSystems, ECOPModel, ECOP_FE_CoreController, ECOP_ReleaseTogglesReactiveController, CMS_MonolithController, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Base_RPatController, ECP_Cart_CWController, ECOPController, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvcModel, ECP_Product_CW_Categories_CategoryList_TF_mvcModel, ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("CategoryId2", "categoryId2Var", "CategoryId2", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("CategoryName2", "categoryName2Var", "CategoryName2", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("ParentId2", "parentId2Var", "ParentId2", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("ActiveDeviceType_aux", "activeDeviceType_auxVar", "ActiveDeviceType_aux", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("MutationObserverObj", "mutationObserverObjVar", "MutationObserverObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("IsSubmenuOpen", "isSubmenuOpenVar", "IsSubmenuOpen", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("QuickLinks", "quickLinksVar", "QuickLinks", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOPModel.Shared_Link_OSList());
+}, false, ECOPModel.Shared_Link_OSList), 
+this.attr("SubMenuFocusOutHandlerObj", "subMenuFocusOutHandlerObjVar", "SubMenuFocusOutHandlerObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("IsUserLoggedIn2", "isUserLoggedIn2Var", "IsUserLoggedIn2", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ActiveItem", "activeItemIn", "ActiveItem", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_activeItemInDataFetchStatus", "_activeItemInDataFetchStatus", "_activeItemInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowStorePicker", "showStorePickerIn", "ShowStorePicker", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_showStorePickerInDataFetchStatus", "_showStorePickerInDataFetchStatus", "_showStorePickerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowReserveMoment", "showReserveMomentIn", "ShowReserveMoment", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_showReserveMomentInDataFetchStatus", "_showReserveMomentInDataFetchStatus", "_showReserveMomentInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("UserStoreId", "userStoreIdIn", "UserStoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("_userStoreIdInDataFetchStatus", "_userStoreIdInDataFetchStatus", "_userStoreIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsOrderEditMode", "isOrderEditModeIn", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ActiveDeviceType", "activeDeviceTypeIn", "ActiveDeviceType", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_activeDeviceTypeInDataFetchStatus", "_activeDeviceTypeInDataFetchStatus", "_activeDeviceTypeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets || PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvcModel.hasValidationWidgets) || ECP_Product_CW_Categories_CategoryList_TF_mvcModel.hasValidationWidgets) || ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ActiveItem" in inputs) {
+this.variables.activeItemIn = inputs.ActiveItem;
+if("_activeItemInDataFetchStatus" in inputs) {
+this.variables._activeItemInDataFetchStatus = inputs._activeItemInDataFetchStatus;
+}
+
+}
+
+if("ShowStorePicker" in inputs) {
+this.variables.showStorePickerIn = inputs.ShowStorePicker;
+if("_showStorePickerInDataFetchStatus" in inputs) {
+this.variables._showStorePickerInDataFetchStatus = inputs._showStorePickerInDataFetchStatus;
+}
+
+}
+
+if("ShowReserveMoment" in inputs) {
+this.variables.showReserveMomentIn = inputs.ShowReserveMoment;
+if("_showReserveMomentInDataFetchStatus" in inputs) {
+this.variables._showReserveMomentInDataFetchStatus = inputs._showReserveMomentInDataFetchStatus;
+}
+
+}
+
+if("UserStoreId" in inputs) {
+this.variables.userStoreIdIn = inputs.UserStoreId;
+if("_userStoreIdInDataFetchStatus" in inputs) {
+this.variables._userStoreIdInDataFetchStatus = inputs._userStoreIdInDataFetchStatus;
+}
+
+}
+
+if("IsOrderEditMode" in inputs) {
+this.variables.isOrderEditModeIn = inputs.IsOrderEditMode;
+if("_isOrderEditModeInDataFetchStatus" in inputs) {
+this.variables._isOrderEditModeInDataFetchStatus = inputs._isOrderEditModeInDataFetchStatus;
+}
+
+}
+
+if("ActiveDeviceType" in inputs) {
+this.variables.activeDeviceTypeIn = inputs.ActiveDeviceType;
+if("_activeDeviceTypeInDataFetchStatus" in inputs) {
+this.variables._activeDeviceTypeInDataFetchStatus = inputs._activeDeviceTypeInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "AA_Common.Menu");
+});
+define("ECOP.AA_Common.Menu.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP_FE_Core.controller", "ECOP_ReleaseTogglesReactive.controller", "CMS_Monolith.controller", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Base_RPat.controller", "ECP_Cart_CW.controller", "react", "OutSystems/ReactView/Main", "ECOP.AA_Common.Menu.mvc$model", "ECOP.AA_Common.Menu.mvc$controller", "ECOP.clientVariables", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Navigation.Submenu.mvc$view", "ECP_Product_CW.Categories.CategoryList_TF.mvc$view", "ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$view", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.controller$IsOpenInNewTab", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$Shared_Link_OSList", "PLUS_OutSystemsUI_2_8_0.controller$ToggleSideMenu", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_Base_RPat.controller$CloseSubmenu", "ECOP.referencesHealth$ECOP_Base_RPat", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECOP.referencesHealth$ECP_Cart_CW", "CMS_Monolith.controller$Cache_Get", "CMS_Monolith.controller$Cache_IsInitialized", "CMS_Monolith.controller$Cache_Create", "ECOP.controller$LastKeyPressDocVar_Get", "ECOP_Base_RPat.controller$ToggleSubmenu", "CMS_Monolith.controller$HeaderQuickLinks_Get", "CMS_Monolith.controller$Cache_Set", "ECOP.model$Aux_ItemInCartList"], function (OutSystems, ECOPModel, ECOPController, ECOP_FE_CoreController, ECOP_ReleaseTogglesReactiveController, CMS_MonolithController, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Base_RPatController, ECP_Cart_CWController, React, OSView, ECOP_AA_Common_Menu_mvc_model, ECOP_AA_Common_Menu_mvc_controller, ECOPClientVariables, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, ECP_Product_CW_Categories_CategoryList_TF_mvc_view, ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "AA_Common.Menu";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, ECP_Product_CW_Categories_CategoryList_TF_mvc_view, ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_AA_Common_Menu_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_AA_Common_Menu_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+className: model.getCachedValue(idService.getId("bnopZ4+sFE61Iiok12vY_A.class"), function () {
+return ("app-menu-content display-flex gtm-navigation-menu" + ((model.variables.isSubmenuOpenVar) ? (" submenu-open") : ("")));
+}, function () {
+return model.variables.isSubmenuOpenVar;
+}),
+role: "navigation"
+},
+tag: "nav",
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "app-menu-header",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "app-menu-header--title",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("ARZ6qXDeSk2BcpkbgvulRA#ValueExpression.2394495.1", "Menu"),
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "app-menu-header--close",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.hideMenu$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "close"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "6",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))))];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "app-menu-links",
+visible: true,
+_idProps: {
+service: idService,
+name: "PageLinks"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "global-links-wrapper ",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menubar",
+"data-skippable": "true",
+tabIndex: "0"
+},
+style: "menu-links",
+visible: true,
+_idProps: {
+service: idService,
+name: "MenuLinksContainer"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menuitem",
+"aria-haspopup": "True"
+},
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("Submenu_Products.ExtendedClass"), function () {
+return (("products-submenu" + (((((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.products) || (model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.productDetails)) || (model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.search))) ? (" active") : (""))) + (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.promotions)) ? (" force-not-active") : ("")));
+}, function () {
+return model.variables.activeItemIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "Submenu_Products",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+menu: new PlaceholderContent(function () {
+return [$text(getTranslation("OkRMvKEBVEqfLskeZrlw6Q#Value", "Products"))];
+}),
+items: new PlaceholderContent(function () {
+return [$if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(ECP_Product_CW_Categories_CategoryList_TF_mvc_view, {
+inputs: {
+ParentId: model.variables.parentId2Var,
+OneWelcomeUserId: model.getCachedValue(idService.getId("EVfGDKg9O0erYuvosHf09w.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+}),
+IsPageSearch: false,
+CategoryName: model.variables.categoryName2Var,
+CategoryId: model.variables.categoryId2Var
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+navigateLevelUp$Action: function (categoryIdIn, categoryNameIn, parentIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_CategoryListNavigate$Action(categoryIdIn, categoryNameIn, parentIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+exposedActions$Action: function (jS_RefreshCategoriesIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CategoryList_ExposedActions$Action(jS_RefreshCategoriesIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+navigateLevelDown$Action: function (categoryIdIn, categoryNameIn, parentIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_CategoryListNavigate$Action(categoryIdIn, categoryNameIn, parentIdIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.categoryId2Var), asPrimitiveValue(model.variables.categoryName2Var), asPrimitiveValue(model.variables.parentId2Var)]
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menuitem"
+},
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: model.getCachedValue(idService.getId("+ZimMHjkS0O58ocHDMyeXA.Style"), function () {
+return ((((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.promotions) || (model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.promotionDetails))) ? ("active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "aanbiedingen/:SlugParameter?/:SecondarySlugParameter?/:volgende_week?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("vMWXF0iFyUeYcSRVICx_xw#Value", "Offers")))), $if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.eCOP_7054, callContext).isEnabledOut, false, this, function () {
+return [$if(model.variables.isUserLoggedIn2Var, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menuitem"
+},
+style: "link-wrapper previously-bought-articles",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: model.getCachedValue(idService.getId("u_eZkuS65U+l980Z_y+u2A.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.previouslyBoughtProducts)) ? ("active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "eerder-gekochte-producten", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("xHvHkr5VuE+HH3LJLtBs+g#Value", "Previously Bought Articles"))))];
+}, function () {
+return [];
+})];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menuitem"
+},
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: model.getCachedValue(idService.getId("gOnrMxy6d0SzZCraj1WkGw.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.recipes)) ? ("active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "recepten/:slugParam1?/:slugParam2?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("h+g60xh_X0mmmN_BMZZTyw#Value", "Recipes")))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_SubmenuLink$Action(idService.getId("Submenu_GoodFood"), controller.callContext(eventHandlerContext));
+
+;
+}
+},
+extendedProperties: {
+role: "menuitem",
+"aria-haspopup": "True"
+},
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("Submenu_GoodFood.ExtendedClass"), function () {
+return ((((((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.goodFood)) ? (" active") : ("")) + (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.promotions)) ? (" force-not-active") : (""))) + (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.wineShop)) ? (" force-not-active") : (""))) + " good-food");
+}, function () {
+return model.variables.activeItemIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "Submenu_GoodFood",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+menu: new PlaceholderContent(function () {
+return [$text(getTranslation("w1OLIZFnqEmIEZd_UxsHSA#Value", "Good food"))];
+}),
+items: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.None),
+url: OS.Navigation.generateScreenURL("ECOP", "inspiratie/:slugParam1?/:slugParam2?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("X0B1oSnyBEG8K5GtZll0Zw#Value", "Inspiration"))), React.createElement(OSWidgets.Link, {
+enabled: true,
+gridProperties: {
+classes: "ThemeGrid_MarginGutter"
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.None),
+url: OS.Navigation.generateScreenURL("ECOP", "inspiratie/:slugParam1?/:slugParam2?", {
+slugParam1: OS.DataConversion.ServerDataConverter.to("plus-magazine", OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("_sWuYOQdk02rPn4+a7xNrA#Value", "PLUS magazine")))];
+})
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menuitem"
+},
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: model.getCachedValue(idService.getId("ZwNjmpvPGEe5rLWPGZT87w.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.savingsPromotions)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "acties/:slugParam1?/:slugParam2?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "24"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("5zSwhrBu50qsd96XqxJ1qw#Value", "Savings promotions")))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menuitem"
+},
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "25"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: model.getCachedValue(idService.getId("tImd2ZoQGUSo8JFaxxx5AQ.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.forBusiness)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "zakelijk/:slugParam1?/:slugParam2?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("0FtaJ56gqUakFQ1TAAEZ_w#Value", "For Business")))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menuitem"
+},
+style: "link-wrapper ",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "27"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: model.getCachedValue(idService.getId("brX+ZsdjnU2ob2FBnmC43A.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.stores)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "supermarkten/:SlugParameter?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("BRs1+mU8BUaYYtVG3gzgKg#Value", "Stores")))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "menuitem",
+"aria-haspopup": "True"
+},
+style: "more-link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, {
+inputs: {
+ExtendedClass: "force-not-active"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "Submenu_More",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+menu: new PlaceholderContent(function () {
+return [$text(getTranslation("G22ZgUdCCEO2S7lqxQWONQ#Value", "More"))];
+}),
+items: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "more-links",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "31"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: model.getCachedValue(idService.getId("dgohIBC4AkOPYTDWYDEZeQ.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.recipes)) ? ("active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "recepten/:slugParam1?/:slugParam2?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("X+rHtSUw1UKzpEnQEVl93w#Value", "Recipes"))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_SubmenuLink$Action(idService.getId("SubmenuGoodFood2"), controller.callContext(eventHandlerContext));
+
+;
+}
+},
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("SubmenuGoodFood2.ExtendedClass"), function () {
+return ((((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.goodFood)) ? (" active") : ("")) + (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.promotions)) ? (" force-not-active") : ("")));
+}, function () {
+return model.variables.activeItemIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "SubmenuGoodFood2",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+menu: new PlaceholderContent(function () {
+return [$text(getTranslation("M9t6rtDOKki_aesMV4EvhQ#Value", "Good food"))];
+}),
+items: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "inspiratie/:slugParam1?/:slugParam2?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("QZyo+ddF20uuo6ywicQ9bg#Value", "Inspiration"))), React.createElement(OSWidgets.Link, {
+enabled: true,
+gridProperties: {
+classes: "ThemeGrid_MarginGutter"
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "inspiratie/:slugParam1?/:slugParam2?", {
+slugParam1: OS.DataConversion.ServerDataConverter.to("plus-magazine", OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("ZTEKoAURKEW57ceNQ7qVUQ#Value", "PLUS magazine")))];
+})
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Link, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+style: model.getCachedValue(idService.getId("n_U0lQ512kOz+sABVEXung.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.savingsPromotions)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "acties/:slugParam1?/:slugParam2?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("q2jggd2HWk6onu_KWW+wNA#Value", "Savings promotions"))), React.createElement(OSWidgets.Link, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+style: model.getCachedValue(idService.getId("yOizyQbaNEyz0fa4dc3CUA.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.forBusiness)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "zakelijk/:slugParam1?/:slugParam2?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("PZPUw3YzMUGM2pB3zd8M3g#Value", "For Business"))), React.createElement(OSWidgets.Link, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+style: model.getCachedValue(idService.getId("A+N8T3ISqEKqom3QUk1rxg.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.stores)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "supermarkten/:SlugParameter?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("b5yLdxULd0GnWxpxrbVRPA#Value", "Stores"))), $if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.eCOP_7005_ChristmasPackageShop, callContext).isEnabledOut, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "christmas-package-shop",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "40"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+target: "_blank"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+style: "",
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("https://kerstpakketten.plus.nl/", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("wn_flF8RWEq4Eb2Mcc3YBQ#Value", "Christmas package shop"))))];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+target: "_blank"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+style: model.getCachedValue(idService.getId("Bw2iGTqTpEu+81WzGNumcw.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.pieShop)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("https://taarten.plus.nl/", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "42"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("cXdzvZ6rhEe5gJIQV6rf9w#Value", "Pie shop"))), React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+target: "_blank"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+style: model.getCachedValue(idService.getId("w8lKtEPJG0KEBa5iF+ypVQ.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.flowerShop)) ? ("active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("https://bloemen.plus.nl/", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("XBmyIvKykUuhISp6UqvTbQ#Value", "Flower shop"))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+style: "text-align: center;"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+style: model.getCachedValue(idService.getId("4tCLJ4SDbkW5cTTG4AHr_g.Style"), function () {
+return ((((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.wineShop)) ? (" active") : ("")) + " wine-shop");
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.None),
+url: OS.Navigation.generateScreenURL("https://www.plus.nl/goed-eten/wijn/wijnshop", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("NwKjuzQXukebVQW+jsrnTA#Value", "Wine shop")))), $if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.eCOP_6214, callContext).isEnabledOut, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "liquor-store",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "46"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+target: "_blank"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+style: model.getCachedValue(idService.getId("46q9vfAUp0e8C8xv9SNXmw.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.liquorStore)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("https://slijterij.plus.nl/", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "47"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+}, $text(getTranslation("J9kDdCM4jky0tHUEE3dXZg#Value", "Liquor store"))))];
+}), React.createElement(OSWidgets.Link, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "inspiratie/:slugParam1?/:slugParam2?", {
+slugParam1: OS.DataConversion.ServerDataConverter.to("boodschappenlijstjes", OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "48"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: model.getCachedValue(idService.getId("T5LyEieX1069WaFos44TxQ.Style"), function () {
+return (((model.variables.activeItemIn === ECOPModel.staticEntities.pagesNames.shoppingLists)) ? (" active") : (""));
+}, function () {
+return model.variables.activeItemIn;
+}),
+text: [$text(getTranslation("T5LyEieX1069WaFos44TxQ#Value", "Shoppinglists"))],
+_idProps: {
+service: idService,
+uuid: "49"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeItemInDataFetchStatus)
+})))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._activeItemInDataFetchStatus), asPrimitiveValue(model.variables.activeItemIn)]
+})))), $if(false, false, this, function () {
+return [];
+}, function () {
+return [$if(ECOPClientVariables.getIsPhone(), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "app-menu-bottom",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "50"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_view, {
+inputs: {
+OneWelcomeUserId: model.getCachedValue(idService.getId("2uWt0lFYEkyQkuRCgZkagw.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+}),
+UserStoreId: model.variables.userStoreIdIn,
+_userStoreIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._userStoreIdInDataFetchStatus),
+ShowReserveMomentTopOptions: true,
+ShowStorePicker: model.variables.showStorePickerIn,
+_showStorePickerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._showStorePickerInDataFetchStatus),
+IsOrderEditMode: model.variables.isOrderEditModeIn,
+_isOrderEditModeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isOrderEditModeInDataFetchStatus),
+ShowReserveMoment: model.variables.showReserveMomentIn,
+_showReserveMomentInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._showReserveMomentInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+productConflictOpened$Action: function (unavailableProductListIn, storeIdIn, storeNameIn, productConflictTypeIn) {
+var eventHandlerContext = callContext.clone();
+controller.productConflictOpened$Action(unavailableProductListIn, storeIdIn, storeNameIn, productConflictTypeIn, controller.callContext(eventHandlerContext));
+
+;
+},
+storeChanged$Action: function (storeIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.storeChanged$Action(storeIdIn, "", controller.callContext(eventHandlerContext));
+
+;
+},
+toggleReserveMoment$Action: function (isOpenIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_ToggleReserveMoment$Action(isOpenIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+toggleStorePicker$Action: function (isOpenIn) {
+var eventHandlerContext = callContext.clone();
+controller.toggleStorePicker$Action(isOpenIn, controller.callContext(eventHandlerContext));
+
+;
+},
+closeMenu$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.hideMenu$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.onClick_DummyAction$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+linkToStorePage$Action: function (slugIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_LinkToStorePage$Action(slugIn, controller.callContext(eventHandlerContext));
+
+;
+},
+openStorePickerActionExposed$Action: function (openMenuStorePickerJSIn) {
+var eventHandlerContext = callContext.clone();
+controller.openStorePickerActionExposed$Action(openMenuStorePickerJSIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "51",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})), React.createElement(OSWidgets.List, {
+animateItems: true,
+extendedEvents: {
+"componentdidmount": function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.getContent_MobileQuickLinks$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.quickLinksVar,
+style: "list list-group",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "52"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "53"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.quickLinksVar.getCurrent(callContext.iterationContext).titleAttr), asPrimitiveValue(model.variables.quickLinksVar.getCurrent(callContext.iterationContext).urlAttr)]
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+target: model.getCachedValue(idService.getId("LinkElement.target"), function () {
+return ((CMS_MonolithController.default.isOpenInNewTab$Action(model.variables.quickLinksVar.getCurrent(callContext.iterationContext).urlAttr, callContext).isOpenInNewTabOut) ? ("_blank") : (""));
+}, function () {
+return model.variables.quickLinksVar.getCurrent(callContext.iterationContext).urlAttr;
+})
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL(model.variables.quickLinksVar.getCurrent(callContext.iterationContext).urlAttr, {}),
+visible: true,
+_idProps: {
+service: idService,
+name: "LinkElement"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.quickLinksVar.getCurrent(callContext.iterationContext).titleAttr,
+_idProps: {
+service: idService,
+uuid: "55"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))];
+}, callContext, idService, "1")
+},
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+}))), $if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.hideMenu$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+extendedProperties: {
+role: "button"
+},
+style: "app-menu-overlay",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "56"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP.AA_Common.Menu.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP_FE_Core.controller", "ECOP_ReleaseTogglesReactive.controller", "CMS_Monolith.controller", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Base_RPat.controller", "ECP_Cart_CW.controller", "ECOP.languageResources", "ECOP.clientVariables", "ECOP.AA_Common.Menu.mvc$translationsResources", "ECOP.AA_Common.Menu.mvc$controller.Handler_CategoryListNavigate.Async_ChangeProductCategoryJS", "ECOP.AA_Common.Menu.mvc$controller.OnDestroy.UnregisterEventHandlersJS", "ECOP.AA_Common.Menu.mvc$controller.OnDestroy.DisconnectMutationObserverJS", "ECOP.AA_Common.Menu.mvc$controller.CheckSubmenuOpen_Phone.openedSubMenuJS", "ECOP.AA_Common.Menu.mvc$controller.OnReady.JS_OnReady_AsyncJS", "ECOP.AA_Common.Menu.mvc$controller.OnReady_Async.CreateMutationObserverJS", "ECOP.AA_Common.Menu.mvc$controller.OnReady_Async.AddEventListener_SubMenuFocusOutJS", "ECOP.AA_Common.Menu.mvc$controller.OnParametersChanged.IsMenuOpenJS", "ECOP.AA_Common.Menu.mvc$controller.OnChangeSubMenu_SetFocusOnFirstMenuLink.SetFocusJS", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.controller$IsOpenInNewTab", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$Shared_Link_OSList", "PLUS_OutSystemsUI_2_8_0.controller$ToggleSideMenu", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_Base_RPat.controller$CloseSubmenu", "ECOP.referencesHealth$ECOP_Base_RPat", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECOP.referencesHealth$ECP_Cart_CW", "CMS_Monolith.controller$Cache_Get", "CMS_Monolith.controller$Cache_IsInitialized", "CMS_Monolith.controller$Cache_Create", "ECOP.controller$LastKeyPressDocVar_Get", "ECOP_Base_RPat.controller$ToggleSubmenu", "CMS_Monolith.controller$HeaderQuickLinks_Get", "CMS_Monolith.controller$Cache_Set", "ECOP.model$Aux_ItemInCartList"], function (OutSystems, ECOPModel, ECOPController, ECOP_FE_CoreController, ECOP_ReleaseTogglesReactiveController, CMS_MonolithController, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Base_RPatController, ECP_Cart_CWController, ECOPLanguageResources, ECOPClientVariables, ECOP_AA_Common_Menu_mvc_TranslationsResources, ECOP_AA_Common_Menu_mvc_controller_Handler_CategoryListNavigate_Async_ChangeProductCategoryJS, ECOP_AA_Common_Menu_mvc_controller_OnDestroy_UnregisterEventHandlersJS, ECOP_AA_Common_Menu_mvc_controller_OnDestroy_DisconnectMutationObserverJS, ECOP_AA_Common_Menu_mvc_controller_CheckSubmenuOpen_Phone_openedSubMenuJS, ECOP_AA_Common_Menu_mvc_controller_OnReady_JS_OnReady_AsyncJS, ECOP_AA_Common_Menu_mvc_controller_OnReady_Async_CreateMutationObserverJS, ECOP_AA_Common_Menu_mvc_controller_OnReady_Async_AddEventListener_SubMenuFocusOutJS, ECOP_AA_Common_Menu_mvc_controller_OnParametersChanged_IsMenuOpenJS, ECOP_AA_Common_Menu_mvc_controller_OnChangeSubMenu_SetFocusOnFirstMenuLink_SetFocusJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+changeProductCategory$Action: function (categoryIdIn, categoryNameIn, parentIdIn) {
+categoryIdIn = (categoryIdIn === undefined) ? 0 : categoryIdIn;
+categoryNameIn = (categoryNameIn === undefined) ? "" : categoryNameIn;
+parentIdIn = (parentIdIn === undefined) ? 0 : parentIdIn;
+return controller.executeActionInsideJSNode(controller._changeProductCategory$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(categoryIdIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(categoryNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(parentIdIn, OS.Types.Integer)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ChangeProductCategory");
+},
+onChangeSubMenu_SetFocusOnFirstMenuLink$Action: function () {
+return controller.executeActionInsideJSNode(controller._onChangeSubMenu_SetFocusOnFirstMenuLink$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnChangeSubMenu_SetFocusOnFirstMenuLink");
+},
+onReady_Async$Action: function () {
+return controller.executeActionInsideJSNode(controller._onReady_Async$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnReady_Async");
+},
+checkSubmenuOpen_Phone$Action: function () {
+return controller.executeActionInsideJSNode(controller._checkSubmenuOpen_Phone$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "CheckSubmenuOpen_Phone");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECOP_AA_Common_Menu_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._hideMenu$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("HideMenu");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ClearClientVar_ClickedProductSKU
+ECP_Cart_CWController.default.clearClientVar_ClickedProductSKU$Action(callContext);
+// Execute Action: ToggleSideMenu
+PLUS_OutSystemsUI_2_8_0Controller.default.toggleSideMenu$Action(callContext);
+// Execute Action: CloseSubmenu_ProductsSubmenu
+ECOP_Base_RPatController.default.closeSubmenu$Action(idService.getId("Submenu_Products"), callContext);
+// Execute Action: CloseSubmenu_SubmenuGoodFood
+ECOP_Base_RPatController.default.closeSubmenu$Action(idService.getId("Submenu_GoodFood"), callContext);
+// Execute Action: CloseSubmenu_SubmenuGoodFood2
+ECOP_Base_RPatController.default.closeSubmenu$Action(idService.getId("Submenu_GoodFood"), callContext);
+// CategoryId2 = NullIdentifier
+model.variables.categoryId2Var = OS.BuiltinFunctions.nullIdentifier();
+// CategoryName2 = ""
+model.variables.categoryName2Var = "";
+// ParentId2 = NullIdentifier
+model.variables.parentId2Var = OS.BuiltinFunctions.nullIdentifier();
+// Trigger Event: HideMenuClick
+return controller.hideMenuClick$Action(callContext);
+});
+};
+Controller.prototype._onClick_DummyAction$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_DummyAction");
+callContext = controller.callContext(callContext);
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var cache_GetVar = new OS.DataTypes.VariableHolder();
+var cache_IsInitializedVar = new OS.DataTypes.VariableHolder();
+var jSONDeserializeHeaderVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECOPModel.Shared_Link_OSList))());
+// IsUserLoggedIn2 = Get_Client_OWGUID() <> ""
+model.variables.isUserLoggedIn2Var = ((ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut) !== (""));
+// Execute Action: Cache_IsInitialized
+cache_IsInitializedVar.value = CMS_MonolithController.default.cache_IsInitialized$Action(callContext);
+
+// Cache not yet initialized
+if((!(cache_IsInitializedVar.value.isInitializedOut))) {
+// Execute Action: Cache_Create
+CMS_MonolithController.default.cache_Create$Action(callContext);
+} else {
+// Execute Action: Cache_Get
+cache_GetVar.value = CMS_MonolithController.default.cache_Get$Action("cms_shared_quicklinks", callContext);
+
+// Cached
+if((((cache_GetVar.value.valueOut) !== ("")))) {
+// JSON Deserialize: JSONDeserializeHeader
+jSONDeserializeHeaderVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(cache_GetVar.value.valueOut, ECOPModel.Shared_Link_OSList, false);
+// QuickLinks = JSONDeserializeHeader.Data
+model.variables.quickLinksVar = jSONDeserializeHeaderVar.value.dataOut;
+}
+
+}
+
+};
+Controller.prototype._handler_CategoryListNavigate$Action = function (categoryIdIn, categoryNameIn, parentIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CategoryListNavigate");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.Handler_CategoryListNavigate$vars"))());
+vars.value.categoryIdInLocal = categoryIdIn;
+vars.value.categoryNameInLocal = categoryNameIn;
+vars.value.parentIdInLocal = parentIdIn;
+controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_Handler_CategoryListNavigate_Async_ChangeProductCategoryJS, "Async_ChangeProductCategory", "Handler_CategoryListNavigate", {
+CategoryName: OS.DataConversion.JSNodeParamConverter.to(vars.value.categoryNameInLocal, OS.Types.Text),
+CategoryId: OS.DataConversion.JSNodeParamConverter.to(vars.value.categoryIdInLocal, OS.Types.Integer),
+ParentId: OS.DataConversion.JSNodeParamConverter.to(vars.value.parentIdInLocal, OS.Types.Integer)
+}, function ($parameters) {
+}, {
+ChangeProductCategory: controller.clientActionProxies.changeProductCategory$Action,
+OnChangeSubMenu_SetFocusOnFirstMenuLink: controller.clientActionProxies.onChangeSubMenu_SetFocusOnFirstMenuLink$Action
+}, {});
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.Handler_CategoryListNavigate$vars", [{
+name: "CategoryId",
+attrName: "categoryIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "CategoryName",
+attrName: "categoryNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ParentId",
+attrName: "parentIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_OnDestroy_DisconnectMutationObserverJS, "DisconnectMutationObserver", "OnDestroy", {
+MutationObserverObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.mutationObserverObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_OnDestroy_UnregisterEventHandlersJS, "UnregisterEventHandlers", "OnDestroy", {
+SubMenuFocusOutHandlerObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.subMenuFocusOutHandlerObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._checkSubmenuOpen_Phone$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CheckSubmenuOpen_Phone");
+callContext = controller.callContext(callContext);
+var openedSubMenuJSResult = new OS.DataTypes.VariableHolder();
+openedSubMenuJSResult.value = controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_CheckSubmenuOpen_Phone_openedSubMenuJS, "openedSubMenu", "CheckSubmenuOpen_Phone", {
+IsSubmenuOpen: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.CheckSubmenuOpen_Phone$openedSubMenuJSResult"))();
+jsNodeResult.isSubmenuOpenOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsSubmenuOpen, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsSubmenuOpen = openedSubMenu.IsSubmenuOpen
+model.variables.isSubmenuOpenVar = openedSubMenuJSResult.value.isSubmenuOpenOut;
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.CheckSubmenuOpen_Phone$openedSubMenuJSResult", [{
+name: "IsSubmenuOpen",
+attrName: "isSubmenuOpenOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._handler_CategoryList_ExposedActions$Action = function (jS_RefreshCategoriesIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CategoryList_ExposedActions");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.Handler_CategoryList_ExposedActions$vars"))());
+vars.value.jS_RefreshCategoriesInLocal = jS_RefreshCategoriesIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: ExposedActions_Categories
+return controller.exposedActions_Categories$Action(vars.value.jS_RefreshCategoriesInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.Handler_CategoryList_ExposedActions$vars", [{
+name: "JS_RefreshCategories",
+attrName: "jS_RefreshCategoriesInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._changeProductCategory$Action = function (categoryIdIn, categoryNameIn, parentIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ChangeProductCategory");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.ChangeProductCategory$vars"))());
+vars.value.categoryIdInLocal = categoryIdIn;
+vars.value.categoryNameInLocal = categoryNameIn;
+vars.value.parentIdInLocal = parentIdIn;
+// CategoryInputs
+// CategoryId2 = CategoryId
+model.variables.categoryId2Var = vars.value.categoryIdInLocal;
+// CategoryName2 = CategoryName
+model.variables.categoryName2Var = vars.value.categoryNameInLocal;
+// ParentId2 = ParentId
+model.variables.parentId2Var = vars.value.parentIdInLocal;
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.ChangeProductCategory$vars", [{
+name: "CategoryId",
+attrName: "categoryIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "CategoryName",
+attrName: "categoryNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ParentId",
+attrName: "parentIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_OnReady_JS_OnReady_AsyncJS, "JS_OnReady_Async", "OnReady", null, function ($parameters) {
+}, {
+OnReady_Async: controller.clientActionProxies.onReady_Async$Action
+}, {});
+};
+Controller.prototype._onReady_Async$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady_Async");
+callContext = controller.callContext(callContext);
+var createMutationObserverJSResult = new OS.DataTypes.VariableHolder();
+var addEventListener_SubMenuFocusOutJSResult = new OS.DataTypes.VariableHolder();
+// ActiveDeviceType_aux = ActiveDeviceType
+model.variables.activeDeviceType_auxVar = model.variables.activeDeviceTypeIn;
+createMutationObserverJSResult.value = controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_OnReady_Async_CreateMutationObserverJS, "CreateMutationObserver", "OnReady_Async", {
+SubmenuObserverObj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.OnReady_Async$createMutationObserverJSResult"))();
+jsNodeResult.submenuObserverObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.SubmenuObserverObj, OS.Types.Object);
+return jsNodeResult;
+}, {
+CheckSubmenuOpen_Phone: controller.clientActionProxies.checkSubmenuOpen_Phone$Action,
+OnChangeSubMenu_SetFocusOnFirstMenuLink: controller.clientActionProxies.onChangeSubMenu_SetFocusOnFirstMenuLink$Action
+}, {});
+addEventListener_SubMenuFocusOutJSResult.value = controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_OnReady_Async_AddEventListener_SubMenuFocusOutJS, "AddEventListener_SubMenuFocusOut", "OnReady_Async", {
+menuFocusOutHandler: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.OnReady_Async$addEventListener_SubMenuFocusOutJSResult"))();
+jsNodeResult.menuFocusOutHandlerOut = OS.DataConversion.JSNodeParamConverter.from($parameters.menuFocusOutHandler, OS.Types.Object);
+return jsNodeResult;
+}, {
+LastKeyPressDocVar_Get: ECOPController.default.clientActionProxies.lastKeyPressDocVar_Get$Action,
+CloseSubmenu: ECOP_Base_RPatController.default.clientActionProxies.closeSubmenu$Action
+}, {});
+// SubMenuFocusOutHandlerObj = AddEventListener_SubMenuFocusOut.menuFocusOutHandler
+model.variables.subMenuFocusOutHandlerObjVar = addEventListener_SubMenuFocusOutJSResult.value.menuFocusOutHandlerOut;
+// MutationObserverObj = CreateMutationObserver.SubmenuObserverObj
+model.variables.mutationObserverObjVar = createMutationObserverJSResult.value.submenuObserverObjOut;
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.OnReady_Async$createMutationObserverJSResult", [{
+name: "SubmenuObserverObj",
+attrName: "submenuObserverObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.OnReady_Async$addEventListener_SubMenuFocusOutJSResult", [{
+name: "menuFocusOutHandler",
+attrName: "menuFocusOutHandlerOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+var isMenuOpenJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// FromPhoneToTablet
+return OS.Flow.executeSequence(function () {
+if((((model.variables.activeDeviceType_auxVar === "phone") && (model.variables.activeDeviceTypeIn === "tablet")))) {
+isMenuOpenJSResult.value = controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_OnParametersChanged_IsMenuOpenJS, "IsMenuOpen", "OnParametersChanged", {
+IsOpen: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.OnParametersChanged$isMenuOpenJSResult"))();
+jsNodeResult.isOpenOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsOpen, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+return OS.Flow.executeSequence(function () {
+if((isMenuOpenJSResult.value.isOpenOut)) {
+// Execute Action: HideMenu
+return controller._hideMenu$Action(callContext);
+}
+
+});
+}
+
+}).then(function () {
+// ActiveDeviceType_aux = ActiveDeviceType
+model.variables.activeDeviceType_auxVar = model.variables.activeDeviceTypeIn;
+});
+});
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.OnParametersChanged$isMenuOpenJSResult", [{
+name: "IsOpen",
+attrName: "isOpenOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onClick_SubmenuLink$Action = function (submenuIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_SubmenuLink");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.OnClick_SubmenuLink$vars"))());
+vars.value.submenuIdInLocal = submenuIdIn;
+// Execute Action: ToggleSubmenu
+ECOP_Base_RPatController.default.toggleSubmenu$Action(vars.value.submenuIdInLocal, callContext);
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.OnClick_SubmenuLink$vars", [{
+name: "SubmenuId",
+attrName: "submenuIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._getContent_MobileQuickLinks$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("GetContent_MobileQuickLinks");
+callContext = controller.callContext(callContext);
+var headerQuickLinks_GetVar = new OS.DataTypes.VariableHolder();
+var cache_GetVar = new OS.DataTypes.VariableHolder();
+var jSONSerializeHeaderForCachingVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: Cache_Get
+cache_GetVar.value = CMS_MonolithController.default.cache_Get$Action("cms_shared_quicklinks", callContext);
+
+// Not found in cache
+return OS.Flow.executeSequence(function () {
+if(((cache_GetVar.value.valueOut === ""))) {
+// Execute Action: HeaderQuickLinks_Get
+model.flush();
+return CMS_MonolithController.default.headerQuickLinks_Get$Action(callContext).then(function (value) {
+headerQuickLinks_GetVar.value = value;
+}).then(function () {
+// QuickLinks = HeaderQuickLinks_Get.QuickLinks
+model.variables.quickLinksVar = headerQuickLinks_GetVar.value.quickLinksOut;
+// JSON Serialize: JSONSerializeHeaderForCaching
+jSONSerializeHeaderForCachingVar.value.jSONOut = OS.JSONUtils.serializeToJSON(headerQuickLinks_GetVar.value.quickLinksOut, false, false);
+// Execute Action: Cache_Set
+CMS_MonolithController.default.cache_Set$Action("cms_shared_quicklinks", jSONSerializeHeaderForCachingVar.value.jSONOut, 0, callContext);
+});
+}
+
+});
+});
+};
+Controller.prototype._handler_ToggleReserveMoment$Action = function (isOpenIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ToggleReserveMoment");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.Handler_ToggleReserveMoment$vars"))());
+vars.value.isOpenInLocal = isOpenIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: ToggleReserveMoment
+return controller.toggleReserveMoment$Action(vars.value.isOpenInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.Handler_ToggleReserveMoment$vars", [{
+name: "IsOpen",
+attrName: "isOpenInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onChangeSubMenu_SetFocusOnFirstMenuLink$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnChangeSubMenu_SetFocusOnFirstMenuLink");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_AA_Common_Menu_mvc_controller_OnChangeSubMenu_SetFocusOnFirstMenuLink_SetFocusJS, "SetFocus", "OnChangeSubMenu_SetFocusOnFirstMenuLink", null, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._handler_LinkToStorePage$Action = function (slugIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_LinkToStorePage");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.AA_Common.Menu.Handler_LinkToStorePage$vars"))());
+vars.value.slugInLocal = slugIn;
+// Destination: /ECOP/supermarkten
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "supermarkten/:SlugParameter?", {
+SlugParameter: OS.DataConversion.ServerDataConverter.to(vars.value.slugInLocal, OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.Menu.Handler_LinkToStorePage$vars", [{
+name: "Slug",
+attrName: "slugInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+
+Controller.prototype.hideMenu$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._hideMenu$Action, callContext);
+
+};
+Controller.prototype.onClick_DummyAction$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_DummyAction$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.handler_CategoryListNavigate$Action = function (categoryIdIn, categoryNameIn, parentIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CategoryListNavigate$Action, callContext, categoryIdIn, categoryNameIn, parentIdIn);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.checkSubmenuOpen_Phone$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._checkSubmenuOpen_Phone$Action, callContext);
+
+};
+Controller.prototype.handler_CategoryList_ExposedActions$Action = function (jS_RefreshCategoriesIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CategoryList_ExposedActions$Action, callContext, jS_RefreshCategoriesIn);
+
+};
+Controller.prototype.changeProductCategory$Action = function (categoryIdIn, categoryNameIn, parentIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._changeProductCategory$Action, callContext, categoryIdIn, categoryNameIn, parentIdIn);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.onReady_Async$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady_Async$Action, callContext);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.onClick_SubmenuLink$Action = function (submenuIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_SubmenuLink$Action, callContext, submenuIdIn);
+
+};
+Controller.prototype.getContent_MobileQuickLinks$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._getContent_MobileQuickLinks$Action, callContext);
+
+};
+Controller.prototype.handler_ToggleReserveMoment$Action = function (isOpenIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ToggleReserveMoment$Action, callContext, isOpenIn);
+
+};
+Controller.prototype.onChangeSubMenu_SetFocusOnFirstMenuLink$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onChangeSubMenu_SetFocusOnFirstMenuLink$Action, callContext);
+
+};
+Controller.prototype.handler_LinkToStorePage$Action = function (slugIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_LinkToStorePage$Action, callContext, slugIn);
+
+};
+Controller.prototype.storeChanged$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.exposedActions_Categories$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.reserveMomentClick$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.productConflictOpened$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.openStorePickerActionExposed$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.toggleReserveMoment$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.toggleStorePicker$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.hideMenuClick$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOPLanguageResources);
+});
+define("ECOP.AA_Common.Menu.mvc$controller.Handler_CategoryListNavigate.Async_ChangeProductCategoryJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+setTimeout(function(){
+    $actions.ChangeProductCategory($parameters.CategoryId,$parameters.CategoryName,$parameters.ParentId);
+    $actions.OnChangeSubMenu_SetFocusOnFirstMenuLink()
+},50);
+};
+});
+define("ECOP.AA_Common.Menu.mvc$controller.OnDestroy.UnregisterEventHandlersJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const menu = document.querySelector('.app-menu-content'); 
+menu.removeEventListener('focusout', $parameters.SubMenuFocusOutHandlerObj);
+};
+});
+define("ECOP.AA_Common.Menu.mvc$controller.OnDestroy.DisconnectMutationObserverJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.MutationObserverObj.disconnect();
+};
+});
+define("ECOP.AA_Common.Menu.mvc$controller.CheckSubmenuOpen_Phone.openedSubMenuJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var openedSubMenu = document.querySelector(".osui-submenu--is-open");
+if(openedSubMenu)
+    $parameters.IsSubmenuOpen = true;
+};
+});
+define("ECOP.AA_Common.Menu.mvc$controller.OnReady.JS_OnReady_AsyncJS", [], function () {
+return function ($actions, $roles, $public) {
+setTimeout($actions.OnReady_Async,0);
+};
+});
+define("ECOP.AA_Common.Menu.mvc$controller.OnReady_Async.CreateMutationObserverJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var options = {
+  attributes: true
+};
+
+
+$parameters.SubmenuObserverObj = new MutationObserver(callback);
+
+document.querySelectorAll('.osui-submenu').forEach(function(elem){
+    $parameters.SubmenuObserverObj.observe(elem, options);
+});
+
+
+function callback(mutationList, observer) {
+    requestAnimationFrame(() => {
+        mutationList.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                $actions.CheckSubmenuOpen_Phone();
+
+                 // If the submenu is opened, set focus to the first item
+                if (mutation.target.classList.contains('osui-submenu--is-open')) {
+                    $actions.OnChangeSubMenu_SetFocusOnFirstMenuLink()
+                }
+            }
+        });
+    });
+}
+
+};
+});
+define("ECOP.AA_Common.Menu.mvc$controller.OnReady_Async.AddEventListener_SubMenuFocusOutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+
+$parameters.menuFocusOutHandler = function(event) {
+    if (!$actions.LastKeyPressDocVar_Get().Key) return;
+    const submenuItem = event.target.closest('.osui-submenu--is-open .osui-submenu__items [role="menuitem"]');
+
+    if (submenuItem) {
+        const relatedTarget = event.relatedTarget;
+
+        // Find the container of the OSUI submenu widget
+        const subMenuWidget = submenuItem.closest('[data-block="Navigation.Submenu"]');
+        
+        if (!relatedTarget || !subMenuWidget.contains(relatedTarget)) {
+            $actions.CloseSubmenu(subMenuWidget.id);
+        }
+    }
+};
+
+
+const menu = document.querySelector('.app-menu-content'); 
+menu.addEventListener('focusout', $parameters.menuFocusOutHandler);
+};
+});
+define("ECOP.AA_Common.Menu.mvc$controller.OnParametersChanged.IsMenuOpenJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var layout = document.querySelector('.layout');
+var menu = document.querySelector('.app-menu-content');
+
+if(layout && menu)
+    $parameters.IsOpen = layout.classList.contains('menu-visible');
+
+};
+});
+define("ECOP.AA_Common.Menu.mvc$controller.OnChangeSubMenu_SetFocusOnFirstMenuLink.SetFocusJS", [], function () {
+return function ($actions, $roles, $public) {
+const submenu = document.querySelector('.osui-submenu--is-open');
+
+if (submenu) {
+    const firstMenuItem = submenu.querySelector('[role="menuitem"]');
+
+    if (firstMenuItem) {
+        firstMenuItem.focus();
+    }
+}
+};
+});
+
+define("ECOP.AA_Common.Menu.mvc$translationsResources", ["exports", "ECOP.AA_Common.Menu.mvc$translationsResources.nl-NL"], function (exports, ECOP_AA_Common_Menu_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECOP_AA_Common_Menu_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECOP.AA_Common.Menu.mvc$translationsResources.nl-NL", [], function () {
+return {
+"T5LyEieX1069WaFos44TxQ#Value": "Boodschappenlijstjes",
+"J9kDdCM4jky0tHUEE3dXZg#Value": "Slijterijshop",
+"NwKjuzQXukebVQW+jsrnTA#Value": "Wijnshop",
+"XBmyIvKykUuhISp6UqvTbQ#Value": "Bloemenshop",
+"cXdzvZ6rhEe5gJIQV6rf9w#Value": "Taartenshop",
+"wn_flF8RWEq4Eb2Mcc3YBQ#Value": "Kerstpakkettenshop",
+"b5yLdxULd0GnWxpxrbVRPA#Value": "Winkels",
+"PZPUw3YzMUGM2pB3zd8M3g#Value": "Zakelijk",
+"q2jggd2HWk6onu_KWW+wNA#Value": "Spaaracties",
+"ZTEKoAURKEW57ceNQ7qVUQ#Value": "PLUS magazine",
+"QZyo+ddF20uuo6ywicQ9bg#Value": "Inspiratie",
+"M9t6rtDOKki_aesMV4EvhQ#Value": "Goed eten",
+"X+rHtSUw1UKzpEnQEVl93w#Value": "Recepten",
+"G22ZgUdCCEO2S7lqxQWONQ#Value": "Meer",
+"BRs1+mU8BUaYYtVG3gzgKg#Value": "Winkels",
+"0FtaJ56gqUakFQ1TAAEZ_w#Value": "Zakelijk",
+"5zSwhrBu50qsd96XqxJ1qw#Value": "Spaaracties",
+"_sWuYOQdk02rPn4+a7xNrA#Value": "PLUS magazine",
+"X0B1oSnyBEG8K5GtZll0Zw#Value": "Inspiratie",
+"w1OLIZFnqEmIEZd_UxsHSA#Value": "Goed eten",
+"h+g60xh_X0mmmN_BMZZTyw#Value": "Recepten",
+"xHvHkr5VuE+HH3LJLtBs+g#Value": "Eerder gekocht",
+"vMWXF0iFyUeYcSRVICx_xw#Value": "Aanbiedingen",
+"OkRMvKEBVEqfLskeZrlw6Q#Value": "Producten",
+"ARZ6qXDeSk2BcpkbgvulRA#ValueExpression.2394495.1": "Menu"
+};
+});

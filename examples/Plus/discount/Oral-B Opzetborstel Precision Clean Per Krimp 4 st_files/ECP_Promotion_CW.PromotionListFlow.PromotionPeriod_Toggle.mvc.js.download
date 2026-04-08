@@ -1,0 +1,458 @@
+﻿define("ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.controller$Format_dddd_dd_mmmm", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat", "ECP_Promotion_CW.model$TextTextDateDateDateDateRecord"], function (OutSystems, ECP_Promotion_CWModel, ECOP_Base_RPatController) {
+var OS = OutSystems.Internal;
+
+var PromotionPeriod_IsAvailableDataActRec = (function (_super) {
+__extends(PromotionPeriod_IsAvailableDataActRec, _super);
+function PromotionPeriod_IsAvailableDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+PromotionPeriod_IsAvailableDataActRec.attributesToDeclare = function () {
+return [
+this.attr("IsAvailable", "isAvailableOut", "IsAvailable", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsAvailablePerDate", "isAvailablePerDateOut", "IsAvailablePerDate", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("ToggleNomenclature", "toggleNomenclatureOut", "ToggleNomenclature", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_CWModel.TextTextDateDateDateDateRecord());
+}, true, ECP_Promotion_CWModel.TextTextDateDateDateDateRecord)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionPeriod_IsAvailableDataActRec.init();
+return PromotionPeriod_IsAvailableDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("PromotionPeriod_Display", "promotionPeriod_DisplayVar", "PromotionPeriod_Display", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("ToggleEnabled", "toggleEnabledVar", "ToggleEnabled", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ToggleDisabled_Tooltip", "toggleDisabled_TooltipVar", "ToggleDisabled_Tooltip", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("PromotionPeriod_id", "promotionPeriod_idIn", "PromotionPeriod_id", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_promotionPeriod_idInDataFetchStatus", "_promotionPeriod_idInDataFetchStatus", "_promotionPeriod_idInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsTimetravler", "isTimetravlerIn", "IsTimetravler", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isTimetravlerInDataFetchStatus", "_isTimetravlerInDataFetchStatus", "_isTimetravlerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("PromotionPeriod_IsAvailable", "promotionPeriod_IsAvailableDataAct", "promotionPeriod_IsAvailableDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PromotionPeriod_IsAvailableDataActRec());
+}, true, PromotionPeriod_IsAvailableDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {
+Period_ButtonGroup: OS.Model.ValidationWidgetRecord
+};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return true;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("PromotionPeriod_id" in inputs) {
+this.variables.promotionPeriod_idIn = inputs.PromotionPeriod_id;
+if("_promotionPeriod_idInDataFetchStatus" in inputs) {
+this.variables._promotionPeriod_idInDataFetchStatus = inputs._promotionPeriod_idInDataFetchStatus;
+}
+
+}
+
+if("IsTimetravler" in inputs) {
+this.variables.isTimetravlerIn = inputs.IsTimetravler;
+if("_isTimetravlerInDataFetchStatus" in inputs) {
+this.variables._isTimetravlerInDataFetchStatus = inputs._isTimetravlerInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "PromotionListFlow.PromotionPeriod_Toggle");
+});
+define("ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$model", "ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$view", "ECOP_Base_RPat.controller$Format_dddd_dd_mmmm", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat", "ECP_Promotion_CW.model$TextTextDateDateDateDateRecord"], function (OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, ECOP_Base_RPatController, React, OSView, ECP_Promotion_CW_PromotionListFlow_PromotionPeriod_Toggle_mvc_model, ECP_Promotion_CW_PromotionListFlow_PromotionPeriod_Toggle_mvc_controller, OSWidgets, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "PromotionListFlow.PromotionPeriod_Toggle";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Promotion_CW_PromotionListFlow_PromotionPeriod_Toggle_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Promotion_CW_PromotionListFlow_PromotionPeriod_Toggle_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "promo-period-wrapper margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+name: "promoperiodwrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.promotionPeriod_IsAvailableDataAct.isDataFetchedAttr, false, this, function () {
+return [$if(model.variables.promotionPeriod_IsAvailableDataAct.isAvailableOut, false, this, function () {
+return [React.createElement(OSWidgets.ButtonGroup, {
+_validationProps: {
+validationService: validationService
+},
+enabled: true,
+mandatory: false,
+onChange: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_PeriodChange$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "button-group button-group-secondary",
+variable: model.createVariable(OS.Types.Integer, model.variables.promotionPeriod_idIn, function (value) {
+model.variables.promotionPeriod_idIn = value;
+}),
+_idProps: {
+service: idService,
+name: "Period_ButtonGroup"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+variable_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._promotionPeriod_idInDataFetchStatus)
+}, React.createElement(OSWidgets.ButtonGroupItem, {
+enabled: true,
+style: "button-group-item promo-period-item gtm-promotions-list-current-promotions",
+value: ECP_Promotion_CWModel.staticEntities.promotionPeriod.currentWeek,
+visible: true,
+_idProps: {
+service: idService,
+name: "ButtonGroupItem_Current"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("EGBy0URnOE2jDMgBx2gG4w#ValueExpression.-341327938.1", " until  ") + model.variables.promotionPeriod_IsAvailableDataAct.toggleNomenclatureOut.currentPeriod_WeekdayAttr),
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionPeriod_IsAvailableDataAct.dataFetchStatusAttr)
+})), React.createElement(OSWidgets.ButtonGroupItem, {
+enabled: model.variables.toggleEnabledVar,
+style: "button-group-item promo-period-item gtm-promotions-list-next-promotions",
+value: ECP_Promotion_CWModel.staticEntities.promotionPeriod.nextWeek,
+visible: true,
+_idProps: {
+service: idService,
+name: "ButtonGroupItem_NextWeek"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("chfWNBFSSkO19fRXUOXLIw#ValueExpression.97705398.1", "from ") + model.variables.promotionPeriod_IsAvailableDataAct.toggleNomenclatureOut.nextPeriod_WeekdayAttr),
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionPeriod_IsAvailableDataAct.dataFetchStatusAttr)
+}), $if(model.variables.toggleEnabledVar, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "hover-tooltip-disabled-elem-overlay",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}))), $if(model.variables.toggleEnabledVar, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view, {
+inputs: {
+HoverContainerClass: "promo-period-wrapper",
+HoverElementsClass: "hover-tooltip-disabled-elem-overlay"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+tooltipContent: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.toggleDisabled_TooltipVar,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.toggleDisabled_TooltipVar)]
+})];
+})];
+}, function () {
+return [];
+})];
+}, function () {
+return [];
+})), React.createElement(OSWidgets.Expression, {
+style: "promo-period-display",
+value: model.variables.promotionPeriod_DisplayVar,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "ECOP_Base_RPat.controller", "ECP_Promotion_CW.languageResources", "ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$translationsResources", "ECOP_Base_RPat.controller$Format_dddd_dd_mmmm", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat", "ECP_Promotion_CW.model$TextTextDateDateDateDateRecord"], function (OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, ECOP_Base_RPatController, ECP_Promotion_CWLanguageResources, ECP_Promotion_CW_PromotionListFlow_PromotionPeriod_Toggle_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+promotionPeriod_IsAvailable$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+promotionPeriod_IsAvailable$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Promotion_CW_PromotionListFlow_PromotionPeriod_Toggle_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.promotionPeriod_IsAvailable$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionPromotionPeriod_IsAvailable", "screenservices/ECP_Promotion_CW/PromotionListFlow/PromotionPeriod_Toggle/DataActionPromotionPeriod_IsAvailable", "Dxn1Ckozhu55WgN6wB3XtQ", function (b) {
+model.variables.promotionPeriod_IsAvailableDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.promotionPeriod_IsAvailableDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.promotionPeriod_IsAvailableDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true).then(function () {
+controller._promotionPeriod_IsAvailableOnAfterFetch$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["promotionPeriod_IsAvailable$DataActRefresh"];
+// Client Actions
+Controller.prototype._promotionPeriod_Set$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("PromotionPeriod_Set");
+callContext = controller.callContext(callContext);
+// Format period to display values
+// PromotionPeriod_Display = If + " until " + If
+model.variables.promotionPeriod_DisplayVar = (((((model.variables.promotionPeriod_idIn === ECP_Promotion_CWModel.staticEntities.promotionPeriod.currentWeek)) ? (ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(model.variables.promotionPeriod_IsAvailableDataAct.toggleNomenclatureOut.currentPeriod_StartDateAttr, true, true, "nl-NL", callContext).formattedOut) : (ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(model.variables.promotionPeriod_IsAvailableDataAct.toggleNomenclatureOut.nextPeriod_StartDateAttr, true, true, "nl-NL", callContext).formattedOut)) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("dKyd5By8NkKzM9My7lkFug#Value.1790104738.1", " until ")) + (((model.variables.promotionPeriod_idIn === ECP_Promotion_CWModel.staticEntities.promotionPeriod.currentWeek)) ? (ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(model.variables.promotionPeriod_IsAvailableDataAct.toggleNomenclatureOut.currentPeriod_EndDateAttr, false, true, "nl-NL", callContext).formattedOut) : (ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(model.variables.promotionPeriod_IsAvailableDataAct.toggleNomenclatureOut.nextPeriod_EndDateAttr, false, true, "nl-NL", callContext).formattedOut)));
+};
+Controller.prototype._handler_PeriodChange$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_PeriodChange");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: NewPromotionPeriod
+return controller.newPromotionPeriod$Action(model.variables.promotionPeriod_idIn, callContext);
+});
+};
+Controller.prototype._promotionPeriod_IsAvailableOnAfterFetch$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("PromotionPeriod_IsAvailableOnAfterFetch");
+callContext = controller.callContext(callContext);
+// ToggleDisabled_Tooltip = "Known from " + Format_dddd_dd_mmmm(PromotionPeriod_IsAvailable.IsAvailablePerDate, False, False, RsseSpaceECOP_Base_RPat.DefaultValues.ReferenceClientAction_Format_dddd_dd_mmmm_Variables_ReferenceGenericInputParameter_Locale)
+model.variables.toggleDisabled_TooltipVar = (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("zB5dQ05Sd0erwWHMme9wzg#Value.557997689.1", "Known from ") + ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(model.variables.promotionPeriod_IsAvailableDataAct.isAvailablePerDateOut, false, false, "nl-NL", callContext).formattedOut);
+// ToggleEnabled = PromotionPeriod_IsAvailable.IsAvailable
+model.variables.toggleEnabledVar = model.variables.promotionPeriod_IsAvailableDataAct.isAvailableOut;
+// Execute Action: PromotionPeriod_Set
+controller._promotionPeriod_Set$Action(callContext);
+};
+
+Controller.prototype.promotionPeriod_Set$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._promotionPeriod_Set$Action, callContext);
+
+};
+Controller.prototype.handler_PeriodChange$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_PeriodChange$Action, callContext);
+
+};
+Controller.prototype.promotionPeriod_IsAvailableOnAfterFetch$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._promotionPeriod_IsAvailableOnAfterFetch$Action, callContext);
+
+};
+Controller.prototype.newPromotionPeriod$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.promotionPeriod_Set$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.promotionPeriod_Set$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Promotion_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Promotion_CWLanguageResources);
+});
+
+define("ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$translationsResources", ["exports", "ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$translationsResources.nl-NL"], function (exports, ECP_Promotion_CW_PromotionListFlow_PromotionPeriod_Toggle_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Promotion_CW_PromotionListFlow_PromotionPeriod_Toggle_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Promotion_CW.PromotionListFlow.PromotionPeriod_Toggle.mvc$translationsResources.nl-NL", [], function () {
+return {
+"chfWNBFSSkO19fRXUOXLIw#ValueExpression.97705398.1": "Vanaf ",
+"EGBy0URnOE2jDMgBx2gG4w#ValueExpression.-341327938.1": " t/m ",
+"zB5dQ05Sd0erwWHMme9wzg#Value.557997689.1": "Bekend vanaf ",
+"dKyd5By8NkKzM9My7lkFug#Value.1790104738.1": " t/m "
+};
+});

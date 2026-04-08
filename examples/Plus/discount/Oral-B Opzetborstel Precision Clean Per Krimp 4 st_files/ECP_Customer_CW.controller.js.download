@@ -1,0 +1,318 @@
+﻿define("ECP_Customer_CW.controller$Address_GetStreetAndCity", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller", "FND_PostalCode_IS.model", "FND_PostalCode_IS.model$PostalCodeInformationRec", "ECP_Customer_CW.referencesHealth", "ECP_Customer_CW.referencesHealth$FND_PostalCode_IS", "ECP_Customer_CW.controller$ServerAction.Address_GetDetails"], function (exports, OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController, FND_PostalCode_ISModel) {
+var OS = OutSystems.Internal;
+ECP_Customer_CWController.default.address_GetStreetAndCity$Action = function (countryIdIn, postcodeIn, housenumberIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Customer_CW.Address_GetStreetAndCity$vars"))());
+vars.value.countryIdInLocal = countryIdIn;
+vars.value.postcodeInLocal = postcodeIn;
+vars.value.housenumberInLocal = housenumberIn;
+var address_GetDetailsVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Customer_CW.Address_GetStreetAndCity$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: Address_GetDetails
+return controller.address_GetDetails$ServerAction(vars.value.countryIdInLocal, vars.value.postcodeInLocal, vars.value.housenumberInLocal, callContext).then(function (value) {
+address_GetDetailsVar.value = value;
+}).then(function () {
+// Found?
+if(((((address_GetDetailsVar.value.addressDetailsOut.streetAttr) !== ("")) && ((address_GetDetailsVar.value.addressDetailsOut.cityAttr) !== (""))))) {
+// Set address
+// Street = Address_GetDetails.AddressDetails.Street
+outVars.value.streetOut = address_GetDetailsVar.value.addressDetailsOut.streetAttr;
+// City = Address_GetDetails.AddressDetails.City
+outVars.value.cityOut = address_GetDetailsVar.value.addressDetailsOut.cityAttr;
+}
+
+});
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = ECP_Customer_CWController.default;
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.Address_GetStreetAndCity$vars", [{
+name: "CountryId",
+attrName: "countryIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Postcode",
+attrName: "postcodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Housenumber",
+attrName: "housenumberInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.Address_GetStreetAndCity$outVars", [{
+name: "Street",
+attrName: "streetOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "City",
+attrName: "cityOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Customer_CWController.default.clientActionProxies.address_GetStreetAndCity$Action = function (countryIdIn, postcodeIn, housenumberIn) {
+countryIdIn = (countryIdIn === undefined) ? 0 : countryIdIn;
+postcodeIn = (postcodeIn === undefined) ? "" : postcodeIn;
+housenumberIn = (housenumberIn === undefined) ? "" : housenumberIn;
+return controller.executeActionInsideJSNode(ECP_Customer_CWController.default.address_GetStreetAndCity$Action.bind(controller, countryIdIn, OS.DataConversion.JSNodeParamConverter.from(postcodeIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(housenumberIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Street: OS.DataConversion.JSNodeParamConverter.to(actionResults.streetOut, OS.Types.Text),
+City: OS.DataConversion.JSNodeParamConverter.to(actionResults.cityOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_Customer_CW.controller$Postcode_IsValidBEPostcode", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller", "ECP_Customer_CW.controller$Postcode_IsValidBEPostcode.ValidatePostalCodeJS"], function (exports, OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController, ECP_Customer_CW_controller_Postcode_IsValidBEPostcode_ValidatePostalCodeJS) {
+var OS = OutSystems.Internal;
+ECP_Customer_CWController.default.postcode_IsValidBEPostcode$Action = function (postalcodeIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Customer_CW.Postcode_IsValidBEPostcode$vars"))());
+vars.value.postalcodeInLocal = postalcodeIn;
+var validatePostalCodeJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Customer_CW.Postcode_IsValidBEPostcode$outVars"))());
+validatePostalCodeJSResult.value = controller.safeExecuteJSNode(ECP_Customer_CW_controller_Postcode_IsValidBEPostcode_ValidatePostalCodeJS, "ValidatePostalCode", "Postcode_IsValidBEPostcode", {
+PostalCode: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.trim(vars.value.postalcodeInLocal), OS.Types.Text),
+IsValid: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Customer_CW.Postcode_IsValidBEPostcode$validatePostalCodeJSResult"))();
+jsNodeResult.isValidOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsValid, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsValid = ValidatePostalCode.IsValid
+outVars.value.isValidOut = validatePostalCodeJSResult.value.isValidOut;
+return outVars.value;
+};
+var controller = ECP_Customer_CWController.default;
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.Postcode_IsValidBEPostcode$vars", [{
+name: "Postalcode",
+attrName: "postalcodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.Postcode_IsValidBEPostcode$validatePostalCodeJSResult", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.Postcode_IsValidBEPostcode$outVars", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Customer_CWController.default.clientActionProxies.postcode_IsValidBEPostcode$Action = function (postalcodeIn) {
+postalcodeIn = (postalcodeIn === undefined) ? "" : postalcodeIn;
+return controller.executeActionInsideJSNode(ECP_Customer_CWController.default.postcode_IsValidBEPostcode$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(postalcodeIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsValid: OS.DataConversion.JSNodeParamConverter.to(actionResults.isValidOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("ECP_Customer_CW.controller$Postcode_IsValidBEPostcode.ValidatePostalCodeJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.PostalCode.match(/^[1-9][0-9]{3}$/)) {
+    $parameters.IsValid = true;
+}else {
+    $parameters.IsValid = false;
+}
+};
+});
+
+define("ECP_Customer_CW.controller$Postcode_IsValidLlPostcode", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller", "ECP_Customer_CW.controller$Postcode_IsValidLlPostcode.ValidatePostalCodeNLJS"], function (exports, OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController, ECP_Customer_CW_controller_Postcode_IsValidLlPostcode_ValidatePostalCodeNLJS) {
+var OS = OutSystems.Internal;
+ECP_Customer_CWController.default.postcode_IsValidLlPostcode$Action = function (postalcodeIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Customer_CW.Postcode_IsValidLlPostcode$vars"))());
+vars.value.postalcodeInLocal = postalcodeIn;
+var validatePostalCodeNLJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Customer_CW.Postcode_IsValidLlPostcode$outVars"))());
+validatePostalCodeNLJSResult.value = controller.safeExecuteJSNode(ECP_Customer_CW_controller_Postcode_IsValidLlPostcode_ValidatePostalCodeNLJS, "ValidatePostalCodeNL", "Postcode_IsValidLlPostcode", {
+PostalCode: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.trim(vars.value.postalcodeInLocal), OS.Types.Text),
+IsValid: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Customer_CW.Postcode_IsValidLlPostcode$validatePostalCodeNLJSResult"))();
+jsNodeResult.isValidOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsValid, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsValid = ValidatePostalCodeNL.IsValid
+outVars.value.isValidOut = validatePostalCodeNLJSResult.value.isValidOut;
+return outVars.value;
+};
+var controller = ECP_Customer_CWController.default;
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.Postcode_IsValidLlPostcode$vars", [{
+name: "Postalcode",
+attrName: "postalcodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.Postcode_IsValidLlPostcode$validatePostalCodeNLJSResult", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.Postcode_IsValidLlPostcode$outVars", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Customer_CWController.default.clientActionProxies.postcode_IsValidLlPostcode$Action = function (postalcodeIn) {
+postalcodeIn = (postalcodeIn === undefined) ? "" : postalcodeIn;
+return controller.executeActionInsideJSNode(ECP_Customer_CWController.default.postcode_IsValidLlPostcode$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(postalcodeIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsValid: OS.DataConversion.JSNodeParamConverter.to(actionResults.isValidOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("ECP_Customer_CW.controller$Postcode_IsValidLlPostcode.ValidatePostalCodeNLJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.PostalCode.match(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i)) {
+    $parameters.IsValid = true;
+}else {
+    $parameters.IsValid = false;
+}
+};
+});
+
+define("ECP_Customer_CW.controller$SetAriaInvalid", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller"], function (exports, OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController) {
+var OS = OutSystems.Internal;
+ECP_Customer_CWController.default.setAriaInvalid$Action = function (isValidIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Customer_CW.SetAriaInvalid$vars"))());
+vars.value.isValidInLocal = isValidIn;
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Customer_CW.SetAriaInvalid$outVars"))());
+if((!(vars.value.isValidInLocal))) {
+// AriaInvalid = "true"
+outVars.value.ariaInvalidOut = "true";
+}
+
+return outVars.value;
+};
+var controller = ECP_Customer_CWController.default;
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.SetAriaInvalid$vars", [{
+name: "IsValid",
+attrName: "isValidInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW.SetAriaInvalid$outVars", [{
+name: "AriaInvalid",
+attrName: "ariaInvalidOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Customer_CWController.default.clientActionProxies.setAriaInvalid$Action = function (isValidIn) {
+isValidIn = (isValidIn === undefined) ? false : isValidIn;
+return controller.executeActionInsideJSNode(ECP_Customer_CWController.default.setAriaInvalid$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(isValidIn, OS.Types.Boolean)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+AriaInvalid: OS.DataConversion.JSNodeParamConverter.to(actionResults.ariaInvalidOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_Customer_CW.controller$ServerAction.Address_GetDetails", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller", "FND_PostalCode_IS.model", "FND_PostalCode_IS.model$PostalCodeInformationRec", "ECP_Customer_CW.referencesHealth", "ECP_Customer_CW.referencesHealth$FND_PostalCode_IS"], function (exports, OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController, FND_PostalCode_ISModel) {
+var OS = OutSystems.Internal;
+ECP_Customer_CWController.default.address_GetDetails$ServerAction = function (countryIdIn, zipCodeIn, houseNumberIn, callContext) {
+var controller = this.controller;
+var inputs = {
+CountryId: OS.DataConversion.ServerDataConverter.to(countryIdIn, OS.Types.Integer),
+ZipCode: OS.DataConversion.ServerDataConverter.to(zipCodeIn, OS.Types.Text),
+HouseNumber: OS.DataConversion.ServerDataConverter.to(houseNumberIn, OS.Types.Text)
+};
+return controller.callServerAction("Address_GetDetails", "screenservices/ECP_Customer_CW/ActionAddress_GetDetails", "5WXY60KhxL3tTMbuo5iszA", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_Customer_CW$rssespaceecp_customer_cs_ActionAddress_GetDetails"))();
+executeServerActionResult.addressDetailsOut = OS.DataConversion.ServerDataConverter.from(outputs.AddressDetails, FND_PostalCode_ISModel.PostalCodeInformationRec);
+executeServerActionResult.isValidOut = OS.DataConversion.ServerDataConverter.from(outputs.IsValid, OS.Types.Boolean);
+return executeServerActionResult;
+});
+};
+ECP_Customer_CWController.default.constructor.registerVariableGroupType("ECP_Customer_CW$rssespaceecp_customer_cs_ActionAddress_GetDetails", [{
+name: "AddressDetails",
+attrName: "addressDetailsOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new FND_PostalCode_ISModel.PostalCodeInformationRec();
+},
+complexType: FND_PostalCode_ISModel.PostalCodeInformationRec
+}, {
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return true;
+}
+}]);
+});
+define("ECP_Customer_CW.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller$translationsResources"], function (exports, OutSystems, ECP_Customer_CWModel, ECP_Customer_CW_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECP_Customer_CWController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 60;
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Customer_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECP_Customer_CWController.default = new Controller(ECP_Customer_CW_Controller_translationsResources, "ECP_Customer_CW");
+});
+define("ECP_Customer_CW.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

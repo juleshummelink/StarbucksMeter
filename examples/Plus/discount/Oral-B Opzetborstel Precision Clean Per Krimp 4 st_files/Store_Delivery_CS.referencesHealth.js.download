@@ -1,0 +1,65 @@
+﻿define("Store_Delivery_CS.referencesHealth$BinaryData", [], function () {
+// Reference to producer 'BinaryData' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$CMS_Monolith", [], function () {
+// Reference to producer 'CMS_Monolith' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$CMS_Store_OAPI", [], function () {
+// Reference to producer 'CMS_Store_OAPI' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$CT_Query_Lib", [], function () {
+// Reference to producer 'CT_Query_Lib' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$CT_Store_IS", [], function () {
+// Reference to producer 'CT_Store_IS' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$CT_Supporting_IS", [], function () {
+// Reference to producer 'CT_Supporting_IS' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$DateTimeUtils_Lib", [], function () {
+// Reference to producer 'DateTimeUtils_Lib' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$ECOP_Convert_ReleaseToggles_CS", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_CS' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$ECOP_Convert_ReleaseToggles_Lib", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_Lib' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$FND_DateTime_Lib", [], function () {
+// Reference to producer 'FND_DateTime_Lib' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$FND_FactoryUtils_Lib", [], function () {
+// Reference to producer 'FND_FactoryUtils_Lib' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$FND_Geo_Lib", [], function () {
+// Reference to producer 'FND_Geo_Lib' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$Google_IS", [], function () {
+// Reference to producer 'Google_IS' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$PL_MT_ExceptionHandling_BL", [], function () {
+// Reference to producer 'PL_MT_ExceptionHandling_BL' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$PL_MT_Settings_Lib", [], function () {
+// Reference to producer 'PL_MT_Settings_Lib' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$Sanitization", [], function () {
+// Reference to producer 'Sanitization' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$ServiceCenter", [], function () {
+// Reference to producer 'ServiceCenter' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$Store_Audit_Lib", [], function () {
+// Reference to producer 'Store_Audit_Lib' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$Store_CS", [], function () {
+// Reference to producer 'Store_CS' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$Text", [], function () {
+// Reference to producer 'Text' is OK.
+});
+define("Store_Delivery_CS.referencesHealth$Users", [], function () {
+// Reference to producer 'Users' is OK.
+});
+define("Store_Delivery_CS.referencesHealth", [], function () {
+});

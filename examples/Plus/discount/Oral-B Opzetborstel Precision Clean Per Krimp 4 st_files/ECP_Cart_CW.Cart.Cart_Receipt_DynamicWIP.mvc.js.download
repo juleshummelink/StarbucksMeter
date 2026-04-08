@@ -1,0 +1,1775 @@
+﻿define("ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Cart_CW.model", "ECOP_Base_RPat.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Checkout_BL.model", "ECOP_FE_Core.controller", "ECOP_Base_RPat.CustomPatterns.ReceiptItem.mvc$model", "ECOP_Base_RPat.CustomPatterns.ReceiptPromotionsListItems.mvc$model", "ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$model", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$model", "ECOP_Base_RPat.controller$Format_NumberToTwoDecimalPlaces", "ECP_Cart_CW.referencesHealth", "ECP_Cart_CW.referencesHealth$ECOP_Base_RPat", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Cart_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_Base_RPat.controller$Format_NoYearDate", "ECP_Cart_CW.model$VoucherLineItemList", "ECP_Cart_CW.model$TextTextDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalBooleanBooleanBooleanBooleanIntegerIntegerIntegerRecord", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_Cart_CW.referencesHealth$ECP_Checkout_BL", "ECOP_FE_Core.controller$GTMEvent_ServiceFeePopup", "ECP_Cart_CW.referencesHealth$ECOP_FE_Core"], function (OutSystems, ECP_Cart_CWModel, ECOP_Base_RPatController, ECOP_ReleaseTogglesReactiveController, ECP_Checkout_BLModel, ECOP_FE_CoreController, ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvcModel, ECOP_Base_RPat_CustomPatterns_ReceiptPromotionsListItems_mvcModel, ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvcModel, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel) {
+var OS = OutSystems.Internal;
+
+var GetDataMinimalAmountForDeliveryDataActRec = (function (_super) {
+__extends(GetDataMinimalAmountForDeliveryDataActRec, _super);
+function GetDataMinimalAmountForDeliveryDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetDataMinimalAmountForDeliveryDataActRec.attributesToDeclare = function () {
+return [
+this.attr("MinimalAmountForDelivery", "minimalAmountForDeliveryOut", "MinimalAmountForDelivery", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetDataMinimalAmountForDeliveryDataActRec.fromStructure = function (str) {
+return new GetDataMinimalAmountForDeliveryDataActRec(new GetDataMinimalAmountForDeliveryDataActRec.RecordClass({
+minimalAmountForDeliveryOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetDataMinimalAmountForDeliveryDataActRec.init();
+return GetDataMinimalAmountForDeliveryDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("VoucherList", "voucherListVar", "VoucherList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Cart_CWModel.VoucherLineItemList());
+}, false, ECP_Cart_CWModel.VoucherLineItemList), 
+this.attr("IsServiceFeePopUp", "isServiceFeePopUpVar", "IsServiceFeePopUp", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("LocalVariables", "localVariablesVar", "LocalVariables", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Cart_CWModel.TextTextDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalBooleanBooleanBooleanBooleanIntegerIntegerIntegerRecord());
+}, false, ECP_Cart_CWModel.TextTextDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalBooleanBooleanBooleanBooleanIntegerIntegerIntegerRecord), 
+this.attr("HideReserveMomentBanner", "hideReserveMomentBannerIn", "HideReserveMomentBanner", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_hideReserveMomentBannerInDataFetchStatus", "_hideReserveMomentBannerInDataFetchStatus", "_hideReserveMomentBannerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDataFetched", "isDataFetchedIn", "IsDataFetched", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDataFetchedInDataFetchStatus", "_isDataFetchedInDataFetchStatus", "_isDataFetchedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowAdditionals", "showAdditionalsIn", "ShowAdditionals", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_showAdditionalsInDataFetchStatus", "_showAdditionalsInDataFetchStatus", "_showAdditionalsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ReservedMoment", "reservedMomentIn", "ReservedMoment", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.ReservedMomentRec());
+}, false, ECP_Checkout_BLModel.ReservedMomentRec), 
+this.attr("_reservedMomentInDataFetchStatus", "_reservedMomentInDataFetchStatus", "_reservedMomentInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShippingCosts", "shippingCostsIn", "ShippingCosts", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, false), 
+this.attr("_shippingCostsInDataFetchStatus", "_shippingCostsInDataFetchStatus", "_shippingCostsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CheckoutStep", "checkoutStepIn", "CheckoutStep", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_checkoutStepInDataFetchStatus", "_checkoutStepInDataFetchStatus", "_checkoutStepInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetDataMinimalAmountForDelivery", "getDataMinimalAmountForDeliveryDataAct", "getDataMinimalAmountForDeliveryDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetDataMinimalAmountForDeliveryDataActRec());
+}, true, GetDataMinimalAmountForDeliveryDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((((ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_ReceiptPromotionsListItems_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("HideReserveMomentBanner" in inputs) {
+this.variables.hideReserveMomentBannerIn = inputs.HideReserveMomentBanner;
+if("_hideReserveMomentBannerInDataFetchStatus" in inputs) {
+this.variables._hideReserveMomentBannerInDataFetchStatus = inputs._hideReserveMomentBannerInDataFetchStatus;
+}
+
+}
+
+if("IsDataFetched" in inputs) {
+this.variables.isDataFetchedIn = inputs.IsDataFetched;
+if("_isDataFetchedInDataFetchStatus" in inputs) {
+this.variables._isDataFetchedInDataFetchStatus = inputs._isDataFetchedInDataFetchStatus;
+}
+
+}
+
+if("ShowAdditionals" in inputs) {
+this.variables.showAdditionalsIn = inputs.ShowAdditionals;
+if("_showAdditionalsInDataFetchStatus" in inputs) {
+this.variables._showAdditionalsInDataFetchStatus = inputs._showAdditionalsInDataFetchStatus;
+}
+
+}
+
+if("ReservedMoment" in inputs) {
+this.variables.reservedMomentIn = inputs.ReservedMoment;
+if("_reservedMomentInDataFetchStatus" in inputs) {
+this.variables._reservedMomentInDataFetchStatus = inputs._reservedMomentInDataFetchStatus;
+}
+
+}
+
+if("ShippingCosts" in inputs) {
+this.variables.shippingCostsIn = inputs.ShippingCosts;
+if("_shippingCostsInDataFetchStatus" in inputs) {
+this.variables._shippingCostsInDataFetchStatus = inputs._shippingCostsInDataFetchStatus;
+}
+
+}
+
+if("CheckoutStep" in inputs) {
+this.variables.checkoutStepIn = inputs.CheckoutStep;
+if("_checkoutStepInDataFetchStatus" in inputs) {
+this.variables._checkoutStepInDataFetchStatus = inputs._checkoutStepInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Cart.Cart_Receipt_DynamicWIP");
+});
+define("ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Cart_CW.model", "ECP_Cart_CW.controller", "ECOP_Base_RPat.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Checkout_BL.model", "ECOP_FE_Core.controller", "react", "OutSystems/ReactView/Main", "ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$model", "ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$controller", "ECP_Cart_CW.clientVariables", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.ReceiptItem.mvc$view", "ECOP_Base_RPat.CustomPatterns.ReceiptPromotionsListItems.mvc$view", "ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$view", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$view", "ECOP_Base_RPat.controller$Format_NumberToTwoDecimalPlaces", "ECP_Cart_CW.referencesHealth", "ECP_Cart_CW.referencesHealth$ECOP_Base_RPat", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Cart_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_Base_RPat.controller$Format_NoYearDate", "ECP_Cart_CW.model$VoucherLineItemList", "ECP_Cart_CW.model$TextTextDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalBooleanBooleanBooleanBooleanIntegerIntegerIntegerRecord", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_Cart_CW.referencesHealth$ECP_Checkout_BL", "ECOP_FE_Core.controller$GTMEvent_ServiceFeePopup", "ECP_Cart_CW.referencesHealth$ECOP_FE_Core"], function (OutSystems, ECP_Cart_CWModel, ECP_Cart_CWController, ECOP_Base_RPatController, ECOP_ReleaseTogglesReactiveController, ECP_Checkout_BLModel, ECOP_FE_CoreController, React, OSView, ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_model, ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_controller, ECP_Cart_CWClientVariables, OSWidgets, ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, ECOP_Base_RPat_CustomPatterns_ReceiptPromotionsListItems_mvc_view, ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Cart.Cart_Receipt_DynamicWIP";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, ECOP_Base_RPat_CustomPatterns_ReceiptPromotionsListItems_mvc_view, ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-content__receipt-info-wrapper has-max-width",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-content__receipt-info-wrapper__title margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("9N+TnaFvWkCpR0iNDabKTA#Value", "Your order"))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("Yicg4RCn9k6zsxc4Mm6vqg.ExtendedClass"), function () {
+return ((!(model.variables.showAdditionalsIn)) ? ("padding-bottom-base") : ("padding-bottom-s"));
+}, function () {
+return model.variables.showAdditionalsIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._showAdditionalsInDataFetchStatus),
+HasBorderBottom: !(model.variables.showAdditionalsIn),
+_hasBorderBottomInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._showAdditionalsInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [$text(getTranslation("NQ7rOr280ECM2PLtl7lFUA#Value", "Products"))];
+}),
+middle: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: (("(" + (model.variables.localVariablesVar.cartTotalItemsAttr).toString()) + ")"),
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("cWN2gysHyE+dd8eDpixHBQ.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.localVariablesVar.totalProductsCostsAttr, callContext).formattedNumberOut;
+}, function () {
+return model.variables.localVariablesVar.totalProductsCostsAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.localVariablesVar.totalProductsCostsAttr), asPrimitiveValue(model.variables.localVariablesVar.cartTotalItemsAttr)]
+}), React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptPromotionsListItems_mvc_view, {
+inputs: {
+IsFromOrderDetail: false,
+TotalDiscount: model.variables.localVariablesVar.totalDiscountAttr,
+PromotionsListJSON: model.variables.localVariablesVar.cartPromosListAttr
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "6",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})), $if(model.variables.showAdditionalsIn, false, this, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+HasBorderTop: true,
+ExtendedClass: "margin-top-base margin-bottom-s padding-top-base"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "font-bold",
+text: [$text(getTranslation("PK4X4hnlAU68w6lMa47Y7w#Value", "Total Products"))],
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+middle: PlaceholderContent.Empty,
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "font-bold",
+value: model.getCachedValue(idService.getId("glxivG0sYkqSOlfv_YNIrw.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.localVariablesVar.totalProductsCostsAttr.minus(model.variables.localVariablesVar.totalDiscountAttr), callContext).formattedNumberOut;
+}, function () {
+return model.variables.localVariablesVar.totalProductsCostsAttr;
+}, function () {
+return model.variables.localVariablesVar.totalDiscountAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.localVariablesVar.totalDiscountAttr), asPrimitiveValue(model.variables.localVariablesVar.totalProductsCostsAttr)]
+}), $if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.timeslotsUnder25, callContext).isEnabledOut, false, this, function () {
+return [$if((((((model.variables.reservedMomentIn.deliveryTypeIdAttr === ECP_Cart_CWModel.staticEntities.deliveryType.delivery) || (model.variables.reservedMomentIn.deliveryTypeIdAttr === ECP_Cart_CWModel.staticEntities.deliveryType.deliveryExpress)) || (model.variables.reservedMomentIn.deliveryTypeIdAttr === ECP_Cart_CWModel.staticEntities.deliveryType.deliveryExpress)) || (model.variables.reservedMomentIn.deliveryTypeIdAttr === ECP_Cart_CWModel.staticEntities.deliveryType.delivery)) && model.variables.localVariablesVar.totalProductsCostsAttr.minus(model.variables.localVariablesVar.totalDiscountAttr).lt(model.variables.getDataMinimalAmountForDeliveryDataAct.minimalAmountForDeliveryOut)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-nudge-arrow lighter",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "background-secondary-lighter text-neutral-10 padding-xs font-size-s text-align-center margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "margin-top-s font-size-s ",
+value: ((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("2AWtDvers0GNBa7JBdkJXw#ValueExpression.-1397421554.1", "The minimal order amount is ") + OS.BuiltinFunctions.decimalToText(model.variables.getDataMinimalAmountForDeliveryDataAct.minimalAmountForDeliveryOut)) + " euro"),
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getDataMinimalAmountForDeliveryDataAct.dataFetchStatusAttr)
+}))];
+}, function () {
+return [];
+})];
+}, function () {
+return [$if((((model.variables.reservedMomentIn.deliveryTypeIdAttr === ECP_Cart_CWModel.staticEntities.deliveryType.delivery) || (model.variables.reservedMomentIn.deliveryTypeIdAttr === ECP_Cart_CWModel.staticEntities.deliveryType.deliveryExpress)) && model.variables.localVariablesVar.totalProductsCostsAttr.minus(model.variables.localVariablesVar.totalDiscountAttr).lt(model.variables.getDataMinimalAmountForDeliveryDataAct.minimalAmountForDeliveryOut)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "margin-top-s font-size-s ",
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("hefy6iHSEUOc3Kuoi7NKRQ#ValueExpression.-803374089.1", "The minimal order amount is 25 euros."),
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+})];
+}), $if(!(model.variables.localVariablesVar.storeServiceCostAttr.equals(OS.BuiltinFunctions.integerToDecimal(0))), false, this, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+ExtendedClass: "margin-bottom-s margin-top-base"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "15",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("6JYSSseIz0+sZDxicn76OA#Value", "Service costs")), $if(model.variables.localVariablesVar.totalProductsCostsAttr.minus(model.variables.localVariablesVar.totalDiscountAttr).lt(OS.BuiltinFunctions.integerToDecimal(model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr)), false, this, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggle_ServiceFee_Popup$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "margin-left-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Icon, {
+icon: "question-circle-o",
+iconSize: /*FontSize*/ 0,
+style: "icon",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+}))), $if(model.variables.localVariablesVar.totalProductsCostsAttr.minus(model.variables.localVariablesVar.totalDiscountAttr).lt(OS.BuiltinFunctions.integerToDecimal(model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "font-size-s font-style-italic",
+value: ((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("gN6lrioXvUOyVBd2JBC+2g#ValueExpression.256229221.1", "Free when order exceeds ") + (model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr).toString()) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("gN6lrioXvUOyVBd2JBC+2g#ValueExpression.1013007110.1", " euros")),
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+})];
+}),
+middle: PlaceholderContent.Empty,
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: model.getCachedValue(idService.getId("H86_DuE2EkiMkVHZ73E9xg.Style"), function () {
+return (((((model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr > 0)) ? (model.variables.localVariablesVar.totalProductsCostsAttr.minus(model.variables.localVariablesVar.totalDiscountAttr).gte(OS.BuiltinFunctions.integerToDecimal(model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr))) : (false))) ? ("line-through") : (""));
+}, function () {
+return model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr;
+}, function () {
+return model.variables.localVariablesVar.totalProductsCostsAttr;
+}, function () {
+return model.variables.localVariablesVar.totalDiscountAttr;
+}),
+value: model.getCachedValue(idService.getId("H86_DuE2EkiMkVHZ73E9xg.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.localVariablesVar.storeServiceCostAttr, callContext).formattedNumberOut;
+}, function () {
+return model.variables.localVariablesVar.storeServiceCostAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), $if((((model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr > 0)) ? (model.variables.localVariablesVar.totalProductsCostsAttr.minus(model.variables.localVariablesVar.totalDiscountAttr).gte(OS.BuiltinFunctions.integerToDecimal(model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr))) : (false)), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "margin-left-s",
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("K17FDIxlOEiJmn7WZreFTA#ValueExpression.2198156.1", "Free"),
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.localVariablesVar.storeServiceCostAttr), asPrimitiveValue(model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr), asPrimitiveValue(model.variables.localVariablesVar.totalDiscountAttr), asPrimitiveValue(model.variables.localVariablesVar.totalProductsCostsAttr)]
+})];
+}, function () {
+return [];
+}), $if(!(model.variables.shippingCostsIn.equals(OS.BuiltinFunctions.integerToDecimal(0))), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "24"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.eCOP_8218, callContext).isEnabledOut, false, this, function () {
+return [$if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.deliveryBundle, callContext).isEnabledOut && model.variables.localVariablesVar.isEntitlementActivatedAttr), false, this, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+ExtendedClass: "margin-bottom-s margin-top-base"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "25",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("2lAooYXtvk6U0HrtidOkKw#Value", "Order costs"))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "27"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "text-tertiary font-style-italic font-size-s",
+text: [$text(getTranslation("L1_S9vQ9z0evzNlB1uNRyA#Value", "Free thanks to your Delivery Bundle"))],
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+middle: PlaceholderContent.Empty,
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "margin-left-s",
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("mYTjqBp1K0SThvFES9qU3g#ValueExpression.2198156.1", "Free"),
+_idProps: {
+service: idService,
+uuid: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_view, {
+inputs: {
+ShippingCost: model.variables.shippingCostsIn,
+_shippingCostInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._shippingCostsInDataFetchStatus),
+DeliveryCostBreakdownJSON: model.variables.localVariablesVar.cartDeliveryCostBreakdownAttr
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "31",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+})];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "32",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [$text(getTranslation("fGVOK8YTD0eJqdy7tkjSFQ#Value", "Order Cost"))];
+}),
+middle: PlaceholderContent.Empty,
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "margin-left-s",
+value: model.getCachedValue(idService.getId("horeMZljMUW4iq6bSKwxCQ.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.shippingCostsIn, callContext).formattedNumberOut;
+}, function () {
+return model.variables.shippingCostsIn;
+}),
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._shippingCostsInDataFetchStatus)
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._shippingCostsInDataFetchStatus), asPrimitiveValue(model.variables.shippingCostsIn)]
+})];
+})), $if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.eCOP_9518, callContext).isEnabledOut, false, this, function () {
+return [$if(((model.variables.checkoutStepIn === ECP_Cart_CWModel.staticEntities.checkoutSteps.preferences) || (model.variables.checkoutStepIn === ECP_Cart_CWModel.staticEntities.checkoutSteps.orderConfirmation)), false, this, function () {
+return [];
+}, function () {
+return [$if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.deliveryBundle, callContext).isEnabledOut, false, this, function () {
+return [$if(!(model.variables.voucherListVar.isEmpty), false, this, function () {
+return [];
+}, function () {
+return [$if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.deliveryBundle, callContext).isEnabledOut && model.variables.localVariablesVar.isBundleNudgeShowAttr), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-nudge-arrow",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "background-green text-neutral-0 padding-xs font-size-s text-align-center margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: ((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("7mAlBNGBCEOJawN1+76nYw#ValueExpression.-1755913390.1", "Your delivery bundle is valid for a total of products worth ") + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.deliveryBundleMinValueAttr)) + " euro"),
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [$if((model.variables.localVariablesVar.deliverySaveValueAttr.gt(OS.BuiltinFunctions.integerToDecimal(0)) && !(model.variables.localVariablesVar.userHasEntitlementAttr)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-nudge-arrow",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "background-green text-neutral-0 padding-xs font-size-s text-align-center margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: ((("€" + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.deliverySaveValueAttr)) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("T6YhBVqx7U2kEAfalYj_uw#ValueExpression.-2124195924.1", " saved if you order above €")) + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.nextThresholdValueAttr)),
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+})];
+})];
+})];
+}, function () {
+return [$if(model.variables.localVariablesVar.deliverySaveValueAttr.gt(OS.BuiltinFunctions.integerToDecimal(0)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-nudge-arrow",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "40"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "background-green text-neutral-0 padding-xs font-size-s text-align-center margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: ((("€" + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.deliverySaveValueAttr)) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Is3Invv7rUOg9LwNOTbHQQ#ValueExpression.-2124195924.1", " saved if you order above €")) + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.nextThresholdValueAttr)),
+_idProps: {
+service: idService,
+uuid: "42"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+})];
+})];
+})];
+}, function () {
+return [$if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.deliveryBundle, callContext).isEnabledOut, false, this, function () {
+return [$if(!(model.variables.voucherListVar.isEmpty), false, this, function () {
+return [];
+}, function () {
+return [$if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.deliveryBundle, callContext).isEnabledOut && model.variables.localVariablesVar.isBundleNudgeShowAttr), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-nudge-arrow",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "background-green text-neutral-0 padding-xs font-size-s text-align-center margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: ((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("yqkri4vqFEyatTGGQS9b2A#ValueExpression.-1755913390.1", "Your delivery bundle is valid for a total of products worth ") + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.deliveryBundleMinValueAttr)) + " euro"),
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [$if((model.variables.localVariablesVar.deliverySaveValueAttr.gt(OS.BuiltinFunctions.integerToDecimal(0)) && !(model.variables.localVariablesVar.userHasEntitlementAttr)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-nudge-arrow",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "46"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "background-green text-neutral-0 padding-xs font-size-s text-align-center margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "47"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: ((("€" + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.deliverySaveValueAttr)) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("XerhbhOaMEqwLz4JVxJ+hA#ValueExpression.-2124195924.1", " saved if you order above €")) + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.nextThresholdValueAttr)),
+_idProps: {
+service: idService,
+uuid: "48"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+})];
+})];
+})];
+}, function () {
+return [$if(model.variables.localVariablesVar.deliverySaveValueAttr.gt(OS.BuiltinFunctions.integerToDecimal(0)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-nudge-arrow",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "49"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "background-green text-neutral-0 padding-xs font-size-s text-align-center margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "50"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: ((("€" + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.deliverySaveValueAttr)) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("VhYdIC3KsUitpeF8wYNQgQ#ValueExpression.-2124195924.1", " saved if you order above €")) + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.nextThresholdValueAttr)),
+_idProps: {
+service: idService,
+uuid: "51"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+})];
+})];
+})];
+}, function () {
+return [];
+}), React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+ExtendedClass: "margin-bottom-s"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "52",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [$text(getTranslation("ODL2TZyhq0mHK4W_LuCvZA#Value", "PLUSPoints"))];
+}),
+middle: PlaceholderContent.Empty,
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("HU58SOWxcEWvBA+iZm7Ydw.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(OS.BuiltinFunctions.integerToDecimal((((((model.variables.localVariablesVar.totalPLUSPunten_TempAttr) !== (0)) || model.variables.localVariablesVar.plusPuntenPreferenceChangedAttr)) ? (model.variables.localVariablesVar.totalPLUSPunten_TempAttr) : (model.variables.localVariablesVar.totalPLUSPuntenAttr))), callContext).formattedNumberOut;
+}, function () {
+return model.variables.localVariablesVar.totalPLUSPunten_TempAttr;
+}, function () {
+return model.variables.localVariablesVar.plusPuntenPreferenceChangedAttr;
+}, function () {
+return model.variables.localVariablesVar.totalPLUSPuntenAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "53"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.localVariablesVar.totalPLUSPuntenAttr), asPrimitiveValue(model.variables.localVariablesVar.plusPuntenPreferenceChangedAttr), asPrimitiveValue(model.variables.localVariablesVar.totalPLUSPunten_TempAttr)]
+}), React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+ExtendedClass: "margin-bottom-s"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "54",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [$text(getTranslation("TzLZOv32wUmgSz0_M+wrNg#Value", "Deposit Fee"))];
+}),
+middle: PlaceholderContent.Empty,
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("bm212X0BBU2HzFNzLF6BmA.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.localVariablesVar.depositFeeCostsAttr, callContext).formattedNumberOut;
+}, function () {
+return model.variables.localVariablesVar.depositFeeCostsAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "55"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.localVariablesVar.depositFeeCostsAttr)]
+})];
+}, function () {
+return [];
+}), $if(!(model.variables.hideReserveMomentBannerIn), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "padding-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "56"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: model.variables.isDataFetchedIn,
+_isDataFetchedInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isDataFetchedInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "57",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-banner-wrapper isReceipt",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "58"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, {
+inputs: {
+NoPaddingRight: true,
+NoPaddingBottom: true,
+NoPaddingTop: true,
+NoPaddingLeft: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "59",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [$if(!(model.variables.reservedMomentIn.deliveryDateAttr.equals(OS.BuiltinFunctions.nullDate())), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: model.getCachedValue(idService.getId("pe6cH0bwk0OjjnfBoSQWPw.Value"), function () {
+return (((((((((((((model.variables.reservedMomentIn.deliveryTypeIdAttr === ECP_Cart_CWModel.staticEntities.deliveryType.deliveryExpress) || (model.variables.reservedMomentIn.deliveryTypeIdAttr === ECP_Cart_CWModel.staticEntities.deliveryType.delivery))) ? (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.888111124.1", "Delivery")) : (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.-1904609636.1", "Pickup"))) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.1063425.1", " on ")) + OS.BuiltinFunctions.toLower(model.variables.reservedMomentIn.deliveryWeekdayLabelAttr)) + " ") + ECOP_Base_RPatController.default.format_NoYearDate$Action(model.variables.reservedMomentIn.deliveryDateAttr, false, false, callContext).dateTextOut) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.-129698504.1", " between ")) + OS.BuiltinFunctions.formatDateTime(model.variables.reservedMomentIn.slotStartTimeAttr, "HH:mm")) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.32551241.1", " and ")) + OS.BuiltinFunctions.formatDateTime(model.variables.reservedMomentIn.slotEndTimeAttr, "HH:mm")) + ".");
+}, function () {
+return model.variables.reservedMomentIn.deliveryTypeIdAttr;
+}, function () {
+return model.variables.reservedMomentIn.deliveryWeekdayLabelAttr;
+}, function () {
+return model.variables.reservedMomentIn.deliveryDateAttr;
+}, function () {
+return model.variables.reservedMomentIn.slotStartTimeAttr;
+}, function () {
+return model.variables.reservedMomentIn.slotEndTimeAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "60"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._reservedMomentInDataFetchStatus)
+}), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.momentReserved$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "text-underline margin-left-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "61"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("yxcR3QAsBEOkaepiO5Z24Q#Value", "Modify"))],
+_idProps: {
+service: idService,
+uuid: "62"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("LWFasXLiiU+HFh4X0Pho6Q#Value", "You have not yet selected a collection or delivery time. "))],
+_idProps: {
+service: idService,
+uuid: "63"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.momentReserved$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "text-underline margin-left-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "64"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("NiaSLlUbbEWwJA3scfY0hg#Value", "Choose moment"))],
+_idProps: {
+service: idService,
+uuid: "65"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._reservedMomentInDataFetchStatus), asPrimitiveValue(model.variables.reservedMomentIn.slotEndTimeAttr), asPrimitiveValue(model.variables.reservedMomentIn.slotStartTimeAttr), asPrimitiveValue(model.variables.reservedMomentIn.deliveryWeekdayLabelAttr), asPrimitiveValue(model.variables.reservedMomentIn.deliveryTypeIdAttr), asPrimitiveValue(model.variables.reservedMomentIn.deliveryDateAttr)]
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._reservedMomentInDataFetchStatus), asPrimitiveValue(model.variables.reservedMomentIn.slotEndTimeAttr), asPrimitiveValue(model.variables.reservedMomentIn.slotStartTimeAttr), asPrimitiveValue(model.variables.reservedMomentIn.deliveryWeekdayLabelAttr), asPrimitiveValue(model.variables.reservedMomentIn.deliveryTypeIdAttr), asPrimitiveValue(model.variables.reservedMomentIn.deliveryDateAttr)]
+}))];
+}, function () {
+return [];
+}), $if(!(model.variables.voucherListVar.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("NsupZvnBU0WCtD9UNfPe5Q.Style"), function () {
+return ((!(model.variables.voucherListVar.isEmpty)) ? ("padding-y-base item-border-top") : (""));
+}, function () {
+return model.variables.voucherListVar.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "66"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.voucherListVar,
+style: "list list-group receipt-voucher-list",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "67"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+ExtendedClass: "text-red"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "68",
+alias: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.voucherListVar.getCurrent(callContext.iterationContext).descriptionAttr,
+_idProps: {
+service: idService,
+uuid: "69"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+middle: PlaceholderContent.Empty,
+right: new PlaceholderContent(function () {
+return [$if(!(model.variables.voucherListVar.getCurrent(callContext.iterationContext).discountedPriceAttr.equals(OS.BuiltinFunctions.integerToDecimal(0))), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("H6xEcKNG+kqKaqzCQIZFXw.Value"), function () {
+return (("-" + " ") + ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.voucherListVar.getCurrent(callContext.iterationContext).discountedPriceAttr, callContext).formattedNumberOut);
+}, function () {
+return model.variables.voucherListVar.getCurrent(callContext.iterationContext).discountedPriceAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "70"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.voucherListVar.getCurrent(callContext.iterationContext).discountedPriceAttr), asPrimitiveValue(model.variables.voucherListVar.getCurrent(callContext.iterationContext).descriptionAttr)]
+})];
+}, callContext, idService, "1")
+},
+_dependencies: []
+}))];
+}, function () {
+return [];
+}), React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+ExtendedClass: "padding-top-base total-receipt-item",
+HasBorderTop: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "71",
+alias: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "font-bold",
+text: [$text(getTranslation("KafK9Yf5mk21qv_C+FOOYA#Value", "Total"))],
+_idProps: {
+service: idService,
+uuid: "72"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+middle: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "btw font",
+text: ["(incl. BTW)"],
+_idProps: {
+service: idService,
+uuid: "73"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "font-bold",
+value: model.getCachedValue(idService.getId("vTLK+pPv8UW3yPauNgfTxw.Value"), function () {
+return ((!(model.variables.localVariablesVar.totalPrice_TempAttr.equals(OS.BuiltinFunctions.integerToDecimal(0)))) ? (ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.localVariablesVar.totalPrice_TempAttr, callContext).formattedNumberOut) : (ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.localVariablesVar.totalPriceAttr, callContext).formattedNumberOut));
+}, function () {
+return model.variables.localVariablesVar.totalPrice_TempAttr;
+}, function () {
+return model.variables.localVariablesVar.totalPriceAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "74"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.localVariablesVar.totalPriceAttr), asPrimitiveValue(model.variables.localVariablesVar.totalPrice_TempAttr)]
+})), React.createElement(OSWidgets.Popup, {
+showPopup: model.variables.isServiceFeePopUpVar,
+style: "popup-dialog",
+_idProps: {
+service: idService,
+uuid: "75"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "ThemeGrid_Width11"
+},
+style: "font-size-h5 bold",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "76"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("X7SGiNs2R0S3R1fJ7DWx0Q#Value", "Service Cost"))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "ThemeGrid_Width1 ThemeGrid_MarginGutter"
+},
+style: "text-align-right",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "77"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggle_ServiceFee_Popup$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "78"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Icon, {
+icon: "times",
+iconSize: /*FontSize*/ 0,
+style: "icon text-neutral-8",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "79"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "80"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: (((((((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("CQ3OxLwkLUiq50bx7BzyHw#ValueExpression.-1108810772.1", "To continue to make small orders possible, we charge €") + OS.BuiltinFunctions.decimalToText(model.variables.localVariablesVar.storeServiceCostAttr)) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("CQ3OxLwkLUiq50bx7BzyHw#ValueExpression.1695544997.1", " service costs for orders under €")) + (model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr).toString()) + ". ") + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("CQ3OxLwkLUiq50bx7BzyHw#ValueExpression.-857931681.1", "If you order for €")) + (model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr).toString()) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("CQ3OxLwkLUiq50bx7BzyHw#ValueExpression.-764242737.1", " or more, the service costs will be waived.")),
+_idProps: {
+service: idService,
+uuid: "81"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "82"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("v8VGKz6nU0KB9Y4h6FYIkA#ValueExpression.1058444162.1", "Please note: Free delivery offers and promotions are not valid on the service costs."),
+_idProps: {
+service: idService,
+uuid: "83"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base text-align-center",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "84"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "ThemeGrid_Width12"
+},
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggle_ServiceFee_Popup$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "btn btn-primary",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "85"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("RhUoitylu02LKzjceH0UJA#Value", "Close"))))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Cart_CW.model", "ECP_Cart_CW.controller", "ECOP_Base_RPat.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Checkout_BL.model", "ECOP_FE_Core.controller", "ECP_Cart_CW.languageResources", "ECP_Cart_CW.clientVariables", "ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$translationsResources", "ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$controller.OnReady.ExposeAddRemoveActionJS", "ECOP_Base_RPat.controller$Format_NumberToTwoDecimalPlaces", "ECP_Cart_CW.referencesHealth", "ECP_Cart_CW.referencesHealth$ECOP_Base_RPat", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Cart_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_Base_RPat.controller$Format_NoYearDate", "ECP_Cart_CW.model$VoucherLineItemList", "ECP_Cart_CW.model$TextTextDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalDecimalBooleanBooleanBooleanBooleanIntegerIntegerIntegerRecord", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_Cart_CW.referencesHealth$ECP_Checkout_BL", "ECOP_FE_Core.controller$GTMEvent_ServiceFeePopup", "ECP_Cart_CW.referencesHealth$ECOP_FE_Core"], function (OutSystems, ECP_Cart_CWModel, ECP_Cart_CWController, ECOP_Base_RPatController, ECOP_ReleaseTogglesReactiveController, ECP_Checkout_BLModel, ECOP_FE_CoreController, ECP_Cart_CWLanguageResources, ECP_Cart_CWClientVariables, ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_TranslationsResources, ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_controller_OnReady_ExposeAddRemoveActionJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+onParametersChanged$Action: function () {
+return controller.executeActionInsideJSNode(controller._onParametersChanged$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnParametersChanged");
+}
+};
+this.dataFetchDependenciesOriginal = {
+getDataMinimalAmountForDelivery$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getDataMinimalAmountForDelivery$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.getDataMinimalAmountForDelivery$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetDataMinimalAmountForDelivery", "screenservices/ECP_Cart_CW/Cart/Cart_Receipt_DynamicWIP/DataActionGetDataMinimalAmountForDelivery", "CdPgYgKdccWWiQr4YnroSw", function (b) {
+model.variables.getDataMinimalAmountForDeliveryDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getDataMinimalAmountForDeliveryDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getDataMinimalAmountForDeliveryDataAct.constructor));
+}, undefined, undefined, undefined, callContext, ECP_Cart_CWClientVariables, true);
+};
+
+Controller.prototype.dataFetchActionNames = ["getDataMinimalAmountForDelivery$DataActRefresh"];
+// Client Actions
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+// Execute Action: SetClientVariables
+controller._setClientVariables$Action(callContext);
+};
+Controller.prototype._toggle_ServiceFee_Popup$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Toggle_ServiceFee_Popup");
+callContext = controller.callContext(callContext);
+// IsServiceFeePopUp = notIsServiceFeePopUp
+model.variables.isServiceFeePopUpVar = !(model.variables.isServiceFeePopUpVar);
+// Execute Action: GTMEvent_ServiceFeePopup
+ECOP_FE_CoreController.default.gTMEvent_ServiceFeePopup$Action(model.variables.isServiceFeePopUpVar, callContext);
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var exposeAddRemoveActionJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: SetClientVariables
+controller._setClientVariables$Action(callContext);
+// Exposes "OnClick_AddRemoveProduct" action to the parent elements.
+exposeAddRemoveActionJSResult.value = controller.safeExecuteJSNode(ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_controller_OnReady_ExposeAddRemoveActionJS, "ExposeAddRemoveAction", "OnReady", {
+RefreshReceipt_JS: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.OnReady$exposeAddRemoveActionJSResult"))();
+jsNodeResult.refreshReceipt_JSOut = OS.DataConversion.JSNodeParamConverter.from($parameters.RefreshReceipt_JS, OS.Types.Object);
+return jsNodeResult;
+}, {
+OnParametersChanged: controller.clientActionProxies.onParametersChanged$Action
+}, {});
+// Trigger Event: ExposedActions
+return controller.exposedActions$Action(exposeAddRemoveActionJSResult.value.refreshReceipt_JSOut, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.OnReady$exposeAddRemoveActionJSResult", [{
+name: "RefreshReceipt_JS",
+attrName: "refreshReceipt_JSOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._setClientVariables$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetClientVariables");
+callContext = controller.callContext(callContext);
+var listFilter_PVar = new OS.DataTypes.VariableHolder();
+var listFilter_Tem_RMVar = new OS.DataTypes.VariableHolder();
+var listFilter_RMVar = new OS.DataTypes.VariableHolder();
+var listFilter_Temp_PVar = new OS.DataTypes.VariableHolder();
+var jSONDeserialize_RMVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_Cart_CWModel.VoucherLineItemList))());
+var jSONDeserialize_Temp_RMVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_Cart_CWModel.VoucherLineItemList))());
+var jSONDeserialize_Temp_PVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_Cart_CWModel.VoucherLineItemList))());
+var jSONDeserialize_PVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_Cart_CWModel.VoucherLineItemList))());
+// Execute Action: ListClear_VoucherList
+OS.SystemActions.listClear(model.variables.voucherListVar, callContext);
+// Set Var
+// LocalVariables.CartDeliveryCostBreakdown = CartDeliveryCostBreakdown
+model.variables.localVariablesVar.cartDeliveryCostBreakdownAttr = ECP_Cart_CWClientVariables.getCartDeliveryCostBreakdown();
+// LocalVariables.CartPromosList = CartPromosList
+model.variables.localVariablesVar.cartPromosListAttr = ECP_Cart_CWClientVariables.getCartPromosList();
+// LocalVariables.CartTotalItems = CartTotalItems
+model.variables.localVariablesVar.cartTotalItemsAttr = ECP_Cart_CWClientVariables.getCartTotalItems();
+// LocalVariables.DepositFeeCosts = TotalDepositFee
+model.variables.localVariablesVar.depositFeeCostsAttr = ECP_Cart_CWClientVariables.getTotalDepositFee();
+// LocalVariables.StoreServiceCost = StoreServiceCost
+model.variables.localVariablesVar.storeServiceCostAttr = ECP_Cart_CWClientVariables.getStoreServiceCost();
+// LocalVariables.TotalDiscount = TotalDiscount
+model.variables.localVariablesVar.totalDiscountAttr = ECP_Cart_CWClientVariables.getTotalDiscount();
+// LocalVariables.TotalPLUSPunten_Temp = TotalPLUSPunten_Temp
+model.variables.localVariablesVar.totalPLUSPunten_TempAttr = OS.BuiltinFunctions.decimalToInteger(OS.BuiltinFunctions.trunc(ECP_Cart_CWClientVariables.getTotalPLUSPunten_Temp()));
+// LocalVariables.TotalPrice = TotalPrice
+model.variables.localVariablesVar.totalPriceAttr = ECP_Cart_CWClientVariables.getTotalPrice();
+// LocalVariables.TotalProductsCosts = TotalProductsCosts
+model.variables.localVariablesVar.totalProductsCostsAttr = ECP_Cart_CWClientVariables.getTotalProductsCosts();
+// LocalVariables.TotalPLUSPunten = TotalPLUSPunten
+model.variables.localVariablesVar.totalPLUSPuntenAttr = OS.BuiltinFunctions.decimalToInteger(OS.BuiltinFunctions.trunc(ECP_Cart_CWClientVariables.getTotalPLUSPunten()));
+// LocalVariables.TotalPrice_Temp = TotalPrice_Temp
+model.variables.localVariablesVar.totalPrice_TempAttr = ECP_Cart_CWClientVariables.getTotalPrice_Temp();
+// LocalVariables.IsEntitlementActivated = IsEntitlementActivated
+model.variables.localVariablesVar.isEntitlementActivatedAttr = ECP_Cart_CWClientVariables.getIsEntitlementActivated();
+// LocalVariables.DeliverySaveValue = DeliverySaveValue
+model.variables.localVariablesVar.deliverySaveValueAttr = ECP_Cart_CWClientVariables.getDeliverySaveValue();
+// LocalVariables.MinThreshold_NoServiceFee = MinThreshold_NoServiceFee
+model.variables.localVariablesVar.minThreshold_NoServiceFeeAttr = ECP_Cart_CWClientVariables.getMinThreshold_NoServiceFee();
+// LocalVariables.DeliveryBundleMinValue = DeliveryBundleMinValue
+model.variables.localVariablesVar.deliveryBundleMinValueAttr = ECP_Cart_CWClientVariables.getDeliveryBundleMinValue();
+// LocalVariables.IsBundleNudgeShow = IsBundleNudgeShow
+model.variables.localVariablesVar.isBundleNudgeShowAttr = ECP_Cart_CWClientVariables.getIsBundleNudgeShow();
+// LocalVariables.NextThresholdValue = NextThresholdValue
+model.variables.localVariablesVar.nextThresholdValueAttr = ECP_Cart_CWClientVariables.getNextThresholdValue();
+// LocalVariables.PlusPuntenPreferenceChanged = PlusPuntenPreferenceChanged
+model.variables.localVariablesVar.plusPuntenPreferenceChangedAttr = ECP_Cart_CWClientVariables.getPlusPuntenPreferenceChanged();
+// LocalVariables.UserHasEntitlement = UserHasEntitlement
+model.variables.localVariablesVar.userHasEntitlementAttr = ECP_Cart_CWClientVariables.getUserHasEntitlement();
+// DeliveryBundle ?
+if(((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Cart_CWModel.staticEntities.releaseToggle_Convert.deliveryBundle, callContext).isEnabledOut && model.variables.localVariablesVar.isEntitlementActivatedAttr))) {
+// Execute Action: ListClear_VoucherList2
+OS.SystemActions.listClear(model.variables.voucherListVar, callContext);
+} else {
+// JSON Deserialize: JSONDeserialize_RM
+jSONDeserialize_RMVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(ECP_Cart_CWClientVariables.getCartVoucherList_RM(), ECP_Cart_CWModel.VoucherLineItemList, false);
+// Execute Action: ListFilter_RM
+listFilter_RMVar.value = OS.SystemActions.listFilter(jSONDeserialize_RMVar.value.dataOut, function (p) {
+return ((((p.couponTypeIdAttr) !== (ECP_Cart_CWModel.staticEntities.couponType.freeProduct)) && !(p.discountedPriceAttr.equals(OS.BuiltinFunctions.integerToDecimal(0)))) && ((p.descriptionAttr) !== (OS.BuiltinFunctions.nullTextIdentifier())));
+}, callContext);
+
+// Execute Action: ListAppendAll
+OS.SystemActions.listAppendAll(model.variables.voucherListVar, listFilter_RMVar.value.filteredListOut, callContext);
+// JSON Deserialize: JSONDeserialize_Temp_RM
+jSONDeserialize_Temp_RMVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(ECP_Cart_CWClientVariables.getCartVoucherList_Temp_RM(), ECP_Cart_CWModel.VoucherLineItemList, false);
+// Execute Action: ListFilter_Tem_RM
+listFilter_Tem_RMVar.value = OS.SystemActions.listFilter(jSONDeserialize_Temp_RMVar.value.dataOut, function (p) {
+return ((((p.couponTypeIdAttr) !== (ECP_Cart_CWModel.staticEntities.couponType.freeProduct)) && !(p.discountedPriceAttr.equals(OS.BuiltinFunctions.integerToDecimal(0)))) && ((p.descriptionAttr) !== (OS.BuiltinFunctions.nullTextIdentifier())));
+}, callContext);
+
+// Execute Action: ListAppendAll2
+OS.SystemActions.listAppendAll(model.variables.voucherListVar, jSONDeserialize_Temp_RMVar.value.dataOut, callContext);
+// JSON Deserialize: JSONDeserialize_P
+jSONDeserialize_PVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(ECP_Cart_CWClientVariables.getCartVoucherList_P(), ECP_Cart_CWModel.VoucherLineItemList, false);
+// Execute Action: ListFilter_P
+listFilter_PVar.value = OS.SystemActions.listFilter(jSONDeserialize_PVar.value.dataOut, function (p) {
+return ((((p.couponTypeIdAttr) !== (ECP_Cart_CWModel.staticEntities.couponType.freeProduct)) && !(p.discountedPriceAttr.equals(OS.BuiltinFunctions.integerToDecimal(0)))) && ((p.descriptionAttr) !== (OS.BuiltinFunctions.nullTextIdentifier())));
+}, callContext);
+
+// Execute Action: ListAppendAll3
+OS.SystemActions.listAppendAll(model.variables.voucherListVar, listFilter_PVar.value.filteredListOut, callContext);
+// JSON Deserialize: JSONDeserialize_Temp_P
+jSONDeserialize_Temp_PVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(ECP_Cart_CWClientVariables.getCartVoucherList_Temp_P(), ECP_Cart_CWModel.VoucherLineItemList, false);
+// Execute Action: ListFilter_Temp_P
+listFilter_Temp_PVar.value = OS.SystemActions.listFilter(jSONDeserialize_Temp_PVar.value.dataOut, function (p) {
+return ((((p.couponTypeIdAttr) !== (ECP_Cart_CWModel.staticEntities.couponType.freeProduct)) && !(p.discountedPriceAttr.equals(OS.BuiltinFunctions.integerToDecimal(0)))) && ((p.descriptionAttr) !== (OS.BuiltinFunctions.nullTextIdentifier())));
+}, callContext);
+
+// Execute Action: ListAppendAll4
+OS.SystemActions.listAppendAll(model.variables.voucherListVar, listFilter_Temp_PVar.value.filteredListOut, callContext);
+}
+
+};
+
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.toggle_ServiceFee_Popup$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toggle_ServiceFee_Popup$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.setClientVariables$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setClientVariables$Action, callContext);
+
+};
+Controller.prototype.exposedActions$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.momentReserved$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Cart_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Cart_CWLanguageResources);
+});
+define("ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$controller.OnReady.ExposeAddRemoveActionJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.RefreshReceipt_JS =  $actions.OnParametersChanged;
+
+};
+});
+
+define("ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$translationsResources", ["exports", "ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$translationsResources.nl-NL"], function (exports, ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Cart_CW_Cart_Cart_Receipt_DynamicWIP_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Cart_CW.Cart.Cart_Receipt_DynamicWIP.mvc$translationsResources.nl-NL", [], function () {
+return {
+"RhUoitylu02LKzjceH0UJA#Value": "Sluiten",
+"v8VGKz6nU0KB9Y4h6FYIkA#ValueExpression.1058444162.1": "Let op: Gratis bezorging-aanbiedingen en acties zijn niet geldig op de servicekosten.",
+"CQ3OxLwkLUiq50bx7BzyHw#ValueExpression.-1108810772.1": "Om kleine bestellingen mogelijk te blijven maken, rekenen we €",
+"CQ3OxLwkLUiq50bx7BzyHw#ValueExpression.-764242737.1": " of meer? Dan vervallen de servicekosten.",
+"CQ3OxLwkLUiq50bx7BzyHw#ValueExpression.-857931681.1": "Bestel je voor €",
+"CQ3OxLwkLUiq50bx7BzyHw#ValueExpression.1695544997.1": " servicekosten voor bestellingen onder de €",
+"X7SGiNs2R0S3R1fJ7DWx0Q#Value": "Servicekosten",
+"KafK9Yf5mk21qv_C+FOOYA#Value": "Totaal",
+"NiaSLlUbbEWwJA3scfY0hg#Value": "Kies moment",
+"LWFasXLiiU+HFh4X0Pho6Q#Value": "Je hebt nog geen ophaal- of bezorgmoment gekozen. ",
+"yxcR3QAsBEOkaepiO5Z24Q#Value": "Wijzig",
+"Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.-129698504.1": " tussen ",
+"Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.-1904609636.1": "Ophalen",
+"Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.1063425.1": " op ",
+"Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.32551241.1": " en ",
+"Pf+WWcgEeEiTVwoX2uh7sw#ValueExpression.888111124.1": "Bezorgen",
+"TzLZOv32wUmgSz0_M+wrNg#Value": "Statiegeld",
+"ODL2TZyhq0mHK4W_LuCvZA#Value": "PLUSpunten",
+"VhYdIC3KsUitpeF8wYNQgQ#ValueExpression.-2124195924.1": " korting bij producten boven €",
+"XerhbhOaMEqwLz4JVxJ+hA#ValueExpression.-2124195924.1": " korting bij producten boven €",
+"yqkri4vqFEyatTGGQS9b2A#ValueExpression.-1755913390.1": "Je bezorgbundel is geldig bij totaal producten vanaf ",
+"Is3Invv7rUOg9LwNOTbHQQ#ValueExpression.-2124195924.1": " korting bij producten boven €",
+"T6YhBVqx7U2kEAfalYj_uw#ValueExpression.-2124195924.1": " korting bij producten boven €",
+"7mAlBNGBCEOJawN1+76nYw#ValueExpression.-1755913390.1": "Je bezorgbundel is geldig bij totaal producten vanaf ",
+"fGVOK8YTD0eJqdy7tkjSFQ#Value": "Bestelkosten",
+"mYTjqBp1K0SThvFES9qU3g#ValueExpression.2198156.1": "Gratis",
+"L1_S9vQ9z0evzNlB1uNRyA#Value": "Gratis dankzij je Bezorgbundel",
+"2lAooYXtvk6U0HrtidOkKw#Value": "Bestelkosten",
+"K17FDIxlOEiJmn7WZreFTA#ValueExpression.2198156.1": "Gratis",
+"gN6lrioXvUOyVBd2JBC+2g#ValueExpression.1013007110.1": " euro",
+"gN6lrioXvUOyVBd2JBC+2g#ValueExpression.256229221.1": "Gratis bij besteding vanaf ",
+"6JYSSseIz0+sZDxicn76OA#Value": "Servicekosten",
+"hefy6iHSEUOc3Kuoi7NKRQ#ValueExpression.-803374089.1": "Het minimale bestelbedrag is 25 euro.",
+"2AWtDvers0GNBa7JBdkJXw#ValueExpression.-1397421554.1": "Het minimale bestelbedrag is ",
+"PK4X4hnlAU68w6lMa47Y7w#Value": "Totaal producten",
+"NQ7rOr280ECM2PLtl7lFUA#Value": "Producten",
+"9N+TnaFvWkCpR0iNDabKTA#Value": "Jouw bestelling"
+};
+});

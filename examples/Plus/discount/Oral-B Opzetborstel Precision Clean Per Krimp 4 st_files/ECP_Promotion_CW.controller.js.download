@@ -1,0 +1,302 @@
+﻿define("ECP_Promotion_CW.controller$PromotionPeriod_Display_Get", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "ECOP_FE_Core.controller", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller$ClientVariable_GetLocale", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_FE_Core", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Promotion_CW.controller$WeekPeriodForDay_Get", "ECOP_Base_RPat.controller$Format_dddd_dd_mmmm", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat", "ECP_Promotion_CW.model$Period_DisplayRec"], function (exports, OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, ECOP_FE_CoreController, ECOP_Base_RPatController) {
+var OS = OutSystems.Internal;
+ECP_Promotion_CWController.default.promotionPeriod_Display_Get$Action = function (promotionPeriodIdIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.PromotionPeriod_Display_Get$vars"))());
+vars.value.promotionPeriodIdInLocal = promotionPeriodIdIn;
+var clientVariable_GetLocaleVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.PromotionPeriod_Display_Get$outVars"))());
+// Execute Action: ClientVariable_GetLocale
+clientVariable_GetLocaleVar.value = ECOP_FE_CoreController.default.clientVariable_GetLocale$Action(callContext);
+
+// PromotionPeriodId
+if(((vars.value.promotionPeriodIdInLocal === ECP_Promotion_CWModel.staticEntities.promotionPeriod.currentWeek))) {
+// Period = this week
+// Period_Date = WeekPeriodForDay_Get(CurrDate)
+vars.value.period_DateVar = ECP_Promotion_CWController.default.weekPeriodForDay_Get$Action(OS.BuiltinFunctions.currDate(), callContext).periodOut;
+} else {
+if((vars.value.promotionPeriodIdInLocal === ECP_Promotion_CWModel.staticEntities.promotionPeriod.nextWeek)) {
+// Period = next week
+// Period_Date = WeekPeriodForDay_Get(AddDays)
+vars.value.period_DateVar = ECP_Promotion_CWController.default.weekPeriodForDay_Get$Action(OS.BuiltinFunctions.dateTimeToDate(OS.BuiltinFunctions.addDays(OS.BuiltinFunctions.currDate(), 7)), callContext).periodOut;
+} else {
+// fallback period this week
+// Period_Date = WeekPeriodForDay_Get(CurrDate)
+vars.value.period_DateVar = ECP_Promotion_CWController.default.weekPeriodForDay_Get$Action(OS.BuiltinFunctions.currDate(), callContext).periodOut;
+}
+
+}
+
+// Format period to display values
+// Period.FromDate_Text = Format_dddd_dd_mmmm(Period_Date.FromDate, True, True, ClientVariable_GetLocale.Locale)
+outVars.value.periodOut.fromDate_TextAttr = ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(vars.value.period_DateVar.fromDateAttr, true, true, clientVariable_GetLocaleVar.value.localeOut, callContext).formattedOut;
+// Period.ToDate_Text = Format_dddd_dd_mmmm(Period_Date.ToDate, False, True, ClientVariable_GetLocale.Locale)
+outVars.value.periodOut.toDate_TextAttr = ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(vars.value.period_DateVar.toDateAttr, false, true, clientVariable_GetLocaleVar.value.localeOut, callContext).formattedOut;
+return outVars.value;
+};
+var controller = ECP_Promotion_CWController.default;
+ECP_Promotion_CWController.default.constructor.registerVariableGroupType("ECP_Promotion_CW.PromotionPeriod_Display_Get$vars", [{
+name: "PromotionPeriodId",
+attrName: "promotionPeriodIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Period_Date",
+attrName: "period_DateVar",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Promotion_CWModel.Period_DateRec();
+},
+complexType: ECP_Promotion_CWModel.Period_DateRec
+}]);
+ECP_Promotion_CWController.default.constructor.registerVariableGroupType("ECP_Promotion_CW.PromotionPeriod_Display_Get$outVars", [{
+name: "Period",
+attrName: "periodOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Promotion_CWModel.Period_DisplayRec();
+},
+complexType: ECP_Promotion_CWModel.Period_DisplayRec
+}]);
+ECP_Promotion_CWController.default.clientActionProxies.promotionPeriod_Display_Get$Action = function (promotionPeriodIdIn) {
+promotionPeriodIdIn = (promotionPeriodIdIn === undefined) ? 0 : promotionPeriodIdIn;
+return controller.executeActionInsideJSNode(ECP_Promotion_CWController.default.promotionPeriod_Display_Get$Action.bind(controller, promotionPeriodIdIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Period: actionResults.periodOut
+};
+});
+};
+});
+
+define("ECP_Promotion_CW.controller$Temp_Offers_DummyData_Get", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "ECP_Promotion_BL.model", "ECP_Promotion_BL.model$OfferRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.model$OfferList"], function (exports, OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+ECP_Promotion_CWController.default.temp_Offers_DummyData_Get$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.Temp_Offers_DummyData_Get$vars"))());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.Temp_Offers_DummyData_Get$outVars"))());
+while (((vars.value.iVar < vars.value.maxIterVar))) {
+// i++
+// i = i + 1
+vars.value.iVar = (vars.value.iVar + 1);
+if((OS.BuiltinFunctions.mod(OS.BuiltinFunctions.integerToDecimal(vars.value.iVar), OS.BuiltinFunctions.integerToDecimal(2)).equals(OS.BuiltinFunctions.integerToDecimal(0)))) {
+// Execute Action: ListAppend
+OS.SystemActions.listAppend(outVars.value.offerListOut, function () {
+var rec = new ECP_Promotion_BLModel.OfferRec();
+rec.offer_IdAttr = "206";
+rec.brandAttr = "PLUS";
+rec.nameAttr = "Boerenkool";
+rec.exampleAttr = "zak 300 gram";
+rec.slugAttr = "plus-boerenkool-zak-300-gram-756332";
+rec.imageURLAttr = "https://www.plus.nl/INTERSHOP/static/WFS/PLUS-website-Site/-/PLUS-website/nl_NL/promotions/3188/ML/206.png";
+rec.newPriceAttr = (new OS.DataTypes.Decimal("0.89"));
+rec.priceOriginal_HighestAttr = (new OS.DataTypes.Decimal("0.99"));
+rec.isProductOverMajorityAgeAttr = false;
+rec.displayInfo_LabelAttr = "10% KORTING";
+rec.startDateAttr = OS.BuiltinFunctions.currDate();
+rec.endDateAttr = OS.BuiltinFunctions.dateTimeToDate(OS.BuiltinFunctions.addDays(OS.BuiltinFunctions.currDate(), 7));
+rec.isFreeDeliveryOfferAttr = false;
+rec.isSingleProductAttr = true;
+rec.product_SKUAttr = "756332";
+return rec;
+}(), callContext);
+} else {
+// Execute Action: ListAppend2
+OS.SystemActions.listAppend(outVars.value.offerListOut, function () {
+var rec = new ECP_Promotion_BLModel.OfferRec();
+rec.offer_IdAttr = "219";
+rec.brandAttr = "PLUS";
+rec.nameAttr = "Gesneden Gourmetgroenten";
+rec.slugAttr = "3188-219";
+rec.imageURLAttr = "https://www.plus.nl/INTERSHOP/static/WFS/PLUS-website-Site/-/PLUS-website/nl_NL/promotions/3188/ML/219.png";
+rec.newPriceAttr = (new OS.DataTypes.Decimal("3.00"));
+rec.isProductOverMajorityAgeAttr = false;
+rec.displayInfo_LabelAttr = "2 voor 3.00";
+rec.startDateAttr = OS.BuiltinFunctions.currDate();
+rec.endDateAttr = OS.BuiltinFunctions.dateTimeToDate(OS.BuiltinFunctions.addDays(OS.BuiltinFunctions.currDate(), 7));
+rec.isFreeDeliveryOfferAttr = false;
+rec.isSingleProductAttr = false;
+return rec;
+}(), callContext);
+}
+
+}
+
+return outVars.value;
+};
+var controller = ECP_Promotion_CWController.default;
+ECP_Promotion_CWController.default.constructor.registerVariableGroupType("ECP_Promotion_CW.Temp_Offers_DummyData_Get$vars", [{
+name: "i",
+attrName: "iVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "MaxIter",
+attrName: "maxIterVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 4;
+}
+}]);
+ECP_Promotion_CWController.default.constructor.registerVariableGroupType("ECP_Promotion_CW.Temp_Offers_DummyData_Get$outVars", [{
+name: "OfferList",
+attrName: "offerListOut",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Promotion_CWModel.OfferList();
+},
+complexType: ECP_Promotion_CWModel.OfferList
+}]);
+ECP_Promotion_CWController.default.clientActionProxies.temp_Offers_DummyData_Get$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Promotion_CWController.default.temp_Offers_DummyData_Get$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+OfferList: actionResults.offerListOut
+};
+});
+};
+});
+
+define("ECP_Promotion_CW.controller$Temp_Promotion_DummyData_Get", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model$OfferList", "ECP_Promotion_CW.controller$Temp_Offers_DummyData_Get", "ECP_Promotion_BL.model$CategoryRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.model$CategoryList", "ECP_Promotion_BL.model$PromotionRec"], function (exports, OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+ECP_Promotion_CWController.default.temp_Promotion_DummyData_Get$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.Temp_Promotion_DummyData_Get$vars"))());
+var temp_Offers_DummyData_Get2Var = new OS.DataTypes.VariableHolder();
+var temp_Offers_DummyData_Get3Var = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.Temp_Promotion_DummyData_Get$outVars"))());
+while (((vars.value.iVar < 3))) {
+// i++
+// i = i + 1
+vars.value.iVar = (vars.value.iVar + 1);
+if(((vars.value.iVar === 1))) {
+// Execute Action: Temp_Offers_DummyData_Get3
+temp_Offers_DummyData_Get3Var.value = ECP_Promotion_CWController.default.temp_Offers_DummyData_Get$Action(callContext);
+
+// Execute Action: ListAppend2
+OS.SystemActions.listAppend(outVars.value.promotionOfferListOut.categoriesAttr, function () {
+var rec = new ECP_Promotion_BLModel.CategoryRec();
+rec.categoryIdAttr = (vars.value.iVar).toString();
+rec.categoryLabelAttr = "Gratis bezorging";
+rec.offersAttr = temp_Offers_DummyData_Get3Var.value.offerListOut;
+return rec;
+}(), callContext);
+} else {
+// Execute Action: Temp_Offers_DummyData_Get2
+temp_Offers_DummyData_Get2Var.value = ECP_Promotion_CWController.default.temp_Offers_DummyData_Get$Action(callContext);
+
+// Execute Action: ListAppend
+OS.SystemActions.listAppend(outVars.value.promotionOfferListOut.categoriesAttr, function () {
+var rec = new ECP_Promotion_BLModel.CategoryRec();
+rec.categoryIdAttr = (vars.value.iVar).toString();
+rec.categoryLabelAttr = ("Category #" + (vars.value.iVar).toString());
+rec.offersAttr = temp_Offers_DummyData_Get2Var.value.offerListOut;
+return rec;
+}(), callContext);
+}
+
+}
+
+return outVars.value;
+};
+var controller = ECP_Promotion_CWController.default;
+ECP_Promotion_CWController.default.constructor.registerVariableGroupType("ECP_Promotion_CW.Temp_Promotion_DummyData_Get$vars", [{
+name: "i",
+attrName: "iVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+ECP_Promotion_CWController.default.constructor.registerVariableGroupType("ECP_Promotion_CW.Temp_Promotion_DummyData_Get$outVars", [{
+name: "PromotionOfferList",
+attrName: "promotionOfferListOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Promotion_BLModel.PromotionRec();
+},
+complexType: ECP_Promotion_BLModel.PromotionRec
+}]);
+ECP_Promotion_CWController.default.clientActionProxies.temp_Promotion_DummyData_Get$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Promotion_CWController.default.temp_Promotion_DummyData_Get$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+PromotionOfferList: actionResults.promotionOfferListOut
+};
+});
+};
+});
+
+define("ECP_Promotion_CW.controller$WeekPeriodForDay_Get", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.controller$Week_GetFirstDayOfTheWeekByDate", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat", "ECP_Promotion_CW.model$Period_DateRec"], function (exports, OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, ECOP_Base_RPatController) {
+var OS = OutSystems.Internal;
+ECP_Promotion_CWController.default.weekPeriodForDay_Get$Action = function (dateIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.WeekPeriodForDay_Get$vars"))());
+vars.value.dateInLocal = dateIn;
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.WeekPeriodForDay_Get$outVars"))());
+// Period.FromDate = Week_GetFirstDayOfTheWeekByDate(Date, 3)
+outVars.value.periodOut.fromDateAttr = ECOP_Base_RPatController.default.week_GetFirstDayOfTheWeekByDate$Action(vars.value.dateInLocal, 3, callContext).startOfTheWeekOut;
+// Period.ToDate = AddDays
+outVars.value.periodOut.toDateAttr = OS.BuiltinFunctions.dateTimeToDate(OS.BuiltinFunctions.addDays(outVars.value.periodOut.fromDateAttr, 6));
+return outVars.value;
+};
+var controller = ECP_Promotion_CWController.default;
+ECP_Promotion_CWController.default.constructor.registerVariableGroupType("ECP_Promotion_CW.WeekPeriodForDay_Get$vars", [{
+name: "Date",
+attrName: "dateInLocal",
+mandatory: true,
+dataType: OS.Types.Date,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECP_Promotion_CWController.default.constructor.registerVariableGroupType("ECP_Promotion_CW.WeekPeriodForDay_Get$outVars", [{
+name: "Period",
+attrName: "periodOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Promotion_CWModel.Period_DateRec();
+},
+complexType: ECP_Promotion_CWModel.Period_DateRec
+}]);
+ECP_Promotion_CWController.default.clientActionProxies.weekPeriodForDay_Get$Action = function (dateIn) {
+dateIn = (dateIn === undefined) ? OS.DataTypes.DateTime.defaultValue : dateIn;
+return controller.executeActionInsideJSNode(ECP_Promotion_CWController.default.weekPeriodForDay_Get$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(dateIn, OS.Types.Date)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Period: actionResults.periodOut
+};
+});
+};
+});
+
+define("ECP_Promotion_CW.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller$translationsResources"], function (exports, OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CW_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECP_Promotion_CWController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Promotion_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECP_Promotion_CWController.default = new Controller(ECP_Promotion_CW_Controller_translationsResources, "ECP_Promotion_CW");
+});
+define("ECP_Promotion_CW.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

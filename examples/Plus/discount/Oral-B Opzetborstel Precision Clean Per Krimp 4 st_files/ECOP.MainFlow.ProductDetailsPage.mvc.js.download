@@ -1,0 +1,694 @@
+﻿define("ECOP.MainFlow.ProductDetailsPage.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP_ReleaseTogglesReactive.controller", "ECP_Store_CW.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "ECOP_Base_RPat.controller", "ECOP_Reactive_Pat.controller", "ECOP.controller", "ECOP_Reactive_Pat.model", "ECP_Product_BL.model", "ECOP.AA_AppLayouts.ECOP_Layout.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$model", "ECOP.AA_Common.Breadcrumbs_PLP.mvc$model", "ECP_Product_CW.ProductDetails.PDPContent.mvc$model", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Store_CW.controller$CheckStoreSelectorPrompt", "ECOP.referencesHealth$ECP_Store_CW", "ECP_Cart_CW.controller$Cart_GetTotalsCartItems", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat", "ECOP_Reactive_Pat.controller$Metadata_AddTagValueProperty", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP.controller$RemovePreloadHTML", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECP_Product_BL.model$OverviewRec", "ECOP.referencesHealth$ECP_Product_BL"], function (OutSystems, ECOPModel, ECOP_ReleaseTogglesReactiveController, ECP_Store_CWController, ECP_Cart_CWController, ECOP_FE_CoreController, ECOP_Base_RPatController, ECOP_Reactive_PatController, ECOPController, ECOP_Reactive_PatModel, ECP_Product_BLModel, ECOP_AA_AppLayouts_ECOP_Layout_mvcModel, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel, ECOP_AA_Common_Breadcrumbs_PLP_mvcModel, ECP_Product_CW_ProductDetails_PDPContent_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("SKU", "sKUVar", "SKU", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("ProductName", "productNameVar", "ProductName", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("PageTitle", "pageTitleVar", "PageTitle", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("JS_OpenStoreSelector", "jS_OpenStoreSelectorVar", "JS_OpenStoreSelector", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("ShowBreadcrumbs", "showBreadcrumbsVar", "ShowBreadcrumbs", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ForceRefresh_Obj", "forceRefresh_ObjVar", "ForceRefresh_Obj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("slug", "slugIn", "slug", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_slugInDataFetchStatus", "_slugInDataFetchStatus", "_slugInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((ECOP_AA_AppLayouts_ECOP_Layout_mvcModel.hasValidationWidgets || ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel.hasValidationWidgets) || ECOP_AA_Common_Breadcrumbs_PLP_mvcModel.hasValidationWidgets) || ECP_Product_CW_ProductDetails_PDPContent_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("slug" in inputs) {
+this.variables.slugIn = OS.DataConversion.ServerDataConverter.from(inputs.slug, OS.Types.Text);
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "MainFlow.ProductDetailsPage");
+});
+define("ECOP.MainFlow.ProductDetailsPage.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Store_CW.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "ECOP_Base_RPat.controller", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.model", "ECP_Product_BL.model", "react", "OutSystems/ReactView/Main", "ECOP.MainFlow.ProductDetailsPage.mvc$model", "ECOP.MainFlow.ProductDetailsPage.mvc$controller", "ECOP.clientVariables", "ECOP.AA_AppLayouts.ECOP_Layout.mvc$view", "OutSystems/ReactWidgets/Main", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$view", "ECOP.AA_Common.Breadcrumbs_PLP.mvc$view", "ECP_Product_CW.ProductDetails.PDPContent.mvc$view", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Store_CW.controller$CheckStoreSelectorPrompt", "ECOP.referencesHealth$ECP_Store_CW", "ECP_Cart_CW.controller$Cart_GetTotalsCartItems", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat", "ECOP_Reactive_Pat.controller$Metadata_AddTagValueProperty", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP.controller$RemovePreloadHTML", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECP_Product_BL.model$OverviewRec", "ECOP.referencesHealth$ECP_Product_BL"], function (OutSystems, ECOPModel, ECOPController, ECOP_ReleaseTogglesReactiveController, ECP_Store_CWController, ECP_Cart_CWController, ECOP_FE_CoreController, ECOP_Base_RPatController, ECOP_Reactive_PatController, ECOP_Reactive_PatModel, ECP_Product_BLModel, React, OSView, ECOP_MainFlow_ProductDetailsPage_mvc_model, ECOP_MainFlow_ProductDetailsPage_mvc_controller, ECOPClientVariables, ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, OSWidgets, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, ECOP_AA_Common_Breadcrumbs_PLP_mvc_view, ECP_Product_CW_ProductDetails_PDPContent_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "MainFlow.ProductDetailsPage";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css", "css/PLUS_OutSystemsUI_2_8_0.OutSystemsUI.css", "css/ECOP_Base_Theme.ECOP_Base_Theme.css", "css/ECOP_Reactive_Theme.ECOP_Reactive_Theme.css", "css/ECOP_Reactive_Theme.ECOP_Reactive_Theme.extra.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, ECOP_AA_Common_Breadcrumbs_PLP_mvc_view, ECP_Product_CW_ProductDetails_PDPContent_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_MainFlow_ProductDetailsPage_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_MainFlow_ProductDetailsPage_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                var model = this.model;
+                var controller = this.controller;
+                var idService = this.idService;
+                var validationService = controller.validationService;
+                var callContext = controller.callContext();
+                var asPrimitiveValue = View.asPrimitiveValue;
+                var getTranslation = View.getTranslation;
+                var _this = this;
+
+                return model.variables.pageTitleVar;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, {
+inputs: {
+EnableAccessibilityFeatures: model.getCachedValue(idService.getId("0eIwPQ8SPEKGPg1GDP4I8g.EnableAccessibilityFeatures"), function () {
+return ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.accessibilityFeatures, callContext).isEnabledOut;
+}),
+ExtendedClass: "product-details-page-layout",
+ActiveItem: ECOPModel.staticEntities.pagesNames.productDetails,
+TriggerStoreSelectionOnPageLoad: model.getCachedValue(idService.getId("0eIwPQ8SPEKGPg1GDP4I8g.TriggerStoreSelectionOnPageLoad"), function () {
+return ((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.eCOP_7464, callContext).isEnabledOut) ? (ECP_Store_CWController.default.checkStoreSelectorPrompt$Action(callContext).triggerStoreSelectorOut) : (false));
+}),
+ValidateIsCartCreated: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+timeslotUpdated$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_TimeslotUpdated$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+actionsExposed$Action: function (openStoreSelector_JSIn, openReserveMoment_JSIn, toggleShowStopEditModePopupIn, openProductsEditingMode_JSIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_StoreSelectorExposedAction$Action(openStoreSelector_JSIn, controller.callContext(eventHandlerContext));
+
+;
+},
+storeUpdated$Action: function (userStoreIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_StoreUpdated$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+breadcrumbs: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, {
+inputs: {
+BackgroundCSSClass: "background-neutral-1",
+NoPaddingBottom: true,
+NoPaddingTop: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [$if(model.variables.showBreadcrumbsVar, false, this, function () {
+return [React.createElement(ECOP_AA_Common_Breadcrumbs_PLP_mvc_view, {
+inputs: {
+SKU: model.variables.sKUVar
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.sKUVar), asPrimitiveValue(model.variables.showBreadcrumbsVar)]
+})];
+}),
+mainContent: new PlaceholderContent(function () {
+return [React.createElement(ECP_Product_CW_ProductDetails_PDPContent_mvc_view, {
+inputs: {
+TotalCartItems: model.getCachedValue(idService.getId("0Zxm26_Ee061+mUhukWRfQ.TotalCartItems"), function () {
+return ECP_Cart_CWController.default.cart_GetTotalsCartItems$Action(callContext).totalItemsOut;
+}),
+SKU: model.variables.sKUVar,
+IsPhone: ECOPClientVariables.getIsPhone(),
+ProductName: model.variables.productNameVar,
+OneWelcomeUserId: model.getCachedValue(idService.getId("0Zxm26_Ee061+mUhukWRfQ.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+productInfoFetched$Action: function (commonProductAttributesIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_ProductInfoFetched$Action(OS.DataConversion.JSConversions.typeConvertRecord(commonProductAttributesIn, new ECP_Product_BLModel.OverviewRec(), function (source, target) {
+target.nameAttr = source.nameAttr;
+target.subtitleAttr = source.subtitleAttr;
+target.descriptionAttr = source.metaAttr.descriptionAttr;
+target.brandAttr = source.brandAttr;
+target.slugAttr = source.slugAttr;
+target.uRLAttr = source.imageAttr.uRLAttr;
+target.isNIX18Attr = source.isNIX18Attr;
+target.priceAttr = source.priceAttr;
+target.lineItemIdAttr = source.lineItemAttr.idAttr;
+target.lineItemQuantityAttr = source.lineItemAttr.quantityAttr;
+target.isAvailableInStoreAttr = source.isAvailableInStoreAttr;
+target.maxOrderLimitAttr = source.maxOrderLimitAttr;
+target.isNoIndexAttr = source.isNoIndexAttr;
+return target;
+}), controller.callContext(eventHandlerContext));
+
+;
+},
+exposeActions$Action: function (handler_ForceRefresh_ObjIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_PDPContentExposeActions$Action(handler_ForceRefresh_ObjIn, controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_NoStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CallbackOrderEditing$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+forceRefresh$Action: function (totalQuantityIn) {
+var eventHandlerContext = callContext.clone();
+controller.productDetailsContent_DefaultForceRefresh$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.productNameVar), asPrimitiveValue(ECOPClientVariables.getIsPhone()), asPrimitiveValue(model.variables.sKUVar), asPrimitiveValue(model.variables.showBreadcrumbsVar)]
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebScreen);
+	
+    return View;
+});
+define("ECOP.MainFlow.ProductDetailsPage.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Store_CW.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "ECOP_Base_RPat.controller", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.model", "ECP_Product_BL.model", "ECOP.languageResources", "ECOP.clientVariables", "ECOP.MainFlow.ProductDetailsPage.mvc$translationsResources", "ECOP.MainFlow.controller", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Store_CW.controller$CheckStoreSelectorPrompt", "ECOP.referencesHealth$ECP_Store_CW", "ECP_Cart_CW.controller$Cart_GetTotalsCartItems", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat", "ECOP_Reactive_Pat.controller$Metadata_AddTagValueProperty", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP.controller$RemovePreloadHTML", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECP_Product_BL.model$OverviewRec", "ECOP.referencesHealth$ECP_Product_BL"], function (OutSystems, ECOPModel, ECOPController, ECOP_ReleaseTogglesReactiveController, ECP_Store_CWController, ECP_Cart_CWController, ECOP_FE_CoreController, ECOP_Base_RPatController, ECOP_Reactive_PatController, ECOP_Reactive_PatModel, ECP_Product_BLModel, ECOPLanguageResources, ECOPClientVariables, ECOP_MainFlow_ProductDetailsPage_mvc_TranslationsResources, ECOP_MainFlowController) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECOP_MainFlow_ProductDetailsPage_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.ProductDetailsPage.OnInitialize$vars"))());
+// FT SEOProductURL enabled?
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.sEOProductURL, callContext).isEnabledOut)) {
+// Is Slug?
+if((((OS.BuiltinFunctions.index(model.variables.slugIn, "-", 0, true, false)) !== (-1)))) {
+// SKU 
+// SKU = Substr
+model.variables.sKUVar = OS.BuiltinFunctions.substr(model.variables.slugIn, (OS.BuiltinFunctions.index(model.variables.slugIn, "-", 0, true, false) + 1), 100);
+} else {
+// SKU = slug
+model.variables.sKUVar = model.variables.slugIn;
+}
+
+} else {
+// SKU & Product Name
+// SKU = Substr
+model.variables.sKUVar = OS.BuiltinFunctions.substr(model.variables.slugIn, (OS.BuiltinFunctions.index(model.variables.slugIn, "-", 0, true, false) + 1), 100);
+// ProductName = Substr
+model.variables.productNameVar = OS.BuiltinFunctions.substr(model.variables.slugIn, 0, OS.BuiltinFunctions.index(model.variables.slugIn, "-", 0, true, false));
+}
+
+// ShowBreadcrumbs = True
+model.variables.showBreadcrumbsVar = true;
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.ProductDetailsPage.OnInitialize$vars", [{
+name: "URL",
+attrName: "uRLVar",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._handler_StoreUpdated$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StoreUpdated");
+callContext = controller.callContext(callContext);
+// Destination: /ECOP/product
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.sEOProductURL, callContext).isEnabledOut) ? (model.variables.sKUVar) : (model.variables.slugIn)), OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.prototype._handler_TimeslotUpdated$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_TimeslotUpdated");
+callContext = controller.callContext(callContext);
+// Execute Action: JS_ExecuteObjFunction
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.forceRefresh_ObjVar, callContext);
+};
+Controller.prototype._handler_NoStoreSelected$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_NoStoreSelected");
+callContext = controller.callContext(callContext);
+// Execute Action: JS_ExecuteObjFunction_OpenStoreSelector
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.jS_OpenStoreSelectorVar, callContext);
+};
+Controller.prototype._redirect301$Action = function (uRLIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Redirect301");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Redirect301$vars"))());
+vars.value.uRLInLocal = uRLIn;
+// Execute Action: Metadata_AddToPage
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action("prerender-status-code", "301", callContext);
+// Execute Action: Metadata_AddToPage2
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action("prerender-header", ("Location: " + vars.value.uRLInLocal), callContext);
+// Execute Action: RemovePreloadHTML
+ECOPController.default.removePreloadHTML$Action(callContext);
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Redirect301$vars", [{
+name: "URL",
+attrName: "uRLInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._handler_CallbackOrderEditing$Action = function (callbackOrderEditingIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CallbackOrderEditing");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Handler_CallbackOrderEditing$vars"))());
+vars.value.callbackOrderEditingIdInLocal = callbackOrderEditingIdIn;
+var orderIsCancelledVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: OrderIsCancelled
+model.flush();
+return ECOPController.default.callback_OrderEdit$Action(vars.value.callbackOrderEditingIdInLocal, callContext).then(function (value) {
+orderIsCancelledVar.value = value;
+}).then(function () {
+// Destination: /ECOP/order-details
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "order-details", {
+OrderId: OS.DataConversion.ServerDataConverter.to(orderIsCancelledVar.value.orderIdOut, OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+});
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Handler_CallbackOrderEditing$vars", [{
+name: "CallbackOrderEditingId",
+attrName: "callbackOrderEditingIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._handler_PDPContentExposeActions$Action = function (handler_ForceRefresh_InIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_PDPContentExposeActions");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Handler_PDPContentExposeActions$vars"))());
+vars.value.handler_ForceRefresh_InInLocal = handler_ForceRefresh_InIn;
+// ForceRefresh_Obj = Handler_ForceRefresh_In
+model.variables.forceRefresh_ObjVar = vars.value.handler_ForceRefresh_InInLocal;
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Handler_PDPContentExposeActions$vars", [{
+name: "Handler_ForceRefresh_In",
+attrName: "handler_ForceRefresh_InInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._handler_StoreSelectorExposedAction$Action = function (openStoreSelector_JSIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StoreSelectorExposedAction");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Handler_StoreSelectorExposedAction$vars"))());
+vars.value.openStoreSelector_JSInLocal = openStoreSelector_JSIn;
+// JS_OpenStoreSelector = OpenStoreSelector_JS
+model.variables.jS_OpenStoreSelectorVar = vars.value.openStoreSelector_JSInLocal;
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Handler_StoreSelectorExposedAction$vars", [{
+name: "OpenStoreSelector_JS",
+attrName: "openStoreSelector_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._navigate_PromotionPage$Action = function (promotionSlugIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Navigate_PromotionPage");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Navigate_PromotionPage$vars"))());
+vars.value.promotionSlugInLocal = promotionSlugIn;
+// Destination: /ECOP/aanbiedingen
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "aanbiedingen/:SlugParameter?/:SecondarySlugParameter?/:volgende_week?", {
+SlugParameter: OS.DataConversion.ServerDataConverter.to(vars.value.promotionSlugInLocal, OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Navigate_PromotionPage$vars", [{
+name: "PromotionSlug",
+attrName: "promotionSlugInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._handler_ProductInfoFetched$Action = function (commonProductAttributesIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ProductInfoFetched");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Handler_ProductInfoFetched$vars"))());
+vars.value.commonProductAttributesInLocal = commonProductAttributesIn.clone();
+// CommonProductAttributes.MetaTitle = If
+vars.value.commonProductAttributesInLocal.metaTitleAttr = (((vars.value.commonProductAttributesInLocal.metaTitleAttr === "")) ? ((((vars.value.commonProductAttributesInLocal.nameAttr + " ") + ((((OS.BuiltinFunctions.index(vars.value.commonProductAttributesInLocal.subtitleAttr, " (", 0, false, false)) !== (-1))) ? (OS.BuiltinFunctions.substr(vars.value.commonProductAttributesInLocal.subtitleAttr, 0, (OS.BuiltinFunctions.index(vars.value.commonProductAttributesInLocal.subtitleAttr, " (", 0, false, false) - 1))) : (vars.value.commonProductAttributesInLocal.subtitleAttr))) + ((!(vars.value.commonProductAttributesInLocal.isAvailableInStoreAttr)) ? ("") : (" - PLUS")))) : (vars.value.commonProductAttributesInLocal.metaTitleAttr));
+// CommonProductAttributes.MetaDescription = If
+vars.value.commonProductAttributesInLocal.metaDescriptionAttr = (((vars.value.commonProductAttributesInLocal.metaDescriptionAttr === "")) ? ((("Bestel " + ((!(vars.value.commonProductAttributesInLocal.isAvailableInStoreAttr)) ? (((vars.value.commonProductAttributesInLocal.nameAttr + " ") + ((((OS.BuiltinFunctions.index(vars.value.commonProductAttributesInLocal.subtitleAttr, " (", 0, false, false)) !== (-1))) ? (OS.BuiltinFunctions.substr(vars.value.commonProductAttributesInLocal.subtitleAttr, 0, (OS.BuiltinFunctions.index(vars.value.commonProductAttributesInLocal.subtitleAttr, " (", 0, false, false) - 1))) : (vars.value.commonProductAttributesInLocal.subtitleAttr)))) : (((vars.value.commonProductAttributesInLocal.nameAttr + " ") + vars.value.commonProductAttributesInLocal.subtitleAttr)))) + " online op plus.nl. Laat je boodschappen makkelijk en snel thuis bezorgen of haal het op bij jouw PLUS.")) : (vars.value.commonProductAttributesInLocal.metaDescriptionAttr));
+// PageTitle = CommonProductAttributes.Name + " " + If
+model.variables.pageTitleVar = ((vars.value.commonProductAttributesInLocal.nameAttr + " ") + ((((OS.BuiltinFunctions.index(vars.value.commonProductAttributesInLocal.subtitleAttr, " (", 0, false, false)) !== (-1))) ? (OS.BuiltinFunctions.substr(vars.value.commonProductAttributesInLocal.subtitleAttr, 0, (OS.BuiltinFunctions.index(vars.value.commonProductAttributesInLocal.subtitleAttr, " (", 0, false, false) - 1))) : (vars.value.commonProductAttributesInLocal.subtitleAttr)));
+// ECOP 8925
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.eCOP_8925, callContext).isEnabledOut)) {
+// Execute Action: SEOMetadta_InjectWithIsNoIndex
+ECOP_Reactive_PatController.default.sEOMetadta_Inject$Action(function () {
+var rec = new ECOP_Reactive_PatModel.SEO_StructRec();
+rec.titleAttr = vars.value.commonProductAttributesInLocal.metaTitleAttr;
+rec.descriptionAttr = vars.value.commonProductAttributesInLocal.metaDescriptionAttr;
+rec.noIndexAttr = vars.value.commonProductAttributesInLocal.isNoIndexAttr;
+rec.oGTitleAttr = vars.value.commonProductAttributesInLocal.metaTitleAttr;
+rec.oGDescriptionAttr = vars.value.commonProductAttributesInLocal.metaDescriptionAttr;
+rec.oGImageURLAttr = vars.value.commonProductAttributesInLocal.uRLAttr;
+return rec;
+}(), callContext);
+} else {
+// Execute Action: SEOMetadta_Inject
+ECOP_Reactive_PatController.default.sEOMetadta_Inject$Action(function () {
+var rec = new ECOP_Reactive_PatModel.SEO_StructRec();
+rec.titleAttr = vars.value.commonProductAttributesInLocal.metaTitleAttr;
+rec.descriptionAttr = vars.value.commonProductAttributesInLocal.metaDescriptionAttr;
+rec.noIndexAttr = false;
+rec.oGTitleAttr = vars.value.commonProductAttributesInLocal.metaTitleAttr;
+rec.oGDescriptionAttr = vars.value.commonProductAttributesInLocal.metaDescriptionAttr;
+rec.oGImageURLAttr = vars.value.commonProductAttributesInLocal.uRLAttr;
+return rec;
+}(), callContext);
+}
+
+// Execute Action: RemovePreloadHTML
+ECOPController.default.removePreloadHTML$Action(callContext);
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.ProductDetailsPage.Handler_ProductInfoFetched$vars", [{
+name: "CommonProductAttributes",
+attrName: "commonProductAttributesInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Product_BLModel.OverviewRec();
+},
+complexType: ECP_Product_BLModel.OverviewRec
+}]);
+Controller.prototype._productDetailsContent_DefaultForceRefresh$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ProductDetailsContent_DefaultForceRefresh");
+callContext = controller.callContext(callContext);
+// Destination: /ECOP/product
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.sEOProductURL, callContext).isEnabledOut) ? (model.variables.sKUVar) : (model.variables.slugIn)), OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.handler_StoreUpdated$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StoreUpdated$Action, callContext);
+
+};
+Controller.prototype.handler_TimeslotUpdated$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_TimeslotUpdated$Action, callContext);
+
+};
+Controller.prototype.handler_NoStoreSelected$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_NoStoreSelected$Action, callContext);
+
+};
+Controller.prototype.redirect301$Action = function (uRLIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._redirect301$Action, callContext, uRLIn);
+
+};
+Controller.prototype.handler_CallbackOrderEditing$Action = function (callbackOrderEditingIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CallbackOrderEditing$Action, callContext, callbackOrderEditingIdIn);
+
+};
+Controller.prototype.handler_PDPContentExposeActions$Action = function (handler_ForceRefresh_InIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_PDPContentExposeActions$Action, callContext, handler_ForceRefresh_InIn);
+
+};
+Controller.prototype.handler_StoreSelectorExposedAction$Action = function (openStoreSelector_JSIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StoreSelectorExposedAction$Action, callContext, openStoreSelector_JSIn);
+
+};
+Controller.prototype.navigate_PromotionPage$Action = function (promotionSlugIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._navigate_PromotionPage$Action, callContext, promotionSlugIn);
+
+};
+Controller.prototype.handler_ProductInfoFetched$Action = function (commonProductAttributesIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ProductInfoFetched$Action, callContext, commonProductAttributesIn);
+
+};
+Controller.prototype.productDetailsContent_DefaultForceRefresh$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._productDetailsContent_DefaultForceRefresh$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return ECOP_MainFlowController.default.handleError(ex, this.callContext());
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOPLanguageResources);
+});
+
+define("ECOP.MainFlow.ProductDetailsPage.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

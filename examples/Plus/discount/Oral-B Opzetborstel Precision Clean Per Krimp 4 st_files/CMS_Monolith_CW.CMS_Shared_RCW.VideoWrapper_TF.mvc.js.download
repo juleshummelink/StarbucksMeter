@@ -1,0 +1,312 @@
+﻿define("CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$model", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith.model", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith"], function (OutSystems, CMS_Monolith_CWModel, CMS_MonolithModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("VideoWrapper", "videoWrapperIn", "VideoWrapper", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_MediaRec());
+}, false, CMS_MonolithModel.Shared_MediaRec), 
+this.attr("_videoWrapperInDataFetchStatus", "_videoWrapperInDataFetchStatus", "_videoWrapperInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("LazyLoad", "lazyLoadIn", "LazyLoad", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_lazyLoadInDataFetchStatus", "_lazyLoadInDataFetchStatus", "_lazyLoadInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("VideoWrapper" in inputs) {
+this.variables.videoWrapperIn = inputs.VideoWrapper;
+if("_videoWrapperInDataFetchStatus" in inputs) {
+this.variables._videoWrapperInDataFetchStatus = inputs._videoWrapperInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+if("LazyLoad" in inputs) {
+this.variables.lazyLoadIn = inputs.LazyLoad;
+if("_lazyLoadInDataFetchStatus" in inputs) {
+this.variables._lazyLoadInDataFetchStatus = inputs._lazyLoadInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CMS_Shared_RCW.VideoWrapper_TF");
+});
+define("CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$view", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith_CW.controller", "CMS_Monolith.model", "react", "OutSystems/ReactView/Main", "CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$model", "CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$controller", "OutSystems/ReactWidgets/Main", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith"], function (OutSystems, CMS_Monolith_CWModel, CMS_Monolith_CWController, CMS_MonolithModel, React, OSView, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_model, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CMS_Shared_RCW.VideoWrapper_TF";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), $if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("FFlLnx8iqEy8U+EdDKxu_Q.class"), function () {
+return ("cf-video-wrapper" + ((((OS.BuiltinFunctions.trim(model.variables.extendedClassIn)) !== (""))) ? ((" " + model.variables.extendedClassIn)) : ("")));
+}, function () {
+return model.variables.extendedClassIn;
+})
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+src: model.variables.videoWrapperIn.urlAttr,
+alt: model.variables.videoWrapperIn.altTextAttr,
+"loading": model.getCachedValue(idService.getId("4Zh8FvYb0Eevmz5pG3b+Gw.loading"), function () {
+return ((model.variables.lazyLoadIn) ? ("lazy") : ("eager"));
+}, function () {
+return model.variables.lazyLoadIn;
+})
+},
+tag: "iframe",
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$controller", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith_CW.controller", "CMS_Monolith.model", "CMS_Monolith_CW.languageResources", "CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$controller.OnInitialize.CheckIfVideoIsYoutubeVideoJS", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith"], function (OutSystems, CMS_Monolith_CWModel, CMS_Monolith_CWController, CMS_MonolithModel, CMS_Monolith_CWLanguageResources, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_controller_OnInitialize_CheckIfVideoIsYoutubeVideoJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var checkIfVideoIsYoutubeVideoJSResult = new OS.DataTypes.VariableHolder();
+checkIfVideoIsYoutubeVideoJSResult.value = controller.safeExecuteJSNode(CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_controller_OnInitialize_CheckIfVideoIsYoutubeVideoJS, "CheckIfVideoIsYoutubeVideo", "OnInitialize", {
+URL: OS.DataConversion.JSNodeParamConverter.to(model.variables.videoWrapperIn.urlAttr, OS.Types.Text),
+IsYoutubeVideo: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+YoutubeEmbedURL: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.OnInitialize$checkIfVideoIsYoutubeVideoJSResult"))();
+jsNodeResult.isYoutubeVideoOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsYoutubeVideo, OS.Types.Boolean);
+jsNodeResult.youtubeEmbedURLOut = OS.DataConversion.JSNodeParamConverter.from($parameters.YoutubeEmbedURL, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+if((checkIfVideoIsYoutubeVideoJSResult.value.isYoutubeVideoOut)) {
+// Add rel tag
+// VideoWrapper.Url = CheckIfVideoIsYoutubeVideo.YoutubeEmbedURL
+model.variables.videoWrapperIn.urlAttr = checkIfVideoIsYoutubeVideoJSResult.value.youtubeEmbedURLOut;
+}
+
+};
+Controller.registerVariableGroupType("CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.OnInitialize$checkIfVideoIsYoutubeVideoJSResult", [{
+name: "IsYoutubeVideo",
+attrName: "isYoutubeVideoOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "YoutubeEmbedURL",
+attrName: "youtubeEmbedURLOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return CMS_Monolith_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, CMS_Monolith_CWLanguageResources);
+});
+define("CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$controller.OnInitialize.CheckIfVideoIsYoutubeVideoJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+ const p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+if($parameters.URL.match(p)){
+    $parameters.IsYoutubeVideo = true;
+ 
+    if($parameters.URL.toLowerCase().includes('embed'))
+    {
+        $parameters.YoutubeEmbedURL = $parameters.URL;
+    }
+    else{
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = $parameters.URL.match(regExp);
+
+        $parameters.YoutubeEmbedURL = (match && match[2].length === 11) ? 'https://www.youtube.com/embed/' + match[2] : $parameters.URL;
+    }
+}
+    
+};
+});
+

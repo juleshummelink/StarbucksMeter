@@ -1,0 +1,602 @@
+﻿define("ECOP.AA_Common.CookiesPopup.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP.model", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Reactive_Pat.controller", "ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$model", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECOP.referencesHealth", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_Reactive_Pat.controller$SetCookie", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$GetCookie", "ECOP.model$DateTimeRecordList"], function (OutSystems, ECOPModel, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Reactive_PatController, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvcModel) {
+var OS = OutSystems.Internal;
+var GetLatestUpdatedCookieAggrRec = (function (_super) {
+__extends(GetLatestUpdatedCookieAggrRec, _super);
+function GetLatestUpdatedCookieAggrRec(defaults) {
+_super.apply(this, arguments);
+}
+GetLatestUpdatedCookieAggrRec.RecordListType = ECOPModel.DateTimeRecordList;
+GetLatestUpdatedCookieAggrRec.init();
+return GetLatestUpdatedCookieAggrRec;
+})(OS.Model.AggregateRecord);
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ShowPopup", "showPopupVar", "ShowPopup", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("GetLatestUpdatedCookie", "getLatestUpdatedCookieAggr", "getLatestUpdatedCookieAggr", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetLatestUpdatedCookieAggrRec());
+}, true, GetLatestUpdatedCookieAggrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvcModel.hasValidationWidgets;
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "AA_Common.CookiesPopup");
+});
+define("ECOP.AA_Common.CookiesPopup.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Reactive_Pat.controller", "react", "OutSystems/ReactView/Main", "ECOP.AA_Common.CookiesPopup.mvc$model", "ECOP.AA_Common.CookiesPopup.mvc$controller", "ECOP.clientVariables", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$view", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECOP.referencesHealth", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_Reactive_Pat.controller$SetCookie", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$GetCookie", "ECOP.model$DateTimeRecordList"], function (OutSystems, ECOPModel, ECOPController, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Reactive_PatController, React, OSView, ECOP_AA_Common_CookiesPopup_mvc_model, ECOP_AA_Common_CookiesPopup_mvc_controller, ECOPClientVariables, OSWidgets, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "AA_Common.CookiesPopup";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_AA_Common_CookiesPopup_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_AA_Common_CookiesPopup_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Popup, {
+extendedProperties: {
+"aria-label": OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("PvAU+cSWqkuQV+n2mOohBg#Value.-1708142096.1", "The cookies from PLUS")
+},
+showPopup: model.variables.showPopupVar,
+style: "popup-dialog cookie-wall-popup",
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view, {
+inputs: {
+HideCloseButton: true,
+StackedButtons: ECOPClientVariables.getIsPhone(),
+ExtendedClass: "cookies-popup"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+header: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h3",
+_idProps: {
+service: idService,
+name: "cookieHeader"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+extendedProperties: {
+tabIndex: (-1).toString(),
+"aria-live": "assertive",
+role: "alert"
+},
+text: [$text(getTranslation("tmkIvfPOK0W1gM7e7ouTxw#Value", "The cookies from PLUS"))],
+_idProps: {
+service: idService,
+name: "title1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.setFocusToTitle$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+extendedProperties: {
+tabIndex: "0"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("FF1q4glQQUio5JZ3tsY7uw#Value", "We use cookies and similar technologies so that we and third parties can track your behavior on our website(s), but also outside it, including when you click through from our emails and newsletters. We may also share encrypted personal data (such as an email address and purchase data) with third parties such as our advertising partners to show you personalized advertisements on our website(s), but also elsewhere. We can also use your data to perform analyzes such as measuring the effectiveness of our advertisements. If you accept all cookies, you agree that we can share your data (encrypted) with third parties. Through ")), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_GoToSettings$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "font-semi-bold text-underline gtm-cookies-popup-cookie-settings-link",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("cvuWOZALS0WMWUeHRHlz4w#Value", "cookie settings"))), $text(getTranslation("jvaNayZejUiT1mwhycXYoQ#Value", " You can also set which cookies we place and change or withdraw your consent. Read more in our ")), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_GoToConditions$Action("cookies-informatie", controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "font-semi-bold text-underline gtm-cookies-popup-policy-link",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("nIabtGIW10yRQ5PE0cVMdA#Value", "cookie policy"))), $text(getTranslation("LwiqDOjKV0CfKKYui7Hnvw#Value", " and ")), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_GoToConditions$Action("privacy-statement", controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "font-semi-bold text-underline gtm-cookies-popup-privacy-link",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, "privacy statement"), ".")];
+}),
+footerLeftButton: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_GoToSettings$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "link-with-icon gtm-cookies-popup-settings-link",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("sy0oz8cA_0eD8xlPNGGmdA#Value", "Set yourself")))];
+}),
+footerRightButtom: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+isDefault: false,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_RejectAllCookies$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "btn btn-cookies-refuse",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("NmedQlBBi0uZ_3SW++ImIQ#Value", "Refuse"))), React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "ThemeGrid_MarginGutter"
+},
+isDefault: false,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_AcceptAllCookies$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "btn btn-primary btn-cookies-accept gtm-cookies-popup-accept-all-btn",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("qBaxJTTnYUmpmtRjbAafmQ#Value", "Accept")))];
+})
+},
+_dependencies: []
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP.AA_Common.CookiesPopup.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Reactive_Pat.controller", "ECOP.languageResources", "ECOP.clientVariables", "ECOP.AA_Common.CookiesPopup.mvc$translationsResources", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECOP.referencesHealth", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_Reactive_Pat.controller$SetCookie", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$GetCookie", "ECOP.model$DateTimeRecordList"], function (OutSystems, ECOPModel, ECOPController, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Reactive_PatController, ECOPLanguageResources, ECOPClientVariables, ECOP_AA_Common_CookiesPopup_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+getLatestUpdatedCookie$AggrRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getLatestUpdatedCookie$AggrRefresh: []
+};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECOP_AA_Common_CookiesPopup_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.getLatestUpdatedCookie$AggrRefresh = function (maxRecords, startIndex, callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callAggregateWithStartIndexAndClientVars("ScreenDataSetGetLatestUpdatedCookie", "screenservices/ECOP/AA_Common/CookiesPopup/ScreenDataSetGetLatestUpdatedCookie", "foB9ZBD1_DC7IFpIe7JlxA", maxRecords, startIndex, function (b) {
+model.variables.getLatestUpdatedCookieAggr.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getLatestUpdatedCookieAggr.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getLatestUpdatedCookieAggr.constructor));
+}, undefined, undefined, undefined, callContext, ECOPClientVariables, true).then(function () {
+return controller._onAfterFetch_GetLatestUpdatedCookie$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["getLatestUpdatedCookie$AggrRefresh"];
+// Client Actions
+Controller.prototype._setFocusToTitle$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetFocusToTitle");
+callContext = controller.callContext(callContext);
+// Execute Action: SetFocus
+PLUS_OutSystemsUI_2_8_0Controller.default.setFocus$Action(idService.getId("title1"), callContext);
+};
+Controller.prototype._onClick_AcceptAllCookies$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_AcceptAllCookies");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: SetCookie_Baked
+ECOP_Reactive_PatController.default.setCookie$Action("baked", OS.BuiltinFunctions.dateTimeToText(model.variables.getLatestUpdatedCookieAggr.listOut.getCurrent(callContext.iterationContext).updatedOnMaxAttr), 90, "/", callContext);
+// Execute Action: SetCookie_Level
+ECOP_Reactive_PatController.default.setCookie$Action("plus_cookie_level", "3", 90, "/", callContext);
+// ShowPopup = False
+model.variables.showPopupVar = false;
+// Trigger Event: PopupClosed
+return controller.popupClosed$Action(callContext);
+});
+};
+Controller.prototype._onClick_GoToConditions$Action = function (targetPageSlugIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_GoToConditions");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.AA_Common.CookiesPopup.OnClick_GoToConditions$vars"))());
+vars.value.targetPageSlugInLocal = targetPageSlugIn;
+return OS.Flow.executeAsyncFlow(function () {
+// ShowPopup = False
+model.variables.showPopupVar = false;
+// Trigger Event: PopupClosed
+return controller.popupClosed$Action(callContext).then(function () {
+// Destination: /ECOP/voorwaarden
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "voorwaarden/:PrimarySlugParam?/:SecondarySlugParam?", {
+PrimarySlugParam: OS.DataConversion.ServerDataConverter.to(vars.value.targetPageSlugInLocal, OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+});
+};
+Controller.registerVariableGroupType("ECOP.AA_Common.CookiesPopup.OnClick_GoToConditions$vars", [{
+name: "TargetPageSlug",
+attrName: "targetPageSlugInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var getCookieVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GetCookie
+getCookieVar.value = ECOP_Reactive_PatController.default.getCookie$Action("baked", callContext);
+
+// FoundCookie
+return OS.Flow.executeSequence(function () {
+if((!(getCookieVar.value.isSuccessOut))) {
+// Trigger Event: PopupOpened
+return controller.popupOpened$Action(callContext).then(function () {
+// Execute Action: SetDefaultCookie_Level
+ECOP_Reactive_PatController.default.setCookie$Action("plus_cookie_level", "0", 0, "/", callContext);
+// ShowPopup = True
+model.variables.showPopupVar = true;
+});
+}
+
+});
+});
+};
+Controller.prototype._onAfterFetch_GetLatestUpdatedCookie$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_GetLatestUpdatedCookie");
+callContext = controller.callContext(callContext);
+var getCookieVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GetCookie
+getCookieVar.value = ECOP_Reactive_PatController.default.getCookie$Action("baked", callContext);
+
+return OS.Flow.executeSequence(function () {
+if((getCookieVar.value.isSuccessOut)) {
+// CanBeConvertedToDateTime
+return OS.Flow.executeSequence(function () {
+if((OS.BuiltinFunctions.textToDateTimeValidate(getCookieVar.value.cookieValueOut))) {
+// OUTDATED
+return OS.Flow.executeSequence(function () {
+if((model.variables.getLatestUpdatedCookieAggr.listOut.getCurrent(callContext.iterationContext).updatedOnMaxAttr.gt(OS.BuiltinFunctions.textToDateTime(getCookieVar.value.cookieValueOut)))) {
+// ShowPopup = True
+model.variables.showPopupVar = true;
+// Trigger Event: PopupOpened
+return controller.popupOpened$Action(callContext);
+}
+
+});
+}
+
+});
+}
+
+});
+});
+};
+Controller.prototype._onClick_GoToSettings$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_GoToSettings");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// ShowPopup = False
+model.variables.showPopupVar = false;
+// Trigger Event: PopupClosed
+return controller.popupClosed$Action(callContext).then(function () {
+// Destination: /ECOP/cookievoorkeuren
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "cookievoorkeuren", {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+});
+};
+Controller.prototype._onClick_RejectAllCookies$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_RejectAllCookies");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: SetCookie_Baked
+ECOP_Reactive_PatController.default.setCookie$Action("baked", OS.BuiltinFunctions.dateTimeToText(model.variables.getLatestUpdatedCookieAggr.listOut.getCurrent(callContext.iterationContext).updatedOnMaxAttr), 90, "/", callContext);
+// Execute Action: SetCookie_Level
+ECOP_Reactive_PatController.default.setCookie$Action("plus_cookie_level", "0", 90, "/", callContext);
+// ShowPopup = False
+model.variables.showPopupVar = false;
+// Trigger Event: PopupClosed
+return controller.popupClosed$Action(callContext);
+});
+};
+
+Controller.prototype.setFocusToTitle$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setFocusToTitle$Action, callContext);
+
+};
+Controller.prototype.onClick_AcceptAllCookies$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_AcceptAllCookies$Action, callContext);
+
+};
+Controller.prototype.onClick_GoToConditions$Action = function (targetPageSlugIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_GoToConditions$Action, callContext, targetPageSlugIn);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.onAfterFetch_GetLatestUpdatedCookie$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_GetLatestUpdatedCookie$Action, callContext);
+
+};
+Controller.prototype.onClick_GoToSettings$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_GoToSettings$Action, callContext);
+
+};
+Controller.prototype.onClick_RejectAllCookies$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_RejectAllCookies$Action, callContext);
+
+};
+Controller.prototype.popupOpened$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.popupClosed$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOPLanguageResources);
+});
+
+define("ECOP.AA_Common.CookiesPopup.mvc$translationsResources", ["exports", "ECOP.AA_Common.CookiesPopup.mvc$translationsResources.nl-NL"], function (exports, ECOP_AA_Common_CookiesPopup_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECOP_AA_Common_CookiesPopup_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECOP.AA_Common.CookiesPopup.mvc$translationsResources.nl-NL", [], function () {
+return {
+"PvAU+cSWqkuQV+n2mOohBg#Value.-1708142096.1": "De cookies van PLUS",
+"qBaxJTTnYUmpmtRjbAafmQ#Value": "Accepteer",
+"NmedQlBBi0uZ_3SW++ImIQ#Value": "Weigeren",
+"sy0oz8cA_0eD8xlPNGGmdA#Value": "Zelf instellen",
+"LwiqDOjKV0CfKKYui7Hnvw#Value": " en ",
+"nIabtGIW10yRQ5PE0cVMdA#Value": "cookiebeleid",
+"jvaNayZejUiT1mwhycXYoQ#Value": " kun je ook zelf instellen welke cookies we plaatsen en je toestemming wijzigen of intrekken. Lees meer in ons ",
+"cvuWOZALS0WMWUeHRHlz4w#Value": "cookievoorkeuren ",
+"FF1q4glQQUio5JZ3tsY7uw#Value": "Wij gebruiken cookies en vergelijkbare technologieën, zodat wij en derden jouw gedrag op onze website(s), maar ook daarbuiten kunnen volgen, ook wanneer je doorklikt vanuit onze e-mails en nieuwsbrieven. Verder kunnen wij versleutelde persoonsgegevens delen (zoals een e-mailadres en aankoopgegevens) met derde partijen zoals onze advertentiepartners om je gepersonaliseerde advertenties te laten zien op onze website(s), maar ook daarbuiten. Ook kunnen wij jouw gegevens gebruiken om analyses uit te voeren zoals het meten van de effectiviteit van onze advertenties. Als je alle cookies accepteert, dan ga je akkoord dat wij jouw gegevens (versleuteld) kunnen delen met derden. Via ",
+"tmkIvfPOK0W1gM7e7ouTxw#Value": "De cookies van PLUS"
+};
+});

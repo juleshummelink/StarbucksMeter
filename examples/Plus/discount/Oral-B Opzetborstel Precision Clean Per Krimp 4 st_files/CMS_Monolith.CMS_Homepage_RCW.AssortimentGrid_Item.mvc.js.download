@@ -1,0 +1,403 @@
+﻿define("CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$model", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECP_Category_CS.model", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "PLUS_OutSystemsUI_2_8_0.Content.ListItemContent.mvc$model", "CMS_Monolith.controller$GetStaticImage", "ECP_Category_CS.model$Category_strRec", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECP_Category_CS", "CMS_Monolith.model$Shared_ActiveDeviceRec"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECP_Category_CSModel, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("Category", "categoryIn", "Category", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Category_CSModel.Category_strRec());
+}, false, ECP_Category_CSModel.Category_strRec), 
+this.attr("_categoryInDataFetchStatus", "_categoryInDataFetchStatus", "_categoryInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ActiveDevice", "activeDeviceIn", "ActiveDevice", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_ActiveDeviceRec());
+}, false, CMS_MonolithModel.Shared_ActiveDeviceRec), 
+this.attr("_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("Category" in inputs) {
+this.variables.categoryIn = inputs.Category;
+if("_categoryInDataFetchStatus" in inputs) {
+this.variables._categoryInDataFetchStatus = inputs._categoryInDataFetchStatus;
+}
+
+}
+
+if("ActiveDevice" in inputs) {
+this.variables.activeDeviceIn = inputs.ActiveDevice;
+if("_activeDeviceInDataFetchStatus" in inputs) {
+this.variables._activeDeviceInDataFetchStatus = inputs._activeDeviceInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CMS_Homepage_RCW.AssortimentGrid_Item");
+});
+define("CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$view", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECP_Category_CS.model", "react", "OutSystems/ReactView/Main", "CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$model", "CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Content.ListItemContent.mvc$view", "CMS_Monolith.controller$GetStaticImage", "ECP_Category_CS.model$Category_strRec", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECP_Category_CS", "CMS_Monolith.model$Shared_ActiveDeviceRec"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECP_Category_CSModel, React, OSView, CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_model, CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_controller, OSWidgets, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CMS_Homepage_RCW.AssortimentGrid_Item";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+tabIndex: "0"
+},
+style: "cf-assortiment-grid-item",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(!(model.variables.activeDeviceIn.isPhoneAttr), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "padding-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+style: "text-align: left;"
+},
+style: "cf-assortiment-grid-item__image",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageLabel: model.variables.categoryIn.imageLabelAttr,
+_imageLabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus),
+ImageURL: model.getCachedValue(idService.getId("Gq_g1QCkWESwSafbLt60qA.ImageURL"), function () {
+return CMS_MonolithController.default.getStaticImage$Action(model.variables.categoryIn.slugAttr, 120, 120, 0, "", false, callContext).urlOut;
+}, function () {
+return model.variables.categoryIn.slugAttr;
+}),
+_imageURLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "text-neutral-2",
+Size: CMS_MonolithModel.staticEntities.iconSize.size5x,
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "4",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-assortiment-grid-item__text margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "Adaptive"
+},
+value: model.variables.categoryIn.nameAttr,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus)
+})))];
+}, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageURL: model.getCachedValue(idService.getId("zxkIaPauGE6x7fq+rLHGKA.ImageURL"), function () {
+return CMS_MonolithController.default.getStaticImage$Action(model.variables.categoryIn.slugAttr, 64, 64, 0, "", false, callContext).urlOut;
+}, function () {
+return model.variables.categoryIn.slugAttr;
+}),
+_imageURLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus),
+ImageLabel: model.variables.categoryIn.imageLabelAttr,
+_imageLabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus),
+ExtendedClass: "cf-assortiment-grid-item__image"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "8",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: CMS_MonolithModel.staticEntities.iconSize.size4x,
+Name: "home",
+ExtendedClass: "text-neutral-2"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "Adaptive"
+},
+style: "cf-assortiment-grid-item__text padding-right-base",
+value: model.variables.categoryIn.nameAttr,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus)
+})];
+}),
+right: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables._categoryInDataFetchStatus), asPrimitiveValue(model.variables.categoryIn.nameAttr), asPrimitiveValue(model.variables.categoryIn.imageLabelAttr), asPrimitiveValue(model.variables.categoryIn.slugAttr)]
+})];
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$controller", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECP_Category_CS.model", "CMS_Monolith.languageResources", "CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$translationsResources", "CMS_Monolith.controller$GetStaticImage", "ECP_Category_CS.model$Category_strRec", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECP_Category_CS", "CMS_Monolith.model$Shared_ActiveDeviceRec"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECP_Category_CSModel, CMS_MonolithLanguageResources, CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return CMS_MonolithController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, CMS_MonolithLanguageResources);
+});
+
+define("CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

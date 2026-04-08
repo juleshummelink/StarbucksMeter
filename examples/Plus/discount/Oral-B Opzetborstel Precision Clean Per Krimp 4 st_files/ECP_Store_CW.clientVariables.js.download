@@ -1,0 +1,22 @@
+﻿define("ECP_Store_CW.clientVariables", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+var ClientVariables = (function (_super) {
+var clientVarsService;
+function ClientVariables() {
+clientVarsService = OS.Injector.resolve(OS.ServiceNames.ClientVariablesService);
+}
+ClientVariables.prototype.getTriggerStoreSelectorPromt = function () {
+return clientVarsService.getVariable("TriggerStoreSelectorPromt", "ECP_Store_CW", OS.Types.Boolean, true);
+};
+ClientVariables.prototype.setTriggerStoreSelectorPromt = function (value) {
+return clientVarsService.setVariable("TriggerStoreSelectorPromt", "ECP_Store_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.serialize = function () {
+return {
+TriggerStoreSelectorPromt: OS.DataConversion.ServerDataConverter.to(this.getTriggerStoreSelectorPromt(), OS.Types.Boolean)
+};
+};
+return ClientVariables;
+})();
+return new ClientVariables();
+});

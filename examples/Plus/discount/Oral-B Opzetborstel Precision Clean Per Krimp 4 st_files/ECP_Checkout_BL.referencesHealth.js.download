@@ -1,0 +1,131 @@
+﻿define("ECP_Checkout_BL.referencesHealth$CMP_BL", [], function () {
+// Reference to producer 'CMP_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$CMP_CS", [], function () {
+// Reference to producer 'CMP_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$CT_Cart_IS", [], function () {
+// Reference to producer 'CT_Cart_IS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$CT_DiscountCode_IS", [], function () {
+// Reference to producer 'CT_DiscountCode_IS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$CT_Product_IS", [], function () {
+// Reference to producer 'CT_Product_IS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$CT_Promotion_IS", [], function () {
+// Reference to producer 'CT_Promotion_IS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$CT_Supporting_IS", [], function () {
+// Reference to producer 'CT_Supporting_IS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Delivery_DynamicCost_CS", [], function () {
+// Reference to producer 'Delivery_DynamicCost_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$DigitalWallet_CS", [], function () {
+// Reference to producer 'DigitalWallet_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$DigitalWallet_IS", [], function () {
+// Reference to producer 'DigitalWallet_IS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECOM_Product_CS", [], function () {
+// Reference to producer 'ECOM_Product_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECOP_Convert_ReleaseToggles_CS", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECOP_Convert_ReleaseToggles_Lib", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_Lib' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Authorization_Lib", [], function () {
+// Reference to producer 'ECP_Authorization_Lib' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Cart_BL", [], function () {
+// Reference to producer 'ECP_Cart_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Category_CS", [], function () {
+// Reference to producer 'ECP_Category_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Customer_CS", [], function () {
+// Reference to producer 'ECP_Customer_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_DiscountCode_BL", [], function () {
+// Reference to producer 'ECP_DiscountCode_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Entitlement_BL", [], function () {
+// Reference to producer 'ECP_Entitlement_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Order_BL", [], function () {
+// Reference to producer 'ECP_Order_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Product_BL", [], function () {
+// Reference to producer 'ECP_Product_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Promotion_BL", [], function () {
+// Reference to producer 'ECP_Promotion_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ECP_Setting_CS", [], function () {
+// Reference to producer 'ECP_Setting_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$FND_DateTime_Lib", [], function () {
+// Reference to producer 'FND_DateTime_Lib' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$FND_Geo_Lib", [], function () {
+// Reference to producer 'FND_Geo_Lib' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$HTTPRequestHandler", [], function () {
+// Reference to producer 'HTTPRequestHandler' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$OneWelcome_IS", [], function () {
+// Reference to producer 'OneWelcome_IS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Order_IS", [], function () {
+// Reference to producer 'Order_IS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$PCMP_CS", [], function () {
+// Reference to producer 'PCMP_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$PL_MT_Customer_Data", [], function () {
+// Reference to producer 'PL_MT_Customer_Data' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$PL_MT_ExceptionHandling_BL", [], function () {
+// Reference to producer 'PL_MT_ExceptionHandling_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$PL_MT_Logs_BL", [], function () {
+// Reference to producer 'PL_MT_Logs_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$PL_MT_Settings_Lib", [], function () {
+// Reference to producer 'PL_MT_Settings_Lib' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Sanitization", [], function () {
+// Reference to producer 'Sanitization' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$ServiceCenter", [], function () {
+// Reference to producer 'ServiceCenter' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Store_Capacity_BL", [], function () {
+// Reference to producer 'Store_Capacity_BL' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Store_Capacity_CS", [], function () {
+// Reference to producer 'Store_Capacity_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Store_CS", [], function () {
+// Reference to producer 'Store_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Store_Delivery_CS", [], function () {
+// Reference to producer 'Store_Delivery_CS' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Text", [], function () {
+// Reference to producer 'Text' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Ticks", [], function () {
+// Reference to producer 'Ticks' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$TimeZone", [], function () {
+// Reference to producer 'TimeZone' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth$Users", [], function () {
+// Reference to producer 'Users' is OK.
+});
+define("ECP_Checkout_BL.referencesHealth", [], function () {
+});

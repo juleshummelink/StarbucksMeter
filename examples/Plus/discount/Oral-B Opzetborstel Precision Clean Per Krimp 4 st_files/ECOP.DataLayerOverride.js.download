@@ -1,0 +1,68 @@
+﻿function dataLayerOverride() {
+
+    if(!isGtmLoaded() || document.querySelector('.gtm-head-script') === null){
+        setTimeout(dataLayerOverride, 100);
+    }
+    else{
+        
+        let original = window.dataLayer.push;
+
+        window.dataLayer.push = function(...args) {
+        
+            if(args[0]['gtm.element']) {
+                //args[0]['gtm.element'] = args[0]['gtm.element'].cloneNode(true);
+
+                let currentNode = args[0]['gtm.element'];
+                let clonedNode = currentNode.cloneNode(true);  // Clone the current node (with children if needed)
+                let gtm_ele_guid = Date.now();
+                clonedNode.setAttribute("data-gtm-cloned-id", gtm_ele_guid)
+                let clonedHierarchy = clonedNode;
+                
+                // Traverse upward through the ancestors
+                while (currentNode.parentElement) {
+                    let parentClone = currentNode.parentElement.cloneNode(false);  // Clone the parent without children
+                    parentClone.appendChild(clonedHierarchy);  // Append the cloned node to the parent
+                    clonedHierarchy = parentClone;  // Move up the hierarchy
+                    currentNode = currentNode.parentElement;  // Move up to the next ancestor
+                }
+                
+                args[0]['gtm.element'] = clonedHierarchy.querySelector("[data-gtm-cloned-id='" + gtm_ele_guid + "']");
+            }
+                
+            try {
+                return original.apply(this,args)
+            } catch (e) {
+                console.log(e)
+            }
+        }  
+    }
+}
+
+function isGtmLoaded() {
+    window.dataLayer = window.dataLayer || [];
+    let gtmStartedEvent = window.dataLayer.find(element => element['gtm.start']);
+    if (!gtmStartedEvent) {
+        return false;
+    }   
+    else if (!gtmStartedEvent['gtm.uniqueEventId']){
+        return false;
+    }
+
+    return true; 
+}
+
+function cloneNodeWithParents(node) {
+    let currentNode = node;
+    let clonedNode = currentNode.cloneNode(true);  // Clone the current node (with children if needed)
+    let clonedHierarchy = clonedNode;
+    
+    // Traverse upward through the ancestors
+    while (currentNode.parentElement) {
+        let parentClone = currentNode.parentElement.cloneNode(false);  // Clone the parent without children
+        parentClone.appendChild(clonedHierarchy);  // Append the cloned node to the parent
+        clonedHierarchy = parentClone;  // Move up the hierarchy
+        currentNode = currentNode.parentElement;  // Move up to the next ancestor
+    }
+    
+    return clonedHierarchy;
+}

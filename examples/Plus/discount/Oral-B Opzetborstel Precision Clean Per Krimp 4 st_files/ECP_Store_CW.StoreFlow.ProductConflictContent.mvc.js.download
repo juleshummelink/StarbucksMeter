@@ -1,0 +1,1244 @@
+﻿define("ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Cart_CW.controller", "CT_Cart_IS.model", "ECP_Store_CW.controller", "ECP_Cart_BL.model", "ECOP_Base_RPat.CustomPatterns.Sidebar_Content_Layout.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$model", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$model", "PLUS_OutSystemsUI_2_8_0.Utilities.ButtonLoading.mvc$model", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "CMS_Monolith.controller$ContentfulImageOptimization", "ECP_Store_CW.model$Aux_ItemInCartList", "ECOP_FE_Core.controller$Set_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$GTMEvent_StorePicker_ChangedStore", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Store_CW.model$Aux_LineItemDefinitionList", "CT_Cart_IS.model$MyCart_StrRec", "ECP_Store_CW.referencesHealth$CT_Cart_IS", "ECP_Store_CW.controller$Store_SetNewStore", "ECP_Cart_BL.model$Aux_ItemInCartRec", "ECP_Store_CW.referencesHealth$ECP_Cart_BL"], function (OutSystems, ECP_Store_CWModel, CMS_MonolithController, ECOP_FE_CoreController, ECP_Cart_CWController, CT_Cart_ISModel, ECP_Store_CWController, ECP_Cart_BLModel, ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvcModel, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_CustomPatterns_Badge_mvcModel, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel, PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvcModel) {
+var OS = OutSystems.Internal;
+
+var GetProductDataDataActRec = (function (_super) {
+__extends(GetProductDataDataActRec, _super);
+function GetProductDataDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetProductDataDataActRec.attributesToDeclare = function () {
+return [
+this.attr("UnavailableProductInfo", "unavailableProductInfoOut", "UnavailableProductInfo", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Cart_BLModel.Aux_ItemInCartRec());
+}, true, ECP_Cart_BLModel.Aux_ItemInCartRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetProductDataDataActRec.fromStructure = function (str) {
+return new GetProductDataDataActRec(new GetProductDataDataActRec.RecordClass({
+unavailableProductInfoOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetProductDataDataActRec.init();
+return GetProductDataDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsLoading", "isLoadingVar", "IsLoading", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ProductConflictTypeId", "productConflictTypeIdIn", "ProductConflictTypeId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_productConflictTypeIdInDataFetchStatus", "_productConflictTypeIdInDataFetchStatus", "_productConflictTypeIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("UnavailableProductList", "unavailableProductListIn", "UnavailableProductList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Store_CWModel.Aux_ItemInCartList());
+}, false, ECP_Store_CWModel.Aux_ItemInCartList), 
+this.attr("_unavailableProductListInDataFetchStatus", "_unavailableProductListInDataFetchStatus", "_unavailableProductListInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("StoreId", "storeIdIn", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("_storeIdInDataFetchStatus", "_storeIdInDataFetchStatus", "_storeIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("StoreName", "storeNameIn", "StoreName", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_storeNameInDataFetchStatus", "_storeNameInDataFetchStatus", "_storeNameInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetProductData", "getProductDataDataAct", "getProductDataDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetProductDataDataActRec());
+}, true, GetProductDataDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((((((ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvcModel.hasValidationWidgets || ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_Badge_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("ProductConflictTypeId" in inputs) {
+this.variables.productConflictTypeIdIn = inputs.ProductConflictTypeId;
+if("_productConflictTypeIdInDataFetchStatus" in inputs) {
+this.variables._productConflictTypeIdInDataFetchStatus = inputs._productConflictTypeIdInDataFetchStatus;
+}
+
+}
+
+if("UnavailableProductList" in inputs) {
+this.variables.unavailableProductListIn = inputs.UnavailableProductList;
+if("_unavailableProductListInDataFetchStatus" in inputs) {
+this.variables._unavailableProductListInDataFetchStatus = inputs._unavailableProductListInDataFetchStatus;
+}
+
+}
+
+if("StoreId" in inputs) {
+this.variables.storeIdIn = inputs.StoreId;
+if("_storeIdInDataFetchStatus" in inputs) {
+this.variables._storeIdInDataFetchStatus = inputs._storeIdInDataFetchStatus;
+}
+
+}
+
+if("StoreName" in inputs) {
+this.variables.storeNameIn = inputs.StoreName;
+if("_storeNameInDataFetchStatus" in inputs) {
+this.variables._storeNameInDataFetchStatus = inputs._storeNameInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "StoreFlow.ProductConflictContent");
+});
+define("ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Cart_CW.controller", "CT_Cart_IS.model", "ECP_Cart_BL.model", "react", "OutSystems/ReactView/Main", "ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$model", "ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$controller", "ECP_Store_CW.clientVariables", "ECOP_Base_RPat.CustomPatterns.Sidebar_Content_Layout.mvc$view", "OutSystems/ReactWidgets/Main", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$view", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$view", "PLUS_OutSystemsUI_2_8_0.Utilities.ButtonLoading.mvc$view", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "CMS_Monolith.controller$ContentfulImageOptimization", "ECP_Store_CW.model$Aux_ItemInCartList", "ECOP_FE_Core.controller$Set_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$GTMEvent_StorePicker_ChangedStore", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Store_CW.model$Aux_LineItemDefinitionList", "CT_Cart_IS.model$MyCart_StrRec", "ECP_Store_CW.referencesHealth$CT_Cart_IS", "ECP_Store_CW.controller$Store_SetNewStore", "ECP_Cart_BL.model$Aux_ItemInCartRec", "ECP_Store_CW.referencesHealth$ECP_Cart_BL"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, CMS_MonolithController, ECOP_FE_CoreController, ECP_Cart_CWController, CT_Cart_ISModel, ECP_Cart_BLModel, React, OSView, ECP_Store_CW_StoreFlow_ProductConflictContent_mvc_model, ECP_Store_CW_StoreFlow_ProductConflictContent_mvc_controller, ECP_Store_CWClientVariables, ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvc_view, OSWidgets, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "StoreFlow.ProductConflictContent";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvc_view, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreFlow_ProductConflictContent_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreFlow_ProductConflictContent_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvc_view, {
+inputs: {
+RemovePhonePaddingX: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "unavailable-products__description",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.storeChange) || (model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.merge)), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+value: (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("qCYzN1QcTkSozVKE5HMjRw#ValueExpression.261135313.1", "Unfortunately, not all products are available in your") + " "),
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+style: "font-semi-bold",
+value: model.variables.storeNameIn,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._storeNameInDataFetchStatus)
+}), React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("E3QHSDRhr0aPEW1l9crCrw#ValueExpression.1962177926.1", ". These products are therefore removed from your shopping cart."),
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [$if((model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.storeLocatorChange), false, this, function () {
+return [$text(getTranslation("8TZqdcZwaUS4swNggcAxEA#Value", "Unfortunately, not all products are available at ")), React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+style: "font-semi-bold",
+value: model.variables.storeNameIn,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._storeNameInDataFetchStatus)
+}), $text(getTranslation("ffdeIzRz_kK23k5G_JpKbA#Value", ", these products will be removed from your shopping cart or go back to choose another supermarket."))];
+}, function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+value: (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("34ouB4jEgk+2Pdx8NIe7mA#ValueExpression.-2069485520.1", "Unfortunately, this product is not available at") + " "),
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+style: "font-semi-bold",
+value: model.variables.storeNameIn,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._storeNameInDataFetchStatus)
+}), React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("mgUAH26jpE+q9bpdj3Nxow#ValueExpression.1792005702.1", ". It will be removed from your shopping cart. Choose an alternative product or select another supermarket to order this product."),
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})];
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "unavailable-products__extra",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.storeChange) || (model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.merge)), false, this, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "font-semi-bold",
+text: [$text(getTranslation("Diz38EcH8UKRhvfZUuEVjA#Value", "Unavailable products in selected store:"))],
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "font-semi-bold",
+text: [$text(getTranslation("GV_eG24eZ0aFQ6bYdXSyVQ#Value", "Unavailable product in selected store:"))],
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})), $if((((model.variables.productConflictTypeIdIn) !== (ECP_Store_CWModel.staticEntities.productConflictType.firstStoreSelection)) || model.variables.getProductDataDataAct.isDataFetchedAttr), false, this, function () {
+return [React.createElement(OSWidgets.List, {
+animateItems: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.unavailableProductListIn,
+style: "list list-group margin-bottom-base",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._unavailableProductListInDataFetchStatus),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+ExtendedClass: "plp-item-row-mode",
+DisableSlider: true,
+HasBorderBottom: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "13",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageLabel: model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).imageLabelAttr,
+_imageLabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._unavailableProductListInDataFetchStatus),
+ImageURL: model.getCachedValue(idService.getId("Lvid7rb1ekyja2hpwvj9og.ImageURL"), function () {
+return CMS_MonolithController.default.contentfulImageOptimization$Action(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).imageURLAttr, 104, 104, CMS_MonolithController.default.imageUtils_GetCDNImgFormat$Action(callContext).cDNImgFormatOut, CMS_MonolithController.default.imageUtils_GetCDNImgCompressionRatio$Action(callContext).cDNImgCompressionRatioOut, ECP_Store_CWModel.staticEntities.contentfulImageResizeBehavior.pad, callContext).newURLOut;
+}, function () {
+return model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).imageURLAttr;
+}),
+_imageURLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._unavailableProductListInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "14",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Store_CWModel.staticEntities.iconSize2.size3x,
+ExtendedClass: "text-neutral-2",
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "15",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).nameAttr,
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._unavailableProductListInDataFetchStatus)
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [$if(((model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).subtitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).subtitleAttr,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._unavailableProductListInDataFetchStatus)
+})];
+}, function () {
+return [];
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.getCachedValue(idService.getId("HtFYDNpwYUy7r+1vrQQ0XA.Value"), function () {
+return (OS.BuiltinFunctions.decimalToText(OS.BuiltinFunctions.trunc(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).priceAttr)) + ".");
+}, function () {
+return model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).priceAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._unavailableProductListInDataFetchStatus)
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.getCachedValue(idService.getId("wmbeXXwTmkaNgix1YRnN+A.Value"), function () {
+return (((OS.BuiltinFunctions.index(OS.BuiltinFunctions.decimalToText(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).priceAttr), ".", 0, false, false) > -1)) ? (OS.BuiltinFunctions.substr(OS.BuiltinFunctions.formatDecimal(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).priceAttr, 2, ".", ","), (OS.BuiltinFunctions.index(OS.BuiltinFunctions.decimalToText(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).priceAttr), ".", 0, false, false) + 1), 2)) : ("00"));
+}, function () {
+return model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).priceAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._unavailableProductListInDataFetchStatus)
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+ExtendedClass: "disabled-quantity__badge",
+ShowFullNumber: true,
+Color: ECP_Store_CWModel.staticEntities.color.neutral0,
+Size: model.getCachedValue(idService.getId("w74x4mGwmkee8awtmc5fSg.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}),
+Number: OS.BuiltinFunctions.integerToLongInteger(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).quantityAttr),
+_numberInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._unavailableProductListInDataFetchStatus),
+Shape: ECP_Store_CWModel.staticEntities.shape.rounded
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "20",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables._unavailableProductListInDataFetchStatus), asPrimitiveValue(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).quantityAttr), asPrimitiveValue(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).priceAttr), asPrimitiveValue(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).subtitleAttr), asPrimitiveValue(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).nameAttr), asPrimitiveValue(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).imageURLAttr), asPrimitiveValue(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).imageLabelAttr)]
+})];
+}, callContext, idService, "1")
+},
+_dependencies: [asPrimitiveValue(model.variables._unavailableProductListInDataFetchStatus)]
+})];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "21",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+DisableSlider: true,
+ExtendedClass: "plp-item-row-mode",
+HasBorderBottom: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "22",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageURL: "",
+ImageLabel: ""
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "23",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Store_CWModel.staticEntities.iconSize2.size3x,
+ExtendedClass: "text-neutral-2",
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "24",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["Del Monte Halve Perziken op sap"],
+_idProps: {
+service: idService,
+uuid: "25"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [$if(((model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).subtitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["Per 415 gram"],
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["2."],
+_idProps: {
+service: idService,
+uuid: "27"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["78"],
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: PlaceholderContent.Empty,
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables._unavailableProductListInDataFetchStatus), asPrimitiveValue(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).subtitleAttr)]
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._unavailableProductListInDataFetchStatus), asPrimitiveValue(model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).subtitleAttr)]
+})];
+})];
+}),
+footer: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "unavailable-products__footer vertical-align",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.closed$Action(false, false, true, controller.callContext(eventHandlerContext));
+
+;
+},
+style: "unavailable-products__link link-with-icon gtm-product-conflict-choose-another-store",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("lxJ5DB2f1Em8KovgFuhivw#Value", "Choose another store"))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "unavailable-products-button__wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "31"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if((model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.storeChange), false, this, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvc_view, {
+inputs: {
+ExtendedClass: "min--width__button",
+ShowLabelOnLoading: true,
+IsLoading: model.variables.isLoadingVar
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "32",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+button: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+isDefault: false,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_RemoveProducts$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "btn btn-primary gtm-product-conflict-remove-products",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "osui-btn-loading__spinner-animation",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), $text(getTranslation("ATi6kh7apUOHzdOdDlBkPw#Value", "Remove products")))];
+})
+},
+_dependencies: []
+})];
+}, function () {
+return [$if((model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.storeLocatorChange), false, this, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvc_view, {
+inputs: {
+IsLoading: model.variables.isLoadingVar,
+ExtendedClass: "min--width__button",
+ShowLabelOnLoading: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "35",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+button: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+isDefault: false,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_RemoveProducts$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "btn btn-primary gtm-product-conflict-confirm-store-choice",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "osui-btn-loading__spinner-animation",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), $text(getTranslation("BAjya7k_8k+mQOrXMpSOBA#Value", "Change")))];
+})
+},
+_dependencies: []
+})];
+}, function () {
+return [$if((model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.merge), false, this, function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.closed$Action(false, false, false, controller.callContext(eventHandlerContext));
+
+;
+},
+style: "btn btn-primary min--width__button gtm-product-conflict-continue-shopping",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("3+X87RL110aC4UmmyLy6iQ#Value", "Continue shopping")))];
+}, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvc_view, {
+inputs: {
+IsLoading: model.variables.isLoadingVar,
+ShowLabelOnLoading: true,
+ExtendedClass: "min--width__button"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "39",
+alias: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+button: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+isDefault: false,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.screen_UpdateStore$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "btn btn-primary gtm-product-conflict-confirm-store-choice",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "40"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "osui-btn-loading__spinner-animation",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), $text(getTranslation("HYNoHaI2GUqZQX8098rnDw#Value", "Confirm")))];
+})
+},
+_dependencies: []
+})];
+})];
+})];
+})))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.isLoadingVar), asPrimitiveValue(model.variables.unavailableProductListIn), asPrimitiveValue(model.variables.getProductDataDataAct.isDataFetchedAttr), asPrimitiveValue(model.variables.storeNameIn), asPrimitiveValue(model.variables._unavailableProductListInDataFetchStatus), asPrimitiveValue(model.variables._storeNameInDataFetchStatus), asPrimitiveValue(model.variables._productConflictTypeIdInDataFetchStatus), asPrimitiveValue(model.variables.productConflictTypeIdIn)]
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Cart_CW.controller", "CT_Cart_IS.model", "ECP_Cart_BL.model", "ECP_Store_CW.languageResources", "ECP_Store_CW.clientVariables", "ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$translationsResources", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "CMS_Monolith.controller$ContentfulImageOptimization", "ECP_Store_CW.model$Aux_ItemInCartList", "ECOP_FE_Core.controller$Set_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$GTMEvent_StorePicker_ChangedStore", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Store_CW.model$Aux_LineItemDefinitionList", "CT_Cart_IS.model$MyCart_StrRec", "ECP_Store_CW.referencesHealth$CT_Cart_IS", "ECP_Store_CW.controller$Store_SetNewStore", "ECP_Cart_BL.model$Aux_ItemInCartRec", "ECP_Store_CW.referencesHealth$ECP_Cart_BL"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, CMS_MonolithController, ECOP_FE_CoreController, ECP_Cart_CWController, CT_Cart_ISModel, ECP_Cart_BLModel, ECP_Store_CWLanguageResources, ECP_Store_CWClientVariables, ECP_Store_CW_StoreFlow_ProductConflictContent_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+getProductData$DataActRefresh: -1
+};
+this.dataFetchDependentsGraph = {
+getProductData$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Store_CW_StoreFlow_ProductConflictContent_mvc_TranslationsResources;
+// Server Actions
+Controller.prototype.store_Update$ServerAction = function (oneWelcomeUserIdIn, storeIdIn, callContext) {
+var controller = this.controller;
+var inputs = {
+OneWelcomeUserId: OS.DataConversion.ServerDataConverter.to(oneWelcomeUserIdIn, OS.Types.Text),
+StoreId: OS.DataConversion.ServerDataConverter.to(storeIdIn, OS.Types.LongInteger)
+};
+return controller.callServerAction("Store_Update", "screenservices/ECP_Store_CW/StoreFlow/ProductConflictContent/ActionStore_Update", "G9sq0VrfKql1OlIp++xk+w", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+});
+};
+Controller.prototype.cartStore_ManageUnavailableProducts$ServerAction = function (oneWelcomeUserIdIn, storeIdIn, cartIdIn, productsToRemoveListIn, callContext) {
+var controller = this.controller;
+var inputs = {
+OneWelcomeUserId: OS.DataConversion.ServerDataConverter.to(oneWelcomeUserIdIn, OS.Types.Text),
+StoreId: OS.DataConversion.ServerDataConverter.to(storeIdIn, OS.Types.LongInteger),
+CartId: OS.DataConversion.ServerDataConverter.to(cartIdIn, OS.Types.Text),
+ProductsToRemoveList: OS.DataConversion.ServerDataConverter.to(productsToRemoveListIn, OS.Types.RecordList)
+};
+return controller.callServerAction("CartStore_ManageUnavailableProducts", "screenservices/ECP_Store_CW/StoreFlow/ProductConflictContent/ActionCartStore_ManageUnavailableProducts", "FDkn6cvnqtzFqvEdDp_0lg", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.ProductConflictContent$rssespaceecp_cart_bl_ActionCartStore_ManageUnavailableProducts"))();
+executeServerActionResult.myCartOut = OS.DataConversion.ServerDataConverter.from(outputs.MyCart, CT_Cart_ISModel.MyCart_StrRec);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.ProductConflictContent$rssespaceecp_cart_bl_ActionCartStore_ManageUnavailableProducts", [{
+name: "MyCart",
+attrName: "myCartOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new CT_Cart_ISModel.MyCart_StrRec();
+},
+complexType: CT_Cart_ISModel.MyCart_StrRec
+}]);
+
+// Aggregates and Data Actions
+Controller.prototype.getProductData$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetProductData", "screenservices/ECP_Store_CW/StoreFlow/ProductConflictContent/DataActionGetProductData", "m1gqkYmvXCS6SIRL2vyMsg", function (b) {
+model.variables.getProductDataDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getProductDataDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getProductDataDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true).then(function () {
+controller._onAfterFetch_GetProductData$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["getProductData$DataActRefresh"];
+// Client Actions
+Controller.prototype._refreshGetProductData$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("RefreshGetProductData");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// IsFirstStoreSelectionConflict
+return OS.Flow.executeSequence(function () {
+if(((model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.firstStoreSelection))) {
+// Refresh Query: GetProductData
+var result = controller.getProductData$DataActRefresh(callContext);
+model.flush();
+return result;
+}
+
+});
+});
+};
+Controller.prototype._screen_UpdateStore$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Screen_UpdateStore");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// User is anonymous?
+return OS.Flow.executeSequence(function () {
+if((!((OS.BuiltinFunctions.getUserId() === OS.BuiltinFunctions.nullIdentifier())))) {
+// Store changed?
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.storeIdIn.equals(ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext).userStoreIdOut)))) {
+// Execute Action: Store_Update
+model.flush();
+return controller.store_Update$ServerAction(model.variables.oneWelcomeUserIdIn, model.variables.storeIdIn, callContext);
+}
+
+});
+}
+
+}).then(function () {
+// Execute Action: Set_Client_UserStoreId
+model.flush();
+return ECOP_FE_CoreController.default.set_Client_UserStoreId$Action(model.variables.storeIdIn, callContext).then(function () {
+// Execute Action: GTMEvent_StorePicker_ChangedStore
+ECOP_FE_CoreController.default.gTMEvent_StorePicker_ChangedStore$Action(model.variables.storeNameIn, callContext);
+// Execute Action: ClearClientVar_ClickedProductSKU
+ECP_Cart_CWController.default.clearClientVar_ClickedProductSKU$Action(callContext);
+// Trigger Event: StoreChanged
+return controller.storeChanged$Action(model.variables.storeIdIn, callContext);
+});
+});
+});
+};
+Controller.prototype._onClick_RemoveProducts$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_RemoveProducts");
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var cartStore_ManageUnavailableProductsVar = new OS.DataTypes.VariableHolder();
+var cart_Client_GetIdVar = new OS.DataTypes.VariableHolder();
+var store_SetNewStoreVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// IsLoading = True
+// IsLoading = True
+model.variables.isLoadingVar = true;
+// Execute Action: Cart_Client_GetId
+cart_Client_GetIdVar.value = ECOP_FE_CoreController.default.cart_Client_GetId$Action(callContext);
+
+// Execute Action: CartStore_ManageUnavailableProducts
+model.flush();
+return controller.cartStore_ManageUnavailableProducts$ServerAction(model.variables.oneWelcomeUserIdIn, model.variables.storeIdIn, cart_Client_GetIdVar.value.cartIdOut, OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.unavailableProductListIn, new ECP_Store_CWModel.Aux_LineItemDefinitionList(), function (source, target) {
+target.lineItemIdAttr = source.lineItemIdAttr;
+target.sKUAttr = source.sKUAttr;
+target.quantityAttr = source.quantityAttr;
+target.priceAttr = source.priceAttr;
+return target;
+}), callContext).then(function (value) {
+cartStore_ManageUnavailableProductsVar.value = value;
+}).then(function () {
+// Execute Action: Store_SetNewStore
+model.flush();
+return ECP_Store_CWController.default.store_SetNewStore$Action(model.variables.storeIdIn, cartStore_ManageUnavailableProductsVar.value.myCartOut.idAttr, callContext).then(function (value) {
+store_SetNewStoreVar.value = value;
+});
+}).then(function () {
+// Execute Action: Screen_UpdateStore
+return controller._screen_UpdateStore$Action(callContext);
+}).then(function () {
+// IsLoading = False
+// IsLoading = False
+model.variables.isLoadingVar = false;
+OS.FeedbackMessageService.showFeedbackMessage(OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("qUaWrDPg9ECz+ZJW8wHZqw#Message.-1936361675.1", "Unavailable products have been removed from your shopping cart."), /*Success*/ 1);
+// Trigger Event: ProductsRemoved_Success
+return controller.closed$Action(true, cartStore_ManageUnavailableProductsVar.value.myCartOut.lineItemsAttr.isEmpty, false, callContext);
+});
+}).catch(function (ex) {
+OS.Logger.trace("ProductConflictContent.OnClick_RemoveProducts", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+// IsLoading = False
+// IsLoading = False
+model.variables.isLoadingVar = false;
+// Trigger Event: ProductsRemoved_Error
+return controller.closed$Action(false, false, false, callContext).then(function () {
+return OS.Flow.returnAsync();
+
+});
+});
+}
+
+throw ex;
+});
+};
+Controller.prototype._onAfterFetch_GetProductData$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_GetProductData");
+callContext = controller.callContext(callContext);
+if(((model.variables.productConflictTypeIdIn === ECP_Store_CWModel.staticEntities.productConflictType.firstStoreSelection))) {
+// UnavailableProductList.Current = GetProductData.UnavailableProductInfo
+model.variables.unavailableProductListIn.setCurrent(callContext.iterationContext, model.variables.getProductDataDataAct.unavailableProductInfoOut);
+// UnavailableProductList.Current.Quantity = 1
+model.variables.unavailableProductListIn.getCurrent(callContext.iterationContext).quantityAttr = 1;
+}
+
+};
+
+Controller.prototype.refreshGetProductData$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._refreshGetProductData$Action, callContext);
+
+};
+Controller.prototype.screen_UpdateStore$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._screen_UpdateStore$Action, callContext);
+
+};
+Controller.prototype.onClick_RemoveProducts$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_RemoveProducts$Action, callContext);
+
+};
+Controller.prototype.onAfterFetch_GetProductData$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_GetProductData$Action, callContext);
+
+};
+Controller.prototype.closed$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.storeChanged$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.refreshGetProductData$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.refreshGetProductData$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Store_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Store_CWLanguageResources);
+});
+
+define("ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$translationsResources", ["exports", "ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$translationsResources.nl-NL"], function (exports, ECP_Store_CW_StoreFlow_ProductConflictContent_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Store_CW_StoreFlow_ProductConflictContent_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Store_CW.StoreFlow.ProductConflictContent.mvc$translationsResources.nl-NL", [], function () {
+return {
+"HYNoHaI2GUqZQX8098rnDw#Value": "Bevestigen",
+"3+X87RL110aC4UmmyLy6iQ#Value": "Verder winkelen",
+"BAjya7k_8k+mQOrXMpSOBA#Value": "Wijzigen",
+"ATi6kh7apUOHzdOdDlBkPw#Value": "Verwijder producten",
+"lxJ5DB2f1Em8KovgFuhivw#Value": "Andere winkel kiezen",
+"GV_eG24eZ0aFQ6bYdXSyVQ#Value": "Niet beschikbare product in geselecteerde winkel:",
+"Diz38EcH8UKRhvfZUuEVjA#Value": "Niet beschikbare producten in geselecteerde winkel:",
+"mgUAH26jpE+q9bpdj3Nxow#ValueExpression.1792005702.1": ". Het wordt verwijderd uit je winkelwagentje. Kies een alternatief product of selecteer een andere supermarkt om dit product te bestellen.",
+"34ouB4jEgk+2Pdx8NIe7mA#ValueExpression.-2069485520.1": "Helaas is dit product niet beschikbaar bij",
+"ffdeIzRz_kK23k5G_JpKbA#Value": ", deze producten worden verwijderd uit je winkelwagentje of ga terug om een andere supermarkt te kiezen.",
+"8TZqdcZwaUS4swNggcAxEA#Value": "Helaas zijn niet alle producten beschikbaar bij ",
+"E3QHSDRhr0aPEW1l9crCrw#ValueExpression.1962177926.1": ". Deze producten worden daarom verwijderd uit je winkelwagentje.",
+"qCYzN1QcTkSozVKE5HMjRw#ValueExpression.261135313.1": "Helaas zijn niet alle producten beschikbaar in jouw winkel",
+"qUaWrDPg9ECz+ZJW8wHZqw#Message.-1936361675.1": "Niet beschikbare producten zijn uit je winkelwagen verwijderd."
+};
+});

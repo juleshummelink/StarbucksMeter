@@ -1,0 +1,1904 @@
+﻿define("ECOP_Reactive_Pat.controller$Canonical_Generate", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Canonical_Generate.SetCanonicalJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Canonical_Generate_SetCanonicalJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.canonical_Generate$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var setCanonicalJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Canonical_Generate$outVars"))());
+setCanonicalJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Canonical_Generate_SetCanonicalJS, "SetCanonical", "Canonical_Generate", {
+Canonical: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Canonical_Generate$setCanonicalJSResult"))();
+jsNodeResult.canonicalOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Canonical, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// CanonicalURL = SetCanonical.Canonical
+outVars.value.canonicalURLOut = setCanonicalJSResult.value.canonicalOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Canonical_Generate$setCanonicalJSResult", [{
+name: "Canonical",
+attrName: "canonicalOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Canonical_Generate$outVars", [{
+name: "CanonicalURL",
+attrName: "canonicalURLOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.canonical_Generate$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.canonical_Generate$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+CanonicalURL: OS.DataConversion.JSNodeParamConverter.to(actionResults.canonicalURLOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Canonical_Generate.SetCanonicalJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.Canonical = (window.location.protocol + "//" + window.location.host+window.location.pathname).replace(/\/$/, "");
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Canonical_GenerateWithPageParameter", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Canonical_GenerateWithPageParameter.SetCanonicalJS", "ECOP_Reactive_Pat.controller$Canonical_Generate"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Canonical_GenerateWithPageParameter_SetCanonicalJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.canonical_GenerateWithPageParameter$Action = function (pageParameterNameIn, pageNumberIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Canonical_GenerateWithPageParameter$vars"))());
+vars.value.pageParameterNameInLocal = pageParameterNameIn;
+vars.value.pageNumberInLocal = pageNumberIn;
+var canonical_GenerateVar = new OS.DataTypes.VariableHolder();
+var setCanonicalJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Canonical_GenerateWithPageParameter$outVars"))());
+// Execute Action: Canonical_Generate
+canonical_GenerateVar.value = ECOP_Reactive_PatController.default.canonical_Generate$Action(callContext);
+
+setCanonicalJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Canonical_GenerateWithPageParameter_SetCanonicalJS, "SetCanonical", "Canonical_GenerateWithPageParameter", {
+Hostname_Pathname: OS.DataConversion.JSNodeParamConverter.to(canonical_GenerateVar.value.canonicalURLOut, OS.Types.Text),
+PageParameterName: OS.DataConversion.JSNodeParamConverter.to(vars.value.pageParameterNameInLocal, OS.Types.Text),
+PageNumber: OS.DataConversion.JSNodeParamConverter.to(vars.value.pageNumberInLocal, OS.Types.Integer),
+Canonical: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Canonical_GenerateWithPageParameter$setCanonicalJSResult"))();
+jsNodeResult.canonicalOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Canonical, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// CanonicalURL = SetCanonical.Canonical
+outVars.value.canonicalURLOut = setCanonicalJSResult.value.canonicalOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Canonical_GenerateWithPageParameter$vars", [{
+name: "PageParameterName",
+attrName: "pageParameterNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "PageNumber",
+attrName: "pageNumberInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Canonical_GenerateWithPageParameter$setCanonicalJSResult", [{
+name: "Canonical",
+attrName: "canonicalOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Canonical_GenerateWithPageParameter$outVars", [{
+name: "CanonicalURL",
+attrName: "canonicalURLOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.canonical_GenerateWithPageParameter$Action = function (pageParameterNameIn, pageNumberIn) {
+pageParameterNameIn = (pageParameterNameIn === undefined) ? "" : pageParameterNameIn;
+pageNumberIn = (pageNumberIn === undefined) ? 0 : pageNumberIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.canonical_GenerateWithPageParameter$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(pageParameterNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(pageNumberIn, OS.Types.Integer)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+CanonicalURL: OS.DataConversion.JSNodeParamConverter.to(actionResults.canonicalURLOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Canonical_GenerateWithPageParameter.SetCanonicalJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.Canonical = $parameters.Hostname_Pathname;
+if($parameters.PageNumber > 1) {
+    $parameters.Canonical = $parameters.Canonical + "?"+$parameters.PageParameterName+"="+$parameters.PageNumber
+}
+    
+};
+});
+
+define("ECOP_Reactive_Pat.controller$CreateGUID", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$CreateGUID.GUIDJSJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_CreateGUID_GUIDJSJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.createGUID$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var gUIDJSJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CreateGUID$outVars"))());
+gUIDJSJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_CreateGUID_GUIDJSJS, "GUIDJS", "CreateGUID", {
+GUID: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CreateGUID$gUIDJSJSResult"))();
+jsNodeResult.gUIDOut = OS.DataConversion.JSNodeParamConverter.from($parameters.GUID, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// GUID = GUIDJS.GUID
+outVars.value.gUIDOut = gUIDJSJSResult.value.gUIDOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.CreateGUID$gUIDJSJSResult", [{
+name: "GUID",
+attrName: "gUIDOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.CreateGUID$outVars", [{
+name: "GUID",
+attrName: "gUIDOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.createGUID$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.createGUID$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+GUID: OS.DataConversion.JSNodeParamConverter.to(actionResults.gUIDOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$CreateGUID.GUIDJSJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.GUID = Math.random().toString(16).slice(10)
+};
+});
+
+define("ECOP_Reactive_Pat.controller$FlyoverGhost", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$FlyoverGhost.FlyoverGhostJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_FlyoverGhost_FlyoverGhostJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.flyoverGhost$Action = function (originImageCSSSelectorIn, destinyCSSSelectorIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.FlyoverGhost$vars"))());
+vars.value.originImageCSSSelectorInLocal = originImageCSSSelectorIn;
+vars.value.destinyCSSSelectorInLocal = destinyCSSSelectorIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: RequireScript
+return OS.SystemActions.requireScript(OS.Navigation.VersionedURL.getVersionedUrl("scripts/ECOP_Reactive_Pat.FlyoverGhost.js"), callContext).then(function () {
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_FlyoverGhost_FlyoverGhostJS, "FlyoverGhost", "FlyoverGhost", {
+destinationCSSSelector: OS.DataConversion.JSNodeParamConverter.to(vars.value.destinyCSSSelectorInLocal, OS.Types.Text),
+originCSSSelector: OS.DataConversion.JSNodeParamConverter.to(vars.value.originImageCSSSelectorInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+});
+}).then(function () {
+return ;
+});
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.FlyoverGhost$vars", [{
+name: "OriginImageCSSSelector",
+attrName: "originImageCSSSelectorInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "DestinyCSSSelector",
+attrName: "destinyCSSSelectorInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.flyoverGhost$Action = function (originImageCSSSelectorIn, destinyCSSSelectorIn) {
+originImageCSSSelectorIn = (originImageCSSSelectorIn === undefined) ? "" : originImageCSSSelectorIn;
+destinyCSSSelectorIn = (destinyCSSSelectorIn === undefined) ? "" : destinyCSSSelectorIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.flyoverGhost$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(originImageCSSSelectorIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(destinyCSSSelectorIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$FlyoverGhost.FlyoverGhostJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+flyoverGhost("", $parameters.originCSSSelector, $parameters.destinationCSSSelector);
+};
+});
+
+define("ECOP_Reactive_Pat.controller$FlyoverGhostMultiple", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$FlyoverGhostMultiple.FlyoverGhostJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_FlyoverGhostMultiple_FlyoverGhostJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.flyoverGhostMultiple$Action = function (originImageCSSSelectorIn, destinyCSSSelectorIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.FlyoverGhostMultiple$vars"))());
+vars.value.originImageCSSSelectorInLocal = originImageCSSSelectorIn;
+vars.value.destinyCSSSelectorInLocal = destinyCSSSelectorIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: RequireScript
+return OS.SystemActions.requireScript(OS.Navigation.VersionedURL.getVersionedUrl("scripts/ECOP_Reactive_Pat.FlyoverGhost.js"), callContext).then(function () {
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_FlyoverGhostMultiple_FlyoverGhostJS, "FlyoverGhost", "FlyoverGhostMultiple", {
+destinationCSSSelector: OS.DataConversion.JSNodeParamConverter.to(vars.value.destinyCSSSelectorInLocal, OS.Types.Text),
+originCSSSelector: OS.DataConversion.JSNodeParamConverter.to(vars.value.originImageCSSSelectorInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+});
+}).then(function () {
+return ;
+});
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.FlyoverGhostMultiple$vars", [{
+name: "OriginImageCSSSelector",
+attrName: "originImageCSSSelectorInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "DestinyCSSSelector",
+attrName: "destinyCSSSelectorInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.flyoverGhostMultiple$Action = function (originImageCSSSelectorIn, destinyCSSSelectorIn) {
+originImageCSSSelectorIn = (originImageCSSSelectorIn === undefined) ? "" : originImageCSSSelectorIn;
+destinyCSSSelectorIn = (destinyCSSSelectorIn === undefined) ? "" : destinyCSSSelectorIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.flyoverGhostMultiple$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(originImageCSSSelectorIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(destinyCSSSelectorIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$FlyoverGhostMultiple.FlyoverGhostJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var elements = document.querySelectorAll($parameters.originCSSSelector);
+
+for (var i = 0; i < elements.length; i++) {
+    flyoverGhost(elements[i].id, '', $parameters.destinationCSSSelector);
+}
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Format_Date_V2", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.format_Date_V2$Action = function (dateIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Format_Date_V2$vars"))());
+vars.value.dateInLocal = dateIn;
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Format_Date_V2$outVars"))());
+// FormatedDate = FormatDateTime
+outVars.value.formatedDateOut = OS.BuiltinFunctions.formatDateTime(vars.value.dateInLocal, "dd-MM-yyyy");
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Format_Date_V2$vars", [{
+name: "Date",
+attrName: "dateInLocal",
+mandatory: true,
+dataType: OS.Types.Date,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Format_Date_V2$outVars", [{
+name: "FormatedDate",
+attrName: "formatedDateOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.format_Date_V2$Action = function (dateIn) {
+dateIn = (dateIn === undefined) ? OS.DataTypes.DateTime.defaultValue : dateIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.format_Date_V2$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(dateIn, OS.Types.Date)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+FormatedDate: OS.DataConversion.JSNodeParamConverter.to(actionResults.formatedDateOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECOP_Reactive_Pat.controller$GetCookie", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$GetCookie.GetCookieJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_GetCookie_GetCookieJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.getCookie$Action = function (cookieNameIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetCookie$vars"))());
+vars.value.cookieNameInLocal = cookieNameIn;
+var getCookieJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetCookie$outVars"))());
+getCookieJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_GetCookie_GetCookieJS, "GetCookie", "GetCookie", {
+CookieName: OS.DataConversion.JSNodeParamConverter.to(vars.value.cookieNameInLocal, OS.Types.Text),
+CookieValue: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetCookie$getCookieJSResult"))();
+jsNodeResult.cookieValueOut = OS.DataConversion.JSNodeParamConverter.from($parameters.CookieValue, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+if((!((getCookieJSResult.value.cookieValueOut === "")))) {
+// CookieValue = GetCookie.CookieValue
+outVars.value.cookieValueOut = getCookieJSResult.value.cookieValueOut;
+// IsSuccess = True
+outVars.value.isSuccessOut = true;
+}
+
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetCookie$vars", [{
+name: "CookieName",
+attrName: "cookieNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetCookie$getCookieJSResult", [{
+name: "CookieValue",
+attrName: "cookieValueOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetCookie$outVars", [{
+name: "CookieValue",
+attrName: "cookieValueOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "IsSuccess",
+attrName: "isSuccessOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.getCookie$Action = function (cookieNameIn) {
+cookieNameIn = (cookieNameIn === undefined) ? "" : cookieNameIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.getCookie$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(cookieNameIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+CookieValue: OS.DataConversion.JSNodeParamConverter.to(actionResults.cookieValueOut, OS.Types.Text),
+IsSuccess: OS.DataConversion.JSNodeParamConverter.to(actionResults.isSuccessOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$GetCookie.GetCookieJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var cookie_fullname = $parameters.CookieName + "=";
+var all_cookies = document.cookie.split(';');
+for(var i=0; i < all_cookies.length; i++) {
+    var cookie = all_cookies[i];
+    while (cookie.charAt(0) == ' ') cookie = cookie.substring(1, cookie.length);
+    if (cookie.indexOf(cookie_fullname) === 0){
+        $parameters.CookieValue = cookie.substring(cookie_fullname.length, cookie.length);
+    } 
+        
+}
+};
+});
+
+define("ECOP_Reactive_Pat.controller$GetFilters_FromURL", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$GetFilters_FromURL.GetFiltersFromURLJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_GetFilters_FromURL_GetFiltersFromURLJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.getFilters_FromURL$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var getFiltersFromURLJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetFilters_FromURL$outVars"))());
+getFiltersFromURLJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_GetFilters_FromURL_GetFiltersFromURLJS, "GetFiltersFromURL", "GetFilters_FromURL", {
+FiltersString: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetFilters_FromURL$getFiltersFromURLJSResult"))();
+jsNodeResult.filtersStringOut = OS.DataConversion.JSNodeParamConverter.from($parameters.FiltersString, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// Filters = GetFiltersFromURL.FiltersString
+outVars.value.filtersOut = getFiltersFromURLJSResult.value.filtersStringOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetFilters_FromURL$getFiltersFromURLJSResult", [{
+name: "FiltersString",
+attrName: "filtersStringOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetFilters_FromURL$outVars", [{
+name: "Filters",
+attrName: "filtersOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.getFilters_FromURL$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.getFilters_FromURL$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Filters: OS.DataConversion.JSNodeParamConverter.to(actionResults.filtersOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$GetFilters_FromURL.GetFiltersFromURLJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+function manipulateURL_Regex(url,regexString) {
+    var url_search = url;
+    var regex = new RegExp(regexString,"g");
+    var regexMatch = regex.exec(url_search);
+
+    if(regexMatch)
+        url_search = url_search.replace(regexMatch[0],"");
+
+    if(url_search.charAt(0) == "&" || url_search.charAt(0) == "?")
+        url_search = url_search.substr(1, url_search.length);
+    if(url_search.charAt(url_search.length-1) == "&" || url_search.charAt(url_search.length-1) == "?")
+        url_search = url_search.substr(0, url_search.length-1);
+
+    return url_search;
+}
+
+//Remove Sort part
+var url_search = manipulateURL_Regex(window.location.search.substr(1, window.location.search.length),"(?:sort=)([^&#]*)");
+
+//Remove search term part
+if(url_search !== "")
+    url_search = manipulateURL_Regex(url_search,"(?:SearchTerm=)([^&#]*)");
+
+//Remove Pagination part
+if(url_search !== "")
+    url_search = manipulateURL_Regex(url_search,"(?:pagina=)([^&#]*)");
+
+//Remove Pagination part 2
+if(url_search !== "")
+    url_search = manipulateURL_Regex(url_search,"(?:PageNumber=)([^&#]*)");
+
+//Remove platform clear cache hash
+if(url_search !== "")
+    url_search = manipulateURL_Regex(url_search,"(?:_ts=)([^&#]*)");
+
+
+
+
+$parameters.FiltersString = url_search;
+
+
+};
+});
+
+define("ECOP_Reactive_Pat.controller$GetSort_FromURL", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$URL_GetParameterByName"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.getSort_FromURL$Action = function (sortParameterNameIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetSort_FromURL$vars"))());
+vars.value.sortParameterNameInLocal = sortParameterNameIn;
+var uRL_GetParameterByNameVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetSort_FromURL$outVars"))());
+// Execute Action: URL_GetParameterByName
+uRL_GetParameterByNameVar.value = ECOP_Reactive_PatController.default.uRL_GetParameterByName$Action(vars.value.sortParameterNameInLocal, true, callContext);
+
+// Sort = URL_GetParameterByName.URLParameterPart
+outVars.value.sortOut = uRL_GetParameterByNameVar.value.uRLParameterPartOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetSort_FromURL$vars", [{
+name: "SortParameterName",
+attrName: "sortParameterNameInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "sort";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetSort_FromURL$outVars", [{
+name: "Sort",
+attrName: "sortOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.getSort_FromURL$Action = function (sortParameterNameIn) {
+sortParameterNameIn = (sortParameterNameIn === undefined) ? "sort" : sortParameterNameIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.getSort_FromURL$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(sortParameterNameIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Sort: OS.DataConversion.JSNodeParamConverter.to(actionResults.sortOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECOP_Reactive_Pat.controller$GetWindowHeight", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$GetWindowHeight.GetWindowHeightJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_GetWindowHeight_GetWindowHeightJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.getWindowHeight$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var getWindowHeightJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetWindowHeight$outVars"))());
+// Returns the device viewport height.
+getWindowHeightJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_GetWindowHeight_GetWindowHeightJS, "GetWindowHeight", "GetWindowHeight", {
+CurrHeight: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.GetWindowHeight$getWindowHeightJSResult"))();
+jsNodeResult.currHeightOut = OS.DataConversion.JSNodeParamConverter.from($parameters.CurrHeight, OS.Types.Integer);
+return jsNodeResult;
+}, {}, {});
+// Height = GetWindowHeight.CurrHeight
+outVars.value.heightOut = getWindowHeightJSResult.value.currHeightOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetWindowHeight$getWindowHeightJSResult", [{
+name: "CurrHeight",
+attrName: "currHeightOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.GetWindowHeight$outVars", [{
+name: "Height",
+attrName: "heightOut",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.getWindowHeight$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.getWindowHeight$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Height: OS.DataConversion.JSNodeParamConverter.to(actionResults.heightOut, OS.Types.Integer)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$GetWindowHeight.GetWindowHeightJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+$parameters.CurrHeight = window.innerHeight;
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Metadata_AddLinkValueName", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Metadata_AddLinkValueName.JS_AddMetadataTagJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Metadata_AddLinkValueName_JS_AddMetadataTagJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.metadata_AddLinkValueName$Action = function (linkRelIn, valueIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Metadata_AddLinkValueName$vars"))());
+vars.value.linkRelInLocal = linkRelIn;
+vars.value.valueInLocal = valueIn;
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Metadata_AddLinkValueName_JS_AddMetadataTagJS, "JS_AddMetadataTag", "Metadata_AddLinkValueName", {
+RelName: OS.DataConversion.JSNodeParamConverter.to(vars.value.linkRelInLocal, OS.Types.Text),
+URL: OS.DataConversion.JSNodeParamConverter.to(vars.value.valueInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Metadata_AddLinkValueName$vars", [{
+name: "LinkRel",
+attrName: "linkRelInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Value",
+attrName: "valueInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.metadata_AddLinkValueName$Action = function (linkRelIn, valueIn) {
+linkRelIn = (linkRelIn === undefined) ? "" : linkRelIn;
+valueIn = (valueIn === undefined) ? "" : valueIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.metadata_AddLinkValueName$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(linkRelIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(valueIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Metadata_AddLinkValueName.JS_AddMetadataTagJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+(function() {
+    // validate if tag is already in the DOM
+    const linkElement = document.querySelector("link[rel='"+$parameters.RelName+"']");
+
+    if($parameters.URL == "" && linkElement == undefined){
+        //nothing to do
+        return;
+    }
+
+    // empty value and tag already in DOM
+    if($parameters.URL == ""){
+        linkElement.remove();
+        return;
+    }
+
+    // add meta tag if not yet in DOM
+    if(linkElement == undefined){
+        var link = document.createElement('link');
+        link.rel = $parameters.RelName;
+        link.href = $parameters.URL;
+        //Add to the top of the head
+        document.head.insertBefore(link, document.head.firstChild);
+        return;
+    } 
+    
+    //if meta tag already in DOM, update content
+    linkElement.href = $parameters.URL;   
+})();
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Metadata_AddTagValueName", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Metadata_AddTagValueName.JS_AddMetadataTagJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Metadata_AddTagValueName_JS_AddMetadataTagJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.metadata_AddTagValueName$Action = function (tagNameIn, valueIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Metadata_AddTagValueName$vars"))());
+vars.value.tagNameInLocal = tagNameIn;
+vars.value.valueInLocal = valueIn;
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Metadata_AddTagValueName_JS_AddMetadataTagJS, "JS_AddMetadataTag", "Metadata_AddTagValueName", {
+TagName: OS.DataConversion.JSNodeParamConverter.to(vars.value.tagNameInLocal, OS.Types.Text),
+Value: OS.DataConversion.JSNodeParamConverter.to(vars.value.valueInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Metadata_AddTagValueName$vars", [{
+name: "TagName",
+attrName: "tagNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Value",
+attrName: "valueInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.metadata_AddTagValueName$Action = function (tagNameIn, valueIn) {
+tagNameIn = (tagNameIn === undefined) ? "" : tagNameIn;
+valueIn = (valueIn === undefined) ? "" : valueIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.metadata_AddTagValueName$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(tagNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(valueIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Metadata_AddTagValueName.JS_AddMetadataTagJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+(function() {
+    // validate if tag is already in the DOM
+    const metaElement = document.querySelector("meta[name='"+$parameters.TagName+"']");
+    
+    if($parameters.Value == "" && metaElement == undefined){
+        //nothing to do
+        return;
+    }
+
+    // empty value and tag already in DOM
+    if($parameters.Value == ""){
+        metaElement.remove();
+        return;
+    }
+    
+    // add meta tag if not yet in DOM
+    if(metaElement == undefined){
+        var meta = document.createElement('meta');
+        meta.name = $parameters.TagName;
+        meta.content = $parameters.Value;
+        //Add to the top of the head
+        document.head.insertBefore(meta, document.head.firstChild);
+        return;
+    } 
+    
+    //if meta tag already in DOM, update content
+    metaElement.content = $parameters.Value;       
+})();
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Metadata_AddTagValueProperty", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Metadata_AddTagValueProperty.JS_AddMetadataTagJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Metadata_AddTagValueProperty_JS_AddMetadataTagJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action = function (tagPropertyIn, valueIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Metadata_AddTagValueProperty$vars"))());
+vars.value.tagPropertyInLocal = tagPropertyIn;
+vars.value.valueInLocal = valueIn;
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Metadata_AddTagValueProperty_JS_AddMetadataTagJS, "JS_AddMetadataTag", "Metadata_AddTagValueProperty", {
+Value: OS.DataConversion.JSNodeParamConverter.to(vars.value.valueInLocal, OS.Types.Text),
+TagProperty: OS.DataConversion.JSNodeParamConverter.to(vars.value.tagPropertyInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Metadata_AddTagValueProperty$vars", [{
+name: "TagProperty",
+attrName: "tagPropertyInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Value",
+attrName: "valueInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.metadata_AddTagValueProperty$Action = function (tagPropertyIn, valueIn) {
+tagPropertyIn = (tagPropertyIn === undefined) ? "" : tagPropertyIn;
+valueIn = (valueIn === undefined) ? "" : valueIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(tagPropertyIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(valueIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Metadata_AddTagValueProperty.JS_AddMetadataTagJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+(function() {
+    // validate if tag is already in the DOM
+    const metaElement = document.querySelector("meta[property='"+$parameters.TagProperty+"']");
+
+    if($parameters.Value == "" && metaElement == undefined){
+        //nothing to do
+        return;
+    }
+
+    // empty value and tag already in DOM
+    if($parameters.Value == ""){
+        metaElement.remove();
+        return;
+    }
+
+    // add meta tag if not yet in DOM
+    if(metaElement == undefined){
+        var meta = document.createElement('meta');
+        meta.setAttribute('property', $parameters.TagProperty);
+        meta.content = $parameters.Value;
+        // Add to thetop of the head
+        document.head.insertBefore(meta, document.head.firstChild);
+        return;
+    } 
+    
+    //if meta tag already in DOM, update content
+    metaElement.content = $parameters.Value;   
+})();
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Metadata_AddToPage", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Metadata_AddToPage.JS_MoveTitleTopOfHeadJS", "ECOP_Reactive_Pat.controller$Metadata_AddTagValueProperty", "ECOP_Reactive_Pat.controller$Metadata_AddTagValueName", "ECOP_Reactive_Pat.controller$Metadata_AddLinkValueName"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Metadata_AddToPage_JS_MoveTitleTopOfHeadJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.metadata_AddToPage$Action = function (titleIn, descriptionIn, oGTitleIn, oGDescriptionIn, oGURLIn, oGImageURLIn, oGSiteNameIn, oGTypeIn, keywordsIn, noIndexIn, noFollowIn, useViewportIn, canonicalLinkIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Metadata_AddToPage$vars"))());
+vars.value.titleInLocal = titleIn;
+vars.value.descriptionInLocal = descriptionIn;
+vars.value.oGTitleInLocal = oGTitleIn;
+vars.value.oGDescriptionInLocal = oGDescriptionIn;
+vars.value.oGURLInLocal = oGURLIn;
+vars.value.oGImageURLInLocal = oGImageURLIn;
+vars.value.oGSiteNameInLocal = oGSiteNameIn;
+vars.value.oGTypeInLocal = oGTypeIn;
+vars.value.keywordsInLocal = keywordsIn;
+vars.value.noIndexInLocal = noIndexIn;
+vars.value.noFollowInLocal = noFollowIn;
+vars.value.useViewportInLocal = useViewportIn;
+vars.value.canonicalLinkInLocal = canonicalLinkIn;
+// HasCanonicalLink 
+if((((vars.value.canonicalLinkInLocal) !== ("")))) {
+// Execute Action: Metadata_AddLinkCanoncial
+ECOP_Reactive_PatController.default.metadata_AddLinkValueName$Action("canonical", vars.value.canonicalLinkInLocal, callContext);
+}
+
+// Execute Action: Metadata_AddTagValueName_Viewport
+ECOP_Reactive_PatController.default.metadata_AddTagValueName$Action("viewport", ((vars.value.useViewportInLocal) ? ("width=device-width, initial-scale=1.0") : ("")), callContext);
+// Execute Action: Metadata_AddTagValueName_BlockCrawling
+ECOP_Reactive_PatController.default.metadata_AddTagValueName$Action("robots", ((((vars.value.noIndexInLocal) ? ("noindex") : ("")) + (((vars.value.noIndexInLocal && vars.value.noFollowInLocal)) ? (", ") : (""))) + ((vars.value.noFollowInLocal) ? ("nofollow") : (""))), callContext);
+// Execute Action: Metadata_AddTagValueName_Keywords
+ECOP_Reactive_PatController.default.metadata_AddTagValueName$Action("keywords", vars.value.keywordsInLocal, callContext);
+// Execute Action: Metadata_AddTagValueProperty_OGType
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action("og:type", vars.value.oGTypeInLocal, callContext);
+// Execute Action: Metadata_AddTagValueProperty_OGSiteName
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action("og:site_name", vars.value.oGSiteNameInLocal, callContext);
+// Execute Action: Metadata_AddTagValueProperty_OGImageURL
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action("og:image", vars.value.oGImageURLInLocal, callContext);
+// Execute Action: Metadata_AddTagValueProperty_OGURL
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action("og:url", vars.value.oGURLInLocal, callContext);
+// Execute Action: Metadata_AddTagValueProperty_OGDescription
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action("og:description", vars.value.oGDescriptionInLocal, callContext);
+// Execute Action: Metadata_AddTagValueProperty_OGTitle
+ECOP_Reactive_PatController.default.metadata_AddTagValueProperty$Action("og:title", vars.value.oGTitleInLocal, callContext);
+// Execute Action: Metadata_AddTagValueName_Description
+ECOP_Reactive_PatController.default.metadata_AddTagValueName$Action("description", vars.value.descriptionInLocal, callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Metadata_AddToPage_JS_MoveTitleTopOfHeadJS, "JS_MoveTitleTopOfHead", "Metadata_AddToPage", {
+Title: OS.DataConversion.JSNodeParamConverter.to(vars.value.titleInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Metadata_AddToPage$vars", [{
+name: "Title",
+attrName: "titleInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Description",
+attrName: "descriptionInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "OGTitle",
+attrName: "oGTitleInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "OGDescription",
+attrName: "oGDescriptionInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "OGURL",
+attrName: "oGURLInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "OGImageURL",
+attrName: "oGImageURLInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "OGSiteName",
+attrName: "oGSiteNameInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "OGType",
+attrName: "oGTypeInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Keywords",
+attrName: "keywordsInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "NoIndex",
+attrName: "noIndexInLocal",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "NoFollow",
+attrName: "noFollowInLocal",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "UseViewport",
+attrName: "useViewportInLocal",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return true;
+}
+}, {
+name: "CanonicalLink",
+attrName: "canonicalLinkInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.metadata_AddToPage$Action = function (titleIn, descriptionIn, oGTitleIn, oGDescriptionIn, oGURLIn, oGImageURLIn, oGSiteNameIn, oGTypeIn, keywordsIn, noIndexIn, noFollowIn, useViewportIn, canonicalLinkIn) {
+titleIn = (titleIn === undefined) ? "" : titleIn;
+descriptionIn = (descriptionIn === undefined) ? "" : descriptionIn;
+oGTitleIn = (oGTitleIn === undefined) ? "" : oGTitleIn;
+oGDescriptionIn = (oGDescriptionIn === undefined) ? "" : oGDescriptionIn;
+oGURLIn = (oGURLIn === undefined) ? "" : oGURLIn;
+oGImageURLIn = (oGImageURLIn === undefined) ? "" : oGImageURLIn;
+oGSiteNameIn = (oGSiteNameIn === undefined) ? "" : oGSiteNameIn;
+oGTypeIn = (oGTypeIn === undefined) ? "" : oGTypeIn;
+keywordsIn = (keywordsIn === undefined) ? "" : keywordsIn;
+noIndexIn = (noIndexIn === undefined) ? false : noIndexIn;
+noFollowIn = (noFollowIn === undefined) ? false : noFollowIn;
+useViewportIn = (useViewportIn === undefined) ? true : useViewportIn;
+canonicalLinkIn = (canonicalLinkIn === undefined) ? "" : canonicalLinkIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.metadata_AddToPage$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(titleIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(descriptionIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(oGTitleIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(oGDescriptionIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(oGURLIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(oGImageURLIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(oGSiteNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(oGTypeIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(keywordsIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(noIndexIn, OS.Types.Boolean), OS.DataConversion.JSNodeParamConverter.from(noFollowIn, OS.Types.Boolean), OS.DataConversion.JSNodeParamConverter.from(useViewportIn, OS.Types.Boolean), OS.DataConversion.JSNodeParamConverter.from(canonicalLinkIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Metadata_AddToPage.JS_MoveTitleTopOfHeadJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+setTimeout(function(){
+    if ($parameters.Title != '') {
+        document.title = $parameters.Title
+    }
+    let titleNode = document.head.getElementsByTagName('title')[0];
+
+    if (titleNode != undefined){
+        document.head.getElementsByTagName('title')[0].remove();
+        document.head.insertBefore(titleNode, document.head.firstChild)
+    }
+}, 0);
+};
+});
+
+define("ECOP_Reactive_Pat.controller$OpenFeedbackMessage_WithAutoClose", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$OpenFeedbackMessage_WithAutoClose.OpenFeedbackMessage_WithAutoCloseJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_OpenFeedbackMessage_WithAutoClose_OpenFeedbackMessage_WithAutoCloseJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.openFeedbackMessage_WithAutoClose$Action = function (feedbackMessageTypeIn, feedbackMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.OpenFeedbackMessage_WithAutoClose$vars"))());
+vars.value.feedbackMessageTypeInLocal = feedbackMessageTypeIn;
+vars.value.feedbackMessageInLocal = feedbackMessageIn;
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_OpenFeedbackMessage_WithAutoClose_OpenFeedbackMessage_WithAutoCloseJS, "OpenFeedbackMessage_WithAutoClose", "OpenFeedbackMessage_WithAutoClose", {
+feedbackMessage: OS.DataConversion.JSNodeParamConverter.to(vars.value.feedbackMessageInLocal, OS.Types.Text),
+feedbackMessageType: OS.DataConversion.JSNodeParamConverter.to(OS.BuiltinFunctions.identifierToInteger(vars.value.feedbackMessageTypeInLocal), OS.Types.Integer)
+}, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.OpenFeedbackMessage_WithAutoClose$vars", [{
+name: "FeedbackMessageType",
+attrName: "feedbackMessageTypeInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "FeedbackMessage",
+attrName: "feedbackMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.openFeedbackMessage_WithAutoClose$Action = function (feedbackMessageTypeIn, feedbackMessageIn) {
+feedbackMessageTypeIn = (feedbackMessageTypeIn === undefined) ? 0 : feedbackMessageTypeIn;
+feedbackMessageIn = (feedbackMessageIn === undefined) ? "" : feedbackMessageIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.openFeedbackMessage_WithAutoClose$Action.bind(controller, feedbackMessageTypeIn, OS.DataConversion.JSNodeParamConverter.from(feedbackMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$OpenFeedbackMessage_WithAutoClose.OpenFeedbackMessage_WithAutoCloseJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var feedbackMessage = $parameters.feedbackMessage;
+var feedbackMessageType = $parameters.feedbackMessageType;
+
+
+if(feedbackMessageType === 0 || feedbackMessageType === 1) {
+    $public.FeedbackMessage.showFeedbackMessage(feedbackMessage, feedbackMessageType, true, "", true);
+}
+
+else {
+    $public.FeedbackMessage.showFeedbackMessage(feedbackMessage, feedbackMessageType, true, "feedback-message-autoclose", true);
+}
+};
+});
+
+define("ECOP_Reactive_Pat.controller$PageNumber_GetFromURL", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$PageNumber_GetFromURL.GetPageNumberJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_PageNumber_GetFromURL_GetPageNumberJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.pageNumber_GetFromURL$Action = function (pageParamenterNameIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.PageNumber_GetFromURL$vars"))());
+vars.value.pageParamenterNameInLocal = pageParamenterNameIn;
+var getPageNumberJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.PageNumber_GetFromURL$outVars"))());
+getPageNumberJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_PageNumber_GetFromURL_GetPageNumberJS, "GetPageNumber", "PageNumber_GetFromURL", {
+PageParamenterName: OS.DataConversion.JSNodeParamConverter.to(vars.value.pageParamenterNameInLocal, OS.Types.Text),
+PageNumber: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer),
+IsPageInUrl: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.PageNumber_GetFromURL$getPageNumberJSResult"))();
+jsNodeResult.pageNumberOut = OS.DataConversion.JSNodeParamConverter.from($parameters.PageNumber, OS.Types.Integer);
+jsNodeResult.isPageInUrlOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsPageInUrl, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// Set output
+// PageNumber = GetPageNumber.PageNumber
+outVars.value.pageNumberOut = getPageNumberJSResult.value.pageNumberOut;
+// IsPageParameterInURL = GetPageNumber.IsPageInUrl
+outVars.value.isPageParameterInURLOut = getPageNumberJSResult.value.isPageInUrlOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.PageNumber_GetFromURL$vars", [{
+name: "PageParamenterName",
+attrName: "pageParamenterNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.PageNumber_GetFromURL$getPageNumberJSResult", [{
+name: "PageNumber",
+attrName: "pageNumberOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "IsPageInUrl",
+attrName: "isPageInUrlOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.PageNumber_GetFromURL$outVars", [{
+name: "PageNumber",
+attrName: "pageNumberOut",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "IsPageParameterInURL",
+attrName: "isPageParameterInURLOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.pageNumber_GetFromURL$Action = function (pageParamenterNameIn) {
+pageParamenterNameIn = (pageParamenterNameIn === undefined) ? "" : pageParamenterNameIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.pageNumber_GetFromURL$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(pageParamenterNameIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+PageNumber: OS.DataConversion.JSNodeParamConverter.to(actionResults.pageNumberOut, OS.Types.Integer),
+IsPageParameterInURL: OS.DataConversion.JSNodeParamConverter.to(actionResults.isPageParameterInURLOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$PageNumber_GetFromURL.GetPageNumberJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const regexString = $parameters.PageParamenterName+'=([0-9]+)?';
+const regex = new RegExp(regexString,"g");
+const regexMatch = regex.exec(window.location.search);
+
+if(regexMatch === null){
+    //if page is not provided we set it as page 1
+    $parameters.PageNumber = 1;
+    $parameters.IsPageInUrl = false;
+    return;
+} 
+
+//extrapolate the page
+$parameters.PageNumber = parseInt(regexMatch[0].split('=')[1]);
+$parameters.IsPageInUrl = true;
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Popper_Click", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Popper_Click.JavaScript1JS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Popper_Click_JavaScript1JS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.popper_Click$Action = function (popperIdIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Popper_Click$vars"))());
+vars.value.popperIdInLocal = popperIdIn;
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Popper_Click_JavaScript1JS, "JavaScript1", "Popper_Click", {
+PopperId: OS.DataConversion.JSNodeParamConverter.to(vars.value.popperIdInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Popper_Click$vars", [{
+name: "PopperId",
+attrName: "popperIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.popper_Click$Action = function (popperIdIn) {
+popperIdIn = (popperIdIn === undefined) ? "" : popperIdIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.popper_Click$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(popperIdIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Popper_Click.JavaScript1JS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var poper_elem = document.getElementById($parameters.PopperId).querySelector('[data-popper-item]');
+if(poper_elem){
+    poper_elem.click();
+}
+};
+});
+
+define("ECOP_Reactive_Pat.controller$SanitizeEmailBodyInURL", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$SanitizeEmailBodyInURL.SanitizeInputJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_SanitizeEmailBodyInURL_SanitizeInputJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.sanitizeEmailBodyInURL$Action = function (emailBodyInURLIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.SanitizeEmailBodyInURL$vars"))());
+vars.value.emailBodyInURLInLocal = emailBodyInURLIn;
+var sanitizeInputJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.SanitizeEmailBodyInURL$outVars"))());
+sanitizeInputJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_SanitizeEmailBodyInURL_SanitizeInputJS, "SanitizeInput", "SanitizeEmailBodyInURL", {
+Text: OS.DataConversion.JSNodeParamConverter.to(vars.value.emailBodyInURLInLocal, OS.Types.Text),
+SanitizedText: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.SanitizeEmailBodyInURL$sanitizeInputJSResult"))();
+jsNodeResult.sanitizedTextOut = OS.DataConversion.JSNodeParamConverter.from($parameters.SanitizedText, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// SanitizedText = SanitizeInput.SanitizedText
+outVars.value.sanitizedTextOut = sanitizeInputJSResult.value.sanitizedTextOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.SanitizeEmailBodyInURL$vars", [{
+name: "EmailBodyInURL",
+attrName: "emailBodyInURLInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.SanitizeEmailBodyInURL$sanitizeInputJSResult", [{
+name: "SanitizedText",
+attrName: "sanitizedTextOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.SanitizeEmailBodyInURL$outVars", [{
+name: "SanitizedText",
+attrName: "sanitizedTextOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.sanitizeEmailBodyInURL$Action = function (emailBodyInURLIn) {
+emailBodyInURLIn = (emailBodyInURLIn === undefined) ? "" : emailBodyInURLIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.sanitizeEmailBodyInURL$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(emailBodyInURLIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+SanitizedText: OS.DataConversion.JSNodeParamConverter.to(actionResults.sanitizedTextOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$SanitizeEmailBodyInURL.SanitizeInputJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.SanitizedText = encodeURIComponent($parameters.Text);
+};
+});
+
+define("ECOP_Reactive_Pat.controller$SEODescription_GetNSentencesFromHTML", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$SEODescription_GetNSentencesFromHTML.GenerateDescriptionJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_SEODescription_GetNSentencesFromHTML_GenerateDescriptionJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.sEODescription_GetNSentencesFromHTML$Action = function (hTMLIn, numberOfSentencesIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.SEODescription_GetNSentencesFromHTML$vars"))());
+vars.value.hTMLInLocal = hTMLIn;
+vars.value.numberOfSentencesInLocal = numberOfSentencesIn;
+var generateDescriptionJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.SEODescription_GetNSentencesFromHTML$outVars"))());
+generateDescriptionJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_SEODescription_GetNSentencesFromHTML_GenerateDescriptionJS, "GenerateDescription", "SEODescription_GetNSentencesFromHTML", {
+Text: OS.DataConversion.JSNodeParamConverter.to(vars.value.hTMLInLocal, OS.Types.Text),
+NumberOfSentences: OS.DataConversion.JSNodeParamConverter.to(vars.value.numberOfSentencesInLocal, OS.Types.Integer),
+SEODescription: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.SEODescription_GetNSentencesFromHTML$generateDescriptionJSResult"))();
+jsNodeResult.sEODescriptionOut = OS.DataConversion.JSNodeParamConverter.from($parameters.SEODescription, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// Description = GenerateDescription.SEODescription
+outVars.value.descriptionOut = generateDescriptionJSResult.value.sEODescriptionOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.SEODescription_GetNSentencesFromHTML$vars", [{
+name: "HTML",
+attrName: "hTMLInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "NumberOfSentences",
+attrName: "numberOfSentencesInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.SEODescription_GetNSentencesFromHTML$generateDescriptionJSResult", [{
+name: "SEODescription",
+attrName: "sEODescriptionOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.SEODescription_GetNSentencesFromHTML$outVars", [{
+name: "Description",
+attrName: "descriptionOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.sEODescription_GetNSentencesFromHTML$Action = function (hTMLIn, numberOfSentencesIn) {
+hTMLIn = (hTMLIn === undefined) ? "" : hTMLIn;
+numberOfSentencesIn = (numberOfSentencesIn === undefined) ? 0 : numberOfSentencesIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.sEODescription_GetNSentencesFromHTML$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(hTMLIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(numberOfSentencesIn, OS.Types.Integer)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Description: OS.DataConversion.JSNodeParamConverter.to(actionResults.descriptionOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$SEODescription_GetNSentencesFromHTML.GenerateDescriptionJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+// generates a string from the first N sentences
+// #token# is used to be able to split and slice
+$parameters.SEODescription = $parameters.Text.replace( /(<([^>]+)>)/ig, '').split('.').join('.#token#').split('!').join('!#token#').split('?').join('?#token#').split('#token#').slice(0,$parameters.NumberOfSentences).join('');
+
+};
+});
+
+define("ECOP_Reactive_Pat.controller$SEOMetadata_RemoveRelNext", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Metadata_AddLinkValueName"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.sEOMetadata_RemoveRelNext$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+// Execute Action: Metadata_SetRelNext
+ECOP_Reactive_PatController.default.metadata_AddLinkValueName$Action("next", "", callContext);
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.clientActionProxies.sEOMetadata_RemoveRelNext$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.sEOMetadata_RemoveRelNext$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_Reactive_Pat.controller$SEOMetadata_SetNotFoundPreRenderHeaders", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Metadata_AddTagValueName"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.sEOMetadata_SetNotFoundPreRenderHeaders$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+// Execute Action: Metadata_AddTagValueName
+ECOP_Reactive_PatController.default.metadata_AddTagValueName$Action("prerender-status-code", "404", callContext);
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.clientActionProxies.sEOMetadata_SetNotFoundPreRenderHeaders$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.sEOMetadata_SetNotFoundPreRenderHeaders$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_Reactive_Pat.controller$SEOMetadta_Inject", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Metadata_AddLinkValueName", "ECOP_Reactive_Pat.controller$Metadata_AddToPage", "ECOP_Reactive_Pat.controller$Canonical_Generate", "ECOP_Reactive_Pat.model$SEO_StructRec"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.sEOMetadta_Inject$Action = function (sEOMetadataIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.SEOMetadta_Inject$vars"))());
+vars.value.sEOMetadataInLocal = sEOMetadataIn.clone();
+// Execute Action: Metadata_AddRelPrev
+ECOP_Reactive_PatController.default.metadata_AddLinkValueName$Action("prev", vars.value.sEOMetadataInLocal.relPreviousAttr, callContext);
+// Execute Action: Metadata_AddRelNext
+ECOP_Reactive_PatController.default.metadata_AddLinkValueName$Action("next", vars.value.sEOMetadataInLocal.relNextAttr, callContext);
+// Execute Action: Metadata_AddToPage
+ECOP_Reactive_PatController.default.metadata_AddToPage$Action((((vars.value.sEOMetadataInLocal.titleAttr === "")) ? ("PLUS Supermarkt | Bestel je boodschappen makkelijk op plus.nl") : (vars.value.sEOMetadataInLocal.titleAttr)), vars.value.sEOMetadataInLocal.descriptionAttr, vars.value.sEOMetadataInLocal.oGTitleAttr, vars.value.sEOMetadataInLocal.oGDescriptionAttr, (((vars.value.sEOMetadataInLocal.oGURLAttr === "")) ? (ECOP_Reactive_PatController.default.canonical_Generate$Action(callContext).canonicalURLOut) : (vars.value.sEOMetadataInLocal.oGURLAttr)), vars.value.sEOMetadataInLocal.oGImageURLAttr, "PLUS Supermarkt", "website", "", vars.value.sEOMetadataInLocal.noIndexAttr, vars.value.sEOMetadataInLocal.noFollowAttr, true, ((vars.value.sEOMetadataInLocal.noCanonicalURLAttr) ? ("") : ((((vars.value.sEOMetadataInLocal.canonicalURLAttr === "")) ? (ECOP_Reactive_PatController.default.canonical_Generate$Action(callContext).canonicalURLOut) : (vars.value.sEOMetadataInLocal.canonicalURLAttr)))), callContext);
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.SEOMetadta_Inject$vars", [{
+name: "SEOMetadata",
+attrName: "sEOMetadataInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECOP_Reactive_PatModel.SEO_StructRec();
+},
+complexType: ECOP_Reactive_PatModel.SEO_StructRec
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.sEOMetadta_Inject$Action = function (sEOMetadataIn) {
+sEOMetadataIn = (sEOMetadataIn === undefined) ? new ECOP_Reactive_PatModel.SEO_StructRec() : sEOMetadataIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.sEOMetadta_Inject$Action.bind(controller, sEOMetadataIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_Reactive_Pat.controller$SetCookie", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$SetCookie.SetCookieJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_SetCookie_SetCookieJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.setCookie$Action = function (cookieNameIn, cookieValueIn, cookieExpirationSpanIn, cookiePathIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.SetCookie$vars"))());
+vars.value.cookieNameInLocal = cookieNameIn;
+vars.value.cookieValueInLocal = cookieValueIn;
+vars.value.cookieExpirationSpanInLocal = cookieExpirationSpanIn;
+vars.value.cookiePathInLocal = cookiePathIn;
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_SetCookie_SetCookieJS, "SetCookie", "SetCookie", {
+CookieExpirationSpan: OS.DataConversion.JSNodeParamConverter.to(vars.value.cookieExpirationSpanInLocal, OS.Types.Integer),
+CookieValue: OS.DataConversion.JSNodeParamConverter.to(vars.value.cookieValueInLocal, OS.Types.Text),
+CookieName: OS.DataConversion.JSNodeParamConverter.to(vars.value.cookieNameInLocal, OS.Types.Text),
+CookiePath: OS.DataConversion.JSNodeParamConverter.to(vars.value.cookiePathInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.SetCookie$vars", [{
+name: "CookieName",
+attrName: "cookieNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CookieValue",
+attrName: "cookieValueInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CookieExpirationSpan",
+attrName: "cookieExpirationSpanInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "CookiePath",
+attrName: "cookiePathInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.setCookie$Action = function (cookieNameIn, cookieValueIn, cookieExpirationSpanIn, cookiePathIn) {
+cookieNameIn = (cookieNameIn === undefined) ? "" : cookieNameIn;
+cookieValueIn = (cookieValueIn === undefined) ? "" : cookieValueIn;
+cookieExpirationSpanIn = (cookieExpirationSpanIn === undefined) ? 0 : cookieExpirationSpanIn;
+cookiePathIn = (cookiePathIn === undefined) ? "" : cookiePathIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.setCookie$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(cookieNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(cookieValueIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(cookieExpirationSpanIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(cookiePathIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$SetCookie.SetCookieJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var expires = "";
+if ($parameters.CookieExpirationSpan) {
+    var date = new Date();
+    date.setTime(date.getTime() + ($parameters.CookieExpirationSpan*24*60*60*1000));
+    expires = "; expires=" + date.toUTCString();
+}
+document.cookie = $parameters.CookieName + "=" + ($parameters.CookieValue || "")  + expires + "; path=" + $parameters.CookiePath;
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Text_Normalize", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Text_Normalize.JS_NormalizeJS", "ECOP_Reactive_Pat.controller$Text_RemoveDiacritics"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Text_Normalize_JS_NormalizeJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.text_Normalize$Action = function (textIn, spaceReplacementIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Text_Normalize$vars"))());
+vars.value.textInLocal = textIn;
+vars.value.spaceReplacementInLocal = spaceReplacementIn;
+var jS_NormalizeJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Text_Normalize$outVars"))());
+jS_NormalizeJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Text_Normalize_JS_NormalizeJS, "JS_Normalize", "Text_Normalize", {
+SpaceReplacement: OS.DataConversion.JSNodeParamConverter.to(vars.value.spaceReplacementInLocal, OS.Types.Text),
+Text: OS.DataConversion.JSNodeParamConverter.to(ECOP_Reactive_PatController.default.text_RemoveDiacritics$Action(OS.BuiltinFunctions.trim(vars.value.textInLocal), callContext).textWithoutDiacriticsOut, OS.Types.Text),
+NormalizedText: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Text_Normalize$jS_NormalizeJSResult"))();
+jsNodeResult.normalizedTextOut = OS.DataConversion.JSNodeParamConverter.from($parameters.NormalizedText, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// NormalizedText = ToLower
+outVars.value.normalizedTextOut = OS.BuiltinFunctions.toLower(jS_NormalizeJSResult.value.normalizedTextOut);
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Text_Normalize$vars", [{
+name: "Text",
+attrName: "textInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "SpaceReplacement",
+attrName: "spaceReplacementInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "-";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Text_Normalize$jS_NormalizeJSResult", [{
+name: "NormalizedText",
+attrName: "normalizedTextOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Text_Normalize$outVars", [{
+name: "NormalizedText",
+attrName: "normalizedTextOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.text_Normalize$Action = function (textIn, spaceReplacementIn) {
+textIn = (textIn === undefined) ? "" : textIn;
+spaceReplacementIn = (spaceReplacementIn === undefined) ? "-" : spaceReplacementIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.text_Normalize$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(textIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(spaceReplacementIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+NormalizedText: OS.DataConversion.JSNodeParamConverter.to(actionResults.normalizedTextOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Text_Normalize.JS_NormalizeJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+(function(){
+    var text = $parameters.Text;
+    /* Remove everything but alphanumeric characters and spaces*/
+    var pattern = new RegExp("[^a-zA-Z0-9 ]", "g");
+    text = text.replace(pattern, "");
+    
+    /* Replace multiple spaces by a single space*/
+    pattern = new RegExp(" (?= *\1)", "g");
+    text = text.replace(pattern, " ");
+    
+    /* Replace spaces by a dash*/
+    pattern = new RegExp(" ", "g");
+    $parameters.NormalizedText = text.replace(pattern, $parameters.SpaceReplacement);
+}());
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Text_RemoveDiacritics", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Text_RemoveDiacritics.JS_RemoveDiacriticsJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Text_RemoveDiacritics_JS_RemoveDiacriticsJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.text_RemoveDiacritics$Action = function (textIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Text_RemoveDiacritics$vars"))());
+vars.value.textInLocal = textIn;
+var jS_RemoveDiacriticsJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Text_RemoveDiacritics$outVars"))());
+jS_RemoveDiacriticsJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Text_RemoveDiacritics_JS_RemoveDiacriticsJS, "JS_RemoveDiacritics", "Text_RemoveDiacritics", {
+Text: OS.DataConversion.JSNodeParamConverter.to(vars.value.textInLocal, OS.Types.Text),
+TextWithoutDiacritics: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Text_RemoveDiacritics$jS_RemoveDiacriticsJSResult"))();
+jsNodeResult.textWithoutDiacriticsOut = OS.DataConversion.JSNodeParamConverter.from($parameters.TextWithoutDiacritics, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// TextWithoutDiacritics
+// TextWithoutDiacritics = JS_RemoveDiacritics.TextWithoutDiacritics
+outVars.value.textWithoutDiacriticsOut = jS_RemoveDiacriticsJSResult.value.textWithoutDiacriticsOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Text_RemoveDiacritics$vars", [{
+name: "Text",
+attrName: "textInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Text_RemoveDiacritics$jS_RemoveDiacriticsJSResult", [{
+name: "TextWithoutDiacritics",
+attrName: "textWithoutDiacriticsOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Text_RemoveDiacritics$outVars", [{
+name: "TextWithoutDiacritics",
+attrName: "textWithoutDiacriticsOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.text_RemoveDiacritics$Action = function (textIn) {
+textIn = (textIn === undefined) ? "" : textIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.text_RemoveDiacritics$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(textIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+TextWithoutDiacritics: OS.DataConversion.JSNodeParamConverter.to(actionResults.textWithoutDiacriticsOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Text_RemoveDiacritics.JS_RemoveDiacriticsJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+(function(){
+    var text = $parameters.Text;
+    $parameters.TextWithoutDiacritics = text.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+}());
+};
+});
+
+define("ECOP_Reactive_Pat.controller$URL_GetParameterByName", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$URL_GetParameterByName.GetParameterFromURLJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_URL_GetParameterByName_GetParameterFromURLJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.uRL_GetParameterByName$Action = function (parameterNameIn, joinParamNameIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.URL_GetParameterByName$vars"))());
+vars.value.parameterNameInLocal = parameterNameIn;
+vars.value.joinParamNameInLocal = joinParamNameIn;
+var getParameterFromURLJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.URL_GetParameterByName$outVars"))());
+getParameterFromURLJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_URL_GetParameterByName_GetParameterFromURLJS, "GetParameterFromURL", "URL_GetParameterByName", {
+ParameterName: OS.DataConversion.JSNodeParamConverter.to(vars.value.parameterNameInLocal, OS.Types.Text),
+ParamValue: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.URL_GetParameterByName$getParameterFromURLJSResult"))();
+jsNodeResult.paramValueOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ParamValue, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// HasParamValue
+if((((getParameterFromURLJSResult.value.paramValueOut) !== ("")))) {
+// URLParameterPart = If + GetParameterFromURL.ParamValue
+outVars.value.uRLParameterPartOut = (((vars.value.joinParamNameInLocal) ? ((vars.value.parameterNameInLocal + "=")) : ("")) + getParameterFromURLJSResult.value.paramValueOut);
+}
+
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.URL_GetParameterByName$vars", [{
+name: "ParameterName",
+attrName: "parameterNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "JoinParamName",
+attrName: "joinParamNameInLocal",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.URL_GetParameterByName$getParameterFromURLJSResult", [{
+name: "ParamValue",
+attrName: "paramValueOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.URL_GetParameterByName$outVars", [{
+name: "URLParameterPart",
+attrName: "uRLParameterPartOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.uRL_GetParameterByName$Action = function (parameterNameIn, joinParamNameIn) {
+parameterNameIn = (parameterNameIn === undefined) ? "" : parameterNameIn;
+joinParamNameIn = (joinParamNameIn === undefined) ? false : joinParamNameIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.uRL_GetParameterByName$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(parameterNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(joinParamNameIn, OS.Types.Boolean)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+URLParameterPart: OS.DataConversion.JSNodeParamConverter.to(actionResults.uRLParameterPartOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$URL_GetParameterByName.GetParameterFromURLJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const regexString = "(?:"+$parameters.ParameterName+"=)([^&#]*)";
+const regex = new RegExp(regexString,"g");
+const regexMatch = regex.exec(window.location.search);
+
+if(regexMatch === null){
+    $parameters.ParamValue = "";
+    return;
+} 
+
+$parameters.ParamValue = regexMatch[0].replace($parameters.ParameterName + "=", "");
+//$parameters.ParamValue = regexMatch[0];
+
+
+};
+});
+
+define("ECOP_Reactive_Pat.controller$URL_GetWithoutPageNumber", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$URL_GetWithoutPageNumber.NoPaginationURLJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_URL_GetWithoutPageNumber_NoPaginationURLJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.uRL_GetWithoutPageNumber$Action = function (pageParamenterNameIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.URL_GetWithoutPageNumber$vars"))());
+vars.value.pageParamenterNameInLocal = pageParamenterNameIn;
+var noPaginationURLJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.URL_GetWithoutPageNumber$outVars"))());
+noPaginationURLJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_URL_GetWithoutPageNumber_NoPaginationURLJS, "NoPaginationURL", "URL_GetWithoutPageNumber", {
+PageParamenterName: OS.DataConversion.JSNodeParamConverter.to(vars.value.pageParamenterNameInLocal, OS.Types.Text),
+DefaultPageURL: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text),
+URL_Base: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.URL_GetWithoutPageNumber$noPaginationURLJSResult"))();
+jsNodeResult.defaultPageURLOut = OS.DataConversion.JSNodeParamConverter.from($parameters.DefaultPageURL, OS.Types.Text);
+jsNodeResult.uRL_BaseOut = OS.DataConversion.JSNodeParamConverter.from($parameters.URL_Base, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// URL_BaseWithoutPageNum = NoPaginationURL.DefaultPageURL
+outVars.value.uRL_BaseWithoutPageNumOut = noPaginationURLJSResult.value.defaultPageURLOut;
+// URL_Base = NoPaginationURL.URL_Base
+outVars.value.uRL_BaseOut = noPaginationURLJSResult.value.uRL_BaseOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.URL_GetWithoutPageNumber$vars", [{
+name: "PageParamenterName",
+attrName: "pageParamenterNameInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.URL_GetWithoutPageNumber$noPaginationURLJSResult", [{
+name: "DefaultPageURL",
+attrName: "defaultPageURLOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "URL_Base",
+attrName: "uRL_BaseOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.URL_GetWithoutPageNumber$outVars", [{
+name: "URL_BaseWithoutPageNum",
+attrName: "uRL_BaseWithoutPageNumOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "URL_Base",
+attrName: "uRL_BaseOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.uRL_GetWithoutPageNumber$Action = function (pageParamenterNameIn) {
+pageParamenterNameIn = (pageParamenterNameIn === undefined) ? "" : pageParamenterNameIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.uRL_GetWithoutPageNumber$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(pageParamenterNameIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+URL_BaseWithoutPageNum: OS.DataConversion.JSNodeParamConverter.to(actionResults.uRL_BaseWithoutPageNumOut, OS.Types.Text),
+URL_Base: OS.DataConversion.JSNodeParamConverter.to(actionResults.uRL_BaseOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$URL_GetWithoutPageNumber.NoPaginationURLJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.PageParamenterName)
+    $parameters.DefaultPageURL = window.location.href.replace(window.location.search, "?" + $parameters.PageParamenterName + "=");
+else
+    $parameters.DefaultPageURL = window.location.href;
+
+// Make sure trailing slashes are removed 
+$parameters.URL_Base = window.location.href.replace(window.location.search, "").replace(/\/$/, "");
+};
+});
+
+define("ECOP_Reactive_Pat.controller$Validate_Name", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.controller$Validate_Name.NameRegexJS"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_controller_Validate_Name_NameRegexJS) {
+var OS = OutSystems.Internal;
+ECOP_Reactive_PatController.default.validate_Name$Action = function (nameIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Validate_Name$vars"))());
+vars.value.nameInLocal = nameIn;
+var nameRegexJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Validate_Name$outVars"))());
+nameRegexJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_controller_Validate_Name_NameRegexJS, "NameRegex", "Validate_Name", {
+Name: OS.DataConversion.JSNodeParamConverter.to(vars.value.nameInLocal, OS.Types.Text),
+IsValid: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.Validate_Name$nameRegexJSResult"))();
+jsNodeResult.isValidOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsValid, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsValid = NameRegex.IsValid
+outVars.value.isValidOut = nameRegexJSResult.value.isValidOut;
+return outVars.value;
+};
+var controller = ECOP_Reactive_PatController.default;
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Validate_Name$vars", [{
+name: "Name",
+attrName: "nameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Validate_Name$nameRegexJSResult", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_Reactive_PatController.default.constructor.registerVariableGroupType("ECOP_Reactive_Pat.Validate_Name$outVars", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_Reactive_PatController.default.clientActionProxies.validate_Name$Action = function (nameIn) {
+nameIn = (nameIn === undefined) ? "" : nameIn;
+return controller.executeActionInsideJSNode(ECOP_Reactive_PatController.default.validate_Name$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(nameIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsValid: OS.DataConversion.JSNodeParamConverter.to(actionResults.isValidOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("ECOP_Reactive_Pat.controller$Validate_Name.NameRegexJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.Name.match(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-\d]+$/)){
+        $parameters.IsValid = true;
+}
+};
+});
+
+define("ECOP_Reactive_Pat.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller$translationsResources"], function (exports, OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_Pat_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECOP_Reactive_PatController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Reactive_PatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECOP_Reactive_PatController.default = new Controller(ECOP_Reactive_Pat_Controller_translationsResources, "ECOP_Reactive_Pat");
+});
+define("ECOP_Reactive_Pat.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

@@ -1,0 +1,1338 @@
+﻿define("ECP_ExceptionHandling_Lib.controller$AccessDenied_IsAccessDeniedException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.accessDenied_IsAccessDeniedException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.AccessDenied_IsAccessDeniedException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.AccessDenied_IsAccessDeniedException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.accessDenied, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.AccessDenied_IsAccessDeniedException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.AccessDenied_IsAccessDeniedException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.accessDenied_IsAccessDeniedException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.accessDenied_IsAccessDeniedException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$AccessDenied_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.accessDenied_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.AccessDenied_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.accessDenied;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.AccessDenied_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.accessDenied_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.accessDenied_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$AleradyExists_IsAlreadyExistsException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.aleradyExists_IsAlreadyExistsException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.AleradyExists_IsAlreadyExistsException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.AleradyExists_IsAlreadyExistsException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.alreadyExists, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.AleradyExists_IsAlreadyExistsException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.AleradyExists_IsAlreadyExistsException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.aleradyExists_IsAlreadyExistsException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.aleradyExists_IsAlreadyExistsException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$AlreadyExist_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.alreadyExist_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.AlreadyExist_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.alreadyExists;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.AlreadyExist_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.alreadyExist_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.alreadyExist_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$ContentTooLarge_IsContentTooLargeException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.contentTooLarge_IsContentTooLargeException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ContentTooLarge_IsContentTooLargeException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ContentTooLarge_IsContentTooLargeException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.contentTooLarge, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ContentTooLarge_IsContentTooLargeException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ContentTooLarge_IsContentTooLargeException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.contentTooLarge_IsContentTooLargeException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.contentTooLarge_IsContentTooLargeException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$ContentTooLarge_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.contentTooLarge_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ContentTooLarge_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.contentTooLarge;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ContentTooLarge_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.contentTooLarge_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.contentTooLarge_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$CreateOrderFromCart_IsCreateOrderFromCartException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.createOrderFromCart_IsCreateOrderFromCartException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.CreateOrderFromCart_IsCreateOrderFromCartException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.CreateOrderFromCart_IsCreateOrderFromCartException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.createOrderFromCart, callContext);
+
+// IsCreateOrderFromCartException = ValidateException.IsUserDefinedException
+outVars.value.isCreateOrderFromCartExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.CreateOrderFromCart_IsCreateOrderFromCartException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.CreateOrderFromCart_IsCreateOrderFromCartException$outVars", [{
+name: "IsCreateOrderFromCartException",
+attrName: "isCreateOrderFromCartExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.createOrderFromCart_IsCreateOrderFromCartException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.createOrderFromCart_IsCreateOrderFromCartException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsCreateOrderFromCartException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isCreateOrderFromCartExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$CreateOrderFromCart_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.createOrderFromCart_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.CreateOrderFromCart_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.createOrderFromCart;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.CreateOrderFromCart_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.createOrderFromCart_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.createOrderFromCart_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$DecryptionFailed_IsDecryptionFailedException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.decryptionFailed_IsDecryptionFailedException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.DecryptionFailed_IsDecryptionFailedException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.DecryptionFailed_IsDecryptionFailedException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.decryptionFailed, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.DecryptionFailed_IsDecryptionFailedException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.DecryptionFailed_IsDecryptionFailedException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.decryptionFailed_IsDecryptionFailedException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.decryptionFailed_IsDecryptionFailedException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$DecryptionFailed_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.decryptionFailed_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.DecryptionFailed_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.decryptionFailed;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.DecryptionFailed_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.decryptionFailed_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.decryptionFailed_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$EncryptedContent_IsEncryptedContentException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.encryptedContent_IsEncryptedContentException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.EncryptedContent_IsEncryptedContentException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.EncryptedContent_IsEncryptedContentException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.encryptedContent, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.EncryptedContent_IsEncryptedContentException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.EncryptedContent_IsEncryptedContentException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.encryptedContent_IsEncryptedContentException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.encryptedContent_IsEncryptedContentException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$EncryptedContent_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.encryptedContent_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.EncryptedContent_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.encryptedContent;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.EncryptedContent_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.encryptedContent_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.encryptedContent_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$EncryptionFailed_IsEncryptionFailedException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.encryptionFailed_IsEncryptionFailedException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.EncryptionFailed_IsEncryptionFailedException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.EncryptionFailed_IsEncryptionFailedException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.encryptionFailed, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.EncryptionFailed_IsEncryptionFailedException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.EncryptionFailed_IsEncryptionFailedException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.encryptionFailed_IsEncryptionFailedException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.encryptionFailed_IsEncryptionFailedException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$EncryptionFailed_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.encryptionFailed_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.EncryptionFailed_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.encryptionFailed;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.EncryptionFailed_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.encryptionFailed_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.encryptionFailed_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$InactiveUser_IsInactiveUserException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.inactiveUser_IsInactiveUserException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InactiveUser_IsInactiveUserException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InactiveUser_IsInactiveUserException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.inactiveUser, callContext);
+
+// IsInactiveUserException = ValidateException.IsUserDefinedException
+outVars.value.isInactiveUserExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InactiveUser_IsInactiveUserException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InactiveUser_IsInactiveUserException$outVars", [{
+name: "IsInactiveUserException",
+attrName: "isInactiveUserExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.inactiveUser_IsInactiveUserException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.inactiveUser_IsInactiveUserException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsInactiveUserException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isInactiveUserExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$InactiveUser_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.inactiveUser_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InactiveUser_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.inactiveUser;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InactiveUser_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.inactiveUser_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.inactiveUser_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$InvalidData_IsInvalidDataException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.invalidData_IsInvalidDataException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidData_IsInvalidDataException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidData_IsInvalidDataException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.invalidData, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidData_IsInvalidDataException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidData_IsInvalidDataException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.invalidData_IsInvalidDataException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.invalidData_IsInvalidDataException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$InvalidData_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.invalidData_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidData_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.invalidData;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidData_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.invalidData_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.invalidData_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$InvalidParameter_IsInvalidParameterException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.invalidParameter_IsInvalidParameterException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidParameter_IsInvalidParameterException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidParameter_IsInvalidParameterException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.invalidParameter, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidParameter_IsInvalidParameterException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidParameter_IsInvalidParameterException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.invalidParameter_IsInvalidParameterException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.invalidParameter_IsInvalidParameterException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$InvalidParameter_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.invalidParameter_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidParameter_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.invalidParameter;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidParameter_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.invalidParameter_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.invalidParameter_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$InvalidToken_IsInvalidTokenException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.invalidToken_IsInvalidTokenException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidToken_IsInvalidTokenException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidToken_IsInvalidTokenException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.invalidToken, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidToken_IsInvalidTokenException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidToken_IsInvalidTokenException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.invalidToken_IsInvalidTokenException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.invalidToken_IsInvalidTokenException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$InvalidToken_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.invalidToken_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.InvalidToken_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.invalidToken;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.InvalidToken_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.invalidToken_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.invalidToken_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$JSON_ValidateWithStructure", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$JSON_ValidateWithStructure.JSON_ValidateJS"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController, ECP_ExceptionHandling_Lib_controller_JSON_ValidateWithStructure_JSON_ValidateJS) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.jSON_ValidateWithStructure$Action = function (jSONIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.JSON_ValidateWithStructure$vars"))());
+vars.value.jSONInLocal = jSONIn;
+var jSON_ValidateJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.JSON_ValidateWithStructure$outVars"))());
+jSON_ValidateJSResult.value = controller.safeExecuteJSNode(ECP_ExceptionHandling_Lib_controller_JSON_ValidateWithStructure_JSON_ValidateJS, "JSON_Validate", "JSON_ValidateWithStructure", {
+JSON: OS.DataConversion.JSNodeParamConverter.to(vars.value.jSONInLocal, OS.Types.Text),
+IsValid: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.JSON_ValidateWithStructure$jSON_ValidateJSResult"))();
+jsNodeResult.isValidOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsValid, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsValid = JSON_Validate.IsValid
+outVars.value.isValidOut = jSON_ValidateJSResult.value.isValidOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.JSON_ValidateWithStructure$vars", [{
+name: "JSON",
+attrName: "jSONInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.JSON_ValidateWithStructure$jSON_ValidateJSResult", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.JSON_ValidateWithStructure$outVars", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.jSON_ValidateWithStructure$Action = function (jSONIn) {
+jSONIn = (jSONIn === undefined) ? "" : jSONIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.jSON_ValidateWithStructure$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(jSONIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsValid: OS.DataConversion.JSNodeParamConverter.to(actionResults.isValidOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("ECP_ExceptionHandling_Lib.controller$JSON_ValidateWithStructure.JSON_ValidateJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const json = $parameters.JSON;
+let object;
+
+/* Checks if JSON is valid */
+try {
+    object = JSON.parse(json);
+} catch(e) {
+    $parameters.IsValid = false;
+    return;
+}
+
+if(object.hasOwnProperty('ExceptionName') && object.hasOwnProperty('ExceptionMessage')) {
+    $parameters.IsValid = true;
+} else {
+    $parameters.IsValid = false;
+}
+
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$NotFound_IsNotFoundException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.notFound_IsNotFoundException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.NotFound_IsNotFoundException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.NotFound_IsNotFoundException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.notFound, callContext);
+
+// IsAccessDeniedException = ValidateException.IsUserDefinedException
+outVars.value.isAccessDeniedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.NotFound_IsNotFoundException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.NotFound_IsNotFoundException$outVars", [{
+name: "IsAccessDeniedException",
+attrName: "isAccessDeniedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.notFound_IsNotFoundException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.notFound_IsNotFoundException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsAccessDeniedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isAccessDeniedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$NotFound_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.notFound_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.NotFound_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.notFound;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.NotFound_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.notFound_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.notFound_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$OpenContentFailed_IsOpenContentFailedException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$ValidateException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.openContentFailed_IsOpenContentFailedException$Action = function (exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.OpenContentFailed_IsOpenContentFailedException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var validateExceptionVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.OpenContentFailed_IsOpenContentFailedException$outVars"))());
+// Execute Action: ValidateException
+validateExceptionVar.value = ECP_ExceptionHandling_LibController.default.validateException$Action(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.openContentFailed, callContext);
+
+// IsOpenContentFailedException = ValidateException.IsUserDefinedException
+outVars.value.isOpenContentFailedExceptionOut = validateExceptionVar.value.isUserDefinedExceptionOut;
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.OpenContentFailed_IsOpenContentFailedException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.OpenContentFailed_IsOpenContentFailedException$outVars", [{
+name: "IsOpenContentFailedException",
+attrName: "isOpenContentFailedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.openContentFailed_IsOpenContentFailedException$Action = function (exceptionMessageIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.openContentFailed_IsOpenContentFailedException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsOpenContentFailedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isOpenContentFailedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$OpenContentFailed_ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec", "ECP_ExceptionHandling_Lib.controller$ThrowException"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.openContentFailed_ThrowException$Action = function (errorMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.OpenContentFailed_ThrowException$vars"))());
+vars.value.errorMessageInLocal = errorMessageIn;
+// Execute Action: ThrowException
+ECP_ExceptionHandling_LibController.default.throwException$Action(function () {
+var rec = new ECP_ExceptionHandling_LibModel.ExceptionRec();
+rec.exceptionNameAttr = ECP_ExceptionHandling_LibModel.staticEntities.exceptionType.openContentFailed;
+rec.exceptionMessageAttr = vars.value.errorMessageInLocal;
+return rec;
+}(), callContext);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.OpenContentFailed_ThrowException$vars", [{
+name: "ErrorMessage",
+attrName: "errorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.openContentFailed_ThrowException$Action = function (errorMessageIn) {
+errorMessageIn = (errorMessageIn === undefined) ? "" : errorMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.openContentFailed_ThrowException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(errorMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$ThrowApplicationDefinedException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ApplicationExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.throwApplicationDefinedException$Action = function (applicationExceptionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ThrowApplicationDefinedException$vars"))());
+vars.value.applicationExceptionInLocal = applicationExceptionIn.clone();
+var jSONSerializeExceptionVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+// JSON Serialize: JSONSerializeException
+jSONSerializeExceptionVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.applicationExceptionInLocal, false, false);
+// Raise Error: UserDefinedException
+throw new OS.Exceptions.Exceptions.UserException("ECP_ExceptionHandling_Lib.UserDefinedException", jSONSerializeExceptionVar.value.jSONOut);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ThrowApplicationDefinedException$vars", [{
+name: "ApplicationException",
+attrName: "applicationExceptionInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_ExceptionHandling_LibModel.ApplicationExceptionRec();
+},
+complexType: ECP_ExceptionHandling_LibModel.ApplicationExceptionRec
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.throwApplicationDefinedException$Action = function (applicationExceptionIn) {
+applicationExceptionIn = (applicationExceptionIn === undefined) ? new ECP_ExceptionHandling_LibModel.ApplicationExceptionRec() : applicationExceptionIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.throwApplicationDefinedException$Action.bind(controller, applicationExceptionIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$ThrowException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.throwException$Action = function (exceptionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ThrowException$vars"))());
+vars.value.exceptionInLocal = exceptionIn.clone();
+var jSONSerializeExceptionVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+// JSON Serialize: JSONSerializeException
+jSONSerializeExceptionVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.exceptionInLocal, false, false);
+// Raise Error: UserDefinedException
+throw new OS.Exceptions.Exceptions.UserException("ECP_ExceptionHandling_Lib.UserDefinedException", jSONSerializeExceptionVar.value.jSONOut);
+return ;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ThrowException$vars", [{
+name: "Exception",
+attrName: "exceptionInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_ExceptionHandling_LibModel.ExceptionRec();
+},
+complexType: ECP_ExceptionHandling_LibModel.ExceptionRec
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.throwException$Action = function (exceptionIn) {
+exceptionIn = (exceptionIn === undefined) ? new ECP_ExceptionHandling_LibModel.ExceptionRec() : exceptionIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.throwException$Action.bind(controller, exceptionIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$ValidateAndReturnExceptionType", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$JSON_ValidateWithStructure", "ECP_ExceptionHandling_Lib.model$ExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.validateAndReturnExceptionType$Action = function (serializedExceptionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ValidateAndReturnExceptionType$vars"))());
+vars.value.serializedExceptionInLocal = serializedExceptionIn;
+var jSON_ValidateWithStructureVar = new OS.DataTypes.VariableHolder();
+var jSONDeserializeUserExceptionVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_ExceptionHandling_LibModel.ExceptionRec))());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ValidateAndReturnExceptionType$outVars"))());
+// Execute Action: JSON_ValidateWithStructure
+jSON_ValidateWithStructureVar.value = ECP_ExceptionHandling_LibController.default.jSON_ValidateWithStructure$Action(vars.value.serializedExceptionInLocal, callContext);
+
+// JSON matches expected schema?
+if((jSON_ValidateWithStructureVar.value.isValidOut)) {
+// JSON Deserialize: JSONDeserializeUserException
+jSONDeserializeUserExceptionVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(vars.value.serializedExceptionInLocal, ECP_ExceptionHandling_LibModel.ExceptionRec, false);
+// UserExceptionTypeId = JSONDeserializeUserException.Data.ExceptionName
+outVars.value.userExceptionTypeIdOut = jSONDeserializeUserExceptionVar.value.dataOut.exceptionNameAttr;
+// ExceptionMessage = JSONDeserializeUserException.Data.ExceptionMessage
+outVars.value.exceptionMessageOut = jSONDeserializeUserExceptionVar.value.dataOut.exceptionMessageAttr;
+}
+
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ValidateAndReturnExceptionType$vars", [{
+name: "SerializedException",
+attrName: "serializedExceptionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ValidateAndReturnExceptionType$outVars", [{
+name: "UserExceptionTypeId",
+attrName: "userExceptionTypeIdOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExceptionMessage",
+attrName: "exceptionMessageOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.validateAndReturnExceptionType$Action = function (serializedExceptionIn) {
+serializedExceptionIn = (serializedExceptionIn === undefined) ? "" : serializedExceptionIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.validateAndReturnExceptionType$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(serializedExceptionIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+UserExceptionTypeId: actionResults.userExceptionTypeIdOut,
+ExceptionMessage: OS.DataConversion.JSNodeParamConverter.to(actionResults.exceptionMessageOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$ValidateApplicationDefinedException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.model$ApplicationExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.validateApplicationDefinedException$Action = function (applicationExceptionCodeIn, exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ValidateApplicationDefinedException$vars"))());
+vars.value.applicationExceptionCodeInLocal = applicationExceptionCodeIn;
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var jSONDeserializeUserExceptionVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_ExceptionHandling_LibModel.ApplicationExceptionRec))());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ValidateApplicationDefinedException$outVars"))());
+// JSON Deserialize: JSONDeserializeUserException
+jSONDeserializeUserExceptionVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.ApplicationExceptionRec, false);
+// IsApplicationDefinedException = JSONDeserializeUserException.Data.ExceptionCode = ApplicationExceptionCode
+outVars.value.isApplicationDefinedExceptionOut = (jSONDeserializeUserExceptionVar.value.dataOut.exceptionCodeAttr === vars.value.applicationExceptionCodeInLocal);
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ValidateApplicationDefinedException$vars", [{
+name: "ApplicationExceptionCode",
+attrName: "applicationExceptionCodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ValidateApplicationDefinedException$outVars", [{
+name: "IsApplicationDefinedException",
+attrName: "isApplicationDefinedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.validateApplicationDefinedException$Action = function (applicationExceptionCodeIn, exceptionMessageIn) {
+applicationExceptionCodeIn = (applicationExceptionCodeIn === undefined) ? "" : applicationExceptionCodeIn;
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.validateApplicationDefinedException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(applicationExceptionCodeIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsApplicationDefinedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isApplicationDefinedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller$ValidateException", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.controller", "ECP_ExceptionHandling_Lib.controller$JSON_ValidateWithStructure", "ECP_ExceptionHandling_Lib.model$ExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ExceptionHandling_LibController) {
+var OS = OutSystems.Internal;
+ECP_ExceptionHandling_LibController.default.validateException$Action = function (exceptionMessageIn, userExceptionTypeIdIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ValidateException$vars"))());
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+vars.value.userExceptionTypeIdInLocal = userExceptionTypeIdIn;
+var jSON_ValidateWithStructureVar = new OS.DataTypes.VariableHolder();
+var jSONDeserializeUserExceptionVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_ExceptionHandling_LibModel.ExceptionRec))());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_ExceptionHandling_Lib.ValidateException$outVars"))());
+// Execute Action: JSON_ValidateWithStructure
+jSON_ValidateWithStructureVar.value = ECP_ExceptionHandling_LibController.default.jSON_ValidateWithStructure$Action(vars.value.exceptionMessageInLocal, callContext);
+
+// JSON matches expected schema?
+if((jSON_ValidateWithStructureVar.value.isValidOut)) {
+// JSON Deserialize: JSONDeserializeUserException
+jSONDeserializeUserExceptionVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(vars.value.exceptionMessageInLocal, ECP_ExceptionHandling_LibModel.ExceptionRec, false);
+// IsUserDefinedException = JSONDeserializeUserException.Data.ExceptionName = UserExceptionTypeId
+outVars.value.isUserDefinedExceptionOut = (jSONDeserializeUserExceptionVar.value.dataOut.exceptionNameAttr === vars.value.userExceptionTypeIdInLocal);
+}
+
+return outVars.value;
+};
+var controller = ECP_ExceptionHandling_LibController.default;
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ValidateException$vars", [{
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "UserExceptionTypeId",
+attrName: "userExceptionTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_ExceptionHandling_LibController.default.constructor.registerVariableGroupType("ECP_ExceptionHandling_Lib.ValidateException$outVars", [{
+name: "IsUserDefinedException",
+attrName: "isUserDefinedExceptionOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_ExceptionHandling_LibController.default.clientActionProxies.validateException$Action = function (exceptionMessageIn, userExceptionTypeIdIn) {
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+userExceptionTypeIdIn = (userExceptionTypeIdIn === undefined) ? "" : userExceptionTypeIdIn;
+return controller.executeActionInsideJSNode(ECP_ExceptionHandling_LibController.default.validateException$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text), userExceptionTypeIdIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsUserDefinedException: OS.DataConversion.JSNodeParamConverter.to(actionResults.isUserDefinedExceptionOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_ExceptionHandling_Lib.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ECP_ExceptionHandling_LibController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_ExceptionHandling_LibController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECP_ExceptionHandling_LibController.default = new Controller(null, "ECP_ExceptionHandling_Lib");
+});

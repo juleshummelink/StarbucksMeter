@@ -1,0 +1,2298 @@
+﻿define("ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "CMS_Monolith.controller", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECP_Promotion_BL.model", "ECOP_FE_Core.model", "ECP_Cart_CW.controller", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$model", "ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.CustomPatterns.PromotionOfferLabel.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$model", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$model", "PLUS_OutSystemsUI_2_8_0.Utilities.Separator.mvc$model", "ECP_Promotion_CW.PromotionListFlow.OfferItem.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$model", "ECOP_Base_RPat.CustomPatterns.ComplementaryInformation.mvc$model", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "CMS_Monolith.controller$ContentfulImageOptimization", "ECOP_Base_RPat.controller$Format_FreeDeliveryLabel", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$ClientVariable_GetLocale", "ECP_Promotion_CW.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$Format_dddd_dd_mmmm", "ECP_Promotion_CW.model$TextTextIntegerRecordList", "ECP_Promotion_BL.model$OfferRec", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_ViewItem", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECP_Promotion_CW.model$Promotion_PLP_StrList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Promotion_CW.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECP_Promotion_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECP_Promotion_BL.model$OfferDetail_WithProductsRec", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Promotion_CW.model$SettingRecordList"], function (OutSystems, ECP_Promotion_CWModel, CMS_MonolithController, ECOP_Base_RPatController, ECOP_FE_CoreController, ECP_Promotion_BLModel, ECOP_FE_CoreModel, ECP_Cart_CWController, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel, ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvcModel, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvcModel, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvcModel, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvcModel, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvcModel, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel, ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvcModel) {
+var OS = OutSystems.Internal;
+var GetLocalSettings_ClickDelayAggrRec = (function (_super) {
+__extends(GetLocalSettings_ClickDelayAggrRec, _super);
+function GetLocalSettings_ClickDelayAggrRec(defaults) {
+_super.apply(this, arguments);
+}
+GetLocalSettings_ClickDelayAggrRec.RecordListType = ECP_Promotion_CWModel.SettingRecordList;
+GetLocalSettings_ClickDelayAggrRec.init();
+return GetLocalSettings_ClickDelayAggrRec;
+})(OS.Model.AggregateRecord);
+
+var PromotionOfferDetail_GetDataActRec = (function (_super) {
+__extends(PromotionOfferDetail_GetDataActRec, _super);
+function PromotionOfferDetail_GetDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+PromotionOfferDetail_GetDataActRec.attributesToDeclare = function () {
+return [
+this.attr("PromotionOfferDetail", "promotionOfferDetailOut", "PromotionOfferDetail", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.OfferDetail_WithProductsRec());
+}, true, ECP_Promotion_BLModel.OfferDetail_WithProductsRec), 
+this.attr("PromotionPeriod", "promotionPeriodOut", "PromotionPeriod", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_CWModel.Period_DateRec());
+}, true, ECP_Promotion_CWModel.Period_DateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionOfferDetail_GetDataActRec.init();
+return PromotionOfferDetail_GetDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("CheckoutId", "checkoutIdVar", "CheckoutId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("IsOrderEditMode", "isOrderEditModeVar", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OrderEditId", "orderEditIdVar", "OrderEditId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("StoreChannelD", "storeChannelDVar", "StoreChannelD", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("LineItemRecList", "lineItemRecListVar", "LineItemRecList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_CWModel.TextTextIntegerRecordList());
+}, false, ECP_Promotion_CWModel.TextTextIntegerRecordList), 
+this.attr("StoreNumber", "storeNumberVar", "StoreNumber", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("PromotionOfferId", "promotionOfferIdIn", "PromotionOfferId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_promotionOfferIdInDataFetchStatus", "_promotionOfferIdInDataFetchStatus", "_promotionOfferIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDesktop", "isDesktopIn", "IsDesktop", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDesktopInDataFetchStatus", "_isDesktopInDataFetchStatus", "_isDesktopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsTablet", "isTabletIn", "IsTablet", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isTabletInDataFetchStatus", "_isTabletInDataFetchStatus", "_isTabletInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsPhone", "isPhoneIn", "IsPhone", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isPhoneInDataFetchStatus", "_isPhoneInDataFetchStatus", "_isPhoneInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsCustomerUnderAge", "isCustomerUnderAgeIn", "IsCustomerUnderAge", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isCustomerUnderAgeInDataFetchStatus", "_isCustomerUnderAgeInDataFetchStatus", "_isCustomerUnderAgeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsTimetraveler", "isTimetravelerIn", "IsTimetraveler", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isTimetravelerInDataFetchStatus", "_isTimetravelerInDataFetchStatus", "_isTimetravelerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetLocalSettings_ClickDelay", "getLocalSettings_ClickDelayAggr", "getLocalSettings_ClickDelayAggr", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetLocalSettings_ClickDelayAggrRec());
+}, true, GetLocalSettings_ClickDelayAggrRec), 
+this.attr("PromotionOfferDetail_Get", "promotionOfferDetail_GetDataAct", "promotionOfferDetail_GetDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PromotionOfferDetail_GetDataActRec());
+}, true, PromotionOfferDetail_GetDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((((((((((ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvcModel.hasValidationWidgets) || ECP_Promotion_CW_PromotionListFlow_OfferItem_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("PromotionOfferId" in inputs) {
+this.variables.promotionOfferIdIn = inputs.PromotionOfferId;
+if("_promotionOfferIdInDataFetchStatus" in inputs) {
+this.variables._promotionOfferIdInDataFetchStatus = inputs._promotionOfferIdInDataFetchStatus;
+}
+
+}
+
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("IsDesktop" in inputs) {
+this.variables.isDesktopIn = inputs.IsDesktop;
+if("_isDesktopInDataFetchStatus" in inputs) {
+this.variables._isDesktopInDataFetchStatus = inputs._isDesktopInDataFetchStatus;
+}
+
+}
+
+if("IsTablet" in inputs) {
+this.variables.isTabletIn = inputs.IsTablet;
+if("_isTabletInDataFetchStatus" in inputs) {
+this.variables._isTabletInDataFetchStatus = inputs._isTabletInDataFetchStatus;
+}
+
+}
+
+if("IsPhone" in inputs) {
+this.variables.isPhoneIn = inputs.IsPhone;
+if("_isPhoneInDataFetchStatus" in inputs) {
+this.variables._isPhoneInDataFetchStatus = inputs._isPhoneInDataFetchStatus;
+}
+
+}
+
+if("IsCustomerUnderAge" in inputs) {
+this.variables.isCustomerUnderAgeIn = inputs.IsCustomerUnderAge;
+if("_isCustomerUnderAgeInDataFetchStatus" in inputs) {
+this.variables._isCustomerUnderAgeInDataFetchStatus = inputs._isCustomerUnderAgeInDataFetchStatus;
+}
+
+}
+
+if("IsTimetraveler" in inputs) {
+this.variables.isTimetravelerIn = inputs.IsTimetraveler;
+if("_isTimetravelerInDataFetchStatus" in inputs) {
+this.variables._isTimetravelerInDataFetchStatus = inputs._isTimetravelerInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "PromotionDetailsFlow.PromotionOffer_DP_Content");
+});
+define("ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "CMS_Monolith.controller", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECP_Promotion_BL.model", "ECOP_FE_Core.model", "ECP_Cart_CW.controller", "react", "OutSystems/ReactView/Main", "ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$model", "ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$controller", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$view", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.ProductHeaderCard.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.PromotionOfferLabel.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$view", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$view", "PLUS_OutSystemsUI_2_8_0.Utilities.Separator.mvc$view", "ECP_Promotion_CW.PromotionListFlow.OfferItem.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$view", "ECOP_Base_RPat.CustomPatterns.ComplementaryInformation.mvc$view", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "CMS_Monolith.controller$ContentfulImageOptimization", "ECOP_Base_RPat.controller$Format_FreeDeliveryLabel", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$ClientVariable_GetLocale", "ECP_Promotion_CW.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$Format_dddd_dd_mmmm", "ECP_Promotion_CW.model$TextTextIntegerRecordList", "ECP_Promotion_BL.model$OfferRec", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_ViewItem", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECP_Promotion_CW.model$Promotion_PLP_StrList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Promotion_CW.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECP_Promotion_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECP_Promotion_BL.model$OfferDetail_WithProductsRec", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Promotion_CW.model$SettingRecordList"], function (OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, CMS_MonolithController, ECOP_Base_RPatController, ECOP_FE_CoreController, ECP_Promotion_BLModel, ECOP_FE_CoreModel, ECP_Cart_CWController, React, OSView, ECP_Promotion_CW_PromotionDetailsFlow_PromotionOffer_DP_Content_mvc_model, ECP_Promotion_CW_PromotionDetailsFlow_PromotionOffer_DP_Content_mvc_controller, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, OSWidgets, ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "PromotionDetailsFlow.PromotionOffer_DP_Content";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Promotion_CW_PromotionDetailsFlow_PromotionOffer_DP_Content_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Promotion_CW_PromotionDetailsFlow_PromotionOffer_DP_Content_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, {
+inputs: {
+BackgroundCSSClass: "background-neutral-0",
+ExtendedClass: "offer-details-header"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [$if(model.variables.promotionOfferDetail_GetDataAct.isDataFetchedAttr, false, this, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_view, {
+inputs: {
+ExtendedClass: "promotion-details-header-wrapper"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageLabel: model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.imageLabelAttr,
+_imageLabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr),
+ImageURL: model.getCachedValue(idService.getId("G17jtaCLrUugXpA6vxzs2g.ImageURL"), function () {
+return CMS_MonolithController.default.contentfulImageOptimization$Action(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.imageURLAttr, 380, 380, CMS_MonolithController.default.imageUtils_GetCDNImgFormat$Action(callContext).cDNImgFormatOut, CMS_MonolithController.default.imageUtils_GetCDNImgCompressionRatio$Action(callContext).cDNImgCompressionRatioOut, ECP_Promotion_CWModel.staticEntities.contentfulImageResizeBehavior.pad, callContext).newURLOut;
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.imageURLAttr;
+}),
+_imageURLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "home",
+Size: ECP_Promotion_CWModel.staticEntities.iconSize.size2x,
+ExtendedClass: "text-neutral-2"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+topLeftLogo: new PlaceholderContent(function () {
+return [$if(((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.stampURLAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Image, {
+type: /*External*/ 1,
+url: model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.stampURLAttr,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+url_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+})];
+}, function () {
+return [];
+})];
+}),
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "padding-bottom-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "place",
+value: model.getCachedValue(idService.getId("RpnoNIzS_UuSa658pv+cHA.Value"), function () {
+return OS.BuiltinFunctions.trim(((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.brandAttr + " ") + model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr));
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.brandAttr;
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+}))];
+}),
+additionalInfo: new PlaceholderContent(function () {
+return [$if((((OS.BuiltinFunctions.trim(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr)) !== ("")) || ((OS.BuiltinFunctions.trim(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_PromotionBasedLabelAttr)) !== (""))), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "padding-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, {
+inputs: {
+PromotionOfferStyleId: model.getCachedValue(idService.getId("7pTVXg+t3UGYMZAuL8qZOw.PromotionOfferStyleId"), function () {
+return ((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr) ? (ECP_Promotion_CWModel.staticEntities.promotionOfferStyle.orange) : (ECP_Promotion_CWModel.staticEntities.promotionOfferStyle.red));
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr;
+}),
+_promotionOfferStyleIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "8",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+offerLabel: new PlaceholderContent(function () {
+return [$if(((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_PromotionBasedLabelAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("RR536Ssh40qZBXH_rDbuoA.Value"), function () {
+return OS.BuiltinFunctions.toUpper(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_PromotionBasedLabelAttr);
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_PromotionBasedLabelAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+}))];
+}, function () {
+return [];
+}), $if(((OS.BuiltinFunctions.trim(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr)) !== ("")), false, this, function () {
+return [$if(!(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+})];
+}, function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("IFKP+3x0P0uIzfv3k0sVfQ.Value"), function () {
+return ECOP_Base_RPatController.default.format_FreeDeliveryLabel$Action(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr, callContext).newLabelOut;
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+})];
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_PromotionBasedLabelAttr)]
+}))];
+}, function () {
+return [];
+}), $if(((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.variantAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "text-neutral-9",
+value: ((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.variantAttr + " ") + model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.packageAttr),
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+}))];
+}, function () {
+return [];
+}), $if(((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.exampleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "text-neutral-9",
+value: model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.exampleAttr,
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+}))];
+}, function () {
+return [];
+}), $if(((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.explanationAttr) !== ("")), false, this, function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_view, {
+inputs: {
+Animation: "fast",
+NumVisibleLines: model.getCachedValue(idService.getId("W2kENOKewk22APYPXhm9Eg.NumVisibleLines"), function () {
+return ((model.variables.isPhoneIn) ? (3) : (2));
+}, function () {
+return model.variables.isPhoneIn;
+}),
+_numVisibleLinesInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus),
+ExtendedClass: "margin-top-s",
+HideLink: false,
+LinkTextCollapsed: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("fXgVzwrrQUCYt8AhSOCmcw#Value.832143231.1", "Read more"),
+LinkTextExpanded: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("UJjz+ODSWk+Skt8m2mjxKQ#Value.832103875.1", "Read less")
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "17",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+bodyText: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "text-neutral-9",
+value: model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.explanationAttr,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.explanationAttr)]
+})];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: model.getCachedValue(idService.getId("2hjZk1+D2EuCv9Gvru3d4Q.Style"), function () {
+return ((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr) ? ("text-neutral-9") : ("text-tertiary"));
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr;
+}),
+value: model.getCachedValue(idService.getId("2hjZk1+D2EuCv9Gvru3d4Q.Value"), function () {
+return (((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("HK9bsaQOhU2fwC15JS6aKA#ValueExpression.-1556136846.1", "Valid from ") + ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr, false, true, ECOP_FE_CoreController.default.clientVariable_GetLocale$Action(callContext).localeOut, callContext).formattedOut) + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("HK9bsaQOhU2fwC15JS6aKA#ValueExpression.1068261.1", " to ")) + ECOP_Base_RPatController.default.format_dddd_dd_mmmm$Action(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr, false, true, ECOP_FE_CoreController.default.clientVariable_GetLocale$Action(callContext).localeOut, callContext).formattedOut);
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr;
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr),
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+}))];
+}),
+priceTopLogo: PlaceholderContent.Empty,
+priceInteger: PlaceholderContent.Empty,
+priceDecimals: PlaceholderContent.Empty,
+pricePrevious: PlaceholderContent.Empty,
+button: PlaceholderContent.Empty,
+likeLabel: PlaceholderContent.Empty,
+logosBottomInfo: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables.isPhoneIn), asPrimitiveValue(model.variables._isPhoneInDataFetchStatus), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.explanationAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.exampleAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.packageAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.variantAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_PromotionBasedLabelAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.brandAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.stampURLAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.imageURLAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.imageLabelAttr)]
+})];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "21",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ProductHeaderCard_mvc_view, {
+inputs: {
+ExtendedClass: "promotion-details-header-wrapper is--loading-state"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "22",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+image: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon3",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+topLeftLogo: PlaceholderContent.Empty,
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "Alle PLUS Maaltijd Verspakketten",
+_idProps: {
+service: idService,
+uuid: "25"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+additionalInfo: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, {
+inputs: {
+PromotionOfferStyleId: ECP_Promotion_CWModel.staticEntities.promotionOfferStyle.red
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "27",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+offerLabel: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2 VOOR 3.00",
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "Combineren mogelijk 2 pakketten",
+_idProps: {
+service: idService,
+uuid: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "31"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "text-neutral-9 place",
+value: "Bestel nu voor 10 euro aan actieproducten en je ontvangt 100% korting op de bestelkosten*.",
+_idProps: {
+service: idService,
+uuid: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "text-neutral-9 place",
+value: "Valid from Sunday 10 juli to Saturday 16 juli",
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+priceTopLogo: PlaceholderContent.Empty,
+priceInteger: PlaceholderContent.Empty,
+priceDecimals: PlaceholderContent.Empty,
+pricePrevious: PlaceholderContent.Empty,
+button: PlaceholderContent.Empty,
+likeLabel: PlaceholderContent.Empty,
+logosBottomInfo: PlaceholderContent.Empty
+},
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.isPhoneIn), asPrimitiveValue(model.variables._isPhoneInDataFetchStatus), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.explanationAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.exampleAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.packageAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.variantAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_PromotionBasedLabelAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.brandAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.stampURLAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.imageURLAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.imageLabelAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.isDataFetchedAttr)]
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view, {
+inputs: {
+ExtendedClass: "separator-size-xs",
+Space: ECP_Promotion_CWModel.staticEntities.space.none,
+Color: ECP_Promotion_CWModel.staticEntities.color.neutral2
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "35",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, {
+inputs: {
+NoPaddingRight: model.variables.isPhoneIn,
+_noPaddingRightInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus),
+NoPaddingBottom: true,
+BackgroundCSSClass: "background-neutral-0",
+NoPaddingTop: true,
+NoPaddingLeft: model.variables.isPhoneIn,
+_noPaddingLeftInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus),
+ExtendedClass: model.getCachedValue(idService.getId("FtZQszvZPEKmgoKeVaWC2g.ExtendedClass"), function () {
+return ((((model.variables.isDesktopIn) ? ("padding-top-xl padding-bottom-xxxxl") : ("")) + ((model.variables.isTabletIn) ? (" padding-top-m padding-bottom-xxl") : (""))) + ((model.variables.isPhoneIn) ? (" padding-top-m padding-bottom-xl") : ("")));
+}, function () {
+return model.variables.isDesktopIn;
+}, function () {
+return model.variables.isTabletIn;
+}, function () {
+return model.variables.isPhoneIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isDesktopInDataFetchStatus, model.variables._isTabletInDataFetchStatus, model.variables._isPhoneInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "36",
+alias: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [$if(model.variables.promotionOfferDetail_GetDataAct.isDataFetchedAttr, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("Ej8nS+f3H0a4LfiLvfVtJA.Style"), function () {
+return ("plp-content-wrapper" + (((model.variables.promotionOfferDetail_GetDataAct.isDataFetchedAttr && model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr.isEmpty)) ? (" is-empty") : ("")));
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.isDataFetchedAttr;
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr)
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-results-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr,
+style: "list list-group plp-results-list",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+title: model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr,
+"aria-label": ((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr + " ") + model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.exampleAttr)
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr.getCurrent(callContext.iterationContext).pLP_StrAttr.slugAttr, OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "40"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.isCustomerUnderAgeIn), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayAggr.listOut.getCurrent(callContext.iterationContext).settingAttr.valueAttr), asPrimitiveValue(model.variables.storeChannelDVar), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.toDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.fromDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr.getCurrent(callContext.iterationContext)), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr), asPrimitiveValue(model.variables._isCustomerUnderAgeInDataFetchStatus), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayAggr.dataFetchStatusAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables.oneWelcomeUserIdIn)]
+}, React.createElement(ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view, {
+inputs: {
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+ShowStartDate_Label: model.getCachedValue(idService.getId("en9JiaCqfkW2W0E39_jioQ.ShowStartDate_Label"), function () {
+return ((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr.equals(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.fromDateAttr)) ? (false) : (((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr.gt(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.fromDateAttr)) ? (true) : (false))));
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr;
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.fromDateAttr;
+}),
+_showStartDate_LabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr),
+StoreChannelD: model.variables.storeChannelDVar,
+ItemListName: "Promotion Offer",
+ExtendedClass_Price: "",
+ClickDelayValue: model.getCachedValue(idService.getId("en9JiaCqfkW2W0E39_jioQ.ClickDelayValue"), function () {
+return ((OS.BuiltinFunctions.textToIntegerValidate(model.variables.getLocalSettings_ClickDelayAggr.listOut.getCurrent(callContext.iterationContext).settingAttr.valueAttr)) ? (OS.BuiltinFunctions.textToInteger(model.variables.getLocalSettings_ClickDelayAggr.listOut.getCurrent(callContext.iterationContext).settingAttr.valueAttr)) : (350));
+}, function () {
+return model.variables.getLocalSettings_ClickDelayAggr.listOut.getCurrent(callContext.iterationContext).settingAttr.valueAttr;
+}),
+_clickDelayValueInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getLocalSettings_ClickDelayAggr.dataFetchStatusAttr),
+Offer: model.getCachedValue(idService.getId("en9JiaCqfkW2W0E39_jioQ.Offer"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr.getCurrent(callContext.iterationContext), new ECP_Promotion_BLModel.OfferRec(), function (source, target) {
+target.brandAttr = source.pLP_StrAttr.brandAttr;
+target.nameAttr = source.pLP_StrAttr.nameAttr;
+target.exampleAttr = source.pLP_StrAttr.product_SubtitleAttr;
+target.packageAttr = source.pLP_StrAttr.packgingAttr;
+target.slugAttr = source.pLP_StrAttr.slugAttr;
+target.imageURLAttr = source.pLP_StrAttr.imageURLAttr;
+target.imageLabelAttr = source.pLP_StrAttr.imageLabelAttr;
+target.metaTitleAttr = source.pLP_StrAttr.metaTitleAttr;
+target.metaDescriptionAttr = source.pLP_StrAttr.metaDescriptionAttr;
+target.newPriceAttr = source.pLP_StrAttr.originalPriceAttr;
+target.priceOriginal_ProductAttr = source.price_OriginalAttr;
+target.isOfflineSaleOnlyAttr = source.pLP_StrAttr.isOfflineSaleOnlyAttr;
+target.isProductOverMajorityAgeAttr = source.pLP_StrAttr.isProductOverMajorityAgeAttr;
+target.displayInfo_LabelAttr = source.displayInfo_LabelAttr;
+target.displayInfo_PromotionBasedLabelAttr = source.displayInfo_BasedLabelAttr;
+target.startDateAttr = model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr;
+target.endDateAttr = model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr;
+target.isFreeDeliveryOfferAttr = model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.isFreeDeliveryOfferAttr;
+target.isSingleProductAttr = true;
+target.product_SKUAttr = source.pLP_StrAttr.sKUAttr;
+target.product_LineItemIdAttr = source.pLP_StrAttr.lineItemIdAttr;
+target.product_QuantityAttr = source.pLP_StrAttr.quantityAttr;
+target.product_IsNIX18Attr = source.pLP_StrAttr.isProductOverMajorityAgeAttr;
+target.product_MaxOrderLimitAttr = source.pLP_StrAttr.maxOrderLimitAttr;
+target.stampURLAttr = model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.stampURLAttr;
+return target;
+});
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr.getCurrent(callContext.iterationContext);
+}),
+_offerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr),
+ShowEndDate_Label: model.getCachedValue(idService.getId("en9JiaCqfkW2W0E39_jioQ.ShowEndDate_Label"), function () {
+return ((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr.equals(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.toDateAttr)) ? (false) : (((!(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr.equals(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.toDateAttr))) ? (true) : (false))));
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr;
+}, function () {
+return model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.toDateAttr;
+}),
+_showEndDate_LabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr),
+IsCustomerUnderAge: model.variables.isCustomerUnderAgeIn,
+_isCustomerUnderAgeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isCustomerUnderAgeInDataFetchStatus),
+ShowStartDate_NameOfDay: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+forceRefresh$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_OfferItemForceRefresh$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+cartOrdered$Action: function (checkoutIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CartOrdered$Action(checkoutIdIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "41",
+alias: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, callContext, idService, "1")
+},
+_dependencies: [asPrimitiveValue(model.variables.isCustomerUnderAgeIn), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayAggr.listOut.getCurrent(callContext.iterationContext).settingAttr.valueAttr), asPrimitiveValue(model.variables.storeChannelDVar), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables._isCustomerUnderAgeInDataFetchStatus), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayAggr.dataFetchStatusAttr), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.toDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.fromDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr)]
+})))];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "42",
+alias: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-content-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-results-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "list list-group plp-results-list",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "46"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+DisableSlider: true,
+ExtendedClass: "plp-item-wrapper__promo"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "47",
+alias: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageURL: "",
+ImageLabel: ""
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "48",
+alias: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Promotion_CWModel.staticEntities.iconSize.size2x,
+ExtendedClass: "text-neutral-2 place",
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "49",
+alias: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, {
+inputs: {
+PromotionOfferStyleId: ECP_Promotion_CWModel.staticEntities.promotionOfferStyle.orange
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "50",
+alias: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+offerLabel: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2 voor 5.00",
+_idProps: {
+service: idService,
+uuid: "51"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+}),
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS Kipfilet Voordeelverpakking",
+_idProps: {
+service: idService,
+uuid: "52"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+style: "place",
+value: "Per 1 stuks",
+_idProps: {
+service: idService,
+uuid: "53"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2.",
+_idProps: {
+service: idService,
+uuid: "54"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "20",
+_idProps: {
+service: idService,
+uuid: "55"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "btn btn-action add",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "56"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "place",
+Name: "add-to-cart"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "57",
+alias: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "58"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+ExtendedClass: "plp-item-wrapper__promo",
+DisableSlider: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "59",
+alias: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageURL: "",
+ImageLabel: ""
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "60",
+alias: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Promotion_CWModel.staticEntities.iconSize.size2x,
+ExtendedClass: "text-neutral-2 place",
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "61",
+alias: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, {
+inputs: {
+PromotionOfferStyleId: ECP_Promotion_CWModel.staticEntities.promotionOfferStyle.orange
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "62",
+alias: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+offerLabel: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2 voor 5.00",
+_idProps: {
+service: idService,
+uuid: "63"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+}),
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS Kipfilet Voordeelverpakking",
+_idProps: {
+service: idService,
+uuid: "64"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+style: "place",
+value: "Per 1 stuks",
+_idProps: {
+service: idService,
+uuid: "65"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2.",
+_idProps: {
+service: idService,
+uuid: "66"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "20",
+_idProps: {
+service: idService,
+uuid: "67"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "btn btn-action add",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "68"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "add-to-cart",
+ExtendedClass: "place"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "69",
+alias: "24"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "70"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+DisableSlider: true,
+ExtendedClass: "plp-item-wrapper__promo"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "71",
+alias: "25"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageURL: "",
+ImageLabel: ""
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "72",
+alias: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "home",
+ExtendedClass: "text-neutral-2 place",
+Size: ECP_Promotion_CWModel.staticEntities.iconSize.size2x
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "73",
+alias: "27"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, {
+inputs: {
+PromotionOfferStyleId: ECP_Promotion_CWModel.staticEntities.promotionOfferStyle.orange
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "74",
+alias: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+offerLabel: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2 voor 5.00",
+_idProps: {
+service: idService,
+uuid: "75"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+}),
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS Kipfilet Voordeelverpakking",
+_idProps: {
+service: idService,
+uuid: "76"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+style: "place",
+value: "Per 1 stuks",
+_idProps: {
+service: idService,
+uuid: "77"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2.",
+_idProps: {
+service: idService,
+uuid: "78"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "20",
+_idProps: {
+service: idService,
+uuid: "79"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "btn btn-action add",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "80"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "place",
+Name: "add-to-cart"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "81",
+alias: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "82"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+DisableSlider: true,
+ExtendedClass: "plp-item-wrapper__promo"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "83",
+alias: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageURL: "",
+ImageLabel: ""
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "84",
+alias: "31"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "text-neutral-2 place",
+Size: ECP_Promotion_CWModel.staticEntities.iconSize.size2x,
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "85",
+alias: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, {
+inputs: {
+PromotionOfferStyleId: ECP_Promotion_CWModel.staticEntities.promotionOfferStyle.orange
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "86",
+alias: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+offerLabel: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2 voor 5.00",
+_idProps: {
+service: idService,
+uuid: "87"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+}),
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS Kipfilet Voordeelverpakking",
+_idProps: {
+service: idService,
+uuid: "88"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+style: "place",
+value: "Per 1 stuks",
+_idProps: {
+service: idService,
+uuid: "89"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2.",
+_idProps: {
+service: idService,
+uuid: "90"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "20",
+_idProps: {
+service: idService,
+uuid: "91"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "btn btn-action add",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "92"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "add-to-cart",
+ExtendedClass: "place"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "93",
+alias: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+})))))];
+})
+},
+_dependencies: []
+})];
+}), React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: model.variables.promotionOfferDetail_GetDataAct.isDataFetchedAttr
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "94",
+alias: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvc_view, {
+inputs: {
+ExtendedClass: "pdp-complementary-info",
+TextColor: ECP_Promotion_CWModel.staticEntities.color.neutral7,
+BackgroundColor: ECP_Promotion_CWModel.staticEntities.color.neutral2
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "95",
+alias: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("XjF4CrTBrkmLLu6YfLKt6w#Value", "Promotion"))],
+_idProps: {
+service: idService,
+uuid: "96"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+message: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("GUewzTRLT02RcNuTbkniEA#Value", "For all products on this page, unless otherwise stated, a maximum of 5 identical offers per customer applies. With 6 or more of the same offers, the discount expires."))],
+_idProps: {
+service: idService,
+uuid: "97"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.isCustomerUnderAgeIn), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayAggr.listOut.getCurrent(callContext.iterationContext).settingAttr.valueAttr), asPrimitiveValue(model.variables.storeChannelDVar), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables._isCustomerUnderAgeInDataFetchStatus), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayAggr.dataFetchStatusAttr), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.toDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionPeriodOut.fromDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.endDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.startDateAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr), asPrimitiveValue(model.variables.promotionOfferDetail_GetDataAct.isDataFetchedAttr)]
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "CMS_Monolith.controller", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECP_Promotion_BL.model", "ECOP_FE_Core.model", "ECP_Cart_CW.controller", "ECP_Promotion_CW.languageResources", "ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$translationsResources", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "CMS_Monolith.controller$ContentfulImageOptimization", "ECOP_Base_RPat.controller$Format_FreeDeliveryLabel", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$ClientVariable_GetLocale", "ECP_Promotion_CW.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$Format_dddd_dd_mmmm", "ECP_Promotion_CW.model$TextTextIntegerRecordList", "ECP_Promotion_BL.model$OfferRec", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_ViewItem", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECP_Promotion_CW.model$Promotion_PLP_StrList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECP_Promotion_CW.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECP_Promotion_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECP_Promotion_BL.model$OfferDetail_WithProductsRec", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Promotion_CW.model$SettingRecordList"], function (OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, CMS_MonolithController, ECOP_Base_RPatController, ECOP_FE_CoreController, ECP_Promotion_BLModel, ECOP_FE_CoreModel, ECP_Cart_CWController, ECP_Promotion_CWLanguageResources, ECP_Promotion_CW_PromotionDetailsFlow_PromotionOffer_DP_Content_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+getLocalSettings_ClickDelay$AggrRefresh: 0,
+promotionOfferDetail_Get$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getLocalSettings_ClickDelay$AggrRefresh: [],
+promotionOfferDetail_Get$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Promotion_CW_PromotionDetailsFlow_PromotionOffer_DP_Content_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.getLocalSettings_ClickDelay$AggrRefresh = function (maxRecords, startIndex, callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callAggregateWithStartIndexAndClientVars("ScreenDataSetGetLocalSettings_ClickDelay", "screenservices/ECP_Promotion_CW/PromotionDetailsFlow/PromotionOffer_DP_Content/ScreenDataSetGetLocalSettings_ClickDelay", "+WNmHja1ISDmlu8wjVBtuw", maxRecords, startIndex, function (b) {
+model.variables.getLocalSettings_ClickDelayAggr.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getLocalSettings_ClickDelayAggr.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getLocalSettings_ClickDelayAggr.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true);
+};
+Controller.prototype.promotionOfferDetail_Get$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionPromotionOfferDetail_Get", "screenservices/ECP_Promotion_CW/PromotionDetailsFlow/PromotionOffer_DP_Content/DataActionPromotionOfferDetail_Get", "Ga_jS5bZ5DxXrwliy4d7wQ", function (b) {
+model.variables.promotionOfferDetail_GetDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.promotionOfferDetail_GetDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.promotionOfferDetail_GetDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true).then(function () {
+return controller._onAfterFetch_PromotionOfferDetail_Get$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["getLocalSettings_ClickDelay$AggrRefresh", "promotionOfferDetail_Get$DataActRefresh"];
+// Client Actions
+Controller.prototype._handler_CartOrdered$Action = function (checkoutId2In, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CartOrdered");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.Handler_CartOrdered$vars"))());
+vars.value.checkoutId2InLocal = checkoutId2In;
+return OS.Flow.executeAsyncFlow(function () {
+// CheckoutId = CheckoutId2
+model.variables.checkoutIdVar = vars.value.checkoutId2InLocal;
+// Execute Action: Handler_OfferItemForceRefresh
+return controller._handler_OfferItemForceRefresh$Action(callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.Handler_CartOrdered$vars", [{
+name: "CheckoutId2",
+attrName: "checkoutId2InLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onAfterFetch_PromotionOfferDetail_Get$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_PromotionOfferDetail_Get");
+callContext = controller.callContext(callContext);
+var get_Client_UserStoreNumberVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: DataFetched
+return controller.dataFetched$Action(((model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.brandAttr + " ") + model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr), callContext).then(function () {
+// Execute Action: Get_Client_UserStoreNumber
+get_Client_UserStoreNumberVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreNumber$Action(callContext);
+
+// Execute Action: GTMEvent_ViewItem2
+ECOP_FE_CoreController.default.gTMEvent_ViewItem$Action(function () {
+var list = new ECP_Promotion_CWModel.GTM_ProductItemList();
+list.pushAll([function () {
+var rec = new ECOP_FE_CoreModel.GTM_ProductItemRec();
+rec.item_idAttr = model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.offer_IdAttr;
+rec.item_nameAttr = model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.nameAttr;
+rec.affiliationAttr = (get_Client_UserStoreNumberVar.value.storeNumberOut).toString();
+rec.couponAttr = ECOP_FE_CoreController.default.gTMFormat_Coupon$Action(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.displayInfo_LabelAttr, callContext).formatedTextOut;
+rec.currencyAttr = "EUR";
+rec.indexAttr = 0;
+rec.item_brandAttr = model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.brandAttr;
+rec.item_list_idAttr = "promotion_details";
+rec.item_list_nameAttr = "Promotion Details";
+rec.priceAttr = model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.priceAttr;
+rec.quantityAttr = 0;
+return rec;
+}()]);
+return list;
+}(), callContext);
+// Execute Action: GTMEvent_ViewItemList
+ECOP_FE_CoreController.default.gTMEvent_ViewItemList$Action(OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.promotionOfferDetail_GetDataAct.promotionOfferDetailOut.productListAttr, new ECP_Promotion_CWModel.GTM_ProductItemList(), function (source, target) {
+target.item_idAttr = source.pLP_StrAttr.sKUAttr;
+target.item_nameAttr = source.pLP_StrAttr.nameAttr;
+target.affiliationAttr = (model.variables.storeNumberVar).toString();
+target.couponAttr = ECOP_FE_CoreController.default.gTMFormat_Coupon$Action(source.displayInfo_LabelAttr, callContext).formatedTextOut;
+target.currencyAttr = "EUR";
+target.indexAttr = 0;
+target.item_brandAttr = source.pLP_StrAttr.brandAttr;
+target.item_categoryAttr = ((!(source.pLP_StrAttr.categoriesAttr.isEmpty)) ? (source.pLP_StrAttr.categoriesAttr.getItem(0).nameAttr) : (""));
+target.item_category2Attr = (((!(source.pLP_StrAttr.categoriesAttr.isEmpty) && (source.pLP_StrAttr.categoriesAttr.length >= 2))) ? (source.pLP_StrAttr.categoriesAttr.getItem(1).nameAttr) : (""));
+target.item_category3Attr = (((!(source.pLP_StrAttr.categoriesAttr.isEmpty) && (source.pLP_StrAttr.categoriesAttr.length >= 3))) ? (source.pLP_StrAttr.categoriesAttr.getItem(2).nameAttr) : (""));
+target.item_category4Attr = (((!(source.pLP_StrAttr.categoriesAttr.isEmpty) && (source.pLP_StrAttr.categoriesAttr.length >= 4))) ? (source.pLP_StrAttr.categoriesAttr.getItem(3).nameAttr) : (""));
+target.item_list_idAttr = "promotion_detail_products";
+target.item_list_nameAttr = "Promotion Detail Products";
+target.priceAttr = source.pLP_StrAttr.originalPriceAttr;
+target.quantityAttr = source.pLP_StrAttr.quantityAttr;
+return target;
+}), "Promotion Detail Products", callContext);
+});
+});
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var isOrderEditMode_GetVar = new OS.DataTypes.VariableHolder();
+var cart_Client_GetIdVar = new OS.DataTypes.VariableHolder();
+var cart_GetItemsListVar = new OS.DataTypes.VariableHolder();
+var orderEdit_GetVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreNumberVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreChannelIdVar = new OS.DataTypes.VariableHolder();
+// Execute Action: Cart_Client_GetId
+cart_Client_GetIdVar.value = ECOP_FE_CoreController.default.cart_Client_GetId$Action(callContext);
+
+// Execute Action: OrderEdit_Get
+orderEdit_GetVar.value = ECOP_FE_CoreController.default.orderEdit_Get$Action(callContext);
+
+// Execute Action: IsOrderEditMode_Get
+isOrderEditMode_GetVar.value = ECOP_FE_CoreController.default.isOrderEditMode_Get$Action(callContext);
+
+// Execute Action: Get_Client_UserStoreChannelId
+get_Client_UserStoreChannelIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreChannelId$Action(callContext);
+
+// Execute Action: Cart_GetItemsList
+cart_GetItemsListVar.value = ECP_Cart_CWController.default.cart_GetItemsList$Action(callContext);
+
+// Execute Action: Get_Client_UserStoreNumber
+get_Client_UserStoreNumberVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreNumber$Action(callContext);
+
+// Set locals
+// CheckoutId = Cart_Client_GetId.CartId
+model.variables.checkoutIdVar = cart_Client_GetIdVar.value.cartIdOut;
+// IsOrderEditMode = IsOrderEditMode_Get.IsActive
+model.variables.isOrderEditModeVar = isOrderEditMode_GetVar.value.isActiveOut;
+// OrderEditId = OrderEdit_Get.OrderEditId
+model.variables.orderEditIdVar = orderEdit_GetVar.value.orderEditIdOut;
+// StoreChannelD = Get_Client_UserStoreChannelId.UserStoreChannelId
+model.variables.storeChannelDVar = get_Client_UserStoreChannelIdVar.value.userStoreChannelIdOut;
+// StoreNumber = Get_Client_UserStoreNumber.StoreNumber
+model.variables.storeNumberVar = get_Client_UserStoreNumberVar.value.storeNumberOut;
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.lineItemRecListVar, callContext);
+// Execute Action: ListAppendAll
+OS.SystemActions.listAppendAll(model.variables.lineItemRecListVar, OS.DataConversion.JSConversions.typeConvertRecordList(cart_GetItemsListVar.value.itemsListOut, new ECP_Promotion_CWModel.TextTextIntegerRecordList(), function (source, target) {
+target.lineItemIdAttr = source.lineItemIdAttr;
+target.quantityAttr = source.quantityAttr;
+target.sKUAttr = source.sKUAttr;
+return target;
+}), callContext);
+};
+Controller.prototype._handler_OfferItemForceRefresh$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_OfferItemForceRefresh");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Refresh Query: PromotionOfferDetail_Get
+var result = controller.promotionOfferDetail_Get$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Refresh Query: PromotionOfferDetail_Get
+var result = controller.promotionOfferDetail_Get$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+
+Controller.prototype.handler_CartOrdered$Action = function (checkoutId2In, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CartOrdered$Action, callContext, checkoutId2In);
+
+};
+Controller.prototype.onAfterFetch_PromotionOfferDetail_Get$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_PromotionOfferDetail_Get$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.handler_OfferItemForceRefresh$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_OfferItemForceRefresh$Action, callContext);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.callbackOrderEdit$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.dataFetched$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.noStoreSelected$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Promotion_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Promotion_CWLanguageResources);
+});
+
+define("ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$translationsResources", ["exports", "ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$translationsResources.nl-NL"], function (exports, ECP_Promotion_CW_PromotionDetailsFlow_PromotionOffer_DP_Content_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Promotion_CW_PromotionDetailsFlow_PromotionOffer_DP_Content_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Promotion_CW.PromotionDetailsFlow.PromotionOffer_DP_Content.mvc$translationsResources.nl-NL", [], function () {
+return {
+"GUewzTRLT02RcNuTbkniEA#Value": "Voor alle producten op deze pagina geldt, tenzij anders vermeld, maximaal 5 dezelfde aanbiedingen per klant. Bij 6 of meer dezelfde aanbiedingen vervalt de korting.",
+"XjF4CrTBrkmLLu6YfLKt6w#Value": "Aanbieding",
+"HK9bsaQOhU2fwC15JS6aKA#ValueExpression.1068261.1": " tot en met ",
+"HK9bsaQOhU2fwC15JS6aKA#ValueExpression.-1556136846.1": "Geldig van ",
+"UJjz+ODSWk+Skt8m2mjxKQ#Value.832103875.1": "Lees minder",
+"fXgVzwrrQUCYt8AhSOCmcw#Value.832143231.1": "Lees meer"
+};
+});

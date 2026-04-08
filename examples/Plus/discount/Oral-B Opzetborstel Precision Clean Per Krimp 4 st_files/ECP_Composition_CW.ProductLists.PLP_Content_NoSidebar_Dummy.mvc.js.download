@@ -1,0 +1,1201 @@
+﻿define("ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$model"], function (OutSystems, ECP_Composition_CWModel, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_CustomPatterns_Badge_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_Badge_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+};
+return Model;
+})(OS.Model.VariablelessViewModel);
+return new OS.Model.ModelFactory(Model, "ProductLists.PLP_Content_NoSidebar_Dummy");
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Composition_CW.controller", "react", "OutSystems/ReactView/Main", "ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$model", "ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$view"], function (OutSystems, ECP_Composition_CWModel, ECP_Composition_CWController, React, OSView, ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_model, ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_controller, OSWidgets, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_Badge_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "ProductLists.PLP_Content_NoSidebar_Dummy";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_Badge_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "list list-group plp-results-list",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "home",
+ExtendedClass: "text-neutral-2",
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size4x
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h3",
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["2."],
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["20"],
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+Size: model.getCachedValue(idService.getId("i+QKdlqj40irafTlbouNVQ.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}),
+ExtendedClass: "place",
+Color: ECP_Composition_CWModel.staticEntities.color.neutral0,
+ShowFullNumber: true,
+Shape: ECP_Composition_CWModel.staticEntities.shape.rounded,
+Number: OS.BuiltinFunctions.integerToLongInteger(4)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+}), React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "11",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "text-neutral-2",
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size4x,
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon2",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h3",
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["2."],
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["20"],
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+Color: ECP_Composition_CWModel.staticEntities.color.neutral0,
+Shape: ECP_Composition_CWModel.staticEntities.shape.rounded,
+Number: OS.BuiltinFunctions.integerToLongInteger(4),
+ExtendedClass: "place",
+Size: model.getCachedValue(idService.getId("RwN0810fTUGMLcxAveFVhA.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}),
+ShowFullNumber: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "20",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+}), React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "21",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "home",
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size4x,
+ExtendedClass: "text-neutral-2"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon3",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h3",
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "24"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "25"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["2."],
+_idProps: {
+service: idService,
+uuid: "27"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["20"],
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+ExtendedClass: "place",
+ShowFullNumber: true,
+Color: ECP_Composition_CWModel.staticEntities.color.neutral0,
+Number: OS.BuiltinFunctions.integerToLongInteger(4),
+Shape: ECP_Composition_CWModel.staticEntities.shape.rounded,
+Size: model.getCachedValue(idService.getId("JriLdKrRIkGk7nNsqzdyBQ.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "30",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+}), React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "31",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "text-neutral-2",
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size4x,
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon4",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h3",
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["2."],
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["20"],
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+Size: model.getCachedValue(idService.getId("K6jjPkzs2EiB+k62rSGmsQ.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}),
+ExtendedClass: "place",
+Color: ECP_Composition_CWModel.staticEntities.color.neutral0,
+Shape: ECP_Composition_CWModel.staticEntities.shape.rounded,
+Number: OS.BuiltinFunctions.integerToLongInteger(4),
+ShowFullNumber: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "40",
+alias: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+}), React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "41",
+alias: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "text-neutral-2",
+Name: "home",
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size4x
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon5",
+alias: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h3",
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "46"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["2."],
+_idProps: {
+service: idService,
+uuid: "47"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["20"],
+_idProps: {
+service: idService,
+uuid: "48"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "49"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+ExtendedClass: "place",
+Number: OS.BuiltinFunctions.integerToLongInteger(4),
+ShowFullNumber: true,
+Size: model.getCachedValue(idService.getId("Y9y_hDd6zk2hrxZQiLouUA.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}),
+Shape: ECP_Composition_CWModel.staticEntities.shape.rounded,
+Color: ECP_Composition_CWModel.staticEntities.color.neutral0
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "50",
+alias: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+}), React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "51",
+alias: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size4x,
+Name: "home",
+ExtendedClass: "text-neutral-2"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon6",
+alias: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h3",
+_idProps: {
+service: idService,
+uuid: "53"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "54"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "55"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "56"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["2."],
+_idProps: {
+service: idService,
+uuid: "57"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["20"],
+_idProps: {
+service: idService,
+uuid: "58"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "59"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+Size: model.getCachedValue(idService.getId("t26O6g1TCEmad4RXaMRA5g.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}),
+Number: OS.BuiltinFunctions.integerToLongInteger(4),
+Shape: ECP_Composition_CWModel.staticEntities.shape.rounded,
+ShowFullNumber: true,
+ExtendedClass: "place",
+Color: ECP_Composition_CWModel.staticEntities.color.neutral0
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "60",
+alias: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+}), React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "61",
+alias: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "home",
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size4x,
+ExtendedClass: "text-neutral-2"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon7",
+alias: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h3",
+_idProps: {
+service: idService,
+uuid: "63"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "64"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "65"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["PLUS IJsbergsla krop"],
+_idProps: {
+service: idService,
+uuid: "66"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["2."],
+_idProps: {
+service: idService,
+uuid: "67"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["20"],
+_idProps: {
+service: idService,
+uuid: "68"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "69"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+Number: OS.BuiltinFunctions.integerToLongInteger(4),
+ShowFullNumber: true,
+Shape: ECP_Composition_CWModel.staticEntities.shape.rounded,
+Color: ECP_Composition_CWModel.staticEntities.color.neutral0,
+ExtendedClass: "place",
+Size: model.getCachedValue(idService.getId("Gl7w3+iSS0u5S4w1sFxjpQ.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "70",
+alias: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Composition_CW.controller", "ECP_Composition_CW.languageResources", "ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$translationsResources"], function (OutSystems, ECP_Composition_CWModel, ECP_Composition_CWController, ECP_Composition_CWLanguageResources, ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Composition_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Composition_CWLanguageResources);
+});
+
+define("ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

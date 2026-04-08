@@ -1,0 +1,886 @@
+﻿define("ECP_Customer_CS.model$BrancheRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var BrancheRec = (function (_super) {
+__extends(BrancheRec, _super);
+function BrancheRec(defaults) {
+_super.apply(this, arguments);
+}
+BrancheRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+BrancheRec.init();
+return BrancheRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.BrancheRec = BrancheRec;
+
+});
+define("ECP_Customer_CS.model$OrderTotalQuantity_OrderRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderTotalQuantity_OrderRec = (function (_super) {
+__extends(OrderTotalQuantity_OrderRec, _super);
+function OrderTotalQuantity_OrderRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderTotalQuantity_OrderRec.attributesToDeclare = function () {
+return [
+this.attr("Total", "totalAttr", "total", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderTotalQuantity_OrderRec.fromStructure = function (str) {
+return new OrderTotalQuantity_OrderRec(new OrderTotalQuantity_OrderRec.RecordClass({
+totalAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderTotalQuantity_OrderRec.init();
+return OrderTotalQuantity_OrderRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderTotalQuantity_OrderRec = OrderTotalQuantity_OrderRec;
+
+});
+define("ECP_Customer_CS.model$OrderTotalQuantity_DatumRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model", "ECP_Customer_CS.model$OrderTotalQuantity_OrderRec"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderTotalQuantity_DatumRec = (function (_super) {
+__extends(OrderTotalQuantity_DatumRec, _super);
+function OrderTotalQuantity_DatumRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderTotalQuantity_DatumRec.attributesToDeclare = function () {
+return [
+this.attr("Orders", "ordersAttr", "orders", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.OrderTotalQuantity_OrderRec());
+}, true, ECP_Customer_CSModel.OrderTotalQuantity_OrderRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderTotalQuantity_DatumRec.fromStructure = function (str) {
+return new OrderTotalQuantity_DatumRec(new OrderTotalQuantity_DatumRec.RecordClass({
+ordersAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderTotalQuantity_DatumRec.init();
+return OrderTotalQuantity_DatumRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderTotalQuantity_DatumRec = OrderTotalQuantity_DatumRec;
+
+});
+define("ECP_Customer_CS.model$OrderTotalQuantityRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model", "ECP_Customer_CS.model$OrderTotalQuantity_DatumRec"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderTotalQuantityRec = (function (_super) {
+__extends(OrderTotalQuantityRec, _super);
+function OrderTotalQuantityRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderTotalQuantityRec.attributesToDeclare = function () {
+return [
+this.attr("Data", "dataAttr", "data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.OrderTotalQuantity_DatumRec());
+}, true, ECP_Customer_CSModel.OrderTotalQuantity_DatumRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderTotalQuantityRec.fromStructure = function (str) {
+return new OrderTotalQuantityRec(new OrderTotalQuantityRec.RecordClass({
+dataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderTotalQuantityRec.init();
+return OrderTotalQuantityRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderTotalQuantityRec = OrderTotalQuantityRec;
+
+});
+define("ECP_Customer_CS.model$OrderPreferencesAPIRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderPreferencesAPIRec = (function (_super) {
+__extends(OrderPreferencesAPIRec, _super);
+function OrderPreferencesAPIRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderPreferencesAPIRec.attributesToDeclare = function () {
+return [
+this.attr("FavoriteStoreId", "favoriteStoreIdAttr", "FavoriteStoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("FavoriteStoreChannelId", "favoriteStoreChannelIdAttr", "FavoriteStoreChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FavoriteStore", "favoriteStoreAttr", "FavoriteStore", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasLoyaltyCard", "hasLoyaltyCardAttr", "HasLoyaltyCard", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("LoyaltyCardId", "loyaltyCardIdAttr", "LoyaltyCardId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AllowAlternateProduct", "allowAlternateProductAttr", "AllowAlternateProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CommunicationChannel", "communicationChannelAttr", "CommunicationChannel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CommunicationLevel", "communicationLevelAttr", "CommunicationLevel", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderPreferencesAPIRec.init();
+return OrderPreferencesAPIRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderPreferencesAPIRec = OrderPreferencesAPIRec;
+
+});
+define("ECP_Customer_CS.model$LoyaltyPreferencesList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "ECP_Customer_CS.model", "OneWelcome_IS.model$LoyaltyPreferencesRec", "ECP_Customer_CS.referencesHealth", "ECP_Customer_CS.referencesHealth$OneWelcome_IS"], function (exports, OutSystems, OneWelcome_ISModel, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var LoyaltyPreferencesList = (function (_super) {
+__extends(LoyaltyPreferencesList, _super);
+function LoyaltyPreferencesList(defaults) {
+_super.apply(this, arguments);
+}
+LoyaltyPreferencesList.itemType = OneWelcome_ISModel.LoyaltyPreferencesRec;
+return LoyaltyPreferencesList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Customer_CSModel.LoyaltyPreferencesList = LoyaltyPreferencesList;
+
+});
+define("ECP_Customer_CS.model$B2BAccountList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "ECP_Customer_CS.model", "OneWelcome_IS.model$B2BAccountRec", "ECP_Customer_CS.referencesHealth", "ECP_Customer_CS.referencesHealth$OneWelcome_IS"], function (exports, OutSystems, OneWelcome_ISModel, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var B2BAccountList = (function (_super) {
+__extends(B2BAccountList, _super);
+function B2BAccountList(defaults) {
+_super.apply(this, arguments);
+}
+B2BAccountList.itemType = OneWelcome_ISModel.B2BAccountRec;
+return B2BAccountList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Customer_CSModel.B2BAccountList = B2BAccountList;
+
+});
+define("ECP_Customer_CS.model$AccessRoleList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "ECP_Customer_CS.model", "OneWelcome_IS.model$AccessRoleRec", "ECP_Customer_CS.referencesHealth", "ECP_Customer_CS.referencesHealth$OneWelcome_IS"], function (exports, OutSystems, OneWelcome_ISModel, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var AccessRoleList = (function (_super) {
+__extends(AccessRoleList, _super);
+function AccessRoleList(defaults) {
+_super.apply(this, arguments);
+}
+AccessRoleList.itemType = OneWelcome_ISModel.AccessRoleRec;
+return AccessRoleList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Customer_CSModel.AccessRoleList = AccessRoleList;
+
+});
+define("ECP_Customer_CS.model$CustomerInfoAPIRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "ECP_Customer_CS.model", "OneWelcome_IS.model$PersonalRec", "ECP_Customer_CS.referencesHealth", "ECP_Customer_CS.referencesHealth$OneWelcome_IS", "OneWelcome_IS.model$ContactRec", "OneWelcome_IS.model$DeliveryAddressRec", "ECP_Customer_CS.model$OrderPreferencesAPIRec", "OneWelcome_IS.model$EmailVerificationRec", "ECP_Customer_CS.model$LoyaltyPreferencesList", "ECP_Customer_CS.model$B2BAccountList", "ECP_Customer_CS.model$AccessRoleList", "OneWelcome_IS.model$PaymentPreferencesRec"], function (exports, OutSystems, OneWelcome_ISModel, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var CustomerInfoAPIRec = (function (_super) {
+__extends(CustomerInfoAPIRec, _super);
+function CustomerInfoAPIRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerInfoAPIRec.attributesToDeclare = function () {
+return [
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdAttr", "OneWelcomeUserId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OutSystemsUserId", "outSystemsUserIdAttr", "OutSystemsUserId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsB2C", "isB2CAttr", "IsB2C", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StripeId", "stripeIdAttr", "StripeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsB2B", "isB2BAttr", "IsB2B", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("State", "stateAttr", "State", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PayOnAccountStatus", "payOnAccountStatusAttr", "PayOnAccountStatus", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Personal", "personalAttr", "Personal", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.PersonalRec());
+}, true, OneWelcome_ISModel.PersonalRec), 
+this.attr("Contact", "contactAttr", "Contact", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.ContactRec());
+}, true, OneWelcome_ISModel.ContactRec), 
+this.attr("DeliveryAddress", "deliveryAddressAttr", "DeliveryAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.DeliveryAddressRec());
+}, true, OneWelcome_ISModel.DeliveryAddressRec), 
+this.attr("OrderPreferences", "orderPreferencesAttr", "OrderPreferences", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.OrderPreferencesAPIRec());
+}, true, ECP_Customer_CSModel.OrderPreferencesAPIRec), 
+this.attr("EmailVerification", "emailVerificationAttr", "EmailVerification", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.EmailVerificationRec());
+}, true, OneWelcome_ISModel.EmailVerificationRec), 
+this.attr("LoyaltyPreferences", "loyaltyPreferencesAttr", "LoyaltyPreferences", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.LoyaltyPreferencesList());
+}, true, ECP_Customer_CSModel.LoyaltyPreferencesList), 
+this.attr("B2BAccounts", "b2BAccountsAttr", "B2BAccounts", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.B2BAccountList());
+}, true, ECP_Customer_CSModel.B2BAccountList), 
+this.attr("AccessRoles", "accessRolesAttr", "AccessRoles", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.AccessRoleList());
+}, true, ECP_Customer_CSModel.AccessRoleList), 
+this.attr("PaymentPreferences", "paymentPreferencesAttr", "PaymentPreferences", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.PaymentPreferencesRec());
+}, true, OneWelcome_ISModel.PaymentPreferencesRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerInfoAPIRec.init();
+return CustomerInfoAPIRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.CustomerInfoAPIRec = CustomerInfoAPIRec;
+
+});
+define("ECP_Customer_CS.model$CustomerTempDetailsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var CustomerTempDetailsRec = (function (_super) {
+__extends(CustomerTempDetailsRec, _super);
+function CustomerTempDetailsRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerTempDetailsRec.attributesToDeclare = function () {
+return [
+this.attr("UserId", "userIdAttr", "UserId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdAttr", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsB2C", "isB2CAttr", "IsB2C", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StripeId", "stripeIdAttr", "StripeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsB2B", "isB2BAttr", "IsB2B", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Email", "emailAttr", "Email", true, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("IsUnderAge", "isUnderAgeAttr", "IsUnderAge", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PreferredStoreId", "preferredStoreIdAttr", "PreferredStoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PreferredStoreNumber", "preferredStoreNumberAttr", "PreferredStoreNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PreferredStoreChannelId", "preferredStoreChannelIdAttr", "PreferredStoreChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasLoyaltyCard", "hasLoyaltyCardAttr", "HasLoyaltyCard", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("LoyaltyCardId", "loyaltyCardIdAttr", "LoyaltyCardId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerTempDetailsRec.init();
+return CustomerTempDetailsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.CustomerTempDetailsRec = CustomerTempDetailsRec;
+
+});
+define("ECP_Customer_CS.model$InviteChildUserRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var InviteChildUserRec = (function (_super) {
+__extends(InviteChildUserRec, _super);
+function InviteChildUserRec(defaults) {
+_super.apply(this, arguments);
+}
+InviteChildUserRec.attributesToDeclare = function () {
+return [
+this.attr("GroupCode", "groupCodeAttr", "GroupCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EmailAddress", "emailAddressAttr", "EmailAddress", true, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("CompanyName", "companyNameAttr", "CompanyName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("KVKNumber", "kVKNumberAttr", "KVKNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("VATNumber", "vATNumberAttr", "VATNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Branche", "brancheAttr", "Branche", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExcludedCategories", "excludedCategoriesAttr", "ExcludedCategories", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+InviteChildUserRec.init();
+return InviteChildUserRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.InviteChildUserRec = InviteChildUserRec;
+
+});
+define("ECP_Customer_CS.model$CustomerTempMobileRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var CustomerTempMobileRec = (function (_super) {
+__extends(CustomerTempMobileRec, _super);
+function CustomerTempMobileRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerTempMobileRec.attributesToDeclare = function () {
+return [
+this.attr("UserId", "userIdAttr", "UserId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdAttr", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsB2C", "isB2CAttr", "IsB2C", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StripeID", "stripeIDAttr", "StripeID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsB2B", "isB2BAttr", "IsB2B", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Email", "emailAttr", "Email", true, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("IsUnderAge", "isUnderAgeAttr", "IsUnderAge", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PreferredStoreId", "preferredStoreIdAttr", "PreferredStoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PreferredStoreNumber", "preferredStoreNumberAttr", "PreferredStoreNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PreferredStoreChannelId", "preferredStoreChannelIdAttr", "PreferredStoreChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasLoyaltyCard", "hasLoyaltyCardAttr", "HasLoyaltyCard", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("LoyaltyCardId", "loyaltyCardIdAttr", "LoyaltyCardId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerTempMobileRec.init();
+return CustomerTempMobileRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.CustomerTempMobileRec = CustomerTempMobileRec;
+
+});
+define("ECP_Customer_CS.model$B2BUsersTableInfo2Rec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var B2BUsersTableInfo2Rec = (function (_super) {
+__extends(B2BUsersTableInfo2Rec, _super);
+function B2BUsersTableInfo2Rec(defaults) {
+_super.apply(this, arguments);
+}
+B2BUsersTableInfo2Rec.attributesToDeclare = function () {
+return [
+this.attr("UID", "uIDAttr", "UID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("GroupCode", "groupCodeAttr", "GroupCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EmailAddress", "emailAddressAttr", "EmailAddress", true, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("Department", "departmentAttr", "Department", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Status", "statusAttr", "Status", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Expenditure", "expenditureAttr", "Expenditure", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AccessRoleName", "accessRoleNameAttr", "AccessRoleName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsAdmin", "isAdminAttr", "IsAdmin", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("SortOrder", "sortOrderAttr", "SortOrder", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CostCenter", "costCenterAttr", "CostCenter", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DebitID", "debitIDAttr", "DebitID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CompanyName", "companyNameAttr", "CompanyName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("KVKNumber", "kVKNumberAttr", "KVKNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("VATNumber", "vATNumberAttr", "VATNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MaxOrderValue", "maxOrderValueAttr", "MaxOrderValue", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("WebCategories", "webCategoriesAttr", "WebCategories", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MonthlyBudget", "monthlyBudgetAttr", "MonthlyBudget", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Branche", "brancheAttr", "Branche", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+B2BUsersTableInfo2Rec.init();
+return B2BUsersTableInfo2Rec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.B2BUsersTableInfo2Rec = B2BUsersTableInfo2Rec;
+
+});
+define("ECP_Customer_CS.model$PayOnAccountStatusRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var PayOnAccountStatusRec = (function (_super) {
+__extends(PayOnAccountStatusRec, _super);
+function PayOnAccountStatusRec(defaults) {
+_super.apply(this, arguments);
+}
+PayOnAccountStatusRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PayOnAccountStatusRec.init();
+return PayOnAccountStatusRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.PayOnAccountStatusRec = PayOnAccountStatusRec;
+
+});
+define("ECP_Customer_CS.model$B2BAccountAndPaymentInfoRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var B2BAccountAndPaymentInfoRec = (function (_super) {
+__extends(B2BAccountAndPaymentInfoRec, _super);
+function B2BAccountAndPaymentInfoRec(defaults) {
+_super.apply(this, arguments);
+}
+B2BAccountAndPaymentInfoRec.attributesToDeclare = function () {
+return [
+this.attr("CompanyName", "companyNameAttr", "CompanyName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Department", "departmentAttr", "Department", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("KVKNumber", "kVKNumberAttr", "KVKNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("VATNumber", "vATNumberAttr", "VATNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CostCenter", "costCenterAttr", "CostCenter", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WebCategories", "webCategoriesAttr", "WebCategories", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Branche", "brancheAttr", "Branche", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DebitID", "debitIDAttr", "DebitID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+B2BAccountAndPaymentInfoRec.init();
+return B2BAccountAndPaymentInfoRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.B2BAccountAndPaymentInfoRec = B2BAccountAndPaymentInfoRec;
+
+});
+define("ECP_Customer_CS.model$OrderCosts_TotalPriceRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderCosts_TotalPriceRec = (function (_super) {
+__extends(OrderCosts_TotalPriceRec, _super);
+function OrderCosts_TotalPriceRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderCosts_TotalPriceRec.attributesToDeclare = function () {
+return [
+this.attr("CentAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("FractionDigits", "fractionDigitsAttr", "fractionDigits", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderCosts_TotalPriceRec.init();
+return OrderCosts_TotalPriceRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderCosts_TotalPriceRec = OrderCosts_TotalPriceRec;
+
+});
+define("ECP_Customer_CS.model$OrderCosts_CustomFieldsRawItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderCosts_CustomFieldsRawItemRec = (function (_super) {
+__extends(OrderCosts_CustomFieldsRawItemRec, _super);
+function OrderCosts_CustomFieldsRawItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderCosts_CustomFieldsRawItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderCosts_CustomFieldsRawItemRec.init();
+return OrderCosts_CustomFieldsRawItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderCosts_CustomFieldsRawItemRec = OrderCosts_CustomFieldsRawItemRec;
+
+});
+define("ECP_Customer_CS.model$OrderCosts_CustomFieldsRawItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model", "ECP_Customer_CS.model$OrderCosts_CustomFieldsRawItemRec"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderCosts_CustomFieldsRawItemList = (function (_super) {
+__extends(OrderCosts_CustomFieldsRawItemList, _super);
+function OrderCosts_CustomFieldsRawItemList(defaults) {
+_super.apply(this, arguments);
+}
+OrderCosts_CustomFieldsRawItemList.itemType = ECP_Customer_CSModel.OrderCosts_CustomFieldsRawItemRec;
+return OrderCosts_CustomFieldsRawItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Customer_CSModel.OrderCosts_CustomFieldsRawItemList = OrderCosts_CustomFieldsRawItemList;
+
+});
+define("ECP_Customer_CS.model$OrderCosts_CustomRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model", "ECP_Customer_CS.model$OrderCosts_CustomFieldsRawItemList"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderCosts_CustomRec = (function (_super) {
+__extends(OrderCosts_CustomRec, _super);
+function OrderCosts_CustomRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderCosts_CustomRec.attributesToDeclare = function () {
+return [
+this.attr("CustomFieldsRaw", "customFieldsRawAttr", "customFieldsRaw", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.OrderCosts_CustomFieldsRawItemList());
+}, true, ECP_Customer_CSModel.OrderCosts_CustomFieldsRawItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderCosts_CustomRec.fromStructure = function (str) {
+return new OrderCosts_CustomRec(new OrderCosts_CustomRec.RecordClass({
+customFieldsRawAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderCosts_CustomRec.init();
+return OrderCosts_CustomRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderCosts_CustomRec = OrderCosts_CustomRec;
+
+});
+define("ECP_Customer_CS.model$OrderCosts_ResultItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model", "ECP_Customer_CS.model$OrderCosts_TotalPriceRec", "ECP_Customer_CS.model$OrderCosts_CustomRec"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderCosts_ResultItemRec = (function (_super) {
+__extends(OrderCosts_ResultItemRec, _super);
+function OrderCosts_ResultItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderCosts_ResultItemRec.attributesToDeclare = function () {
+return [
+this.attr("AnonymousId", "anonymousIdAttr", "anonymousId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("TotalPrice", "totalPriceAttr", "totalPrice", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.OrderCosts_TotalPriceRec());
+}, true, ECP_Customer_CSModel.OrderCosts_TotalPriceRec), 
+this.attr("Custom", "customAttr", "custom", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.OrderCosts_CustomRec());
+}, true, ECP_Customer_CSModel.OrderCosts_CustomRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderCosts_ResultItemRec.init();
+return OrderCosts_ResultItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderCosts_ResultItemRec = OrderCosts_ResultItemRec;
+
+});
+define("ECP_Customer_CS.model$LMFA_EntryPointsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var LMFA_EntryPointsRec = (function (_super) {
+__extends(LMFA_EntryPointsRec, _super);
+function LMFA_EntryPointsRec(defaults) {
+_super.apply(this, arguments);
+}
+LMFA_EntryPointsRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Is_Active", "is_ActiveAttr", "Is_Active", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LMFA_EntryPointsRec.init();
+return LMFA_EntryPointsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.LMFA_EntryPointsRec = LMFA_EntryPointsRec;
+
+});
+define("ECP_Customer_CS.model$CustomerTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var CustomerTypeRec = (function (_super) {
+__extends(CustomerTypeRec, _super);
+function CustomerTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Identifier", "identifierAttr", "Identifier", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerTypeRec.init();
+return CustomerTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.CustomerTypeRec = CustomerTypeRec;
+
+});
+define("ECP_Customer_CS.model$OneWelcomeAccountTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OneWelcomeAccountTypeRec = (function (_super) {
+__extends(OneWelcomeAccountTypeRec, _super);
+function OneWelcomeAccountTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+OneWelcomeAccountTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OneWelcomeAccountTypeRec.fromStructure = function (str) {
+return new OneWelcomeAccountTypeRec(new OneWelcomeAccountTypeRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OneWelcomeAccountTypeRec.init();
+return OneWelcomeAccountTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OneWelcomeAccountTypeRec = OneWelcomeAccountTypeRec;
+
+});
+define("ECP_Customer_CS.model$Customer_PayOnAccountFieldsToUpdateRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var Customer_PayOnAccountFieldsToUpdateRec = (function (_super) {
+__extends(Customer_PayOnAccountFieldsToUpdateRec, _super);
+function Customer_PayOnAccountFieldsToUpdateRec(defaults) {
+_super.apply(this, arguments);
+}
+Customer_PayOnAccountFieldsToUpdateRec.attributesToDeclare = function () {
+return [
+this.attr("Firstname", "firstnameAttr", "Firstname", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Middlename", "middlenameAttr", "Middlename", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Lastname", "lastnameAttr", "Lastname", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("KVKNumber", "kVKNumberAttr", "KVKNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CountryId", "countryIdAttr", "CountryId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Postcode", "postcodeAttr", "Postcode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Street", "streetAttr", "Street", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Housenumber", "housenumberAttr", "Housenumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HousenumberAddition", "housenumberAdditionAttr", "HousenumberAddition", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "City", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Customer_PayOnAccountFieldsToUpdateRec.init();
+return Customer_PayOnAccountFieldsToUpdateRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.Customer_PayOnAccountFieldsToUpdateRec = Customer_PayOnAccountFieldsToUpdateRec;
+
+});
+define("ECP_Customer_CS.model$CustomerUpdateCheckFailResultRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var CustomerUpdateCheckFailResultRec = (function (_super) {
+__extends(CustomerUpdateCheckFailResultRec, _super);
+function CustomerUpdateCheckFailResultRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerUpdateCheckFailResultRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerUpdateCheckFailResultRec.fromStructure = function (str) {
+return new CustomerUpdateCheckFailResultRec(new CustomerUpdateCheckFailResultRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+CustomerUpdateCheckFailResultRec.init();
+return CustomerUpdateCheckFailResultRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.CustomerUpdateCheckFailResultRec = CustomerUpdateCheckFailResultRec;
+
+});
+define("ECP_Customer_CS.model$OrderCosts_ResultItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model", "ECP_Customer_CS.model$OrderCosts_ResultItemRec"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderCosts_ResultItemList = (function (_super) {
+__extends(OrderCosts_ResultItemList, _super);
+function OrderCosts_ResultItemList(defaults) {
+_super.apply(this, arguments);
+}
+OrderCosts_ResultItemList.itemType = ECP_Customer_CSModel.OrderCosts_ResultItemRec;
+return OrderCosts_ResultItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Customer_CSModel.OrderCosts_ResultItemList = OrderCosts_ResultItemList;
+
+});
+define("ECP_Customer_CS.model$OrderCosts_OrderRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model", "ECP_Customer_CS.model$OrderCosts_ResultItemList"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderCosts_OrderRec = (function (_super) {
+__extends(OrderCosts_OrderRec, _super);
+function OrderCosts_OrderRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderCosts_OrderRec.attributesToDeclare = function () {
+return [
+this.attr("Results", "resultsAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.OrderCosts_ResultItemList());
+}, true, ECP_Customer_CSModel.OrderCosts_ResultItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderCosts_OrderRec.fromStructure = function (str) {
+return new OrderCosts_OrderRec(new OrderCosts_OrderRec.RecordClass({
+resultsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderCosts_OrderRec.init();
+return OrderCosts_OrderRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderCosts_OrderRec = OrderCosts_OrderRec;
+
+});
+define("ECP_Customer_CS.model$OrderCosts_DatumRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model", "ECP_Customer_CS.model$OrderCosts_OrderRec"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var OrderCosts_DatumRec = (function (_super) {
+__extends(OrderCosts_DatumRec, _super);
+function OrderCosts_DatumRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderCosts_DatumRec.attributesToDeclare = function () {
+return [
+this.attr("Orders", "ordersAttr", "orders", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CSModel.OrderCosts_OrderRec());
+}, true, ECP_Customer_CSModel.OrderCosts_OrderRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderCosts_DatumRec.fromStructure = function (str) {
+return new OrderCosts_DatumRec(new OrderCosts_DatumRec.RecordClass({
+ordersAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderCosts_DatumRec.init();
+return OrderCosts_DatumRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.OrderCosts_DatumRec = OrderCosts_DatumRec;
+
+});
+define("ECP_Customer_CS.model$CustomerB2BTotalsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CS.model"], function (exports, OutSystems, ECP_Customer_CSModel) {
+var OS = OutSystems.Internal;
+var CustomerB2BTotalsRec = (function (_super) {
+__extends(CustomerB2BTotalsRec, _super);
+function CustomerB2BTotalsRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerB2BTotalsRec.attributesToDeclare = function () {
+return [
+this.attr("UID", "uIDAttr", "UID", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("TotalAmount", "totalAmountAttr", "TotalAmount", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerB2BTotalsRec.init();
+return CustomerB2BTotalsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Customer_CSModel.CustomerB2BTotalsRec = CustomerB2BTotalsRec;
+
+});
+define("ECP_Customer_CS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_Customer_CSModel = exports;
+});

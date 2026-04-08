@@ -1,0 +1,531 @@
+﻿define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Store_CW.model$TextBooleanRecord", "ECP_Store_CW.controller$ValidateZipcodeTerm", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECOP_ReleaseTogglesReactiveController) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsZipCode", "isZipCodeVar", "IsZipCode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("Searchkeyword", "searchkeywordIn", "Searchkeyword", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_searchkeywordInDataFetchStatus", "_searchkeywordInDataFetchStatus", "_searchkeywordInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {
+SearchInput: OS.Model.ValidationWidgetRecord
+};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return true;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("Searchkeyword" in inputs) {
+this.variables.searchkeywordIn = inputs.Searchkeyword;
+if("_searchkeywordInDataFetchStatus" in inputs) {
+this.variables._searchkeywordInDataFetchStatus = inputs._searchkeywordInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "StoreLocatorFlow.SearchForStore");
+});
+define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECOP_ReleaseTogglesReactive.controller", "react", "OutSystems/ReactView/Main", "ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$model", "ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller", "ECP_Store_CW.clientVariables", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.AnimatedLabel.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECP_Store_CW.model$TextBooleanRecord", "ECP_Store_CW.controller$ValidateZipcodeTerm", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECOP_ReleaseTogglesReactiveController, React, OSView, ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_model, ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller, ECP_Store_CWClientVariables, OSWidgets, ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "StoreLocatorFlow.SearchForStore";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "position-relative",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_AnimatedLabel_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+label: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Label, {
+gridProperties: {
+classes: "OSFillParent"
+},
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["Zoek op plaats of postcode"],
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+input: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Input, {
+_validationProps: {
+validationService: validationService
+},
+enabled: true,
+extendedEvents: {
+onKeyUp: function () {
+var eventHandlerContext = callContext.clone();
+controller.onKeyUp_Input$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+extendedProperties: {
+"aria-invalid": model.getCachedValue(idService.getId("SearchInput.aria-invalid"), function () {
+return ((model.widgets.get(idService.getId("SearchInput")).validAttr) ? ("") : ("true"));
+}, function () {
+return model.widgets.get(idService.getId("SearchInput")).validAttr;
+})
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+inputType: /*Search*/ 8,
+mandatory: false,
+maxLength: 50,
+onChange: function () {
+var eventHandlerContext = callContext.clone();
+controller.searchStore_OnChange$Action(model.variables.searchkeywordIn, controller.callContext(eventHandlerContext));
+
+;
+},
+style: "form-control place gtm-store-locator-search_input",
+variable: model.createVariable(OS.Types.Text, model.variables.searchkeywordIn, function (value) {
+model.variables.searchkeywordIn = value;
+}),
+_idProps: {
+service: idService,
+name: "SearchInput"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+variable_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._searchkeywordInDataFetchStatus)
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.widgets.get(idService.getId("SearchInput")).validAttr), asPrimitiveValue(model.variables._searchkeywordInDataFetchStatus), asPrimitiveValue(model.variables.searchkeywordIn)]
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-picker__input-icons-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_SearchStore$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "search"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "8",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Store_CW.languageResources", "ECP_Store_CW.clientVariables", "ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$translationsResources", "ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller.OnKeyUp_Input.EnterKeyPressedJS", "ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller.ValidateZipcode.ValidateZipCodeNLJS", "ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller.ValidateZipcode.IsZipCodeNLJS", "ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller.OnClick_SearchStore.InputBlurJS", "ECP_Store_CW.model$TextBooleanRecord", "ECP_Store_CW.controller$ValidateZipcodeTerm", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECOP_ReleaseTogglesReactiveController, ECP_Store_CWLanguageResources, ECP_Store_CWClientVariables, ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_TranslationsResources, ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller_OnKeyUp_Input_EnterKeyPressedJS, ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller_ValidateZipcode_ValidateZipCodeNLJS, ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller_ValidateZipcode_IsZipCodeNLJS, ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller_OnClick_SearchStore_InputBlurJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+onClick_SearchStore$Action: function () {
+return controller.executeActionInsideJSNode(controller._onClick_SearchStore$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnClick_SearchStore");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onKeyUp_Input$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnKeyUp_Input");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller_OnKeyUp_Input_EnterKeyPressedJS, "EnterKeyPressed", "OnKeyUp_Input", null, function ($parameters) {
+}, {
+OnClick_SearchStore: controller.clientActionProxies.onClick_SearchStore$Action
+}, {});
+};
+Controller.prototype._validateZipcode$Action = function (showErrorMessageIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ValidateZipcode");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreLocatorFlow.SearchForStore.ValidateZipcode$vars"))());
+vars.value.showErrorMessageInLocal = showErrorMessageIn;
+var validateZipcodeTermVar = new OS.DataTypes.VariableHolder();
+var validateZipCodeNLJSResult = new OS.DataTypes.VariableHolder();
+var isZipCodeNLJSResult = new OS.DataTypes.VariableHolder();
+// ECOP_8920
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Store_CWModel.staticEntities.releaseToggle.eCOP_8920, callContext).isEnabledOut)) {
+// Execute Action: ValidateZipcodeTerm
+validateZipcodeTermVar.value = ECP_Store_CWController.default.validateZipcodeTerm$Action(model.variables.searchkeywordIn, callContext);
+
+// Set Locals
+// SearchInput.Valid = ValidateZipcodeTerm.InputValidation.Valid
+model.widgets.get(idService.getId("SearchInput")).validAttr = validateZipcodeTermVar.value.inputValidationOut.validAttr;
+// SearchInput.ValidationMessage = ValidateZipcodeTerm.InputValidation.ValidationMessage
+model.widgets.get(idService.getId("SearchInput")).validationMessageAttr = validateZipcodeTermVar.value.inputValidationOut.validationMessageAttr;
+// IsZipCode = ValidateZipcodeTerm.IsSearchByZipCode
+model.variables.isZipCodeVar = validateZipcodeTermVar.value.isSearchByZipCodeOut;
+} else {
+isZipCodeNLJSResult.value = controller.safeExecuteJSNode(ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller_ValidateZipcode_IsZipCodeNLJS, "IsZipCodeNL", "ValidateZipcode", {
+Searchterm: OS.DataConversion.JSNodeParamConverter.to(model.variables.searchkeywordIn, OS.Types.Text),
+IsZipcode: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreLocatorFlow.SearchForStore.ValidateZipcode$isZipCodeNLJSResult"))();
+jsNodeResult.isZipcodeOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsZipcode, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsZipcode
+if((isZipCodeNLJSResult.value.isZipcodeOut)) {
+validateZipCodeNLJSResult.value = controller.safeExecuteJSNode(ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller_ValidateZipcode_ValidateZipCodeNLJS, "ValidateZipCodeNL", "ValidateZipcode", {
+ZipCode: OS.DataConversion.JSNodeParamConverter.to(model.variables.searchkeywordIn, OS.Types.Text),
+IsValid: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreLocatorFlow.SearchForStore.ValidateZipcode$validateZipCodeNLJSResult"))();
+jsNodeResult.isValidOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsValid, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+if((validateZipCodeNLJSResult.value.isValidOut)) {
+// IsZipCode = True
+model.variables.isZipCodeVar = true;
+} else {
+// Invalid
+// SearchInput.Valid = False
+model.widgets.get(idService.getId("SearchInput")).validAttr = false;
+// SearchInput.ValidationMessage = If
+model.widgets.get(idService.getId("SearchInput")).validationMessageAttr = ((vars.value.showErrorMessageInLocal) ? (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("TAcbcGG7o02zOX7ppmEXjw#Value.-778544373.1", "Enter a valid zipcode.")) : (""));
+return ;
+
+}
+
+} else {
+// Not_ZipCode
+// IsZipCode = False
+model.variables.isZipCodeVar = false;
+}
+
+// Valid
+// SearchInput.Valid = True
+model.widgets.get(idService.getId("SearchInput")).validAttr = true;
+// SearchInput.ValidationMessage = ""
+model.widgets.get(idService.getId("SearchInput")).validationMessageAttr = "";
+}
+
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreLocatorFlow.SearchForStore.ValidateZipcode$vars", [{
+name: "ShowErrorMessage",
+attrName: "showErrorMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.registerVariableGroupType("ECP_Store_CW.StoreLocatorFlow.SearchForStore.ValidateZipcode$validateZipCodeNLJSResult", [{
+name: "IsValid",
+attrName: "isValidOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.registerVariableGroupType("ECP_Store_CW.StoreLocatorFlow.SearchForStore.ValidateZipcode$isZipCodeNLJSResult", [{
+name: "IsZipcode",
+attrName: "isZipcodeOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onClick_SearchStore$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_SearchStore");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ValidateZipcode
+controller._validateZipcode$Action(false, callContext);
+// Valid
+return OS.Flow.executeSequence(function () {
+if((model.widgets.get(idService.getId("SearchInput")).validAttr)) {
+// Trigger Event: SearchStore_OnSearch
+return controller.searchStore_OnSearch$Action(model.variables.searchkeywordIn, model.variables.isZipCodeVar, callContext).then(function () {
+controller.safeExecuteJSNode(ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_controller_OnClick_SearchStore_InputBlurJS, "InputBlur", "OnClick_SearchStore", {
+InputID: OS.DataConversion.JSNodeParamConverter.to(idService.getId("SearchInput"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+});
+}
+
+});
+});
+};
+
+Controller.prototype.onKeyUp_Input$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onKeyUp_Input$Action, callContext);
+
+};
+Controller.prototype.validateZipcode$Action = function (showErrorMessageIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._validateZipcode$Action, callContext, showErrorMessageIn);
+
+};
+Controller.prototype.onClick_SearchStore$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_SearchStore$Action, callContext);
+
+};
+Controller.prototype.searchStore_OnSearch$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.searchStore_OnChange$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Store_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Store_CWLanguageResources);
+});
+define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller.OnKeyUp_Input.EnterKeyPressedJS", [], function () {
+return function ($actions, $roles, $public) {
+if(window.event.keyCode==13)
+    $actions.OnClick_SearchStore();
+};
+});
+define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller.ValidateZipcode.ValidateZipCodeNLJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.ZipCode.match(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i)) {
+    $parameters.IsValid = true;
+}else {
+    $parameters.IsValid = false;
+}
+};
+});
+define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller.ValidateZipcode.IsZipCodeNLJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var regex_test = new RegExp('^[1-9]{0}[0-9]{1,4}');
+if(regex_test.test($parameters.Searchterm)) {
+    $parameters.IsZipcode = true;
+}else {
+    $parameters.IsZipcode = false;
+}
+};
+});
+define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$controller.OnClick_SearchStore.InputBlurJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+document.getElementById($parameters.InputID).blur();
+};
+});
+
+define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$translationsResources", ["exports", "ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$translationsResources.nl-NL"], function (exports, ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Store_CW_StoreLocatorFlow_SearchForStore_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Store_CW.StoreLocatorFlow.SearchForStore.mvc$translationsResources.nl-NL", [], function () {
+return {
+"TAcbcGG7o02zOX7ppmEXjw#Value.-778544373.1": "Vul een geldige postcode in."
+};
+});

@@ -1,0 +1,1723 @@
+﻿define("ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleStateRec = (function (_super) {
+__extends(ReleaseToggleStateRec, _super);
+function ReleaseToggleStateRec(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleStateRec.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggle_Label", "releaseToggle_LabelAttr", "ReleaseToggle_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsEnabled", "isEnabledAttr", "IsEnabled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ReleaseToggleStateRec.init();
+return ReleaseToggleStateRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateRec = ReleaseToggleStateRec;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleStateList = (function (_super) {
+__extends(ReleaseToggleStateList, _super);
+function ReleaseToggleStateList(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleStateList.itemType = ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateRec;
+return ReleaseToggleStateList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateList = ReleaseToggleStateList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$GroupDataRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateList"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var GroupDataRec = (function (_super) {
+__extends(GroupDataRec, _super);
+function GroupDataRec(defaults) {
+_super.apply(this, arguments);
+}
+GroupDataRec.attributesToDeclare = function () {
+return [
+this.attr("SyncDateTime", "syncDateTimeAttr", "SyncDateTime", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsNewerDataAvailable", "isNewerDataAvailableAttr", "IsNewerDataAvailable", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("NewestReleaseTogglesState", "newestReleaseTogglesStateAttr", "NewestReleaseTogglesState", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateList());
+}, true, ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateList), 
+this.attr("NewestDataVersion", "newestDataVersionAttr", "NewestDataVersion", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GroupDataRec.init();
+return GroupDataRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.GroupDataRec = GroupDataRec;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$DataRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$GroupDataRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var DataRec = (function (_super) {
+__extends(DataRec, _super);
+function DataRec(defaults) {
+_super.apply(this, arguments);
+}
+DataRec.attributesToDeclare = function () {
+return [
+this.attr("Convert_Data", "convert_DataAttr", "Convert_Data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.GroupDataRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.GroupDataRec), 
+this.attr("Attract_Data", "attract_DataAttr", "Attract_Data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.GroupDataRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.GroupDataRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DataRec.init();
+return DataRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.DataRec = DataRec;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$DataList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$DataRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var DataList = (function (_super) {
+__extends(DataList, _super);
+function DataList(defaults) {
+_super.apply(this, arguments);
+}
+DataList.itemType = ECOP_ReleaseTogglesReactiveModel.DataRec;
+return DataList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.DataList = DataList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$DataRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$DataRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var DataRecord = (function (_super) {
+__extends(DataRecord, _super);
+function DataRecord(defaults) {
+_super.apply(this, arguments);
+}
+DataRecord.attributesToDeclare = function () {
+return [
+this.attr("Data", "dataAttr", "Data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.DataRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.DataRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DataRecord.fromStructure = function (str) {
+return new DataRecord(new DataRecord.RecordClass({
+dataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DataRecord._isAnonymousRecord = true;
+DataRecord.UniqueId = "57d1fb4d-396e-93b3-a2f6-c6b5be4f1794";
+DataRecord.init();
+return DataRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.DataRecord = DataRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$DataRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$DataRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var DataRecordList = (function (_super) {
+__extends(DataRecordList, _super);
+function DataRecordList(defaults) {
+_super.apply(this, arguments);
+}
+DataRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.DataRecord;
+return DataRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.DataRecordList = DataRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var FeatureTogglesMemoryCache_IsEnabledOutputRec = (function (_super) {
+__extends(FeatureTogglesMemoryCache_IsEnabledOutputRec, _super);
+function FeatureTogglesMemoryCache_IsEnabledOutputRec(defaults) {
+_super.apply(this, arguments);
+}
+FeatureTogglesMemoryCache_IsEnabledOutputRec.attributesToDeclare = function () {
+return [
+this.attr("IsEnabled", "isEnabledAttr", "IsEnabled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsDefined", "isDefinedAttr", "IsDefined", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FeatureTogglesMemoryCache_IsEnabledOutputRec.init();
+return FeatureTogglesMemoryCache_IsEnabledOutputRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRec = FeatureTogglesMemoryCache_IsEnabledOutputRec;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var FeatureTogglesMemoryCache_IsEnabledOutputList = (function (_super) {
+__extends(FeatureTogglesMemoryCache_IsEnabledOutputList, _super);
+function FeatureTogglesMemoryCache_IsEnabledOutputList(defaults) {
+_super.apply(this, arguments);
+}
+FeatureTogglesMemoryCache_IsEnabledOutputList.itemType = ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRec;
+return FeatureTogglesMemoryCache_IsEnabledOutputList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputList = FeatureTogglesMemoryCache_IsEnabledOutputList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$DataVersionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var DataVersionRec = (function (_super) {
+__extends(DataVersionRec, _super);
+function DataVersionRec(defaults) {
+_super.apply(this, arguments);
+}
+DataVersionRec.attributesToDeclare = function () {
+return [
+this.attr("Convert_SyncDataVersion", "convert_SyncDataVersionAttr", "Convert_SyncDataVersion", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Attract_SyncDataVersion", "attract_SyncDataVersionAttr", "Attract_SyncDataVersion", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DataVersionRec.init();
+return DataVersionRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.DataVersionRec = DataVersionRec;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Convert_ReleaseToggleStateRec = (function (_super) {
+__extends(Convert_ReleaseToggleStateRec, _super);
+function Convert_ReleaseToggleStateRec(defaults) {
+_super.apply(this, arguments);
+}
+Convert_ReleaseToggleStateRec.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggle_Label", "releaseToggle_LabelAttr", "ReleaseToggle_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsEnabled", "isEnabledAttr", "IsEnabled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Convert_ReleaseToggleStateRec.init();
+return Convert_ReleaseToggleStateRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateRec = Convert_ReleaseToggleStateRec;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Convert_ReleaseToggleStateRecord = (function (_super) {
+__extends(Convert_ReleaseToggleStateRecord, _super);
+function Convert_ReleaseToggleStateRecord(defaults) {
+_super.apply(this, arguments);
+}
+Convert_ReleaseToggleStateRecord.attributesToDeclare = function () {
+return [
+this.attr("Convert_ReleaseToggleState", "convert_ReleaseToggleStateAttr", "Convert_ReleaseToggleState", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Convert_ReleaseToggleStateRecord.fromStructure = function (str) {
+return new Convert_ReleaseToggleStateRecord(new Convert_ReleaseToggleStateRecord.RecordClass({
+convert_ReleaseToggleStateAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Convert_ReleaseToggleStateRecord._isAnonymousRecord = true;
+Convert_ReleaseToggleStateRecord.UniqueId = "3faea164-da17-1868-c7d0-5e88879e6e73";
+Convert_ReleaseToggleStateRecord.init();
+return Convert_ReleaseToggleStateRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateRecord = Convert_ReleaseToggleStateRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Convert_ReleaseToggleStateRecordList = (function (_super) {
+__extends(Convert_ReleaseToggleStateRecordList, _super);
+function Convert_ReleaseToggleStateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Convert_ReleaseToggleStateRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateRecord;
+return Convert_ReleaseToggleStateRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateRecordList = Convert_ReleaseToggleStateRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var FeatureTogglesMemoryCache_IsEnabledOutputRecord = (function (_super) {
+__extends(FeatureTogglesMemoryCache_IsEnabledOutputRecord, _super);
+function FeatureTogglesMemoryCache_IsEnabledOutputRecord(defaults) {
+_super.apply(this, arguments);
+}
+FeatureTogglesMemoryCache_IsEnabledOutputRecord.attributesToDeclare = function () {
+return [
+this.attr("FeatureTogglesMemoryCache_IsEnabledOutput", "featureTogglesMemoryCache_IsEnabledOutputAttr", "FeatureTogglesMemoryCache_IsEnabledOutput", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+FeatureTogglesMemoryCache_IsEnabledOutputRecord.fromStructure = function (str) {
+return new FeatureTogglesMemoryCache_IsEnabledOutputRecord(new FeatureTogglesMemoryCache_IsEnabledOutputRecord.RecordClass({
+featureTogglesMemoryCache_IsEnabledOutputAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+FeatureTogglesMemoryCache_IsEnabledOutputRecord._isAnonymousRecord = true;
+FeatureTogglesMemoryCache_IsEnabledOutputRecord.UniqueId = "268088c8-2af9-f9c6-2b5a-b785fd786d2e";
+FeatureTogglesMemoryCache_IsEnabledOutputRecord.init();
+return FeatureTogglesMemoryCache_IsEnabledOutputRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRecord = FeatureTogglesMemoryCache_IsEnabledOutputRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$DataVersionRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$DataVersionRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var DataVersionRecord = (function (_super) {
+__extends(DataVersionRecord, _super);
+function DataVersionRecord(defaults) {
+_super.apply(this, arguments);
+}
+DataVersionRecord.attributesToDeclare = function () {
+return [
+this.attr("DataVersion", "dataVersionAttr", "DataVersion", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.DataVersionRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.DataVersionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DataVersionRecord.fromStructure = function (str) {
+return new DataVersionRecord(new DataVersionRecord.RecordClass({
+dataVersionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DataVersionRecord._isAnonymousRecord = true;
+DataVersionRecord.UniqueId = "2bc5badc-5e5c-b0bc-8cab-aec466e4edb2";
+DataVersionRecord.init();
+return DataVersionRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.DataVersionRecord = DataVersionRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$GroupDataRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$GroupDataRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var GroupDataRecord = (function (_super) {
+__extends(GroupDataRecord, _super);
+function GroupDataRecord(defaults) {
+_super.apply(this, arguments);
+}
+GroupDataRecord.attributesToDeclare = function () {
+return [
+this.attr("GroupData", "groupDataAttr", "GroupData", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.GroupDataRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.GroupDataRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GroupDataRecord.fromStructure = function (str) {
+return new GroupDataRecord(new GroupDataRecord.RecordClass({
+groupDataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GroupDataRecord._isAnonymousRecord = true;
+GroupDataRecord.UniqueId = "44117339-2502-c4fe-667f-7d74a995dc60";
+GroupDataRecord.init();
+return GroupDataRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.GroupDataRecord = GroupDataRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$GroupDataRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$GroupDataRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var GroupDataRecordList = (function (_super) {
+__extends(GroupDataRecordList, _super);
+function GroupDataRecordList(defaults) {
+_super.apply(this, arguments);
+}
+GroupDataRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.GroupDataRecord;
+return GroupDataRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.GroupDataRecordList = GroupDataRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Attract_ReleaseToggles_Lib.model", "ECOP_ReleaseTogglesReactive.model", "ECOP_Attract_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECOP_ReleaseTogglesReactive.referencesHealth", "ECOP_ReleaseTogglesReactive.referencesHealth$ECOP_Attract_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Attract_ReleaseToggles_LibModel, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Attract_ReleaseToggleRecord = (function (_super) {
+__extends(Attract_ReleaseToggleRecord, _super);
+function Attract_ReleaseToggleRecord(defaults) {
+_super.apply(this, arguments);
+}
+Attract_ReleaseToggleRecord.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggle", "releaseToggleAttr", "Attract_ReleaseToggle", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Attract_ReleaseToggles_LibModel.ReleaseToggleRec());
+}, true, ECOP_Attract_ReleaseToggles_LibModel.ReleaseToggleRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Attract_ReleaseToggleRecord.fromStructure = function (str) {
+return new Attract_ReleaseToggleRecord(new Attract_ReleaseToggleRecord.RecordClass({
+releaseToggleAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Attract_ReleaseToggleRecord._isAnonymousRecord = true;
+Attract_ReleaseToggleRecord.UniqueId = "471c8aa4-f865-e484-b5d5-d84d59ee023e";
+Attract_ReleaseToggleRecord.init();
+return Attract_ReleaseToggleRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleRecord = Attract_ReleaseToggleRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Attract_ReleaseToggleStateRec = (function (_super) {
+__extends(Attract_ReleaseToggleStateRec, _super);
+function Attract_ReleaseToggleStateRec(defaults) {
+_super.apply(this, arguments);
+}
+Attract_ReleaseToggleStateRec.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggle_Label", "releaseToggle_LabelAttr", "ReleaseToggle_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsEnabled", "isEnabledAttr", "IsEnabled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Attract_ReleaseToggleStateRec.init();
+return Attract_ReleaseToggleStateRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateRec = Attract_ReleaseToggleStateRec;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var FeatureTogglesMemoryCache_IsEnabledOutputRecordList = (function (_super) {
+__extends(FeatureTogglesMemoryCache_IsEnabledOutputRecordList, _super);
+function FeatureTogglesMemoryCache_IsEnabledOutputRecordList(defaults) {
+_super.apply(this, arguments);
+}
+FeatureTogglesMemoryCache_IsEnabledOutputRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRecord;
+return FeatureTogglesMemoryCache_IsEnabledOutputRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRecordList = FeatureTogglesMemoryCache_IsEnabledOutputRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Convert_ReleaseToggles_Lib.model", "ECOP_ReleaseTogglesReactive.model", "ECOP_Convert_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECOP_ReleaseTogglesReactive.referencesHealth", "ECOP_ReleaseTogglesReactive.referencesHealth$ECOP_Convert_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Convert_ReleaseToggles_LibModel, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Convert_ReleaseToggleList = (function (_super) {
+__extends(Convert_ReleaseToggleList, _super);
+function Convert_ReleaseToggleList(defaults) {
+_super.apply(this, arguments);
+}
+Convert_ReleaseToggleList.itemType = ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec;
+return Convert_ReleaseToggleList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleList = Convert_ReleaseToggleList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleStateRecord = (function (_super) {
+__extends(ReleaseToggleStateRecord, _super);
+function ReleaseToggleStateRecord(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleStateRecord.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggleState", "releaseToggleStateAttr", "ReleaseToggleState", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ReleaseToggleStateRecord.fromStructure = function (str) {
+return new ReleaseToggleStateRecord(new ReleaseToggleStateRecord.RecordClass({
+releaseToggleStateAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ReleaseToggleStateRecord._isAnonymousRecord = true;
+ReleaseToggleStateRecord.UniqueId = "c1170c9d-5cd5-8862-a8e2-50fbcf631b4a";
+ReleaseToggleStateRecord.init();
+return ReleaseToggleStateRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateRecord = ReleaseToggleStateRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleStateRecordList = (function (_super) {
+__extends(ReleaseToggleStateRecordList, _super);
+function ReleaseToggleStateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleStateRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateRecord;
+return ReleaseToggleStateRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.ReleaseToggleStateRecordList = ReleaseToggleStateRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Convert_ReleaseToggleStateList = (function (_super) {
+__extends(Convert_ReleaseToggleStateList, _super);
+function Convert_ReleaseToggleStateList(defaults) {
+_super.apply(this, arguments);
+}
+Convert_ReleaseToggleStateList.itemType = ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateRec;
+return Convert_ReleaseToggleStateList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateList = Convert_ReleaseToggleStateList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$FeatureToggleStateRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var FeatureToggleStateRec = (function (_super) {
+__extends(FeatureToggleStateRec, _super);
+function FeatureToggleStateRec(defaults) {
+_super.apply(this, arguments);
+}
+FeatureToggleStateRec.attributesToDeclare = function () {
+return [
+this.attr("FeatureToggle_Label", "featureToggle_LabelAttr", "featureToggle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsEnabled", "isEnabledAttr", "isEnabled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FeatureToggleStateRec.init();
+return FeatureToggleStateRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateRec = FeatureToggleStateRec;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$FeatureToggleStateRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$FeatureToggleStateRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var FeatureToggleStateRecord = (function (_super) {
+__extends(FeatureToggleStateRecord, _super);
+function FeatureToggleStateRecord(defaults) {
+_super.apply(this, arguments);
+}
+FeatureToggleStateRecord.attributesToDeclare = function () {
+return [
+this.attr("FeatureToggleState", "featureToggleStateAttr", "FeatureToggleState", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+FeatureToggleStateRecord.fromStructure = function (str) {
+return new FeatureToggleStateRecord(new FeatureToggleStateRecord.RecordClass({
+featureToggleStateAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+FeatureToggleStateRecord._isAnonymousRecord = true;
+FeatureToggleStateRecord.UniqueId = "7f4f59a9-3980-1998-e991-06a8331b38cd";
+FeatureToggleStateRecord.init();
+return FeatureToggleStateRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateRecord = FeatureToggleStateRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$FeatureToggleStateList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$FeatureToggleStateRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var FeatureToggleStateList = (function (_super) {
+__extends(FeatureToggleStateList, _super);
+function FeatureToggleStateList(defaults) {
+_super.apply(this, arguments);
+}
+FeatureToggleStateList.itemType = ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateRec;
+return FeatureToggleStateList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateList = FeatureToggleStateList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$FeatureToggleStateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$FeatureToggleStateRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var FeatureToggleStateRecordList = (function (_super) {
+__extends(FeatureToggleStateRecordList, _super);
+function FeatureToggleStateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+FeatureToggleStateRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateRecord;
+return FeatureToggleStateRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateRecordList = FeatureToggleStateRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$DataVersionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$DataVersionRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var DataVersionRecordList = (function (_super) {
+__extends(DataVersionRecordList, _super);
+function DataVersionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+DataVersionRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.DataVersionRecord;
+return DataVersionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.DataVersionRecordList = DataVersionRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Attract_ReleaseToggles_Lib.model", "ECOP_ReleaseTogglesReactive.model", "ECOP_Attract_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECOP_ReleaseTogglesReactive.referencesHealth", "ECOP_ReleaseTogglesReactive.referencesHealth$ECOP_Attract_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Attract_ReleaseToggles_LibModel, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Attract_ReleaseToggleList = (function (_super) {
+__extends(Attract_ReleaseToggleList, _super);
+function Attract_ReleaseToggleList(defaults) {
+_super.apply(this, arguments);
+}
+Attract_ReleaseToggleList.itemType = ECOP_Attract_ReleaseToggles_LibModel.ReleaseToggleRec;
+return Attract_ReleaseToggleList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleList = Attract_ReleaseToggleList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Attract_ReleaseToggleStateRecord = (function (_super) {
+__extends(Attract_ReleaseToggleStateRecord, _super);
+function Attract_ReleaseToggleStateRecord(defaults) {
+_super.apply(this, arguments);
+}
+Attract_ReleaseToggleStateRecord.attributesToDeclare = function () {
+return [
+this.attr("Attract_ReleaseToggleState", "attract_ReleaseToggleStateAttr", "Attract_ReleaseToggleState", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateRec());
+}, true, ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Attract_ReleaseToggleStateRecord.fromStructure = function (str) {
+return new Attract_ReleaseToggleStateRecord(new Attract_ReleaseToggleStateRecord.RecordClass({
+attract_ReleaseToggleStateAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Attract_ReleaseToggleStateRecord._isAnonymousRecord = true;
+Attract_ReleaseToggleStateRecord.UniqueId = "d09cadd4-bf8d-ca54-7918-fb81b6c5623c";
+Attract_ReleaseToggleStateRecord.init();
+return Attract_ReleaseToggleStateRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateRecord = Attract_ReleaseToggleStateRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$DataVersionList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$DataVersionRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var DataVersionList = (function (_super) {
+__extends(DataVersionList, _super);
+function DataVersionList(defaults) {
+_super.apply(this, arguments);
+}
+DataVersionList.itemType = ECOP_ReleaseTogglesReactiveModel.DataVersionRec;
+return DataVersionList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.DataVersionList = DataVersionList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Convert_ReleaseToggles_Lib.model", "ECOP_ReleaseTogglesReactive.model", "ECOP_Convert_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECOP_ReleaseTogglesReactive.referencesHealth", "ECOP_ReleaseTogglesReactive.referencesHealth$ECOP_Convert_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Convert_ReleaseToggles_LibModel, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Convert_ReleaseToggleRecord = (function (_super) {
+__extends(Convert_ReleaseToggleRecord, _super);
+function Convert_ReleaseToggleRecord(defaults) {
+_super.apply(this, arguments);
+}
+Convert_ReleaseToggleRecord.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggle", "releaseToggleAttr", "Convert_ReleaseToggle", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec());
+}, true, ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Convert_ReleaseToggleRecord.fromStructure = function (str) {
+return new Convert_ReleaseToggleRecord(new Convert_ReleaseToggleRecord.RecordClass({
+releaseToggleAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Convert_ReleaseToggleRecord._isAnonymousRecord = true;
+Convert_ReleaseToggleRecord.UniqueId = "f46bda88-0174-3e6e-a043-3a5d8d4d2714";
+Convert_ReleaseToggleRecord.init();
+return Convert_ReleaseToggleRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleRecord = Convert_ReleaseToggleRecord;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Convert_ReleaseToggleRecordList = (function (_super) {
+__extends(Convert_ReleaseToggleRecordList, _super);
+function Convert_ReleaseToggleRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Convert_ReleaseToggleRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleRecord;
+return Convert_ReleaseToggleRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleRecordList = Convert_ReleaseToggleRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Attract_ReleaseToggleStateRecordList = (function (_super) {
+__extends(Attract_ReleaseToggleStateRecordList, _super);
+function Attract_ReleaseToggleStateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Attract_ReleaseToggleStateRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateRecord;
+return Attract_ReleaseToggleStateRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateRecordList = Attract_ReleaseToggleStateRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Attract_ReleaseToggleStateList = (function (_super) {
+__extends(Attract_ReleaseToggleStateList, _super);
+function Attract_ReleaseToggleStateList(defaults) {
+_super.apply(this, arguments);
+}
+Attract_ReleaseToggleStateList.itemType = ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateRec;
+return Attract_ReleaseToggleStateList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateList = Attract_ReleaseToggleStateList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$GroupDataList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$GroupDataRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var GroupDataList = (function (_super) {
+__extends(GroupDataList, _super);
+function GroupDataList(defaults) {
+_super.apply(this, arguments);
+}
+GroupDataList.itemType = ECOP_ReleaseTogglesReactiveModel.GroupDataRec;
+return GroupDataList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.GroupDataList = GroupDataList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleRecord"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var Attract_ReleaseToggleRecordList = (function (_super) {
+__extends(Attract_ReleaseToggleRecordList, _super);
+function Attract_ReleaseToggleRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Attract_ReleaseToggleRecordList.itemType = ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleRecord;
+return Attract_ReleaseToggleRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleRecordList = Attract_ReleaseToggleRecordList;
+
+});
+define("ECOP_ReleaseTogglesReactive.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECOP_ReleaseTogglesReactiveModel = exports;
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["b4ffba9f-6567-40ea-9b33-0551843058bb"];
+}
+});
+
+ECOP_ReleaseTogglesReactiveModel.staticEntities = {};
+ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle = {};
+var getConvert_ReleaseToggleRecord = function (record) {
+return OS.ApplicationInfo.getModules()["2dfb77fa-8700-4ea1-8e4f-f12257666ac9"].staticEntities["006c8f18-9f13-4ebd-b5f0-4983ee7871b1"][record];
+};
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "deliveryBundle", {
+get: function () {
+return getConvert_ReleaseToggleRecord("009e4d1f-7e40-471b-a8fe-8789d5eb2683");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7000", {
+get: function () {
+return getConvert_ReleaseToggleRecord("010521ae-921c-41a0-8f86-441552f08889");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7491", {
+get: function () {
+return getConvert_ReleaseToggleRecord("02d26d02-01b5-4ebf-b42e-a462c391d519");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "christmasSnow", {
+get: function () {
+return getConvert_ReleaseToggleRecord("02f90f56-5130-4df8-9d55-e258a5d8e57d");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8803", {
+get: function () {
+return getConvert_ReleaseToggleRecord("03bc0826-13f3-4bb2-a70b-70828a803df1");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8218", {
+get: function () {
+return getConvert_ReleaseToggleRecord("03d07781-fe57-4619-abbb-0432b93a6a92");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7127", {
+get: function () {
+return getConvert_ReleaseToggleRecord("061ab324-b607-49ef-8958-f7e59b1cec54");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8701", {
+get: function () {
+return getConvert_ReleaseToggleRecord("062679a4-f815-4933-a2a6-84fe6233ea2e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5354", {
+get: function () {
+return getConvert_ReleaseToggleRecord("095d2498-0fdd-4433-88d4-470d381ad972");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "payOnAccount", {
+get: function () {
+return getConvert_ReleaseToggleRecord("0a4cf766-11bc-49e6-b04b-be873ef9564c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8049", {
+get: function () {
+return getConvert_ReleaseToggleRecord("0b8783c3-4f35-4c4e-b204-7c32cd3d008c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6467", {
+get: function () {
+return getConvert_ReleaseToggleRecord("0d050683-6efb-420e-9bb4-8665718a794a");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7199", {
+get: function () {
+return getConvert_ReleaseToggleRecord("0d46b913-43cc-4083-8c39-e8a5d1d76220");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8739", {
+get: function () {
+return getConvert_ReleaseToggleRecord("0e57c5ad-c9c6-4c38-a16d-637a33190fac");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7541", {
+get: function () {
+return getConvert_ReleaseToggleRecord("1401e84a-c2c1-42fb-9ac1-8943bc0a4148");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5412", {
+get: function () {
+return getConvert_ReleaseToggleRecord("1461890f-bc5a-42d1-b80c-568bddd7947e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8491", {
+get: function () {
+return getConvert_ReleaseToggleRecord("14859786-0ee2-4de7-a7f7-66e0a858a581");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7830", {
+get: function () {
+return getConvert_ReleaseToggleRecord("150fb59e-f3b6-4371-bfb7-d2c8ef5d8f59");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8736", {
+get: function () {
+return getConvert_ReleaseToggleRecord("1d004587-dc07-4094-b848-f1a88d8f617b");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8766", {
+get: function () {
+return getConvert_ReleaseToggleRecord("1e1c87d6-0166-4072-9d64-37cd002ac9db");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5591", {
+get: function () {
+return getConvert_ReleaseToggleRecord("1e46eaad-0f88-4853-adfb-b815a0235a56");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5403", {
+get: function () {
+return getConvert_ReleaseToggleRecord("22c74ee2-846a-41c6-8757-29ed0c58c5f4");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7651", {
+get: function () {
+return getConvert_ReleaseToggleRecord("23ebcf74-341e-4fb8-9014-8e62106dc0a3");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5370", {
+get: function () {
+return getConvert_ReleaseToggleRecord("2638d07f-ac63-47d4-9bc4-0c7e6ca2ad88");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5514", {
+get: function () {
+return getConvert_ReleaseToggleRecord("2749e2a4-929a-422a-8aae-c04eaf59c5bc");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7434", {
+get: function () {
+return getConvert_ReleaseToggleRecord("275ca408-2a99-41ec-9ca3-8b0419371cf1");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "kPN_SMS_Connector", {
+get: function () {
+return getConvert_ReleaseToggleRecord("2a9b15b2-6850-47a9-a481-ad12e2be102c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7426", {
+get: function () {
+return getConvert_ReleaseToggleRecord("301732d1-68f3-4c01-be84-96e5c95325c9");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7888", {
+get: function () {
+return getConvert_ReleaseToggleRecord("32e0f623-55ee-4ac2-81cf-4ceffa12e63f");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5739", {
+get: function () {
+return getConvert_ReleaseToggleRecord("343f57b0-d48b-4645-b3e3-6d421af7f73b");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7414", {
+get: function () {
+return getConvert_ReleaseToggleRecord("3a670b15-b4ad-472c-8b8b-f6d97253e2b3");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7108", {
+get: function () {
+return getConvert_ReleaseToggleRecord("3aac4b01-2c5c-45db-9dd1-3e5d00bdedf0");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5269", {
+get: function () {
+return getConvert_ReleaseToggleRecord("3b5adc62-6fa2-473e-9777-6d25043ecad9");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5264", {
+get: function () {
+return getConvert_ReleaseToggleRecord("3cfebbc3-aa57-4a09-ba4a-b6f962213c11");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8376", {
+get: function () {
+return getConvert_ReleaseToggleRecord("3e4d762b-8540-4c99-89ed-414db6311af8");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5691", {
+get: function () {
+return getConvert_ReleaseToggleRecord("3fad6725-84b3-454c-92d0-f7a4b4a3a77c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5592", {
+get: function () {
+return getConvert_ReleaseToggleRecord("41745bd5-ad59-47b3-b5a4-a2ba7308b56b");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "deliveryBundle_APP", {
+get: function () {
+return getConvert_ReleaseToggleRecord("44e63ae1-13fa-4d80-8d23-4d7d3170f80e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP6488", {
+get: function () {
+return getConvert_ReleaseToggleRecord("45bc7278-03f7-41c0-a2ce-d8a0dd3762ca");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8425", {
+get: function () {
+return getConvert_ReleaseToggleRecord("463fb651-7bf2-43e3-89f8-f6b71847a64c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8052", {
+get: function () {
+return getConvert_ReleaseToggleRecord("4a5c2132-c8ec-4af7-b3ac-272f9f0d817f");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5593", {
+get: function () {
+return getConvert_ReleaseToggleRecord("4a67b67b-e0a2-4e67-aeb1-9c7474effe4d");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7757", {
+get: function () {
+return getConvert_ReleaseToggleRecord("4b0f30af-a02b-4cd3-b7bc-ef1b185a1116");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5328", {
+get: function () {
+return getConvert_ReleaseToggleRecord("4c826897-f057-4dd1-880f-127d7629d145");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6641", {
+get: function () {
+return getConvert_ReleaseToggleRecord("4e0a682d-00a3-4c25-82d1-87453ac7b3da");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5797", {
+get: function () {
+return getConvert_ReleaseToggleRecord("4ebbd7b5-4190-4091-9501-c8aff5dfa80d");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7003", {
+get: function () {
+return getConvert_ReleaseToggleRecord("4ee649d7-6660-4364-bf7d-c408ed3487c8");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "optimizationCartRetry", {
+get: function () {
+return getConvert_ReleaseToggleRecord("50014e59-d41a-4ee7-8755-bb42fdfacd30");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6965", {
+get: function () {
+return getConvert_ReleaseToggleRecord("504b050e-ce6f-4d20-a22f-d9a36f109c13");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6260", {
+get: function () {
+return getConvert_ReleaseToggleRecord("51be07e2-c7d0-405c-a9d3-0a27f7dc4083");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8174", {
+get: function () {
+return getConvert_ReleaseToggleRecord("5203e4cc-572a-4e38-a352-fd853c8ffac8");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6363", {
+get: function () {
+return getConvert_ReleaseToggleRecord("55847c15-4fce-4345-8b10-383f303d8030");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8792", {
+get: function () {
+return getConvert_ReleaseToggleRecord("569d39a9-a7e8-47b4-821a-ebce7e8d6be0");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "everyoneQRCode", {
+get: function () {
+return getConvert_ReleaseToggleRecord("583fc797-5428-4b4d-90c9-cf37b5418323");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8759", {
+get: function () {
+return getConvert_ReleaseToggleRecord("59e8fd84-d74c-4792-9be5-c609279a0602");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8395", {
+get: function () {
+return getConvert_ReleaseToggleRecord("5f8699af-e879-4161-a132-cecdaebd3c15");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "supERP_NewERP", {
+get: function () {
+return getConvert_ReleaseToggleRecord("5fb6a650-10f2-4361-90ce-0bdf630a8230");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5358", {
+get: function () {
+return getConvert_ReleaseToggleRecord("5ffcfa80-b301-496b-a2d7-b73585f7364e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5599", {
+get: function () {
+return getConvert_ReleaseToggleRecord("60546741-10d4-4fcc-a275-42159b2d0754");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6639", {
+get: function () {
+return getConvert_ReleaseToggleRecord("62010d0d-f77e-4c82-8410-9623ab77157f");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5506", {
+get: function () {
+return getConvert_ReleaseToggleRecord("62a920a8-8c83-48d0-b4ae-857abf1a41e8");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5589", {
+get: function () {
+return getConvert_ReleaseToggleRecord("62ddacb1-07c6-4da1-b2ca-9a830f91dc9a");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8703", {
+get: function () {
+return getConvert_ReleaseToggleRecord("632090d6-e321-488b-a139-caeea0936483");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7464", {
+get: function () {
+return getConvert_ReleaseToggleRecord("67339b27-333c-4924-85c8-5406d3cd5d53");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7297", {
+get: function () {
+return getConvert_ReleaseToggleRecord("67651a97-a3d2-45ca-a0d9-1545cfc1eb50");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5708", {
+get: function () {
+return getConvert_ReleaseToggleRecord("691e474a-de41-45db-a1fc-0b18462a540c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6872", {
+get: function () {
+return getConvert_ReleaseToggleRecord("6b26d785-e719-49bf-bfe3-c50d4d2b7e45");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5719", {
+get: function () {
+return getConvert_ReleaseToggleRecord("6b3cf775-946c-4a7a-8a7a-67b572e7c321");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5800", {
+get: function () {
+return getConvert_ReleaseToggleRecord("6cd6f146-4f44-43f0-b327-955c95a32c8c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5620", {
+get: function () {
+return getConvert_ReleaseToggleRecord("6da7aa0d-0ff7-4783-aa3f-833ccfbff4a5");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8147", {
+get: function () {
+return getConvert_ReleaseToggleRecord("707bef84-d33c-4f05-8176-22f08e2b1a3d");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7798_SetRedemptionBooleanInSavingsQR", {
+get: function () {
+return getConvert_ReleaseToggleRecord("70ab926a-d69d-4c3a-a73f-4b83b7771b5f");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5662", {
+get: function () {
+return getConvert_ReleaseToggleRecord("71d24d8e-0f78-440b-bcb2-a2f93502117d");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5386", {
+get: function () {
+return getConvert_ReleaseToggleRecord("721ee7c1-2dd3-4508-b982-dfd4d44904ba");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5833", {
+get: function () {
+return getConvert_ReleaseToggleRecord("75b9f6a6-3522-460c-bb27-bbe69d9a0968");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5327", {
+get: function () {
+return getConvert_ReleaseToggleRecord("7668af7a-0064-4223-9dff-a2f2a2a73b80");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6503", {
+get: function () {
+return getConvert_ReleaseToggleRecord("7db5d8c1-4e55-437d-ad16-9089c937afba");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5889", {
+get: function () {
+return getConvert_ReleaseToggleRecord("7f0c5573-4ec9-46e3-9be8-2068aaf2042f");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8192", {
+get: function () {
+return getConvert_ReleaseToggleRecord("8197b2a7-f211-4887-9b05-e119c37a1141");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8375", {
+get: function () {
+return getConvert_ReleaseToggleRecord("81d055db-31c6-4a15-aa92-3083149a4ae1");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "oS_ServiceWorker", {
+get: function () {
+return getConvert_ReleaseToggleRecord("8348dfa9-ab1b-4340-95db-9db23beb6c53");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5338", {
+get: function () {
+return getConvert_ReleaseToggleRecord("8485009c-5765-46b1-89a3-b0c966c447d7");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5330", {
+get: function () {
+return getConvert_ReleaseToggleRecord("84fa4fc2-b2c6-47e8-9c0e-515204f16ac5");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8513", {
+get: function () {
+return getConvert_ReleaseToggleRecord("85dfe213-e0fa-424f-be9d-3a23e6e9126e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5598", {
+get: function () {
+return getConvert_ReleaseToggleRecord("87cfb418-7610-4199-9c29-9cf71eb7ce19");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6942", {
+get: function () {
+return getConvert_ReleaseToggleRecord("891a1323-617e-4b40-8a62-c8e54f88bcee");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8188", {
+get: function () {
+return getConvert_ReleaseToggleRecord("89bc66b1-14b3-4e2a-89e0-aa1b3a120b2b");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "giveAwayPLUSPoints", {
+get: function () {
+return getConvert_ReleaseToggleRecord("8cf27946-2280-474a-be3a-3f3a90df7ddd");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5381", {
+get: function () {
+return getConvert_ReleaseToggleRecord("8e62d1f0-d609-42e7-843c-6ed3915f1395");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7269", {
+get: function () {
+return getConvert_ReleaseToggleRecord("8e81a1cf-eb31-42f1-ab2a-2a77ff857779");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "digitalSavingOnly", {
+get: function () {
+return getConvert_ReleaseToggleRecord("90270a86-e68a-4bf8-880d-5d021703ed50");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7843", {
+get: function () {
+return getConvert_ReleaseToggleRecord("94cc04a4-8a8e-45cc-bf85-56083460419e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7580", {
+get: function () {
+return getConvert_ReleaseToggleRecord("94f84b60-161a-4715-b99a-1e2c5d131a34");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5259", {
+get: function () {
+return getConvert_ReleaseToggleRecord("972c4ca7-7d29-455d-9466-3e3e20891076");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7157", {
+get: function () {
+return getConvert_ReleaseToggleRecord("9ae83456-2fd0-430c-a79a-fd1ca65bdba6");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7590", {
+get: function () {
+return getConvert_ReleaseToggleRecord("a2739fb4-2264-4e39-b605-e41c82e96d78");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5682", {
+get: function () {
+return getConvert_ReleaseToggleRecord("a4bf2027-8475-4e6f-a0a9-abed78e3460c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7831", {
+get: function () {
+return getConvert_ReleaseToggleRecord("a52d104c-d69e-436f-9bc8-e9baf8c60cbf");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6686", {
+get: function () {
+return getConvert_ReleaseToggleRecord("a5b69b1f-ae31-4f88-88d3-189e33168028");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6181", {
+get: function () {
+return getConvert_ReleaseToggleRecord("a5f1427f-a77c-4d21-a2f8-f257153e7b19");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6341", {
+get: function () {
+return getConvert_ReleaseToggleRecord("a71afe87-5726-401f-a1a1-dcf7d69549d8");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5443", {
+get: function () {
+return getConvert_ReleaseToggleRecord("a7e65ad0-c2ab-43ed-8cbc-4e53d716d570");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7501", {
+get: function () {
+return getConvert_ReleaseToggleRecord("a99a6d16-8d0f-40a1-9d7d-caf380de3f5d");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8223", {
+get: function () {
+return getConvert_ReleaseToggleRecord("aaa58661-dbe8-4ca4-abe8-aa5fb393872e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8163", {
+get: function () {
+return getConvert_ReleaseToggleRecord("acf1cab1-ea68-43dc-a413-a64811932118");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6204", {
+get: function () {
+return getConvert_ReleaseToggleRecord("aea50ea5-43fe-4dbd-981a-584cf24f43e1");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5439", {
+get: function () {
+return getConvert_ReleaseToggleRecord("b1b22a72-d4be-402e-bd55-6cea49ba7dd7");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "dynamicDelivery_DefaultConfig", {
+get: function () {
+return getConvert_ReleaseToggleRecord("b3151c30-d916-4413-b4e3-e419999fba49");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6822", {
+get: function () {
+return getConvert_ReleaseToggleRecord("b42517a1-a54e-4ded-9929-b02e0576691e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7796", {
+get: function () {
+return getConvert_ReleaseToggleRecord("b48286ae-ce85-4744-ac83-7ba2654acb2f");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5671", {
+get: function () {
+return getConvert_ReleaseToggleRecord("b58c742d-687f-4ed1-9e40-f11c4ad207ed");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8770", {
+get: function () {
+return getConvert_ReleaseToggleRecord("b750bfdb-d5f3-46a4-b424-eea625bc1fef");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8783", {
+get: function () {
+return getConvert_ReleaseToggleRecord("bb776da8-1906-435c-aac1-ba63280227c5");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6353", {
+get: function () {
+return getConvert_ReleaseToggleRecord("bc3dc251-96ce-408e-b235-a3ee90e0ea90");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5474", {
+get: function () {
+return getConvert_ReleaseToggleRecord("bdd7d9e2-8b2b-4f76-8bdf-45d1f18661ad");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5544", {
+get: function () {
+return getConvert_ReleaseToggleRecord("bfd895bf-2566-4f1e-8e52-e9788d0b8746");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6425", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c0a266e6-955b-4b7a-820c-9cfec7789b76");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "outageControlPart1", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c2ccb979-ee12-45eb-8217-50dbdc57eed3");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8465", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c3041729-5426-48a2-b41a-162415e995d9");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8157", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c3ed1d8d-7369-4a4d-b5eb-3c721a10eb06");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_4952", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c406dfa4-9a2a-472d-ab98-1ca3c7da2ce0");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6139", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c437f199-810e-40a5-b76a-e2b08e57c205");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_4659", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c4ec773e-cc4a-4fc4-b305-efb8bfacd23b");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6766", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c51d55cc-4722-4255-8103-3d5457741f81");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6182", {
+get: function () {
+return getConvert_ReleaseToggleRecord("c9000fb1-174f-4cfa-9360-e7c2412bf712");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7799", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ca06b47b-9d91-4a2e-8603-f9e6f21c4dc2");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8377", {
+get: function () {
+return getConvert_ReleaseToggleRecord("cc733814-f028-405f-bf69-91db0576454a");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7793", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ce6af3dc-a302-4ce3-b76a-d8c822b8ba2c");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8040", {
+get: function () {
+return getConvert_ReleaseToggleRecord("cea7e13d-f5f2-44e5-9c20-51e92ef11c0a");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "promoFreeProduct", {
+get: function () {
+return getConvert_ReleaseToggleRecord("cee4c66f-79b8-4163-bd90-a336cbea01c8");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_3046", {
+get: function () {
+return getConvert_ReleaseToggleRecord("cfc668ea-4b8d-4237-9f4f-171b52af52cc");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6514", {
+get: function () {
+return getConvert_ReleaseToggleRecord("d0a51bea-3e2c-4d08-827f-1fa85cdf0501");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5437", {
+get: function () {
+return getConvert_ReleaseToggleRecord("d251d252-f9f0-41f4-8ac4-c1d3d453b7c4");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "accessibilityFeatures", {
+get: function () {
+return getConvert_ReleaseToggleRecord("d28936bf-ca09-4801-bf59-ee26397c8b34");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5611", {
+get: function () {
+return getConvert_ReleaseToggleRecord("d597e3a1-81d0-47bf-8fa3-f8a4dc2e6780");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7315", {
+get: function () {
+return getConvert_ReleaseToggleRecord("d7b78448-5d38-46ba-bcad-962506f5bbb5");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_4271", {
+get: function () {
+return getConvert_ReleaseToggleRecord("d877ad00-bb9f-48fa-b8a7-a7ac9d32cc04");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7351", {
+get: function () {
+return getConvert_ReleaseToggleRecord("d96084ad-27c5-47a8-a368-6c7d2dc09fe0");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7554", {
+get: function () {
+return getConvert_ReleaseToggleRecord("dac3562a-c4d2-4485-8ea5-8028fe81d588");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6235", {
+get: function () {
+return getConvert_ReleaseToggleRecord("db8e0a6b-7a1a-490c-96dc-b30018105142");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5666", {
+get: function () {
+return getConvert_ReleaseToggleRecord("dcbe030b-cc4f-4e95-959e-b818c5a287d8");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6233", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ddb30369-2762-4e95-ab89-52d3be23c89d");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6214", {
+get: function () {
+return getConvert_ReleaseToggleRecord("deb8071c-9662-40ac-a15f-cc7431945a04");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6231", {
+get: function () {
+return getConvert_ReleaseToggleRecord("df741f09-1474-4106-8548-cf6bee819e3a");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6878", {
+get: function () {
+return getConvert_ReleaseToggleRecord("e0bd17a2-9030-49a2-af55-e35fcfda8715");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6791", {
+get: function () {
+return getConvert_ReleaseToggleRecord("e3cf51cc-2e4c-4066-a6a4-6fe670a56ef6");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5685", {
+get: function () {
+return getConvert_ReleaseToggleRecord("e45a6e37-a5df-4dc2-bf7a-8bcd70917ce2");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7544", {
+get: function () {
+return getConvert_ReleaseToggleRecord("e4893ee7-ba1c-4e33-b4be-20bd006080a1");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7626", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ea2add44-03b7-4486-9ec4-0dffd424a033");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7497", {
+get: function () {
+return getConvert_ReleaseToggleRecord("eaca1556-9c47-4afb-b8ab-4c73962d3fd4");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7005_ChristmasPackageShop", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ec2354d4-b1a5-48b7-98d1-5c951df5d658");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6255", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ec87c6ca-30e8-4cbe-9024-780ee7b1e1e2");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7842", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ed35bc69-f6cf-4588-be16-d751092f2650");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_7797", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ed59a13e-e1d6-4e0e-b54d-44c97678fb5e");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5407", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ee81e6e8-f2ad-480a-9cee-59bd1ede29aa");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "hideAllergensPDP", {
+get: function () {
+return getConvert_ReleaseToggleRecord("ef1f19a3-5215-4f7c-80e4-77cdf9764106");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6188", {
+get: function () {
+return getConvert_ReleaseToggleRecord("f59c0121-eb31-4ea3-8226-fe1c7efd72c6");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6249", {
+get: function () {
+return getConvert_ReleaseToggleRecord("f7b7f31a-eb17-4d8f-9a46-a813ced05b7b");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_5827", {
+get: function () {
+return getConvert_ReleaseToggleRecord("f9ba7759-5ad1-4c8e-a28a-9d7877e9be3f");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "ecoTimeSlots", {
+get: function () {
+return getConvert_ReleaseToggleRecord("fbd96f5f-d944-4d9a-8fb1-a7e0b8a07460");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_8195", {
+get: function () {
+return getConvert_ReleaseToggleRecord("fc004186-66fe-4ea9-8cfa-0a95a5c1e523");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.convert_ReleaseToggle, "eCOP_6385", {
+get: function () {
+return getConvert_ReleaseToggleRecord("fdad1842-66b9-40c6-8a5d-6182814f9a94");
+}
+});
+
+ECOP_ReleaseTogglesReactiveModel.staticEntities.attract_ReleaseToggle = {};
+var getAttract_ReleaseToggleRecord = function (record) {
+return OS.ApplicationInfo.getModules()["861c2bbb-0797-4d13-8088-1570097158dc"].staticEntities["006c8f18-9f13-4ebd-b5f0-4983ee7871b1"][record];
+};
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.attract_ReleaseToggle, "cMSOverviewPagesRecache", {
+get: function () {
+return getAttract_ReleaseToggleRecord("3a3d94e0-e4c1-4e95-8c70-baf07c124214");
+}
+});
+
+Object.defineProperty(ECOP_ReleaseTogglesReactiveModel.staticEntities.attract_ReleaseToggle, "pLPCategoriesScreenCache", {
+get: function () {
+return getAttract_ReleaseToggleRecord("b1d22750-8850-467b-842d-5a0ad35dd7d3");
+}
+});
+
+});

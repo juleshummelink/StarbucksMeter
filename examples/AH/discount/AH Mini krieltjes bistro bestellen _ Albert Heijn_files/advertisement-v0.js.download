@@ -1,0 +1,8 @@
+var e = document.createElement('div');
+e.id = 'SmFBqQTLoPav';
+e.className = 'f-ad';
+e.style.visibility = 'hidden';
+e.style.height = '0px';
+e.style.width = '0px';
+e.style.overflow = 'hidden';
+document.body.appendChild(e);

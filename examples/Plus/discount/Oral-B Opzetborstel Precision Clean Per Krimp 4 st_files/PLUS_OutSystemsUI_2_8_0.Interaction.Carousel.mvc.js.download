@@ -1,0 +1,1502 @@
+﻿define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$model", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "PLUS_OutSystemsUI_2_8_0.Utilities.TouchEvents.mvc$model", "PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$model", "PLUS_OutSystemsUI_2_8_0.controller$IsRTL", "PLUS_OutSystemsUI_2_8_0.controller$GetDeviceType"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, PLUS_OutSystemsUI_2_8_0_Utilities_TouchEvents_mvcModel, PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("AutplayObj", "autplayObjVar", "AutplayObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("CarouselObj", "carouselObjVar", "CarouselObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("Velocity", "velocityVar", "Velocity", true, false, OS.Types.Decimal, function () {
+return (new OS.DataTypes.Decimal("0.3"));
+}, false), 
+this.attr("IsAnimating", "isAnimatingVar", "IsAnimating", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ContainsClass", "containsClassVar", "ContainsClass", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("DragDirection", "dragDirectionVar", "DragDirection", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("currentDevice", "currentDeviceVar", "currentDevice", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("AddDragEvents", "addDragEventsVar", "AddDragEvents", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("Navigation", "navigationIn", "Navigation", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_navigationInDataFetchStatus", "_navigationInDataFetchStatus", "_navigationInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Dots", "dotsIn", "Dots", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_dotsInDataFetchStatus", "_dotsInDataFetchStatus", "_dotsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Margin", "marginIn", "Margin", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_marginInDataFetchStatus", "_marginInDataFetchStatus", "_marginInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Padding", "paddingIn", "Padding", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_paddingInDataFetchStatus", "_paddingInDataFetchStatus", "_paddingInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Autoplay", "autoplayIn", "Autoplay", true, false, OS.Types.Text, function () {
+return PLUS_OutSystemsUI_2_8_0Model.staticEntities.autoplay.disabled;
+}, false), 
+this.attr("_autoplayInDataFetchStatus", "_autoplayInDataFetchStatus", "_autoplayInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Scale", "scaleIn", "Scale", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_scaleInDataFetchStatus", "_scaleInDataFetchStatus", "_scaleInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Loop", "loopIn", "Loop", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_loopInDataFetchStatus", "_loopInDataFetchStatus", "_loopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Center", "centerIn", "Center", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_centerInDataFetchStatus", "_centerInDataFetchStatus", "_centerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("InitialPosition", "initialPositionIn", "InitialPosition", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_initialPositionInDataFetchStatus", "_initialPositionInDataFetchStatus", "_initialPositionInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ItemsPhone", "itemsPhoneIn", "ItemsPhone", true, false, OS.Types.Integer, function () {
+return 1;
+}, false), 
+this.attr("_itemsPhoneInDataFetchStatus", "_itemsPhoneInDataFetchStatus", "_itemsPhoneInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ItemsTablet", "itemsTabletIn", "ItemsTablet", true, false, OS.Types.Integer, function () {
+return 1;
+}, false), 
+this.attr("_itemsTabletInDataFetchStatus", "_itemsTabletInDataFetchStatus", "_itemsTabletInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ItemsDesktop", "itemsDesktopIn", "ItemsDesktop", true, false, OS.Types.Integer, function () {
+return 1;
+}, false), 
+this.attr("_itemsDesktopInDataFetchStatus", "_itemsDesktopInDataFetchStatus", "_itemsDesktopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("TabIndex", "tabIndexIn", "TabIndex", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_tabIndexInDataFetchStatus", "_tabIndexInDataFetchStatus", "_tabIndexInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (PLUS_OutSystemsUI_2_8_0_Utilities_TouchEvents_mvcModel.hasValidationWidgets || PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("Navigation" in inputs) {
+this.variables.navigationIn = inputs.Navigation;
+if("_navigationInDataFetchStatus" in inputs) {
+this.variables._navigationInDataFetchStatus = inputs._navigationInDataFetchStatus;
+}
+
+}
+
+if("Dots" in inputs) {
+this.variables.dotsIn = inputs.Dots;
+if("_dotsInDataFetchStatus" in inputs) {
+this.variables._dotsInDataFetchStatus = inputs._dotsInDataFetchStatus;
+}
+
+}
+
+if("Margin" in inputs) {
+this.variables.marginIn = inputs.Margin;
+if("_marginInDataFetchStatus" in inputs) {
+this.variables._marginInDataFetchStatus = inputs._marginInDataFetchStatus;
+}
+
+}
+
+if("Padding" in inputs) {
+this.variables.paddingIn = inputs.Padding;
+if("_paddingInDataFetchStatus" in inputs) {
+this.variables._paddingInDataFetchStatus = inputs._paddingInDataFetchStatus;
+}
+
+}
+
+if("Autoplay" in inputs) {
+this.variables.autoplayIn = inputs.Autoplay;
+if("_autoplayInDataFetchStatus" in inputs) {
+this.variables._autoplayInDataFetchStatus = inputs._autoplayInDataFetchStatus;
+}
+
+}
+
+if("Scale" in inputs) {
+this.variables.scaleIn = inputs.Scale;
+if("_scaleInDataFetchStatus" in inputs) {
+this.variables._scaleInDataFetchStatus = inputs._scaleInDataFetchStatus;
+}
+
+}
+
+if("Loop" in inputs) {
+this.variables.loopIn = inputs.Loop;
+if("_loopInDataFetchStatus" in inputs) {
+this.variables._loopInDataFetchStatus = inputs._loopInDataFetchStatus;
+}
+
+}
+
+if("Center" in inputs) {
+this.variables.centerIn = inputs.Center;
+if("_centerInDataFetchStatus" in inputs) {
+this.variables._centerInDataFetchStatus = inputs._centerInDataFetchStatus;
+}
+
+}
+
+if("InitialPosition" in inputs) {
+this.variables.initialPositionIn = inputs.InitialPosition;
+if("_initialPositionInDataFetchStatus" in inputs) {
+this.variables._initialPositionInDataFetchStatus = inputs._initialPositionInDataFetchStatus;
+}
+
+}
+
+if("ItemsPhone" in inputs) {
+this.variables.itemsPhoneIn = inputs.ItemsPhone;
+if("_itemsPhoneInDataFetchStatus" in inputs) {
+this.variables._itemsPhoneInDataFetchStatus = inputs._itemsPhoneInDataFetchStatus;
+}
+
+}
+
+if("ItemsTablet" in inputs) {
+this.variables.itemsTabletIn = inputs.ItemsTablet;
+if("_itemsTabletInDataFetchStatus" in inputs) {
+this.variables._itemsTabletInDataFetchStatus = inputs._itemsTabletInDataFetchStatus;
+}
+
+}
+
+if("ItemsDesktop" in inputs) {
+this.variables.itemsDesktopIn = inputs.ItemsDesktop;
+if("_itemsDesktopInDataFetchStatus" in inputs) {
+this.variables._itemsDesktopInDataFetchStatus = inputs._itemsDesktopInDataFetchStatus;
+}
+
+}
+
+if("TabIndex" in inputs) {
+this.variables.tabIndexIn = inputs.TabIndex;
+if("_tabIndexInDataFetchStatus" in inputs) {
+this.variables._tabIndexInDataFetchStatus = inputs._tabIndexInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Interaction.Carousel");
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$view", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "react", "OutSystems/ReactView/Main", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$model", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller", "OutSystems/ReactWidgets/Main", "PLUS_OutSystemsUI_2_8_0.Utilities.TouchEvents.mvc$view", "PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$view", "PLUS_OutSystemsUI_2_8_0.controller$IsRTL", "PLUS_OutSystemsUI_2_8_0.controller$GetDeviceType"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, React, OSView, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_model, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller, OSWidgets, PLUS_OutSystemsUI_2_8_0_Utilities_TouchEvents_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Interaction.Carousel";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return ["scripts/PLUS_OutSystemsUI_2_8_0.BundledJS.js"];
+        };
+        View.getBlocks = function() {
+            return [PLUS_OutSystemsUI_2_8_0_Utilities_TouchEvents_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+style: (("padding: 0 " + (model.variables.paddingIn).toString()) + "px"),
+"aria-live": "polite",
+"aria-atomic": "True"
+},
+style: "carousel init",
+visible: true,
+_idProps: {
+service: idService,
+name: "carousel"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "carousel-container",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.carouselItems,
+extendedProperties: {
+tabIndex: model.getCachedValue(idService.getId("CarouselItems.tabindex"), function () {
+return (((model.variables.tabIndexIn === "")) ? ("0") : (model.variables.tabIndexIn));
+}, function () {
+return model.variables.tabIndexIn;
+}),
+"aria-live": model.getCachedValue(idService.getId("CarouselItems.aria-live"), function () {
+return (((model.variables.autoplayIn === PLUS_OutSystemsUI_2_8_0Model.staticEntities.autoplay.disabled)) ? ("off") : ("polite"));
+}, function () {
+return model.variables.autoplayIn;
+}),
+"aria-atomic": "false"
+},
+style: "carousel-container-content",
+_idProps: {
+service: idService,
+name: "CarouselItems"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "button",
+"aria-label": "Previous Item"
+},
+gridProperties: {
+classes: "OSInline"
+},
+style: model.getCachedValue(idService.getId("PreviousArrow.Style"), function () {
+return ("carousel-navigation carousel-navigation-left " + ((model.variables.navigationIn) ? ("") : (" hidden")));
+}, function () {
+return model.variables.navigationIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "PreviousArrow"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._navigationInDataFetchStatus)
+}, React.createElement(OSWidgets.Icon, {
+icon: "angle-left",
+iconSize: /*FontSize*/ 0,
+style: "icon",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "button",
+"aria-label": "Next Item"
+},
+gridProperties: {
+classes: "OSInline"
+},
+style: model.getCachedValue(idService.getId("NextArrow.Style"), function () {
+return ("carousel-navigation carousel-navigation-right" + ((model.variables.navigationIn) ? ("") : (" hidden")));
+}, function () {
+return model.variables.navigationIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "NextArrow"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._navigationInDataFetchStatus)
+}, React.createElement(OSWidgets.Icon, {
+icon: "angle-right",
+iconSize: /*FontSize*/ 0,
+style: "icon",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "navigation"
+},
+style: model.getCachedValue(idService.getId("+O3MenVcVUabQRQhNXZ1jg.Style"), function () {
+return ("carousel-dots-container " + ((model.variables.dotsIn) ? ("") : ("disabled")));
+}, function () {
+return model.variables.dotsIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._dotsInDataFetchStatus)
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "hide-on-service-studio",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.addDragEventsVar, false, this, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_TouchEvents_mvc_view, {
+inputs: {
+WidgetId: idService.getId("carousel")
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+move$Action: function (xIn, yIn, offsetXIn, offsetYIn, evtIn) {
+var eventHandlerContext = callContext.clone();
+controller.gestureMove$Action(offsetXIn, evtIn, offsetYIn, controller.callContext(eventHandlerContext));
+
+;
+},
+end$Action: function (xIn, yIn, offsetXIn, offsetYIn, timeTakenIn) {
+var eventHandlerContext = callContext.clone();
+controller.gestureEnd$Action(offsetXIn, timeTakenIn, 0, controller.callContext(eventHandlerContext));
+
+;
+},
+start$Action: function (xIn, yIn) {
+var eventHandlerContext = callContext.clone();
+controller.gestureStart$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_view, {
+inputs: {
+WidgetId: idService.getId("carousel")
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+start$Action: function (xIn, yIn) {
+var eventHandlerContext = callContext.clone();
+controller.gestureStart$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+move$Action: function (xIn, yIn, offsetXIn, offsetYIn, evtIn) {
+var eventHandlerContext = callContext.clone();
+controller.gestureMove$Action(offsetXIn, evtIn, offsetYIn, controller.callContext(eventHandlerContext));
+
+;
+},
+end$Action: function (xIn, yIn, offsetXIn, offsetYIn, timeTakenIn) {
+var eventHandlerContext = callContext.clone();
+controller.gestureEnd$Action(offsetXIn, timeTakenIn, 0, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "PLUS_OutSystemsUI_2_8_0.languageResources", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GoTo.GetMaxElementsJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GoTo.GoToTargetJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GoTo.GoToLastJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.SetInterval.AutoplayLoopJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.Init.InitCarouselJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.Update.UpdateJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.ClearInterval.ClearIntervalJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.OnOrientationChange.OnOrientationChangeJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureStart.AddNoTransitionClassesJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureStart.RemoveNoTransitionJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureStart.CheckIfContainsClassJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureMove.AddNoTransitionClassesJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureMove.TransformUiJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureEnd.PrepareElementsJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureEnd.ChangeIsAnimatingStatusJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureEnd.BackToMiddleJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.Previous.PreviousJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.OnReady.CallingInitJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.Next.NextJS", "PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.OnDestroy.RemoveListnerOnOrientationJS", "PLUS_OutSystemsUI_2_8_0.controller$IsRTL", "PLUS_OutSystemsUI_2_8_0.controller$GetDeviceType"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, PLUS_OutSystemsUI_2_8_0LanguageResources, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GoTo_GetMaxElementsJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GoTo_GoToTargetJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GoTo_GoToLastJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_SetInterval_AutoplayLoopJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_Init_InitCarouselJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_Update_UpdateJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_ClearInterval_ClearIntervalJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_OnOrientationChange_OnOrientationChangeJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureStart_AddNoTransitionClassesJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureStart_RemoveNoTransitionJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureStart_CheckIfContainsClassJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureMove_AddNoTransitionClassesJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureMove_TransformUiJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureEnd_PrepareElementsJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureEnd_ChangeIsAnimatingStatusJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureEnd_BackToMiddleJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_Previous_PreviousJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_OnReady_CallingInitJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_Next_NextJS, PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_OnDestroy_RemoveListnerOnOrientationJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+previous$Action: function () {
+return controller.executeActionInsideJSNode(controller._previous$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Previous");
+},
+next$Action: function () {
+return controller.executeActionInsideJSNode(controller._next$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Next");
+},
+goTo$Action: function (targetIn) {
+targetIn = (targetIn === undefined) ? 0 : targetIn;
+return controller.executeActionInsideJSNode(controller._goTo$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(targetIn, OS.Types.Integer)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "GoTo");
+},
+update$Action: function () {
+return controller.executeActionInsideJSNode(controller._update$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Update");
+},
+changeIsAnimatingStatus$Action: function () {
+return controller.executeActionInsideJSNode(controller._changeIsAnimatingStatus$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ChangeIsAnimatingStatus");
+},
+onOrientationChange$Action: function () {
+return controller.executeActionInsideJSNode(controller._onOrientationChange$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnOrientationChange");
+},
+init$Action: function () {
+return controller.executeActionInsideJSNode(controller._init$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Init");
+},
+setEventsStatus$Action: function (addEventsIn) {
+addEventsIn = (addEventsIn === undefined) ? false : addEventsIn;
+return controller.executeActionInsideJSNode(controller._setEventsStatus$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(addEventsIn, OS.Types.Boolean)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "SetEventsStatus");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._setEventsStatus$Action = function (addEventsIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetEventsStatus");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.SetEventsStatus$vars"))());
+vars.value.addEventsInLocal = addEventsIn;
+// AddDragEvents = AddEvents
+model.variables.addDragEventsVar = vars.value.addEventsInLocal;
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.SetEventsStatus$vars", [{
+name: "AddEvents",
+attrName: "addEventsInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._changeIsAnimatingStatus$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ChangeIsAnimatingStatus");
+callContext = controller.callContext(callContext);
+// IsAnimating = False
+model.variables.isAnimatingVar = false;
+};
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+// Execute Action: Update
+controller._update$Action(callContext);
+};
+Controller.prototype._goTo$Action = function (targetIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("GoTo");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GoTo$vars"))());
+vars.value.targetInLocal = targetIn;
+var getMaxElementsJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+getMaxElementsJSResult.value = controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GoTo_GetMaxElementsJS, "GetMaxElements", "GoTo", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object),
+MaxElements: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GoTo$getMaxElementsJSResult"))();
+jsNodeResult.maxElementsOut = OS.DataConversion.JSNodeParamConverter.from($parameters.MaxElements, OS.Types.Integer);
+return jsNodeResult;
+}, {}, {});
+// Autoplay?
+if((((model.variables.autoplayIn) !== (PLUS_OutSystemsUI_2_8_0Model.staticEntities.autoplay.disabled)))) {
+// Execute Action: ClearInterval
+controller._clearInterval$Action(callContext);
+// Execute Action: SetInterval
+controller._setInterval$Action(callContext);
+}
+
+// elementExists?
+if(((vars.value.targetInLocal >= getMaxElementsJSResult.value.maxElementsOut))) {
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GoTo_GoToLastJS, "GoToLast", "GoTo", {
+Target: OS.DataConversion.JSNodeParamConverter.to((getMaxElementsJSResult.value.maxElementsOut - 1), OS.Types.Integer),
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+} else {
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GoTo_GoToTargetJS, "GoToTarget", "GoTo", {
+Target: OS.DataConversion.JSNodeParamConverter.to(vars.value.targetInLocal, OS.Types.Integer),
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+}
+
+// Trigger Event: OnItemChange
+return controller.onItemChange$Action(vars.value.targetInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GoTo$vars", [{
+name: "Target",
+attrName: "targetInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GoTo$getMaxElementsJSResult", [{
+name: "MaxElements",
+attrName: "maxElementsOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._setInterval$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetInterval");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.SetInterval$vars"))());
+var autoplayLoopJSResult = new OS.DataTypes.VariableHolder();
+if(((model.variables.autoplayIn === PLUS_OutSystemsUI_2_8_0Model.staticEntities.autoplay.slow))) {
+// AutoplayValue = 8000
+vars.value.autoplayValueVar = 8000;
+} else {
+if((model.variables.autoplayIn === PLUS_OutSystemsUI_2_8_0Model.staticEntities.autoplay.normal)) {
+// AutoplayValue = 5000
+vars.value.autoplayValueVar = 5000;
+} else {
+if((model.variables.autoplayIn === PLUS_OutSystemsUI_2_8_0Model.staticEntities.autoplay.fast)) {
+// AutoplayValue = 2000
+vars.value.autoplayValueVar = 2000;
+} else {
+return ;
+
+}
+
+}
+
+}
+
+autoplayLoopJSResult.value = controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_SetInterval_AutoplayLoopJS, "AutoplayLoop", "SetInterval", {
+Autoplay: OS.DataConversion.JSNodeParamConverter.to(vars.value.autoplayValueVar, OS.Types.Integer),
+IsRTL: OS.DataConversion.JSNodeParamConverter.to(PLUS_OutSystemsUI_2_8_0Controller.default.isRTL$Action(callContext).isRTLOut, OS.Types.Boolean),
+AutoplayObj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.SetInterval$autoplayLoopJSResult"))();
+jsNodeResult.autoplayObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AutoplayObj, OS.Types.Object);
+return jsNodeResult;
+}, {
+Previous: controller.clientActionProxies.previous$Action,
+Next: controller.clientActionProxies.next$Action
+}, {});
+// AutplayObj = AutoplayLoop.AutoplayObj
+model.variables.autplayObjVar = autoplayLoopJSResult.value.autoplayObjOut;
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.SetInterval$vars", [{
+name: "AutoplayValue",
+attrName: "autoplayValueVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.SetInterval$autoplayLoopJSResult", [{
+name: "AutoplayObj",
+attrName: "autoplayObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._init$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Init");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_Init_InitCarouselJS, "InitCarousel", "Init", {
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("carousel"), OS.Types.Text)
+}, function ($parameters) {
+}, {
+IsRTL: PLUS_OutSystemsUI_2_8_0Controller.default.clientActionProxies.isRTL$Action,
+Previous: controller.clientActionProxies.previous$Action,
+Next: controller.clientActionProxies.next$Action,
+GoTo: controller.clientActionProxies.goTo$Action,
+Update: controller.clientActionProxies.update$Action
+}, {});
+// Autoplay?
+if((((model.variables.autoplayIn) !== (PLUS_OutSystemsUI_2_8_0Model.staticEntities.autoplay.disabled)))) {
+// Execute Action: SetInterval
+controller._setInterval$Action(callContext);
+}
+
+};
+Controller.prototype._update$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Update");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_Update_UpdateJS, "Update", "Update", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._clearInterval$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ClearInterval");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_ClearInterval_ClearIntervalJS, "ClearInterval", "ClearInterval", {
+AutoplayObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.autplayObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onOrientationChange$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnOrientationChange");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_OnOrientationChange_OnOrientationChangeJS, "OnOrientationChange", "OnOrientationChange", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._gestureStart$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("GestureStart");
+callContext = controller.callContext(callContext);
+var checkIfContainsClassJSResult = new OS.DataTypes.VariableHolder();
+if((!(model.variables.isAnimatingVar))) {
+// Execute Action: ClearInterval
+controller._clearInterval$Action(callContext);
+checkIfContainsClassJSResult.value = controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureStart_CheckIfContainsClassJS, "CheckIfContainsClass", "GestureStart", {
+CarouselId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("carousel"), OS.Types.Text),
+ContainsClass: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GestureStart$checkIfContainsClassJSResult"))();
+jsNodeResult.containsClassOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ContainsClass, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// ContainsClass = CheckIfContainsClass.ContainsClass
+model.variables.containsClassVar = checkIfContainsClassJSResult.value.containsClassOut;
+if((model.variables.containsClassVar)) {
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureStart_RemoveNoTransitionJS, "RemoveNoTransition", "GestureStart", {
+Id: OS.DataConversion.JSNodeParamConverter.to(idService.getId("carousel"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+} else {
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureStart_AddNoTransitionClassesJS, "AddNoTransitionClasses", "GestureStart", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+}
+
+}
+
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GestureStart$checkIfContainsClassJSResult", [{
+name: "ContainsClass",
+attrName: "containsClassOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._gestureMove$Action = function (offsetXIn, evtIn, offsetYIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("GestureMove");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GestureMove$vars"))());
+vars.value.offsetXInLocal = offsetXIn;
+vars.value.evtInLocal = evtIn;
+vars.value.offsetYInLocal = offsetYIn;
+if((!(model.variables.isAnimatingVar))) {
+if((model.variables.containsClassVar)) {
+// ContainsClass = True
+model.variables.containsClassVar = true;
+} else {
+// No direction set?
+do {
+// No direction set?
+if(((model.variables.dragDirectionVar === ""))) {
+// Set drag direction
+// DragDirection = If
+model.variables.dragDirectionVar = ((OS.BuiltinFunctions.abs(vars.value.offsetXInLocal).gte(OS.BuiltinFunctions.abs(vars.value.offsetYInLocal))) ? ("horizontal") : ("vertical"));
+// Is vertical?
+if(((model.variables.dragDirectionVar === "vertical"))) {
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureMove_AddNoTransitionClassesJS, "AddNoTransitionClasses", "GestureMove", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+break;
+}
+
+}
+
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureMove_TransformUiJS, "TransformUi", "GestureMove", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object),
+Evt: OS.DataConversion.JSNodeParamConverter.to(vars.value.evtInLocal, OS.Types.Object),
+OffsetX: OS.DataConversion.JSNodeParamConverter.to(vars.value.offsetXInLocal, OS.Types.Decimal)
+}, function ($parameters) {
+}, {}, {});
+} while(false)
+;
+// DragDirection = ""
+model.variables.dragDirectionVar = "";
+}
+
+}
+
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GestureMove$vars", [{
+name: "OffsetX",
+attrName: "offsetXInLocal",
+mandatory: true,
+dataType: OS.Types.Decimal,
+defaultValue: function () {
+return OS.DataTypes.Decimal.defaultValue;
+}
+}, {
+name: "Evt",
+attrName: "evtInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "OffsetY",
+attrName: "offsetYInLocal",
+mandatory: true,
+dataType: OS.Types.Decimal,
+defaultValue: function () {
+return OS.DataTypes.Decimal.defaultValue;
+}
+}]);
+Controller.prototype._gestureEnd$Action = function (offsetXIn, timeTakenIn, elementhWidthIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("GestureEnd");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GestureEnd$vars"))());
+vars.value.offsetXInLocal = offsetXIn;
+vars.value.timeTakenInLocal = timeTakenIn;
+vars.value.elementhWidthInLocal = elementhWidthIn;
+var prepareElementsJSResult = new OS.DataTypes.VariableHolder();
+if((!(model.variables.isAnimatingVar))) {
+if((model.variables.containsClassVar)) {
+// ContainsClass = True
+model.variables.containsClassVar = true;
+} else {
+do {
+// RemoveNoTransitionClasses and GetElementWidth
+prepareElementsJSResult.value = controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureEnd_PrepareElementsJS, "PrepareElements", "GestureEnd", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object),
+ElementWidth: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GestureEnd$prepareElementsJSResult"))();
+jsNodeResult.elementWidthOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ElementWidth, OS.Types.Integer);
+return jsNodeResult;
+}, {}, {});
+// ElementhWidth = PrepareElements.ElementWidth
+vars.value.elementhWidthInLocal = prepareElementsJSResult.value.elementWidthOut;
+if((vars.value.offsetXInLocal.gt(OS.BuiltinFunctions.integerToDecimal(0)))) {
+// DidItPassHalf?
+if(((vars.value.offsetXInLocal.gt(OS.BuiltinFunctions.integerToDecimal(vars.value.elementhWidthInLocal).div(OS.BuiltinFunctions.integerToDecimal(3))) || OS.BuiltinFunctions.abs(vars.value.offsetXInLocal).div(vars.value.timeTakenInLocal).gt(model.variables.velocityVar)))) {
+// Execute Action: Previous
+controller._previous$Action(callContext);
+break;
+}
+
+} else {
+if(vars.value.offsetXInLocal.lt(OS.BuiltinFunctions.integerToDecimal(0))) {
+// DidItPassHalf?
+if(((vars.value.offsetXInLocal.lt(OS.BuiltinFunctions.integerToDecimal(vars.value.elementhWidthInLocal).div(OS.BuiltinFunctions.integerToDecimal(3)).times(OS.BuiltinFunctions.integerToDecimal(-1))) || OS.BuiltinFunctions.abs(vars.value.offsetXInLocal).div(vars.value.timeTakenInLocal).gt(model.variables.velocityVar)))) {
+// Execute Action: Next
+controller._next$Action(callContext);
+break;
+}
+
+}
+
+}
+
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureEnd_BackToMiddleJS, "BackToMiddle", "GestureEnd", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+// Execute Action: ClearInterval
+controller._clearInterval$Action(callContext);
+// Execute Action: SetInterval
+controller._setInterval$Action(callContext);
+} while(false)
+;
+// IsAnimating = True
+model.variables.isAnimatingVar = true;
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_GestureEnd_ChangeIsAnimatingStatusJS, "ChangeIsAnimatingStatus", "GestureEnd", null, function ($parameters) {
+}, {
+ChangeIsAnimatingStatus: controller.clientActionProxies.changeIsAnimatingStatus$Action
+}, {});
+}
+
+}
+
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GestureEnd$vars", [{
+name: "OffsetX",
+attrName: "offsetXInLocal",
+mandatory: true,
+dataType: OS.Types.Decimal,
+defaultValue: function () {
+return OS.DataTypes.Decimal.defaultValue;
+}
+}, {
+name: "TimeTaken",
+attrName: "timeTakenInLocal",
+mandatory: true,
+dataType: OS.Types.Decimal,
+defaultValue: function () {
+return OS.DataTypes.Decimal.defaultValue;
+}
+}, {
+name: "ElementhWidth",
+attrName: "elementhWidthInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.GestureEnd$prepareElementsJSResult", [{
+name: "ElementWidth",
+attrName: "elementWidthOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._previous$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Previous");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_Previous_PreviousJS, "Previous", "Previous", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object),
+IsRTL: OS.DataConversion.JSNodeParamConverter.to(PLUS_OutSystemsUI_2_8_0Controller.default.isRTL$Action(callContext).isRTLOut, OS.Types.Boolean)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var callingInitJSResult = new OS.DataTypes.VariableHolder();
+// currentDevice = GetDeviceType()
+model.variables.currentDeviceVar = PLUS_OutSystemsUI_2_8_0Controller.default.getDeviceType$Action(callContext).deviceOut;
+callingInitJSResult.value = controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_OnReady_CallingInitJS, "CallingInit", "OnReady", {
+InitialPosition: OS.DataConversion.JSNodeParamConverter.to(model.variables.initialPositionIn, OS.Types.Integer),
+Center: OS.DataConversion.JSNodeParamConverter.to(model.variables.centerIn, OS.Types.Boolean),
+NextArrow: OS.DataConversion.JSNodeParamConverter.to(idService.getId("NextArrow"), OS.Types.Text),
+Scale: OS.DataConversion.JSNodeParamConverter.to(model.variables.scaleIn, OS.Types.Boolean),
+ItemsDesktop: OS.DataConversion.JSNodeParamConverter.to(model.variables.itemsDesktopIn, OS.Types.Integer),
+PreviousArrow: OS.DataConversion.JSNodeParamConverter.to(idService.getId("PreviousArrow"), OS.Types.Text),
+ItemsTablet: OS.DataConversion.JSNodeParamConverter.to(model.variables.itemsTabletIn, OS.Types.Integer),
+ItemsPhone: OS.DataConversion.JSNodeParamConverter.to(model.variables.itemsPhoneIn, OS.Types.Integer),
+Loop: OS.DataConversion.JSNodeParamConverter.to(model.variables.loopIn, OS.Types.Boolean),
+IsRTL: OS.DataConversion.JSNodeParamConverter.to(PLUS_OutSystemsUI_2_8_0Controller.default.isRTL$Action(callContext).isRTLOut, OS.Types.Boolean),
+Padding: OS.DataConversion.JSNodeParamConverter.to(model.variables.paddingIn, OS.Types.Integer),
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("carousel"), OS.Types.Text),
+Margin: OS.DataConversion.JSNodeParamConverter.to(model.variables.marginIn, OS.Types.Integer),
+Dots: OS.DataConversion.JSNodeParamConverter.to(model.variables.dotsIn, OS.Types.Boolean),
+currentDevice: OS.DataConversion.JSNodeParamConverter.to(model.variables.currentDeviceVar, OS.Types.Text),
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.OnReady$callingInitJSResult"))();
+jsNodeResult.carouselObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.CarouselObj, OS.Types.Object);
+return jsNodeResult;
+}, {
+OnOrientationChange: controller.clientActionProxies.onOrientationChange$Action,
+Previous: controller.clientActionProxies.previous$Action,
+Next: controller.clientActionProxies.next$Action,
+Init: controller.clientActionProxies.init$Action,
+GoTo: controller.clientActionProxies.goTo$Action,
+SetEventsStatus: controller.clientActionProxies.setEventsStatus$Action
+}, {});
+// CarouselObj = CallingInit.CarouselObj
+model.variables.carouselObjVar = callingInitJSResult.value.carouselObjOut;
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.OnReady$callingInitJSResult", [{
+name: "CarouselObj",
+attrName: "carouselObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._next$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Next");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_Next_NextJS, "Next", "Next", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object),
+IsRTL: OS.DataConversion.JSNodeParamConverter.to(PLUS_OutSystemsUI_2_8_0Controller.default.isRTL$Action(callContext).isRTLOut, OS.Types.Boolean)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+// IsAnimating = False
+model.variables.isAnimatingVar = false;
+};
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+// JS Node to remove EventListner orientationchange
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Interaction_Carousel_mvc_controller_OnDestroy_RemoveListnerOnOrientationJS, "RemoveListnerOnOrientation", "OnDestroy", {
+CarouselObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.carouselObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {
+OnOrientationChange: controller.clientActionProxies.onOrientationChange$Action
+}, {});
+// Autoplay?
+if((((model.variables.autoplayIn) !== (PLUS_OutSystemsUI_2_8_0Model.staticEntities.autoplay.disabled)))) {
+// Execute Action: ClearInterval
+controller._clearInterval$Action(callContext);
+}
+
+};
+
+Controller.prototype.setEventsStatus$Action = function (addEventsIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setEventsStatus$Action, callContext, addEventsIn);
+
+};
+Controller.prototype.changeIsAnimatingStatus$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._changeIsAnimatingStatus$Action, callContext);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.goTo$Action = function (targetIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._goTo$Action, callContext, targetIn);
+
+};
+Controller.prototype.setInterval$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setInterval$Action, callContext);
+
+};
+Controller.prototype.init$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._init$Action, callContext);
+
+};
+Controller.prototype.update$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._update$Action, callContext);
+
+};
+Controller.prototype.clearInterval$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._clearInterval$Action, callContext);
+
+};
+Controller.prototype.onOrientationChange$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onOrientationChange$Action, callContext);
+
+};
+Controller.prototype.gestureStart$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._gestureStart$Action, callContext);
+
+};
+Controller.prototype.gestureMove$Action = function (offsetXIn, evtIn, offsetYIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._gestureMove$Action, callContext, offsetXIn, evtIn, offsetYIn);
+
+};
+Controller.prototype.gestureEnd$Action = function (offsetXIn, timeTakenIn, elementhWidthIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._gestureEnd$Action, callContext, offsetXIn, timeTakenIn, elementhWidthIn);
+
+};
+Controller.prototype.previous$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._previous$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.next$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._next$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.onItemChange$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return PLUS_OutSystemsUI_2_8_0Controller.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, PLUS_OutSystemsUI_2_8_0LanguageResources);
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GoTo.GetMaxElementsJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.MaxElements = $parameters.CarouselObj.getMaxElements();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GoTo.GoToTargetJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.goTo($parameters.Target);
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GoTo.GoToLastJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.goTo($parameters.Target);
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.SetInterval.AutoplayLoopJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.AutoplayObj = setInterval(function(){
+    if($parameters.IsRTL) {
+        $actions.Previous();
+    } else {
+        $actions.Next();
+    }
+},$parameters.Autoplay);
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.Init.InitCarouselJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var element = document.getElementById($parameters.WidgetId);
+element = element.querySelector('.carousel-container-content');
+var isRTL = $actions.IsRTL() === true;
+
+// Add actions
+element.next = function() { isRTL ? $actions.Previous() : $actions.Next() };
+element.previous = function() { isRTL ? $actions.Next() : $actions.Previous() };
+element.goto = function(i) { $actions.GoTo(i); };
+element.updateCarousel = function() { $actions.Update(); };
+
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.Update.UpdateJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.updateCarousel();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.ClearInterval.ClearIntervalJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+clearInterval($parameters.AutoplayObj);
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.OnOrientationChange.OnOrientationChangeJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.onOrientationChange();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureStart.AddNoTransitionClassesJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.addNoTransitionClasses();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureStart.RemoveNoTransitionJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var el = document.getElementById($parameters.Id);
+var carouselContent = el.querySelector(".carousel-container-content");
+
+carouselContent.classList.remove("no-transition");
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureStart.CheckIfContainsClassJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var carouselSwipe = document.getElementById($parameters.CarouselId);
+
+if(carouselSwipe.classList.contains('no-swipe')){
+    $parameters.ContainsClass = true;
+} else {
+    $parameters.ContainsClass = false;
+}
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureMove.AddNoTransitionClassesJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.addNoTransitionClasses();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureMove.TransformUiJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.gestureMove($parameters.OffsetX);
+$parameters.Evt.preventDefault();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureEnd.PrepareElementsJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.removeNoTransitionClasses();
+$parameters.ElementWidth = $parameters.CarouselObj.getNodeWidth();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureEnd.ChangeIsAnimatingStatusJS", [], function () {
+return function ($actions, $roles, $public) {
+var TimeoutClear = setTimeout(function(){
+    $actions.ChangeIsAnimatingStatus();
+    clearTimeout(TimeoutClear);
+},300);
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.GestureEnd.BackToMiddleJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.CarouselObj.backToMiddle();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.Previous.PreviousJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.IsRTL) {
+    $parameters.CarouselObj.next();
+} else {
+    $parameters.CarouselObj.previous();
+}
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.OnReady.CallingInitJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+window.addEventListener('orientationchange', $actions.OnOrientationChange);
+$parameters.CarouselObj = new newCarousel();
+
+var previousArrow = document.getElementById($parameters.PreviousArrow);
+var nextArrow = document.getElementById($parameters.NextArrow);
+
+previousArrow.addEventListener('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $actions.Previous();
+});
+
+nextArrow.addEventListener('click', function(e){
+    e.stopPropagation();
+    e.preventDefault();
+    $actions.Next();
+});
+
+var onKeyDownPress = function(e){
+    //If enter or space use 
+    if (e.keyCode == "32" || e.keyCode == "13") {
+        if(e.currentTarget === nextArrow){
+            $actions.Next();
+        } else {
+            $actions.Previous();
+        }
+        e.preventDefault();
+        e.stopPropagation();
+    }
+};
+
+previousArrow.addEventListener('keydown', onKeyDownPress);
+
+nextArrow.addEventListener('keydown', onKeyDownPress);
+
+var opts = {
+    
+    //OS parameters
+    widgetId: $parameters.WidgetId,
+    margin: $parameters.Margin,
+    padding: $parameters.Padding,
+    initialPosition: $parameters.InitialPosition,
+    itemsPhone: $parameters.ItemsPhone,
+    itemsTablet: $parameters.ItemsTablet,
+    itemsDesktop: $parameters.ItemsDesktop,
+    center: $parameters.Center,
+    scale: $parameters.Scale,
+    loop: $parameters.Loop,
+    dots: $parameters.Dots,
+    currentDevice: $parameters.currentDevice,
+    isRTL: $parameters.IsRTL,
+    
+    //OS actions
+    initAction: $actions.Init(),
+    goToAction: $actions.GoTo,
+    setEventsStatus: $actions.SetEventsStatus
+};
+
+$parameters.CarouselObj.init(opts);
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.Next.NextJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.IsRTL) {
+    $parameters.CarouselObj.previous();
+} else {
+    $parameters.CarouselObj.next();
+}
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Interaction.Carousel.mvc$controller.OnDestroy.RemoveListnerOnOrientationJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+window.removeEventListener('orientationchange', $actions.OnOrientationChange);
+$parameters.CarouselObj.destroy();
+};
+});
+

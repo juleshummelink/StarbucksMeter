@@ -1,0 +1,32 @@
+﻿define("CT_ShoppingList_IS.referencesHealth$BinaryData", [], function () {
+// Reference to producer 'BinaryData' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$CircuitBreaker_Lib", [], function () {
+// Reference to producer 'CircuitBreaker_Lib' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$CT_Query_Lib", [], function () {
+// Reference to producer 'CT_Query_Lib' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$CT_Supporting_IS", [], function () {
+// Reference to producer 'CT_Supporting_IS' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$ECOP_Convert_ReleaseToggles_CS", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_CS' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$ECOP_Convert_ReleaseToggles_Lib", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_Lib' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$HTTPRequestHandler", [], function () {
+// Reference to producer 'HTTPRequestHandler' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$ServiceCenter", [], function () {
+// Reference to producer 'ServiceCenter' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$Ticks", [], function () {
+// Reference to producer 'Ticks' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth$Users", [], function () {
+// Reference to producer 'Users' is OK.
+});
+define("CT_ShoppingList_IS.referencesHealth", [], function () {
+});

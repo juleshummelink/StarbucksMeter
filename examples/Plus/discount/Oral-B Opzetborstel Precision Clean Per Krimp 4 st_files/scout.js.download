@@ -1,0 +1,1 @@
+!function(e){"use strict";function createAppScript(t){var c=e.getElementsByTagName("script")[0],n=e.createElement("script");n.async=!0,n.src=t,c.parentNode.insertBefore(n,c)}createAppScript("https://navigator-analytics.tweakwise.com/bundles/analytics.BBjOPjwx.js");}(document);

@@ -1,0 +1,522 @@
+﻿define("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model"], function (OutSystems, ECOP_Base_RPatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ContainerObj", "containerObjVar", "ContainerObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("TooltipObj", "tooltipObjVar", "TooltipObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("HoverContainerClass", "hoverContainerClassIn", "HoverContainerClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_hoverContainerClassInDataFetchStatus", "_hoverContainerClassInDataFetchStatus", "_hoverContainerClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("HoverElementsClass", "hoverElementsClassIn", "HoverElementsClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_hoverElementsClassInDataFetchStatus", "_hoverElementsClassInDataFetchStatus", "_hoverElementsClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("TooltipOffsetX", "tooltipOffsetXIn", "TooltipOffsetX", true, false, OS.Types.Integer, function () {
+return -20;
+}, false), 
+this.attr("_tooltipOffsetXInDataFetchStatus", "_tooltipOffsetXInDataFetchStatus", "_tooltipOffsetXInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("TooltipOffsetY", "tooltipOffsetYIn", "TooltipOffsetY", true, false, OS.Types.Integer, function () {
+return 35;
+}, false), 
+this.attr("_tooltipOffsetYInDataFetchStatus", "_tooltipOffsetYInDataFetchStatus", "_tooltipOffsetYInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("TooltipWidth", "tooltipWidthIn", "TooltipWidth", true, false, OS.Types.Integer, function () {
+return 175;
+}, false), 
+this.attr("_tooltipWidthInDataFetchStatus", "_tooltipWidthInDataFetchStatus", "_tooltipWidthInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("PositionRelativeToParent", "positionRelativeToParentIn", "PositionRelativeToParent", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_positionRelativeToParentInDataFetchStatus", "_positionRelativeToParentInDataFetchStatus", "_positionRelativeToParentInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OnClickOnly", "onClickOnlyIn", "OnClickOnly", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_onClickOnlyInDataFetchStatus", "_onClickOnlyInDataFetchStatus", "_onClickOnlyInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("HoverContainerClass" in inputs) {
+this.variables.hoverContainerClassIn = inputs.HoverContainerClass;
+if("_hoverContainerClassInDataFetchStatus" in inputs) {
+this.variables._hoverContainerClassInDataFetchStatus = inputs._hoverContainerClassInDataFetchStatus;
+}
+
+}
+
+if("HoverElementsClass" in inputs) {
+this.variables.hoverElementsClassIn = inputs.HoverElementsClass;
+if("_hoverElementsClassInDataFetchStatus" in inputs) {
+this.variables._hoverElementsClassInDataFetchStatus = inputs._hoverElementsClassInDataFetchStatus;
+}
+
+}
+
+if("TooltipOffsetX" in inputs) {
+this.variables.tooltipOffsetXIn = inputs.TooltipOffsetX;
+if("_tooltipOffsetXInDataFetchStatus" in inputs) {
+this.variables._tooltipOffsetXInDataFetchStatus = inputs._tooltipOffsetXInDataFetchStatus;
+}
+
+}
+
+if("TooltipOffsetY" in inputs) {
+this.variables.tooltipOffsetYIn = inputs.TooltipOffsetY;
+if("_tooltipOffsetYInDataFetchStatus" in inputs) {
+this.variables._tooltipOffsetYInDataFetchStatus = inputs._tooltipOffsetYInDataFetchStatus;
+}
+
+}
+
+if("TooltipWidth" in inputs) {
+this.variables.tooltipWidthIn = inputs.TooltipWidth;
+if("_tooltipWidthInDataFetchStatus" in inputs) {
+this.variables._tooltipWidthInDataFetchStatus = inputs._tooltipWidthInDataFetchStatus;
+}
+
+}
+
+if("PositionRelativeToParent" in inputs) {
+this.variables.positionRelativeToParentIn = inputs.PositionRelativeToParent;
+if("_positionRelativeToParentInDataFetchStatus" in inputs) {
+this.variables._positionRelativeToParentInDataFetchStatus = inputs._positionRelativeToParentInDataFetchStatus;
+}
+
+}
+
+if("OnClickOnly" in inputs) {
+this.variables.onClickOnlyIn = inputs.OnClickOnly;
+if("_onClickOnlyInDataFetchStatus" in inputs) {
+this.variables._onClickOnlyInDataFetchStatus = inputs._onClickOnlyInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.OnHoverTooltip");
+});
+define("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$model", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller", "OutSystems/ReactWidgets/Main"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, React, OSView, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_model, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.OnHoverTooltip";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.tooltipContent,
+style: "hover-tooltip__content",
+_idProps: {
+service: idService,
+name: "TooltipContent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.languageResources", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$translationsResources", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller.OnReady.InitializeTooltipJS", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller.handler_OnScroll.HideTooltipJS", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller.OnDestroy.RemoveEventListenersJS", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller.handler_OnMove.MouseMoveHandlerJS"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, ECOP_Base_RPatLanguageResources, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_TranslationsResources, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller_OnReady_InitializeTooltipJS, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller_handler_OnScroll_HideTooltipJS, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller_OnDestroy_RemoveEventListenersJS, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller_handler_OnMove_MouseMoveHandlerJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+handler_OnMove$Action: function () {
+return controller.executeActionInsideJSNode(controller._handler_OnMove$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "handler_OnMove");
+},
+handler_OnScroll$Action: function () {
+return controller.executeActionInsideJSNode(controller._handler_OnScroll$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "handler_OnScroll");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var initializeTooltipJSResult = new OS.DataTypes.VariableHolder();
+initializeTooltipJSResult.value = controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller_OnReady_InitializeTooltipJS, "InitializeTooltip", "OnReady", {
+HoverContainer: OS.DataConversion.JSNodeParamConverter.to(model.variables.hoverContainerClassIn, OS.Types.Text),
+TooltipContentId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("TooltipContent"), OS.Types.Text),
+TooltipWidth: OS.DataConversion.JSNodeParamConverter.to(model.variables.tooltipWidthIn, OS.Types.Integer),
+OnClickOnly: OS.DataConversion.JSNodeParamConverter.to(model.variables.onClickOnlyIn, OS.Types.Boolean),
+ContainerObj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object),
+TooltipObj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.OnReady$initializeTooltipJSResult"))();
+jsNodeResult.containerObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ContainerObj, OS.Types.Object);
+jsNodeResult.tooltipObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.TooltipObj, OS.Types.Object);
+return jsNodeResult;
+}, {
+handler_OnMove: controller.clientActionProxies.handler_OnMove$Action,
+handler_OnScroll: controller.clientActionProxies.handler_OnScroll$Action
+}, {});
+// ContainerObj = InitializeTooltip.ContainerObj
+model.variables.containerObjVar = initializeTooltipJSResult.value.containerObjOut;
+// TooltipObj = InitializeTooltip.TooltipObj
+model.variables.tooltipObjVar = initializeTooltipJSResult.value.tooltipObjOut;
+};
+Controller.registerVariableGroupType("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.OnReady$initializeTooltipJSResult", [{
+name: "ContainerObj",
+attrName: "containerObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "TooltipObj",
+attrName: "tooltipObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._handler_OnScroll$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("handler_OnScroll");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller_handler_OnScroll_HideTooltipJS, "HideTooltip", "handler_OnScroll", {
+TooltipObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.tooltipObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller_OnDestroy_RemoveEventListenersJS, "RemoveEventListeners", "OnDestroy", {
+ContainerObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.containerObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {
+handler_OnMove: controller.clientActionProxies.handler_OnMove$Action,
+handler_OnScroll: controller.clientActionProxies.handler_OnScroll$Action
+}, {});
+};
+Controller.prototype._handler_OnMove$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("handler_OnMove");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_controller_handler_OnMove_MouseMoveHandlerJS, "MouseMoveHandler", "handler_OnMove", {
+OffsetX: OS.DataConversion.JSNodeParamConverter.to(model.variables.tooltipOffsetXIn, OS.Types.Integer),
+HoveredElementsClass: OS.DataConversion.JSNodeParamConverter.to(model.variables.hoverElementsClassIn, OS.Types.Text),
+OffsetY: OS.DataConversion.JSNodeParamConverter.to(model.variables.tooltipOffsetYIn, OS.Types.Integer),
+TooltipObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.tooltipObjVar, OS.Types.Object),
+PositionRelativeToParent: OS.DataConversion.JSNodeParamConverter.to(model.variables.positionRelativeToParentIn, OS.Types.Boolean)
+}, function ($parameters) {
+}, {}, {});
+};
+
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.handler_OnScroll$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_OnScroll$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.handler_OnMove$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_OnMove$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Base_RPatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Base_RPatLanguageResources);
+});
+define("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller.OnReady.InitializeTooltipJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const container = document.querySelector("." + $parameters.HoverContainer);
+const tooltip = document.getElementById($parameters.TooltipContentId);
+
+tooltip.style.width = $parameters.TooltipWidth + "px";
+
+var isTouchScreen = false;
+
+//Set initial styles
+tooltip.style.display = "none";
+tooltip.style.position = "fixed";
+tooltip.style.zIndex = "999";
+
+//Set event listener
+if($parameters.OnClickOnly){
+    container.addEventListener("click", $actions.handler_OnMove);
+} else {
+    container.addEventListener("mousemove", $actions.handler_OnMove);
+    container.addEventListener("mouseleave", $actions.handler_OnMove);
+}
+
+document.addEventListener("touchstart", $actions.handler_OnScroll);
+document.addEventListener('wheel', $actions.handler_OnScroll);
+
+
+$parameters.ContainerObj = container;
+$parameters.TooltipObj = tooltip;
+};
+});
+define("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller.handler_OnScroll.HideTooltipJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.TooltipObj.style.display = "none";
+};
+});
+define("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller.OnDestroy.RemoveEventListenersJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.ContainerObj.removeEventListener("mousemove", $actions.handler_OnMove);
+$parameters.ContainerObj.removeEventListener("mouseleave",$actions.handler_OnMove);
+$parameters.ContainerObj.removeEventListener("click", $actions.handler_OnMove);
+document.removeEventListener("touchstart", $actions.handler_OnScroll);
+document.removeEventListener('wheel', $actions.handler_OnScroll);
+};
+});
+define("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$controller.handler_OnMove.MouseMoveHandlerJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+let cursorX = window.event.clientX;
+let cursorY = window.event.clientY;
+let rect = window.event.currentTarget.getBoundingClientRect();
+let relativeCursorX = window.event.clientX - rect.left;
+let relativeCursorY = window.event.clientY - rect.top;
+let viewport_width = document.documentElement.clientWidth;
+let viewport_height = document.documentElement.clientHeight;
+let closestElement = "";
+
+if($parameters.HoveredElementsClass !== "") { 
+    closestElement = window.event.target.closest("." + $parameters.HoveredElementsClass);
+}
+
+if(closestElement || $parameters.HoveredElementsClass == ""){
+
+    //Makes tooltip visible
+    $parameters.TooltipObj.style.display = "block";
+
+    let tooltipHeight = $parameters.TooltipObj.offsetHeight;
+    let tooltipWidth = $parameters.TooltipObj.offsetWidth;
+    
+    //Set X axis coordinates
+    if(((cursorX + $parameters.OffsetX + tooltipWidth) <= viewport_width) && cursorX + $parameters.OffsetX >= 0 ) {
+        if($parameters.PositionRelativeToParent) {
+            $parameters.TooltipObj.style.left = relativeCursorX + $parameters.OffsetX + "px";
+        }else {
+            ($parameters.TooltipObj.style.left = cursorX + $parameters.OffsetX + "px");
+        }
+    } else if((cursorX + $parameters.OffsetX + tooltipWidth) > viewport_width) {
+        if($parameters.PositionRelativeToParent) {
+            $parameters.TooltipObj.style.left = window.event.currentTarget.offsetWidth - tooltipWidth + "px";
+        }else {
+            $parameters.TooltipObj.style.left = viewport_width - tooltipWidth + "px";
+        }
+    } else {
+        $parameters.TooltipObj.style.left = "0px";
+    }
+
+    //Set Y axis coordinates
+    if(((cursorY + $parameters.OffsetY +  tooltipHeight) <= viewport_height) && cursorY + $parameters.OffsetY >= 0) {
+        if($parameters.PositionRelativeToParent) {
+            $parameters.TooltipObj.style.top = relativeCursorY + $parameters.OffsetY + "px";
+        } else {
+            $parameters.TooltipObj.style.top = cursorY + $parameters.OffsetY + "px";
+        }
+    } else if((cursorY + $parameters.OffsetY +  tooltipHeight) > viewport_height) {
+        if($parameters.PositionRelativeToParent) {
+            $parameters.TooltipObj.style.top = window.event.currentTarget.offsetHeight - tooltipHeight + "px";
+        }else {
+            $parameters.TooltipObj.style.top = viewport_height - tooltipHeight + "px";
+        }
+    } else {
+        $parameters.TooltipObj.style.top = "0px";
+    }
+    
+} else if($parameters.TooltipObj === document.elementFromPoint(window.event.clientX, window.event.clientY)) { //Detects false positive mouseleave events
+    return;
+} else {
+    //Makes tooltip invisible
+    $parameters.TooltipObj.style.display= "none";
+}
+
+};
+});
+
+define("ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

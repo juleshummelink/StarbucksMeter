@@ -187,7 +187,7 @@ function buildTable(prices) {
   for (const typeKey of TYPE_ORDER) {
     const typeData = index[typeKey] ?? {};
     const allPrices = STORE_ORDER
-      .map((s) => typeData[s]?.currentPrice)
+      .map((s) => typeData[s]?.displayPrice ?? typeData[s]?.currentPrice)
       .filter((p) => p != null);
     const cheapest = allPrices.length ? Math.min(...allPrices) : null;
 
@@ -210,12 +210,17 @@ function buildTable(prices) {
       const td = document.createElement('td');
       td.className = 'price-cell';
 
-      if (!entry || entry.currentPrice == null) {
+      const displayPrice = entry?.displayPrice ?? entry?.currentPrice;
+
+      if (!entry || displayPrice == null) {
         td.innerHTML = `<span class="price-unavailable" title="${entry?.error ?? ''}">–</span>`;
       } else {
-        if (cheapest !== null && entry.currentPrice === cheapest) td.classList.add('cheapest');
-        let html = `<div class="price-current">${fmt(entry.currentPrice)}</div>`;
-        if (entry.onSale && entry.originalPrice) {
+        if (cheapest !== null && displayPrice === cheapest) td.classList.add('cheapest');
+        let html = `<div class="price-current">${fmt(displayPrice)}</div>`;
+        if (entry.onPromo) {
+          html += `<span class="badge-promo">${entry.promoLabel}</span>`;
+          html += `<span class="promo-qty">bij ${entry.minQty} stuks</span>`;
+        } else if (entry.onSale && entry.originalPrice) {
           html += `<div class="price-original">${fmt(entry.originalPrice)}</div>`;
           html += `<span class="badge-sale">Aanbieding</span>`;
         }
@@ -242,7 +247,9 @@ function buildCards(prices) {
 
   for (const typeKey of TYPE_ORDER) {
     const typeData = index[typeKey] ?? {};
-    const allPrices = STORE_ORDER.map((s) => typeData[s]?.currentPrice).filter((p) => p != null);
+    const allPrices = STORE_ORDER
+      .map((s) => typeData[s]?.displayPrice ?? typeData[s]?.currentPrice)
+      .filter((p) => p != null);
     const cheapest = allPrices.length ? Math.min(...allPrices) : null;
 
     const firstEntry = typeData[STORE_ORDER.find((s) => typeData[s])] ?? {};
@@ -262,7 +269,8 @@ function buildCards(prices) {
     for (const storeKey of STORE_ORDER) {
       const meta = STORE_META[storeKey];
       const entry = typeData[storeKey];
-      const isCheapest = entry?.currentPrice != null && entry.currentPrice === cheapest;
+      const displayPrice = entry?.displayPrice ?? entry?.currentPrice;
+      const isCheapest = displayPrice != null && displayPrice === cheapest;
 
       const row = document.createElement('a');
       row.className = 'price-card-row' + (isCheapest ? ' cheapest' : '');
@@ -279,11 +287,14 @@ function buildCards(prices) {
       if (isCheapest) row.style.background = 'var(--green-light)';
 
       let pricesHtml = `<div class="price-card-right">`;
-      if (!entry || entry.currentPrice == null) {
+      if (!entry || displayPrice == null) {
         pricesHtml += `<span class="price-unavailable">–</span>`;
       } else {
-        pricesHtml += `<span class="price-current">${fmt(entry.currentPrice)}</span>`;
-        if (entry.onSale && entry.originalPrice) {
+        pricesHtml += `<span class="price-current">${fmt(displayPrice)}</span>`;
+        if (entry.onPromo) {
+          pricesHtml += `<span class="badge-promo">${entry.promoLabel}</span>`;
+          pricesHtml += `<span class="promo-qty">bij ${entry.minQty} stuks</span>`;
+        } else if (entry.onSale && entry.originalPrice) {
           pricesHtml += `<span class="price-original">${fmt(entry.originalPrice)}</span>`;
           pricesHtml += `<span class="badge-sale">Aanbieding</span>`;
         }

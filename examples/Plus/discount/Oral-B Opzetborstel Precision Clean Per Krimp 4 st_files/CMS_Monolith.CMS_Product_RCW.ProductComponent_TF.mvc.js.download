@@ -1,0 +1,1797 @@
+﻿define("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$model", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Product_BL.model", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECOP_FE_Core.model", "ECP_Product_CW.ProductList.ProductItem.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$model", "CMS_Monolith.CMS_Shared_RCW.CTA_TF.mvc$model", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$model", "PLUS_OutSystemsUI_2_8_0.Adaptive.Columns5.mvc$model", "CMS_Monolith.controller$Text_Slugify", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "CMS_Monolith.controller$ContentfulImageOptimization", "CMS_Monolith.model$Product_PLPList", "CMS_Monolith.model$ProductComponentRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECP_Product_BL.model$PLP_StrRec", "CMS_Monolith.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith.model$Logo_InfoList", "CMS_Monolith.model$TextRecordList", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Product_PLPRec", "ECOP_Base_RPat.controller$ShowNotificationMessageWithAutoClose", "CMS_Monolith.referencesHealth$ECOP_Base_RPat", "CMS_Monolith.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_SelectItem", "CMS_Monolith.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$GTMFormat_ItemListId", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_FE_Core.model$GTM_ProductItemRec", "CMS_Monolith.model$ProductTileDataRec", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "CMS_Monolith.controller$GetIsUserUnderAge", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreId"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Product_BLModel, ECOP_Base_RPatController, ECOP_FE_CoreController, ECOP_FE_CoreModel, ECP_Product_CW_ProductList_ProductItem_mvcModel, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_CustomPatterns_Badge_mvcModel, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvcModel, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvcModel, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns5_mvcModel) {
+var OS = OutSystems.Internal;
+
+var GetLocalSettings_NIX19DataActRec = (function (_super) {
+__extends(GetLocalSettings_NIX19DataActRec, _super);
+function GetLocalSettings_NIX19DataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetLocalSettings_NIX19DataActRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueOut", "Value", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetLocalSettings_NIX19DataActRec.fromStructure = function (str) {
+return new GetLocalSettings_NIX19DataActRec(new GetLocalSettings_NIX19DataActRec.RecordClass({
+valueOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetLocalSettings_NIX19DataActRec.init();
+return GetLocalSettings_NIX19DataActRec;
+})(OS.Model.DataSourceRecord);
+var GetProductDataDataActRec = (function (_super) {
+__extends(GetProductDataDataActRec, _super);
+function GetProductDataDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetProductDataDataActRec.attributesToDeclare = function () {
+return [
+this.attr("Products", "productsOut", "Products", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Product_PLPList());
+}, true, CMS_MonolithModel.Product_PLPList)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetProductDataDataActRec.fromStructure = function (str) {
+return new GetProductDataDataActRec(new GetProductDataDataActRec.RecordClass({
+productsOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetProductDataDataActRec.init();
+return GetProductDataDataActRec;
+})(OS.Model.DataSourceRecord);
+var GetSetting_MaxProductQuantityDataActRec = (function (_super) {
+__extends(GetSetting_MaxProductQuantityDataActRec, _super);
+function GetSetting_MaxProductQuantityDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetSetting_MaxProductQuantityDataActRec.attributesToDeclare = function () {
+return [
+this.attr("MaxProductQuantity", "maxProductQuantityOut", "MaxProductQuantity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetSetting_MaxProductQuantityDataActRec.fromStructure = function (str) {
+return new GetSetting_MaxProductQuantityDataActRec(new GetSetting_MaxProductQuantityDataActRec.RecordClass({
+maxProductQuantityOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetSetting_MaxProductQuantityDataActRec.init();
+return GetSetting_MaxProductQuantityDataActRec;
+})(OS.Model.DataSourceRecord);
+var GetLocalSettings_ClickDelayDataActRec = (function (_super) {
+__extends(GetLocalSettings_ClickDelayDataActRec, _super);
+function GetLocalSettings_ClickDelayDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetLocalSettings_ClickDelayDataActRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueOut", "Value", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetLocalSettings_ClickDelayDataActRec.fromStructure = function (str) {
+return new GetLocalSettings_ClickDelayDataActRec(new GetLocalSettings_ClickDelayDataActRec.RecordClass({
+valueOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetLocalSettings_ClickDelayDataActRec.init();
+return GetLocalSettings_ClickDelayDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ProductList_Visible", "productList_VisibleVar", "ProductList_Visible", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Product_PLPList());
+}, false, CMS_MonolithModel.Product_PLPList), 
+this.attr("IsOrderEditMode", "isOrderEditModeVar", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OrderEditId", "orderEditIdVar", "OrderEditId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("CheckoutId", "checkoutIdVar", "CheckoutId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("ProductList_Stack", "productList_StackVar", "ProductList_Stack", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Product_PLPList());
+}, false, CMS_MonolithModel.Product_PLPList), 
+this.attr("AreAllHidden", "areAllHiddenVar", "AreAllHidden", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("UserStoreId", "userStoreIdVar", "UserStoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("IsUnderAge", "isUnderAgeVar", "IsUnderAge", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ProductComponent", "productComponentIn", "ProductComponent", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.ProductComponentRec());
+}, false, CMS_MonolithModel.ProductComponentRec), 
+this.attr("_productComponentInDataFetchStatus", "_productComponentInDataFetchStatus", "_productComponentInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ActiveDevice", "activeDeviceIn", "ActiveDevice", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_ActiveDeviceRec());
+}, false, CMS_MonolithModel.Shared_ActiveDeviceRec), 
+this.attr("_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("AddRemoveProductsAuto", "addRemoveProductsAutoIn", "AddRemoveProductsAuto", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_addRemoveProductsAutoInDataFetchStatus", "_addRemoveProductsAutoInDataFetchStatus", "_addRemoveProductsAutoInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("UsedInCartScreen", "usedInCartScreenIn", "UsedInCartScreen", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_usedInCartScreenInDataFetchStatus", "_usedInCartScreenInDataFetchStatus", "_usedInCartScreenInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ProductSKUsInCart", "productSKUsInCartIn", "ProductSKUsInCart", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, false, OS.DataTypes.TextList), 
+this.attr("_productSKUsInCartInDataFetchStatus", "_productSKUsInCartInDataFetchStatus", "_productSKUsInCartInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ChannelId", "channelIdIn", "ChannelId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_channelIdInDataFetchStatus", "_channelIdInDataFetchStatus", "_channelIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ClickDelayValue", "clickDelayValueIn", "ClickDelayValue", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_clickDelayValueInDataFetchStatus", "_clickDelayValueInDataFetchStatus", "_clickDelayValueInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetLocalSettings_NIX19", "getLocalSettings_NIX19DataAct", "getLocalSettings_NIX19DataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetLocalSettings_NIX19DataActRec());
+}, true, GetLocalSettings_NIX19DataActRec), 
+this.attr("GetProductData", "getProductDataDataAct", "getProductDataDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetProductDataDataActRec());
+}, true, GetProductDataDataActRec), 
+this.attr("GetSetting_MaxProductQuantity", "getSetting_MaxProductQuantityDataAct", "getSetting_MaxProductQuantityDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetSetting_MaxProductQuantityDataActRec());
+}, true, GetSetting_MaxProductQuantityDataActRec), 
+this.attr("GetLocalSettings_ClickDelay", "getLocalSettings_ClickDelayDataAct", "getLocalSettings_ClickDelayDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetLocalSettings_ClickDelayDataActRec());
+}, true, GetLocalSettings_ClickDelayDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((((((((ECP_Product_CW_ProductList_ProductItem_mvcModel.hasValidationWidgets || ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_Badge_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Adaptive_Columns5_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ProductComponent" in inputs) {
+this.variables.productComponentIn = inputs.ProductComponent;
+if("_productComponentInDataFetchStatus" in inputs) {
+this.variables._productComponentInDataFetchStatus = inputs._productComponentInDataFetchStatus;
+}
+
+}
+
+if("ActiveDevice" in inputs) {
+this.variables.activeDeviceIn = inputs.ActiveDevice;
+if("_activeDeviceInDataFetchStatus" in inputs) {
+this.variables._activeDeviceInDataFetchStatus = inputs._activeDeviceInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+if("AddRemoveProductsAuto" in inputs) {
+this.variables.addRemoveProductsAutoIn = inputs.AddRemoveProductsAuto;
+if("_addRemoveProductsAutoInDataFetchStatus" in inputs) {
+this.variables._addRemoveProductsAutoInDataFetchStatus = inputs._addRemoveProductsAutoInDataFetchStatus;
+}
+
+}
+
+if("UsedInCartScreen" in inputs) {
+this.variables.usedInCartScreenIn = inputs.UsedInCartScreen;
+if("_usedInCartScreenInDataFetchStatus" in inputs) {
+this.variables._usedInCartScreenInDataFetchStatus = inputs._usedInCartScreenInDataFetchStatus;
+}
+
+}
+
+if("ProductSKUsInCart" in inputs) {
+this.variables.productSKUsInCartIn = inputs.ProductSKUsInCart;
+if("_productSKUsInCartInDataFetchStatus" in inputs) {
+this.variables._productSKUsInCartInDataFetchStatus = inputs._productSKUsInCartInDataFetchStatus;
+}
+
+}
+
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("ChannelId" in inputs) {
+this.variables.channelIdIn = inputs.ChannelId;
+if("_channelIdInDataFetchStatus" in inputs) {
+this.variables._channelIdInDataFetchStatus = inputs._channelIdInDataFetchStatus;
+}
+
+}
+
+if("ClickDelayValue" in inputs) {
+this.variables.clickDelayValueIn = inputs.ClickDelayValue;
+if("_clickDelayValueInDataFetchStatus" in inputs) {
+this.variables._clickDelayValueInDataFetchStatus = inputs._clickDelayValueInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CMS_Product_RCW.ProductComponent_TF");
+});
+define("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$view", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Product_BL.model", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECOP_FE_Core.model", "react", "OutSystems/ReactView/Main", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$model", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$controller", "OutSystems/ReactWidgets/Main", "ECP_Product_CW.ProductList.ProductItem.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$view", "CMS_Monolith.CMS_Shared_RCW.CTA_TF.mvc$view", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$view", "PLUS_OutSystemsUI_2_8_0.Adaptive.Columns5.mvc$view", "CMS_Monolith.controller$Text_Slugify", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "CMS_Monolith.controller$ContentfulImageOptimization", "CMS_Monolith.model$Product_PLPList", "CMS_Monolith.model$ProductComponentRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECP_Product_BL.model$PLP_StrRec", "CMS_Monolith.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith.model$Logo_InfoList", "CMS_Monolith.model$TextRecordList", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Product_PLPRec", "ECOP_Base_RPat.controller$ShowNotificationMessageWithAutoClose", "CMS_Monolith.referencesHealth$ECOP_Base_RPat", "CMS_Monolith.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_SelectItem", "CMS_Monolith.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$GTMFormat_ItemListId", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_FE_Core.model$GTM_ProductItemRec", "CMS_Monolith.model$ProductTileDataRec", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "CMS_Monolith.controller$GetIsUserUnderAge", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreId"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Product_BLModel, ECOP_Base_RPatController, ECOP_FE_CoreController, ECOP_FE_CoreModel, React, OSView, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_model, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_controller, OSWidgets, ECP_Product_CW_ProductList_ProductItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_view, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns5_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CMS_Product_RCW.ProductComponent_TF";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECP_Product_CW_ProductList_ProductItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_view, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns5_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), $if(model.variables.getProductDataDataAct.isDataFetchedAttr, false, this, function () {
+return [$if((model.variables.productList_VisibleVar.isEmpty || model.variables.areAllHiddenVar), false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("ProductComponentWrapper.class"), function () {
+return ("cf-product-component background-neutral-0" + ((((model.variables.extendedClassIn) !== (""))) ? ((" " + model.variables.extendedClassIn)) : ("")));
+}, function () {
+return model.variables.extendedClassIn;
+}),
+"PlacementType": "ProductComponent",
+"PlacementID": model.variables.productComponentIn.placementIDAttr
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "ProductComponentWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((OS.BuiltinFunctions.trim(model.variables.productComponentIn.titleAttr)) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__title-wrapper heading2",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+name: model.getCachedValue(idService.getId("hr47JpYgTkqlqBBV6BeMvQ.name"), function () {
+return CMS_MonolithController.default.text_Slugify$Action(model.variables.productComponentIn.titleAttr, callContext).slugifiedTextOut;
+}, function () {
+return model.variables.productComponentIn.titleAttr;
+}),
+className: "heading2 font-bold"
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.productComponentIn.titleAttr,
+_idProps: {
+service: idService,
+name: "H2Element"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._productComponentInDataFetchStatus)
+})))];
+}, function () {
+return [];
+}), $if(((OS.BuiltinFunctions.trim(model.variables.productComponentIn.subtitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__subtitle-wrapper margin-top-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.productComponentIn.subtitleAttr,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._productComponentInDataFetchStatus)
+}))];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.List, {
+animateItems: true,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.productList_VisibleVar,
+style: model.getCachedValue(idService.getId("kfAQ+TSVdUGHby25k+kcxQ.Style"), function () {
+return ("cf-product-component__product-list " + ((model.variables.usedInCartScreenIn) ? (((model.variables.activeDeviceIn.isPhoneAttr) ? ("margin-top-base padding-bottom-m cf-force-full-width") : ("padding-top-m"))) : (((model.variables.addRemoveProductsAutoIn) ? ("margin-top-m") : ("")))));
+}, function () {
+return model.variables.usedInCartScreenIn;
+}, function () {
+return model.variables.activeDeviceIn.isPhoneAttr;
+}, function () {
+return model.variables.addRemoveProductsAutoIn;
+}),
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._usedInCartScreenInDataFetchStatus, model.variables._activeDeviceInDataFetchStatus, model.variables._addRemoveProductsAutoInDataFetchStatus),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("pgPZfau1zkGtuCZogq5+rg.Style"), function () {
+return ((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isVisibleAttr) ? ("") : ("hidden"));
+}, function () {
+return model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isVisibleAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.channelIdIn), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayDataAct.valueOut), asPrimitiveValue(model.variables.isUnderAgeVar), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrentRowNumber(callContext.iterationContext)), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext)), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._channelIdInDataFetchStatus), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables._addRemoveProductsAutoInDataFetchStatus), asPrimitiveValue(model.variables.addRemoveProductsAutoIn)]
+}, $if(model.variables.addRemoveProductsAutoIn, false, this, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+title: model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).nameAttr,
+"aria-label": ((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).nameAttr + " ") + model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).product_SubtitleAttr)
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(CMS_MonolithModel.staticEntities.releaseToggle.sEOProductURL, callContext).isEnabledOut) ? (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).sKUAttr) : (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).slugAttr)), OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECP_Product_CW_ProductList_ProductItem_mvc_view, {
+inputs: {
+ProductInfo: model.getCachedValue(idService.getId("2WS14VZ9a0uCQrFUSklPVw.ProductInfo"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext), new ECP_Product_BLModel.PLP_StrRec(), function (source, target) {
+target.sKUAttr = source.sKUAttr;
+target.brandAttr = source.brandAttr;
+target.nameAttr = source.nameAttr;
+target.product_SubtitleAttr = source.product_SubtitleAttr;
+target.slugAttr = source.slugAttr;
+target.imageURLAttr = source.imageURLAttr;
+target.imageLabelAttr = source.imageLabelAttr;
+target.originalPriceAttr = source.priceAttr;
+target.newPriceAttr = source.newPriceAttr;
+target.quantityAttr = source.badgeQuantityAttr;
+target.lineItemIdAttr = source.lineItemIdAttr;
+target.isProductOverMajorityAgeAttr = source.isProductOverMajorityAgeAttr;
+target.logosAttr = source.logosAttr;
+target.categoriesAttr = source.categoriesAttr;
+target.isAvailableAttr = source.isAvailableInStoreAttr;
+target.promotionLabelAttr = source.promotionLabelAttr;
+target.promotionBasedLabelAttr = source.promotionBasedLabelAttr;
+target.promotionStartDateAttr = source.promotionStartDateAttr;
+target.promotionEndDateAttr = source.promotionEndDateAttr;
+target.isFreeDeliveryOfferAttr = source.isFreeDeliveryOfferAttr;
+target.isOfflineSaleOnlyAttr = source.isOfflineSaleOnlyAttr;
+target.maxOrderLimitAttr = source.maxOrderLimitAttr;
+return target;
+});
+}, function () {
+return model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext);
+}),
+ItemListName: "Product Component",
+IsCustomerUnderAge: model.variables.isUnderAgeVar,
+ClickDelayValue: model.variables.getLocalSettings_ClickDelayDataAct.valueOut,
+_clickDelayValueInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getLocalSettings_ClickDelayDataAct.dataFetchStatusAttr),
+ChannelId: model.variables.channelIdIn,
+_channelIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._channelIdInDataFetchStatus),
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+cartOrdered$Action: function (checkoutIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.productItemCartOrdered$Action(checkoutIdIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+cartUpdated$Action: function (baseQuantityIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_ProductItemCartUpdated$Action(baseQuantityIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+forceRefresh$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_ForceRefresh$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+title: model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).nameAttr,
+"aria-label": ((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).nameAttr + " ") + model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).product_SubtitleAttr)
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(CMS_MonolithModel.staticEntities.releaseToggle.sEOProductURL, callContext).isEnabledOut) ? (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).sKUAttr) : (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).slugAttr)), OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+DisableSlider: (!(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isAvailableInStoreAttr) || model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isOfflineSaleOnlyAttr),
+ExtendedClass: model.getCachedValue(idService.getId("ac8_9RT1D0uLI2akQnJl3Q.ExtendedClass"), function () {
+return ("cf-product-component__product-list-item" + ((!(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isAvailableInStoreAttr)) ? (" not-in-assortment") : ("")));
+}, function () {
+return model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isAvailableInStoreAttr;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+quantityClick$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.addButton_OnClick$Action(model.variables.productList_VisibleVar.getCurrentRowNumber(callContext.iterationContext), controller.callContext(eventHandlerContext));
+
+;
+},
+productClick$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_ProductItem$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "11",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: new PlaceholderContent(function () {
+return [$if(!(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPInUpperLeftAttr.isEmpty), false, this, function () {
+return [];
+}, function () {
+return [];
+})];
+}),
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageURL: model.getCachedValue(idService.getId("plP+0h2BaUyMCDcTL51ieA.ImageURL"), function () {
+return CMS_MonolithController.default.contentfulImageOptimization$Action(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).imageURLAttr, 150, 0, CMS_MonolithController.default.imageUtils_GetCDNImgFormat$Action(callContext).cDNImgFormatOut, 0, "", callContext).newURLOut;
+}, function () {
+return model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).imageURLAttr;
+}),
+ImageLabel: model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).imageLabelAttr
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: CMS_MonolithModel.staticEntities.iconSize.size4x,
+ExtendedClass: "text-neutral-2",
+Name: "home"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ImgPlaceholderIcon4",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: new PlaceholderContent(function () {
+return [$if(((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPAboveTitleAttr.getCurrent(callContext.iterationContext).nameAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPAboveTitleAttr.getCurrent(callContext.iterationContext).nameAttr,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+})];
+}),
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).nameAttr,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [$if(((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).product_SubtitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).product_SubtitleAttr,
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-complementary-image-wrapper ph",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPBehindSizeUnitAttr.getCurrent(callContext.iterationContext).uRLAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Image, {
+extendedProperties: {
+alt: model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPBehindSizeUnitAttr.getCurrent(callContext.iterationContext).longDescriptionAttr
+},
+type: /*External*/ 1,
+url: model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPBehindSizeUnitAttr.getCurrent(callContext.iterationContext).uRLAttr,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+})), $if(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isOfflineSaleOnlyAttr, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s margin-bottom-xs text-neutral-9",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("iY+4_di5uk+52_K2W3XbAg#Value", "Check availability")))];
+}, function () {
+return [];
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [$if(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isAvailableInStoreAttr, false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("nwgtKAgjbUK7Bqo97UOIZQ.Value"), function () {
+return (OS.BuiltinFunctions.decimalToText(OS.BuiltinFunctions.trunc(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).priceAttr)) + ".");
+}, function () {
+return model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).priceAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "cf-product-component__not-in-assortment text-neutral-9 font-size-base font-regular",
+text: ["Niet in assortiment"],
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [$if(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isAvailableInStoreAttr, false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("j7RFQ6UZz0655FiM8H5lfQ.Value"), function () {
+return (((OS.BuiltinFunctions.index(OS.BuiltinFunctions.decimalToText(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).priceAttr), ".", 0, false, false) > -1)) ? (OS.BuiltinFunctions.substr(OS.BuiltinFunctions.formatDecimal(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).priceAttr, 2, ".", ","), (OS.BuiltinFunctions.index(OS.BuiltinFunctions.decimalToText(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).priceAttr), ".", 0, false, false) + 1), 2)) : ("00"));
+}, function () {
+return model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).priceAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [$if(!(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isOfflineSaleOnlyAttr), false, this, function () {
+return [$if(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isAvailableInStoreAttr, false, this, function () {
+return [$if((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr === 0), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "btn btn-action add",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "add-to-cart"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "24",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+Color: CMS_MonolithModel.staticEntities.color2.neutral0,
+ShowFullNumber: true,
+Size: model.getCachedValue(idService.getId("WWiDff5VCkazOqd8Go0g4A.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}),
+Number: OS.BuiltinFunctions.integerToLongInteger(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr),
+Shape: CMS_MonolithModel.staticEntities.shape.rounded
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "25",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})];
+}, function () {
+return [];
+})];
+}, function () {
+return [];
+})];
+}),
+sliderContent: new PlaceholderContent(function () {
+return [$if(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isAvailableInStoreAttr, false, this, function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_view, {
+inputs: {
+IsRemoveEnabled: (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr > 0),
+UseGTMTags: true,
+IsAddEnabled: (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr < model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).maxOrderLimitAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+addClick$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.addRemoveProductAddClick$Action(true, controller.callContext(eventHandlerContext));
+});
+;
+},
+removeClick$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.addRemoveProductAddClick$Action(false, controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "26",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr).toString(),
+_idProps: {
+service: idService,
+uuid: "27"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+tooltipTextForDisabledAdd: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr)]
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).maxOrderLimitAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).priceAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isAvailableInStoreAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isOfflineSaleOnlyAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).product_SubtitleAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).nameAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).imageLabelAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).imageURLAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPBehindSizeUnitAttr.getCurrent(callContext.iterationContext).longDescriptionAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPBehindSizeUnitAttr.getCurrent(callContext.iterationContext).uRLAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPAboveTitleAttr.getCurrent(callContext.iterationContext).nameAttr), asPrimitiveValue(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).logosAttr.pLPInUpperLeftAttr.isEmpty)]
+}))];
+}))];
+}, callContext, idService, "1")
+},
+_dependencies: [asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.channelIdIn), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayDataAct.valueOut), asPrimitiveValue(model.variables.isUnderAgeVar), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._channelIdInDataFetchStatus), asPrimitiveValue(model.variables.getLocalSettings_ClickDelayDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables._addRemoveProductsAutoInDataFetchStatus), asPrimitiveValue(model.variables.addRemoveProductsAutoIn)]
+}), $if(((OS.BuiltinFunctions.trim(model.variables.productComponentIn.cTAAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("8O4xqaRf9kGlh8+wuUAikQ.Style"), function () {
+return ("cf-product-component__cta-wrapper" + ((model.variables.activeDeviceIn.isPhoneAttr) ? (" padding-bottom-m") : (" margin-top-m")));
+}, function () {
+return model.variables.activeDeviceIn.isPhoneAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+}, React.createElement(CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, {
+inputs: {
+ExtendedClass: "font-semi-bold",
+TabIndex: 0,
+CTA_Inp: model.getCachedValue(idService.getId("capVhbX+tU2VhEZ2agRAzQ.CTA_Inp"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.productComponentIn.cTAAttr, new CMS_MonolithModel.Shared_Link2PdfOrPageRec(), function (source, target) {
+target = source.linkAttr;
+return target;
+});
+}, function () {
+return model.variables.productComponentIn.cTAAttr;
+}),
+_cTA_InpInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._productComponentInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "29",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+}))];
+})];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+OnlyOnPageLoad: false,
+IsDataFetched: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "30",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: "cf-product-component background-neutral-0"
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "ProductComponentWrapper2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__title-wrapper heading2 margin-bottom-m place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__subtitle-wrapper margin-bottom-m place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "padding-bottom-m",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Adaptive_Columns5_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "35",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+column1: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__product-list",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "list-item cart-item-wrapper plp-item-wrapper place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+column2: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__product-list",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "list-item cart-item-wrapper plp-item-wrapper place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+column3: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__product-list",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "40"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "list-item cart-item-wrapper plp-item-wrapper place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+column4: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__product-list",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "42"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "list-item cart-item-wrapper plp-item-wrapper place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+column5: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__product-list",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "list-item cart-item-wrapper plp-item-wrapper place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-product-component__cta-wrapper place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "46"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+},
+_dependencies: []
+})];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$controller", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Product_BL.model", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECOP_FE_Core.model", "CMS_Monolith.languageResources", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$translationsResources", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$controller.OnClick_ProductItem.StopEventPropagationJS", "CMS_Monolith.controller$Text_Slugify", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "CMS_Monolith.controller$ContentfulImageOptimization", "CMS_Monolith.model$Product_PLPList", "CMS_Monolith.model$ProductComponentRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECP_Product_BL.model$PLP_StrRec", "CMS_Monolith.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith.model$Logo_InfoList", "CMS_Monolith.model$TextRecordList", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Product_PLPRec", "ECOP_Base_RPat.controller$ShowNotificationMessageWithAutoClose", "CMS_Monolith.referencesHealth$ECOP_Base_RPat", "CMS_Monolith.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_SelectItem", "CMS_Monolith.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$GTMFormat_ItemListId", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_FE_Core.model$GTM_ProductItemRec", "CMS_Monolith.model$ProductTileDataRec", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "CMS_Monolith.controller$GetIsUserUnderAge", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreId"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Product_BLModel, ECOP_Base_RPatController, ECOP_FE_CoreController, ECOP_FE_CoreModel, CMS_MonolithLanguageResources, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_TranslationsResources, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_controller_OnClick_ProductItem_StopEventPropagationJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+getLocalSettings_NIX19$DataActRefresh: 0,
+getProductData$DataActRefresh: 0,
+getSetting_MaxProductQuantity$DataActRefresh: 0,
+getLocalSettings_ClickDelay$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getLocalSettings_NIX19$DataActRefresh: [],
+getProductData$DataActRefresh: [],
+getSetting_MaxProductQuantity$DataActRefresh: [],
+getLocalSettings_ClickDelay$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.getLocalSettings_NIX19$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetLocalSettings_NIX19", "screenservices/CMS_Monolith/CMS_Product_RCW/ProductComponent_TF/DataActionGetLocalSettings_NIX19", "YKCAGLM4PHmw0zHKTGoPdw", function (b) {
+model.variables.getLocalSettings_NIX19DataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getLocalSettings_NIX19DataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getLocalSettings_NIX19DataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true);
+};
+Controller.prototype.getProductData$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetProductData", "screenservices/CMS_Monolith/CMS_Product_RCW/ProductComponent_TF/DataActionGetProductData", "YmgEf8yBQVbXTwXN0uBmTA", function (b) {
+model.variables.getProductDataDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getProductDataDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getProductDataDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true).then(function () {
+return controller._onAfterFetch_GetProductData$Action(controller.callContext(callContext));
+});
+};
+Controller.prototype.getSetting_MaxProductQuantity$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetSetting_MaxProductQuantity", "screenservices/CMS_Monolith/CMS_Product_RCW/ProductComponent_TF/DataActionGetSetting_MaxProductQuantity", "ethg_TK_EX1FRw+R8KeIsw", function (b) {
+model.variables.getSetting_MaxProductQuantityDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getSetting_MaxProductQuantityDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getSetting_MaxProductQuantityDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true);
+};
+Controller.prototype.getLocalSettings_ClickDelay$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetLocalSettings_ClickDelay", "screenservices/CMS_Monolith/CMS_Product_RCW/ProductComponent_TF/DataActionGetLocalSettings_ClickDelay", "5P2TQaNeAJU98dydk_AGjg", function (b) {
+model.variables.getLocalSettings_ClickDelayDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getLocalSettings_ClickDelayDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getLocalSettings_ClickDelayDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true);
+};
+
+Controller.prototype.dataFetchActionNames = ["getLocalSettings_NIX19$DataActRefresh", "getProductData$DataActRefresh", "getSetting_MaxProductQuantity$DataActRefresh", "getLocalSettings_ClickDelay$DataActRefresh"];
+// Client Actions
+Controller.prototype._addRemoveProductAddClick$Action = function (isAddIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("AddRemoveProductAddClick");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.AddRemoveProductAddClick$vars"))());
+vars.value.isAddInLocal = isAddIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Quantity = MaxLimit?
+return OS.Flow.executeSequence(function () {
+if((!((vars.value.isAddInLocal && (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr === ((((OS.BuiltinFunctions.textToInteger((model.variables.getSetting_MaxProductQuantityDataAct.maxProductQuantityOut).toString())) !== (0))) ? (OS.BuiltinFunctions.textToInteger((model.variables.getSetting_MaxProductQuantityDataAct.maxProductQuantityOut).toString())) : (199))))))) {
+// Quantity
+// ProductList_Visible.Current.BadgeQuantity = ProductList_Visible.Current.BadgeQuantity + If
+model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr = (model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr + ((vars.value.isAddInLocal) ? (1) : (-1)));
+// Trigger Event: ProductQuantityChanged
+return controller.productQuantityChanged$Action(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext), callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.AddRemoveProductAddClick$vars", [{
+name: "IsAdd",
+attrName: "isAddInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Products data empty?
+return OS.Flow.executeSequence(function () {
+if((model.variables.productList_VisibleVar.isEmpty)) {
+// Refresh Query: GetProductData
+var result = controller.getProductData$DataActRefresh(callContext);
+model.flush();
+return result;
+}
+
+}).then(function () {
+return OS.Flow.executeSequence(function () {
+if(((model.variables.clickDelayValueIn === 0))) {
+// Refresh Query: GetLocalSettings_ClickDelay
+var result = controller.getLocalSettings_ClickDelay$DataActRefresh(callContext);
+model.flush();
+return result;
+}
+
+});
+});
+});
+};
+Controller.prototype._addButton_OnClick$Action = function (rowNumIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("AddButton_OnClick");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.AddButton_OnClick$vars"))());
+vars.value.rowNumInLocal = rowNumIn;
+// BadgeQuantity = 0
+if(((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr === 0))) {
+// IsUnderAgedAndForbiddenProduct
+if(((model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isProductOverMajorityAgeAttr && model.variables.isUnderAgeVar))) {
+// Execute Action: ShowNotificationMessageWithAutoClose
+ECOP_Base_RPatController.default.showNotificationMessageWithAutoClose$Action(model.variables.getLocalSettings_NIX19DataAct.valueOut, CMS_MonolithModel.staticEntities.notificationMessageType.warning, false, callContext);
+} else {
+// Increment quantity
+// ProductList_Visible[RowNum].BadgeQuantity = ProductList_Visible[RowNum].BadgeQuantity + 1
+model.variables.productList_VisibleVar.getItem(vars.value.rowNumInLocal).badgeQuantityAttr = (model.variables.productList_VisibleVar.getItem(vars.value.rowNumInLocal).badgeQuantityAttr + 1);
+}
+
+}
+
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.AddButton_OnClick$vars", [{
+name: "RowNum",
+attrName: "rowNumInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._onClick_ProductItem$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_ProductItem");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.OnClick_ProductItem$vars"))());
+var listFilterVar = new OS.DataTypes.VariableHolder();
+// Execute Action: ListFilter
+listFilterVar.value = OS.SystemActions.listFilter(model.variables.getProductDataDataAct.productsOut, function (p) {
+return (p.sKUAttr === model.variables.productComponentIn.productTileDataListAttr.getCurrent(callContext.iterationContext).sKUAttr);
+}, callContext);
+
+// GTM_ProductItem = ProductComponent.ProductTileDataList.Current
+vars.value.gTM_ProductItemVar = OS.DataConversion.JSConversions.typeConvertRecord(model.variables.productComponentIn.productTileDataListAttr.getCurrent(callContext.iterationContext), new ECOP_FE_CoreModel.GTM_ProductItemRec(), function (source, target) {
+target.item_idAttr = source.sKUAttr;
+target.item_nameAttr = source.productNameAttr;
+target.couponAttr = ECOP_FE_CoreController.default.gTMFormat_Coupon$Action(listFilterVar.value.filteredListOut.getCurrent(callContext.iterationContext).promotionLabelAttr, callContext).formatedTextOut;
+target.currencyAttr = "EUR";
+target.item_brandAttr = source.brandAttr;
+target.item_categoryAttr = ((!(source.categoriesAttr.isEmpty)) ? (source.categoriesAttr.getItem(0).nameAttr) : (""));
+target.item_category2Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 2))) ? (source.categoriesAttr.getItem(1).nameAttr) : (""));
+target.item_category3Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 3))) ? (source.categoriesAttr.getItem(2).nameAttr) : (""));
+target.item_category4Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 4))) ? (source.categoriesAttr.getItem(3).nameAttr) : (""));
+target.item_list_idAttr = ECOP_FE_CoreController.default.gTMFormat_ItemListId$Action((((source.categoriesAttr.length === 4)) ? (source.categoriesAttr.getItem(3).nameAttr) : ((((source.categoriesAttr.length === 3)) ? (source.categoriesAttr.getItem(2).nameAttr) : ((((source.categoriesAttr.length === 2)) ? (source.categoriesAttr.getItem(1).nameAttr) : ((((source.categoriesAttr.length === 1)) ? (source.categoriesAttr.getItem(0).nameAttr) : ("")))))))), callContext).formatedTextOut;
+target.item_list_nameAttr = (((source.categoriesAttr.length === 4)) ? (source.categoriesAttr.getItem(3).nameAttr) : ((((source.categoriesAttr.length === 3)) ? (source.categoriesAttr.getItem(2).nameAttr) : ((((source.categoriesAttr.length === 2)) ? (source.categoriesAttr.getItem(1).nameAttr) : ((((source.categoriesAttr.length === 1)) ? (source.categoriesAttr.getItem(0).nameAttr) : (""))))))));
+target.priceAttr = source.priceAttr;
+target.quantityAttr = source.quantityAttr;
+return target;
+});
+// Execute Action: GTMEvent_SelectItem
+ECOP_FE_CoreController.default.gTMEvent_SelectItem$Action(function () {
+var list = new CMS_MonolithModel.GTM_ProductItemList();
+list.pushAll([vars.value.gTM_ProductItemVar]);
+return list;
+}(), callContext);
+controller.safeExecuteJSNode(CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_controller_OnClick_ProductItem_StopEventPropagationJS, "StopEventPropagation", "OnClick_ProductItem", null, function ($parameters) {
+}, {}, {});
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.OnClick_ProductItem$vars", [{
+name: "GTM_ProductItem",
+attrName: "gTM_ProductItemVar",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECOP_FE_CoreModel.GTM_ProductItemRec();
+},
+complexType: ECOP_FE_CoreModel.GTM_ProductItemRec
+}]);
+Controller.prototype._onAfterFetch_GetProductData$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_GetProductData");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+if((model.variables.usedInCartScreenIn)) {
+// Foreach GetProductData.Products
+callContext.iterationContext.registerIterationStart(model.variables.getProductDataDataAct.productsOut);
+try {var productsIterator = callContext.iterationContext.getIterator(model.variables.getProductDataDataAct.productsOut);
+var productsIndex = 0;
+while (((productsIndex < model.variables.getProductDataDataAct.productsOut.length))) {
+productsIterator.currentRowNumber = productsIndex;
+// CurrentRow < 4
+if(((model.variables.getProductDataDataAct.productsOut.getCurrentRowNumber(callContext.iterationContext) < 4))) {
+// Execute Action: ListAppend_Visible
+OS.SystemActions.listAppend(model.variables.productList_VisibleVar, model.variables.getProductDataDataAct.productsOut.getItem(productsIndex.valueOf()), callContext);
+} else {
+// Execute Action: ListAppend_Stack
+OS.SystemActions.listAppend(model.variables.productList_StackVar, model.variables.getProductDataDataAct.productsOut.getItem(productsIndex.valueOf()), callContext);
+}
+
+productsIndex++;
+}
+
+} finally {
+callContext.iterationContext.registerIterationEnd(model.variables.getProductDataDataAct.productsOut);
+}
+
+} else {
+// ProductList_Visible = GetProductData.Products
+model.variables.productList_VisibleVar = model.variables.getProductDataDataAct.productsOut;
+}
+
+// Trigger Event: ProductDataLoaded
+return controller.productDataLoaded$Action(model.variables.productList_VisibleVar, callContext).then(function () {
+// Execute Action: GTMEvent_ViewItemList
+ECOP_FE_CoreController.default.gTMEvent_ViewItemList$Action(OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.productList_VisibleVar, new CMS_MonolithModel.GTM_ProductItemList(), function (source, target) {
+target.item_idAttr = source.sKUAttr;
+target.item_nameAttr = source.nameAttr;
+target.couponAttr = ECOP_FE_CoreController.default.gTMFormat_Coupon$Action(source.promotionLabelAttr, callContext).formatedTextOut;
+target.currencyAttr = "EUR";
+target.indexAttr = 0;
+target.item_brandAttr = source.brandAttr;
+target.item_categoryAttr = ((!(source.categoriesAttr.isEmpty)) ? (source.categoriesAttr.getItem(0).nameAttr) : (""));
+target.item_category2Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 2))) ? (source.categoriesAttr.getItem(1).nameAttr) : (""));
+target.item_category3Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 3))) ? (source.categoriesAttr.getItem(2).nameAttr) : (""));
+target.item_category4Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 4))) ? (source.categoriesAttr.getItem(3).nameAttr) : (""));
+target.item_list_idAttr = ((model.variables.usedInCartScreenIn) ? ("cart_upsell_component") : ("product_component"));
+target.item_list_nameAttr = ((model.variables.usedInCartScreenIn) ? ("Cart Upsell Component") : ("Product Component"));
+target.priceAttr = source.priceAttr;
+target.quantityAttr = source.badgeQuantityAttr;
+return target;
+}), ((model.variables.usedInCartScreenIn) ? ("Cart Upsell Component") : ("Product Component")), callContext);
+});
+});
+};
+Controller.prototype._productItemCartOrdered$Action = function (checkoutId2In, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ProductItemCartOrdered");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.ProductItemCartOrdered$vars"))());
+vars.value.checkoutId2InLocal = checkoutId2In;
+return OS.Flow.executeAsyncFlow(function () {
+// CheckoutId = CheckoutId2
+model.variables.checkoutIdVar = vars.value.checkoutId2InLocal;
+// Execute Action: Handler_ForceRefresh
+return controller._handler_ForceRefresh$Action(callContext);
+});
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.ProductItemCartOrdered$vars", [{
+name: "CheckoutId2",
+attrName: "checkoutId2InLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._updateProductLists$Action = function (productQuantityIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("UpdateProductLists");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.UpdateProductLists$vars"))());
+vars.value.productQuantityInLocal = productQuantityIn;
+return OS.Flow.executeAsyncFlow(function () {
+// ProductQuantity
+// ProductList_Visible.Current.BadgeQuantity = ProductQuantity
+model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).badgeQuantityAttr = vars.value.productQuantityInLocal;
+// Trigger Event: AddedToCartElement
+return controller.addedToCartElement$Action(model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext), callContext).then(function () {
+// ProductList_Visible.Current.IsVisible = False
+model.variables.productList_VisibleVar.getCurrent(callContext.iterationContext).isVisibleAttr = false;
+}).then(function () {
+// Stack not empty?
+if((!(model.variables.productList_StackVar.isEmpty))) {
+// Execute Action: ListAppend_Visible
+OS.SystemActions.listAppend(model.variables.productList_VisibleVar, model.variables.productList_StackVar.getItem(0), callContext);
+// Execute Action: ListRemove_StackElement
+OS.SystemActions.listRemove(model.variables.productList_StackVar, 0, callContext);
+}
+
+// Execute Action: CheckAllHidden
+controller._checkAllHidden$Action(callContext);
+});
+});
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.UpdateProductLists$vars", [{
+name: "ProductQuantity",
+attrName: "productQuantityInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._checkAllHidden$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CheckAllHidden");
+callContext = controller.callContext(callContext);
+var listFilter_IsVisibleVar = new OS.DataTypes.VariableHolder();
+// Execute Action: ListFilter_IsVisible
+listFilter_IsVisibleVar.value = OS.SystemActions.listFilter(model.variables.productList_VisibleVar, function (p) {
+return p.isVisibleAttr;
+}, callContext);
+
+if((listFilter_IsVisibleVar.value.filteredListOut.isEmpty)) {
+// AreAllHidden = True
+model.variables.areAllHiddenVar = true;
+} else {
+// AreAllHidden = False
+model.variables.areAllHiddenVar = false;
+}
+
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var isOrderEditMode_GetVar = new OS.DataTypes.VariableHolder();
+var cart_Client_GetIdVar = new OS.DataTypes.VariableHolder();
+var getIsUserUnderAgeVar = new OS.DataTypes.VariableHolder();
+var orderEdit_GetVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreIdVar = new OS.DataTypes.VariableHolder();
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.productList_VisibleVar, callContext);
+// Execute Action: Get_Client_UserStoreId
+get_Client_UserStoreIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext);
+
+// Execute Action: OrderEdit_Get
+orderEdit_GetVar.value = ECOP_FE_CoreController.default.orderEdit_Get$Action(callContext);
+
+// Execute Action: IsOrderEditMode_Get
+isOrderEditMode_GetVar.value = ECOP_FE_CoreController.default.isOrderEditMode_Get$Action(callContext);
+
+// Execute Action: Cart_Client_GetId
+cart_Client_GetIdVar.value = ECOP_FE_CoreController.default.cart_Client_GetId$Action(callContext);
+
+// Execute Action: GetIsUserUnderAge
+getIsUserUnderAgeVar.value = CMS_MonolithController.default.getIsUserUnderAge$Action(callContext);
+
+// Screen variables
+// CheckoutId = Cart_Client_GetId.CartId
+model.variables.checkoutIdVar = cart_Client_GetIdVar.value.cartIdOut;
+// IsOrderEditMode = IsOrderEditMode_Get.IsActive
+model.variables.isOrderEditModeVar = isOrderEditMode_GetVar.value.isActiveOut;
+// OrderEditId = OrderEdit_Get.OrderEditId
+model.variables.orderEditIdVar = orderEdit_GetVar.value.orderEditIdOut;
+// UserStoreId = Get_Client_UserStoreId.UserStoreId
+model.variables.userStoreIdVar = get_Client_UserStoreIdVar.value.userStoreIdOut;
+// IsUnderAge = GetIsUserUnderAge.IsUserUnderAge
+model.variables.isUnderAgeVar = getIsUserUnderAgeVar.value.isUserUnderAgeOut;
+};
+Controller.prototype._handler_ProductItemCartUpdated$Action = function (productQuantityIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ProductItemCartUpdated");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.Handler_ProductItemCartUpdated$vars"))());
+vars.value.productQuantityInLocal = productQuantityIn;
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((model.variables.usedInCartScreenIn)) {
+// Execute Action: UpdateProductLists
+return controller._updateProductLists$Action(vars.value.productQuantityInLocal, callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.Handler_ProductItemCartUpdated$vars", [{
+name: "ProductQuantity",
+attrName: "productQuantityInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._handler_ForceRefresh$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ForceRefresh");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ListClear_PLPList
+OS.SystemActions.listClear(model.variables.productList_VisibleVar, callContext);
+// Refresh Query: GetProductData
+var result = controller.getProductData$DataActRefresh(callContext);
+model.flush();
+return result.then(function () {
+// Trigger Event: RefreshCart
+return controller.refreshCart$Action(callContext);
+});
+});
+};
+
+Controller.prototype.addRemoveProductAddClick$Action = function (isAddIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._addRemoveProductAddClick$Action, callContext, isAddIn);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.addButton_OnClick$Action = function (rowNumIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._addButton_OnClick$Action, callContext, rowNumIn);
+
+};
+Controller.prototype.onClick_ProductItem$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_ProductItem$Action, callContext);
+
+};
+Controller.prototype.onAfterFetch_GetProductData$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_GetProductData$Action, callContext);
+
+};
+Controller.prototype.productItemCartOrdered$Action = function (checkoutId2In, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._productItemCartOrdered$Action, callContext, checkoutId2In);
+
+};
+Controller.prototype.updateProductLists$Action = function (productQuantityIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._updateProductLists$Action, callContext, productQuantityIn);
+
+};
+Controller.prototype.checkAllHidden$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._checkAllHidden$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.handler_ProductItemCartUpdated$Action = function (productQuantityIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ProductItemCartUpdated$Action, callContext, productQuantityIn);
+
+};
+Controller.prototype.handler_ForceRefresh$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ForceRefresh$Action, callContext);
+
+};
+Controller.prototype.refreshCart$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.noStoreSelected$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.productQuantityChanged$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.addedToCartElement$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.productDataLoaded$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.callbackOrderEdit$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return CMS_MonolithController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, CMS_MonolithLanguageResources);
+});
+define("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$controller.OnClick_ProductItem.StopEventPropagationJS", [], function () {
+return function ($actions, $roles, $public) {
+event.stopPropagation();
+event.preventDefault();
+};
+});
+
+define("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$translationsResources", ["exports", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$translationsResources.nl-NL"], function (exports, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$translationsResources.nl-NL", [], function () {
+return {
+"iY+4_di5uk+52_K2W3XbAg#Value": "Bekijk beschikbaarheid"
+};
+});

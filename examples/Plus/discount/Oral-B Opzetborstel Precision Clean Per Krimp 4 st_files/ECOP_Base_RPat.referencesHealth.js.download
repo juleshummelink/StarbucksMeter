@@ -1,0 +1,32 @@
+﻿define("ECOP_Base_RPat.referencesHealth$CMS_Logs_Lib", [], function () {
+// Reference to producer 'CMS_Logs_Lib' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$ECOP_Base_Assets", [], function () {
+// Reference to producer 'ECOP_Base_Assets' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$ECOP_Convert_ReleaseToggles_Lib", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_Lib' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$ECOP_ReleaseTogglesReactive", [], function () {
+// Reference to producer 'ECOP_ReleaseTogglesReactive' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$PL_MT_ECOP_FE", [], function () {
+// Reference to producer 'PL_MT_ECOP_FE' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$PL_MT_Settings_Lib", [], function () {
+// Reference to producer 'PL_MT_Settings_Lib' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$PLUS_OutSystemsUI_2_8_0", [], function () {
+// Reference to producer 'PLUS_OutSystemsUI_2_8_0' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$ServiceCenter", [], function () {
+// Reference to producer 'ServiceCenter' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$Text", [], function () {
+// Reference to producer 'Text' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth$Users", [], function () {
+// Reference to producer 'Users' is OK.
+});
+define("ECOP_Base_RPat.referencesHealth", [], function () {
+});

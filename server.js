@@ -5,6 +5,9 @@ const path = require('path');
 const cron = require('node-cron');
 const { scrapeAll } = require('./scrapers/index');
 const history = require('./history');
+const { DEMO_PRICES } = require('./demo-data');
+
+const DEMO_MODE = process.argv.includes('--demo');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -54,6 +57,11 @@ app.get('/api/scrape-stream', (req, res) => {
 
 // ── Prices endpoint ───────────────────────────────────────────────────────────
 app.get('/api/prices', async (req, res) => {
+  // Demo mode: return synthetic data immediately, no scrape, no history write
+  if (DEMO_MODE) {
+    return res.json({ prices: DEMO_PRICES, lastUpdated: new Date().toISOString(), demo: true });
+  }
+
   const forceRefresh = req.query.refresh === 'true';
 
   if (scrapeInProgress) {
@@ -111,10 +119,17 @@ async function runScheduledScrape() {
   }
 }
 
-// Cron expression: minute=0, hour=6, every day
-cron.schedule('0 6 * * *', runScheduledScrape, { timezone: 'Europe/Amsterdam' });
+// Cron expression: minute=0, hour=6, every day (disabled in demo mode)
+if (!DEMO_MODE) {
+  cron.schedule('0 6 * * *', runScheduledScrape, { timezone: 'Europe/Amsterdam' });
+}
 
 app.listen(PORT, () => {
-  console.log(`StarbucksMeter running at http://localhost:${PORT}`);
-  console.log('[cron] Daily scrape scheduled at 06:00 Europe/Amsterdam');
+  if (DEMO_MODE) {
+    console.log(`StarbucksMeter running at http://localhost:${PORT}  [DEMO MODE]`);
+    console.log('[demo] Scraping disabled — serving synthetic data. History and cache are not written.');
+  } else {
+    console.log(`StarbucksMeter running at http://localhost:${PORT}`);
+    console.log('[cron] Daily scrape scheduled at 06:00 Europe/Amsterdam');
+  }
 });

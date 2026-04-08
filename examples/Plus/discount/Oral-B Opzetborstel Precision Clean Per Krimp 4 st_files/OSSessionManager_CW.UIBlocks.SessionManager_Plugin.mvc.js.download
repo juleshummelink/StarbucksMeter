@@ -1,0 +1,384 @@
+﻿define("OSSessionManager_CW.UIBlocks.SessionManager_Plugin.mvc$model", ["OutSystems/ClientRuntime/Main", "OSSessionManager_CW.model", "OSSessionManager_CW.UIBlocks.TriggerValidation.mvc$model"], function (OutSystems, OSSessionManager_CWModel, OSSessionManager_CW_UIBlocks_TriggerValidation_mvcModel) {
+var OS = OutSystems.Internal;
+
+var ValidateSessionDataActRec = (function (_super) {
+__extends(ValidateSessionDataActRec, _super);
+function ValidateSessionDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+ValidateSessionDataActRec.attributesToDeclare = function () {
+return [
+this.attr("IsSessionValid", "isSessionValidOut", "IsSessionValid", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("SessionId", "sessionIdOut", "SessionId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsAnonymousUser", "isAnonymousUserOut", "IsAnonymousUser", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ValidateSessionDataActRec.init();
+return ValidateSessionDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ValidateSession", "validateSessionDataAct", "validateSessionDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ValidateSessionDataActRec());
+}, true, ValidateSessionDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.fromStructure = function (str) {
+return new VariablesRecord(new VariablesRecord.RecordClass({
+validateSessionDataAct: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = OSSessionManager_CW_UIBlocks_TriggerValidation_mvcModel.hasValidationWidgets;
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "UIBlocks.SessionManager_Plugin");
+});
+define("OSSessionManager_CW.UIBlocks.SessionManager_Plugin.mvc$view", ["OutSystems/ClientRuntime/Main", "OSSessionManager_CW.model", "OSSessionManager_CW.controller", "react", "OutSystems/ReactView/Main", "OSSessionManager_CW.UIBlocks.SessionManager_Plugin.mvc$model", "OSSessionManager_CW.UIBlocks.SessionManager_Plugin.mvc$controller", "OSSessionManager_CW.clientVariables", "OSSessionManager_CW.UIBlocks.TriggerValidation.mvc$view", "OutSystems/ReactWidgets/Main"], function (OutSystems, OSSessionManager_CWModel, OSSessionManager_CWController, React, OSView, OSSessionManager_CW_UIBlocks_SessionManager_Plugin_mvc_model, OSSessionManager_CW_UIBlocks_SessionManager_Plugin_mvc_controller, OSSessionManager_CWClientVariables, OSSessionManager_CW_UIBlocks_TriggerValidation_mvc_view, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "UIBlocks.SessionManager_Plugin";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [OSSessionManager_CW_UIBlocks_TriggerValidation_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return OSSessionManager_CW_UIBlocks_SessionManager_Plugin_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return OSSessionManager_CW_UIBlocks_SessionManager_Plugin_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), $if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSSessionManager_CW_UIBlocks_TriggerValidation_mvc_view, {
+inputs: {
+SessionId: OSSessionManager_CWClientVariables.getSessionId()
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+onSessionChanged$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.eventHandler$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("OSSessionManager_CW.UIBlocks.SessionManager_Plugin.mvc$controller", ["OutSystems/ClientRuntime/Main", "OSSessionManager_CW.model", "OSSessionManager_CW.controller", "OSSessionManager_CW.languageResources", "OSSessionManager_CW.clientVariables", "OSSessionManager_CW.UIBlocks.SessionManager_Plugin.mvc$controller.OnReady.ExposeValidateSessionJS"], function (OutSystems, OSSessionManager_CWModel, OSSessionManager_CWController, OSSessionManager_CWLanguageResources, OSSessionManager_CWClientVariables, OSSessionManager_CW_UIBlocks_SessionManager_Plugin_mvc_controller_OnReady_ExposeValidateSessionJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+trigger_ValidateSession$Action: function () {
+return controller.executeActionInsideJSNode(controller._trigger_ValidateSession$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Trigger_ValidateSession");
+}
+};
+this.dataFetchDependenciesOriginal = {
+validateSession$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+validateSession$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = true;
+}
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.validateSession$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionValidateSession", "screenservices/OSSessionManager_CW/UIBlocks/SessionManager_Plugin/DataActionValidateSession", "7LQD78PPIXRZEmA4lrmx8w", function (b) {
+model.variables.validateSessionDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.validateSessionDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.validateSessionDataAct.constructor));
+}, undefined, undefined, undefined, callContext, OSSessionManager_CWClientVariables, false).then(function () {
+return controller._onAfterFetch_ValidateSession$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["validateSession$DataActRefresh"];
+// Client Actions
+Controller.prototype._trigger_ValidateSession$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Trigger_ValidateSession");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Refresh Query: ValidateSession
+var result = controller.validateSession$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+Controller.prototype._onAfterFetch_ValidateSession$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_ValidateSession");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Is data fetched?
+return OS.Flow.executeSequence(function () {
+if(((model.variables.validateSessionDataAct.isDataFetchedAttr && !(model.variables.validateSessionDataAct.hasFetchErrorAttr)))) {
+return OS.Flow.executeSequence(function () {
+if((model.variables.validateSessionDataAct.isAnonymousUserOut)) {
+// Trigger Event: AnonymousUser
+return controller.anonymousUser$Action(callContext);
+} else {
+// SessionId = ValidateSession.SessionId
+OSSessionManager_CWClientVariables.setSessionId(model.variables.validateSessionDataAct.sessionIdOut);
+return OS.Flow.executeSequence(function () {
+if((model.variables.validateSessionDataAct.isSessionValidOut)) {
+// Trigger Event: ValidUserSession
+return controller.validUserSession$Action(callContext);
+} else {
+// Trigger Event: InvalidUserSession
+return controller.invalidUserSession$Action(callContext);
+}
+
+});
+}
+
+});
+}
+
+});
+});
+};
+Controller.prototype._eventHandler$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("EventHandler");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Refresh Query: ValidateSession
+var result = controller.validateSession$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var exposeValidateSessionJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+exposeValidateSessionJSResult.value = controller.safeExecuteJSNode(OSSessionManager_CW_UIBlocks_SessionManager_Plugin_mvc_controller_OnReady_ExposeValidateSessionJS, "ExposeValidateSession", "OnReady", {
+ValidateSession_Obj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("OSSessionManager_CW.UIBlocks.SessionManager_Plugin.OnReady$exposeValidateSessionJSResult"))();
+jsNodeResult.validateSession_ObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ValidateSession_Obj, OS.Types.Object);
+return jsNodeResult;
+}, {
+Trigger_ValidateSession: controller.clientActionProxies.trigger_ValidateSession$Action
+}, {});
+// Trigger Event: ExposeActions
+return controller.exposeActions$Action(exposeValidateSessionJSResult.value.validateSession_ObjOut, callContext);
+});
+};
+Controller.registerVariableGroupType("OSSessionManager_CW.UIBlocks.SessionManager_Plugin.OnReady$exposeValidateSessionJSResult", [{
+name: "ValidateSession_Obj",
+attrName: "validateSession_ObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+
+Controller.prototype.trigger_ValidateSession$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._trigger_ValidateSession$Action, callContext);
+
+};
+Controller.prototype.onAfterFetch_ValidateSession$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_ValidateSession$Action, callContext);
+
+};
+Controller.prototype.eventHandler$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._eventHandler$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.invalidUserSession$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.validUserSession$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.exposeActions$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.anonymousUser$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return OSSessionManager_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, OSSessionManager_CWLanguageResources);
+});
+define("OSSessionManager_CW.UIBlocks.SessionManager_Plugin.mvc$controller.OnReady.ExposeValidateSessionJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.ValidateSession_Obj = $actions.Trigger_ValidateSession
+};
+});
+

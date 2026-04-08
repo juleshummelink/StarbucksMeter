@@ -1,0 +1,518 @@
+﻿define("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsExpanded", "isExpandedVar", "IsExpanded", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("AuxInitialHeight", "auxInitialHeightVar", "AuxInitialHeight", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("AuxHideLink", "auxHideLinkVar", "AuxHideLink", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ComputedText", "computedTextVar", "ComputedText", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("HideLink", "hideLinkIn", "HideLink", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_hideLinkInDataFetchStatus", "_hideLinkInDataFetchStatus", "_hideLinkInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Animation", "animationIn", "Animation", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_animationInDataFetchStatus", "_animationInDataFetchStatus", "_animationInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("LinkTextExpanded", "linkTextExpandedIn", "LinkTextExpanded", true, false, OS.Types.Text, function () {
+return "Show less";
+}, false), 
+this.attr("_linkTextExpandedInDataFetchStatus", "_linkTextExpandedInDataFetchStatus", "_linkTextExpandedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("LinkTextCollapsed", "linkTextCollapsedIn", "LinkTextCollapsed", true, false, OS.Types.Text, function () {
+return "Show more";
+}, false), 
+this.attr("_linkTextCollapsedInDataFetchStatus", "_linkTextCollapsedInDataFetchStatus", "_linkTextCollapsedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("NumVisibleLines", "numVisibleLinesIn", "NumVisibleLines", true, false, OS.Types.Integer, function () {
+return 3;
+}, false), 
+this.attr("_numVisibleLinesInDataFetchStatus", "_numVisibleLinesInDataFetchStatus", "_numVisibleLinesInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("HideLink" in inputs) {
+this.variables.hideLinkIn = inputs.HideLink;
+if("_hideLinkInDataFetchStatus" in inputs) {
+this.variables._hideLinkInDataFetchStatus = inputs._hideLinkInDataFetchStatus;
+}
+
+}
+
+if("Animation" in inputs) {
+this.variables.animationIn = inputs.Animation;
+if("_animationInDataFetchStatus" in inputs) {
+this.variables._animationInDataFetchStatus = inputs._animationInDataFetchStatus;
+}
+
+}
+
+if("LinkTextExpanded" in inputs) {
+this.variables.linkTextExpandedIn = inputs.LinkTextExpanded;
+if("_linkTextExpandedInDataFetchStatus" in inputs) {
+this.variables._linkTextExpandedInDataFetchStatus = inputs._linkTextExpandedInDataFetchStatus;
+}
+
+}
+
+if("LinkTextCollapsed" in inputs) {
+this.variables.linkTextCollapsedIn = inputs.LinkTextCollapsed;
+if("_linkTextCollapsedInDataFetchStatus" in inputs) {
+this.variables._linkTextCollapsedInDataFetchStatus = inputs._linkTextCollapsedInDataFetchStatus;
+}
+
+}
+
+if("NumVisibleLines" in inputs) {
+this.variables.numVisibleLinesIn = inputs.NumVisibleLines;
+if("_numVisibleLinesInDataFetchStatus" in inputs) {
+this.variables._numVisibleLinesInDataFetchStatus = inputs._numVisibleLinesInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.MultilineTruncationEllipsis");
+});
+define("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller", "OutSystems/ReactWidgets/Main"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, React, OSView, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_model, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.MultilineTruncationEllipsis";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("TruncationBox.Style"), function () {
+return (("multiline-truncation-box " + model.variables.animationIn) + (((model.variables.extendedClassIn === "")) ? ("") : ((" " + model.variables.extendedClassIn))));
+}, function () {
+return model.variables.animationIn;
+}, function () {
+return model.variables.extendedClassIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "TruncationBox"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._animationInDataFetchStatus, model.variables._extendedClassInDataFetchStatus)
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "TruncationTextWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.bodyText,
+extendedEvents: {
+"componentDidUpdate": function () {
+var eventHandlerContext = callContext.clone();
+controller.computeNumLinesAndHeight$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+style: "multiline-truncation-text",
+_idProps: {
+service: idService,
+name: "BodyText"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onToggle$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+visible: !(model.variables.auxHideLinkVar),
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "text-underline",
+value: model.getCachedValue(idService.getId("7p4JWIzjrEe0qDza_Lb1Fw.Value"), function () {
+return ((model.variables.isExpandedVar) ? (model.variables.linkTextCollapsedIn) : (model.variables.linkTextExpandedIn));
+}, function () {
+return model.variables.isExpandedVar;
+}, function () {
+return model.variables.linkTextCollapsedIn;
+}, function () {
+return model.variables.linkTextExpandedIn;
+}),
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._linkTextCollapsedInDataFetchStatus, model.variables._linkTextExpandedInDataFetchStatus)
+})))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.languageResources", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$translationsResources", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller.ComputeNumLinesAndHeight.SetInitialParametersJS", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller.ComputeNumLinesAndHeight.GetLineHeightJS", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller.OnToggle.CollapseJS", "ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller.OnToggle.ExpandJS"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_PatLanguageResources, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_TranslationsResources, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller_ComputeNumLinesAndHeight_SetInitialParametersJS, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller_ComputeNumLinesAndHeight_GetLineHeightJS, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller_OnToggle_CollapseJS, ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller_OnToggle_ExpandJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._computeNumLinesAndHeight$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComputeNumLinesAndHeight");
+callContext = controller.callContext(callContext);
+var getLineHeightJSResult = new OS.DataTypes.VariableHolder();
+// HasBeenPrecessed
+if((!(((model.variables.computedTextVar) !== (""))))) {
+getLineHeightJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller_ComputeNumLinesAndHeight_GetLineHeightJS, "GetLineHeight", "ComputeNumLinesAndHeight", {
+NumVisibleLines: OS.DataConversion.JSNodeParamConverter.to(model.variables.numVisibleLinesIn, OS.Types.Integer),
+TruncationTextId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("BodyText"), OS.Types.Text),
+HideLink: OS.DataConversion.JSNodeParamConverter.to(model.variables.hideLinkIn, OS.Types.Boolean),
+InitialHeight: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text),
+HideLink_Out: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+ElemText: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.ComputeNumLinesAndHeight$getLineHeightJSResult"))();
+jsNodeResult.initialHeightOut = OS.DataConversion.JSNodeParamConverter.from($parameters.InitialHeight, OS.Types.Text);
+jsNodeResult.hideLink_OutOut = OS.DataConversion.JSNodeParamConverter.from($parameters.HideLink_Out, OS.Types.Boolean);
+jsNodeResult.elemTextOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ElemText, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// AuxInitialHeight = GetLineHeight.InitialHeight
+model.variables.auxInitialHeightVar = getLineHeightJSResult.value.initialHeightOut;
+// AuxHideLink = GetLineHeight.HideLink_Out
+model.variables.auxHideLinkVar = getLineHeightJSResult.value.hideLink_OutOut;
+// ComputedText = GetLineHeight.ElemText
+model.variables.computedTextVar = getLineHeightJSResult.value.elemTextOut;
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller_ComputeNumLinesAndHeight_SetInitialParametersJS, "SetInitialParameters", "ComputeNumLinesAndHeight", {
+TruncationBoxId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("TruncationBox"), OS.Types.Text),
+InitialHeight: OS.DataConversion.JSNodeParamConverter.to(model.variables.auxInitialHeightVar, OS.Types.Text),
+NumOfVisibleLines: OS.DataConversion.JSNodeParamConverter.to(model.variables.numVisibleLinesIn, OS.Types.Integer),
+TruncationTextId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("BodyText"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+}
+
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.ComputeNumLinesAndHeight$getLineHeightJSResult", [{
+name: "InitialHeight",
+attrName: "initialHeightOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "HideLink_Out",
+attrName: "hideLink_OutOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "ElemText",
+attrName: "elemTextOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onToggle$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnToggle");
+callContext = controller.callContext(callContext);
+// IsExpanded = notIsExpanded
+model.variables.isExpandedVar = !(model.variables.isExpandedVar);
+if((model.variables.isExpandedVar)) {
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller_OnToggle_CollapseJS, "Collapse", "OnToggle", {
+Animation: OS.DataConversion.JSNodeParamConverter.to(model.variables.animationIn, OS.Types.Text),
+NumOfLines: OS.DataConversion.JSNodeParamConverter.to(model.variables.numVisibleLinesIn, OS.Types.Integer),
+TruncationBoxId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("TruncationBox"), OS.Types.Text),
+InitialHeight: OS.DataConversion.JSNodeParamConverter.to(model.variables.auxInitialHeightVar, OS.Types.Text),
+TruncationTextId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("BodyText"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+} else {
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_MultilineTruncationEllipsis_mvc_controller_OnToggle_ExpandJS, "Expand", "OnToggle", {
+TruncationTextWrapperId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("TruncationTextWrapper"), OS.Types.Text),
+TruncationTextId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("BodyText"), OS.Types.Text),
+TruncationBoxId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("TruncationBox"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+}
+
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+// AuxHideLink = HideLink
+model.variables.auxHideLinkVar = model.variables.hideLinkIn;
+};
+
+Controller.prototype.computeNumLinesAndHeight$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._computeNumLinesAndHeight$Action, callContext);
+
+};
+Controller.prototype.onToggle$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onToggle$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.computeNumLinesAndHeight$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Reactive_PatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Reactive_PatLanguageResources);
+});
+define("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller.ComputeNumLinesAndHeight.SetInitialParametersJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+document.getElementById($parameters.TruncationTextId).style.webkitLineClamp = $parameters.NumOfVisibleLines;
+document.getElementById($parameters.TruncationBoxId).style.height = $parameters.InitialHeight;
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller.ComputeNumLinesAndHeight.GetLineHeightJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const parentElement = document.getElementById($parameters.TruncationTextId);
+const el = parentElement.firstChild;
+const divHeight = el.offsetHeight
+const lineHeight = parseInt(window.getComputedStyle(el, null).getPropertyValue("line-height").replace('px', ''));
+const lines = parseInt(divHeight / lineHeight);
+
+if(lines <= $parameters.NumVisibleLines) {
+    $parameters.HideLink_Out = true;
+    $parameters.NumVisibleLines = lines;
+}
+    
+const lns = $parameters.HideLink || lines === 0 ? 0 : 1;
+$parameters.InitialHeight = (($parameters.NumVisibleLines + lns) * lineHeight) + "px"
+$parameters.ElemText = el.textContent;
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller.OnToggle.CollapseJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+let animationSpeed = getComputedStyle(document.documentElement).getPropertyValue('--multiline-animation-speed-'+ $parameters.Animation);
+let timeout = animationSpeed ? animationSpeed.replace('ms','') : 0;
+
+
+setTimeout(() => {
+  document.getElementById($parameters.TruncationTextId).style.webkitLineClamp = $parameters.NumOfLines;
+}, parseFloat(timeout));
+
+document.getElementById($parameters.TruncationBoxId).style.height = $parameters.InitialHeight;
+document.getElementById($parameters.TruncationBoxId).classList.remove('open');
+document.getElementById($parameters.TruncationBoxId).classList.add('closed');
+
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$controller.OnToggle.ExpandJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+document.getElementById($parameters.TruncationTextId).style.webkitLineClamp = 9999;
+
+setTimeout(() => {
+    document.getElementById($parameters.TruncationBoxId).style.height = document.getElementById($parameters.TruncationTextWrapperId).offsetHeight + 'px';
+    document.getElementById($parameters.TruncationBoxId).classList.remove('closed');
+    document.getElementById($parameters.TruncationBoxId).classList.add('open');
+}, 100);
+
+
+
+};
+});
+
+define("ECOP_Reactive_Pat.CustomPatterns.MultilineTruncationEllipsis.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

@@ -1,0 +1,862 @@
+﻿define("ECP_GlobalSearch_IS.model$ChildItem3Rec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var ChildItem3Rec = (function (_super) {
+__extends(ChildItem3Rec, _super);
+function ChildItem3Rec(defaults) {
+_super.apply(this, arguments);
+}
+ChildItem3Rec.attributesToDeclare = function () {
+return [
+this.attr("Title", "titleAttr", "title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Categoryid", "categoryidAttr", "categoryid", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Categorypath", "categorypathAttr", "categorypath", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ChildItem3Rec.init();
+return ChildItem3Rec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.ChildItem3Rec = ChildItem3Rec;
+
+});
+define("ECP_GlobalSearch_IS.model$ChildItem3List", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$ChildItem3Rec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var ChildItem3List = (function (_super) {
+__extends(ChildItem3List, _super);
+function ChildItem3List(defaults) {
+_super.apply(this, arguments);
+}
+ChildItem3List.itemType = ECP_GlobalSearch_ISModel.ChildItem3Rec;
+return ChildItem3List;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.ChildItem3List = ChildItem3List;
+
+});
+define("ECP_GlobalSearch_IS.model$ChildItem2Rec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$ChildItem3List"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var ChildItem2Rec = (function (_super) {
+__extends(ChildItem2Rec, _super);
+function ChildItem2Rec(defaults) {
+_super.apply(this, arguments);
+}
+ChildItem2Rec.attributesToDeclare = function () {
+return [
+this.attr("Title", "titleAttr", "title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Categoryid", "categoryidAttr", "categoryid", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Categorypath", "categorypathAttr", "categorypath", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Children3", "children3Attr", "children", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.ChildItem3List());
+}, true, ECP_GlobalSearch_ISModel.ChildItem3List)
+].concat(_super.attributesToDeclare.call(this));
+};
+ChildItem2Rec.init();
+return ChildItem2Rec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.ChildItem2Rec = ChildItem2Rec;
+
+});
+define("ECP_GlobalSearch_IS.model$ChildItem2List", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$ChildItem2Rec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var ChildItem2List = (function (_super) {
+__extends(ChildItem2List, _super);
+function ChildItem2List(defaults) {
+_super.apply(this, arguments);
+}
+ChildItem2List.itemType = ECP_GlobalSearch_ISModel.ChildItem2Rec;
+return ChildItem2List;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.ChildItem2List = ChildItem2List;
+
+});
+define("ECP_GlobalSearch_IS.model$ChildItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$ChildItem2List"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var ChildItemRec = (function (_super) {
+__extends(ChildItemRec, _super);
+function ChildItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ChildItemRec.attributesToDeclare = function () {
+return [
+this.attr("Title", "titleAttr", "title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Categoryid", "categoryidAttr", "categoryid", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Categorypath", "categorypathAttr", "categorypath", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Children2", "children2Attr", "children", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.ChildItem2List());
+}, true, ECP_GlobalSearch_ISModel.ChildItem2List)
+].concat(_super.attributesToDeclare.call(this));
+};
+ChildItemRec.init();
+return ChildItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.ChildItemRec = ChildItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$ChildItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$ChildItemRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var ChildItemList = (function (_super) {
+__extends(ChildItemList, _super);
+function ChildItemList(defaults) {
+_super.apply(this, arguments);
+}
+ChildItemList.itemType = ECP_GlobalSearch_ISModel.ChildItemRec;
+return ChildItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.ChildItemList = ChildItemList;
+
+});
+define("ECP_GlobalSearch_IS.model$CategoryItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$ChildItemList"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var CategoryItemRec = (function (_super) {
+__extends(CategoryItemRec, _super);
+function CategoryItemRec(defaults) {
+_super.apply(this, arguments);
+}
+CategoryItemRec.attributesToDeclare = function () {
+return [
+this.attr("Title", "titleAttr", "title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Categoryid", "categoryidAttr", "categoryid", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Categorypath", "categorypathAttr", "categorypath", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Children", "childrenAttr", "children", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.ChildItemList());
+}, true, ECP_GlobalSearch_ISModel.ChildItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CategoryItemRec.init();
+return CategoryItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.CategoryItemRec = CategoryItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$CategoryItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$CategoryItemRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var CategoryItemList = (function (_super) {
+__extends(CategoryItemList, _super);
+function CategoryItemList(defaults) {
+_super.apply(this, arguments);
+}
+CategoryItemList.itemType = ECP_GlobalSearch_ISModel.CategoryItemRec;
+return CategoryItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.CategoryItemList = CategoryItemList;
+
+});
+define("ECP_GlobalSearch_IS.model$GetCategoryTreeResponseRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$CategoryItemList"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var GetCategoryTreeResponseRec = (function (_super) {
+__extends(GetCategoryTreeResponseRec, _super);
+function GetCategoryTreeResponseRec(defaults) {
+_super.apply(this, arguments);
+}
+GetCategoryTreeResponseRec.attributesToDeclare = function () {
+return [
+this.attr("Categories", "categoriesAttr", "categories", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.CategoryItemList());
+}, true, ECP_GlobalSearch_ISModel.CategoryItemList), 
+this.attr("TweakwiseRequestID", "tweakwiseRequestIDAttr", "twn-request-id", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetCategoryTreeResponseRec.init();
+return GetCategoryTreeResponseRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.GetCategoryTreeResponseRec = GetCategoryTreeResponseRec;
+
+});
+define("ECP_GlobalSearch_IS.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.TextList = TextList;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_AttributeItemsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_AttributeItemsRec = (function (_super) {
+__extends(Search_AttributeItemsRec, _super);
+function Search_AttributeItemsRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_AttributeItemsRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Values", "valuesAttr", "values", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_AttributeItemsRec.init();
+return Search_AttributeItemsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_AttributeItemsRec = Search_AttributeItemsRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_AttributeItemsList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_AttributeItemsRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_AttributeItemsList = (function (_super) {
+__extends(Search_AttributeItemsList, _super);
+function Search_AttributeItemsList(defaults) {
+_super.apply(this, arguments);
+}
+Search_AttributeItemsList.itemType = ECP_GlobalSearch_ISModel.Search_AttributeItemsRec;
+return Search_AttributeItemsList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.Search_AttributeItemsList = Search_AttributeItemsList;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_OriginRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_OriginRec = (function (_super) {
+__extends(Search_OriginRec, _super);
+function Search_OriginRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_OriginRec.attributesToDeclare = function () {
+return [
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ItemReference", "itemReferenceAttr", "itemreference", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_OriginRec.init();
+return Search_OriginRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_OriginRec = Search_OriginRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_ItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_AttributeItemsList", "ECP_GlobalSearch_IS.model$Search_OriginRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_ItemRec = (function (_super) {
+__extends(Search_ItemRec, _super);
+function Search_ItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_ItemRec.attributesToDeclare = function () {
+return [
+this.attr("ItemNo", "itemNoAttr", "itemno", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Title", "titleAttr", "title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price", "priceAttr", "price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Brand", "brandAttr", "brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Image", "imageAttr", "image", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attributes", "attributesAttr", "attributes", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_AttributeItemsList());
+}, true, ECP_GlobalSearch_ISModel.Search_AttributeItemsList), 
+this.attr("Origin", "originAttr", "origin", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_OriginRec());
+}, true, ECP_GlobalSearch_ISModel.Search_OriginRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_ItemRec.init();
+return Search_ItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_ItemRec = Search_ItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$SearchAutocomplete_SuggestItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var SearchAutocomplete_SuggestItemRec = (function (_super) {
+__extends(SearchAutocomplete_SuggestItemRec, _super);
+function SearchAutocomplete_SuggestItemRec(defaults) {
+_super.apply(this, arguments);
+}
+SearchAutocomplete_SuggestItemRec.attributesToDeclare = function () {
+return [
+this.attr("Title", "titleAttr", "title", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+SearchAutocomplete_SuggestItemRec.fromStructure = function (str) {
+return new SearchAutocomplete_SuggestItemRec(new SearchAutocomplete_SuggestItemRec.RecordClass({
+titleAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SearchAutocomplete_SuggestItemRec.init();
+return SearchAutocomplete_SuggestItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.SearchAutocomplete_SuggestItemRec = SearchAutocomplete_SuggestItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$SearchAutocomplete_SuggestItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$SearchAutocomplete_SuggestItemRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var SearchAutocomplete_SuggestItemList = (function (_super) {
+__extends(SearchAutocomplete_SuggestItemList, _super);
+function SearchAutocomplete_SuggestItemList(defaults) {
+_super.apply(this, arguments);
+}
+SearchAutocomplete_SuggestItemList.itemType = ECP_GlobalSearch_ISModel.SearchAutocomplete_SuggestItemRec;
+return SearchAutocomplete_SuggestItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.SearchAutocomplete_SuggestItemList = SearchAutocomplete_SuggestItemList;
+
+});
+define("ECP_GlobalSearch_IS.model$SearchAutocomplete_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$SearchAutocomplete_SuggestItemList"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var SearchAutocomplete_StrRec = (function (_super) {
+__extends(SearchAutocomplete_StrRec, _super);
+function SearchAutocomplete_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+SearchAutocomplete_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Suggestions", "suggestionsAttr", "suggestions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.SearchAutocomplete_SuggestItemList());
+}, true, ECP_GlobalSearch_ISModel.SearchAutocomplete_SuggestItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+SearchAutocomplete_StrRec.fromStructure = function (str) {
+return new SearchAutocomplete_StrRec(new SearchAutocomplete_StrRec.RecordClass({
+suggestionsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SearchAutocomplete_StrRec.init();
+return SearchAutocomplete_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.SearchAutocomplete_StrRec = SearchAutocomplete_StrRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_LoadDetailsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_LoadDetailsRec = (function (_super) {
+__extends(Search_LoadDetailsRec, _super);
+function Search_LoadDetailsRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_LoadDetailsRec.attributesToDeclare = function () {
+return [
+this.attr("SKUList", "sKUListAttr", "SKUList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("NumberOfItems", "numberOfItemsAttr", "nrofitems", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("TotalOfPages", "totalOfPagesAttr", "TotalOfPages", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("SuggestedSearchTerms", "suggestedSearchTermsAttr", "SuggestedSearchTerms", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_LoadDetailsRec.init();
+return Search_LoadDetailsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_LoadDetailsRec = Search_LoadDetailsRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_FacetSettingRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_FacetSettingRec = (function (_super) {
+__extends(Search_FacetSettingRec, _super);
+function Search_FacetSettingRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_FacetSettingRec.attributesToDeclare = function () {
+return [
+this.attr("FacetId", "facetIdAttr", "facetid", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsVisible", "isVisibleAttr", "isvisible", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("AttributeName", "attributeNameAttr", "attributename", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("URLKey", "uRLKeyAttr", "urlkey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Title", "titleAttr", "title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsCollapsible", "isCollapsibleAttr", "iscollapsible", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsCollapsed", "isCollapsedAttr", "iscollapsed", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("NumberOfShownAttributes", "numberOfShownAttributesAttr", "nrofshownattributes", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ExpandText", "expandTextAttr", "expandtext", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CollapseText", "collapseTextAttr", "collapsetext", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsMultiselect", "isMultiselectAttr", "ismultiselect", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("MultiSelectLogic", "multiSelectLogicAttr", "multiselectlogic", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SelectionType", "selectionTypeAttr", "selectiontype", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NumberOfColumns", "numberOfColumnsAttr", "nrofcolumns", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsNumberOfResultsVisible", "isNumberOfResultsVisibleAttr", "isnrofresultsvisible", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsInfoVisible", "isInfoVisibleAttr", "isinfovisible", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ContainsClickPoints", "containsClickPointsAttr", "containsclickpoints", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ContainsBuckets", "containsBucketsAttr", "containsbuckets", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Source", "sourceAttr", "source", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Prefix", "prefixAttr", "prefix", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_FacetSettingRec.init();
+return Search_FacetSettingRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_FacetSettingRec = Search_FacetSettingRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_AttributeItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_AttributeItemRec = (function (_super) {
+__extends(Search_AttributeItemRec, _super);
+function Search_AttributeItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_AttributeItemRec.attributesToDeclare = function () {
+return [
+this.attr("Title", "titleAttr", "title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsSelected", "isSelectedAttr", "isselected", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("NumberOfResults", "numberOfResultsAttr", "nrofresults", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("URL", "uRLAttr", "url", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayTitle", "displayTitleAttr", "displaytitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "order", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_AttributeItemRec.init();
+return Search_AttributeItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_AttributeItemRec = Search_AttributeItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_AttributeItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_AttributeItemRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_AttributeItemList = (function (_super) {
+__extends(Search_AttributeItemList, _super);
+function Search_AttributeItemList(defaults) {
+_super.apply(this, arguments);
+}
+Search_AttributeItemList.itemType = ECP_GlobalSearch_ISModel.Search_AttributeItemRec;
+return Search_AttributeItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.Search_AttributeItemList = Search_AttributeItemList;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_FacetItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_FacetSettingRec", "ECP_GlobalSearch_IS.model$Search_AttributeItemList"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_FacetItemRec = (function (_super) {
+__extends(Search_FacetItemRec, _super);
+function Search_FacetItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_FacetItemRec.attributesToDeclare = function () {
+return [
+this.attr("FacetSettings", "facetSettingsAttr", "facetsettings", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_FacetSettingRec());
+}, true, ECP_GlobalSearch_ISModel.Search_FacetSettingRec), 
+this.attr("Attributes", "attributesAttr", "attributes", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_AttributeItemList());
+}, true, ECP_GlobalSearch_ISModel.Search_AttributeItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_FacetItemRec.init();
+return Search_FacetItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_FacetItemRec = Search_FacetItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_FacetItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_FacetItemRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_FacetItemList = (function (_super) {
+__extends(Search_FacetItemList, _super);
+function Search_FacetItemList(defaults) {
+_super.apply(this, arguments);
+}
+Search_FacetItemList.itemType = ECP_GlobalSearch_ISModel.Search_FacetItemRec;
+return Search_FacetItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.Search_FacetItemList = Search_FacetItemList;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_ItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_ItemRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_ItemList = (function (_super) {
+__extends(Search_ItemList, _super);
+function Search_ItemList(defaults) {
+_super.apply(this, arguments);
+}
+Search_ItemList.itemType = ECP_GlobalSearch_ISModel.Search_ItemRec;
+return Search_ItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.Search_ItemList = Search_ItemList;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_PropertyRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_AttributeItemList"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_PropertyRec = (function (_super) {
+__extends(Search_PropertyRec, _super);
+function Search_PropertyRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_PropertyRec.attributesToDeclare = function () {
+return [
+this.attr("NumberOfItems", "numberOfItemsAttr", "nrofitems", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PageSize", "pageSizeAttr", "pagesize", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("NumberOfPages", "numberOfPagesAttr", "nrofpages", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CurrentPage", "currentPageAttr", "currentpage", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("SelectedCategory", "selectedCategoryAttr", "selectedcategory", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("SearchTerm", "searchTermAttr", "searchterm", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsDirectSearch", "isDirectSearchAttr", "isdirectsearch", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsRootCategory", "isRootCategoryAttr", "isrootcategory", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PageURL", "pageURLAttr", "pageurl", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ResetURL", "resetURLAttr", "reseturl", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SortFields", "sortFieldsAttr", "sortfields", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_AttributeItemList());
+}, true, ECP_GlobalSearch_ISModel.Search_AttributeItemList), 
+this.attr("SuggestedSearchTerm", "suggestedSearchTermAttr", "suggestedsearchterm", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_PropertyRec.init();
+return Search_PropertyRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_PropertyRec = Search_PropertyRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_RedirectItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_RedirectItemRec = (function (_super) {
+__extends(Search_RedirectItemRec, _super);
+function Search_RedirectItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_RedirectItemRec.attributesToDeclare = function () {
+return [
+this.attr("Url", "urlAttr", "url", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_RedirectItemRec.fromStructure = function (str) {
+return new Search_RedirectItemRec(new Search_RedirectItemRec.RecordClass({
+urlAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Search_RedirectItemRec.init();
+return Search_RedirectItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_RedirectItemRec = Search_RedirectItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_RedirectItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_RedirectItemRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_RedirectItemList = (function (_super) {
+__extends(Search_RedirectItemList, _super);
+function Search_RedirectItemList(defaults) {
+_super.apply(this, arguments);
+}
+Search_RedirectItemList.itemType = ECP_GlobalSearch_ISModel.Search_RedirectItemRec;
+return Search_RedirectItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.Search_RedirectItemList = Search_RedirectItemList;
+
+});
+define("ECP_GlobalSearch_IS.model$SearchRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Search_FacetItemList", "ECP_GlobalSearch_IS.model$Search_ItemList", "ECP_GlobalSearch_IS.model$Search_PropertyRec", "ECP_GlobalSearch_IS.model$Search_RedirectItemList"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var SearchRec = (function (_super) {
+__extends(SearchRec, _super);
+function SearchRec(defaults) {
+_super.apply(this, arguments);
+}
+SearchRec.attributesToDeclare = function () {
+return [
+this.attr("Facets", "facetsAttr", "facets", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_FacetItemList());
+}, true, ECP_GlobalSearch_ISModel.Search_FacetItemList), 
+this.attr("Items", "itemsAttr", "items", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_ItemList());
+}, true, ECP_GlobalSearch_ISModel.Search_ItemList), 
+this.attr("Properties", "propertiesAttr", "properties", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_PropertyRec());
+}, true, ECP_GlobalSearch_ISModel.Search_PropertyRec), 
+this.attr("Redirects", "redirectsAttr", "redirects", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Search_RedirectItemList());
+}, true, ECP_GlobalSearch_ISModel.Search_RedirectItemList), 
+this.attr("TweakwiseRequestID", "tweakwiseRequestIDAttr", "twn-request-id", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+SearchRec.init();
+return SearchRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.SearchRec = SearchRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Sort_ItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Sort_ItemRec = (function (_super) {
+__extends(Sort_ItemRec, _super);
+function Sort_ItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Sort_ItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsSelected", "isSelectedAttr", "IsSelected", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("URL", "uRLAttr", "URL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Sort_ItemRec.init();
+return Sort_ItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Sort_ItemRec = Sort_ItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$PLPProductCustomAttributeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var PLPProductCustomAttributeRec = (function (_super) {
+__extends(PLPProductCustomAttributeRec, _super);
+function PLPProductCustomAttributeRec(defaults) {
+_super.apply(this, arguments);
+}
+PLPProductCustomAttributeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PLPProductCustomAttributeRec.init();
+return PLPProductCustomAttributeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.PLPProductCustomAttributeRec = PLPProductCustomAttributeRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Search_SponsoredProductRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Search_SponsoredProductRec = (function (_super) {
+__extends(Search_SponsoredProductRec, _super);
+function Search_SponsoredProductRec(defaults) {
+_super.apply(this, arguments);
+}
+Search_SponsoredProductRec.attributesToDeclare = function () {
+return [
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CitrusAdId", "citrusAdIdAttr", "CitrusAdId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Search_SponsoredProductRec.init();
+return Search_SponsoredProductRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Search_SponsoredProductRec = Search_SponsoredProductRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Filter_ItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Filter_ItemRec = (function (_super) {
+__extends(Filter_ItemRec, _super);
+function Filter_ItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Filter_ItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsSelected", "isSelectedAttr", "IsSelected", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("URL", "uRLAttr", "URL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Filter_ItemRec.init();
+return Filter_ItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Filter_ItemRec = Filter_ItemRec;
+
+});
+define("ECP_GlobalSearch_IS.model$SearchAutocomplete_SuggestionsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var SearchAutocomplete_SuggestionsRec = (function (_super) {
+__extends(SearchAutocomplete_SuggestionsRec, _super);
+function SearchAutocomplete_SuggestionsRec(defaults) {
+_super.apply(this, arguments);
+}
+SearchAutocomplete_SuggestionsRec.attributesToDeclare = function () {
+return [
+this.attr("Suggestions", "suggestionsAttr", "Suggestions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+SearchAutocomplete_SuggestionsRec.fromStructure = function (str) {
+return new SearchAutocomplete_SuggestionsRec(new SearchAutocomplete_SuggestionsRec.RecordClass({
+suggestionsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SearchAutocomplete_SuggestionsRec.init();
+return SearchAutocomplete_SuggestionsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.SearchAutocomplete_SuggestionsRec = SearchAutocomplete_SuggestionsRec;
+
+});
+define("ECP_GlobalSearch_IS.model$Filter_ItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Filter_ItemRec"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Filter_ItemList = (function (_super) {
+__extends(Filter_ItemList, _super);
+function Filter_ItemList(defaults) {
+_super.apply(this, arguments);
+}
+Filter_ItemList.itemType = ECP_GlobalSearch_ISModel.Filter_ItemRec;
+return Filter_ItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_GlobalSearch_ISModel.Filter_ItemList = Filter_ItemList;
+
+});
+define("ECP_GlobalSearch_IS.model$Filter_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_GlobalSearch_IS.model", "ECP_GlobalSearch_IS.model$Filter_ItemList"], function (exports, OutSystems, ECP_GlobalSearch_ISModel) {
+var OS = OutSystems.Internal;
+var Filter_StrRec = (function (_super) {
+__extends(Filter_StrRec, _super);
+function Filter_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Filter_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AttributeName", "attributeNameAttr", "AttributeName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FilterItem", "filterItemAttr", "FilterItem", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Filter_ItemList());
+}, true, ECP_GlobalSearch_ISModel.Filter_ItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Filter_StrRec.init();
+return Filter_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_GlobalSearch_ISModel.Filter_StrRec = Filter_StrRec;
+
+});
+define("ECP_GlobalSearch_IS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_GlobalSearch_ISModel = exports;
+});

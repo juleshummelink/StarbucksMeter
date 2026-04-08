@@ -1,0 +1,1009 @@
+﻿define("ECP_Order_CW.controller$Checkout_CompareAddresses", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Order_CW.clientVariables"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.checkout_CompareAddresses$Action = function (isOrderEditModeIn, deliveryTypeIdIn, checkoutDeliveryZipCodeIn, checkoutDeliveryStreetIn, checkoutDeliveryHouseNumberIn, checkoutDeliveryHouseNumberAdditionIn, accountDeliveryZipCodeIn, accountDeliveryStreetIn, accountDeliveryHouseNumberIn, accountDeliveryHouseNumberAdditionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Checkout_CompareAddresses$vars"))());
+vars.value.isOrderEditModeInLocal = isOrderEditModeIn;
+vars.value.deliveryTypeIdInLocal = deliveryTypeIdIn;
+vars.value.checkoutDeliveryZipCodeInLocal = checkoutDeliveryZipCodeIn;
+vars.value.checkoutDeliveryStreetInLocal = checkoutDeliveryStreetIn;
+vars.value.checkoutDeliveryHouseNumberInLocal = checkoutDeliveryHouseNumberIn;
+vars.value.checkoutDeliveryHouseNumberAdditionInLocal = checkoutDeliveryHouseNumberAdditionIn;
+vars.value.accountDeliveryZipCodeInLocal = accountDeliveryZipCodeIn;
+vars.value.accountDeliveryStreetInLocal = accountDeliveryStreetIn;
+vars.value.accountDeliveryHouseNumberInLocal = accountDeliveryHouseNumberIn;
+vars.value.accountDeliveryHouseNumberAdditionInLocal = accountDeliveryHouseNumberAdditionIn;
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Checkout_CompareAddresses$outVars"))());
+// Is order being changed?
+if((!(vars.value.isOrderEditModeInLocal))) {
+// No moment selected or is pickup?
+if((!((((vars.value.deliveryTypeIdInLocal === OS.BuiltinFunctions.nullIdentifier()) || (vars.value.deliveryTypeIdInLocal === ECP_Order_CWModel.staticEntities.deliveryType.pickupExpress)) || (vars.value.deliveryTypeIdInLocal === ECP_Order_CWModel.staticEntities.deliveryType.pickup))))) {
+// Are there no changes?
+if((!(((((vars.value.checkoutDeliveryZipCodeInLocal === vars.value.accountDeliveryZipCodeInLocal) && (vars.value.checkoutDeliveryStreetInLocal === vars.value.accountDeliveryStreetInLocal)) && (vars.value.checkoutDeliveryHouseNumberInLocal === vars.value.accountDeliveryHouseNumberInLocal)) && (vars.value.checkoutDeliveryHouseNumberAdditionInLocal === vars.value.accountDeliveryHouseNumberAdditionInLocal))))) {
+// HasAddressChanged = True
+// HasAddressChanged = True
+outVars.value.hasAddressChangedOut = true;
+}
+
+}
+
+}
+
+return outVars.value;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Checkout_CompareAddresses$vars", [{
+name: "IsOrderEditMode",
+attrName: "isOrderEditModeInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "DeliveryTypeId",
+attrName: "deliveryTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "CheckoutDeliveryZipCode",
+attrName: "checkoutDeliveryZipCodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CheckoutDeliveryStreet",
+attrName: "checkoutDeliveryStreetInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CheckoutDeliveryHouseNumber",
+attrName: "checkoutDeliveryHouseNumberInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CheckoutDeliveryHouseNumberAddition",
+attrName: "checkoutDeliveryHouseNumberAdditionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AccountDeliveryZipCode",
+attrName: "accountDeliveryZipCodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AccountDeliveryStreet",
+attrName: "accountDeliveryStreetInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AccountDeliveryHouseNumber",
+attrName: "accountDeliveryHouseNumberInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AccountDeliveryHouseNumberAddition",
+attrName: "accountDeliveryHouseNumberAdditionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Checkout_CompareAddresses$outVars", [{
+name: "HasAddressChanged",
+attrName: "hasAddressChangedOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Order_CWController.default.clientActionProxies.checkout_CompareAddresses$Action = function (isOrderEditModeIn, deliveryTypeIdIn, checkoutDeliveryZipCodeIn, checkoutDeliveryStreetIn, checkoutDeliveryHouseNumberIn, checkoutDeliveryHouseNumberAdditionIn, accountDeliveryZipCodeIn, accountDeliveryStreetIn, accountDeliveryHouseNumberIn, accountDeliveryHouseNumberAdditionIn) {
+isOrderEditModeIn = (isOrderEditModeIn === undefined) ? false : isOrderEditModeIn;
+deliveryTypeIdIn = (deliveryTypeIdIn === undefined) ? 0 : deliveryTypeIdIn;
+checkoutDeliveryZipCodeIn = (checkoutDeliveryZipCodeIn === undefined) ? "" : checkoutDeliveryZipCodeIn;
+checkoutDeliveryStreetIn = (checkoutDeliveryStreetIn === undefined) ? "" : checkoutDeliveryStreetIn;
+checkoutDeliveryHouseNumberIn = (checkoutDeliveryHouseNumberIn === undefined) ? "" : checkoutDeliveryHouseNumberIn;
+checkoutDeliveryHouseNumberAdditionIn = (checkoutDeliveryHouseNumberAdditionIn === undefined) ? "" : checkoutDeliveryHouseNumberAdditionIn;
+accountDeliveryZipCodeIn = (accountDeliveryZipCodeIn === undefined) ? "" : accountDeliveryZipCodeIn;
+accountDeliveryStreetIn = (accountDeliveryStreetIn === undefined) ? "" : accountDeliveryStreetIn;
+accountDeliveryHouseNumberIn = (accountDeliveryHouseNumberIn === undefined) ? "" : accountDeliveryHouseNumberIn;
+accountDeliveryHouseNumberAdditionIn = (accountDeliveryHouseNumberAdditionIn === undefined) ? "" : accountDeliveryHouseNumberAdditionIn;
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.checkout_CompareAddresses$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(isOrderEditModeIn, OS.Types.Boolean), deliveryTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(checkoutDeliveryZipCodeIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(checkoutDeliveryStreetIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(checkoutDeliveryHouseNumberIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(checkoutDeliveryHouseNumberAdditionIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(accountDeliveryZipCodeIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(accountDeliveryStreetIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(accountDeliveryHouseNumberIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(accountDeliveryHouseNumberAdditionIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+HasAddressChanged: OS.DataConversion.JSNodeParamConverter.to(actionResults.hasAddressChangedOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_Order_CW.controller$Format_GetDateTimeAddress", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECOP_Base_RPat.controller", "ECP_Order_CW.clientVariables", "ECOP_Base_RPat.controller$Format_NoYearDate", "ECP_Order_CW.referencesHealth", "ECP_Order_CW.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECOP_Base_RPatController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.format_GetDateTimeAddress$Action = function (timeslotDateIn, timeslotStartTimeIn, timeslotEndTimeIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Format_GetDateTimeAddress$vars"))());
+vars.value.timeslotDateInLocal = timeslotDateIn;
+vars.value.timeslotStartTimeInLocal = timeslotStartTimeIn;
+vars.value.timeslotEndTimeInLocal = timeslotEndTimeIn;
+var format_NoYearDateVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Format_GetDateTimeAddress$outVars"))());
+// Execute Action: Format_NoYearDate
+format_NoYearDateVar.value = ECOP_Base_RPatController.default.format_NoYearDate$Action(vars.value.timeslotDateInLocal, false, false, callContext);
+
+// Set values
+// Length = 5
+vars.value.lengthVar = 5;
+// Initial = 0
+vars.value.initialVar = 0;
+// DateTimeAddress = Format_NoYearDate.DateText + " " + "between" + " " + Substr + " - " + Substr
+outVars.value.dateTimeAddressOut = ((((((format_NoYearDateVar.value.dateTextOut + " ") + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("EpkknAEc3kqTp+Y5tHM7gQ#Value.-216634360.1", "between")) + " ") + OS.BuiltinFunctions.substr(OS.BuiltinFunctions.timeToText(vars.value.timeslotStartTimeInLocal), vars.value.initialVar, vars.value.lengthVar)) + " - ") + OS.BuiltinFunctions.substr(OS.BuiltinFunctions.timeToText(vars.value.timeslotEndTimeInLocal), vars.value.initialVar, vars.value.lengthVar));
+return outVars.value;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Format_GetDateTimeAddress$vars", [{
+name: "TimeslotDate",
+attrName: "timeslotDateInLocal",
+mandatory: true,
+dataType: OS.Types.Date,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}, {
+name: "TimeslotStartTime",
+attrName: "timeslotStartTimeInLocal",
+mandatory: true,
+dataType: OS.Types.Time,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}, {
+name: "TimeslotEndTime",
+attrName: "timeslotEndTimeInLocal",
+mandatory: true,
+dataType: OS.Types.Time,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}, {
+name: "Length",
+attrName: "lengthVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Initial",
+attrName: "initialVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Format_GetDateTimeAddress$outVars", [{
+name: "DateTimeAddress",
+attrName: "dateTimeAddressOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Order_CWController.default.clientActionProxies.format_GetDateTimeAddress$Action = function (timeslotDateIn, timeslotStartTimeIn, timeslotEndTimeIn) {
+timeslotDateIn = (timeslotDateIn === undefined) ? OS.DataTypes.DateTime.defaultValue : timeslotDateIn;
+timeslotStartTimeIn = (timeslotStartTimeIn === undefined) ? OS.DataTypes.DateTime.defaultValue : timeslotStartTimeIn;
+timeslotEndTimeIn = (timeslotEndTimeIn === undefined) ? OS.DataTypes.DateTime.defaultValue : timeslotEndTimeIn;
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.format_GetDateTimeAddress$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(timeslotDateIn, OS.Types.Date), OS.DataConversion.JSNodeParamConverter.from(timeslotStartTimeIn, OS.Types.Time), OS.DataConversion.JSNodeParamConverter.from(timeslotEndTimeIn, OS.Types.Time)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+DateTimeAddress: OS.DataConversion.JSNodeParamConverter.to(actionResults.dateTimeAddressOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_Order_CW.controller$Format_GetLocationAddress", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Order_CW.clientVariables"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.format_GetLocationAddress$Action = function (streetIn, houseNumberIn, cityIn, zipCodeIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Format_GetLocationAddress$vars"))());
+vars.value.streetInLocal = streetIn;
+vars.value.houseNumberInLocal = houseNumberIn;
+vars.value.cityInLocal = cityIn;
+vars.value.zipCodeInLocal = zipCodeIn;
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Format_GetLocationAddress$outVars"))());
+// NetherlandsZipcode
+if(((OS.BuiltinFunctions.length(vars.value.zipCodeInLocal) > 4))) {
+// Formatted_Zipcode = If
+vars.value.formatted_ZipcodeVar = (((OS.BuiltinFunctions.length(vars.value.zipCodeInLocal) === 6)) ? (((OS.BuiltinFunctions.substr(vars.value.zipCodeInLocal, 0, 4) + " ") + OS.BuiltinFunctions.substr(vars.value.zipCodeInLocal, 4, 2))) : (((OS.BuiltinFunctions.substr(vars.value.zipCodeInLocal, 0, 4) + " ") + OS.BuiltinFunctions.substr(vars.value.zipCodeInLocal, 5, 2))));
+} else {
+// Formatted_Zipcode = ZipCode
+vars.value.formatted_ZipcodeVar = vars.value.zipCodeInLocal;
+}
+
+// Set values
+// Length = 5
+vars.value.lengthVar = 5;
+// Initial = 0
+vars.value.initialVar = 0;
+// LocationAddress = "on " + Street + If + ", " + Formatted_Zipcode + ", " + City
+outVars.value.locationAddressOut = ((((((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("irvwe9XtGE+w8Ey6Lq66sA#Value.110113.1", "on ") + vars.value.streetInLocal) + ((((vars.value.houseNumberInLocal === "0") || (vars.value.houseNumberInLocal === ""))) ? ("") : ((" " + vars.value.houseNumberInLocal)))) + ", ") + vars.value.formatted_ZipcodeVar) + ", ") + vars.value.cityInLocal);
+return outVars.value;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Format_GetLocationAddress$vars", [{
+name: "Street",
+attrName: "streetInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "HouseNumber",
+attrName: "houseNumberInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "City",
+attrName: "cityInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ZipCode",
+attrName: "zipCodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Length",
+attrName: "lengthVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Initial",
+attrName: "initialVar",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Formatted_Zipcode",
+attrName: "formatted_ZipcodeVar",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Format_GetLocationAddress$outVars", [{
+name: "LocationAddress",
+attrName: "locationAddressOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Order_CWController.default.clientActionProxies.format_GetLocationAddress$Action = function (streetIn, houseNumberIn, cityIn, zipCodeIn) {
+streetIn = (streetIn === undefined) ? "" : streetIn;
+houseNumberIn = (houseNumberIn === undefined) ? "" : houseNumberIn;
+cityIn = (cityIn === undefined) ? "" : cityIn;
+zipCodeIn = (zipCodeIn === undefined) ? "" : zipCodeIn;
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.format_GetLocationAddress$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(streetIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(houseNumberIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(cityIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(zipCodeIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+LocationAddress: OS.DataConversion.JSNodeParamConverter.to(actionResults.locationAddressOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_Order_CW.controller$GetUserEntitlementInfo", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Order_CW.clientVariables", "ECP_Order_CW.model$UserEntitlementInfoRec"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.getUserEntitlementInfo$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var jSONDeserializeUserEntitlementInfoVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_Order_CWModel.UserEntitlementInfoRec))());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.GetUserEntitlementInfo$outVars"))());
+// JSON Deserialize: JSONDeserializeUserEntitlementInfo
+jSONDeserializeUserEntitlementInfoVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(ECP_Order_CWClientVariables.getUserEntitlementInfo(), ECP_Order_CWModel.UserEntitlementInfoRec, false);
+// UserEntitlementInfo = JSONDeserializeUserEntitlementInfo.Data
+outVars.value.userEntitlementInfoOut = jSONDeserializeUserEntitlementInfoVar.value.dataOut;
+return outVars.value;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.GetUserEntitlementInfo$outVars", [{
+name: "UserEntitlementInfo",
+attrName: "userEntitlementInfoOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Order_CWModel.UserEntitlementInfoRec();
+},
+complexType: ECP_Order_CWModel.UserEntitlementInfoRec
+}]);
+ECP_Order_CWController.default.clientActionProxies.getUserEntitlementInfo$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.getUserEntitlementInfo$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+UserEntitlementInfo: actionResults.userEntitlementInfoOut
+};
+});
+};
+});
+
+define("ECP_Order_CW.controller$Monitoring", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Order_CW.clientVariables", "ECP_Order_CW.model$MonitoringRec"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.monitoring$Action = function (oneWelcomeIdIn, cartIdIn, orderEditIdIn, userStoreIdIn, customerIdIn, stepsIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Monitoring$vars"))());
+vars.value.oneWelcomeIdInLocal = oneWelcomeIdIn;
+vars.value.cartIdInLocal = cartIdIn;
+vars.value.orderEditIdInLocal = orderEditIdIn;
+vars.value.userStoreIdInLocal = userStoreIdIn;
+vars.value.customerIdInLocal = customerIdIn;
+vars.value.stepsInLocal = stepsIn;
+var jSONMonitoringVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Monitoring$outVars"))());
+// Monitoring
+// Monitoring.OneWelcomeId = OneWelcomeId
+vars.value.monitoringVar.oneWelcomeIdAttr = vars.value.oneWelcomeIdInLocal;
+// Monitoring.CartId = CartId
+vars.value.monitoringVar.cartIdAttr = vars.value.cartIdInLocal;
+// Monitoring.OrderEditId = OrderEditId
+vars.value.monitoringVar.orderEditIdAttr = vars.value.orderEditIdInLocal;
+// Monitoring.UserStoreId = UserStoreId
+vars.value.monitoringVar.userStoreIdAttr = vars.value.userStoreIdInLocal;
+// Monitoring.CustomerId = CustomerId
+vars.value.monitoringVar.customerIdAttr = vars.value.customerIdInLocal;
+// Monitoring.Steps = Steps
+vars.value.monitoringVar.stepsAttr = vars.value.stepsInLocal;
+// JSON Serialize: JSONMonitoring
+jSONMonitoringVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.monitoringVar, false, false);
+// MonitoringJSON = JSONMonitoring.JSON
+outVars.value.monitoringJSONOut = jSONMonitoringVar.value.jSONOut;
+return outVars.value;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Monitoring$vars", [{
+name: "OneWelcomeId",
+attrName: "oneWelcomeIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CartId",
+attrName: "cartIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "OrderEditId",
+attrName: "orderEditIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "UserStoreId",
+attrName: "userStoreIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CustomerId",
+attrName: "customerIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Steps",
+attrName: "stepsInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Monitoring",
+attrName: "monitoringVar",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Order_CWModel.MonitoringRec();
+},
+complexType: ECP_Order_CWModel.MonitoringRec
+}]);
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Monitoring$outVars", [{
+name: "MonitoringJSON",
+attrName: "monitoringJSONOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Order_CWController.default.clientActionProxies.monitoring$Action = function (oneWelcomeIdIn, cartIdIn, orderEditIdIn, userStoreIdIn, customerIdIn, stepsIn) {
+oneWelcomeIdIn = (oneWelcomeIdIn === undefined) ? "" : oneWelcomeIdIn;
+cartIdIn = (cartIdIn === undefined) ? "" : cartIdIn;
+orderEditIdIn = (orderEditIdIn === undefined) ? "" : orderEditIdIn;
+userStoreIdIn = (userStoreIdIn === undefined) ? "" : userStoreIdIn;
+customerIdIn = (customerIdIn === undefined) ? "" : customerIdIn;
+stepsIn = (stepsIn === undefined) ? "" : stepsIn;
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.monitoring$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(oneWelcomeIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(cartIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(orderEditIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(userStoreIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(customerIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(stepsIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+MonitoringJSON: OS.DataConversion.JSNodeParamConverter.to(actionResults.monitoringJSONOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_Order_CW.controller$Monitoring_OrderConfirmation", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Checkout_BL.model", "ECP_Order_CW.clientVariables", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_Order_CW.referencesHealth", "ECP_Order_CW.referencesHealth$ECP_Checkout_BL", "ECP_Order_CW.model$LineItemList", "ECP_Order_CW.model$Monitoring_OrderConfirmationRec"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Checkout_BLModel, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.monitoring_OrderConfirmation$Action = function (screen_OrderGuidIn, screen_OneWelcomeIdIn, screen_CartIdIn, screen_OrderEditIdIn, screen_IsOrderEditModeIn, screen_IsCreateOrderIn, getCheckoutById_CheckoutIdIn, getCheckoutById_CheckoutVersionIn, getCheckoutById_IsOrderEditModeIn, getCheckoutById_ProductListIn, getCheckoutById_ReservedMomentIn, getCheckoutById_OrderEditVersionIn, checkoutStepFinal_CheckoutIdIn, checkoutStepFinal_CheckoutVersionIn, checkoutStepFinal_FinalCheckFailResultIdIn, checkoutStepFinal_ProductListIn, checkoutStepFinal_ReservedMomentIn, checkoutStepFinal_OrderEditVersionIn, checkoutStepFinal_NewCheckoutIdIn, checkoutStepFinal_NewCheckoutVersionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Monitoring_OrderConfirmation$vars"))());
+vars.value.screen_OrderGuidInLocal = screen_OrderGuidIn;
+vars.value.screen_OneWelcomeIdInLocal = screen_OneWelcomeIdIn;
+vars.value.screen_CartIdInLocal = screen_CartIdIn;
+vars.value.screen_OrderEditIdInLocal = screen_OrderEditIdIn;
+vars.value.screen_IsOrderEditModeInLocal = screen_IsOrderEditModeIn;
+vars.value.screen_IsCreateOrderInLocal = screen_IsCreateOrderIn;
+vars.value.getCheckoutById_CheckoutIdInLocal = getCheckoutById_CheckoutIdIn;
+vars.value.getCheckoutById_CheckoutVersionInLocal = getCheckoutById_CheckoutVersionIn;
+vars.value.getCheckoutById_IsOrderEditModeInLocal = getCheckoutById_IsOrderEditModeIn;
+vars.value.getCheckoutById_ProductListInLocal = getCheckoutById_ProductListIn.clone();
+vars.value.getCheckoutById_ReservedMomentInLocal = getCheckoutById_ReservedMomentIn.clone();
+vars.value.getCheckoutById_OrderEditVersionInLocal = getCheckoutById_OrderEditVersionIn;
+vars.value.checkoutStepFinal_CheckoutIdInLocal = checkoutStepFinal_CheckoutIdIn;
+vars.value.checkoutStepFinal_CheckoutVersionInLocal = checkoutStepFinal_CheckoutVersionIn;
+vars.value.checkoutStepFinal_FinalCheckFailResultIdInLocal = checkoutStepFinal_FinalCheckFailResultIdIn;
+vars.value.checkoutStepFinal_ProductListInLocal = checkoutStepFinal_ProductListIn.clone();
+vars.value.checkoutStepFinal_ReservedMomentInLocal = checkoutStepFinal_ReservedMomentIn.clone();
+vars.value.checkoutStepFinal_OrderEditVersionInLocal = checkoutStepFinal_OrderEditVersionIn;
+vars.value.checkoutStepFinal_NewCheckoutIdInLocal = checkoutStepFinal_NewCheckoutIdIn;
+vars.value.checkoutStepFinal_NewCheckoutVersionInLocal = checkoutStepFinal_NewCheckoutVersionIn;
+var jSONSerialize_ReservedMomentVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var jSONSerialize_ProductList_FinalStepVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var jSONSerialize_ReservedMoment_FinalStepVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var jSONSerialize_ProductListVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var jSONMonitoringVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.Monitoring_OrderConfirmation$outVars"))());
+// JSON Serialize: JSONSerialize_ProductList
+jSONSerialize_ProductListVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.getCheckoutById_ProductListInLocal, false, false);
+// JSON Serialize: JSONSerialize_ReservedMoment
+jSONSerialize_ReservedMomentVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.getCheckoutById_ReservedMomentInLocal, false, false);
+// Monitoring screen variables
+// Monitoring.Screen_OrderGuid = Screen_OrderGuid
+vars.value.monitoringVar.screen_OrderGuidAttr = vars.value.screen_OrderGuidInLocal;
+// Monitoring.Screen_OneWelcomeId = Screen_OneWelcomeId
+vars.value.monitoringVar.screen_OneWelcomeIdAttr = vars.value.screen_OneWelcomeIdInLocal;
+// Monitoring.Screen_CartId = Screen_CartId
+vars.value.monitoringVar.screen_CartIdAttr = vars.value.screen_CartIdInLocal;
+// Monitoring.Screen_OrderEditId = Screen_OrderEditId
+vars.value.monitoringVar.screen_OrderEditIdAttr = vars.value.screen_OrderEditIdInLocal;
+// Monitoring.Screen_IsOrderEditMode = Screen_IsOrderEditMode
+vars.value.monitoringVar.screen_IsOrderEditModeAttr = vars.value.screen_IsOrderEditModeInLocal;
+// Monitoring.Screen_IsCreateOrder = Screen_IsCreateOrder
+vars.value.monitoringVar.screen_IsCreateOrderAttr = vars.value.screen_IsCreateOrderInLocal;
+// GetCheckoutById output
+// Monitoring.GetCheckoutById_CheckoutId = GetCheckoutById_CheckoutId
+vars.value.monitoringVar.getCheckoutById_CheckoutIdAttr = vars.value.getCheckoutById_CheckoutIdInLocal;
+// Monitoring.GetCheckoutById_CheckoutVersion = GetCheckoutById_CheckoutVersion
+vars.value.monitoringVar.getCheckoutById_CheckoutVersionAttr = vars.value.getCheckoutById_CheckoutVersionInLocal;
+// Monitoring.GetCheckoutById_IsOrderEditMode = GetCheckoutById_IsOrderEditMode
+vars.value.monitoringVar.getCheckoutById_IsOrderEditModeAttr = vars.value.getCheckoutById_IsOrderEditModeInLocal;
+// Monitoring.GetCheckoutById_ProductList = JSONSerialize_ProductList.JSON
+vars.value.monitoringVar.getCheckoutById_ProductListAttr = jSONSerialize_ProductListVar.value.jSONOut;
+// Monitoring.GetCheckoutById_ReservedMoment = JSONSerialize_ReservedMoment.JSON
+vars.value.monitoringVar.getCheckoutById_ReservedMomentAttr = jSONSerialize_ReservedMomentVar.value.jSONOut;
+// Monitoring.GetCheckoutById_OrderEditVersion = GetCheckoutById_OrderEditVersion
+vars.value.monitoringVar.getCheckoutById_OrderEditVersionAttr = (vars.value.getCheckoutById_OrderEditVersionInLocal).toString();
+// JSON Serialize: JSONSerialize_ProductList_FinalStep
+jSONSerialize_ProductList_FinalStepVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.checkoutStepFinal_ProductListInLocal, false, false);
+// JSON Serialize: JSONSerialize_ReservedMoment_FinalStep
+jSONSerialize_ReservedMoment_FinalStepVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.checkoutStepFinal_ReservedMomentInLocal, false, false);
+// CheckoutStepFinal output
+// Monitoring.CheckoutStepFinal_CheckoutId = CheckoutStepFinal_CheckoutId
+vars.value.monitoringVar.checkoutStepFinal_CheckoutIdAttr = vars.value.checkoutStepFinal_CheckoutIdInLocal;
+// Monitoring.CheckoutStepFinal_CheckoutVersion = CheckoutStepFinal_CheckoutVersion
+vars.value.monitoringVar.checkoutStepFinal_CheckoutVersionAttr = vars.value.checkoutStepFinal_CheckoutVersionInLocal;
+// Monitoring.CheckoutStepFinal_FinalCheckFailResultId = CheckoutStepFinal_FinalCheckFailResultId
+vars.value.monitoringVar.checkoutStepFinal_FinalCheckFailResultIdAttr = vars.value.checkoutStepFinal_FinalCheckFailResultIdInLocal;
+// Monitoring.CheckoutStepFinal_ProductList = JSONSerialize_ProductList_FinalStep.JSON
+vars.value.monitoringVar.checkoutStepFinal_ProductListAttr = jSONSerialize_ProductList_FinalStepVar.value.jSONOut;
+// Monitoring.CheckoutStepFinal_ReservedMoment = JSONSerialize_ReservedMoment_FinalStep.JSON
+vars.value.monitoringVar.checkoutStepFinal_ReservedMomentAttr = jSONSerialize_ReservedMoment_FinalStepVar.value.jSONOut;
+// Monitoring.CheckoutStepFinal_OrderEditVersion = CheckoutStepFinal_OrderEditVersion
+vars.value.monitoringVar.checkoutStepFinal_OrderEditVersionAttr = (vars.value.checkoutStepFinal_OrderEditVersionInLocal).toString();
+// Monitoring.CheckoutStepFinal_NewCheckoutId = CheckoutStepFinal_NewCheckoutId
+vars.value.monitoringVar.checkoutStepFinal_NewCheckoutIdAttr = vars.value.checkoutStepFinal_NewCheckoutIdInLocal;
+// Monitoring.CheckoutStepFinal_NewCheckoutVersion = CheckoutStepFinal_NewCheckoutVersion
+vars.value.monitoringVar.checkoutStepFinal_NewCheckoutVersionAttr = vars.value.checkoutStepFinal_NewCheckoutVersionInLocal;
+// JSON Serialize: JSONMonitoring
+jSONMonitoringVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.monitoringVar, false, false);
+// MonitoringJSON = JSONMonitoring.JSON
+outVars.value.monitoringJSONOut = jSONMonitoringVar.value.jSONOut;
+return outVars.value;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Monitoring_OrderConfirmation$vars", [{
+name: "Screen_OrderGuid",
+attrName: "screen_OrderGuidInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Screen_OneWelcomeId",
+attrName: "screen_OneWelcomeIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Screen_CartId",
+attrName: "screen_CartIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Screen_OrderEditId",
+attrName: "screen_OrderEditIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Screen_IsOrderEditMode",
+attrName: "screen_IsOrderEditModeInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Screen_IsCreateOrder",
+attrName: "screen_IsCreateOrderInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "GetCheckoutById_CheckoutId",
+attrName: "getCheckoutById_CheckoutIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "GetCheckoutById_CheckoutVersion",
+attrName: "getCheckoutById_CheckoutVersionInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "GetCheckoutById_IsOrderEditMode",
+attrName: "getCheckoutById_IsOrderEditModeInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "GetCheckoutById_ProductList",
+attrName: "getCheckoutById_ProductListInLocal",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Order_CWModel.LineItemList();
+},
+complexType: ECP_Order_CWModel.LineItemList
+}, {
+name: "GetCheckoutById_ReservedMoment",
+attrName: "getCheckoutById_ReservedMomentInLocal",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Checkout_BLModel.ReservedMomentRec();
+},
+complexType: ECP_Checkout_BLModel.ReservedMomentRec
+}, {
+name: "GetCheckoutById_OrderEditVersion",
+attrName: "getCheckoutById_OrderEditVersionInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "CheckoutStepFinal_CheckoutId",
+attrName: "checkoutStepFinal_CheckoutIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CheckoutStepFinal_CheckoutVersion",
+attrName: "checkoutStepFinal_CheckoutVersionInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CheckoutStepFinal_FinalCheckFailResultId",
+attrName: "checkoutStepFinal_FinalCheckFailResultIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CheckoutStepFinal_ProductList",
+attrName: "checkoutStepFinal_ProductListInLocal",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Order_CWModel.LineItemList();
+},
+complexType: ECP_Order_CWModel.LineItemList
+}, {
+name: "CheckoutStepFinal_ReservedMoment",
+attrName: "checkoutStepFinal_ReservedMomentInLocal",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Checkout_BLModel.ReservedMomentRec();
+},
+complexType: ECP_Checkout_BLModel.ReservedMomentRec
+}, {
+name: "CheckoutStepFinal_OrderEditVersion",
+attrName: "checkoutStepFinal_OrderEditVersionInLocal",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "CheckoutStepFinal_NewCheckoutId",
+attrName: "checkoutStepFinal_NewCheckoutIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "CheckoutStepFinal_NewCheckoutVersion",
+attrName: "checkoutStepFinal_NewCheckoutVersionInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Monitoring",
+attrName: "monitoringVar",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Order_CWModel.Monitoring_OrderConfirmationRec();
+},
+complexType: ECP_Order_CWModel.Monitoring_OrderConfirmationRec
+}]);
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.Monitoring_OrderConfirmation$outVars", [{
+name: "MonitoringJSON",
+attrName: "monitoringJSONOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Order_CWController.default.clientActionProxies.monitoring_OrderConfirmation$Action = function (screen_OrderGuidIn, screen_OneWelcomeIdIn, screen_CartIdIn, screen_OrderEditIdIn, screen_IsOrderEditModeIn, screen_IsCreateOrderIn, getCheckoutById_CheckoutIdIn, getCheckoutById_CheckoutVersionIn, getCheckoutById_IsOrderEditModeIn, getCheckoutById_ProductListIn, getCheckoutById_ReservedMomentIn, getCheckoutById_OrderEditVersionIn, checkoutStepFinal_CheckoutIdIn, checkoutStepFinal_CheckoutVersionIn, checkoutStepFinal_FinalCheckFailResultIdIn, checkoutStepFinal_ProductListIn, checkoutStepFinal_ReservedMomentIn, checkoutStepFinal_OrderEditVersionIn, checkoutStepFinal_NewCheckoutIdIn, checkoutStepFinal_NewCheckoutVersionIn) {
+screen_OrderGuidIn = (screen_OrderGuidIn === undefined) ? "" : screen_OrderGuidIn;
+screen_OneWelcomeIdIn = (screen_OneWelcomeIdIn === undefined) ? "" : screen_OneWelcomeIdIn;
+screen_CartIdIn = (screen_CartIdIn === undefined) ? "" : screen_CartIdIn;
+screen_OrderEditIdIn = (screen_OrderEditIdIn === undefined) ? "" : screen_OrderEditIdIn;
+screen_IsOrderEditModeIn = (screen_IsOrderEditModeIn === undefined) ? "" : screen_IsOrderEditModeIn;
+screen_IsCreateOrderIn = (screen_IsCreateOrderIn === undefined) ? "" : screen_IsCreateOrderIn;
+getCheckoutById_CheckoutIdIn = (getCheckoutById_CheckoutIdIn === undefined) ? "" : getCheckoutById_CheckoutIdIn;
+getCheckoutById_CheckoutVersionIn = (getCheckoutById_CheckoutVersionIn === undefined) ? "" : getCheckoutById_CheckoutVersionIn;
+getCheckoutById_IsOrderEditModeIn = (getCheckoutById_IsOrderEditModeIn === undefined) ? "" : getCheckoutById_IsOrderEditModeIn;
+getCheckoutById_ProductListIn = (getCheckoutById_ProductListIn === undefined) ? new ECP_Order_CWModel.LineItemList() : getCheckoutById_ProductListIn;
+getCheckoutById_ReservedMomentIn = (getCheckoutById_ReservedMomentIn === undefined) ? new ECP_Checkout_BLModel.ReservedMomentRec() : getCheckoutById_ReservedMomentIn;
+getCheckoutById_OrderEditVersionIn = (getCheckoutById_OrderEditVersionIn === undefined) ? 0 : getCheckoutById_OrderEditVersionIn;
+checkoutStepFinal_CheckoutIdIn = (checkoutStepFinal_CheckoutIdIn === undefined) ? "" : checkoutStepFinal_CheckoutIdIn;
+checkoutStepFinal_CheckoutVersionIn = (checkoutStepFinal_CheckoutVersionIn === undefined) ? "" : checkoutStepFinal_CheckoutVersionIn;
+checkoutStepFinal_FinalCheckFailResultIdIn = (checkoutStepFinal_FinalCheckFailResultIdIn === undefined) ? "" : checkoutStepFinal_FinalCheckFailResultIdIn;
+checkoutStepFinal_ProductListIn = (checkoutStepFinal_ProductListIn === undefined) ? new ECP_Order_CWModel.LineItemList() : checkoutStepFinal_ProductListIn;
+checkoutStepFinal_ReservedMomentIn = (checkoutStepFinal_ReservedMomentIn === undefined) ? new ECP_Checkout_BLModel.ReservedMomentRec() : checkoutStepFinal_ReservedMomentIn;
+checkoutStepFinal_OrderEditVersionIn = (checkoutStepFinal_OrderEditVersionIn === undefined) ? 0 : checkoutStepFinal_OrderEditVersionIn;
+checkoutStepFinal_NewCheckoutIdIn = (checkoutStepFinal_NewCheckoutIdIn === undefined) ? "" : checkoutStepFinal_NewCheckoutIdIn;
+checkoutStepFinal_NewCheckoutVersionIn = (checkoutStepFinal_NewCheckoutVersionIn === undefined) ? "" : checkoutStepFinal_NewCheckoutVersionIn;
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.monitoring_OrderConfirmation$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(screen_OrderGuidIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(screen_OneWelcomeIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(screen_CartIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(screen_OrderEditIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(screen_IsOrderEditModeIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(screen_IsCreateOrderIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(getCheckoutById_CheckoutIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(getCheckoutById_CheckoutVersionIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(getCheckoutById_IsOrderEditModeIn, OS.Types.Text), getCheckoutById_ProductListIn, getCheckoutById_ReservedMomentIn, OS.DataConversion.JSNodeParamConverter.from(getCheckoutById_OrderEditVersionIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(checkoutStepFinal_CheckoutIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(checkoutStepFinal_CheckoutVersionIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(checkoutStepFinal_FinalCheckFailResultIdIn, OS.Types.Text), checkoutStepFinal_ProductListIn, checkoutStepFinal_ReservedMomentIn, OS.DataConversion.JSNodeParamConverter.from(checkoutStepFinal_OrderEditVersionIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(checkoutStepFinal_NewCheckoutIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(checkoutStepFinal_NewCheckoutVersionIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+MonitoringJSON: OS.DataConversion.JSNodeParamConverter.to(actionResults.monitoringJSONOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_Order_CW.controller$ResetCheckoutClients", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Cart_CW.controller", "ECP_Cart_BL.model", "ECP_Order_CW.clientVariables", "ECP_Order_CW.model$LineItemList", "ECP_Cart_CW.controller$Cart_SetItemsList", "ECP_Order_CW.referencesHealth", "ECP_Order_CW.referencesHealth$ECP_Cart_CW", "ECP_Cart_CW.controller$Cart_ResetVoucherList_RM", "ECP_Order_CW.model$PromotionLineItemList", "ECP_Cart_BL.model$DeliveryCostBreakdown_StrRec", "ECP_Order_CW.referencesHealth$ECP_Cart_BL", "ECP_Cart_CW.controller$Cart_SetTotals", "ECP_Cart_CW.controller$Cart_ResetVoucherList_P", "ECP_Cart_CW.controller$Cart_Client_ResetAllTemps"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Cart_CWController, ECP_Cart_BLModel, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.resetCheckoutClients$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+// Execute Action: ResetClientTotals
+ECP_Cart_CWController.default.cart_SetTotals$Action(OS.BuiltinFunctions.integerToDecimal(0), OS.BuiltinFunctions.integerToDecimal(0), 0, "", 0, OS.BuiltinFunctions.integerToDecimal(0), OS.BuiltinFunctions.integerToDecimal(0), OS.BuiltinFunctions.integerToDecimal(0), OS.BuiltinFunctions.integerToDecimal(0), new ECP_Order_CWModel.PromotionLineItemList(), OS.BuiltinFunctions.currDate(), OS.BuiltinFunctions.integerToDecimal(0), OS.BuiltinFunctions.integerToDecimal(0), 0, OS.BuiltinFunctions.integerToDecimal(0), 0, false, new ECP_Cart_BLModel.DeliveryCostBreakdown_StrRec(), false, false, OS.BuiltinFunctions.integerToDecimal(0), false, callContext);
+// Reset PlusPointsChanged Client
+// PlusPointsChanged = False
+ECP_Order_CWClientVariables.setPlusPointsChanged(false);
+// Execute Action: Cart_ResetItemsList
+ECP_Cart_CWController.default.cart_SetItemsList$Action(new ECP_Order_CWModel.LineItemList(), callContext);
+// Reset wallet code
+// AnonymousWalletCode = ""
+ECP_Order_CWClientVariables.setAnonymousWalletCode("");
+// Execute Action: Cart_ResetVoucherList_RM
+ECP_Cart_CWController.default.cart_ResetVoucherList_RM$Action(callContext);
+// Execute Action: Cart_ResetVoucherList_P
+ECP_Cart_CWController.default.cart_ResetVoucherList_P$Action(callContext);
+// Execute Action: Cart_Client_ResetAllTemps
+ECP_Cart_CWController.default.cart_Client_ResetAllTemps$Action(callContext);
+return ;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.clientActionProxies.resetCheckoutClients$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.resetCheckoutClients$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_Order_CW.controller$ResetUserEntitlementInfo", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Order_CW.clientVariables"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.resetUserEntitlementInfo$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+// UserEntitlementInfo
+// UserEntitlementInfo = ""
+ECP_Order_CWClientVariables.setUserEntitlementInfo("");
+return ;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.clientActionProxies.resetUserEntitlementInfo$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.resetUserEntitlementInfo$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_Order_CW.controller$SetAnonymousWalletCode", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Order_CW.clientVariables"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.setAnonymousWalletCode$Action = function (anonymousWalletCodeIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.SetAnonymousWalletCode$vars"))());
+vars.value.anonymousWalletCodeInLocal = anonymousWalletCodeIn;
+// AnonymousWalletCode = AnonymousWalletCode
+ECP_Order_CWClientVariables.setAnonymousWalletCode(vars.value.anonymousWalletCodeInLocal);
+return ;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.SetAnonymousWalletCode$vars", [{
+name: "AnonymousWalletCode",
+attrName: "anonymousWalletCodeInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Order_CWController.default.clientActionProxies.setAnonymousWalletCode$Action = function (anonymousWalletCodeIn) {
+anonymousWalletCodeIn = (anonymousWalletCodeIn === undefined) ? "" : anonymousWalletCodeIn;
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.setAnonymousWalletCode$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(anonymousWalletCodeIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_Order_CW.controller$SetCartAttachedAnonymousWallet", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Order_CW.clientVariables", "ECP_Order_CW.controller$ServerAction.Wrapper_GetTextSettingValue_Cache", "ECP_Order_CW.model$DiscountLineItemList"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.setCartAttachedAnonymousWallet$Action = function (voucherListIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.SetCartAttachedAnonymousWallet$vars"))());
+vars.value.voucherListInLocal = voucherListIn.clone();
+var wrapper_GetTextSettingValue_CacheVar = new OS.DataTypes.VariableHolder();
+var listIndexOf_AnonymousAssetVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: Wrapper_GetTextSettingValue_Cache
+return controller.wrapper_GetTextSettingValue_Cache$ServerAction("ECOP_VOUCHERASSETCCM", "", callContext).then(function (value) {
+wrapper_GetTextSettingValue_CacheVar.value = value;
+}).then(function () {
+// Set local
+// AnonymousAsset = Wrapper_GetTextSettingValue_Cache.TextValue
+vars.value.anonymousAssetVar = wrapper_GetTextSettingValue_CacheVar.value.textValueOut;
+// Execute Action: ListIndexOf_AnonymousAsset
+listIndexOf_AnonymousAssetVar.value = OS.SystemActions.listIndexOf(vars.value.voucherListInLocal, function (p) {
+return (p.codeAttr === vars.value.anonymousAssetVar);
+}, callContext);
+
+}).then(function () {
+// Found elelement?
+if((((listIndexOf_AnonymousAssetVar.value.positionOut) !== (-1)))) {
+// Set client
+// AnonymousWalletCode = VoucherList[ListIndexOf_AnonymousAsset.Position].ExternalCode
+ECP_Order_CWClientVariables.setAnonymousWalletCode(vars.value.voucherListInLocal.getItem(listIndexOf_AnonymousAssetVar.value.positionOut).externalCodeAttr);
+}
+
+});
+}).then(function () {
+return ;
+});
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.SetCartAttachedAnonymousWallet$vars", [{
+name: "VoucherList",
+attrName: "voucherListInLocal",
+mandatory: true,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Order_CWModel.DiscountLineItemList();
+},
+complexType: ECP_Order_CWModel.DiscountLineItemList
+}, {
+name: "AnonymousAsset",
+attrName: "anonymousAssetVar",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Order_CWController.default.clientActionProxies.setCartAttachedAnonymousWallet$Action = function (voucherListIn) {
+voucherListIn = (voucherListIn === undefined) ? new ECP_Order_CWModel.DiscountLineItemList() : voucherListIn;
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.setCartAttachedAnonymousWallet$Action.bind(controller, voucherListIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_Order_CW.controller$SetUserEntitlementInfo", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "ECP_Order_CW.clientVariables", "ECP_Order_CW.model$UserEntitlementInfoRec"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController, ECP_Order_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.setUserEntitlementInfo$Action = function (userEntitlementInfoIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Order_CW.SetUserEntitlementInfo$vars"))());
+vars.value.userEntitlementInfoInLocal = userEntitlementInfoIn.clone();
+var jSONSerialize1Var = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+// JSON Serialize: JSONSerialize1
+jSONSerialize1Var.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.userEntitlementInfoInLocal, false, false);
+// UserEntitlementInfo
+// UserEntitlementInfo = JSONSerialize1.JSON
+ECP_Order_CWClientVariables.setUserEntitlementInfo(jSONSerialize1Var.value.jSONOut);
+return ;
+};
+var controller = ECP_Order_CWController.default;
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW.SetUserEntitlementInfo$vars", [{
+name: "UserEntitlementInfo",
+attrName: "userEntitlementInfoInLocal",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Order_CWModel.UserEntitlementInfoRec();
+},
+complexType: ECP_Order_CWModel.UserEntitlementInfoRec
+}]);
+ECP_Order_CWController.default.clientActionProxies.setUserEntitlementInfo$Action = function (userEntitlementInfoIn) {
+userEntitlementInfoIn = (userEntitlementInfoIn === undefined) ? new ECP_Order_CWModel.UserEntitlementInfoRec() : userEntitlementInfoIn;
+return controller.executeActionInsideJSNode(ECP_Order_CWController.default.setUserEntitlementInfo$Action.bind(controller, userEntitlementInfoIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_Order_CW.controller$ServerAction.Wrapper_GetTextSettingValue_Cache", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CWController) {
+var OS = OutSystems.Internal;
+ECP_Order_CWController.default.wrapper_GetTextSettingValue_Cache$ServerAction = function (settingCodeIn, localeIn, callContext) {
+var controller = this.controller;
+var inputs = {
+SettingCode: OS.DataConversion.ServerDataConverter.to(settingCodeIn, OS.Types.Text),
+Locale: OS.DataConversion.ServerDataConverter.to(localeIn, OS.Types.Text)
+};
+return controller.callServerAction("Wrapper_GetTextSettingValue_Cache", "screenservices/ECP_Order_CW/ActionWrapper_GetTextSettingValue_Cache", "CQz8RRLvDYTRaJRXgkHAnA", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_Order_CW$rssespaceecp_setting_cs_ActionWrapper_GetTextSettingValue_Cache"))();
+executeServerActionResult.textValueOut = OS.DataConversion.ServerDataConverter.from(outputs.TextValue, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+ECP_Order_CWController.default.constructor.registerVariableGroupType("ECP_Order_CW$rssespaceecp_setting_cs_ActionWrapper_GetTextSettingValue_Cache", [{
+name: "TextValue",
+attrName: "textValueOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("ECP_Order_CW.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller$translationsResources"], function (exports, OutSystems, ECP_Order_CWModel, ECP_Order_CW_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECP_Order_CWController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 60;
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Order_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECP_Order_CWController.default = new Controller(ECP_Order_CW_Controller_translationsResources, "ECP_Order_CW");
+});
+define("ECP_Order_CW.controller$translationsResources", ["exports", "ECP_Order_CW.controller$translationsResources.nl-NL"], function (exports, ECP_Order_CW_controller_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Order_CW_controller_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Order_CW.controller$translationsResources.nl-NL", [], function () {
+return {
+"EpkknAEc3kqTp+Y5tHM7gQ#Value.-216634360.1": "tussen",
+"irvwe9XtGE+w8Ey6Lq66sA#Value.110113.1": "op "
+};
+});

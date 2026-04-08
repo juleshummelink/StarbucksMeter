@@ -1,0 +1,57 @@
+﻿define("ECP_Order_CW.clientVariables", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+var ClientVariables = (function (_super) {
+var clientVarsService;
+function ClientVariables() {
+clientVarsService = OS.Injector.resolve(OS.ServiceNames.ClientVariablesService);
+}
+ClientVariables.prototype.getPlusPointsChanged = function () {
+return clientVarsService.getVariable("PlusPointsChanged", "ECP_Order_CW", OS.Types.Boolean, false);
+};
+ClientVariables.prototype.setPlusPointsChanged = function (value) {
+return clientVarsService.setVariable("PlusPointsChanged", "ECP_Order_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getAnonymousWalletCode = function () {
+return clientVarsService.getVariable("AnonymousWalletCode", "ECP_Order_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setAnonymousWalletCode = function (value) {
+return clientVarsService.setVariable("AnonymousWalletCode", "ECP_Order_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getOrderConfirmationJSON = function () {
+return clientVarsService.getVariable("OrderConfirmationJSON", "ECP_Order_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setOrderConfirmationJSON = function (value) {
+return clientVarsService.setVariable("OrderConfirmationJSON", "ECP_Order_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getPreferences_JSON = function () {
+return clientVarsService.getVariable("Preferences_JSON", "ECP_Order_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setPreferences_JSON = function (value) {
+return clientVarsService.setVariable("Preferences_JSON", "ECP_Order_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getUserEntitlementInfo = function () {
+return clientVarsService.getVariable("UserEntitlementInfo", "ECP_Order_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setUserEntitlementInfo = function (value) {
+return clientVarsService.setVariable("UserEntitlementInfo", "ECP_Order_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getShoppingListProductsJSON = function () {
+return clientVarsService.getVariable("ShoppingListProductsJSON", "ECP_Order_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setShoppingListProductsJSON = function (value) {
+return clientVarsService.setVariable("ShoppingListProductsJSON", "ECP_Order_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.serialize = function () {
+return {
+PlusPointsChanged: OS.DataConversion.ServerDataConverter.to(this.getPlusPointsChanged(), OS.Types.Boolean),
+AnonymousWalletCode: OS.DataConversion.ServerDataConverter.to(this.getAnonymousWalletCode(), OS.Types.Text),
+OrderConfirmationJSON: OS.DataConversion.ServerDataConverter.to(this.getOrderConfirmationJSON(), OS.Types.Text),
+Preferences_JSON: OS.DataConversion.ServerDataConverter.to(this.getPreferences_JSON(), OS.Types.Text),
+UserEntitlementInfo: OS.DataConversion.ServerDataConverter.to(this.getUserEntitlementInfo(), OS.Types.Text),
+ShoppingListProductsJSON: OS.DataConversion.ServerDataConverter.to(this.getShoppingListProductsJSON(), OS.Types.Text)
+};
+};
+return ClientVariables;
+})();
+return new ClientVariables();
+});

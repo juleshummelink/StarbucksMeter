@@ -1,0 +1,214 @@
+﻿define("PL_MT_ExceptionHandling_BL.model$MonitoringRec", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringRec = (function (_super) {
+__extends(MonitoringRec, _super);
+function MonitoringRec(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringRec.attributesToDeclare = function () {
+return [
+this.attr("ApplicationName", "applicationNameAttr", "ApplicationName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("GlobalType", "globalTypeAttr", "GlobalType", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreationDateTime", "creationDateTimeAttr", "CreationDateTime", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Environment", "environmentAttr", "Environment", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Action", "actionAttr", "Action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Duration", "durationAttr", "Duration", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ExternalApp", "externalAppAttr", "ExternalApp", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "Message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Flow", "flowAttr", "Flow", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MonitoringRec.init();
+return MonitoringRec;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ExceptionHandling_BLModel.MonitoringRec = MonitoringRec;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$MonitoringList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.model$MonitoringRec"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringList = (function (_super) {
+__extends(MonitoringList, _super);
+function MonitoringList(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringList.itemType = PL_MT_ExceptionHandling_BLModel.MonitoringRec;
+return MonitoringList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ExceptionHandling_BLModel.MonitoringList = MonitoringList;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$MonitoringRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.model$MonitoringRec"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringRecord = (function (_super) {
+__extends(MonitoringRecord, _super);
+function MonitoringRecord(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringRecord.attributesToDeclare = function () {
+return [
+this.attr("Monitoring", "monitoringAttr", "Monitoring", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_ExceptionHandling_BLModel.MonitoringRec());
+}, true, PL_MT_ExceptionHandling_BLModel.MonitoringRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MonitoringRecord.fromStructure = function (str) {
+return new MonitoringRecord(new MonitoringRecord.RecordClass({
+monitoringAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MonitoringRecord._isAnonymousRecord = true;
+MonitoringRecord.UniqueId = "3ba284a5-9487-f019-d99f-28953c15f808";
+MonitoringRecord.init();
+return MonitoringRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ExceptionHandling_BLModel.MonitoringRecord = MonitoringRecord;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$LogExceptionStrRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_Lib.model", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_Lib.model$LogExceptionStrRec", "PL_MT_ExceptionHandling_BL.referencesHealth", "PL_MT_ExceptionHandling_BL.referencesHealth$PL_MT_ExceptionHandling_Lib"], function (exports, OutSystems, PL_MT_ExceptionHandling_LibModel, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrRecord = (function (_super) {
+__extends(LogExceptionStrRecord, _super);
+function LogExceptionStrRecord(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrRecord.attributesToDeclare = function () {
+return [
+this.attr("LogExceptionStr", "logExceptionStrAttr", "LogExceptionStr", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_ExceptionHandling_LibModel.LogExceptionStrRec());
+}, true, PL_MT_ExceptionHandling_LibModel.LogExceptionStrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+LogExceptionStrRecord.fromStructure = function (str) {
+return new LogExceptionStrRecord(new LogExceptionStrRecord.RecordClass({
+logExceptionStrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+LogExceptionStrRecord._isAnonymousRecord = true;
+LogExceptionStrRecord.UniqueId = "85ad05fb-0632-9aad-545f-de6947c3cb0e";
+LogExceptionStrRecord.init();
+return LogExceptionStrRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ExceptionHandling_BLModel.LogExceptionStrRecord = LogExceptionStrRecord;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$LogExceptionStrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.model$LogExceptionStrRecord"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrRecordList = (function (_super) {
+__extends(LogExceptionStrRecordList, _super);
+function LogExceptionStrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrRecordList.itemType = PL_MT_ExceptionHandling_BLModel.LogExceptionStrRecord;
+return LogExceptionStrRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ExceptionHandling_BLModel.LogExceptionStrRecordList = LogExceptionStrRecordList;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$MonitoringRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.model$MonitoringRecord"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringRecordList = (function (_super) {
+__extends(MonitoringRecordList, _super);
+function MonitoringRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringRecordList.itemType = PL_MT_ExceptionHandling_BLModel.MonitoringRecord;
+return MonitoringRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ExceptionHandling_BLModel.MonitoringRecordList = MonitoringRecordList;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$UserRecord", ["exports", "OutSystems/ClientRuntime/Main", "ServiceCenter.model", "PL_MT_ExceptionHandling_BL.model", "ServiceCenter.model$UserRec", "PL_MT_ExceptionHandling_BL.referencesHealth", "PL_MT_ExceptionHandling_BL.referencesHealth$ServiceCenter"], function (exports, OutSystems, ServiceCenterModel, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var UserRecord = (function (_super) {
+__extends(UserRecord, _super);
+function UserRecord(defaults) {
+_super.apply(this, arguments);
+}
+UserRecord.attributesToDeclare = function () {
+return [
+this.attr("User", "userAttr", "User", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ServiceCenterModel.UserRec());
+}, true, ServiceCenterModel.UserRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+UserRecord.fromStructure = function (str) {
+return new UserRecord(new UserRecord.RecordClass({
+userAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+UserRecord._isAnonymousRecord = true;
+UserRecord.UniqueId = "ced01335-8a82-a813-f1d9-a5108f17ce79";
+UserRecord.init();
+return UserRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ExceptionHandling_BLModel.UserRecord = UserRecord;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$UserRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.model$UserRecord"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var UserRecordList = (function (_super) {
+__extends(UserRecordList, _super);
+function UserRecordList(defaults) {
+_super.apply(this, arguments);
+}
+UserRecordList.itemType = PL_MT_ExceptionHandling_BLModel.UserRecord;
+return UserRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ExceptionHandling_BLModel.UserRecordList = UserRecordList;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$LogExceptionStrList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_Lib.model", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_Lib.model$LogExceptionStrRec", "PL_MT_ExceptionHandling_BL.referencesHealth", "PL_MT_ExceptionHandling_BL.referencesHealth$PL_MT_ExceptionHandling_Lib"], function (exports, OutSystems, PL_MT_ExceptionHandling_LibModel, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrList = (function (_super) {
+__extends(LogExceptionStrList, _super);
+function LogExceptionStrList(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrList.itemType = PL_MT_ExceptionHandling_LibModel.LogExceptionStrRec;
+return LogExceptionStrList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ExceptionHandling_BLModel.LogExceptionStrList = LogExceptionStrList;
+
+});
+define("PL_MT_ExceptionHandling_BL.model$UserList", ["exports", "OutSystems/ClientRuntime/Main", "ServiceCenter.model", "PL_MT_ExceptionHandling_BL.model", "ServiceCenter.model$UserRec", "PL_MT_ExceptionHandling_BL.referencesHealth", "PL_MT_ExceptionHandling_BL.referencesHealth$ServiceCenter"], function (exports, OutSystems, ServiceCenterModel, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var UserList = (function (_super) {
+__extends(UserList, _super);
+function UserList(defaults) {
+_super.apply(this, arguments);
+}
+UserList.itemType = ServiceCenterModel.UserRec;
+return UserList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ExceptionHandling_BLModel.UserList = UserList;
+
+});
+define("PL_MT_ExceptionHandling_BL.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var PL_MT_ExceptionHandling_BLModel = exports;
+Object.defineProperty(PL_MT_ExceptionHandling_BLModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["9314d13a-f198-438b-a663-fddf9d24f656"];
+}
+});
+
+PL_MT_ExceptionHandling_BLModel.staticEntities = {};
+});

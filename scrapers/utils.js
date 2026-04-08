@@ -38,9 +38,41 @@ async function priceFromJsonLd(page) {
           if (!entry.offers) continue;
           const offer = Array.isArray(entry.offers) ? entry.offers[0] : entry.offers;
           // Dirk uses capital-P "Price", schema.org uses lowercase "price"
-          const raw_price = offer.price ?? offer.Price;
+          // AggregateOffer (Jumbo) uses lowPrice (sale) / highPrice (was)
+          const raw_price = offer.price ?? offer.Price ?? offer.lowPrice;
           const price = parseFloat(raw_price);
           if (!isNaN(price) && price > 0) return price;
+        }
+      } catch (_) {}
+    }
+    return null;
+  });
+}
+
+/**
+ * Extract the original (was) price from JSON-LD AggregateOffer.
+ * Jumbo uses highPrice for the pre-discount price and lowPrice for the current price.
+ */
+async function originalPriceFromJsonLd(page) {
+  return page.evaluate(() => {
+    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    for (const script of scripts) {
+      try {
+        const raw = JSON.parse(script.textContent);
+        let entries = [];
+        if (Array.isArray(raw)) entries = raw;
+        else if (raw['@graph']) entries = raw['@graph'];
+        else entries = [raw];
+        for (const entry of entries) {
+          if (!entry.offers) continue;
+          const offer = Array.isArray(entry.offers) ? entry.offers[0] : entry.offers;
+          // Only use highPrice when lowPrice also exists and is lower
+          // (distinguishes AggregateOffer sale from a normal high-price product)
+          if (offer.highPrice != null && offer.lowPrice != null) {
+            const high = parseFloat(offer.highPrice);
+            const low  = parseFloat(offer.lowPrice);
+            if (!isNaN(high) && !isNaN(low) && high > low) return high;
+          }
         }
       } catch (_) {}
     }
@@ -118,11 +150,50 @@ async function diagnose(page, store) {
   console.warn(`[DIAG ${store}] price-class elements:`, JSON.stringify(info.priceEls));
 }
 
+/**
+ * Parse a Dutch promo label into a structured object.
+ * Supports "1+1 gratis" and "X voor Y,ZZ" patterns.
+ * Returns null when no known pattern is found.
+ *
+ * @param {string} text          - Raw promo label, e.g. "1+1 gratis" or "2 voor 4,49"
+ * @param {number|null} currentPrice - Per-unit price currently shown on the page
+ * @returns {{ promoLabel: string, effectivePrice: number|null, minQty: number }|null}
+ */
+function parsePromo(text, currentPrice) {
+  if (!text) return null;
+  const t = text.trim();
+  const lower = t.toLowerCase();
+
+  // "1+1 gratis" (buy one get one free → pay for 1 per 2 units)
+  if (/1\s*\+\s*1\s*gratis/.test(lower)) {
+    const effectivePrice =
+      currentPrice != null ? Math.round((currentPrice / 2) * 100) / 100 : null;
+    return { promoLabel: '1+1 gratis', effectivePrice, minQty: 2 };
+  }
+
+  // "X voor Y,ZZ" or "X voor Y.ZZ" (multi-buy deal)
+  const mVoor = lower.match(/(\d+)\s+voor\s+(\d+)[,.](\d{2})/);
+  if (mVoor) {
+    const qty = parseInt(mVoor[1], 10);
+    const total = parseFloat(`${mVoor[2]}.${mVoor[3]}`);
+    const effectivePrice = Math.round((total / qty) * 100) / 100;
+    return {
+      promoLabel: `${qty} voor €\u00a0${total.toFixed(2).replace('.', ',')}`,
+      effectivePrice,
+      minQty: qty,
+    };
+  }
+
+  return null;
+}
+
 module.exports = {
   parseDutchPrice,
   priceFromJsonLd,
+  originalPriceFromJsonLd,
   originalPriceFromVanText,
   firstEuroPriceOnPage,
   trySelectors,
   diagnose,
+  parsePromo,
 };

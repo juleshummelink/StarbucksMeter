@@ -1,0 +1,1504 @@
+﻿define("ECOP_ReleaseTogglesReactive.controller$A_ReleaseTogglesCache_FillMemoryCacheFromClientVar", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState", "ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_GetFeatureGroupId"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.a_ReleaseTogglesCache_FillMemoryCacheFromClientVar$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var featureTogglesMemoryCache_UpdateTogglesStateVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.A_ReleaseTogglesCache_FillMemoryCacheFromClientVar$outVars"))());
+// Execute Action: FeatureTogglesMemoryCache_UpdateTogglesState
+featureTogglesMemoryCache_UpdateTogglesStateVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_UpdateTogglesState$Action(ECOP_ReleaseTogglesReactiveClientVariables.getAttract_ReleaseTogglesStateAsJSON(), ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_GetFeatureGroupId$Action(callContext).featureToggleGroupIdOut, callContext);
+
+// Success = True
+outVars.value.successOut = true;
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.A_ReleaseTogglesCache_FillMemoryCacheFromClientVar$outVars", [{
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.a_ReleaseTogglesCache_FillMemoryCacheFromClientVar$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.a_ReleaseTogglesCache_FillMemoryCacheFromClientVar$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Success: OS.DataConversion.JSNodeParamConverter.to(actionResults.successOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Attract_API_ReleaseToggles_IsSynched", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_IsInitialised"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_IsSynched$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var attract_ReleaseTogglesCache_IsInitialisedVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_API_ReleaseToggles_IsSynched$outVars"))());
+try {// Execute Action: Attract_ReleaseTogglesCache_IsInitialised
+attract_ReleaseTogglesCache_IsInitialisedVar.value = ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_IsInitialised$Action(callContext);
+
+// IsSynched = Attract_ReleaseTogglesCache_IsInitialised.IsInitialised
+outVars.value.isSynchedOut = attract_ReleaseTogglesCache_IsInitialisedVar.value.isInitialisedOut;
+} catch (ex) {
+(function () {
+OS.Logger.trace("Attract_API_ReleaseToggles_IsSynched.Attract_API_ReleaseToggles_IsSynched", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_API_ReleaseToggles_IsSynched$outVars", [{
+name: "IsSynched",
+attrName: "isSynchedOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.attract_API_ReleaseToggles_IsSynched$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_IsSynched$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsSynched: OS.DataConversion.JSNodeParamConverter.to(actionResults.isSynchedOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Attract_API_ReleaseToggles_Sync_GetDataVersion", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_Sync_GetDataVersion$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_API_ReleaseToggles_Sync_GetDataVersion$outVars"))());
+try {// DataVersion = Attract_SyncDataVersion
+outVars.value.dataVersionOut = ECOP_ReleaseTogglesReactiveClientVariables.getAttract_SyncDataVersion();
+} catch (ex) {
+(function () {
+OS.Logger.trace("Attract_API_ReleaseToggles_Sync_GetDataVersion.Attract_API_ReleaseToggles_Sync_GetDataVersion", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_API_ReleaseToggles_Sync_GetDataVersion$outVars", [{
+name: "DataVersion",
+attrName: "dataVersionOut",
+mandatory: false,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.attract_API_ReleaseToggles_Sync_GetDataVersion$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_Sync_GetDataVersion$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+DataVersion: OS.DataConversion.JSNodeParamConverter.to(actionResults.dataVersionOut, OS.Types.DateTime)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Attract_API_ReleaseToggles_Sync_UpdateData", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.model$FeatureToggleStateList", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesState_ToJSON", "ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_Fill", "ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateList"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_Sync_UpdateData$Action = function (syncDateTimeIn, isNewerDataAvailableIn, newestReleaseTogglesStateIn, newestDataVersionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_API_ReleaseToggles_Sync_UpdateData$vars"))());
+vars.value.syncDateTimeInLocal = syncDateTimeIn;
+vars.value.isNewerDataAvailableInLocal = isNewerDataAvailableIn;
+vars.value.newestReleaseTogglesStateInLocal = newestReleaseTogglesStateIn.clone();
+vars.value.newestDataVersionInLocal = newestDataVersionIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var featureTogglesState_ToJSONVar = new OS.DataTypes.VariableHolder();
+try {// Execute Action: FeatureTogglesState_ToJSON
+featureTogglesState_ToJSONVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesState_ToJSON$Action(OS.DataConversion.JSConversions.typeConvertRecordList(vars.value.newestReleaseTogglesStateInLocal, new ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateList(), function (source, target) {
+target.featureToggle_LabelAttr = source.releaseToggle_LabelAttr;
+target.isEnabledAttr = source.isEnabledAttr;
+return target;
+}), callContext);
+
+// Execute Action: Attract_ReleaseTogglesCache_Fill
+ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_Fill$Action(vars.value.syncDateTimeInLocal, vars.value.isNewerDataAvailableInLocal, featureTogglesState_ToJSONVar.value.jSONOut, vars.value.newestDataVersionInLocal, callContext);
+} catch (ex) {
+(function () {
+OS.Logger.trace("Attract_API_ReleaseToggles_Sync_UpdateData.Attract_API_ReleaseToggles_Sync_UpdateData", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return ;
+
+}
+
+throw ex;
+})();
+}
+
+return ;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_API_ReleaseToggles_Sync_UpdateData$vars", [{
+name: "SyncDateTime",
+attrName: "syncDateTimeInLocal",
+mandatory: true,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}, {
+name: "IsNewerDataAvailable",
+attrName: "isNewerDataAvailableInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "NewestReleaseTogglesState",
+attrName: "newestReleaseTogglesStateInLocal",
+mandatory: true,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateList();
+},
+complexType: ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateList
+}, {
+name: "NewestDataVersion",
+attrName: "newestDataVersionInLocal",
+mandatory: true,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.attract_API_ReleaseToggles_Sync_UpdateData$Action = function (syncDateTimeIn, isNewerDataAvailableIn, newestReleaseTogglesStateIn, newestDataVersionIn) {
+syncDateTimeIn = (syncDateTimeIn === undefined) ? OS.DataTypes.DateTime.defaultValue : syncDateTimeIn;
+isNewerDataAvailableIn = (isNewerDataAvailableIn === undefined) ? false : isNewerDataAvailableIn;
+newestReleaseTogglesStateIn = (newestReleaseTogglesStateIn === undefined) ? new ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateList() : newestReleaseTogglesStateIn;
+newestDataVersionIn = (newestDataVersionIn === undefined) ? OS.DataTypes.DateTime.defaultValue : newestDataVersionIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_Sync_UpdateData$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(syncDateTimeIn, OS.Types.DateTime), OS.DataConversion.JSNodeParamConverter.from(isNewerDataAvailableIn, OS.Types.Boolean), newestReleaseTogglesStateIn, OS.DataConversion.JSNodeParamConverter.from(newestDataVersionIn, OS.Types.DateTime)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_Fill", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState", "ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_GetFeatureGroupId"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_Fill$Action = function (syncDateTimeIn, isNewerFeatureTogglesStateVersionAvailableIn, newestFeatureTogglesStateAsJSONIn, newestFeatureTogglesStateVersionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_Fill$vars"))());
+vars.value.syncDateTimeInLocal = syncDateTimeIn;
+vars.value.isNewerFeatureTogglesStateVersionAvailableInLocal = isNewerFeatureTogglesStateVersionAvailableIn;
+vars.value.newestFeatureTogglesStateAsJSONInLocal = newestFeatureTogglesStateAsJSONIn;
+vars.value.newestFeatureTogglesStateVersionInLocal = newestFeatureTogglesStateVersionIn;
+var togglesMemoryCache_UpdateVar = new OS.DataTypes.VariableHolder();
+// Is newer state available?
+if((vars.value.isNewerFeatureTogglesStateVersionAvailableInLocal)) {
+// Set client variables
+// Attract_ReleaseTogglesStateAsJSON = NewestFeatureTogglesStateAsJSON
+ECOP_ReleaseTogglesReactiveClientVariables.setAttract_ReleaseTogglesStateAsJSON(vars.value.newestFeatureTogglesStateAsJSONInLocal);
+// Attract_SyncDataVersion = NewestFeatureTogglesStateVersion
+ECOP_ReleaseTogglesReactiveClientVariables.setAttract_SyncDataVersion(vars.value.newestFeatureTogglesStateVersionInLocal);
+// Attract_SyncDateTime = SyncDateTime
+ECOP_ReleaseTogglesReactiveClientVariables.setAttract_SyncDateTime(vars.value.syncDateTimeInLocal);
+// Execute Action: TogglesMemoryCache_Update
+togglesMemoryCache_UpdateVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_UpdateTogglesState$Action(vars.value.newestFeatureTogglesStateAsJSONInLocal, ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_GetFeatureGroupId$Action(callContext).featureToggleGroupIdOut, callContext);
+
+} else {
+// Set client variables
+// Attract_SyncDateTime = SyncDateTime
+ECOP_ReleaseTogglesReactiveClientVariables.setAttract_SyncDateTime(vars.value.syncDateTimeInLocal);
+}
+
+return ;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_Fill$vars", [{
+name: "SyncDateTime",
+attrName: "syncDateTimeInLocal",
+mandatory: true,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}, {
+name: "IsNewerFeatureTogglesStateVersionAvailable",
+attrName: "isNewerFeatureTogglesStateVersionAvailableInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "NewestFeatureTogglesStateAsJSON",
+attrName: "newestFeatureTogglesStateAsJSONInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "NewestFeatureTogglesStateVersion",
+attrName: "newestFeatureTogglesStateVersionInLocal",
+mandatory: true,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.attract_ReleaseTogglesCache_Fill$Action = function (syncDateTimeIn, isNewerFeatureTogglesStateVersionAvailableIn, newestFeatureTogglesStateAsJSONIn, newestFeatureTogglesStateVersionIn) {
+syncDateTimeIn = (syncDateTimeIn === undefined) ? OS.DataTypes.DateTime.defaultValue : syncDateTimeIn;
+isNewerFeatureTogglesStateVersionAvailableIn = (isNewerFeatureTogglesStateVersionAvailableIn === undefined) ? false : isNewerFeatureTogglesStateVersionAvailableIn;
+newestFeatureTogglesStateAsJSONIn = (newestFeatureTogglesStateAsJSONIn === undefined) ? "" : newestFeatureTogglesStateAsJSONIn;
+newestFeatureTogglesStateVersionIn = (newestFeatureTogglesStateVersionIn === undefined) ? OS.DataTypes.DateTime.defaultValue : newestFeatureTogglesStateVersionIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_Fill$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(syncDateTimeIn, OS.Types.DateTime), OS.DataConversion.JSNodeParamConverter.from(isNewerFeatureTogglesStateVersionAvailableIn, OS.Types.Boolean), OS.DataConversion.JSNodeParamConverter.from(newestFeatureTogglesStateAsJSONIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(newestFeatureTogglesStateVersionIn, OS.Types.DateTime)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_GetFeatureGroupId", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_GetFeatureGroupId$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_GetFeatureGroupId$outVars"))());
+// Set FeatureToggleGroupId
+// FeatureToggleGroupId = "ECOP_Attract_ReleaseToggles"
+outVars.value.featureToggleGroupIdOut = "ECOP_Attract_ReleaseToggles";
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_GetFeatureGroupId$outVars", [{
+name: "FeatureToggleGroupId",
+attrName: "featureToggleGroupIdOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.attract_ReleaseTogglesCache_GetFeatureGroupId$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_GetFeatureGroupId$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+FeatureToggleGroupId: OS.DataConversion.JSNodeParamConverter.to(actionResults.featureToggleGroupIdOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_IsInitialised", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_IsInitialised$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_IsInitialised$outVars"))());
+// IsInitialised = Attract_ReleaseTogglesStateAsJSON <> ""
+outVars.value.isInitialisedOut = ((ECOP_ReleaseTogglesReactiveClientVariables.getAttract_ReleaseTogglesStateAsJSON()) !== (""));
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_IsInitialised$outVars", [{
+name: "IsInitialised",
+attrName: "isInitialisedOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.attract_ReleaseTogglesCache_IsInitialised$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_IsInitialised$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsInitialised: OS.DataConversion.JSNodeParamConverter.to(actionResults.isInitialisedOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_IsToggleEnabled", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$A_ReleaseTogglesCache_FillMemoryCacheFromClientVar", "ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRec", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_IsToggleEnabled", "ECOP_ReleaseTogglesReactive.controller$Attract_ReleaseTogglesCache_GetFeatureGroupId"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_IsToggleEnabled$Action = function (featureToggle_LabelIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_IsToggleEnabled$vars"))());
+vars.value.featureToggle_LabelInLocal = featureToggle_LabelIn;
+var togglesMemoryCache_RefreshVar = new OS.DataTypes.VariableHolder();
+var featureTogglesMemoryCache_IsToggleEnabledVar = new OS.DataTypes.VariableHolder();
+var featureTogglesMemoryCache_IsToggleEnabled3Var = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_IsToggleEnabled$outVars"))());
+// Execute Action: FeatureTogglesMemoryCache_IsToggleEnabled
+featureTogglesMemoryCache_IsToggleEnabledVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_IsToggleEnabled$Action(vars.value.featureToggle_LabelInLocal, ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_GetFeatureGroupId$Action(callContext).featureToggleGroupIdOut, callContext);
+
+// Is toggle found?
+if((featureTogglesMemoryCache_IsToggleEnabledVar.value.outputOut.isDefinedAttr)) {
+// Set IsEnabled
+// IsEnabled = FeatureTogglesMemoryCache_IsToggleEnabled.Output.IsEnabled
+outVars.value.isEnabledOut = featureTogglesMemoryCache_IsToggleEnabledVar.value.outputOut.isEnabledAttr;
+} else {
+// Execute Action: TogglesMemoryCache_Refresh
+togglesMemoryCache_RefreshVar.value = ECOP_ReleaseTogglesReactiveController.default.a_ReleaseTogglesCache_FillMemoryCacheFromClientVar$Action(callContext);
+
+// Execute Action: FeatureTogglesMemoryCache_IsToggleEnabled3
+featureTogglesMemoryCache_IsToggleEnabled3Var.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_IsToggleEnabled$Action(vars.value.featureToggle_LabelInLocal, ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_GetFeatureGroupId$Action(callContext).featureToggleGroupIdOut, callContext);
+
+// Is toggle found?
+if((featureTogglesMemoryCache_IsToggleEnabled3Var.value.outputOut.isDefinedAttr)) {
+// Set IsEnabled
+// IsEnabled = FeatureTogglesMemoryCache_IsToggleEnabled3.Output.IsEnabled
+outVars.value.isEnabledOut = featureTogglesMemoryCache_IsToggleEnabled3Var.value.outputOut.isEnabledAttr;
+}
+
+}
+
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_IsToggleEnabled$vars", [{
+name: "FeatureToggle_Label",
+attrName: "featureToggle_LabelInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Attract_ReleaseTogglesCache_IsToggleEnabled$outVars", [{
+name: "IsEnabled",
+attrName: "isEnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.attract_ReleaseTogglesCache_IsToggleEnabled$Action = function (featureToggle_LabelIn) {
+featureToggle_LabelIn = (featureToggle_LabelIn === undefined) ? "" : featureToggle_LabelIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.attract_ReleaseTogglesCache_IsToggleEnabled$Action.bind(controller, featureToggle_LabelIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsEnabled: OS.DataConversion.JSNodeParamConverter.to(actionResults.isEnabledOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$C_ReleaseTogglesCache_FillMemoryCacheFromClientVar", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseTogglesCache_GetFeatureGroupId"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.c_ReleaseTogglesCache_FillMemoryCacheFromClientVar$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var featureTogglesMemoryCache_UpdateTogglesStateVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.C_ReleaseTogglesCache_FillMemoryCacheFromClientVar$outVars"))());
+// Execute Action: FeatureTogglesMemoryCache_UpdateTogglesState
+featureTogglesMemoryCache_UpdateTogglesStateVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_UpdateTogglesState$Action(ECOP_ReleaseTogglesReactiveClientVariables.getConvert_ReleaseTogglesStateAsJSON(), ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_GetFeatureGroupId$Action(callContext).featureToggleGroupIdOut, callContext);
+
+// Success = True
+outVars.value.successOut = true;
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.C_ReleaseTogglesCache_FillMemoryCacheFromClientVar$outVars", [{
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.c_ReleaseTogglesCache_FillMemoryCacheFromClientVar$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.c_ReleaseTogglesCache_FillMemoryCacheFromClientVar$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Success: OS.DataConversion.JSNodeParamConverter.to(actionResults.successOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Convert_API_ReleaseToggles_IsSynched", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseTogglesCache_IsInitialised"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_IsSynched$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var convert_ReleaseTogglesCache_IsInitialisedVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_API_ReleaseToggles_IsSynched$outVars"))());
+try {// Execute Action: Convert_ReleaseTogglesCache_IsInitialised
+convert_ReleaseTogglesCache_IsInitialisedVar.value = ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_IsInitialised$Action(callContext);
+
+// Set IsSynched
+// IsSynched = Convert_ReleaseTogglesCache_IsInitialised.IsInitialised
+outVars.value.isSynchedOut = convert_ReleaseTogglesCache_IsInitialisedVar.value.isInitialisedOut;
+} catch (ex) {
+(function () {
+OS.Logger.trace("Convert_API_ReleaseToggles_IsSynched.Convert_API_ReleaseToggles_IsSynched", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_API_ReleaseToggles_IsSynched$outVars", [{
+name: "IsSynched",
+attrName: "isSynchedOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.convert_API_ReleaseToggles_IsSynched$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_IsSynched$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsSynched: OS.DataConversion.JSNodeParamConverter.to(actionResults.isSynchedOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Convert_API_ReleaseToggles_Sync_GetDataVersion", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_Sync_GetDataVersion$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_API_ReleaseToggles_Sync_GetDataVersion$outVars"))());
+try {// DataVersion = Convert_SyncDataVersion
+outVars.value.dataVersionOut = ECOP_ReleaseTogglesReactiveClientVariables.getConvert_SyncDataVersion();
+} catch (ex) {
+(function () {
+OS.Logger.trace("Convert_API_ReleaseToggles_Sync_GetDataVersion.Convert_API_ReleaseToggles_Sync_GetDataVersion", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_API_ReleaseToggles_Sync_GetDataVersion$outVars", [{
+name: "DataVersion",
+attrName: "dataVersionOut",
+mandatory: false,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.convert_API_ReleaseToggles_Sync_GetDataVersion$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_Sync_GetDataVersion$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+DataVersion: OS.DataConversion.JSNodeParamConverter.to(actionResults.dataVersionOut, OS.Types.DateTime)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Convert_API_ReleaseToggles_Sync_SetDataVersion", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_Sync_SetDataVersion$Action = function (dataVersionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_API_ReleaseToggles_Sync_SetDataVersion$vars"))());
+vars.value.dataVersionInLocal = dataVersionIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+try {// Convert_SyncDataVersion = DataVersion
+ECOP_ReleaseTogglesReactiveClientVariables.setConvert_SyncDataVersion(vars.value.dataVersionInLocal);
+} catch (ex) {
+(function () {
+OS.Logger.trace("Convert_API_ReleaseToggles_Sync_SetDataVersion.Convert_API_ReleaseToggles_Sync_SetDataVersion", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return ;
+
+}
+
+throw ex;
+})();
+}
+
+return ;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_API_ReleaseToggles_Sync_SetDataVersion$vars", [{
+name: "DataVersion",
+attrName: "dataVersionInLocal",
+mandatory: false,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.convert_API_ReleaseToggles_Sync_SetDataVersion$Action = function (dataVersionIn) {
+dataVersionIn = (dataVersionIn === undefined) ? OS.DataTypes.DateTime.defaultValue : dataVersionIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_Sync_SetDataVersion$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(dataVersionIn, OS.Types.DateTime)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Convert_API_ReleaseToggles_Sync_UpdateData", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.model$FeatureToggleStateList", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesState_ToJSON", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseTogglesCache_Fill", "ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateList"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_Sync_UpdateData$Action = function (syncDateTimeIn, isNewerDataAvailableIn, newestReleaseTogglesStateIn, newestDataVersionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_API_ReleaseToggles_Sync_UpdateData$vars"))());
+vars.value.syncDateTimeInLocal = syncDateTimeIn;
+vars.value.isNewerDataAvailableInLocal = isNewerDataAvailableIn;
+vars.value.newestReleaseTogglesStateInLocal = newestReleaseTogglesStateIn.clone();
+vars.value.newestDataVersionInLocal = newestDataVersionIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var featureTogglesState_ToJSONVar = new OS.DataTypes.VariableHolder();
+try {// Execute Action: FeatureTogglesState_ToJSON
+featureTogglesState_ToJSONVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesState_ToJSON$Action(OS.DataConversion.JSConversions.typeConvertRecordList(vars.value.newestReleaseTogglesStateInLocal, new ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateList(), function (source, target) {
+target.featureToggle_LabelAttr = source.releaseToggle_LabelAttr;
+target.isEnabledAttr = source.isEnabledAttr;
+return target;
+}), callContext);
+
+// Execute Action: Convert_ReleaseTogglesCache_Fill
+ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_Fill$Action(vars.value.syncDateTimeInLocal, vars.value.isNewerDataAvailableInLocal, featureTogglesState_ToJSONVar.value.jSONOut, vars.value.newestDataVersionInLocal, callContext);
+} catch (ex) {
+(function () {
+OS.Logger.trace("Convert_API_ReleaseToggles_Sync_UpdateData.Convert_API_ReleaseToggles_Sync_UpdateData", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return ;
+
+}
+
+throw ex;
+})();
+}
+
+return ;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_API_ReleaseToggles_Sync_UpdateData$vars", [{
+name: "SyncDateTime",
+attrName: "syncDateTimeInLocal",
+mandatory: true,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}, {
+name: "IsNewerDataAvailable",
+attrName: "isNewerDataAvailableInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "NewestReleaseTogglesState",
+attrName: "newestReleaseTogglesStateInLocal",
+mandatory: true,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateList();
+},
+complexType: ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateList
+}, {
+name: "NewestDataVersion",
+attrName: "newestDataVersionInLocal",
+mandatory: true,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.convert_API_ReleaseToggles_Sync_UpdateData$Action = function (syncDateTimeIn, isNewerDataAvailableIn, newestReleaseTogglesStateIn, newestDataVersionIn) {
+syncDateTimeIn = (syncDateTimeIn === undefined) ? OS.DataTypes.DateTime.defaultValue : syncDateTimeIn;
+isNewerDataAvailableIn = (isNewerDataAvailableIn === undefined) ? false : isNewerDataAvailableIn;
+newestReleaseTogglesStateIn = (newestReleaseTogglesStateIn === undefined) ? new ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateList() : newestReleaseTogglesStateIn;
+newestDataVersionIn = (newestDataVersionIn === undefined) ? OS.DataTypes.DateTime.defaultValue : newestDataVersionIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_Sync_UpdateData$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(syncDateTimeIn, OS.Types.DateTime), OS.DataConversion.JSNodeParamConverter.from(isNewerDataAvailableIn, OS.Types.Boolean), newestReleaseTogglesStateIn, OS.DataConversion.JSNodeParamConverter.from(newestDataVersionIn, OS.Types.DateTime)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRec", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_IsToggleEnabled", "ECOP_ReleaseTogglesReactive.controller$C_ReleaseTogglesCache_FillMemoryCacheFromClientVar", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseTogglesCache_GetFeatureGroupId"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action = function (releaseToggle_LabelIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseToggle_IsEnabled$vars"))());
+vars.value.releaseToggle_LabelInLocal = releaseToggle_LabelIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var featureTogglesMemoryCache_IsToggleEnabledVar = new OS.DataTypes.VariableHolder();
+var featureTogglesMemoryCache_IsToggleEnabled3Var = new OS.DataTypes.VariableHolder();
+var togglesMemoryCache_RefreshVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseToggle_IsEnabled$outVars"))());
+try {// Execute Action: FeatureTogglesMemoryCache_IsToggleEnabled
+featureTogglesMemoryCache_IsToggleEnabledVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_IsToggleEnabled$Action(vars.value.releaseToggle_LabelInLocal, ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_GetFeatureGroupId$Action(callContext).featureToggleGroupIdOut, callContext);
+
+// Is toggle found?
+if((featureTogglesMemoryCache_IsToggleEnabledVar.value.outputOut.isDefinedAttr)) {
+// Set IsEnabled
+// IsEnabled = FeatureTogglesMemoryCache_IsToggleEnabled.Output.IsEnabled
+outVars.value.isEnabledOut = featureTogglesMemoryCache_IsToggleEnabledVar.value.outputOut.isEnabledAttr;
+} else {
+// Execute Action: TogglesMemoryCache_Refresh
+togglesMemoryCache_RefreshVar.value = ECOP_ReleaseTogglesReactiveController.default.c_ReleaseTogglesCache_FillMemoryCacheFromClientVar$Action(callContext);
+
+// Execute Action: FeatureTogglesMemoryCache_IsToggleEnabled3
+featureTogglesMemoryCache_IsToggleEnabled3Var.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_IsToggleEnabled$Action(vars.value.releaseToggle_LabelInLocal, ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_GetFeatureGroupId$Action(callContext).featureToggleGroupIdOut, callContext);
+
+// Is toggle found?
+if((featureTogglesMemoryCache_IsToggleEnabled3Var.value.outputOut.isDefinedAttr)) {
+// Set IsEnabled
+// IsEnabled = FeatureTogglesMemoryCache_IsToggleEnabled3.Output.IsEnabled
+outVars.value.isEnabledOut = featureTogglesMemoryCache_IsToggleEnabled3Var.value.outputOut.isEnabledAttr;
+}
+
+}
+
+} catch (ex) {
+(function () {
+OS.Logger.trace("Convert_ReleaseToggle_IsEnabled.Convert_ReleaseToggle_IsEnabled", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseToggle_IsEnabled$vars", [{
+name: "ReleaseToggle_Label",
+attrName: "releaseToggle_LabelInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseToggle_IsEnabled$outVars", [{
+name: "IsEnabled",
+attrName: "isEnabledOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.convert_ReleaseToggle_IsEnabled$Action = function (releaseToggle_LabelIn) {
+releaseToggle_LabelIn = (releaseToggle_LabelIn === undefined) ? "" : releaseToggle_LabelIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action.bind(controller, releaseToggle_LabelIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsEnabled: OS.DataConversion.JSNodeParamConverter.to(actionResults.isEnabledOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseTogglesCache_Fill", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseTogglesCache_GetFeatureGroupId"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_Fill$Action = function (syncDateTimeIn, isNewerFeatureTogglesStateVersionAvailableIn, newestFeatureTogglesStateAsJSONIn, newestFeatureTogglesStateVersionIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseTogglesCache_Fill$vars"))());
+vars.value.syncDateTimeInLocal = syncDateTimeIn;
+vars.value.isNewerFeatureTogglesStateVersionAvailableInLocal = isNewerFeatureTogglesStateVersionAvailableIn;
+vars.value.newestFeatureTogglesStateAsJSONInLocal = newestFeatureTogglesStateAsJSONIn;
+vars.value.newestFeatureTogglesStateVersionInLocal = newestFeatureTogglesStateVersionIn;
+var togglesMemoryCache_UpdateVar = new OS.DataTypes.VariableHolder();
+// Is newer state available?
+if((vars.value.isNewerFeatureTogglesStateVersionAvailableInLocal)) {
+// Set client variables
+// Convert_ReleaseTogglesStateAsJSON = NewestFeatureTogglesStateAsJSON
+ECOP_ReleaseTogglesReactiveClientVariables.setConvert_ReleaseTogglesStateAsJSON(vars.value.newestFeatureTogglesStateAsJSONInLocal);
+// Convert_SyncDataVersion = NewestFeatureTogglesStateVersion
+ECOP_ReleaseTogglesReactiveClientVariables.setConvert_SyncDataVersion(vars.value.newestFeatureTogglesStateVersionInLocal);
+// Convert_SyncDateTime = SyncDateTime
+ECOP_ReleaseTogglesReactiveClientVariables.setConvert_SyncDateTime(vars.value.syncDateTimeInLocal);
+// Execute Action: TogglesMemoryCache_Update
+togglesMemoryCache_UpdateVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_UpdateTogglesState$Action(vars.value.newestFeatureTogglesStateAsJSONInLocal, ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_GetFeatureGroupId$Action(callContext).featureToggleGroupIdOut, callContext);
+
+} else {
+// Set client variables
+// Convert_SyncDateTime = SyncDateTime
+ECOP_ReleaseTogglesReactiveClientVariables.setConvert_SyncDateTime(vars.value.syncDateTimeInLocal);
+}
+
+return ;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseTogglesCache_Fill$vars", [{
+name: "SyncDateTime",
+attrName: "syncDateTimeInLocal",
+mandatory: true,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}, {
+name: "IsNewerFeatureTogglesStateVersionAvailable",
+attrName: "isNewerFeatureTogglesStateVersionAvailableInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "NewestFeatureTogglesStateAsJSON",
+attrName: "newestFeatureTogglesStateAsJSONInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "NewestFeatureTogglesStateVersion",
+attrName: "newestFeatureTogglesStateVersionInLocal",
+mandatory: true,
+dataType: OS.Types.DateTime,
+defaultValue: function () {
+return OS.DataTypes.DateTime.defaultValue;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.convert_ReleaseTogglesCache_Fill$Action = function (syncDateTimeIn, isNewerFeatureTogglesStateVersionAvailableIn, newestFeatureTogglesStateAsJSONIn, newestFeatureTogglesStateVersionIn) {
+syncDateTimeIn = (syncDateTimeIn === undefined) ? OS.DataTypes.DateTime.defaultValue : syncDateTimeIn;
+isNewerFeatureTogglesStateVersionAvailableIn = (isNewerFeatureTogglesStateVersionAvailableIn === undefined) ? false : isNewerFeatureTogglesStateVersionAvailableIn;
+newestFeatureTogglesStateAsJSONIn = (newestFeatureTogglesStateAsJSONIn === undefined) ? "" : newestFeatureTogglesStateAsJSONIn;
+newestFeatureTogglesStateVersionIn = (newestFeatureTogglesStateVersionIn === undefined) ? OS.DataTypes.DateTime.defaultValue : newestFeatureTogglesStateVersionIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_Fill$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(syncDateTimeIn, OS.Types.DateTime), OS.DataConversion.JSNodeParamConverter.from(isNewerFeatureTogglesStateVersionAvailableIn, OS.Types.Boolean), OS.DataConversion.JSNodeParamConverter.from(newestFeatureTogglesStateAsJSONIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(newestFeatureTogglesStateVersionIn, OS.Types.DateTime)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseTogglesCache_GetFeatureGroupId", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_GetFeatureGroupId$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseTogglesCache_GetFeatureGroupId$outVars"))());
+// Set FeatureToggleGroupId
+// FeatureToggleGroupId = "ECOP_Convert_ReleaseToggles"
+outVars.value.featureToggleGroupIdOut = "ECOP_Convert_ReleaseToggles";
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseTogglesCache_GetFeatureGroupId$outVars", [{
+name: "FeatureToggleGroupId",
+attrName: "featureToggleGroupIdOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.convert_ReleaseTogglesCache_GetFeatureGroupId$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_GetFeatureGroupId$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+FeatureToggleGroupId: OS.DataConversion.JSNodeParamConverter.to(actionResults.featureToggleGroupIdOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseTogglesCache_IsInitialised", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_IsInitialised$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseTogglesCache_IsInitialised$outVars"))());
+// IsInitialised = Convert_ReleaseTogglesStateAsJSON <> ""
+outVars.value.isInitialisedOut = ((ECOP_ReleaseTogglesReactiveClientVariables.getConvert_ReleaseTogglesStateAsJSON()) !== (""));
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.Convert_ReleaseTogglesCache_IsInitialised$outVars", [{
+name: "IsInitialised",
+attrName: "isInitialisedOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.convert_ReleaseTogglesCache_IsInitialised$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseTogglesCache_IsInitialised$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsInitialised: OS.DataConversion.JSNodeParamConverter.to(actionResults.isInitialisedOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetMainObject", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetMainObject.GetTogglesMemoryCacheObjectJS", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_GetMainObject_GetTogglesMemoryCacheObjectJS, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_GetMainObject$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var getTogglesMemoryCacheObjectJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetMainObject$outVars"))());
+getTogglesMemoryCacheObjectJSResult.value = controller.safeExecuteJSNode(ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_GetMainObject_GetTogglesMemoryCacheObjectJS, "GetTogglesMemoryCacheObject", "FeatureTogglesMemoryCache_GetMainObject", {
+AllTogglesMemoryCacheObject: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetMainObject$getTogglesMemoryCacheObjectJSResult"))();
+jsNodeResult.allTogglesMemoryCacheObjectOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AllTogglesMemoryCacheObject, OS.Types.Object);
+return jsNodeResult;
+}, {}, {});
+// Object = GetTogglesMemoryCacheObject.AllTogglesMemoryCacheObject
+outVars.value.objectOut = getTogglesMemoryCacheObjectJSResult.value.allTogglesMemoryCacheObjectOut;
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetMainObject$getTogglesMemoryCacheObjectJSResult", [{
+name: "AllTogglesMemoryCacheObject",
+attrName: "allTogglesMemoryCacheObjectOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetMainObject$outVars", [{
+name: "Object",
+attrName: "objectOut",
+mandatory: false,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.featureTogglesMemoryCache_GetMainObject$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_GetMainObject$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Object: OS.DataConversion.JSNodeParamConverter.to(actionResults.objectOut, OS.Types.Object)
+};
+});
+};
+});
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetMainObject.GetTogglesMemoryCacheObjectJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const parentObject = window;
+const featureTogglesCacheObjectName = '__os_featureToggles';
+
+if (!parentObject[featureTogglesCacheObjectName]) {
+    parentObject[featureTogglesCacheObjectName] = {};
+}
+
+$parameters.AllTogglesMemoryCacheObject = parentObject[featureTogglesCacheObjectName]
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetTogglesGroupObject", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetTogglesGroupObject.GetTogglesGroupMemoryCacheObjectJS", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetMainObject"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_GetTogglesGroupObject_GetTogglesGroupMemoryCacheObjectJS, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_GetTogglesGroupObject$Action = function (featureTogglesGroupIdIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetTogglesGroupObject$vars"))());
+vars.value.featureTogglesGroupIdInLocal = featureTogglesGroupIdIn;
+var featureTogglesMemoryCache_GetMainObjectVar = new OS.DataTypes.VariableHolder();
+var getTogglesGroupMemoryCacheObjectJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetTogglesGroupObject$outVars"))());
+// Execute Action: FeatureTogglesMemoryCache_GetMainObject
+featureTogglesMemoryCache_GetMainObjectVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_GetMainObject$Action(callContext);
+
+getTogglesGroupMemoryCacheObjectJSResult.value = controller.safeExecuteJSNode(ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_GetTogglesGroupObject_GetTogglesGroupMemoryCacheObjectJS, "GetTogglesGroupMemoryCacheObject", "FeatureTogglesMemoryCache_GetTogglesGroupObject", {
+AllTogglesMemoryCacheObject: OS.DataConversion.JSNodeParamConverter.to(featureTogglesMemoryCache_GetMainObjectVar.value.objectOut, OS.Types.Object),
+FeatureTogglesGroupId: OS.DataConversion.JSNodeParamConverter.to(vars.value.featureTogglesGroupIdInLocal, OS.Types.Text),
+TogglesGroupMemoryCacheObject: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetTogglesGroupObject$getTogglesGroupMemoryCacheObjectJSResult"))();
+jsNodeResult.togglesGroupMemoryCacheObjectOut = OS.DataConversion.JSNodeParamConverter.from($parameters.TogglesGroupMemoryCacheObject, OS.Types.Object);
+return jsNodeResult;
+}, {}, {});
+// Object = GetTogglesGroupMemoryCacheObject.TogglesGroupMemoryCacheObject
+outVars.value.objectOut = getTogglesGroupMemoryCacheObjectJSResult.value.togglesGroupMemoryCacheObjectOut;
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetTogglesGroupObject$vars", [{
+name: "FeatureTogglesGroupId",
+attrName: "featureTogglesGroupIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetTogglesGroupObject$getTogglesGroupMemoryCacheObjectJSResult", [{
+name: "TogglesGroupMemoryCacheObject",
+attrName: "togglesGroupMemoryCacheObjectOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_GetTogglesGroupObject$outVars", [{
+name: "Object",
+attrName: "objectOut",
+mandatory: false,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.featureTogglesMemoryCache_GetTogglesGroupObject$Action = function (featureTogglesGroupIdIn) {
+featureTogglesGroupIdIn = (featureTogglesGroupIdIn === undefined) ? "" : featureTogglesGroupIdIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_GetTogglesGroupObject$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(featureTogglesGroupIdIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Object: OS.DataConversion.JSNodeParamConverter.to(actionResults.objectOut, OS.Types.Object)
+};
+});
+};
+});
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetTogglesGroupObject.GetTogglesGroupMemoryCacheObjectJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if (!$parameters.AllTogglesMemoryCacheObject[$parameters.FeatureTogglesGroupId]) {
+    $parameters.AllTogglesMemoryCacheObject[$parameters.FeatureTogglesGroupId] = {};
+}
+
+$parameters.TogglesGroupMemoryCacheObject = $parameters.AllTogglesMemoryCacheObject[$parameters.FeatureTogglesGroupId];
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_IsToggleEnabled", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_IsToggleEnabled.GetFeatureToggleStateFromObjectJS", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetTogglesGroupObject", "ECOP_ReleaseTogglesReactive.model$FeatureTogglesMemoryCache_IsEnabledOutputRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_IsToggleEnabled_GetFeatureToggleStateFromObjectJS, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_IsToggleEnabled$Action = function (featureToggleLabelIn, featureToggleGroupIdIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_IsToggleEnabled$vars"))());
+vars.value.featureToggleLabelInLocal = featureToggleLabelIn;
+vars.value.featureToggleGroupIdInLocal = featureToggleGroupIdIn;
+var getTogglesGroupMemoryCacheObjectVar = new OS.DataTypes.VariableHolder();
+var getFeatureToggleStateFromObjectJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_IsToggleEnabled$outVars"))());
+// Execute Action: GetTogglesGroupMemoryCacheObject
+getTogglesGroupMemoryCacheObjectVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_GetTogglesGroupObject$Action(vars.value.featureToggleGroupIdInLocal, callContext);
+
+getFeatureToggleStateFromObjectJSResult.value = controller.safeExecuteJSNode(ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_IsToggleEnabled_GetFeatureToggleStateFromObjectJS, "GetFeatureToggleStateFromObject", "FeatureTogglesMemoryCache_IsToggleEnabled", {
+FeatureToggleLabel: OS.DataConversion.JSNodeParamConverter.to(vars.value.featureToggleLabelInLocal, OS.Types.Text),
+FeatureTogglesGroupMemoryCacheObject: OS.DataConversion.JSNodeParamConverter.to(getTogglesGroupMemoryCacheObjectVar.value.objectOut, OS.Types.Object),
+IsEnabled: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+IsDefined: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_IsToggleEnabled$getFeatureToggleStateFromObjectJSResult"))();
+jsNodeResult.isEnabledOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsEnabled, OS.Types.Boolean);
+jsNodeResult.isDefinedOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsDefined, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// Output
+// Output.IsEnabled = GetFeatureToggleStateFromObject.IsEnabled
+outVars.value.outputOut.isEnabledAttr = getFeatureToggleStateFromObjectJSResult.value.isEnabledOut;
+// Output.IsDefined = GetFeatureToggleStateFromObject.IsDefined
+outVars.value.outputOut.isDefinedAttr = getFeatureToggleStateFromObjectJSResult.value.isDefinedOut;
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_IsToggleEnabled$vars", [{
+name: "FeatureToggleLabel",
+attrName: "featureToggleLabelInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "FeatureToggleGroupId",
+attrName: "featureToggleGroupIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_IsToggleEnabled$getFeatureToggleStateFromObjectJSResult", [{
+name: "IsEnabled",
+attrName: "isEnabledOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "IsDefined",
+attrName: "isDefinedOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_IsToggleEnabled$outVars", [{
+name: "Output",
+attrName: "outputOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRec();
+},
+complexType: ECOP_ReleaseTogglesReactiveModel.FeatureTogglesMemoryCache_IsEnabledOutputRec
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.featureTogglesMemoryCache_IsToggleEnabled$Action = function (featureToggleLabelIn, featureToggleGroupIdIn) {
+featureToggleLabelIn = (featureToggleLabelIn === undefined) ? "" : featureToggleLabelIn;
+featureToggleGroupIdIn = (featureToggleGroupIdIn === undefined) ? "" : featureToggleGroupIdIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_IsToggleEnabled$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(featureToggleLabelIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(featureToggleGroupIdIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Output: actionResults.outputOut
+};
+});
+};
+});
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_IsToggleEnabled.GetFeatureToggleStateFromObjectJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if ($parameters.FeatureTogglesGroupMemoryCacheObject[$parameters.FeatureToggleLabel] !== undefined) {
+    let isEnabled = $parameters.FeatureTogglesGroupMemoryCacheObject[$parameters.FeatureToggleLabel];
+    if (typeof(isEnabled) !== 'boolean') {
+        console.error(`A problem occurred while retrieving the state of feature toggle '${$parameters.FeatureToggleLabel}': the value assigned to it was not a boolean.`);
+        isEnabled = false;
+    }
+
+    $parameters.IsEnabled = isEnabled;
+    $parameters.IsDefined = true;
+} else {
+    $parameters.IsEnabled = false;
+    $parameters.IsDefined = false;
+}
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState.ThrowErrorJS", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState.LoadToggleStatesToMainObjectJS", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_GetMainObject"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_UpdateTogglesState_ThrowErrorJS, ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_UpdateTogglesState_LoadToggleStatesToMainObjectJS, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_UpdateTogglesState$Action = function (togglesStateASJSONIn, togglesGroupIdIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_UpdateTogglesState$vars"))());
+vars.value.togglesStateASJSONInLocal = togglesStateASJSONIn;
+vars.value.togglesGroupIdInLocal = togglesGroupIdIn;
+var memoryCache_GetMainObjectVar = new OS.DataTypes.VariableHolder();
+var loadToggleStatesToMainObjectJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_UpdateTogglesState$outVars"))());
+// Execute Action: MemoryCache_GetMainObject
+memoryCache_GetMainObjectVar.value = ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_GetMainObject$Action(callContext);
+
+loadToggleStatesToMainObjectJSResult.value = controller.safeExecuteJSNode(ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_UpdateTogglesState_LoadToggleStatesToMainObjectJS, "LoadToggleStatesToMainObject", "FeatureTogglesMemoryCache_UpdateTogglesState", {
+FeatureToggleStateAsJSON: OS.DataConversion.JSNodeParamConverter.to(vars.value.togglesStateASJSONInLocal, OS.Types.Text),
+FeatureTogglesGroupId: OS.DataConversion.JSNodeParamConverter.to(vars.value.togglesGroupIdInLocal, OS.Types.Text),
+TogglesMemoryCacheObject: OS.DataConversion.JSNodeParamConverter.to(memoryCache_GetMainObjectVar.value.objectOut, OS.Types.Object),
+Success: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_UpdateTogglesState$loadToggleStatesToMainObjectJSResult"))();
+jsNodeResult.successOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Success, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// Success?
+if((loadToggleStatesToMainObjectJSResult.value.successOut)) {
+// Success = True
+outVars.value.successOut = true;
+} else {
+controller.safeExecuteJSNode(ECOP_ReleaseTogglesReactive_controller_FeatureTogglesMemoryCache_UpdateTogglesState_ThrowErrorJS, "ThrowError", "FeatureTogglesMemoryCache_UpdateTogglesState", {
+ErrorMessage: OS.DataConversion.JSNodeParamConverter.to((((((("A problem occurred while loading the feature toggles state into memory: the JSON passed cannot be parsed. The state of the feature toggles for feature toggle group with identifier \'" + vars.value.togglesGroupIdInLocal) + "\' is left unchanged.") + "\r\n") + " JSON passed:") + "\r\n") + vars.value.togglesStateASJSONInLocal), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+}
+
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_UpdateTogglesState$vars", [{
+name: "TogglesStateASJSON",
+attrName: "togglesStateASJSONInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "TogglesGroupId",
+attrName: "togglesGroupIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_UpdateTogglesState$loadToggleStatesToMainObjectJSResult", [{
+name: "Success",
+attrName: "successOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesMemoryCache_UpdateTogglesState$outVars", [{
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.featureTogglesMemoryCache_UpdateTogglesState$Action = function (togglesStateASJSONIn, togglesGroupIdIn) {
+togglesStateASJSONIn = (togglesStateASJSONIn === undefined) ? "" : togglesStateASJSONIn;
+togglesGroupIdIn = (togglesGroupIdIn === undefined) ? "" : togglesGroupIdIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.featureTogglesMemoryCache_UpdateTogglesState$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(togglesStateASJSONIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(togglesGroupIdIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Success: OS.DataConversion.JSNodeParamConverter.to(actionResults.successOut, OS.Types.Boolean)
+};
+});
+};
+});
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState.ThrowErrorJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$public.Logger.log("FeatureTogglesMemoryCache_UpdateTogglesState",$parameters.ErrorMessage)
+};
+});
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesMemoryCache_UpdateTogglesState.LoadToggleStatesToMainObjectJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+try {
+    $parameters.TogglesMemoryCacheObject[$parameters.FeatureTogglesGroupId] = JSON.parse($parameters.FeatureToggleStateAsJSON);
+    $parameters.Success = true;
+} catch (error) {
+    // The JSON passed is invalid
+    $parameters.Success = false;
+}
+
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesState_ToJSON", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.controller$FeatureTogglesState_ToJSON.ArrayToObjectJS", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.model$FeatureToggleStateList"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactive_controller_FeatureTogglesState_ToJSON_ArrayToObjectJS, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.featureTogglesState_ToJSON$Action = function (featureTogglesStateIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesState_ToJSON$vars"))());
+vars.value.featureTogglesStateInLocal = featureTogglesStateIn.clone();
+var arrayToObjectJSResult = new OS.DataTypes.VariableHolder();
+var jSONSerialize_ToArrayVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesState_ToJSON$outVars"))());
+// JSON Serialize: JSONSerialize_ToArray
+jSONSerialize_ToArrayVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.featureTogglesStateInLocal, true, false);
+arrayToObjectJSResult.value = controller.safeExecuteJSNode(ECOP_ReleaseTogglesReactive_controller_FeatureTogglesState_ToJSON_ArrayToObjectJS, "ArrayToObject", "FeatureTogglesState_ToJSON", {
+FeatureTogglesStateAsArray: OS.DataConversion.JSNodeParamConverter.to(jSONSerialize_ToArrayVar.value.jSONOut, OS.Types.Text),
+JSON: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesState_ToJSON$arrayToObjectJSResult"))();
+jsNodeResult.jSONOut = OS.DataConversion.JSNodeParamConverter.from($parameters.JSON, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// JSON = ArrayToObject.JSON
+outVars.value.jSONOut = arrayToObjectJSResult.value.jSONOut;
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesState_ToJSON$vars", [{
+name: "FeatureTogglesState",
+attrName: "featureTogglesStateInLocal",
+mandatory: true,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateList();
+},
+complexType: ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateList
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesState_ToJSON$arrayToObjectJSResult", [{
+name: "JSON",
+attrName: "jSONOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.FeatureTogglesState_ToJSON$outVars", [{
+name: "JSON",
+attrName: "jSONOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.featureTogglesState_ToJSON$Action = function (featureTogglesStateIn) {
+featureTogglesStateIn = (featureTogglesStateIn === undefined) ? new ECOP_ReleaseTogglesReactiveModel.FeatureToggleStateList() : featureTogglesStateIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.featureTogglesState_ToJSON$Action.bind(controller, featureTogglesStateIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+JSON: OS.DataConversion.JSNodeParamConverter.to(actionResults.jSONOut, OS.Types.Text)
+};
+});
+};
+});
+define("ECOP_ReleaseTogglesReactive.controller$FeatureTogglesState_ToJSON.ArrayToObjectJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const featureTogglesStateAsArray = JSON.parse($parameters.FeatureTogglesStateAsArray);
+
+$parameters.JSON = 
+    JSON.stringify(
+        featureTogglesStateAsArray.reduce(
+            (o, featureToggleState) => {
+                o[featureToggleState.featureToggle] = featureToggleState.isEnabled;
+                return o;
+            }, 
+            {}
+        )
+    );
+
+// For more information on the reduce function used in here see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$ReleaseToggles_ClearClientVars", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.releaseToggles_ClearClientVars$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+// Reset
+// Attract_ReleaseTogglesStateAsJSON = ""
+ECOP_ReleaseTogglesReactiveClientVariables.setAttract_ReleaseTogglesStateAsJSON("");
+// Attract_SyncDataVersion = NullDate
+ECOP_ReleaseTogglesReactiveClientVariables.setAttract_SyncDataVersion(OS.BuiltinFunctions.nullDate());
+// Attract_SyncDateTime = NullDate
+ECOP_ReleaseTogglesReactiveClientVariables.setAttract_SyncDateTime(OS.BuiltinFunctions.nullDate());
+// Convert_ReleaseTogglesStateAsJSON = ""
+ECOP_ReleaseTogglesReactiveClientVariables.setConvert_ReleaseTogglesStateAsJSON("");
+// Convert_SyncDataVersion = NullDate
+ECOP_ReleaseTogglesReactiveClientVariables.setConvert_SyncDataVersion(OS.BuiltinFunctions.nullDate());
+// Convert_SyncDateTime = NullDate
+ECOP_ReleaseTogglesReactiveClientVariables.setConvert_SyncDateTime(OS.BuiltinFunctions.nullDate());
+return ;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.releaseToggles_ClearClientVars$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.releaseToggles_ClearClientVars$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$ReleaseToggles_Sync_GetDataVersion", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.controller$Attract_API_ReleaseToggles_Sync_GetDataVersion", "ECOP_ReleaseTogglesReactive.controller$Convert_API_ReleaseToggles_Sync_GetDataVersion", "ECOP_ReleaseTogglesReactive.model$DataVersionRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.releaseToggles_Sync_GetDataVersion$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.ReleaseToggles_Sync_GetDataVersion$outVars"))());
+try {// DataVersion
+// DataVersion.Convert_SyncDataVersion = Convert_API_ReleaseToggles_Sync_GetDataVersion()
+outVars.value.dataVersionOut.convert_SyncDataVersionAttr = ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_Sync_GetDataVersion$Action(callContext).dataVersionOut;
+// DataVersion.Attract_SyncDataVersion = Attract_API_ReleaseToggles_Sync_GetDataVersion()
+outVars.value.dataVersionOut.attract_SyncDataVersionAttr = ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_Sync_GetDataVersion$Action(callContext).dataVersionOut;
+} catch (ex) {
+(function () {
+OS.Logger.trace("ReleaseToggles_Sync_GetDataVersion.ReleaseToggles_Sync_GetDataVersion", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return outVars.value;
+
+}
+
+throw ex;
+})();
+}
+
+return outVars.value;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.ReleaseToggles_Sync_GetDataVersion$outVars", [{
+name: "DataVersion",
+attrName: "dataVersionOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECOP_ReleaseTogglesReactiveModel.DataVersionRec();
+},
+complexType: ECOP_ReleaseTogglesReactiveModel.DataVersionRec
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.releaseToggles_Sync_GetDataVersion$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.releaseToggles_Sync_GetDataVersion$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+DataVersion: actionResults.dataVersionOut
+};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$ReleaseToggles_Sync_UpdateData", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.model$Convert_ReleaseToggleStateList", "ECOP_ReleaseTogglesReactive.controller$Convert_API_ReleaseToggles_Sync_UpdateData", "ECOP_ReleaseTogglesReactive.model$Attract_ReleaseToggleStateList", "ECOP_ReleaseTogglesReactive.controller$Attract_API_ReleaseToggles_Sync_UpdateData", "ECOP_ReleaseTogglesReactive.model$ReleaseToggleStateList", "ECOP_ReleaseTogglesReactive.model$DataRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.releaseToggles_Sync_UpdateData$Action = function (dataIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive.ReleaseToggles_Sync_UpdateData$vars"))());
+vars.value.dataInLocal = dataIn.clone();
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+try {// Execute Action: Convert_ReleaseToggles_Sync_UpdateData
+ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_Sync_UpdateData$Action(vars.value.dataInLocal.convert_DataAttr.syncDateTimeAttr, vars.value.dataInLocal.convert_DataAttr.isNewerDataAvailableAttr, OS.DataConversion.JSConversions.typeConvertRecordList(vars.value.dataInLocal.convert_DataAttr.newestReleaseTogglesStateAttr, new ECOP_ReleaseTogglesReactiveModel.Convert_ReleaseToggleStateList(), function (source, target) {
+target.releaseToggle_LabelAttr = source.releaseToggle_LabelAttr;
+target.isEnabledAttr = source.isEnabledAttr;
+return target;
+}), vars.value.dataInLocal.convert_DataAttr.newestDataVersionAttr, callContext);
+// Execute Action: Attract_API_ReleaseToggles_Sync_UpdateData
+ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_Sync_UpdateData$Action(vars.value.dataInLocal.attract_DataAttr.syncDateTimeAttr, vars.value.dataInLocal.attract_DataAttr.isNewerDataAvailableAttr, OS.DataConversion.JSConversions.typeConvertRecordList(vars.value.dataInLocal.attract_DataAttr.newestReleaseTogglesStateAttr, new ECOP_ReleaseTogglesReactiveModel.Attract_ReleaseToggleStateList(), function (source, target) {
+target.releaseToggle_LabelAttr = source.releaseToggle_LabelAttr;
+target.isEnabledAttr = source.isEnabledAttr;
+return target;
+}), vars.value.dataInLocal.attract_DataAttr.newestDataVersionAttr, callContext);
+} catch (ex) {
+(function () {
+OS.Logger.trace("ReleaseToggles_Sync_UpdateData.ReleaseToggles_Sync_UpdateData", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return ;
+
+}
+
+throw ex;
+})();
+}
+
+return ;
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive.ReleaseToggles_Sync_UpdateData$vars", [{
+name: "Data",
+attrName: "dataInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECOP_ReleaseTogglesReactiveModel.DataRec();
+},
+complexType: ECOP_ReleaseTogglesReactiveModel.DataRec
+}]);
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.releaseToggles_Sync_UpdateData$Action = function (dataIn) {
+dataIn = (dataIn === undefined) ? new ECOP_ReleaseTogglesReactiveModel.DataRec() : dataIn;
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.releaseToggles_Sync_UpdateData$Action.bind(controller, dataIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$ReleaseToggles_SyncIfNeeded", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.clientVariables", "ECOP_ReleaseTogglesReactive.model$DataVersionRec", "ECOP_ReleaseTogglesReactive.model$DataRec", "ECOP_ReleaseTogglesReactive.controller$ServerAction.ReleaseToggles_Sync_GetData", "ECOP_ReleaseTogglesReactive.controller$ReleaseToggles_Sync_UpdateData", "ECOP_ReleaseTogglesReactive.controller$Attract_API_ReleaseToggles_IsSynched", "ECOP_ReleaseTogglesReactive.controller$Convert_API_ReleaseToggles_IsSynched"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController, ECOP_ReleaseTogglesReactiveClientVariables) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.releaseToggles_SyncIfNeeded$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var releaseToggles_Sync_GetDataVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Not all release toggles synched?
+return OS.Flow.executeSequence(function () {
+if(((!(ECOP_ReleaseTogglesReactiveController.default.attract_API_ReleaseToggles_IsSynched$Action(callContext).isSynchedOut) || !(ECOP_ReleaseTogglesReactiveController.default.convert_API_ReleaseToggles_IsSynched$Action(callContext).isSynchedOut)))) {
+// Execute Action: ReleaseToggles_Sync_GetData
+return controller.releaseToggles_Sync_GetData$ServerAction(function () {
+var rec = new ECOP_ReleaseTogglesReactiveModel.DataVersionRec();
+rec.convert_SyncDataVersionAttr = OS.BuiltinFunctions.nullDate();
+rec.attract_SyncDataVersionAttr = OS.BuiltinFunctions.nullDate();
+return rec;
+}(), callContext).then(function (value) {
+releaseToggles_Sync_GetDataVar.value = value;
+}).then(function () {
+// Execute Action: ReleaseToggles_Sync_UpdateData
+ECOP_ReleaseTogglesReactiveController.default.releaseToggles_Sync_UpdateData$Action(releaseToggles_Sync_GetDataVar.value.dataOut, callContext);
+});
+}
+
+});
+}).catch(function (ex) {
+OS.Logger.trace("ReleaseToggles_SyncIfNeeded.ReleaseToggles_SyncIfNeeded", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync();
+
+});
+}
+
+throw ex;
+}).then(function () {
+return ;
+});
+};
+var controller = ECOP_ReleaseTogglesReactiveController.default;
+ECOP_ReleaseTogglesReactiveController.default.clientActionProxies.releaseToggles_SyncIfNeeded$Action = function () {
+return controller.executeActionInsideJSNode(ECOP_ReleaseTogglesReactiveController.default.releaseToggles_SyncIfNeeded$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECOP_ReleaseTogglesReactive.controller$ServerAction.ReleaseToggles_Sync_GetData", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_ReleaseTogglesReactive.model$DataRec"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel, ECOP_ReleaseTogglesReactiveController) {
+var OS = OutSystems.Internal;
+ECOP_ReleaseTogglesReactiveController.default.releaseToggles_Sync_GetData$ServerAction = function (dataVersionIn, callContext) {
+var controller = this.controller;
+var inputs = {
+DataVersion: OS.DataConversion.ServerDataConverter.to(dataVersionIn, OS.Types.Record)
+};
+return controller.callServerAction("ReleaseToggles_Sync_GetData", "screenservices/ECOP_ReleaseTogglesReactive/ActionReleaseToggles_Sync_GetData", "z+ILyoefCAJtzJFyX3Oq3Q", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECOP_ReleaseTogglesReactive$ActionReleaseToggles_Sync_GetData"))();
+executeServerActionResult.dataOut = OS.DataConversion.ServerDataConverter.from(outputs.Data, ECOP_ReleaseTogglesReactiveModel.DataRec);
+return executeServerActionResult;
+});
+};
+ECOP_ReleaseTogglesReactiveController.default.constructor.registerVariableGroupType("ECOP_ReleaseTogglesReactive$ActionReleaseToggles_Sync_GetData", [{
+name: "Data",
+attrName: "dataOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECOP_ReleaseTogglesReactiveModel.DataRec();
+},
+complexType: ECOP_ReleaseTogglesReactiveModel.DataRec
+}]);
+});
+define("ECOP_ReleaseTogglesReactive.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_ReleaseTogglesReactive.model"], function (exports, OutSystems, ECOP_ReleaseTogglesReactiveModel) {
+var OS = OutSystems.Internal;
+var ECOP_ReleaseTogglesReactiveController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_ReleaseTogglesReactiveController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECOP_ReleaseTogglesReactiveController.default = new Controller(null, "ECOP_ReleaseTogglesReactive");
+});

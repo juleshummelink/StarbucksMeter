@@ -1,0 +1,689 @@
+﻿.map-wrapper {
+    -webkit-transition: opacity linear 150ms;
+    transition: opacity linear 150ms;
+    height: 100%;
+    width: 100%;
+}
+
+/* 
+* This pseudo element, will force the .map-wrapper to occupy all the possibly width.
+* This is specially important when insidethe map is inside an if and an inline map
+* key is passed. 
+*/
+.map-wrapper:before {
+    
+    
+    
+    
+    
+}
+
+.map-wrapper.is--hidden {
+    opacity: 0;
+    
+}
+
+.runtime-map-container {
+    
+    height: 100%;
+    z-index: 0;
+}
+
+.map-wrapper .staticMap-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+html[data-uieditorversion^='1'] .map-wrapper .staticMap-image {
+    
+}
+
+.map-container {
+    
+    
+    
+    
+    height: var(--map-height);
+    max-width: 100%;
+    width: 100%;
+}
+
+.map-container.provider-leaflet {
+    
+    
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+.map-wrapper .license-message {
+    
+    
+    
+    
+    
+}
+
+.map-wrapper .license-message:before {
+    
+}
+
+.map-wrapper .license-message > .license-link {
+    
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.event-preview {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+.event-preview > img {
+    
+}
+
+.event-preview > div {
+    
+    
+}
+
+.event-preview-origin {
+    
+}
+
+.event-preview-name {
+    
+}
+
+.event-preview-name,
+.event-preview-origin {
+    
+    
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+.map-preview {
+    
+    
+    
+}
+
+.map-preview:not(.map-container) {
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+.map-preview-ss {
+    
+    
+    
+}
+
+.map-preview-ss > .control-type {
+    
+    
+}
+
+.map-preview-ss > .control-zoom {
+    
+    
+}
+
+.map-preview-ss > .control-full {
+    
+    
+}
+
+.map-preview-ss > .control-type,
+.map-preview-ss > .control-zoom,
+.map-preview-ss > .control-full {
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.map-preview-message-container {
+    
+    
+    
+    
+    
+}
+
+.map-preview-height {
+    
+    
+}
+
+.map-preview-location {
+    
+    
+    
+    position: relative;
+    z-index: 3;
+}
+
+.map-preview-location,
+.map-preview-height {
+    
+    
+    
+    
+    
+}
+
+.map-preview-location:empty,
+.map-preview-height:empty {
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+.map-preview > span {
+    
+}
+
+.map-preview-addons {
+    
+    
+    
+    
+    
+}
+
+.map-preview-addons:empty:after {
+    
+    
+    
+    
+    
+}
+
+.map-preview-addons > * {
+    
+}
+
+.map-preview-events {
+    
+    
+    
+}
+
+.map-preview-events:empty:after {
+    
+}
+
+.map-preview-addons,
+.map-preview-events {
+    display: none;
+    
+    
+    
+    
+    
+    
+}
+
+.map-preview-addons:after,
+.map-preview-events:after {
+    
+    
+    
+    
+    
+    
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.ss-marker {
+    
+    
+    
+    
+    
+    
+}
+
+.ss-marker-icon {
+    
+    
+    
+}
+
+.ss-marker-location {
+    
+    
+    
+    
+    
+    
+}
+
+.ss-marker-location:empty {
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.ss-marker-events {
+    
+    
+    
+    
+    
+    
+}
+
+.ss-marker-events:empty:after {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+.ss-marker-events .event-preview {
+    margin-top: 0;
+}
+
+.ss-marker-events .event-preview > div {
+    
+    
+}
+
+.ss-marker-events .event-preview > img {
+    
+    
+}
+
+.ss-marker-events .event-preview-origin {
+    
+    
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.marker-popup-layout {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+}
+
+body.safari .marker-popup-layout,
+body.chrome .marker-popup-layout {
+    margin-left: 6px;
+}
+
+@supports (-webkit-touch-callout: none) {
+    body.safari .marker-popup-layout,
+    body.chrome .marker-popup-layout {
+        margin-left: 0px;
+        padding: 6px 18px 6px 6px;
+    }
+}
+
+.marker-popup-placeholder {
+    
+    
+    
+    
+    
+}
+
+.marker-popup-placeholder::empty {
+    
+    
+}
+
+.marker-popup-placeholder::before {
+    
+    
+    
+    
+    
+    
+}
+
+.marker-layout-image {
+    height: 100px;
+    width: 100%;
+}
+
+.marker-layout-image-default,
+.marker-layout-image img {
+    border-radius: 8px;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.marker-layout-image-default:empty {
+    width: 100%;
+    content: var(--popup-default-image);
+}
+
+.marker-layout-header {
+    margin: 10px 0 5px;
+}
+
+.marker-layout-description {
+    color: var(--color-neutral-7);
+}
+
+.marker-layout-header:empty + .marker-layout-description {
+    margin-top: 10px;
+}
+
+.marker-layout-header:empty,
+.marker-layout-description:empty {
+    display: none;
+    
+}
+
+.marker-layout-link {
+    padding: 10px 0 5px;
+    text-align: center;
+}
+
+.marker-layout-link a {
+    display: block;
+}
+
+.marker-layout-link a:hover,
+.marker-layout-link a:focus {
+    text-decoration: none;
+}
+
+.marker-leaflet-icon {
+    background: var(--marker-leaflet-icon);
+    text-align: center;
+}
+
+.marker-leaflet-icon-wp {
+    background: var(--marker-leaflet-icon-wp);
+    text-align: center;
+}
+
+.leaflet-tooltip.marker-leaflet-transparent-tooltip,
+.leaflet-tooltip.marker-leaflet-transparent-tooltip-wp,
+.leaflet-tooltip.marker-leaflet-transparent-tooltip::before,
+.leaflet-tooltip.marker-leaflet-transparent-tooltip-wp::before {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.leaflet-tooltip.marker-leaflet-transparent-tooltip-wp,
+.leaflet-tooltip.marker-leaflet-transparent-tooltip-wp::before {
+    color: white;
+    margin-top: -10px;
+}
+
+/***********************************************************************/
+/*                          SS Hybrid version                          */
+/***********************************************************************/
+
+/* MAKE IF FULLWIDTH
+This is to make the first and only if, directly inside the
+map-preview block to be fullwidth. We rather not apply this
+to all IFs in the page or even in the map placeholder due
+to the potential side effect.
+*/
+html[data-uieditorversion^='1'] .map-preview > .uieditor-if-widget-container {
+    
+}
+
+/* MAKE THE IF's TRUE BRANCH HIDDEN
+This condition enable us to completely hide the true branch
+in development time, to improve the code readability.
+*/
+html[data-uieditorversion^='1']
+    .hide-true-branch
+    > .uieditor-if-widget-container
+    > :first-child {
+    
+}
+
+/* MAKE THE IF's FALSE BRANCH HIDDEN
+This condition enable us to completely hide the true .hide-true-branch
+in development time, to improve the code readability.
+*/
+html[data-uieditorversion^='1']
+    .hide-false-branch
+    > .uieditor-if-widget-container
+    > :last-child {
+    
+}
+
+/* MAKE THE CUSTOM PLACEHOLDER MESSAGES DISAPPEAR ON MOUSE HOVER
+We are using custom placeholders messages, set by CSS - in
+order to improve the developer experience, however in SS hybrid
+is actually overlapping with the default placeholder message, that
+appears once the mouse is over the drawing canvas.
+This rule, will make our custom messages disappear once the developer
+has the mouse over the canvas.
+*/
+html[data-uieditorversion^='1']:hover .ss-marker-events:empty:after,
+html[data-uieditorversion^='1']:hover .map-preview-addons:empty:after,
+html[data-uieditorversion^='1']:hover .map-preview-events:empty:after {
+    
+}
+
+.map-wrapper .force-hide {
+    
+}
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.ss-shape {
+    
+    
+    
+    
+    
+    
+}
+
+.ss-shape-icon {
+    
+    
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.ss-shape-events {
+    
+    
+    
+    
+    
+    
+}
+
+.ss-shape-events:empty:after {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+.ss-shape-events .event-preview {
+    margin-top: 0;
+}
+
+.ss-shape-events .event-preview > div {
+    
+    
+}
+
+.ss-shape-events .event-preview > img {
+    
+    
+}
+
+.ss-shape-events .event-preview-origin {
+    
+    
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.ss-drawingTools {
+    
+    
+    
+    
+    
+    
+    
+}
+
+.ss-drawingTools-hand {
+    
+}
+
+.ss-drawingTools-hand,
+.ss-drawingTools-icon {
+    
+    
+}
+
+.ss-drawingTools-icon img {
+    
+}
+
+.ss-drawingTools-tools {
+    
+    
+}
+
+.ss-drawingTools-placeholder {
+    
+    
+    
+    
+}
+
+.ss-drawingTools-placeholder * {
+    
+}
+
+.ss-drawingTools-placeholder:empty:after {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+/***********************************************************************/
+/**/
+/***********************************************************************/
+
+.ss-fileLayer,
+.ss-heatmapLayer {
+    
+    
+    
+    
+    
+    
+    
+}
+
+.ss-fileLayer-icon,
+.ss-heatmapLayer-icon {
+    
+    
+    
+}
+
+/***********************/
+
+.custom-clustericon {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    font-size: 14px;
+}
+
+.custom-clustericon-1::before,
+.custom-clustericon-2::before,
+.custom-clustericon-3::before {
+    content: '';
+    height: 100%;
+    left: 50%;
+    opacity: 1;
+    padding: 15px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 100%;
+}
+
+.custom-clustericon-1::before {
+    background: var(--cluster-default-image-1) no-repeat center;
+}
+
+.custom-clustericon-2::before {
+    background: var(--cluster-default-image-2) no-repeat center;
+}
+
+.custom-clustericon-3::before {
+    background: var(--cluster-default-image-3) no-repeat center;
+}

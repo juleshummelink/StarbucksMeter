@@ -408,6 +408,24 @@ tbody tr:hover { background: #f6faf8; }
   margin-top: 5px;
   text-transform: uppercase;
 }
+.badge-promo {
+  display: inline-block;
+  background: #1a6e42;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 5px;
+  text-transform: none;
+}
+.promo-qty {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
 .price-unavailable {
   color: var(--text-muted);
   font-size: 1.3rem;
@@ -592,6 +610,15 @@ tbody tr:hover { background: #f6faf8; }
   font-size: 0.6rem;
   padding: 1px 5px;
   margin-top: 0;
+}
+.price-card-right .badge-promo {
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  margin-top: 0;
+}
+.price-card-right .promo-qty {
+  font-size: 0.62rem;
+  margin-top: 1px;
 }
 .price-card-trophy {
   font-size: 1rem;

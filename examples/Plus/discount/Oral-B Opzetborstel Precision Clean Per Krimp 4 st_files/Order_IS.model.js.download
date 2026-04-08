@@ -1,0 +1,2787 @@
+﻿define("Order_IS.model$LoyaltyAssetsRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var LoyaltyAssetsRec = (function (_super) {
+__extends(LoyaltyAssetsRec, _super);
+function LoyaltyAssetsRec(defaults) {
+_super.apply(this, arguments);
+}
+LoyaltyAssetsRec.attributesToDeclare = function () {
+return [
+this.attr("AssetID", "assetIDAttr", "AssetID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("KindOfSaving", "kindOfSavingAttr", "KindOfSaving", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LoyaltyAssetsRec.init();
+return LoyaltyAssetsRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.LoyaltyAssetsRec = LoyaltyAssetsRec;
+
+});
+define("Order_IS.model$OrderList_TotalPriceRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_TotalPriceRec = (function (_super) {
+__extends(OrderList_TotalPriceRec, _super);
+function OrderList_TotalPriceRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_TotalPriceRec.attributesToDeclare = function () {
+return [
+this.attr("CentAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("FractionDigits", "fractionDigitsAttr", "fractionDigits", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_TotalPriceRec.init();
+return OrderList_TotalPriceRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_TotalPriceRec = OrderList_TotalPriceRec;
+
+});
+define("Order_IS.model$", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.TextList = TextList;
+
+});
+define("Order_IS.model$DNAHeaderRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var DNAHeaderRec = (function (_super) {
+__extends(DNAHeaderRec, _super);
+function DNAHeaderRec(defaults) {
+_super.apply(this, arguments);
+}
+DNAHeaderRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "Action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Source", "sourceAttr", "Source", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MessageType", "messageTypeAttr", "MessageType", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MessageVersion", "messageVersionAttr", "MessageVersion", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DomainVersion", "domainVersionAttr", "DomainVersion", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EventTriggers", "eventTriggersAttr", "EventTriggers", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("PrimaryKeyFields", "primaryKeyFieldsAttr", "PrimaryKeyFields", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("DateTime", "dateTimeAttr", "DateTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MUID", "mUIDAttr", "MUID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("GUID", "gUIDAttr", "GUID", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DNAHeaderRec.init();
+return DNAHeaderRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.DNAHeaderRec = DNAHeaderRec;
+
+});
+define("Order_IS.model$PaymentRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var PaymentRec = (function (_super) {
+__extends(PaymentRec, _super);
+function PaymentRec(defaults) {
+_super.apply(this, arguments);
+}
+PaymentRec.attributesToDeclare = function () {
+return [
+this.attr("DebitID", "debitIDAttr", "DebitID", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Method", "methodAttr", "Method", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PaymentRec.init();
+return PaymentRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.PaymentRec = PaymentRec;
+
+});
+define("Order_IS.model$FulfillmentRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var FulfillmentRec = (function (_super) {
+__extends(FulfillmentRec, _super);
+function FulfillmentRec(defaults) {
+_super.apply(this, arguments);
+}
+FulfillmentRec.attributesToDeclare = function () {
+return [
+this.attr("StoreID", "storeIDAttr", "StoreID", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("SapLocationID", "sapLocationIDAttr", "SapLocationID", false, false, OS.Types.LongInteger, function () {
+return OS.BuiltinFunctions.integerToLongInteger(0);
+}, true), 
+this.attr("ActiveERPCode", "activeERPCodeAttr", "ActiveERPCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CommercialName", "commercialNameAttr", "CommercialName", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FulfillmentRec.init();
+return FulfillmentRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.FulfillmentRec = FulfillmentRec;
+
+});
+define("Order_IS.model$LoyaltyAssetsList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$LoyaltyAssetsRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var LoyaltyAssetsList = (function (_super) {
+__extends(LoyaltyAssetsList, _super);
+function LoyaltyAssetsList(defaults) {
+_super.apply(this, arguments);
+}
+LoyaltyAssetsList.itemType = Order_ISModel.LoyaltyAssetsRec;
+return LoyaltyAssetsList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.LoyaltyAssetsList = LoyaltyAssetsList;
+
+});
+define("Order_IS.model$CustomerRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var CustomerRec = (function (_super) {
+__extends(CustomerRec, _super);
+function CustomerRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerRec.attributesToDeclare = function () {
+return [
+this.attr("CustomerID", "customerIDAttr", "CustomerID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CompanyName", "companyNameAttr", "CompanyName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LoyaltyCardID", "loyaltyCardIDAttr", "LoyaltyCardID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Department", "departmentAttr", "Department", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FirstName", "firstNameAttr", "FirstName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SurNamePrefix", "surNamePrefixAttr", "SurNamePrefix", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SurName", "surNameAttr", "SurName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Phone", "phoneAttr", "Phone", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Type", "typeAttr", "Type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Email", "emailAttr", "Email", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AdditionalEmail", "additionalEmailAttr", "AdditionalEmail", false, false, OS.Types.Email, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerRec.init();
+return CustomerRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.CustomerRec = CustomerRec;
+
+});
+define("Order_IS.model$DiscountRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var DiscountRec = (function (_super) {
+__extends(DiscountRec, _super);
+function DiscountRec(defaults) {
+_super.apply(this, arguments);
+}
+DiscountRec.attributesToDeclare = function () {
+return [
+this.attr("Amount", "amountAttr", "Amount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DiscountRec.init();
+return DiscountRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.DiscountRec = DiscountRec;
+
+});
+define("Order_IS.model$AddressRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var AddressRec = (function (_super) {
+__extends(AddressRec, _super);
+function AddressRec(defaults) {
+_super.apply(this, arguments);
+}
+AddressRec.attributesToDeclare = function () {
+return [
+this.attr("Street", "streetAttr", "Street", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HouseNumber", "houseNumberAttr", "HouseNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("HouseNumberAddition", "houseNumberAdditionAttr", "HouseNumberAddition", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PostalCode", "postalCodeAttr", "PostalCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "City", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Country", "countryAttr", "Country", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CountryISO2", "countryISO2Attr", "CountryISO2", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AddressRec.init();
+return AddressRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.AddressRec = AddressRec;
+
+});
+define("Order_IS.model$DeliveryRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$DiscountRec", "Order_IS.model$AddressRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var DeliveryRec = (function (_super) {
+__extends(DeliveryRec, _super);
+function DeliveryRec(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryRec.attributesToDeclare = function () {
+return [
+this.attr("StartDateTime", "startDateTimeAttr", "StartDateTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EndDateTime", "endDateTimeAttr", "EndDateTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Method", "methodAttr", "Method", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CutOffDateTime", "cutOffDateTimeAttr", "CutOffDateTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Costs", "costsAttr", "Costs", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("SmallOrderFee", "smallOrderFeeAttr", "SmallOrderFee", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Discount", "discountAttr", "Discount", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.DiscountRec());
+}, true, Order_ISModel.DiscountRec), 
+this.attr("Address", "addressAttr", "Address", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.AddressRec());
+}, true, Order_ISModel.AddressRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryRec.init();
+return DeliveryRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.DeliveryRec = DeliveryRec;
+
+});
+define("Order_IS.model$StockItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var StockItemRec = (function (_super) {
+__extends(StockItemRec, _super);
+function StockItemRec(defaults) {
+_super.apply(this, arguments);
+}
+StockItemRec.attributesToDeclare = function () {
+return [
+this.attr("ItemIDBaseUnit", "itemIDBaseUnitAttr", "ItemIDBaseUnit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("NumberOfBaseUnit", "numberOfBaseUnitAttr", "NumberOfBaseUnit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StockItemRec.init();
+return StockItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.StockItemRec = StockItemRec;
+
+});
+define("Order_IS.model$NetContentRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var NetContentRec = (function (_super) {
+__extends(NetContentRec, _super);
+function NetContentRec(defaults) {
+_super.apply(this, arguments);
+}
+NetContentRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UoM", "uoMAttr", "UoM", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+NetContentRec.init();
+return NetContentRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.NetContentRec = NetContentRec;
+
+});
+define("Order_IS.model$ConsumerPackageRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$NetContentRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ConsumerPackageRec = (function (_super) {
+__extends(ConsumerPackageRec, _super);
+function ConsumerPackageRec(defaults) {
+_super.apply(this, arguments);
+}
+ConsumerPackageRec.attributesToDeclare = function () {
+return [
+this.attr("NetContent", "netContentAttr", "NetContent", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.NetContentRec());
+}, true, Order_ISModel.NetContentRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ConsumerPackageRec.fromStructure = function (str) {
+return new ConsumerPackageRec(new ConsumerPackageRec.RecordClass({
+netContentAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ConsumerPackageRec.init();
+return ConsumerPackageRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ConsumerPackageRec = ConsumerPackageRec;
+
+});
+define("Order_IS.model$ShelfItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$ConsumerPackageRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ShelfItemRec = (function (_super) {
+__extends(ShelfItemRec, _super);
+function ShelfItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ShelfItemRec.attributesToDeclare = function () {
+return [
+this.attr("ConsumerPackage", "consumerPackageAttr", "ConsumerPackage", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.ConsumerPackageRec());
+}, true, Order_ISModel.ConsumerPackageRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShelfItemRec.fromStructure = function (str) {
+return new ShelfItemRec(new ShelfItemRec.RecordClass({
+consumerPackageAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShelfItemRec.init();
+return ShelfItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ShelfItemRec = ShelfItemRec;
+
+});
+define("Order_IS.model$LinesRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$StockItemRec", "Order_IS.model$ShelfItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var LinesRec = (function (_super) {
+__extends(LinesRec, _super);
+function LinesRec(defaults) {
+_super.apply(this, arguments);
+}
+LinesRec.attributesToDeclare = function () {
+return [
+this.attr("LineNumber", "lineNumberAttr", "LineNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("SequenceNumber", "sequenceNumberAttr", "SequenceNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ItemID", "itemIDAttr", "ItemID", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PrimaryBarcode", "primaryBarcodeAttr", "PrimaryBarcode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BrandName", "brandNameAttr", "BrandName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CurrentSaleUnitRetailPriceAmount", "currentSaleUnitRetailPriceAmountAttr", "CurrentSaleUnitRetailPriceAmount", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("TaxRateClassCode", "taxRateClassCodeAttr", "TaxRateClassCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExpectedDiscountAmount", "expectedDiscountAmountAttr", "ExpectedDiscountAmount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("POSIdentities", "pOSIdentitiesAttr", "POSIdentities", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("PackagingValue", "packagingValueAttr", "PackagingValue", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StockItem", "stockItemAttr", "StockItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.StockItemRec());
+}, true, Order_ISModel.StockItemRec), 
+this.attr("ShelfItem", "shelfItemAttr", "ShelfItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.ShelfItemRec());
+}, true, Order_ISModel.ShelfItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+LinesRec.init();
+return LinesRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.LinesRec = LinesRec;
+
+});
+define("Order_IS.model$LinesList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$LinesRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var LinesList = (function (_super) {
+__extends(LinesList, _super);
+function LinesList(defaults) {
+_super.apply(this, arguments);
+}
+LinesList.itemType = Order_ISModel.LinesRec;
+return LinesList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.LinesList = LinesList;
+
+});
+define("Order_IS.model$ServiceItemsRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ServiceItemsRec = (function (_super) {
+__extends(ServiceItemsRec, _super);
+function ServiceItemsRec(defaults) {
+_super.apply(this, arguments);
+}
+ServiceItemsRec.attributesToDeclare = function () {
+return [
+this.attr("LineNumber", "lineNumberAttr", "LineNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("SequenceNumber", "sequenceNumberAttr", "SequenceNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PrimaryBarcode", "primaryBarcodeAttr", "PrimaryBarcode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CurrentSaleUnitRetailPriceAmount", "currentSaleUnitRetailPriceAmountAttr", "CurrentSaleUnitRetailPriceAmount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ServiceItemsRec.init();
+return ServiceItemsRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ServiceItemsRec = ServiceItemsRec;
+
+});
+define("Order_IS.model$ServiceItemsList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$ServiceItemsRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ServiceItemsList = (function (_super) {
+__extends(ServiceItemsList, _super);
+function ServiceItemsList(defaults) {
+_super.apply(this, arguments);
+}
+ServiceItemsList.itemType = Order_ISModel.ServiceItemsRec;
+return ServiceItemsList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.ServiceItemsList = ServiceItemsList;
+
+});
+define("Order_IS.model$ExpectedLoyaltyRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ExpectedLoyaltyRec = (function (_super) {
+__extends(ExpectedLoyaltyRec, _super);
+function ExpectedLoyaltyRec(defaults) {
+_super.apply(this, arguments);
+}
+ExpectedLoyaltyRec.attributesToDeclare = function () {
+return [
+this.attr("AssetID", "assetIDAttr", "AssetID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Amount", "amountAttr", "Amount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExpectedLoyaltyRec.init();
+return ExpectedLoyaltyRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ExpectedLoyaltyRec = ExpectedLoyaltyRec;
+
+});
+define("Order_IS.model$ExpectedLoyaltyList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$ExpectedLoyaltyRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ExpectedLoyaltyList = (function (_super) {
+__extends(ExpectedLoyaltyList, _super);
+function ExpectedLoyaltyList(defaults) {
+_super.apply(this, arguments);
+}
+ExpectedLoyaltyList.itemType = Order_ISModel.ExpectedLoyaltyRec;
+return ExpectedLoyaltyList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.ExpectedLoyaltyList = ExpectedLoyaltyList;
+
+});
+define("Order_IS.model$ExpectedPromotionRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ExpectedPromotionRec = (function (_super) {
+__extends(ExpectedPromotionRec, _super);
+function ExpectedPromotionRec(defaults) {
+_super.apply(this, arguments);
+}
+ExpectedPromotionRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Amount", "amountAttr", "Amount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExpectedPromotionRec.init();
+return ExpectedPromotionRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ExpectedPromotionRec = ExpectedPromotionRec;
+
+});
+define("Order_IS.model$ExpectedPromotionList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$ExpectedPromotionRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ExpectedPromotionList = (function (_super) {
+__extends(ExpectedPromotionList, _super);
+function ExpectedPromotionList(defaults) {
+_super.apply(this, arguments);
+}
+ExpectedPromotionList.itemType = Order_ISModel.ExpectedPromotionRec;
+return ExpectedPromotionList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.ExpectedPromotionList = ExpectedPromotionList;
+
+});
+define("Order_IS.model$OrderTotalRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$ExpectedLoyaltyList", "Order_IS.model$ExpectedPromotionList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderTotalRec = (function (_super) {
+__extends(OrderTotalRec, _super);
+function OrderTotalRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderTotalRec.attributesToDeclare = function () {
+return [
+this.attr("ItemCount", "itemCountAttr", "ItemCount", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PackagingDeposit", "packagingDepositAttr", "PackagingDeposit", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DiscountAmount", "discountAmountAttr", "DiscountAmount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("SubTotal", "subTotalAttr", "SubTotal", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Total", "totalAttr", "Total", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Expectedloyalty", "expectedloyaltyAttr", "ExpectedLoyalty", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.ExpectedLoyaltyList());
+}, true, Order_ISModel.ExpectedLoyaltyList), 
+this.attr("ExpectedPromotion", "expectedPromotionAttr", "ExpectedPromotion", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.ExpectedPromotionList());
+}, true, Order_ISModel.ExpectedPromotionList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderTotalRec.init();
+return OrderTotalRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderTotalRec = OrderTotalRec;
+
+});
+define("Order_IS.model$ActivatedPromotionsRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ActivatedPromotionsRec = (function (_super) {
+__extends(ActivatedPromotionsRec, _super);
+function ActivatedPromotionsRec(defaults) {
+_super.apply(this, arguments);
+}
+ActivatedPromotionsRec.attributesToDeclare = function () {
+return [
+this.attr("Type", "typeAttr", "Type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Reference", "referenceAttr", "Reference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CouponVoucherCode", "couponVoucherCodeAttr", "CouponVoucherCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ActivatedPromotionsRec.init();
+return ActivatedPromotionsRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ActivatedPromotionsRec = ActivatedPromotionsRec;
+
+});
+define("Order_IS.model$ActivatedPromotionsList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$ActivatedPromotionsRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ActivatedPromotionsList = (function (_super) {
+__extends(ActivatedPromotionsList, _super);
+function ActivatedPromotionsList(defaults) {
+_super.apply(this, arguments);
+}
+ActivatedPromotionsList.itemType = Order_ISModel.ActivatedPromotionsRec;
+return ActivatedPromotionsList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.ActivatedPromotionsList = ActivatedPromotionsList;
+
+});
+define("Order_IS.model$CustomerOrderRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$PaymentRec", "Order_IS.model$FulfillmentRec", "Order_IS.model$LoyaltyAssetsList", "Order_IS.model$CustomerRec", "Order_IS.model$DeliveryRec", "Order_IS.model$LinesList", "Order_IS.model$ServiceItemsList", "Order_IS.model$OrderTotalRec", "Order_IS.model$ActivatedPromotionsList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var CustomerOrderRec = (function (_super) {
+__extends(CustomerOrderRec, _super);
+function CustomerOrderRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerOrderRec.attributesToDeclare = function () {
+return [
+this.attr("CreationDateTime", "creationDateTimeAttr", "CreationDateTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerOrderID", "customerOrderIDAttr", "CustomerOrderID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("URL", "uRLAttr", "URL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("State", "stateAttr", "State", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Priority", "priorityAttr", "Priority", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CustomerRemark", "customerRemarkAttr", "CustomerRemark", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsHolidayParkOrder", "isHolidayParkOrderAttr", "IsHolidayParkOrder", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("AlternateProduct", "alternateProductAttr", "AlternateProduct", false, false, OS.Types.Text, function () {
+return "No";
+}, true), 
+this.attr("OrderVia", "orderViaAttr", "OrderVia", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AttributionReference", "attributionReferenceAttr", "AttributionReference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsFirstTimeBuyer", "isFirstTimeBuyerAttr", "IsFirstTimeBuyer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("MinimumPurchaseAge", "minimumPurchaseAgeAttr", "MinimumPurchaseAge", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsDeliveryBundleOrder", "isDeliveryBundleOrderAttr", "IsDeliveryBundleOrder", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ExternalOrderReference", "externalOrderReferenceAttr", "ExternalOrderReference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Payment", "paymentAttr", "Payment", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.PaymentRec());
+}, true, Order_ISModel.PaymentRec), 
+this.attr("Fulfillment", "fulfillmentAttr", "Fulfillment", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.FulfillmentRec());
+}, true, Order_ISModel.FulfillmentRec), 
+this.attr("LoyaltyAssets", "loyaltyAssetsAttr", "LoyaltyAssets", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.LoyaltyAssetsList());
+}, true, Order_ISModel.LoyaltyAssetsList), 
+this.attr("Customer", "customerAttr", "Customer", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.CustomerRec());
+}, true, Order_ISModel.CustomerRec), 
+this.attr("Delivery", "deliveryAttr", "Delivery", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.DeliveryRec());
+}, true, Order_ISModel.DeliveryRec), 
+this.attr("Lines", "linesAttr", "Lines", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.LinesList());
+}, true, Order_ISModel.LinesList), 
+this.attr("ServiceItems", "serviceItemsAttr", "ServiceItems", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.ServiceItemsList());
+}, true, Order_ISModel.ServiceItemsList), 
+this.attr("OrderTotal", "orderTotalAttr", "OrderTotal", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderTotalRec());
+}, true, Order_ISModel.OrderTotalRec), 
+this.attr("ActivatedPromotions", "activatedPromotionsAttr", "ActivatedPromotions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.ActivatedPromotionsList());
+}, true, Order_ISModel.ActivatedPromotionsList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerOrderRec.init();
+return CustomerOrderRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.CustomerOrderRec = CustomerOrderRec;
+
+});
+define("Order_IS.model$CustomerOrderList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$CustomerOrderRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var CustomerOrderList = (function (_super) {
+__extends(CustomerOrderList, _super);
+function CustomerOrderList(defaults) {
+_super.apply(this, arguments);
+}
+CustomerOrderList.itemType = Order_ISModel.CustomerOrderRec;
+return CustomerOrderList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.CustomerOrderList = CustomerOrderList;
+
+});
+define("Order_IS.model$Order_ESBStructRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$DNAHeaderRec", "Order_IS.model$CustomerOrderList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var Order_ESBStructRec = (function (_super) {
+__extends(Order_ESBStructRec, _super);
+function Order_ESBStructRec(defaults) {
+_super.apply(this, arguments);
+}
+Order_ESBStructRec.attributesToDeclare = function () {
+return [
+this.attr("DNAHeader", "dNAHeaderAttr", "DNAHeader", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.DNAHeaderRec());
+}, true, Order_ISModel.DNAHeaderRec), 
+this.attr("CustomerOrders", "customerOrdersAttr", "CustomerOrders", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.CustomerOrderList());
+}, true, Order_ISModel.CustomerOrderList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Order_ESBStructRec.init();
+return Order_ESBStructRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.Order_ESBStructRec = Order_ESBStructRec;
+
+});
+define("Order_IS.model$OrderList_ImageItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ImageItemRec = (function (_super) {
+__extends(OrderList_ImageItemRec, _super);
+function OrderList_ImageItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ImageItemRec.attributesToDeclare = function () {
+return [
+this.attr("Url", "urlAttr", "url", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ImageItemRec.fromStructure = function (str) {
+return new OrderList_ImageItemRec(new OrderList_ImageItemRec.RecordClass({
+urlAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_ImageItemRec.init();
+return OrderList_ImageItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ImageItemRec = OrderList_ImageItemRec;
+
+});
+define("Order_IS.model$OrderList_ImageItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ImageItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ImageItemList = (function (_super) {
+__extends(OrderList_ImageItemList, _super);
+function OrderList_ImageItemList(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ImageItemList.itemType = Order_ISModel.OrderList_ImageItemRec;
+return OrderList_ImageItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.OrderList_ImageItemList = OrderList_ImageItemList;
+
+});
+define("Order_IS.model$OrderList_AttributesRawItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_AttributesRawItemRec = (function (_super) {
+__extends(OrderList_AttributesRawItemRec, _super);
+function OrderList_AttributesRawItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_AttributesRawItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_AttributesRawItemRec.init();
+return OrderList_AttributesRawItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_AttributesRawItemRec = OrderList_AttributesRawItemRec;
+
+});
+define("Order_IS.model$OrderList_AttributesRawItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_AttributesRawItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_AttributesRawItemList = (function (_super) {
+__extends(OrderList_AttributesRawItemList, _super);
+function OrderList_AttributesRawItemList(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_AttributesRawItemList.itemType = Order_ISModel.OrderList_AttributesRawItemRec;
+return OrderList_AttributesRawItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.OrderList_AttributesRawItemList = OrderList_AttributesRawItemList;
+
+});
+define("Order_IS.model$OrderList_ChannelRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ChannelRec = (function (_super) {
+__extends(OrderList_ChannelRec, _super);
+function OrderList_ChannelRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ChannelRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ChannelRec.init();
+return OrderList_ChannelRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ChannelRec = OrderList_ChannelRec;
+
+});
+define("Order_IS.model$OrderList_ResultChannelRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ChannelRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ResultChannelRec = (function (_super) {
+__extends(OrderList_ResultChannelRec, _super);
+function OrderList_ResultChannelRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ResultChannelRec.attributesToDeclare = function () {
+return [
+this.attr("Channel", "channelAttr", "channel", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ChannelRec());
+}, true, Order_ISModel.OrderList_ChannelRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ResultChannelRec.fromStructure = function (str) {
+return new OrderList_ResultChannelRec(new OrderList_ResultChannelRec.RecordClass({
+channelAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_ResultChannelRec.init();
+return OrderList_ResultChannelRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ResultChannelRec = OrderList_ResultChannelRec;
+
+});
+define("Order_IS.model$OrderList_ResultChannelList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ResultChannelRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ResultChannelList = (function (_super) {
+__extends(OrderList_ResultChannelList, _super);
+function OrderList_ResultChannelList(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ResultChannelList.itemType = Order_ISModel.OrderList_ResultChannelRec;
+return OrderList_ResultChannelList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.OrderList_ResultChannelList = OrderList_ResultChannelList;
+
+});
+define("Order_IS.model$OrderList_ChannelListRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ResultChannelList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ChannelListRec = (function (_super) {
+__extends(OrderList_ChannelListRec, _super);
+function OrderList_ChannelListRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ChannelListRec.attributesToDeclare = function () {
+return [
+this.attr("Results", "resultsAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ResultChannelList());
+}, true, Order_ISModel.OrderList_ResultChannelList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ChannelListRec.fromStructure = function (str) {
+return new OrderList_ChannelListRec(new OrderList_ChannelListRec.RecordClass({
+resultsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_ChannelListRec.init();
+return OrderList_ChannelListRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ChannelListRec = OrderList_ChannelListRec;
+
+});
+define("Order_IS.model$OrderList_AvailabilityRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ChannelListRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_AvailabilityRec = (function (_super) {
+__extends(OrderList_AvailabilityRec, _super);
+function OrderList_AvailabilityRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_AvailabilityRec.attributesToDeclare = function () {
+return [
+this.attr("Channel", "channelAttr", "channels", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ChannelListRec());
+}, true, Order_ISModel.OrderList_ChannelListRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_AvailabilityRec.fromStructure = function (str) {
+return new OrderList_AvailabilityRec(new OrderList_AvailabilityRec.RecordClass({
+channelAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_AvailabilityRec.init();
+return OrderList_AvailabilityRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_AvailabilityRec = OrderList_AvailabilityRec;
+
+});
+define("Order_IS.model$OrderList_VariantRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ImageItemList", "Order_IS.model$OrderList_AttributesRawItemList", "Order_IS.model$OrderList_AvailabilityRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_VariantRec = (function (_super) {
+__extends(OrderList_VariantRec, _super);
+function OrderList_VariantRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_VariantRec.attributesToDeclare = function () {
+return [
+this.attr("Images", "imagesAttr", "images", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ImageItemList());
+}, true, Order_ISModel.OrderList_ImageItemList), 
+this.attr("AttributesRaw", "attributesRawAttr", "attributesRaw", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_AttributesRawItemList());
+}, true, Order_ISModel.OrderList_AttributesRawItemList), 
+this.attr("Availability", "availabilityAttr", "availability", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_AvailabilityRec());
+}, true, Order_ISModel.OrderList_AvailabilityRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_VariantRec.init();
+return OrderList_VariantRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_VariantRec = OrderList_VariantRec;
+
+});
+define("Order_IS.model$CentPrecisionRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var CentPrecisionRec = (function (_super) {
+__extends(CentPrecisionRec, _super);
+function CentPrecisionRec(defaults) {
+_super.apply(this, arguments);
+}
+CentPrecisionRec.attributesToDeclare = function () {
+return [
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CurrencyCode", "currencyCodeAttr", "currencyCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CentAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("FractionDigits", "fractionDigitsAttr", "fractionDigits", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PreciseAmount", "preciseAmountAttr", "preciseAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CentPrecisionRec.init();
+return CentPrecisionRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.CentPrecisionRec = CentPrecisionRec;
+
+});
+define("Order_IS.model$NameRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var NameRec = (function (_super) {
+__extends(NameRec, _super);
+function NameRec(defaults) {
+_super.apply(this, arguments);
+}
+NameRec.attributesToDeclare = function () {
+return [
+this.attr("EnUS", "enUSAttr", "en-US", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NlNL", "nlNLAttr", "nl-NL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+NameRec.init();
+return NameRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.NameRec = NameRec;
+
+});
+define("Order_IS.model$MoneyRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MoneyRec = (function (_super) {
+__extends(MoneyRec, _super);
+function MoneyRec(defaults) {
+_super.apply(this, arguments);
+}
+MoneyRec.attributesToDeclare = function () {
+return [
+this.attr("currencyCode", "currencyCodeAttr", "currencyCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("centAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MoneyRec.init();
+return MoneyRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MoneyRec = MoneyRec;
+
+});
+define("Order_IS.model$TaxCategoryRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var TaxCategoryRec = (function (_super) {
+__extends(TaxCategoryRec, _super);
+function TaxCategoryRec(defaults) {
+_super.apply(this, arguments);
+}
+TaxCategoryRec.attributesToDeclare = function () {
+return [
+this.attr("typeId", "typeIdAttr", "typeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TaxCategoryRec.init();
+return TaxCategoryRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.TaxCategoryRec = TaxCategoryRec;
+
+});
+define("Order_IS.model$StagedActionCustomLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$NameRec", "Order_IS.model$MoneyRec", "Order_IS.model$TaxCategoryRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var StagedActionCustomLineItemRec = (function (_super) {
+__extends(StagedActionCustomLineItemRec, _super);
+function StagedActionCustomLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+StagedActionCustomLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.NameRec());
+}, true, Order_ISModel.NameRec), 
+this.attr("CustomLineItemId", "customLineItemIdAttr", "customLineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Money", "moneyAttr", "money", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MoneyRec());
+}, true, Order_ISModel.MoneyRec), 
+this.attr("Slug", "slugAttr", "slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("TaxCategory", "taxCategoryAttr", "taxCategory", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.TaxCategoryRec());
+}, true, Order_ISModel.TaxCategoryRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+StagedActionCustomLineItemRec.init();
+return StagedActionCustomLineItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.StagedActionCustomLineItemRec = StagedActionCustomLineItemRec;
+
+});
+define("Order_IS.model$WorkflowOrderStateRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var WorkflowOrderStateRec = (function (_super) {
+__extends(WorkflowOrderStateRec, _super);
+function WorkflowOrderStateRec(defaults) {
+_super.apply(this, arguments);
+}
+WorkflowOrderStateRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+WorkflowOrderStateRec.fromStructure = function (str) {
+return new WorkflowOrderStateRec(new WorkflowOrderStateRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+WorkflowOrderStateRec.init();
+return WorkflowOrderStateRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.WorkflowOrderStateRec = WorkflowOrderStateRec;
+
+});
+define("Order_IS.model$OrderEditActionRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderEditActionRec = (function (_super) {
+__extends(OrderEditActionRec, _super);
+function OrderEditActionRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderEditActionRec.attributesToDeclare = function () {
+return [
+this.attr("ActionCode", "actionCodeAttr", "ActionCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderEditActionRec.init();
+return OrderEditActionRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderEditActionRec = OrderEditActionRec;
+
+});
+define("Order_IS.model$AttributeItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var AttributeItemRec = (function (_super) {
+__extends(AttributeItemRec, _super);
+function AttributeItemRec(defaults) {
+_super.apply(this, arguments);
+}
+AttributeItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AttributeItemRec.init();
+return AttributeItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.AttributeItemRec = AttributeItemRec;
+
+});
+define("Order_IS.model$TypeRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var TypeRec = (function (_super) {
+__extends(TypeRec, _super);
+function TypeRec(defaults) {
+_super.apply(this, arguments);
+}
+TypeRec.attributesToDeclare = function () {
+return [
+this.attr("TypeId", "typeIdAttr", "typeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TypeRec.init();
+return TypeRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.TypeRec = TypeRec;
+
+});
+define("Order_IS.model$MyAddressRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyAddressRec = (function (_super) {
+__extends(MyAddressRec, _super);
+function MyAddressRec(defaults) {
+_super.apply(this, arguments);
+}
+MyAddressRec.attributesToDeclare = function () {
+return [
+this.attr("Country", "countryAttr", "country", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FirstName", "firstNameAttr", "firstName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LastName", "lastNameAttr", "lastName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetName", "streetNameAttr", "streetName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetNumber", "streetNumberAttr", "streetNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AdditionalStreetInfo", "additionalStreetInfoAttr", "additionalStreetInfo", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PostalCode", "postalCodeAttr", "postalCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "city", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Region", "regionAttr", "region", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Company", "companyAttr", "company", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Department", "departmentAttr", "department", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("pOBox", "pOBoxAttr", "pOBox", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Phone", "phoneAttr", "phone", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Email", "emailAttr", "email", false, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("AdditionalAddressInfo", "additionalAddressInfoAttr", "additionalAddressInfo", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Addtional_HasAdditionalEmail", "addtional_HasAdditionalEmailAttr", "Addtional_HasAdditionalEmail", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyAddressRec.init();
+return MyAddressRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyAddressRec = MyAddressRec;
+
+});
+define("Order_IS.model$ShippingMethodRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ShippingMethodRec = (function (_super) {
+__extends(ShippingMethodRec, _super);
+function ShippingMethodRec(defaults) {
+_super.apply(this, arguments);
+}
+ShippingMethodRec.attributesToDeclare = function () {
+return [
+this.attr("typeId", "typeIdAttr", "typeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShippingMethodRec.init();
+return ShippingMethodRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ShippingMethodRec = ShippingMethodRec;
+
+});
+define("Order_IS.model$StagedActionItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$TypeRec", "Order_IS.model$MyAddressRec", "Order_IS.model$MoneyRec", "Order_IS.model$TaxCategoryRec", "Order_IS.model$NameRec", "Order_IS.model$ShippingMethodRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var StagedActionItemRec = (function (_super) {
+__extends(StagedActionItemRec, _super);
+function StagedActionItemRec(defaults) {
+_super.apply(this, arguments);
+}
+StagedActionItemRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineItemId", "lineItemIdAttr", "lineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "sku", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DistributionChannel", "distributionChannelAttr", "distributionChannel", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.TypeRec());
+}, true, Order_ISModel.TypeRec), 
+this.attr("OrderState", "orderStateAttr", "orderState", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Country", "countryAttr", "country", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Address", "addressAttr", "address", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyAddressRec());
+}, true, Order_ISModel.MyAddressRec), 
+this.attr("DiscountCode", "discountCodeAttr", "discountCode", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.TypeRec());
+}, true, Order_ISModel.TypeRec), 
+this.attr("CustomLineItemId", "customLineItemIdAttr", "customLineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Money", "moneyAttr", "money", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MoneyRec());
+}, true, Order_ISModel.MoneyRec), 
+this.attr("TaxCategory", "taxCategoryAttr", "taxCategory", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.TaxCategoryRec());
+}, true, Order_ISModel.TaxCategoryRec), 
+this.attr("Slug", "slugAttr", "slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NameCustomLineItem", "nameCustomLineItemAttr", "nameCustomLineItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.NameRec());
+}, true, Order_ISModel.NameRec), 
+this.attr("ShippingMethod", "shippingMethodAttr", "shippingMethod", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.ShippingMethodRec());
+}, true, Order_ISModel.ShippingMethodRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+StagedActionItemRec.init();
+return StagedActionItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.StagedActionItemRec = StagedActionItemRec;
+
+});
+define("Order_IS.model$OrderList_ValueRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ValueRec = (function (_super) {
+__extends(OrderList_ValueRec, _super);
+function OrderList_ValueRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ValueRec.attributesToDeclare = function () {
+return [
+this.attr("CentAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("FractionDigits", "fractionDigitsAttr", "fractionDigits", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ValueRec.init();
+return OrderList_ValueRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ValueRec = OrderList_ValueRec;
+
+});
+define("Order_IS.model$OrderList_CustomRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_AttributesRawItemList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_CustomRec = (function (_super) {
+__extends(OrderList_CustomRec, _super);
+function OrderList_CustomRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_CustomRec.attributesToDeclare = function () {
+return [
+this.attr("CustomFieldsRaw", "customFieldsRawAttr", "customFieldsRaw", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_AttributesRawItemList());
+}, true, Order_ISModel.OrderList_AttributesRawItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_CustomRec.fromStructure = function (str) {
+return new OrderList_CustomRec(new OrderList_CustomRec.RecordClass({
+customFieldsRawAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_CustomRec.init();
+return OrderList_CustomRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_CustomRec = OrderList_CustomRec;
+
+});
+define("Order_IS.model$OrderList_PriceRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ValueRec", "Order_IS.model$OrderList_CustomRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_PriceRec = (function (_super) {
+__extends(OrderList_PriceRec, _super);
+function OrderList_PriceRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_PriceRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ValueRec());
+}, true, Order_ISModel.OrderList_ValueRec), 
+this.attr("Custom", "customAttr", "custom", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_CustomRec());
+}, true, Order_ISModel.OrderList_CustomRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_PriceRec.init();
+return OrderList_PriceRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_PriceRec = OrderList_PriceRec;
+
+});
+define("Order_IS.model$OrderList_LineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_PriceRec", "Order_IS.model$OrderList_TotalPriceRec", "Order_IS.model$OrderList_VariantRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_LineItemRec = (function (_super) {
+__extends(OrderList_LineItemRec, _super);
+function OrderList_LineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_LineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductKey", "productKeyAttr", "productKey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductSlug", "productSlugAttr", "productSlug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Price", "priceAttr", "price", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_PriceRec());
+}, true, Order_ISModel.OrderList_PriceRec), 
+this.attr("TotalPrice", "totalPriceAttr", "totalPrice", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_TotalPriceRec());
+}, true, Order_ISModel.OrderList_TotalPriceRec), 
+this.attr("Variant", "variantAttr", "variant", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_VariantRec());
+}, true, Order_ISModel.OrderList_VariantRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_LineItemRec.init();
+return OrderList_LineItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_LineItemRec = OrderList_LineItemRec;
+
+});
+define("Order_IS.model$OrderList_LineItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_LineItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_LineItemList = (function (_super) {
+__extends(OrderList_LineItemList, _super);
+function OrderList_LineItemList(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_LineItemList.itemType = Order_ISModel.OrderList_LineItemRec;
+return OrderList_LineItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.OrderList_LineItemList = OrderList_LineItemList;
+
+});
+define("Order_IS.model$OrderList_AddressRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_AddressRec = (function (_super) {
+__extends(OrderList_AddressRec, _super);
+function OrderList_AddressRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_AddressRec.attributesToDeclare = function () {
+return [
+this.attr("FirstName", "firstNameAttr", "firstName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LastName", "lastNameAttr", "lastName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Phone", "phoneAttr", "phone", false, false, OS.Types.PhoneNumber, function () {
+return "";
+}, true), 
+this.attr("Email", "emailAttr", "email", false, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("StreetName", "streetNameAttr", "streetName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StreetNumber", "streetNumberAttr", "streetNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AdditionalStreetInfo", "additionalStreetInfoAttr", "additionalStreetInfo", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PostalCode", "postalCodeAttr", "postalCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "city", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Company", "companyAttr", "company", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AdditionalAddressInfo", "additionalAddressInfoAttr", "additionalAddressInfo", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_AddressRec.init();
+return OrderList_AddressRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_AddressRec = OrderList_AddressRec;
+
+});
+define("Order_IS.model$OrderList_ResultItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_LineItemList", "Order_IS.model$OrderList_TotalPriceRec", "Order_IS.model$OrderList_AddressRec", "Order_IS.model$OrderList_CustomRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ResultItemRec = (function (_super) {
+__extends(OrderList_ResultItemRec, _super);
+function OrderList_ResultItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ResultItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("OrderNumber", "orderNumberAttr", "orderNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AnonymousId", "anonymousIdAttr", "anonymousId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderState", "orderStateAttr", "orderState", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("LineItems", "lineItemsAttr", "lineItems", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_LineItemList());
+}, true, Order_ISModel.OrderList_LineItemList), 
+this.attr("TotalPrice", "totalPriceAttr", "totalPrice", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_TotalPriceRec());
+}, true, Order_ISModel.OrderList_TotalPriceRec), 
+this.attr("ShippingAddress", "shippingAddressAttr", "shippingAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_AddressRec());
+}, true, Order_ISModel.OrderList_AddressRec), 
+this.attr("BillingAddress", "billingAddressAttr", "billingAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_AddressRec());
+}, true, Order_ISModel.OrderList_AddressRec), 
+this.attr("Custom", "customAttr", "custom", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_CustomRec());
+}, true, Order_ISModel.OrderList_CustomRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ResultItemRec.init();
+return OrderList_ResultItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ResultItemRec = OrderList_ResultItemRec;
+
+});
+define("Order_IS.model$MyOrder_DiscountCodeItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_DiscountCodeItemRec = (function (_super) {
+__extends(MyOrder_DiscountCodeItemRec, _super);
+function MyOrder_DiscountCodeItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_DiscountCodeItemRec.attributesToDeclare = function () {
+return [
+this.attr("DiscountCodeId", "discountCodeIdAttr", "DiscountCodeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("State", "stateAttr", "state", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_DiscountCodeItemRec.init();
+return MyOrder_DiscountCodeItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_DiscountCodeItemRec = MyOrder_DiscountCodeItemRec;
+
+});
+define("Order_IS.model$OrderList_ResultItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ResultItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ResultItemList = (function (_super) {
+__extends(OrderList_ResultItemList, _super);
+function OrderList_ResultItemList(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ResultItemList.itemType = Order_ISModel.OrderList_ResultItemRec;
+return OrderList_ResultItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.OrderList_ResultItemList = OrderList_ResultItemList;
+
+});
+define("Order_IS.model$OrderList_OrderRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ResultItemList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_OrderRec = (function (_super) {
+__extends(OrderList_OrderRec, _super);
+function OrderList_OrderRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_OrderRec.attributesToDeclare = function () {
+return [
+this.attr("Total", "totalAttr", "total", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Results", "resultsAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ResultItemList());
+}, true, Order_ISModel.OrderList_ResultItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_OrderRec.init();
+return OrderList_OrderRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_OrderRec = OrderList_OrderRec;
+
+});
+define("Order_IS.model$ActivatedPromotionsTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ActivatedPromotionsTypeRec = (function (_super) {
+__extends(ActivatedPromotionsTypeRec, _super);
+function ActivatedPromotionsTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+ActivatedPromotionsTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ActivatedPromotionsTypeRec.init();
+return ActivatedPromotionsTypeRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ActivatedPromotionsTypeRec = ActivatedPromotionsTypeRec;
+
+});
+define("Order_IS.model$OrderList_DataRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_OrderRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_DataRec = (function (_super) {
+__extends(OrderList_DataRec, _super);
+function OrderList_DataRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_DataRec.attributesToDeclare = function () {
+return [
+this.attr("Orders", "ordersAttr", "orders", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_OrderRec());
+}, true, Order_ISModel.OrderList_OrderRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_DataRec.fromStructure = function (str) {
+return new OrderList_DataRec(new OrderList_DataRec.RecordClass({
+ordersAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_DataRec.init();
+return OrderList_DataRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_DataRec = OrderList_DataRec;
+
+});
+define("Order_IS.model$MyOrder_BusinessInterfaceRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_BusinessInterfaceRec = (function (_super) {
+__extends(MyOrder_BusinessInterfaceRec, _super);
+function MyOrder_BusinessInterfaceRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_BusinessInterfaceRec.attributesToDeclare = function () {
+return [
+this.attr("CartCreatedVia", "cartCreatedViaAttr", "CartCreatedVia", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderCreatedVia", "orderCreatedViaAttr", "OrderCreatedVia", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_BusinessInterfaceRec.init();
+return MyOrder_BusinessInterfaceRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_BusinessInterfaceRec = MyOrder_BusinessInterfaceRec;
+
+});
+define("Order_IS.model$MyOrder_CartDiscountItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_CartDiscountItemRec = (function (_super) {
+__extends(MyOrder_CartDiscountItemRec, _super);
+function MyOrder_CartDiscountItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_CartDiscountItemRec.attributesToDeclare = function () {
+return [
+this.attr("CartDiscountId", "cartDiscountIdAttr", "CartDiscountId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DiscountedPrice", "discountedPriceAttr", "DiscountedPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DiscountPrice", "discountPriceAttr", "DiscountPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductID", "productIDAttr", "ProductID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsServiceItem", "isServiceItemAttr", "IsServiceItem", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_CartDiscountItemRec.init();
+return MyOrder_CartDiscountItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_CartDiscountItemRec = MyOrder_CartDiscountItemRec;
+
+});
+define("Order_IS.model$IncludedDiscountItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$TypeRec", "Order_IS.model$CentPrecisionRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var IncludedDiscountItemRec = (function (_super) {
+__extends(IncludedDiscountItemRec, _super);
+function IncludedDiscountItemRec(defaults) {
+_super.apply(this, arguments);
+}
+IncludedDiscountItemRec.attributesToDeclare = function () {
+return [
+this.attr("Discount", "discountAttr", "discount", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.TypeRec());
+}, true, Order_ISModel.TypeRec), 
+this.attr("DiscountedAmount", "discountedAmountAttr", "discountedAmount", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.CentPrecisionRec());
+}, true, Order_ISModel.CentPrecisionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+IncludedDiscountItemRec.init();
+return IncludedDiscountItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.IncludedDiscountItemRec = IncludedDiscountItemRec;
+
+});
+define("Order_IS.model$IncludedDiscountItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$IncludedDiscountItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var IncludedDiscountItemList = (function (_super) {
+__extends(IncludedDiscountItemList, _super);
+function IncludedDiscountItemList(defaults) {
+_super.apply(this, arguments);
+}
+IncludedDiscountItemList.itemType = Order_ISModel.IncludedDiscountItemRec;
+return IncludedDiscountItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.IncludedDiscountItemList = IncludedDiscountItemList;
+
+});
+define("Order_IS.model$DiscountedPriceRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$CentPrecisionRec", "Order_IS.model$IncludedDiscountItemList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var DiscountedPriceRec = (function (_super) {
+__extends(DiscountedPriceRec, _super);
+function DiscountedPriceRec(defaults) {
+_super.apply(this, arguments);
+}
+DiscountedPriceRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.CentPrecisionRec());
+}, true, Order_ISModel.CentPrecisionRec), 
+this.attr("IncludedDiscounts", "includedDiscountsAttr", "IncludedDiscounts", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.IncludedDiscountItemList());
+}, true, Order_ISModel.IncludedDiscountItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+DiscountedPriceRec.init();
+return DiscountedPriceRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.DiscountedPriceRec = DiscountedPriceRec;
+
+});
+define("Order_IS.model$DiscountedPricePerQuantityItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$DiscountedPriceRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var DiscountedPricePerQuantityItemRec = (function (_super) {
+__extends(DiscountedPricePerQuantityItemRec, _super);
+function DiscountedPricePerQuantityItemRec(defaults) {
+_super.apply(this, arguments);
+}
+DiscountedPricePerQuantityItemRec.attributesToDeclare = function () {
+return [
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DiscountedPrice", "discountedPriceAttr", "DiscountedPrice", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.DiscountedPriceRec());
+}, true, Order_ISModel.DiscountedPriceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DiscountedPricePerQuantityItemRec.init();
+return DiscountedPricePerQuantityItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.DiscountedPricePerQuantityItemRec = DiscountedPricePerQuantityItemRec;
+
+});
+define("Order_IS.model$MyOrder_PromotionsRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_PromotionsRec = (function (_super) {
+__extends(MyOrder_PromotionsRec, _super);
+function MyOrder_PromotionsRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_PromotionsRec.attributesToDeclare = function () {
+return [
+this.attr("Label", "labelAttr", "lab", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Discount", "discountAttr", "disc", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_PromotionsRec.init();
+return MyOrder_PromotionsRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_PromotionsRec = MyOrder_PromotionsRec;
+
+});
+define("Order_IS.model$OrderEditStagedActionRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderEditStagedActionRec = (function (_super) {
+__extends(OrderEditStagedActionRec, _super);
+function OrderEditStagedActionRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderEditStagedActionRec.attributesToDeclare = function () {
+return [
+this.attr("ActionCode", "actionCodeAttr", "ActionCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderEditStagedActionRec.init();
+return OrderEditStagedActionRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderEditStagedActionRec = OrderEditStagedActionRec;
+
+});
+define("Order_IS.model$OrderEditStatusRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderEditStatusRec = (function (_super) {
+__extends(OrderEditStatusRec, _super);
+function OrderEditStatusRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderEditStatusRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderEditStatusRec.init();
+return OrderEditStatusRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderEditStatusRec = OrderEditStatusRec;
+
+});
+define("Order_IS.model$OrderList_StateRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_StateRec = (function (_super) {
+__extends(OrderList_StateRec, _super);
+function OrderList_StateRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_StateRec.attributesToDeclare = function () {
+return [
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_StateRec.fromStructure = function (str) {
+return new OrderList_StateRec(new OrderList_StateRec.RecordClass({
+keyAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_StateRec.init();
+return OrderList_StateRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_StateRec = OrderList_StateRec;
+
+});
+define("Order_IS.model$OrderList_ProductResultItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_LineItemList", "Order_IS.model$OrderList_StateRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ProductResultItemRec = (function (_super) {
+__extends(OrderList_ProductResultItemRec, _super);
+function OrderList_ProductResultItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ProductResultItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineItems", "lineItemsAttr", "lineItems", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_LineItemList());
+}, true, Order_ISModel.OrderList_LineItemList), 
+this.attr("State", "stateAttr", "state", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_StateRec());
+}, true, Order_ISModel.OrderList_StateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ProductResultItemRec.init();
+return OrderList_ProductResultItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ProductResultItemRec = OrderList_ProductResultItemRec;
+
+});
+define("Order_IS.model$OrderList_ProductResultItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ProductResultItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ProductResultItemList = (function (_super) {
+__extends(OrderList_ProductResultItemList, _super);
+function OrderList_ProductResultItemList(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ProductResultItemList.itemType = Order_ISModel.OrderList_ProductResultItemRec;
+return OrderList_ProductResultItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.OrderList_ProductResultItemList = OrderList_ProductResultItemList;
+
+});
+define("Order_IS.model$OrderList_ProductOrderRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ProductResultItemList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ProductOrderRec = (function (_super) {
+__extends(OrderList_ProductOrderRec, _super);
+function OrderList_ProductOrderRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ProductOrderRec.attributesToDeclare = function () {
+return [
+this.attr("Total", "totalAttr", "total", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Results", "resultsAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ProductResultItemList());
+}, true, Order_ISModel.OrderList_ProductResultItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ProductOrderRec.init();
+return OrderList_ProductOrderRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ProductOrderRec = OrderList_ProductOrderRec;
+
+});
+define("Order_IS.model$OrderList_ProductDataRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ProductOrderRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_ProductDataRec = (function (_super) {
+__extends(OrderList_ProductDataRec, _super);
+function OrderList_ProductDataRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_ProductDataRec.attributesToDeclare = function () {
+return [
+this.attr("Orders", "ordersAttr", "orders", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ProductOrderRec());
+}, true, Order_ISModel.OrderList_ProductOrderRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_ProductDataRec.fromStructure = function (str) {
+return new OrderList_ProductDataRec(new OrderList_ProductDataRec.RecordClass({
+ordersAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_ProductDataRec.init();
+return OrderList_ProductDataRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_ProductDataRec = OrderList_ProductDataRec;
+
+});
+define("Order_IS.model$OrderList_Product_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_ProductDataRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_Product_StrRec = (function (_super) {
+__extends(OrderList_Product_StrRec, _super);
+function OrderList_Product_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_Product_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Data", "dataAttr", "data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_ProductDataRec());
+}, true, Order_ISModel.OrderList_ProductDataRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_Product_StrRec.fromStructure = function (str) {
+return new OrderList_Product_StrRec(new OrderList_Product_StrRec.RecordClass({
+dataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_Product_StrRec.init();
+return OrderList_Product_StrRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_Product_StrRec = OrderList_Product_StrRec;
+
+});
+define("Order_IS.model$MyOrderDraftItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$TypeRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrderDraftItemRec = (function (_super) {
+__extends(MyOrderDraftItemRec, _super);
+function MyOrderDraftItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrderDraftItemRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("State", "stateAttr", "state", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.TypeRec());
+}, true, Order_ISModel.TypeRec), 
+this.attr("OrderState", "orderStateAttr", "orderState", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrderDraftItemRec.init();
+return MyOrderDraftItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrderDraftItemRec = MyOrderDraftItemRec;
+
+});
+define("Order_IS.model$AttributeItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$AttributeItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var AttributeItemList = (function (_super) {
+__extends(AttributeItemList, _super);
+function AttributeItemList(defaults) {
+_super.apply(this, arguments);
+}
+AttributeItemList.itemType = Order_ISModel.AttributeItemRec;
+return AttributeItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.AttributeItemList = AttributeItemList;
+
+});
+define("Order_IS.model$DiscountedPricePerQuantityItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$DiscountedPricePerQuantityItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var DiscountedPricePerQuantityItemList = (function (_super) {
+__extends(DiscountedPricePerQuantityItemList, _super);
+function DiscountedPricePerQuantityItemList(defaults) {
+_super.apply(this, arguments);
+}
+DiscountedPricePerQuantityItemList.itemType = Order_ISModel.DiscountedPricePerQuantityItemRec;
+return DiscountedPricePerQuantityItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.DiscountedPricePerQuantityItemList = DiscountedPricePerQuantityItemList;
+
+});
+define("Order_IS.model$MyOrder_LineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$AttributeItemList", "Order_IS.model$DiscountedPricePerQuantityItemList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_LineItemRec = (function (_super) {
+__extends(MyOrder_LineItemRec, _super);
+function MyOrder_LineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_LineItemRec.attributesToDeclare = function () {
+return [
+this.attr("LineItemId", "lineItemIdAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "url", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AttributesRaw", "attributesRawAttr", "attributes", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.AttributeItemList());
+}, true, Order_ISModel.AttributeItemList), 
+this.attr("DiscountedPricePerQuantityItemList", "discountedPricePerQuantityItemListAttr", "DiscountedPricePerQuantityItemList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.DiscountedPricePerQuantityItemList());
+}, true, Order_ISModel.DiscountedPricePerQuantityItemList), 
+this.attr("ChannelId", "channelIdAttr", "ChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RoutePosition", "routePositionAttr", "RoutePosition", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DisplayLabel", "displayLabelAttr", "DisplayLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayPrice_Factor", "displayPrice_FactorAttr", "DisplayPrice_Factor", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_LineItemRec.init();
+return MyOrder_LineItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_LineItemRec = MyOrder_LineItemRec;
+
+});
+define("Order_IS.model$MyOrder_LineItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$MyOrder_LineItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_LineItemList = (function (_super) {
+__extends(MyOrder_LineItemList, _super);
+function MyOrder_LineItemList(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_LineItemList.itemType = Order_ISModel.MyOrder_LineItemRec;
+return MyOrder_LineItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.MyOrder_LineItemList = MyOrder_LineItemList;
+
+});
+define("Order_IS.model$FieldRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var FieldRec = (function (_super) {
+__extends(FieldRec, _super);
+function FieldRec(defaults) {
+_super.apply(this, arguments);
+}
+FieldRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "storeId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PlusStoreNumber", "plusStoreNumberAttr", "plusStoreNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "deliveryTypeId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryDate", "deliveryDateAttr", "deliveryDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("DeliveryStartTime", "deliveryStartTimeAttr", "slotStartTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("DeliveryEndTime", "deliveryEndTimeAttr", "slotEndTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("ReservedUntil", "reservedUntilAttr", "slotReservedUntil", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CutOffMoment", "cutOffMomentAttr", "cutOffMoment", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Remarks", "remarksAttr", "remarks", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SavingList", "savingListAttr", "savings", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PLUSPointsCollection", "pLUSPointsCollectionAttr", "plusPointsCollection", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PLUSPoints", "pLUSPointsAttr", "totalPlusPoints", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PLUSPointsCosts", "pLUSPointsCostsAttr", "totalPlusPointsCosts", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("ProductCosts", "productCostsAttr", "totalProductCosts", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DepositFee", "depositFeeAttr", "totalDepositFee", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("LineItemDiscount", "lineItemDiscountAttr", "totalLineItemDiscount", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ShippingRebates", "shippingRebatesAttr", "totalShippingRebates", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasAlternativeProduct", "hasAlternativeProductAttr", "hasAlternativeProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PromotionDeliveryDate", "promotionDeliveryDateAttr", "promotionDeliveryDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("BusinessInterface", "businessInterfaceAttr", "businessInterface", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("PromotionList", "promotionListAttr", "promotions", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DiscountCodeList", "discountCodeListAttr", "discountCodes", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderIndex", "orderIndexAttr", "orderIndex", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "customerId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AttributionReference", "attributionReferenceAttr", "attributionReference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExternalSessionReference", "externalSessionReferenceAttr", "externalSessionReference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExternalOrderReference", "externalOrderReferenceAttr", "externalOrderReference", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SmallOrderFee", "smallOrderFeeAttr", "smallOrderFee", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IsEntitlementApplied", "isEntitlementAppliedAttr", "isEntitlementApplied", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StoreNumberPLUS", "storeNumberPLUSAttr", "storeNumberPlus", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FieldRec.init();
+return FieldRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.FieldRec = FieldRec;
+
+});
+define("Order_IS.model$MyOrder_TaxPortionRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_TaxPortionRec = (function (_super) {
+__extends(MyOrder_TaxPortionRec, _super);
+function MyOrder_TaxPortionRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_TaxPortionRec.attributesToDeclare = function () {
+return [
+this.attr("Rate", "rateAttr", "rate", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Amount", "amountAttr", "Amount", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_TaxPortionRec.init();
+return MyOrder_TaxPortionRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_TaxPortionRec = MyOrder_TaxPortionRec;
+
+});
+define("Order_IS.model$MyOrder_TaxPortionList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$MyOrder_TaxPortionRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_TaxPortionList = (function (_super) {
+__extends(MyOrder_TaxPortionList, _super);
+function MyOrder_TaxPortionList(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_TaxPortionList.itemType = Order_ISModel.MyOrder_TaxPortionRec;
+return MyOrder_TaxPortionList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.MyOrder_TaxPortionList = MyOrder_TaxPortionList;
+
+});
+define("Order_IS.model$MyOrder_CartDiscountItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$MyOrder_CartDiscountItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_CartDiscountItemList = (function (_super) {
+__extends(MyOrder_CartDiscountItemList, _super);
+function MyOrder_CartDiscountItemList(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_CartDiscountItemList.itemType = Order_ISModel.MyOrder_CartDiscountItemRec;
+return MyOrder_CartDiscountItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.MyOrder_CartDiscountItemList = MyOrder_CartDiscountItemList;
+
+});
+define("Order_IS.model$MyOrder_DiscountCodeItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$MyOrder_DiscountCodeItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_DiscountCodeItemList = (function (_super) {
+__extends(MyOrder_DiscountCodeItemList, _super);
+function MyOrder_DiscountCodeItemList(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_DiscountCodeItemList.itemType = Order_ISModel.MyOrder_DiscountCodeItemRec;
+return MyOrder_DiscountCodeItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.MyOrder_DiscountCodeItemList = MyOrder_DiscountCodeItemList;
+
+});
+define("Order_IS.model$MyOrder_CustomLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$CentPrecisionRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_CustomLineItemRec = (function (_super) {
+__extends(MyOrder_CustomLineItemRec, _super);
+function MyOrder_CustomLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_CustomLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Money", "moneyAttr", "money", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.CentPrecisionRec());
+}, true, Order_ISModel.CentPrecisionRec), 
+this.attr("Slug", "slugAttr", "slug", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_CustomLineItemRec.init();
+return MyOrder_CustomLineItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_CustomLineItemRec = MyOrder_CustomLineItemRec;
+
+});
+define("Order_IS.model$MyOrder_CustomLineItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$MyOrder_CustomLineItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_CustomLineItemList = (function (_super) {
+__extends(MyOrder_CustomLineItemList, _super);
+function MyOrder_CustomLineItemList(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_CustomLineItemList.itemType = Order_ISModel.MyOrder_CustomLineItemRec;
+return MyOrder_CustomLineItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.MyOrder_CustomLineItemList = MyOrder_CustomLineItemList;
+
+});
+define("Order_IS.model$StagedActionItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$StagedActionItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var StagedActionItemList = (function (_super) {
+__extends(StagedActionItemList, _super);
+function StagedActionItemList(defaults) {
+_super.apply(this, arguments);
+}
+StagedActionItemList.itemType = Order_ISModel.StagedActionItemRec;
+return StagedActionItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.StagedActionItemList = StagedActionItemList;
+
+});
+define("Order_IS.model$ErrorItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorItemRec = (function (_super) {
+__extends(ErrorItemRec, _super);
+function ErrorItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemRec.attributesToDeclare = function () {
+return [
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CurrentVersion", "currentVersionAttr", "currentVersion", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ErrorItemRec.init();
+return ErrorItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ErrorItemRec = ErrorItemRec;
+
+});
+define("Order_IS.model$ErrorItemList", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$ErrorItemRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorItemList = (function (_super) {
+__extends(ErrorItemList, _super);
+function ErrorItemList(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemList.itemType = Order_ISModel.ErrorItemRec;
+return ErrorItemList;
+})(OS.DataTypes.GenericRecordList);
+Order_ISModel.ErrorItemList = ErrorItemList;
+
+});
+define("Order_IS.model$MyOrder_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$MyOrder_LineItemList", "Order_IS.model$FieldRec", "Order_IS.model$MyOrder_TaxPortionList", "Order_IS.model$MyAddressRec", "Order_IS.model$MyOrder_CartDiscountItemList", "Order_IS.model$MyOrder_DiscountCodeItemList", "Order_IS.model$MyOrder_CustomLineItemList", "Order_IS.model$DiscountedPriceRec", "Order_IS.model$StagedActionItemList", "Order_IS.model$ErrorItemList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_StrRec = (function (_super) {
+__extends(MyOrder_StrRec, _super);
+function MyOrder_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("OrderNumber", "orderNumberAttr", "orderNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AnonymousId", "anonymousIdAttr", "anonymousId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("LineItems", "lineItemsAttr", "lineItems", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyOrder_LineItemList());
+}, true, Order_ISModel.MyOrder_LineItemList), 
+this.attr("HasUnderAgeProducts", "hasUnderAgeProductsAttr", "HasUnderAgeProducts", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CustomFields", "customFieldsAttr", "CustomFields", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.FieldRec());
+}, true, Order_ISModel.FieldRec), 
+this.attr("TotalLineItemQuantity", "totalLineItemQuantityAttr", "totalLineItemQuantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("TotalPrice", "totalPriceAttr", "TotalPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("TotalPrice_TaxedNet", "totalPrice_TaxedNetAttr", "TotalPrice_TaxedNet", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("TotalPrice_TaxedGross", "totalPrice_TaxedGrossAttr", "TotalPrice_TaxedGross", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("TaxedTaxPortions", "taxedTaxPortionsAttr", "taxPortions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyOrder_TaxPortionList());
+}, true, Order_ISModel.MyOrder_TaxPortionList), 
+this.attr("OrderState", "orderStateAttr", "cartState", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StateId", "stateIdAttr", "StateId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ShippingAddress", "shippingAddressAttr", "shippingAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyAddressRec());
+}, true, Order_ISModel.MyAddressRec), 
+this.attr("BillingAddress", "billingAddressAttr", "billingAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyAddressRec());
+}, true, Order_ISModel.MyAddressRec), 
+this.attr("CartDiscountList", "cartDiscountListAttr", "CartDiscountList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyOrder_CartDiscountItemList());
+}, true, Order_ISModel.MyOrder_CartDiscountItemList), 
+this.attr("DiscountCodeList", "discountCodeListAttr", "DiscountCodeList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyOrder_DiscountCodeItemList());
+}, true, Order_ISModel.MyOrder_DiscountCodeItemList), 
+this.attr("CustomLineItems", "customLineItemsAttr", "customLineItems", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyOrder_CustomLineItemList());
+}, true, Order_ISModel.MyOrder_CustomLineItemList), 
+this.attr("ShippingMethodName", "shippingMethodNameAttr", "shippingMethodName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ShippingTotalPrice", "shippingTotalPriceAttr", "ShippingTotalPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("ShippingTotalTaxedPrice", "shippingTotalTaxedPriceAttr", "ShippingTotalTaxedPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("ShippingInfoDiscountedPrice", "shippingInfoDiscountedPriceAttr", "ShippingInfoDiscountedPrice", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.DiscountedPriceRec());
+}, true, Order_ISModel.DiscountedPriceRec), 
+this.attr("StagedActionList", "stagedActionListAttr", "StagedActionList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.StagedActionItemList());
+}, true, Order_ISModel.StagedActionItemList), 
+this.attr("OrderEditStatusId", "orderEditStatusIdAttr", "OrderEditStatusId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsOrderEdit", "isOrderEditAttr", "IsOrderEdit", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ErrorStatusCode", "errorStatusCodeAttr", "statusCode", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ErrorMessage", "errorMessageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ErrorList", "errorListAttr", "errors", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.ErrorItemList());
+}, true, Order_ISModel.ErrorItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_StrRec.init();
+return MyOrder_StrRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_StrRec = MyOrder_StrRec;
+
+});
+define("Order_IS.model$MyOrder_IncludedDiscountItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$TypeRec", "Order_IS.model$CentPrecisionRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrder_IncludedDiscountItemRec = (function (_super) {
+__extends(MyOrder_IncludedDiscountItemRec, _super);
+function MyOrder_IncludedDiscountItemRec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrder_IncludedDiscountItemRec.attributesToDeclare = function () {
+return [
+this.attr("Discount", "discountAttr", "discount", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.TypeRec());
+}, true, Order_ISModel.TypeRec), 
+this.attr("DiscountedAmount", "discountedAmountAttr", "discountedAmount", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.CentPrecisionRec());
+}, true, Order_ISModel.CentPrecisionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrder_IncludedDiscountItemRec.init();
+return MyOrder_IncludedDiscountItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrder_IncludedDiscountItemRec = MyOrder_IncludedDiscountItemRec;
+
+});
+define("Order_IS.model$OrderActionRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderActionRec = (function (_super) {
+__extends(OrderActionRec, _super);
+function OrderActionRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderActionRec.attributesToDeclare = function () {
+return [
+this.attr("ActionCode", "actionCodeAttr", "ActionCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderActionRec.init();
+return OrderActionRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderActionRec = OrderActionRec;
+
+});
+define("Order_IS.model$MyOrderDraftItem2Rec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$MyAddressRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var MyOrderDraftItem2Rec = (function (_super) {
+__extends(MyOrderDraftItem2Rec, _super);
+function MyOrderDraftItem2Rec(defaults) {
+_super.apply(this, arguments);
+}
+MyOrderDraftItem2Rec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MyAddress", "myAddressAttr", "address", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.MyAddressRec());
+}, true, Order_ISModel.MyAddressRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyOrderDraftItem2Rec.init();
+return MyOrderDraftItem2Rec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.MyOrderDraftItem2Rec = MyOrderDraftItem2Rec;
+
+});
+define("Order_IS.model$OrderList_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$OrderList_DataRec"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderList_StrRec = (function (_super) {
+__extends(OrderList_StrRec, _super);
+function OrderList_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderList_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Data", "dataAttr", "data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.OrderList_DataRec());
+}, true, Order_ISModel.OrderList_DataRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderList_StrRec.fromStructure = function (str) {
+return new OrderList_StrRec(new OrderList_StrRec.RecordClass({
+dataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderList_StrRec.init();
+return OrderList_StrRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderList_StrRec = OrderList_StrRec;
+
+});
+define("Order_IS.model$ActionItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model", "Order_IS.model$StagedActionItemRec", "Order_IS.model$StagedActionItemList"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var ActionItemRec = (function (_super) {
+__extends(ActionItemRec, _super);
+function ActionItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ActionItemRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StagedAction", "stagedActionAttr", "stagedAction", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.StagedActionItemRec());
+}, true, Order_ISModel.StagedActionItemRec), 
+this.attr("StagedActions", "stagedActionsAttr", "stagedActions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Order_ISModel.StagedActionItemList());
+}, true, Order_ISModel.StagedActionItemList), 
+this.attr("Comment", "commentAttr", "comment", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ActionItemRec.init();
+return ActionItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.ActionItemRec = ActionItemRec;
+
+});
+define("Order_IS.model$OrderStateRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var OrderStateRec = (function (_super) {
+__extends(OrderStateRec, _super);
+function OrderStateRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderStateRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderStateRec.fromStructure = function (str) {
+return new OrderStateRec(new OrderStateRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderStateRec.init();
+return OrderStateRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.OrderStateRec = OrderStateRec;
+
+});
+define("Order_IS.model$GraphQL_ResultItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Order_IS.model"], function (exports, OutSystems, Order_ISModel) {
+var OS = OutSystems.Internal;
+var GraphQL_ResultItemRec = (function (_super) {
+__extends(GraphQL_ResultItemRec, _super);
+function GraphQL_ResultItemRec(defaults) {
+_super.apply(this, arguments);
+}
+GraphQL_ResultItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GraphQL_ResultItemRec.init();
+return GraphQL_ResultItemRec;
+})(OS.DataTypes.GenericRecord);
+Order_ISModel.GraphQL_ResultItemRec = GraphQL_ResultItemRec;
+
+});
+define("Order_IS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var Order_ISModel = exports;
+});

@@ -1,0 +1,995 @@
+﻿define("ECP_Product_CW.Search.SearchTopInput.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_ReleaseTogglesReactive.controller", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECP_Product_CW.referencesHealth", "ECP_Product_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Product_CW.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECP_Product_CWModel, PLUS_OutSystemsUI_2_8_0Controller, ECOP_ReleaseTogglesReactiveController) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("SearchText", "searchTextVar", "SearchText", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("ShowDropdownContent", "showDropdownContentVar", "ShowDropdownContent", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsInputOnFocus", "isInputOnFocusVar", "IsInputOnFocus", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsMobile", "isMobileIn", "IsMobile", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isMobileInDataFetchStatus", "_isMobileInDataFetchStatus", "_isMobileInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {
+Input_SearchText: OS.Model.ValidationWidgetRecord
+};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return true;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("IsMobile" in inputs) {
+this.variables.isMobileIn = inputs.IsMobile;
+if("_isMobileInDataFetchStatus" in inputs) {
+this.variables._isMobileInDataFetchStatus = inputs._isMobileInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Search.SearchTopInput");
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_ReleaseTogglesReactive.controller", "react", "OutSystems/ReactView/Main", "ECP_Product_CW.Search.SearchTopInput.mvc$model", "ECP_Product_CW.Search.SearchTopInput.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECP_Product_CW.Search.SuggestionList.mvc$view", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECP_Product_CW.referencesHealth", "ECP_Product_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Product_CW.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECP_Product_CWModel, ECP_Product_CWController, PLUS_OutSystemsUI_2_8_0Controller, ECOP_ReleaseTogglesReactiveController, React, OSView, ECP_Product_CW_Search_SearchTopInput_mvc_model, ECP_Product_CW_Search_SearchTopInput_mvc_controller, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECP_Product_CW_Search_SuggestionList_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Search.SearchTopInput";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECP_Product_CW_Search_SuggestionList_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Product_CW_Search_SearchTopInput_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Product_CW_Search_SearchTopInput_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "search"
+},
+style: model.getCachedValue(idService.getId("mhlWnBYXSU22srirq+F27Q.Style"), function () {
+return ((((model.variables.isInputOnFocusVar) ? ("focus ") : ("")) + "header-search-wrapper") + ((model.variables.showDropdownContentVar) ? (" open") : ("")));
+}, function () {
+return model.variables.isInputOnFocusVar;
+}, function () {
+return model.variables.showDropdownContentVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("qegyJopfmkGZTYxgNinGUQ.Style"), function () {
+return (((model.variables.isInputOnFocusVar) ? ("focus ") : ("")) + "search-input-wrapper");
+}, function () {
+return model.variables.isInputOnFocusVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if((model.variables.isMobileIn && model.variables.isInputOnFocusVar), false, this, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+"aria-label": "Back to product categories."
+},
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_GoBack$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "gtm-searchbar-arrow-left margin-right-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "back-arrow"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Input, {
+_validationProps: {
+validationService: validationService
+},
+enabled: true,
+extendedEvents: {
+onKeyUp: function () {
+var eventHandlerContext = callContext.clone();
+controller.onKeyUp_Input$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+onFocus: function () {
+var eventHandlerContext = callContext.clone();
+controller.onFocus_Input$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+onKeyDown: function () {
+var eventHandlerContext = callContext.clone();
+controller.onKeydown_Input$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+extendedProperties: {
+"aria-label": OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("5JZXgjfOr0u5HYnkz73nEw#Value.1206509596.1", "What are you looking for?"),
+autoComplete: "off",
+"aria-invalid": model.getCachedValue(idService.getId("Input_SearchText.aria-invalid"), function () {
+return ((model.widgets.get(idService.getId("Input_SearchText")).validAttr) ? ("") : ("true"));
+}, function () {
+return model.widgets.get(idService.getId("Input_SearchText")).validAttr;
+})
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+inputType: /*Search*/ 8,
+mandatory: false,
+maxLength: 100,
+onChange: function () {
+var eventHandlerContext = callContext.clone();
+controller.onChange_Input$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+prompt: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Ctr8NXwRaEiiJBe12O05Tg#ValueExpression.1206509596.1", "What are you looking for?"),
+style: "form-control gtm-search-input",
+variable: model.createVariable(OS.Types.Text, model.variables.searchTextVar, function (value) {
+model.variables.searchTextVar = value;
+}),
+_idProps: {
+service: idService,
+name: "Input_SearchText"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+tabIndex: (-1).toString()
+},
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_Clear$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: model.getCachedValue(idService.getId("jGdtTipRDECYPAxE3ye1FA.Style"), function () {
+return ("gtm-searchbar-clear clear-search" + ((((model.variables.searchTextVar) !== (""))) ? (" show") : ("")));
+}, function () {
+return model.variables.searchTextVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "close",
+ExtendedClass: "font-bold icon-s",
+AriaLabel: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Plqo55jae0OpzUxod8sGZw#Value.-1422312621.1", "Cancel search for products and/or recipes")
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "6",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})), React.createElement(OSWidgets.Link, {
+enabled: model.getCachedValue(idService.getId("mZN6dEh+K0eSbfx+zfMiEw.Enabled"), function () {
+return ((OS.BuiltinFunctions.trim(model.variables.searchTextVar)) !== (""));
+}, function () {
+return model.variables.searchTextVar;
+}),
+extendedProperties: {
+tabIndex: (-1).toString()
+},
+gridProperties: {
+classes: "ThemeGrid_MarginGutter"
+},
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.screen_Search$Action(OS.BuiltinFunctions.trim(model.variables.searchTextVar), controller.callContext(eventHandlerContext));
+});
+;
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+AriaLabel: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("Sg1pbqXJaEeL6KEyngqXHg#Value.-889525677.1", "Search for product and/or recipe"),
+ExtendedClass: "font-bold",
+Name: "search"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "8",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))), $if(model.variables.showDropdownContentVar, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("ngpuHYpC9kS3taxlTlS+hg.Style"), function () {
+return (((model.variables.isInputOnFocusVar) ? ("focus ") : ("")) + "dropdown-search-wrapper");
+}, function () {
+return model.variables.isInputOnFocusVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECP_Product_CW_Search_SuggestionList_mvc_view, {
+inputs: {
+IsMobile: model.variables.isMobileIn,
+_isMobileInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isMobileInDataFetchStatus),
+SearchText: model.variables.searchTextVar
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+hideDropdown$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.screen_HideDropdownContent$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+suggestedTermClicked$Action: function (searchTermIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.screen_Search$Action(searchTermIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+viewAllRecipesClicked$Action: function (searchTermIn) {
+var eventHandlerContext = callContext.clone();
+controller.viewRecipesClicked$Action(searchTermIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "hidden",
+visible: true,
+_idProps: {
+service: idService,
+name: "Accessibility_FocusOnExit"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), $if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.screen_HideDropdownContent$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+style: model.getCachedValue(idService.getId("krEKrcS9wUS5Ri0YLHswrw.Style"), function () {
+return ("header-search-overlay" + (((model.variables.isInputOnFocusVar || model.variables.showDropdownContentVar)) ? (" show") : ("")));
+}, function () {
+return model.variables.isInputOnFocusVar;
+}, function () {
+return model.variables.showDropdownContentVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Product_CW.languageResources", "ECP_Product_CW.Search.SearchTopInput.mvc$translationsResources", "ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnKeyUp_Input.EnterKeyPressedJS", "ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnKeyUp_Input.EscapeKeyPressedJS", "ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnChange_Input.EmojiCheckJS", "ECP_Product_CW.Search.SearchTopInput.mvc$controller.Search.ClearExtraScreenInputs_Filter_SortJS", "ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnKeydown_Input.ShiftTabJS", "ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnKeydown_Input.TabJS", "ECP_Product_CW.Search.SearchTopInput.mvc$controller.ClearAndUnfocus.Focus_AccessibilityJS", "ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnReady.OnDemand_SetSearchkeywordJS", "PLUS_OutSystemsUI_2_8_0.controller$SetFocus", "ECP_Product_CW.referencesHealth", "ECP_Product_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Product_CW.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECP_Product_CWModel, ECP_Product_CWController, PLUS_OutSystemsUI_2_8_0Controller, ECOP_ReleaseTogglesReactiveController, ECP_Product_CWLanguageResources, ECP_Product_CW_Search_SearchTopInput_mvc_TranslationsResources, ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnKeyUp_Input_EnterKeyPressedJS, ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnKeyUp_Input_EscapeKeyPressedJS, ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnChange_Input_EmojiCheckJS, ECP_Product_CW_Search_SearchTopInput_mvc_controller_Search_ClearExtraScreenInputs_Filter_SortJS, ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnKeydown_Input_ShiftTabJS, ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnKeydown_Input_TabJS, ECP_Product_CW_Search_SearchTopInput_mvc_controller_ClearAndUnfocus_Focus_AccessibilityJS, ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnReady_OnDemand_SetSearchkeywordJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+screen_Search$Action: function (searchTermIn) {
+searchTermIn = (searchTermIn === undefined) ? "" : searchTermIn;
+return controller.executeActionInsideJSNode(controller._screen_Search$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(searchTermIn, OS.Types.Text)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Screen_Search");
+},
+clearAndUnfocus$Action: function () {
+return controller.executeActionInsideJSNode(controller._clearAndUnfocus$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ClearAndUnfocus");
+},
+screen_HideDropdownContent$Action: function () {
+return controller.executeActionInsideJSNode(controller._screen_HideDropdownContent$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Screen_HideDropdownContent");
+},
+onDemand_SetSearchkeyword$Action: function (searchkeywordIn) {
+searchkeywordIn = (searchkeywordIn === undefined) ? "" : searchkeywordIn;
+return controller.executeActionInsideJSNode(controller._onDemand_SetSearchkeyword$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(searchkeywordIn, OS.Types.Text)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnDemand_SetSearchkeyword");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Product_CW_Search_SearchTopInput_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onClick_Clear$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_Clear");
+callContext = controller.callContext(callContext);
+// Reset locals
+// SearchText = ""
+model.variables.searchTextVar = "";
+// ShowDropdownContent = False
+model.variables.showDropdownContentVar = false;
+// Execute Action: SetFocus
+PLUS_OutSystemsUI_2_8_0Controller.default.setFocus$Action(idService.getId("Input_SearchText"), callContext);
+};
+Controller.prototype._onKeyUp_Input$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnKeyUp_Input");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnKeyUp_Input_EnterKeyPressedJS, "EnterKeyPressed", "OnKeyUp_Input", {
+SearchText: OS.DataConversion.JSNodeParamConverter.to(model.variables.searchTextVar, OS.Types.Text)
+}, function ($parameters) {
+}, {
+Screen_Search: controller.clientActionProxies.screen_Search$Action
+}, {});
+controller.safeExecuteJSNode(ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnKeyUp_Input_EscapeKeyPressedJS, "EscapeKeyPressed", "OnKeyUp_Input", null, function ($parameters) {
+}, {
+ClearAndUnfocus: controller.clientActionProxies.clearAndUnfocus$Action
+}, {});
+};
+Controller.prototype._onChange_Input$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnChange_Input");
+callContext = controller.callContext(callContext);
+var emojiCheckJSResult = new OS.DataTypes.VariableHolder();
+// ECOP_7491
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Product_CWModel.staticEntities.releaseToggle.eCOP_7491, callContext).isEnabledOut)) {
+emojiCheckJSResult.value = controller.safeExecuteJSNode(ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnChange_Input_EmojiCheckJS, "EmojiCheck", "OnChange_Input", {
+InputId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("Input_SearchText"), OS.Types.Text),
+SearchTerm: OS.DataConversion.JSNodeParamConverter.to(model.variables.searchTextVar, OS.Types.Text),
+SanitizeSearch: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SearchTopInput.OnChange_Input$emojiCheckJSResult"))();
+jsNodeResult.sanitizeSearchOut = OS.DataConversion.JSNodeParamConverter.from($parameters.SanitizeSearch, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// SearchText = EmojiCheck.SanitizeSearch
+model.variables.searchTextVar = emojiCheckJSResult.value.sanitizeSearchOut;
+} else {
+// Pivot
+}
+
+// At least 3 characters?
+if(((OS.BuiltinFunctions.length(model.variables.searchTextVar) >= 3))) {
+// ShowDropdownContent =True
+// ShowDropdownContent = True
+model.variables.showDropdownContentVar = true;
+} else {
+// No search keyword?
+if(((model.variables.searchTextVar === ""))) {
+// ShowDropdownContent = False
+// ShowDropdownContent = False
+model.variables.showDropdownContentVar = false;
+}
+
+}
+
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SearchTopInput.OnChange_Input$emojiCheckJSResult", [{
+name: "SanitizeSearch",
+attrName: "sanitizeSearchOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._search$Action = function (searchTermIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Search");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SearchTopInput.Search$vars"))());
+vars.value.searchTermInLocal = searchTermIn;
+return OS.Flow.executeAsyncFlow(function () {
+controller.safeExecuteJSNode(ECP_Product_CW_Search_SearchTopInput_mvc_controller_Search_ClearExtraScreenInputs_Filter_SortJS, "ClearExtraScreenInputs_Filter_Sort", "Search", null, function ($parameters) {
+}, {}, {});
+// Trigger Event: SearchTermClicked
+return controller.searchTermClicked$Action(vars.value.searchTermInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SearchTopInput.Search$vars", [{
+name: "SearchTerm",
+attrName: "searchTermInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+};
+Controller.prototype._onKeydown_Input$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnKeydown_Input");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnKeydown_Input_ShiftTabJS, "ShiftTab", "OnKeydown_Input", null, function ($parameters) {
+}, {
+Screen_HideDropdownContent: controller.clientActionProxies.screen_HideDropdownContent$Action
+}, {});
+if((!(model.variables.showDropdownContentVar))) {
+controller.safeExecuteJSNode(ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnKeydown_Input_TabJS, "Tab", "OnKeydown_Input", null, function ($parameters) {
+}, {
+Screen_HideDropdownContent: controller.clientActionProxies.screen_HideDropdownContent$Action
+}, {});
+}
+
+};
+Controller.prototype._onDemand_SetSearchkeyword$Action = function (searchkeywordIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDemand_SetSearchkeyword");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SearchTopInput.OnDemand_SetSearchkeyword$vars"))());
+vars.value.searchkeywordInLocal = searchkeywordIn;
+// SearchText = Searchkeyword
+model.variables.searchTextVar = vars.value.searchkeywordInLocal;
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SearchTopInput.OnDemand_SetSearchkeyword$vars", [{
+name: "Searchkeyword",
+attrName: "searchkeywordInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._screen_Search$Action = function (searchTermIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Screen_Search");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SearchTopInput.Screen_Search$vars"))());
+vars.value.searchTermInLocal = searchTermIn;
+return OS.Flow.executeAsyncFlow(function () {
+// ECOP_7491
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Product_CWModel.staticEntities.releaseToggle.eCOP_7491, callContext).isEnabledOut)) {
+// Execute Action: OnChange_Input
+controller._onChange_Input$Action(callContext);
+}
+
+// Has search term?
+return OS.Flow.executeSequence(function () {
+if((((OS.BuiltinFunctions.trim(vars.value.searchTermInLocal)) !== ("")))) {
+// Execute Action: Search
+return controller._search$Action(OS.BuiltinFunctions.trim(vars.value.searchTermInLocal), callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SearchTopInput.Screen_Search$vars", [{
+name: "SearchTerm",
+attrName: "searchTermInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._screen_HideDropdownContent$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Screen_HideDropdownContent");
+callContext = controller.callContext(callContext);
+// ShowDropdownContent = False
+// ShowDropdownContent = False
+model.variables.showDropdownContentVar = false;
+// IsInputOnFocus = False
+model.variables.isInputOnFocusVar = false;
+};
+Controller.prototype._clearAndUnfocus$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ClearAndUnfocus");
+callContext = controller.callContext(callContext);
+// Reset locals
+// SearchText = ""
+model.variables.searchTextVar = "";
+// ShowDropdownContent = False
+model.variables.showDropdownContentVar = false;
+// IsInputOnFocus = False
+model.variables.isInputOnFocusVar = false;
+// Leave focus on Keyboard Exit
+controller.safeExecuteJSNode(ECP_Product_CW_Search_SearchTopInput_mvc_controller_ClearAndUnfocus_Focus_AccessibilityJS, "Focus_Accessibility", "ClearAndUnfocus", {
+InputWidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("Accessibility_FocusOnExit"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var onDemand_SetSearchkeywordJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+onDemand_SetSearchkeywordJSResult.value = controller.safeExecuteJSNode(ECP_Product_CW_Search_SearchTopInput_mvc_controller_OnReady_OnDemand_SetSearchkeywordJS, "OnDemand_SetSearchkeyword", "OnReady", {
+SetSearchkeyword_JS: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SearchTopInput.OnReady$onDemand_SetSearchkeywordJSResult"))();
+jsNodeResult.setSearchkeyword_JSOut = OS.DataConversion.JSNodeParamConverter.from($parameters.SetSearchkeyword_JS, OS.Types.Object);
+return jsNodeResult;
+}, {
+OnDemand_SetSearchkeyword: controller.clientActionProxies.onDemand_SetSearchkeyword$Action
+}, {});
+// Trigger Event: ExposedActions
+return controller.exposedActions$Action(onDemand_SetSearchkeywordJSResult.value.setSearchkeyword_JSOut, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SearchTopInput.OnReady$onDemand_SetSearchkeywordJSResult", [{
+name: "SetSearchkeyword_JS",
+attrName: "setSearchkeyword_JSOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._onClick_GoBack$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_GoBack");
+callContext = controller.callContext(callContext);
+// ShowDropdownContent = False
+model.variables.showDropdownContentVar = false;
+// IsInputOnFocus = False
+// IsInputOnFocus = False
+model.variables.isInputOnFocusVar = false;
+};
+Controller.prototype._onFocus_Input$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnFocus_Input");
+callContext = controller.callContext(callContext);
+// IsInputOnFocus = True
+// IsInputOnFocus = True
+model.variables.isInputOnFocusVar = true;
+// Has searchkeyword?
+if((((model.variables.searchTextVar) !== ("")))) {
+// Execute Action: OnChange_Input
+controller._onChange_Input$Action(callContext);
+}
+
+};
+
+Controller.prototype.onClick_Clear$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_Clear$Action, callContext);
+
+};
+Controller.prototype.onKeyUp_Input$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onKeyUp_Input$Action, callContext);
+
+};
+Controller.prototype.onChange_Input$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onChange_Input$Action, callContext);
+
+};
+Controller.prototype.search$Action = function (searchTermIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._search$Action, callContext, searchTermIn);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.onKeydown_Input$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onKeydown_Input$Action, callContext);
+
+};
+Controller.prototype.onDemand_SetSearchkeyword$Action = function (searchkeywordIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDemand_SetSearchkeyword$Action, callContext, searchkeywordIn);
+
+};
+Controller.prototype.screen_Search$Action = function (searchTermIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._screen_Search$Action, callContext, searchTermIn);
+
+};
+Controller.prototype.screen_HideDropdownContent$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._screen_HideDropdownContent$Action, callContext);
+
+};
+Controller.prototype.clearAndUnfocus$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._clearAndUnfocus$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.onClick_GoBack$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_GoBack$Action, callContext);
+
+};
+Controller.prototype.onFocus_Input$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onFocus_Input$Action, callContext);
+
+};
+Controller.prototype.searchTermClicked$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.viewRecipesClicked$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.exposedActions$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Product_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Product_CWLanguageResources);
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnKeyUp_Input.EnterKeyPressedJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if(window.event.keyCode==13){
+    
+    const emojiRegex = /[^\p{L}\p{N}\p{P}\p{Z}]/gu;
+    const check = emojiRegex.test($parameters.SearchText);
+
+    if (check) {
+        //  String Has Emoji
+        const sanitizedSearch = $parameters.SearchText.replace(/[^\p{L}\p{N}\p{P}\p{Z}]/gu,'');
+        if (!sanitizedSearch.replace(/\s/g, '').length) { 
+                //string only has spaces 
+                $actions.Screen_Search("");
+        } else {
+            $actions.Screen_Search(sanitizedSearch.trim().replace(/\s{2,}/g,' ')); //removes any space from the start  and end of the string 
+        }
+        
+    } else {
+        //No need to filter  
+        $actions.Screen_Search($parameters.SearchText);
+    } 
+
+}
+
+};
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnKeyUp_Input.EscapeKeyPressedJS", [], function () {
+return function ($actions, $roles, $public) {
+if(window.event.keyCode==27){
+    $actions.ClearAndUnfocus();
+}
+};
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnChange_Input.EmojiCheckJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+const emojiRegex = /[^\p{L}\p{N}\p{P}\p{Z}]/gu;
+const check = emojiRegex.test($parameters.SearchTerm);
+
+if (check) {
+            //  String Has Emoji
+            
+            const sanitizedSearch = $parameters.SearchTerm.replace(/[^\p{L}\p{N}\p{P}\p{Z}]/gu,'');
+            if (!sanitizedSearch.replace(/\s/g, '').length) { 
+                //string only has spaces 
+                $parameters.SanitizeSearch ="";
+        } else {
+            $parameters.SanitizeSearch = sanitizedSearch.trim().replace(/\s{2,}/g,' '); //removes any space from the start  and end of the string 
+        }
+        setTimeout(function() {document.getElementById($parameters.InputId).value = $parameters.SanitizeSearch;}, 10);
+
+    } else {
+        //No need to filter  
+        $parameters.SanitizeSearch = $parameters.SearchTerm ;
+    } 
+};
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller.Search.ClearExtraScreenInputs_Filter_SortJS", [], function () {
+return function ($actions, $roles, $public) {
+history.pushState(null, null, location.pathname);
+};
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnKeydown_Input.ShiftTabJS", [], function () {
+return function ($actions, $roles, $public) {
+if(window.event.shiftKey && window.event.keyCode == 9) { 
+    //shift was down when tab was pressed
+    $actions.Screen_HideDropdownContent();
+}
+};
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnKeydown_Input.TabJS", [], function () {
+return function ($actions, $roles, $public) {
+if(!window.event.shiftKey && window.event.keyCode == 9) { 
+    $actions.Screen_HideDropdownContent();
+}
+};
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller.ClearAndUnfocus.Focus_AccessibilityJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+document.getElementById($parameters.InputWidgetId).focus();
+};
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$controller.OnReady.OnDemand_SetSearchkeywordJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.SetSearchkeyword_JS = $actions.OnDemand_SetSearchkeyword;
+};
+});
+
+define("ECP_Product_CW.Search.SearchTopInput.mvc$translationsResources", ["exports", "ECP_Product_CW.Search.SearchTopInput.mvc$translationsResources.nl-NL"], function (exports, ECP_Product_CW_Search_SearchTopInput_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Product_CW_Search_SearchTopInput_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Product_CW.Search.SearchTopInput.mvc$translationsResources.nl-NL", [], function () {
+return {
+"Sg1pbqXJaEeL6KEyngqXHg#Value.-889525677.1": "Zoek het product en/of recept",
+"Plqo55jae0OpzUxod8sGZw#Value.-1422312621.1": "Annuleer het zoeken naar producten en/of recepten",
+"5JZXgjfOr0u5HYnkz73nEw#Value.1206509596.1": "Waar ben je naar op zoek?",
+"Ctr8NXwRaEiiJBe12O05Tg#ValueExpression.1206509596.1": "Waar ben je naar op zoek?"
+};
+});

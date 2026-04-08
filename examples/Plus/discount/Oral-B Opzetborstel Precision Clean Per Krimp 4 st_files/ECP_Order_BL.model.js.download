@@ -1,0 +1,1044 @@
+﻿define("ECP_Order_BL.model$MTEventOrderFileRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var MTEventOrderFileRec = (function (_super) {
+__extends(MTEventOrderFileRec, _super);
+function MTEventOrderFileRec(defaults) {
+_super.apply(this, arguments);
+}
+MTEventOrderFileRec.attributesToDeclare = function () {
+return [
+this.attr("OrderFileId", "orderFileIdAttr", "OrderFileId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("EventId", "eventIdAttr", "EventId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MTEventOrderFileRec.init();
+return MTEventOrderFileRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.MTEventOrderFileRec = MTEventOrderFileRec;
+
+});
+define("ECP_Order_BL.model$CentPrecisionCustomLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var CentPrecisionCustomLineItemRec = (function (_super) {
+__extends(CentPrecisionCustomLineItemRec, _super);
+function CentPrecisionCustomLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+CentPrecisionCustomLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CurrencyCode", "currencyCodeAttr", "currencyCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CentAmount", "centAmountAttr", "centAmount", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("FractionDigits", "fractionDigitsAttr", "fractionDigits", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CentPrecisionCustomLineItemRec.init();
+return CentPrecisionCustomLineItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.CentPrecisionCustomLineItemRec = CentPrecisionCustomLineItemRec;
+
+});
+define("ECP_Order_BL.model$CheckoutStepsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var CheckoutStepsRec = (function (_super) {
+__extends(CheckoutStepsRec, _super);
+function CheckoutStepsRec(defaults) {
+_super.apply(this, arguments);
+}
+CheckoutStepsRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CheckoutStepsRec.init();
+return CheckoutStepsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.CheckoutStepsRec = CheckoutStepsRec;
+
+});
+define("ECP_Order_BL.model$OrderManagementEntryRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderManagementEntryRec = (function (_super) {
+__extends(OrderManagementEntryRec, _super);
+function OrderManagementEntryRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderManagementEntryRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderManagementEntryRec.fromStructure = function (str) {
+return new OrderManagementEntryRec(new OrderManagementEntryRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderManagementEntryRec.init();
+return OrderManagementEntryRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderManagementEntryRec = OrderManagementEntryRec;
+
+});
+define("ECP_Order_BL.model$EventTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var EventTypeRec = (function (_super) {
+__extends(EventTypeRec, _super);
+function EventTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+EventTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Is_Active", "is_ActiveAttr", "Is_Active", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EventTypeRec.init();
+return EventTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.EventTypeRec = EventTypeRec;
+
+});
+define("ECP_Order_BL.model$OrderForValidationRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderForValidationRec = (function (_super) {
+__extends(OrderForValidationRec, _super);
+function OrderForValidationRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderForValidationRec.attributesToDeclare = function () {
+return [
+this.attr("OrderId", "orderIdAttr", "OrderId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderVersion", "orderVersionAttr", "OrderVersion", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("OrderStoreId", "orderStoreIdAttr", "OrderStoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("OrderCutOffMoment", "orderCutOffMomentAttr", "OrderCutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("AnonymousId", "anonymousIdAttr", "AnonymousId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WorkflowOrderStateId", "workflowOrderStateIdAttr", "WorkflowOrderStateId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderForValidationRec.init();
+return OrderForValidationRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderForValidationRec = OrderForValidationRec;
+
+});
+define("ECP_Order_BL.model$OrderEditForValidationRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderEditForValidationRec = (function (_super) {
+__extends(OrderEditForValidationRec, _super);
+function OrderEditForValidationRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderEditForValidationRec.attributesToDeclare = function () {
+return [
+this.attr("OrderEditId", "orderEditIdAttr", "OrderEditId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderEditVersion", "orderEditVersionAttr", "OrderEditVersion", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("OrderEditStatusId", "orderEditStatusIdAttr", "OrderEditStatusId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderId", "orderIdAttr", "OrderId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderVersion", "orderVersionAttr", "OrderVersion", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("OrderStoreId", "orderStoreIdAttr", "OrderStoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("OrderCutOffMoment", "orderCutOffMomentAttr", "OrderCutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("OrderDeliveryTypeId", "orderDeliveryTypeIdAttr", "OrderDeliveryTypeId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("AnonymousId", "anonymousIdAttr", "AnonymousId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WorkflowOrderStateId", "workflowOrderStateIdAttr", "WorkflowOrderStateId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderEditForValidationRec.init();
+return OrderEditForValidationRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderEditForValidationRec = OrderEditForValidationRec;
+
+});
+define("ECP_Order_BL.model$EventStatusRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var EventStatusRec = (function (_super) {
+__extends(EventStatusRec, _super);
+function EventStatusRec(defaults) {
+_super.apply(this, arguments);
+}
+EventStatusRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EventStatusRec.init();
+return EventStatusRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.EventStatusRec = EventStatusRec;
+
+});
+define("ECP_Order_BL.model$StateRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var StateRec = (function (_super) {
+__extends(StateRec, _super);
+function StateRec(defaults) {
+_super.apply(this, arguments);
+}
+StateRec.attributesToDeclare = function () {
+return [
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StateRec.fromStructure = function (str) {
+return new StateRec(new StateRec.RecordClass({
+keyAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+StateRec.init();
+return StateRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.StateRec = StateRec;
+
+});
+define("ECP_Order_BL.model$Aux_VoucherLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var Aux_VoucherLineItemRec = (function (_super) {
+__extends(Aux_VoucherLineItemRec, _super);
+function Aux_VoucherLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Aux_VoucherLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("CouponId", "couponIdAttr", "CouponId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CouponTypeId", "couponTypeIdAttr", "CouponTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Code", "codeAttr", "Code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExternalCode", "externalCodeAttr", "ExternalCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DiscountedPrice", "discountedPriceAttr", "DiscountedPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Aux_VoucherLineItemRec.init();
+return Aux_VoucherLineItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.Aux_VoucherLineItemRec = Aux_VoucherLineItemRec;
+
+});
+define("ECP_Order_BL.model$MTOrderFileRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var MTOrderFileRec = (function (_super) {
+__extends(MTOrderFileRec, _super);
+function MTOrderFileRec(defaults) {
+_super.apply(this, arguments);
+}
+MTOrderFileRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("OrderNumber", "orderNumberAttr", "OrderNumber", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EventId", "eventIdAttr", "EventId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("JSON", "jSONAttr", "JSON", true, false, OS.Types.BinaryData, function () {
+return OS.DataTypes.BinaryData.defaultValue;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MTOrderFileRec.init();
+return MTOrderFileRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.MTOrderFileRec = MTOrderFileRec;
+
+});
+define("ECP_Order_BL.model$ActiveOrderRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var ActiveOrderRec = (function (_super) {
+__extends(ActiveOrderRec, _super);
+function ActiveOrderRec(defaults) {
+_super.apply(this, arguments);
+}
+ActiveOrderRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("OrderId", "orderIdAttr", "OrderId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DeliveryType", "deliveryTypeAttr", "DeliveryType", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DeliveryLabel", "deliveryLabelAttr", "DeliveryLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DeliveryDate", "deliveryDateAttr", "DeliveryDate", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CutOffMoment", "cutOffMomentAttr", "CutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("WorkflowStatusId", "workflowStatusIdAttr", "WorkflowStatusId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("InProgress", "inProgressAttr", "InProgress", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ActiveOrderRec.init();
+return ActiveOrderRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.ActiveOrderRec = ActiveOrderRec;
+
+});
+define("ECP_Order_BL.model$EventRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var EventRec = (function (_super) {
+__extends(EventRec, _super);
+function EventRec(defaults) {
+_super.apply(this, arguments);
+}
+EventRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("EventTypeId", "eventTypeIdAttr", "EventTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attribute1", "attribute1Attr", "Attribute1", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attribute2", "attribute2Attr", "Attribute2", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attribute3", "attribute3Attr", "Attribute3", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attribute4", "attribute4Attr", "Attribute4", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attribute5", "attribute5Attr", "Attribute5", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attribute6", "attribute6Attr", "Attribute6", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EventStatusId", "eventStatusIdAttr", "EventStatusId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EventRec.init();
+return EventRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.EventRec = EventRec;
+
+});
+define("ECP_Order_BL.model$ResultItem3Rec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$StateRec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var ResultItem3Rec = (function (_super) {
+__extends(ResultItem3Rec, _super);
+function ResultItem3Rec(defaults) {
+_super.apply(this, arguments);
+}
+ResultItem3Rec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("State", "stateAttr", "state", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.StateRec());
+}, true, ECP_Order_BLModel.StateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ResultItem3Rec.init();
+return ResultItem3Rec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.ResultItem3Rec = ResultItem3Rec;
+
+});
+define("ECP_Order_BL.model$ResultItem3List", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$ResultItem3Rec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var ResultItem3List = (function (_super) {
+__extends(ResultItem3List, _super);
+function ResultItem3List(defaults) {
+_super.apply(this, arguments);
+}
+ResultItem3List.itemType = ECP_Order_BLModel.ResultItem3Rec;
+return ResultItem3List;
+})(OS.DataTypes.GenericRecordList);
+ECP_Order_BLModel.ResultItem3List = ResultItem3List;
+
+});
+define("ECP_Order_BL.model$OrderRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$ResultItem3List"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderRec = (function (_super) {
+__extends(OrderRec, _super);
+function OrderRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderRec.attributesToDeclare = function () {
+return [
+this.attr("Results", "resultsAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.ResultItem3List());
+}, true, ECP_Order_BLModel.ResultItem3List)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderRec.fromStructure = function (str) {
+return new OrderRec(new OrderRec.RecordClass({
+resultsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OrderRec.init();
+return OrderRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderRec = OrderRec;
+
+});
+define("ECP_Order_BL.model$Datum2Rec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$OrderRec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var Datum2Rec = (function (_super) {
+__extends(Datum2Rec, _super);
+function Datum2Rec(defaults) {
+_super.apply(this, arguments);
+}
+Datum2Rec.attributesToDeclare = function () {
+return [
+this.attr("Orders", "ordersAttr", "orders", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.OrderRec());
+}, true, ECP_Order_BLModel.OrderRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Datum2Rec.fromStructure = function (str) {
+return new Datum2Rec(new Datum2Rec.RecordClass({
+ordersAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Datum2Rec.init();
+return Datum2Rec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.Datum2Rec = Datum2Rec;
+
+});
+define("ECP_Order_BL.model$Orders_ResponseRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$Datum2Rec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var Orders_ResponseRec = (function (_super) {
+__extends(Orders_ResponseRec, _super);
+function Orders_ResponseRec(defaults) {
+_super.apply(this, arguments);
+}
+Orders_ResponseRec.attributesToDeclare = function () {
+return [
+this.attr("Data", "dataAttr", "data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.Datum2Rec());
+}, true, ECP_Order_BLModel.Datum2Rec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Orders_ResponseRec.fromStructure = function (str) {
+return new Orders_ResponseRec(new Orders_ResponseRec.RecordClass({
+dataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Orders_ResponseRec.init();
+return Orders_ResponseRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.Orders_ResponseRec = Orders_ResponseRec;
+
+});
+define("ECP_Order_BL.model$CallbackOrderEditRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var CallbackOrderEditRec = (function (_super) {
+__extends(CallbackOrderEditRec, _super);
+function CallbackOrderEditRec(defaults) {
+_super.apply(this, arguments);
+}
+CallbackOrderEditRec.attributesToDeclare = function () {
+return [
+this.attr("Identifier", "identifierAttr", "Identifier", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CallbackOrderEditRec.fromStructure = function (str) {
+return new CallbackOrderEditRec(new CallbackOrderEditRec.RecordClass({
+identifierAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+CallbackOrderEditRec.init();
+return CallbackOrderEditRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.CallbackOrderEditRec = CallbackOrderEditRec;
+
+});
+define("ECP_Order_BL.model$CustomFieldsRawItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var CustomFieldsRawItemRec = (function (_super) {
+__extends(CustomFieldsRawItemRec, _super);
+function CustomFieldsRawItemRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomFieldsRawItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomFieldsRawItemRec.init();
+return CustomFieldsRawItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.CustomFieldsRawItemRec = CustomFieldsRawItemRec;
+
+});
+define("ECP_Order_BL.model$Aux_PreferenceItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var Aux_PreferenceItemRec = (function (_super) {
+__extends(Aux_PreferenceItemRec, _super);
+function Aux_PreferenceItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Aux_PreferenceItemRec.attributesToDeclare = function () {
+return [
+this.attr("CampaignName", "campaignNameAttr", "campaingName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PreferenceCollectionId", "preferenceCollectionIdAttr", "collectionId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CampaignTypeId", "campaignTypeIdAttr", "campaignTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Aux_PreferenceItemRec.init();
+return Aux_PreferenceItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.Aux_PreferenceItemRec = Aux_PreferenceItemRec;
+
+});
+define("ECP_Order_BL.model$LineItemWithPromotionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var LineItemWithPromotionRec = (function (_super) {
+__extends(LineItemWithPromotionRec, _super);
+function LineItemWithPromotionRec(defaults) {
+_super.apply(this, arguments);
+}
+LineItemWithPromotionRec.attributesToDeclare = function () {
+return [
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CartdiscountId", "cartdiscountIdAttr", "CartdiscountId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LineItemWithPromotionRec.init();
+return LineItemWithPromotionRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.LineItemWithPromotionRec = LineItemWithPromotionRec;
+
+});
+define("ECP_Order_BL.model$CustomLineItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$CentPrecisionCustomLineItemRec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var CustomLineItemRec = (function (_super) {
+__extends(CustomLineItemRec, _super);
+function CustomLineItemRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomLineItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Money", "moneyAttr", "money", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.CentPrecisionCustomLineItemRec());
+}, true, ECP_Order_BLModel.CentPrecisionCustomLineItemRec), 
+this.attr("Slug", "slugAttr", "slug", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomLineItemRec.init();
+return CustomLineItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.CustomLineItemRec = CustomLineItemRec;
+
+});
+define("ECP_Order_BL.model$OrdersRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrdersRec = (function (_super) {
+__extends(OrdersRec, _super);
+function OrdersRec(defaults) {
+_super.apply(this, arguments);
+}
+OrdersRec.attributesToDeclare = function () {
+return [
+this.attr("OrderId", "orderIdAttr", "OrderId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "Version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("State", "stateAttr", "State", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrdersRec.init();
+return OrdersRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrdersRec = OrdersRec;
+
+});
+define("ECP_Order_BL.model$OrderFilesRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderFilesRec = (function (_super) {
+__extends(OrderFilesRec, _super);
+function OrderFilesRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderFilesRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("OrderNumber", "orderNumberAttr", "OrderNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("JSON", "jSONAttr", "JSON", false, false, OS.Types.BinaryData, function () {
+return OS.DataTypes.BinaryData.defaultValue;
+}, true), 
+this.attr("SentOn", "sentOnAttr", "SentOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderFilesRec.init();
+return OrderFilesRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderFilesRec = OrderFilesRec;
+
+});
+define("ECP_Order_BL.model$Aux_ProductInOrderRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var Aux_ProductInOrderRec = (function (_super) {
+__extends(Aux_ProductInOrderRec, _super);
+function Aux_ProductInOrderRec(defaults) {
+_super.apply(this, arguments);
+}
+Aux_ProductInOrderRec.attributesToDeclare = function () {
+return [
+this.attr("LineItemId", "lineItemIdAttr", "LineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Subtitle", "subtitleAttr", "Subtitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Category", "categoryAttr", "Category", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("MaxOrderLimit", "maxOrderLimitAttr", "MaxOrderLimit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Aux_ProductInOrderRec.init();
+return Aux_ProductInOrderRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.Aux_ProductInOrderRec = Aux_ProductInOrderRec;
+
+});
+define("ECP_Order_BL.model$Aux_ProductInOrderList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$Aux_ProductInOrderRec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var Aux_ProductInOrderList = (function (_super) {
+__extends(Aux_ProductInOrderList, _super);
+function Aux_ProductInOrderList(defaults) {
+_super.apply(this, arguments);
+}
+Aux_ProductInOrderList.itemType = ECP_Order_BLModel.Aux_ProductInOrderRec;
+return Aux_ProductInOrderList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Order_BLModel.Aux_ProductInOrderList = Aux_ProductInOrderList;
+
+});
+define("ECP_Order_BL.model$OrderHistoryPreferenceItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderHistoryPreferenceItemRec = (function (_super) {
+__extends(OrderHistoryPreferenceItemRec, _super);
+function OrderHistoryPreferenceItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderHistoryPreferenceItemRec.attributesToDeclare = function () {
+return [
+this.attr("Title", "titleAttr", "Title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderHistoryPreferenceItemRec.init();
+return OrderHistoryPreferenceItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderHistoryPreferenceItemRec = OrderHistoryPreferenceItemRec;
+
+});
+define("ECP_Order_BL.model$OrderHistoryPreferenceItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$OrderHistoryPreferenceItemRec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderHistoryPreferenceItemList = (function (_super) {
+__extends(OrderHistoryPreferenceItemList, _super);
+function OrderHistoryPreferenceItemList(defaults) {
+_super.apply(this, arguments);
+}
+OrderHistoryPreferenceItemList.itemType = ECP_Order_BLModel.OrderHistoryPreferenceItemRec;
+return OrderHistoryPreferenceItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Order_BLModel.OrderHistoryPreferenceItemList = OrderHistoryPreferenceItemList;
+
+});
+define("ECP_Order_BL.model$Aux_VoucherLineItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$Aux_VoucherLineItemRec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var Aux_VoucherLineItemList = (function (_super) {
+__extends(Aux_VoucherLineItemList, _super);
+function Aux_VoucherLineItemList(defaults) {
+_super.apply(this, arguments);
+}
+Aux_VoucherLineItemList.itemType = ECP_Order_BLModel.Aux_VoucherLineItemRec;
+return Aux_VoucherLineItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Order_BLModel.Aux_VoucherLineItemList = Aux_VoucherLineItemList;
+
+});
+define("ECP_Order_BL.model$OrderHistoryTotalRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$Aux_VoucherLineItemList"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderHistoryTotalRec = (function (_super) {
+__extends(OrderHistoryTotalRec, _super);
+function OrderHistoryTotalRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderHistoryTotalRec.attributesToDeclare = function () {
+return [
+this.attr("TotalLineItems", "totalLineItemsAttr", "TotalLineItems", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("TotalDistinctSKU", "totalDistinctSKUAttr", "TotalDistinctSKU", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ProductCosts", "productCostsAttr", "ProductCosts", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PLUSPointCosts", "pLUSPointCostsAttr", "PLUSPointCosts", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("ShippingCosts", "shippingCostsAttr", "ShippingCosts", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DepositFeeCosts", "depositFeeCostsAttr", "DepositFeeCosts", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("GrandTotal", "grandTotalAttr", "GrandTotal", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("TotalDiscountedPrice", "totalDiscountedPriceAttr", "TotalDiscountedPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("VoucherList", "voucherListAttr", "VoucherList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.Aux_VoucherLineItemList());
+}, true, ECP_Order_BLModel.Aux_VoucherLineItemList), 
+this.attr("PromotionList", "promotionListAttr", "PromotionList", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SmallOrderFee", "smallOrderFeeAttr", "SmallOrderFee", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderHistoryTotalRec.init();
+return OrderHistoryTotalRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderHistoryTotalRec = OrderHistoryTotalRec;
+
+});
+define("ECP_Order_BL.model$OrderHistoryDetailRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_Order_BL.model$Aux_ProductInOrderList", "ECP_Order_BL.model$OrderHistoryPreferenceItemList", "ECP_Order_BL.model$OrderHistoryTotalRec"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderHistoryDetailRec = (function (_super) {
+__extends(OrderHistoryDetailRec, _super);
+function OrderHistoryDetailRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderHistoryDetailRec.attributesToDeclare = function () {
+return [
+this.attr("Order_Id", "order_IdAttr", "Order_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_Version", "order_VersionAttr", "Order_Version", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Order_Number", "order_NumberAttr", "Order_Number", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Customer_Id", "customer_IdAttr", "Customer_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerName", "customerNameAttr", "CustomerName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WorkflowOrderState_Id", "workflowOrderState_IdAttr", "WorkflowOrderState_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_StoreName", "order_StoreNameAttr", "Order_StoreName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_StoreId", "order_StoreIdAttr", "Order_StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryType_Id", "deliveryType_IdAttr", "DeliveryType_Id", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DeliveryType_ServiceStatusLabel", "deliveryType_ServiceStatusLabelAttr", "DeliveryType_ServiceStatusLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_DeliveryDate", "order_DeliveryDateAttr", "Order_DeliveryDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Order_SlotStartTime", "order_SlotStartTimeAttr", "Order_SlotStartTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_SlotEndTime", "order_SlotEndTimeAttr", "Order_SlotEndTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_CutOffMoment", "order_CutOffMomentAttr", "Order_CutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Order_FictionalCutOffMoment", "order_FictionalCutOffMomentAttr", "Order_FictionalCutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Order_ShippingAddress", "order_ShippingAddressAttr", "Order_ShippingAddress", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_Comments", "order_CommentsAttr", "Order_Comments", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_InProgress", "order_InProgressAttr", "Order_InProgress", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Order_BusinessInterface", "order_BusinessInterfaceAttr", "Order_BusinessInterface", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UnavailableItemList", "unavailableItemListAttr", "UnavailableItemList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.Aux_ProductInOrderList());
+}, true, ECP_Order_BLModel.Aux_ProductInOrderList), 
+this.attr("AvailableItemList", "availableItemListAttr", "AvailableItemList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.Aux_ProductInOrderList());
+}, true, ECP_Order_BLModel.Aux_ProductInOrderList), 
+this.attr("PreferenceList", "preferenceListAttr", "PreferenceList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.OrderHistoryPreferenceItemList());
+}, true, ECP_Order_BLModel.OrderHistoryPreferenceItemList), 
+this.attr("Totals", "totalsAttr", "Totals", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.OrderHistoryTotalRec());
+}, true, ECP_Order_BLModel.OrderHistoryTotalRec), 
+this.attr("Order_IsEntitlementApplied", "order_IsEntitlementAppliedAttr", "Order_IsEntitlementApplied", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderHistoryDetailRec.init();
+return OrderHistoryDetailRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderHistoryDetailRec = OrderHistoryDetailRec;
+
+});
+define("ECP_Order_BL.model$OrderHistoryItemRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model"], function (exports, OutSystems, ECP_Order_BLModel) {
+var OS = OutSystems.Internal;
+var OrderHistoryItemRec = (function (_super) {
+__extends(OrderHistoryItemRec, _super);
+function OrderHistoryItemRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderHistoryItemRec.attributesToDeclare = function () {
+return [
+this.attr("Order_Id", "order_IdAttr", "Order_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_Number", "order_NumberAttr", "Order_Number", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WorkflowOrderState_Id", "workflowOrderState_IdAttr", "WorkflowOrderState_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DeliveryType_Id", "deliveryType_IdAttr", "DeliveryType_Id", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DeliveryType_ServiceStatusLabel", "deliveryType_ServiceStatusLabelAttr", "DeliveryType_ServiceStatusLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_DeliveryDate", "order_DeliveryDateAttr", "Order_DeliveryDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Order_DeliveryStartTime", "order_DeliveryStartTimeAttr", "Order_DeliveryStartTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_DeliveryEndTime", "order_DeliveryEndTimeAttr", "Order_DeliveryEndTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order_CutOffMoment", "order_CutOffMomentAttr", "Order_CutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Order_FictionalCutOffMoment", "order_FictionalCutOffMomentAttr", "Order_FictionalCutOffMoment", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Order_TotalPrice", "order_TotalPriceAttr", "Order_TotalPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Order_InProgress", "order_InProgressAttr", "Order_InProgress", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CustomerName", "customerNameAttr", "CustomerName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BusinessInterfaceId", "businessInterfaceIdAttr", "BusinessInterfaceId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderHistoryItemRec.init();
+return OrderHistoryItemRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Order_BLModel.OrderHistoryItemRec = OrderHistoryItemRec;
+
+});
+define("ECP_Order_BL.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_Order_BLModel = exports;
+});

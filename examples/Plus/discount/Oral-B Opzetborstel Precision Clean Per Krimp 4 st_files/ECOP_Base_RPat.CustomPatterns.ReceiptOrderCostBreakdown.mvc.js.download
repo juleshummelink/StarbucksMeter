@@ -1,0 +1,524 @@
+﻿define("ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.CustomPatterns.ReceiptItem.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$model", "ECOP_Base_RPat.controller$Format_NumberToTwoDecimalPlaces", "ECOP_Base_RPat.model$Pat_DeliveryCostBreakdown_StrRec", "ECOP_Base_RPat.model$DeliveryCostBreakdownItem_StrList"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsExpanded", "isExpandedVar", "IsExpanded", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OrderDeliveryCostBreakdown", "orderDeliveryCostBreakdownVar", "OrderDeliveryCostBreakdown", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Base_RPatModel.Pat_DeliveryCostBreakdown_StrRec());
+}, false, ECOP_Base_RPatModel.Pat_DeliveryCostBreakdown_StrRec), 
+this.attr("DeliveryCostBreakdownJSON", "deliveryCostBreakdownJSONIn", "DeliveryCostBreakdownJSON", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_deliveryCostBreakdownJSONInDataFetchStatus", "_deliveryCostBreakdownJSONInDataFetchStatus", "_deliveryCostBreakdownJSONInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShippingCost", "shippingCostIn", "ShippingCost", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, false), 
+this.attr("_shippingCostInDataFetchStatus", "_shippingCostInDataFetchStatus", "_shippingCostInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("DeliveryCostBreakdownJSON" in inputs) {
+this.variables.deliveryCostBreakdownJSONIn = inputs.DeliveryCostBreakdownJSON;
+if("_deliveryCostBreakdownJSONInDataFetchStatus" in inputs) {
+this.variables._deliveryCostBreakdownJSONInDataFetchStatus = inputs._deliveryCostBreakdownJSONInDataFetchStatus;
+}
+
+}
+
+if("ShippingCost" in inputs) {
+this.variables.shippingCostIn = inputs.ShippingCost;
+if("_shippingCostInDataFetchStatus" in inputs) {
+this.variables._shippingCostInDataFetchStatus = inputs._shippingCostInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.ReceiptOrderCostBreakdown");
+});
+define("ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$model", "ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.ReceiptItem.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$view", "ECOP_Base_RPat.controller$Format_NumberToTwoDecimalPlaces", "ECOP_Base_RPat.model$Pat_DeliveryCostBreakdown_StrRec", "ECOP_Base_RPat.model$DeliveryCostBreakdownItem_StrList"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, React, OSView, ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_model, ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_controller, OSWidgets, ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.ReceiptOrderCostBreakdown";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), $if(!(model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+tabIndex: (-1).toString()
+},
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_ToggleDiscountLines$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: model.getCachedValue(idService.getId("5ljRXgxpPkae3Zj0MV5+cA.Style"), function () {
+return ((!(model.variables.isExpandedVar)) ? (" isOpen") : (""));
+}, function () {
+return model.variables.isExpandedVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {
+ExtendedClass: "receipt-ordercost-breakdown"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [$text(getTranslation("p6i1wCFXBk2YUEyZ6MfYLw#Value", "Order Cost"))];
+}),
+middle: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECOP_Base_RPatModel.staticEntities.iconSize.size_s,
+Name: "arrow-down"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+right: new PlaceholderContent(function () {
+return [$if(!(model.variables.orderDeliveryCostBreakdownVar.orderDeliveryCostAttr.equals(model.variables.orderDeliveryCostBreakdownVar.maxDeliveryCostAttr)), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "line-through",
+value: model.getCachedValue(idService.getId("SA26S4DM1k6e9AcEPt2XKA.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.orderDeliveryCostBreakdownVar.maxDeliveryCostAttr, callContext).formattedNumberOut;
+}, function () {
+return model.variables.orderDeliveryCostBreakdownVar.maxDeliveryCostAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Expression, {
+style: "margin-left-s",
+value: model.getCachedValue(idService.getId("wvU71yQPHUqOiqYy0LHy+g.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.orderDeliveryCostBreakdownVar.orderDeliveryCostAttr, callContext).formattedNumberOut;
+}, function () {
+return model.variables.orderDeliveryCostBreakdownVar.orderDeliveryCostAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.orderDeliveryCostBreakdownVar.maxDeliveryCostAttr), asPrimitiveValue(model.variables.orderDeliveryCostBreakdownVar.orderDeliveryCostAttr)]
+})), React.createElement(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view, {
+inputs: {
+IsExpanded: model.variables.isExpandedVar,
+ExtendedClass: "receipt-discount-section-expandable no-title"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "5",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr,
+style: model.getCachedValue(idService.getId("BxJKpLgKjUWkSC_cC0kgcQ.Style"), function () {
+return ("list list-group receipt-discount-list padding-left-s margin-top-s" + ((((model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrentRowNumber(callContext.iterationContext)) !== (0))) ? (" padding-top-s") : ("")));
+}, function () {
+return model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("zmjwCYWJ_0u43TYfvbqogw.Style"), function () {
+return ("display-flex justify-content-space-between receipt-discount-list__item text-red" + ((((model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrentRowNumber(callContext.iterationContext)) !== (0))) ? (" margin-top-s") : ("")));
+}, function () {
+return model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrent(callContext.iterationContext).savedValueAttr), asPrimitiveValue(model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrent(callContext.iterationContext).thresholdMaxValueAttr)]
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "flex1 receipt-discount-list__item_left",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("2A4mmkc1FUONpCS5Y4FMbQ#ValueExpression.-1825285736.1", "Discount order above €") + OS.BuiltinFunctions.decimalToText(model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrent(callContext.iterationContext).thresholdMaxValueAttr)),
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "receipt-discount-list__item_right",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("hmWHfQiYSkiYPzyDPUuGng.Value"), function () {
+return ("- " + ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrent(callContext.iterationContext).savedValueAttr, callContext).formattedNumberOut);
+}, function () {
+return model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr.getCurrent(callContext.iterationContext).savedValueAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))];
+}, callContext, idService, "1")
+},
+_dependencies: []
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr)]
+})];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ReceiptItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [$text(getTranslation("Kz_rk4R9WkCtLEzlBE6HQg#Value", "Order Cost"))];
+}),
+middle: PlaceholderContent.Empty,
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "margin-left-s",
+value: model.getCachedValue(idService.getId("hBk6KOoIMUK8Cvhw5AzYEA.Value"), function () {
+return ECOP_Base_RPatController.default.format_NumberToTwoDecimalPlaces$Action(model.variables.shippingCostIn, callContext).formattedNumberOut;
+}, function () {
+return model.variables.shippingCostIn;
+}),
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._shippingCostInDataFetchStatus)
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._shippingCostInDataFetchStatus), asPrimitiveValue(model.variables.shippingCostIn)]
+})];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.languageResources", "ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$translationsResources", "ECOP_Base_RPat.controller$Format_NumberToTwoDecimalPlaces", "ECOP_Base_RPat.model$Pat_DeliveryCostBreakdown_StrRec", "ECOP_Base_RPat.model$DeliveryCostBreakdownItem_StrList"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, ECOP_Base_RPatLanguageResources, ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._createListFromJSON$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CreateListFromJSON");
+callContext = controller.callContext(callContext);
+var jSONDeserializePromotionLineItemVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECOP_Base_RPatModel.Pat_DeliveryCostBreakdown_StrRec))());
+// HasJSON
+if((((model.variables.deliveryCostBreakdownJSONIn) !== ("")))) {
+// JSON Deserialize: JSONDeserializePromotionLineItem
+jSONDeserializePromotionLineItemVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(model.variables.deliveryCostBreakdownJSONIn, ECOP_Base_RPatModel.Pat_DeliveryCostBreakdown_StrRec, false);
+// OrderDeliveryCostBreakdown = JSONDeserializePromotionLineItem.Data
+model.variables.orderDeliveryCostBreakdownVar = jSONDeserializePromotionLineItemVar.value.dataOut;
+} else {
+// OrderDeliveryCostBreakdown.OrderDeliveryCost = 0
+model.variables.orderDeliveryCostBreakdownVar.orderDeliveryCostAttr = OS.BuiltinFunctions.integerToDecimal(0);
+// OrderDeliveryCostBreakdown.MaxDeliveryCost = 0
+model.variables.orderDeliveryCostBreakdownVar.maxDeliveryCostAttr = OS.BuiltinFunctions.integerToDecimal(0);
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.orderDeliveryCostBreakdownVar.dynamicCostListAttr, callContext);
+}
+
+};
+Controller.prototype._onClick_ToggleDiscountLines$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_ToggleDiscountLines");
+callContext = controller.callContext(callContext);
+// IsExpanded = notIsExpanded
+model.variables.isExpandedVar = !(model.variables.isExpandedVar);
+};
+
+Controller.prototype.createListFromJSON$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._createListFromJSON$Action, callContext);
+
+};
+Controller.prototype.onClick_ToggleDiscountLines$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_ToggleDiscountLines$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.createListFromJSON$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.createListFromJSON$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Base_RPatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Base_RPatLanguageResources);
+});
+
+define("ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$translationsResources", ["exports", "ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$translationsResources.nl-NL"], function (exports, ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECOP_Base_RPat_CustomPatterns_ReceiptOrderCostBreakdown_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECOP_Base_RPat.CustomPatterns.ReceiptOrderCostBreakdown.mvc$translationsResources.nl-NL", [], function () {
+return {
+"Kz_rk4R9WkCtLEzlBE6HQg#Value": "Bestelkosten",
+"2A4mmkc1FUONpCS5Y4FMbQ#ValueExpression.-1825285736.1": "Korting bestelling boven €",
+"p6i1wCFXBk2YUEyZ6MfYLw#Value": "Bestelkosten"
+};
+});

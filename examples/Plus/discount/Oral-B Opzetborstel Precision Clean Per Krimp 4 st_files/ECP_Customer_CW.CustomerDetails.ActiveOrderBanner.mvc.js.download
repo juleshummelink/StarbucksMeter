@@ -1,0 +1,728 @@
+﻿define("ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECOP_FE_Core.controller", "ECOP_Base_RPat.controller", "ECP_Order_BL.model", "ECOP_Reactive_Pat.CustomPatterns.ActiveOrderNotificationBanner.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_FE_Core.controller$Edit_CutOffMomentExpired", "ECP_Customer_CW.referencesHealth", "ECP_Customer_CW.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$Weekday_GetNameByDate", "ECP_Customer_CW.referencesHealth$ECOP_Base_RPat", "ECOP_Base_RPat.controller$Format_DateWithOrWithoutYear", "ECOP_Base_RPat.controller$Format_NoYearDateTime", "ECP_Order_BL.model$ActiveOrderRec", "ECP_Customer_CW.referencesHealth$ECP_Order_BL"], function (OutSystems, ECP_Customer_CWModel, ECOP_FE_CoreController, ECOP_Base_RPatController, ECP_Order_BLModel, ECOP_Reactive_Pat_CustomPatterns_ActiveOrderNotificationBanner_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsDesktop_Local", "isDesktop_LocalVar", "IsDesktop_Local", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsTablet_Local", "isTablet_LocalVar", "IsTablet_Local", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsPhone_Local", "isPhone_LocalVar", "IsPhone_Local", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsOrderEditMode_Local", "isOrderEditMode_LocalVar", "IsOrderEditMode_Local", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("PersistentNotification_IsEnabled_Local", "persistentNotification_IsEnabled_LocalVar", "PersistentNotification_IsEnabled_Local", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ActiveOrder", "activeOrderIn", "ActiveOrder", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.ActiveOrderRec());
+}, false, ECP_Order_BLModel.ActiveOrderRec), 
+this.attr("_activeOrderInDataFetchStatus", "_activeOrderInDataFetchStatus", "_activeOrderInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDesktop_In", "isDesktop_InIn", "IsDesktop_In", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDesktop_InInDataFetchStatus", "_isDesktop_InInDataFetchStatus", "_isDesktop_InInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsTablet_In", "isTablet_InIn", "IsTablet_In", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isTablet_InInDataFetchStatus", "_isTablet_InInDataFetchStatus", "_isTablet_InInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsPhone_In", "isPhone_InIn", "IsPhone_In", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isPhone_InInDataFetchStatus", "_isPhone_InInDataFetchStatus", "_isPhone_InInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsOrderEditMode", "isOrderEditModeIn", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("PersistentNotification_IsEnabled", "persistentNotification_IsEnabledIn", "PersistentNotification_IsEnabled", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_persistentNotification_IsEnabledInDataFetchStatus", "_persistentNotification_IsEnabledInDataFetchStatus", "_persistentNotification_IsEnabledInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (ECOP_Reactive_Pat_CustomPatterns_ActiveOrderNotificationBanner_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ActiveOrder" in inputs) {
+this.variables.activeOrderIn = inputs.ActiveOrder;
+if("_activeOrderInDataFetchStatus" in inputs) {
+this.variables._activeOrderInDataFetchStatus = inputs._activeOrderInDataFetchStatus;
+}
+
+}
+
+if("IsDesktop_In" in inputs) {
+this.variables.isDesktop_InIn = inputs.IsDesktop_In;
+if("_isDesktop_InInDataFetchStatus" in inputs) {
+this.variables._isDesktop_InInDataFetchStatus = inputs._isDesktop_InInDataFetchStatus;
+}
+
+}
+
+if("IsTablet_In" in inputs) {
+this.variables.isTablet_InIn = inputs.IsTablet_In;
+if("_isTablet_InInDataFetchStatus" in inputs) {
+this.variables._isTablet_InInDataFetchStatus = inputs._isTablet_InInDataFetchStatus;
+}
+
+}
+
+if("IsPhone_In" in inputs) {
+this.variables.isPhone_InIn = inputs.IsPhone_In;
+if("_isPhone_InInDataFetchStatus" in inputs) {
+this.variables._isPhone_InInDataFetchStatus = inputs._isPhone_InInDataFetchStatus;
+}
+
+}
+
+if("IsOrderEditMode" in inputs) {
+this.variables.isOrderEditModeIn = inputs.IsOrderEditMode;
+if("_isOrderEditModeInDataFetchStatus" in inputs) {
+this.variables._isOrderEditModeInDataFetchStatus = inputs._isOrderEditModeInDataFetchStatus;
+}
+
+}
+
+if("PersistentNotification_IsEnabled" in inputs) {
+this.variables.persistentNotification_IsEnabledIn = inputs.PersistentNotification_IsEnabled;
+if("_persistentNotification_IsEnabledInDataFetchStatus" in inputs) {
+this.variables._persistentNotification_IsEnabledInDataFetchStatus = inputs._persistentNotification_IsEnabledInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomerDetails.ActiveOrderBanner");
+});
+define("ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller", "ECOP_FE_Core.controller", "ECOP_Base_RPat.controller", "ECP_Order_BL.model", "react", "OutSystems/ReactView/Main", "ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$model", "ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$controller", "ECOP_Reactive_Pat.CustomPatterns.ActiveOrderNotificationBanner.mvc$view", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_FE_Core.controller$Edit_CutOffMomentExpired", "ECP_Customer_CW.referencesHealth", "ECP_Customer_CW.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$Weekday_GetNameByDate", "ECP_Customer_CW.referencesHealth$ECOP_Base_RPat", "ECOP_Base_RPat.controller$Format_DateWithOrWithoutYear", "ECOP_Base_RPat.controller$Format_NoYearDateTime", "ECP_Order_BL.model$ActiveOrderRec", "ECP_Customer_CW.referencesHealth$ECP_Order_BL"], function (OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController, ECOP_FE_CoreController, ECOP_Base_RPatController, ECP_Order_BLModel, React, OSView, ECP_Customer_CW_CustomerDetails_ActiveOrderBanner_mvc_model, ECP_Customer_CW_CustomerDetails_ActiveOrderBanner_mvc_controller, ECOP_Reactive_Pat_CustomPatterns_ActiveOrderNotificationBanner_mvc_view, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomerDetails.ActiveOrderBanner";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Reactive_Pat_CustomPatterns_ActiveOrderNotificationBanner_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Customer_CW_CustomerDetails_ActiveOrderBanner_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Customer_CW_CustomerDetails_ActiveOrderBanner_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECOP_Reactive_Pat_CustomPatterns_ActiveOrderNotificationBanner_mvc_view, {
+inputs: {
+ExtendedClass: "gtm-active-order-notice-banner",
+IsToDisplay: (!(model.variables.persistentNotification_IsEnabled_LocalVar) && !(model.variables.isOrderEditMode_LocalVar)),
+CenterElements: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+bannerClicked$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_ActiveOrderBanner_Clicked$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("yMmgNvESqkm1iJC8xLVe8w.Style"), function () {
+return ("display-flex " + ((!(model.variables.isPhone_LocalVar)) ? ("align-items-center") : ("align-items-flex-start full-width")));
+}, function () {
+return model.variables.isPhone_LocalVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.isPhone_LocalVar, false, this, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Customer_CWModel.staticEntities.iconSize.size_lg,
+ExtendedClass: "margin-right-s",
+Name: model.getCachedValue(idService.getId("CtMH9woEWk2x40m3QrtrpA.Name"), function () {
+return ((((model.variables.activeOrderIn.deliveryTypeAttr === ECP_Customer_CWModel.staticEntities.deliveryType.deliveryExpress) || (model.variables.activeOrderIn.deliveryTypeAttr === ECP_Customer_CWModel.staticEntities.deliveryType.delivery))) ? ("delivery") : ("pick-up"));
+}, function () {
+return model.variables.activeOrderIn.deliveryTypeAttr;
+}),
+_nameInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeOrderInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "flex1",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "display-flex",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: ((model.variables.activeOrderIn.deliveryLabelAttr + " ") + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("6aAmWmp3eEmYqdh6IMPBGw#ValueExpression.3551.1", "on")),
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeOrderInDataFetchStatus)
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "white-space-nowrap",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: "gtm-active-order-notice-banner",
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "order-details", {
+OrderId: OS.DataConversion.ServerDataConverter.to(model.variables.activeOrderIn.orderIdAttr, OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.activeOrderIn.workflowStatusIdAttr === ECP_Customer_CWModel.staticEntities.workflowOrderState.open) && !(ECOP_FE_CoreController.default.edit_CutOffMomentExpired$Action(model.variables.activeOrderIn.cutOffMomentAttr, callContext).orderCannotBeChangedOut)), false, this, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "text-underline",
+text: [$text(getTranslation("bNjl2vqjB0+MhIFI4h_JBg#Value", "Change"))],
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "text-underline",
+text: [$text(getTranslation("sb4xgS5JVEO+7yhQfPWp2g#Value", "View"))],
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})), React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Customer_CWModel.staticEntities.iconSize.size_s,
+Name: "arrow-right",
+ExtendedClass: "margin-left-s"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))), React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.getCachedValue(idService.getId("8DzrsGmpz02Jsa_qd5wCfA.Value"), function () {
+return (((((((ECOP_Base_RPatController.default.weekday_GetNameByDate$Action(OS.BuiltinFunctions.dateTimeToDate(model.variables.activeOrderIn.deliveryDateAttr), "nl-NL", callContext).weekDayNameOut + " ") + ECOP_Base_RPatController.default.format_DateWithOrWithoutYear$Action(OS.BuiltinFunctions.dateTimeToDate(model.variables.activeOrderIn.deliveryDateAttr), true, false, true, callContext).dateTextOut) + " • ") + OS.BuiltinFunctions.formatDateTime(model.variables.activeOrderIn.startTimeAttr, "HH:mm")) + " - ") + OS.BuiltinFunctions.formatDateTime(model.variables.activeOrderIn.endTimeAttr, "HH:mm")) + " ");
+}, function () {
+return model.variables.activeOrderIn.deliveryDateAttr;
+}, function () {
+return model.variables.activeOrderIn.startTimeAttr;
+}, function () {
+return model.variables.activeOrderIn.endTimeAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeOrderInDataFetchStatus)
+}), $if(((model.variables.activeOrderIn.workflowStatusIdAttr === ECP_Customer_CWModel.staticEntities.workflowOrderState.open) && !(ECOP_FE_CoreController.default.edit_CutOffMomentExpired$Action(model.variables.activeOrderIn.cutOffMomentAttr, callContext).orderCannotBeChangedOut)), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "text-warning font-semi-bold",
+value: model.getCachedValue(idService.getId("IeGnkMpLFU+P0CGezYc1Xw.Value"), function () {
+return ((((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("mGzZ4p01REKHnEMgczjMRQ#ValueExpression.522259642.1", "To be changed until") + " ") + ECOP_Base_RPatController.default.weekday_GetNameByDate$Action(OS.BuiltinFunctions.dateTimeToDate(model.variables.activeOrderIn.cutOffMomentAttr), "nl-NL", callContext).weekDayNameOut) + " ") + ECOP_Base_RPatController.default.format_NoYearDateTime$Action(true, true, model.variables.activeOrderIn.cutOffMomentAttr, callContext).dateTextOut);
+}, function () {
+return model.variables.activeOrderIn.cutOffMomentAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeOrderInDataFetchStatus)
+})];
+}, function () {
+return [];
+}))];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Customer_CWModel.staticEntities.iconSize.size_lg,
+Name: model.getCachedValue(idService.getId("YHFJjmRQEUSlPy3yFjDUgQ.Name"), function () {
+return ((((model.variables.activeOrderIn.deliveryTypeAttr === ECP_Customer_CWModel.staticEntities.deliveryType.deliveryExpress) || (model.variables.activeOrderIn.deliveryTypeAttr === ECP_Customer_CWModel.staticEntities.deliveryType.delivery))) ? ("delivery") : ("pick-up"));
+}, function () {
+return model.variables.activeOrderIn.deliveryTypeAttr;
+}),
+_nameInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeOrderInDataFetchStatus),
+ExtendedClass: "margin-right-s"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "13",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "display-flex",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("DiTezJ_ypUSXuRtGISAtjg.Value"), function () {
+return ((((((((((model.variables.activeOrderIn.deliveryLabelAttr + " ") + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("iWhirGLIi0+Ur998mpNswA#ValueExpression.3551.1", "on")) + " ") + ECOP_Base_RPatController.default.weekday_GetNameByDate$Action(OS.BuiltinFunctions.dateTimeToDate(model.variables.activeOrderIn.deliveryDateAttr), "nl-NL", callContext).weekDayNameOut) + " ") + ECOP_Base_RPatController.default.format_DateWithOrWithoutYear$Action(OS.BuiltinFunctions.dateTimeToDate(model.variables.activeOrderIn.deliveryDateAttr), true, false, true, callContext).dateTextOut) + " • ") + OS.BuiltinFunctions.formatDateTime(model.variables.activeOrderIn.startTimeAttr, "HH:mm")) + " - ") + OS.BuiltinFunctions.formatDateTime(model.variables.activeOrderIn.endTimeAttr, "HH:mm"));
+}, function () {
+return model.variables.activeOrderIn.deliveryLabelAttr;
+}, function () {
+return model.variables.activeOrderIn.deliveryDateAttr;
+}, function () {
+return model.variables.activeOrderIn.startTimeAttr;
+}, function () {
+return model.variables.activeOrderIn.endTimeAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeOrderInDataFetchStatus)
+}), $if(model.variables.isDesktop_LocalVar, false, this, function () {
+return [$if(((model.variables.activeOrderIn.workflowStatusIdAttr === ECP_Customer_CWModel.staticEntities.workflowOrderState.open) && !(ECOP_FE_CoreController.default.edit_CutOffMomentExpired$Action(model.variables.activeOrderIn.cutOffMomentAttr, callContext).orderCannotBeChangedOut)), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "margin-left-s text-warning font-semi-bold",
+value: model.getCachedValue(idService.getId("NGh_e0YGjkCjele2W_PUYw.Value"), function () {
+return ((((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("ft_Fw9AwqEmz2GaIjxHmNw#ValueExpression.522259642.1", "To be changed until") + " ") + ECOP_Base_RPatController.default.weekday_GetNameByDate$Action(OS.BuiltinFunctions.dateTimeToDate(model.variables.activeOrderIn.cutOffMomentAttr), "nl-NL", callContext).weekDayNameOut) + " ") + ECOP_Base_RPatController.default.format_NoYearDateTime$Action(true, true, model.variables.activeOrderIn.cutOffMomentAttr, callContext).dateTextOut);
+}, function () {
+return model.variables.activeOrderIn.cutOffMomentAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeOrderInDataFetchStatus)
+})];
+}, function () {
+return [];
+})];
+}, function () {
+return [];
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "white-space-nowrap margin-left-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+style: "gtm-active-order-notice-banner",
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "order-details", {
+OrderId: OS.DataConversion.ServerDataConverter.to(model.variables.activeOrderIn.orderIdAttr, OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.activeOrderIn.workflowStatusIdAttr === ECP_Customer_CWModel.staticEntities.workflowOrderState.open) && !(ECOP_FE_CoreController.default.edit_CutOffMomentExpired$Action(model.variables.activeOrderIn.cutOffMomentAttr, callContext).orderCannotBeChangedOut)), false, this, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "text-underline",
+text: [$text(getTranslation("1jeEynrwfU+3ze8EMQg2OA#Value", "Change"))],
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [React.createElement(OSWidgets.Text, {
+style: "text-underline",
+text: [$text(getTranslation("UGHYRaYpUkWa7iHAT_I98g#Value", "View"))],
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})), React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "arrow-right",
+Size: ECP_Customer_CWModel.staticEntities.iconSize.size_s,
+ExtendedClass: "margin-left-s"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "21",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+})), $if(model.variables.isTablet_LocalVar, false, this, function () {
+return [$if(((model.variables.activeOrderIn.workflowStatusIdAttr === ECP_Customer_CWModel.staticEntities.workflowOrderState.open) && !(ECOP_FE_CoreController.default.edit_CutOffMomentExpired$Action(model.variables.activeOrderIn.cutOffMomentAttr, callContext).orderCannotBeChangedOut)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "text-align-center",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "text-warning font-semi-bold",
+value: model.getCachedValue(idService.getId("D77afZVMTUesjbnzDqsNkQ.Value"), function () {
+return ((((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("17fXuqINskCoW98IEYzwaA#ValueExpression.522259642.1", "To be changed until") + " ") + ECOP_Base_RPatController.default.weekday_GetNameByDate$Action(OS.BuiltinFunctions.dateTimeToDate(model.variables.activeOrderIn.cutOffMomentAttr), "nl-NL", callContext).weekDayNameOut) + " ") + ECOP_Base_RPatController.default.format_NoYearDateTime$Action(true, true, model.variables.activeOrderIn.cutOffMomentAttr, callContext).dateTextOut);
+}, function () {
+return model.variables.activeOrderIn.cutOffMomentAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeOrderInDataFetchStatus)
+}))];
+}, function () {
+return [];
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.isTablet_LocalVar), asPrimitiveValue(model.variables.isDesktop_LocalVar), asPrimitiveValue(model.variables._activeOrderInDataFetchStatus), asPrimitiveValue(model.variables.activeOrderIn.endTimeAttr), asPrimitiveValue(model.variables.activeOrderIn.startTimeAttr), asPrimitiveValue(model.variables.activeOrderIn.deliveryDateAttr), asPrimitiveValue(model.variables.activeOrderIn.cutOffMomentAttr), asPrimitiveValue(model.variables.activeOrderIn.workflowStatusIdAttr), asPrimitiveValue(model.variables.activeOrderIn.deliveryLabelAttr), asPrimitiveValue(model.variables.activeOrderIn.deliveryTypeAttr), asPrimitiveValue(model.variables.isPhone_LocalVar)]
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller", "ECOP_FE_Core.controller", "ECOP_Base_RPat.controller", "ECP_Order_BL.model", "ECP_Customer_CW.languageResources", "ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$translationsResources", "ECOP_FE_Core.controller$Edit_CutOffMomentExpired", "ECP_Customer_CW.referencesHealth", "ECP_Customer_CW.referencesHealth$ECOP_FE_Core", "ECOP_Base_RPat.controller$Weekday_GetNameByDate", "ECP_Customer_CW.referencesHealth$ECOP_Base_RPat", "ECOP_Base_RPat.controller$Format_DateWithOrWithoutYear", "ECOP_Base_RPat.controller$Format_NoYearDateTime", "ECP_Order_BL.model$ActiveOrderRec", "ECP_Customer_CW.referencesHealth$ECP_Order_BL"], function (OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController, ECOP_FE_CoreController, ECOP_Base_RPatController, ECP_Order_BLModel, ECP_Customer_CWLanguageResources, ECP_Customer_CW_CustomerDetails_ActiveOrderBanner_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Customer_CW_CustomerDetails_ActiveOrderBanner_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._handler_ActiveOrderBanner_Clicked$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ActiveOrderBanner_Clicked");
+callContext = controller.callContext(callContext);
+// Destination: /ECOP/order-details
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "order-details", {
+OrderId: OS.DataConversion.ServerDataConverter.to(model.variables.activeOrderIn.orderIdAttr, OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.prototype._setLocals$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetLocals");
+callContext = controller.callContext(callContext);
+// IsDesktop_Local = IsDesktop_In
+model.variables.isDesktop_LocalVar = model.variables.isDesktop_InIn;
+// IsTablet_Local = IsTablet_In
+model.variables.isTablet_LocalVar = model.variables.isTablet_InIn;
+// IsPhone_Local = IsPhone_In
+model.variables.isPhone_LocalVar = model.variables.isPhone_InIn;
+// IsOrderEditMode_Local = IsOrderEditMode
+model.variables.isOrderEditMode_LocalVar = model.variables.isOrderEditModeIn;
+// PersistentNotification_IsEnabled_Local = PersistentNotification_IsEnabled
+model.variables.persistentNotification_IsEnabled_LocalVar = model.variables.persistentNotification_IsEnabledIn;
+};
+
+Controller.prototype.handler_ActiveOrderBanner_Clicked$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ActiveOrderBanner_Clicked$Action, callContext);
+
+};
+Controller.prototype.setLocals$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setLocals$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.setLocals$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.setLocals$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Customer_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Customer_CWLanguageResources);
+});
+
+define("ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$translationsResources", ["exports", "ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$translationsResources.nl-NL"], function (exports, ECP_Customer_CW_CustomerDetails_ActiveOrderBanner_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Customer_CW_CustomerDetails_ActiveOrderBanner_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Customer_CW.CustomerDetails.ActiveOrderBanner.mvc$translationsResources.nl-NL", [], function () {
+return {
+"17fXuqINskCoW98IEYzwaA#ValueExpression.522259642.1": "Wijzig tot",
+"UGHYRaYpUkWa7iHAT_I98g#Value": "Bekijk",
+"1jeEynrwfU+3ze8EMQg2OA#Value": "Wijzig",
+"ft_Fw9AwqEmz2GaIjxHmNw#ValueExpression.522259642.1": "Wijzig tot",
+"iWhirGLIi0+Ur998mpNswA#ValueExpression.3551.1": "op",
+"mGzZ4p01REKHnEMgczjMRQ#ValueExpression.522259642.1": "Wijzig tot",
+"sb4xgS5JVEO+7yhQfPWp2g#Value": "Bekijk",
+"bNjl2vqjB0+MhIFI4h_JBg#Value": "Wijzig",
+"6aAmWmp3eEmYqdh6IMPBGw#ValueExpression.3551.1": "op"
+};
+});

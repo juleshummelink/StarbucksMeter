@@ -1,0 +1,947 @@
+﻿define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.Adaptive.Columns3.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "PLUS_OutSystemsUI_2_8_0.Content.Tooltip.mvc$model"], function (OutSystems, ECOP_Reactive_PatModel, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns3_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("Add_TimeOutID", "add_TimeOutIDVar", "Add_TimeOutID", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("Add_IntervalId", "add_IntervalIdVar", "Add_IntervalId", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("Remove_TimeOutID", "remove_TimeOutIDVar", "Remove_TimeOutID", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("Remove_IntervalId", "remove_IntervalIdVar", "Remove_IntervalId", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("UseGTMTags", "useGTMTagsIn", "UseGTMTags", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_useGTMTagsInDataFetchStatus", "_useGTMTagsInDataFetchStatus", "_useGTMTagsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsAddEnabled", "isAddEnabledIn", "IsAddEnabled", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_isAddEnabledInDataFetchStatus", "_isAddEnabledInDataFetchStatus", "_isAddEnabledInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsRemoveEnabled", "isRemoveEnabledIn", "IsRemoveEnabled", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_isRemoveEnabledInDataFetchStatus", "_isRemoveEnabledInDataFetchStatus", "_isRemoveEnabledInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("DisableAddAndShowTooltip", "disableAddAndShowTooltipIn", "DisableAddAndShowTooltip", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_disableAddAndShowTooltipInDataFetchStatus", "_disableAddAndShowTooltipInDataFetchStatus", "_disableAddAndShowTooltipInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("TooltipPosition", "tooltipPositionIn", "TooltipPosition", true, false, OS.Types.Text, function () {
+return ECOP_Reactive_PatModel.staticEntities.position.topRight;
+}, false), 
+this.attr("_tooltipPositionInDataFetchStatus", "_tooltipPositionInDataFetchStatus", "_tooltipPositionInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((PLUS_OutSystemsUI_2_8_0_Adaptive_Columns3_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+if("UseGTMTags" in inputs) {
+this.variables.useGTMTagsIn = inputs.UseGTMTags;
+if("_useGTMTagsInDataFetchStatus" in inputs) {
+this.variables._useGTMTagsInDataFetchStatus = inputs._useGTMTagsInDataFetchStatus;
+}
+
+}
+
+if("IsAddEnabled" in inputs) {
+this.variables.isAddEnabledIn = inputs.IsAddEnabled;
+if("_isAddEnabledInDataFetchStatus" in inputs) {
+this.variables._isAddEnabledInDataFetchStatus = inputs._isAddEnabledInDataFetchStatus;
+}
+
+}
+
+if("IsRemoveEnabled" in inputs) {
+this.variables.isRemoveEnabledIn = inputs.IsRemoveEnabled;
+if("_isRemoveEnabledInDataFetchStatus" in inputs) {
+this.variables._isRemoveEnabledInDataFetchStatus = inputs._isRemoveEnabledInDataFetchStatus;
+}
+
+}
+
+if("DisableAddAndShowTooltip" in inputs) {
+this.variables.disableAddAndShowTooltipIn = inputs.DisableAddAndShowTooltip;
+if("_disableAddAndShowTooltipInDataFetchStatus" in inputs) {
+this.variables._disableAddAndShowTooltipInDataFetchStatus = inputs._disableAddAndShowTooltipInDataFetchStatus;
+}
+
+}
+
+if("TooltipPosition" in inputs) {
+this.variables.tooltipPositionIn = inputs.TooltipPosition;
+if("_tooltipPositionInDataFetchStatus" in inputs) {
+this.variables._tooltipPositionInDataFetchStatus = inputs._tooltipPositionInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.AddRemoveProduct");
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller", "PLUS_OutSystemsUI_2_8_0.Adaptive.Columns3.mvc$view", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Content.Tooltip.mvc$view"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, React, OSView, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_model, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns3_mvc_view, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.AddRemoveProduct";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [PLUS_OutSystemsUI_2_8_0_Adaptive_Columns3_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(PLUS_OutSystemsUI_2_8_0_Adaptive_Columns3_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("ColumnsWidget.ExtendedClass"), function () {
+return ("add-remove-product__collumns-widget add-remove-items align-items-center" + (((model.variables.extendedClassIn === "")) ? ("") : ((" " + model.variables.extendedClassIn))));
+}, function () {
+return model.variables.extendedClassIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._extendedClassInDataFetchStatus),
+GutterSize: ECOP_Reactive_PatModel.staticEntities.gutterSize.none
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ColumnsWidget",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+column1: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+extendedEvents: {
+onTouchStart: function () {
+var eventHandlerContext = callContext.clone();
+controller.remove_OnTouchstart$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+onTouchEnd: function () {
+var eventHandlerContext = callContext.clone();
+controller.remove_OnTouchend$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+isDefault: false,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_RemoveButton$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: model.getCachedValue(idService.getId("sztCnrNwJUqryXxeH3ETjA.Style"), function () {
+return ("btn btn-action remove" + ((!(model.variables.useGTMTagsIn)) ? ("") : (" gtm-remove-from-cart")));
+}, function () {
+return model.variables.useGTMTagsIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._useGTMTagsInDataFetchStatus)
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "remove-from-cart"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+column2: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.content,
+style: "text-align-center bold add-remove_middle-column",
+_idProps: {
+service: idService,
+name: "Content"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+column3: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "text-align-right",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.disableAddAndShowTooltipIn, false, this, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvc_view, {
+inputs: {
+StartsOpen: true,
+Position: model.variables.tooltipPositionIn,
+_positionInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._tooltipPositionInDataFetchStatus),
+Trigger: ECOP_Reactive_PatModel.staticEntities.trigger.onClick,
+ExtendedClass: "disable-add-tooltip"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "Tooltip",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: model.variables.isAddEnabledIn,
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.dummy$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "btn btn-action add btn-disabled",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+enabled_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isAddEnabledInDataFetchStatus)
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "add-to-cart"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+tooltip: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.tooltipTextForDisabledAdd,
+style: "ph",
+_idProps: {
+service: idService,
+name: "TooltipTextForDisabledAdd"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+}
+})];
+}, function () {
+return [$if(model.variables.isAddEnabledIn, false, this, function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+extendedEvents: {
+onTouchStart: function () {
+var eventHandlerContext = callContext.clone();
+controller.add_OnTouchstart$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+onTouchEnd: function () {
+var eventHandlerContext = callContext.clone();
+controller.add_OnTouchend$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.addClick$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: model.getCachedValue(idService.getId("dXXaf86WLkKJ7FZkL58sTw.Style"), function () {
+return ("btn btn-action add" + ((!(model.variables.useGTMTagsIn)) ? ("") : (" gtm-add-to-cart")));
+}, function () {
+return model.variables.useGTMTagsIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._useGTMTagsInDataFetchStatus)
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "add-to-cart"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.dummy$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "btn btn-action add btn-disabled",
+visible: true,
+_idProps: {
+service: idService,
+name: "DisabledAddButton"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "add-to-cart"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+})];
+}))];
+})
+}
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.languageResources", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$translationsResources", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Remove_OnTouchend.Clear_IntervalTimeoutJS", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.OnDestroy.clearTimersJS", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Add_OnTouchend.ClearTimersJS", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Increment.setIntervalJS", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Decrement.setIntervalJS", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.OnReady.AddStopPropagationJS", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Remove_OnTouchstart.setTimeoutJS", "ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Add_OnTouchstart.setTimeoutJS"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_PatLanguageResources, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_TranslationsResources, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Remove_OnTouchend_Clear_IntervalTimeoutJS, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_OnDestroy_clearTimersJS, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Add_OnTouchend_ClearTimersJS, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Increment_setIntervalJS, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Decrement_setIntervalJS, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_OnReady_AddStopPropagationJS, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Remove_OnTouchstart_setTimeoutJS, ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Add_OnTouchstart_setTimeoutJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+sendAdd$Action: function () {
+return controller.executeActionInsideJSNode(controller._sendAdd$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "SendAdd");
+},
+sendRemove$Action: function () {
+return controller.executeActionInsideJSNode(controller._sendRemove$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "SendRemove");
+},
+decrement$Action: function () {
+return controller.executeActionInsideJSNode(controller._decrement$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Decrement");
+},
+increment$Action: function () {
+return controller.executeActionInsideJSNode(controller._increment$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Increment");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._sendAdd$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SendAdd");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: AddClick
+return controller.addClick$Action(callContext);
+});
+};
+Controller.prototype._remove_OnTouchend$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Remove_OnTouchend");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Remove_OnTouchend_Clear_IntervalTimeoutJS, "Clear_IntervalTimeout", "Remove_OnTouchend", {
+IntervalId: OS.DataConversion.JSNodeParamConverter.to(model.variables.remove_IntervalIdVar, OS.Types.Integer),
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(model.variables.remove_TimeOutIDVar, OS.Types.Integer)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_OnDestroy_clearTimersJS, "clearTimers", "OnDestroy", {
+Add_TimeOutID: OS.DataConversion.JSNodeParamConverter.to(model.variables.add_TimeOutIDVar, OS.Types.Integer),
+Add_IntervalId: OS.DataConversion.JSNodeParamConverter.to(model.variables.add_IntervalIdVar, OS.Types.Integer),
+Remove_IntervalId: OS.DataConversion.JSNodeParamConverter.to(model.variables.remove_IntervalIdVar, OS.Types.Integer),
+Remove_TimeOutID: OS.DataConversion.JSNodeParamConverter.to(model.variables.remove_TimeOutIDVar, OS.Types.Integer)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._add_OnTouchend$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Add_OnTouchend");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Add_OnTouchend_ClearTimersJS, "ClearTimers", "Add_OnTouchend", {
+IntervalId: OS.DataConversion.JSNodeParamConverter.to(model.variables.add_IntervalIdVar, OS.Types.Integer),
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(model.variables.add_TimeOutIDVar, OS.Types.Integer)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._increment$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Increment");
+callContext = controller.callContext(callContext);
+var setIntervalJSResult = new OS.DataTypes.VariableHolder();
+setIntervalJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Increment_setIntervalJS, "setInterval", "Increment", {
+IntervalId: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.Increment$setIntervalJSResult"))();
+jsNodeResult.intervalIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IntervalId, OS.Types.Integer);
+return jsNodeResult;
+}, {
+SendAdd: controller.clientActionProxies.sendAdd$Action
+}, {});
+// Add_IntervalId = setInterval.IntervalId
+model.variables.add_IntervalIdVar = setIntervalJSResult.value.intervalIdOut;
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.Increment$setIntervalJSResult", [{
+name: "IntervalId",
+attrName: "intervalIdOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._dummy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Dummy");
+callContext = controller.callContext(callContext);
+};
+Controller.prototype._decrement$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Decrement");
+callContext = controller.callContext(callContext);
+var setIntervalJSResult = new OS.DataTypes.VariableHolder();
+setIntervalJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Decrement_setIntervalJS, "setInterval", "Decrement", {
+IntervalId: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.Decrement$setIntervalJSResult"))();
+jsNodeResult.intervalIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IntervalId, OS.Types.Integer);
+return jsNodeResult;
+}, {
+SendRemove: controller.clientActionProxies.sendRemove$Action
+}, {});
+// Remove_IntervalId = setInterval.IntervalId
+model.variables.remove_IntervalIdVar = setIntervalJSResult.value.intervalIdOut;
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.Decrement$setIntervalJSResult", [{
+name: "IntervalId",
+attrName: "intervalIdOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._onClick_RemoveButton$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_RemoveButton");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((model.variables.isRemoveEnabledIn)) {
+// Trigger Event: RemoveClick
+return controller.removeClick$Action(callContext);
+}
+
+});
+});
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_OnReady_AddStopPropagationJS, "AddStopPropagation", "OnReady", {
+DisabledAddButtonId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("DisabledAddButton"), OS.Types.Text),
+ColumnsWidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("ColumnsWidget"), OS.Types.Text),
+ContainerId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("Content"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._remove_OnTouchstart$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Remove_OnTouchstart");
+callContext = controller.callContext(callContext);
+var setTimeoutJSResult = new OS.DataTypes.VariableHolder();
+setTimeoutJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Remove_OnTouchstart_setTimeoutJS, "setTimeout", "Remove_OnTouchstart", {
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.Remove_OnTouchstart$setTimeoutJSResult"))();
+jsNodeResult.timeoutIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.TimeoutId, OS.Types.Integer);
+return jsNodeResult;
+}, {
+Decrement: controller.clientActionProxies.decrement$Action
+}, {});
+// Remove_TimeOutID = setTimeout.TimeoutId
+model.variables.remove_TimeOutIDVar = setTimeoutJSResult.value.timeoutIdOut;
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.Remove_OnTouchstart$setTimeoutJSResult", [{
+name: "TimeoutId",
+attrName: "timeoutIdOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._add_OnTouchstart$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Add_OnTouchstart");
+callContext = controller.callContext(callContext);
+var setTimeoutJSResult = new OS.DataTypes.VariableHolder();
+if((model.variables.isRemoveEnabledIn)) {
+setTimeoutJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_AddRemoveProduct_mvc_controller_Add_OnTouchstart_setTimeoutJS, "setTimeout", "Add_OnTouchstart", {
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.Add_OnTouchstart$setTimeoutJSResult"))();
+jsNodeResult.timeoutIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.TimeoutId, OS.Types.Integer);
+return jsNodeResult;
+}, {
+Increment: controller.clientActionProxies.increment$Action
+}, {});
+// Add_TimeOutID = setTimeout.TimeoutId
+model.variables.add_TimeOutIDVar = setTimeoutJSResult.value.timeoutIdOut;
+}
+
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.Add_OnTouchstart$setTimeoutJSResult", [{
+name: "TimeoutId",
+attrName: "timeoutIdOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._sendRemove$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SendRemove");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: RemoveClick
+return controller.removeClick$Action(callContext);
+});
+};
+
+Controller.prototype.sendAdd$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._sendAdd$Action, callContext);
+
+};
+Controller.prototype.remove_OnTouchend$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._remove_OnTouchend$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.add_OnTouchend$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._add_OnTouchend$Action, callContext);
+
+};
+Controller.prototype.increment$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._increment$Action, callContext);
+
+};
+Controller.prototype.dummy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._dummy$Action, callContext);
+
+};
+Controller.prototype.decrement$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._decrement$Action, callContext);
+
+};
+Controller.prototype.onClick_RemoveButton$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_RemoveButton$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.remove_OnTouchstart$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._remove_OnTouchstart$Action, callContext);
+
+};
+Controller.prototype.add_OnTouchstart$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._add_OnTouchstart$Action, callContext);
+
+};
+Controller.prototype.sendRemove$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._sendRemove$Action, callContext);
+
+};
+Controller.prototype.addClick$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.removeClick$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Reactive_PatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Reactive_PatLanguageResources);
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Remove_OnTouchend.Clear_IntervalTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+clearTimeout($parameters.TimeoutId);
+clearInterval($parameters.IntervalId);
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.OnDestroy.clearTimersJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+clearTimeout($parameters.Add_TimeOutID);
+clearInterval($parameters.Add_IntervalId);
+clearTimeout($parameters.Remove_TimeOutID);
+clearInterval($parameters.Remove_IntervalId);
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Add_OnTouchend.ClearTimersJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+clearTimeout($parameters.TimeoutId);
+clearInterval($parameters.IntervalId);
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Increment.setIntervalJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.IntervalId =  setInterval(function() {
+    $actions.SendAdd();
+}, 150);  
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Decrement.setIntervalJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.IntervalId =  setInterval(function() {
+    $actions.SendRemove();
+}, 150);  
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.OnReady.AddStopPropagationJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+let container = document.getElementById($parameters.ContainerId);
+
+container.addEventListener("click", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+});
+
+let columnsWidget = document.getElementById($parameters.ColumnsWidgetId);
+columnsWidget.addEventListener("click", function(event){
+    if(event.target === event.currentTarget.firstChild) {
+        event.stopPropagation();
+        event.preventDefault();
+    }    
+});
+
+let disabledAddButton = document.getElementById($parameters.DisabledAddButtonId);
+if (disabledAddButton) {
+    disabledAddButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+    });
+}
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Remove_OnTouchstart.setTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+$parameters.TimeoutId = setTimeout(function() {
+      
+    $actions.Decrement();
+      
+}, 250);
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$controller.Add_OnTouchstart.setTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+$parameters.TimeoutId = setTimeout(function() {
+      
+    $actions.Increment();
+      
+}, 250);
+};
+});
+
+define("ECOP_Reactive_Pat.CustomPatterns.AddRemoveProduct.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

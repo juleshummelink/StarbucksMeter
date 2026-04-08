@@ -1,0 +1,507 @@
+﻿define("ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_FE_Core.model", "ECOP_FE_Core.controller", "ECP_Cart_CW.controller", "CMS_Monolith.model", "ECOP.controller", "CMS_Monolith.controller", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Base_RPat.controller", "ECOP.AA_AppLayouts.ECOP_Layout.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$model", "CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$model", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_FE_Core.model$OrderEditDetailsRec", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$OrderEdit_GetDetails", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECOP.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$TextTextDecimalRecord", "ECOP.model$TextTextRecord", "ECOP.model$TextTextTextDecimalBooleanRecord", "ECOP.controller$RemovePreloadHTML", "CMS_Monolith.controller$AnchorLink_ScrollTo", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat"], function (OutSystems, ECOPModel, ECOP_ReleaseTogglesReactiveController, ECOP_FE_CoreModel, ECOP_FE_CoreController, ECP_Cart_CWController, CMS_MonolithModel, ECOPController, CMS_MonolithController, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Base_RPatController, ECOP_AA_AppLayouts_ECOP_Layout_mvcModel, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel, CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("JS_OpenStoreSelector", "jS_OpenStoreSelectorVar", "JS_OpenStoreSelector", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("PageTitle", "pageTitleVar", "PageTitle", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("slugParam1", "slugParam1In", "slugParam1", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_slugParam1InDataFetchStatus", "_slugParam1InDataFetchStatus", "_slugParam1InDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("slugParam2", "slugParam2In", "slugParam2", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_slugParam2InDataFetchStatus", "_slugParam2InDataFetchStatus", "_slugParam2InDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((ECOP_AA_AppLayouts_ECOP_Layout_mvcModel.hasValidationWidgets || ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel.hasValidationWidgets) || CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("slugParam1" in inputs) {
+this.variables.slugParam1In = OS.DataConversion.ServerDataConverter.from(inputs.slugParam1, OS.Types.Text);
+}
+
+if("slugParam2" in inputs) {
+this.variables.slugParam2In = OS.DataConversion.ServerDataConverter.from(inputs.slugParam2, OS.Types.Text);
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CMSBlogOverviewPageFlow.Recipes");
+});
+define("ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP_ReleaseTogglesReactive.controller", "ECOP_FE_Core.model", "ECOP_FE_Core.controller", "ECP_Cart_CW.controller", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$model", "ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$controller", "ECOP.clientVariables", "ECOP.AA_AppLayouts.ECOP_Layout.mvc$view", "OutSystems/ReactWidgets/Main", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$view", "CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$view", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_FE_Core.model$OrderEditDetailsRec", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$OrderEdit_GetDetails", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECOP.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$TextTextDecimalRecord", "ECOP.model$TextTextRecord", "ECOP.model$TextTextTextDecimalBooleanRecord", "ECOP.controller$RemovePreloadHTML", "CMS_Monolith.controller$AnchorLink_ScrollTo", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat"], function (OutSystems, ECOPModel, ECOPController, ECOP_ReleaseTogglesReactiveController, ECOP_FE_CoreModel, ECOP_FE_CoreController, ECP_Cart_CWController, CMS_MonolithModel, CMS_MonolithController, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Base_RPatController, React, OSView, ECOP_CMSBlogOverviewPageFlow_Recipes_mvc_model, ECOP_CMSBlogOverviewPageFlow_Recipes_mvc_controller, ECOPClientVariables, ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, OSWidgets, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CMSBlogOverviewPageFlow.Recipes";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css", "css/PLUS_OutSystemsUI_2_8_0.OutSystemsUI.css", "css/ECOP_Base_Theme.ECOP_Base_Theme.css", "css/ECOP_Reactive_Theme.ECOP_Reactive_Theme.css", "css/ECOP_Reactive_Theme.ECOP_Reactive_Theme.extra.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_CMSBlogOverviewPageFlow_Recipes_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_CMSBlogOverviewPageFlow_Recipes_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                var model = this.model;
+                var controller = this.controller;
+                var idService = this.idService;
+                var validationService = controller.validationService;
+                var callContext = controller.callContext();
+                var asPrimitiveValue = View.asPrimitiveValue;
+                var getTranslation = View.getTranslation;
+                var _this = this;
+
+                return ((((model.variables.pageTitleVar) !== (""))) ? (model.variables.pageTitleVar) : (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("jqDN71v6wUeQuXWsOcnQPA#TitleExpression.232134692.1", "Recipes - for you | PLUS")));
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, {
+inputs: {
+ActiveItem: ECOPModel.staticEntities.pagesNames.recipes,
+EnableAccessibilityFeatures: model.getCachedValue(idService.getId("OuD+NB5eWEKyXffpp7y_8w.EnableAccessibilityFeatures"), function () {
+return ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.accessibilityFeatures, callContext).isEnabledOut;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+actionsExposed$Action: function (openStoreSelector_JSIn, openReserveMoment_JSIn, toggleShowStopEditModePopupIn, openProductsEditingMode_JSIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_StoreSelectorExposedAction$Action(openStoreSelector_JSIn, controller.callContext(eventHandlerContext));
+
+;
+},
+storeUpdated$Action: function (userStoreIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_StoreUpdated$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+breadcrumbs: PlaceholderContent.Empty,
+mainContent: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, {
+inputs: {
+NoPaddingTop: true,
+NoPaddingBottom: true,
+ExtendedClass: "padding-top-m padding-bottom-xxxl recipes-section"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_view, {
+inputs: {
+OrderEditId: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.OrderEditId"), function () {
+return ECOP_FE_CoreController.default.orderEdit_GetDetails$Action(callContext).orderEditDetailsOut.orderEditIdAttr;
+}),
+SecondarySlugParameter: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.SecondarySlugParameter"), function () {
+return ((((model.variables.slugParam2In) !== (""))) ? (model.variables.slugParam2In) : (model.variables.slugParam1In));
+}, function () {
+return model.variables.slugParam2In;
+}, function () {
+return model.variables.slugParam1In;
+}),
+CheckoutId: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.CheckoutId"), function () {
+return ECOP_FE_CoreController.default.cart_Client_GetId$Action(callContext).cartIdOut;
+}),
+OneWelcomeUserId: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+}),
+ActiveDevice: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.ActiveDevice"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_ActiveDeviceRec();
+rec.isPhoneAttr = (ECOPClientVariables.getCurrentDevice() === "phone");
+rec.isTabletAttr = (ECOPClientVariables.getCurrentDevice() === "tablet");
+rec.isDesktopAttr = (ECOPClientVariables.getCurrentDevice() === "desktop");
+return rec;
+}();
+}, function () {
+return ECOPClientVariables.getCurrentDevice();
+}),
+SlugParameter: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.SlugParameter"), function () {
+return ((((model.variables.slugParam2In) !== (""))) ? (model.variables.slugParam1In) : (""));
+}, function () {
+return model.variables.slugParam2In;
+}, function () {
+return model.variables.slugParam1In;
+}),
+PageSlug: "recepten",
+UserStoreId: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.UserStoreId"), function () {
+return ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext).userStoreIdOut;
+}),
+StoreNumber: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.StoreNumber"), function () {
+return ECOP_FE_CoreController.default.get_Client_UserStoreNumber$Action(callContext).storeNumberOut;
+}),
+ItemsInCart: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.ItemsInCart"), function () {
+return ECP_Cart_CWController.default.cart_GetItemsList$Action(callContext).itemsListOut;
+}),
+ChannelId: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.ChannelId"), function () {
+return ECOP_FE_CoreController.default.get_Client_UserStoreChannelId$Action(callContext).userStoreChannelIdOut;
+}),
+IsOrderEditMode: model.getCachedValue(idService.getId("_NvNl0nODkO22rLwB_b+1g.IsOrderEditMode"), function () {
+return ECOP_FE_CoreController.default.isOrderEditMode_Get$Action(callContext).isActiveOut;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_NoStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+contentLoaded$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.onContentLoaded$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+callbackOrderEditing$Action: function (callbackOrderEditingIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CallbackOrderEditing$Action(callbackOrderEditingIdIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+seoMetaData$Action: function (seoDataIn) {
+var eventHandlerContext = callContext.clone();
+controller.injectSEOMetadata$Action(seoDataIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: [asPrimitiveValue(ECOPClientVariables.getCurrentDevice()), asPrimitiveValue(model.variables.slugParam1In), asPrimitiveValue(model.variables.slugParam2In)]
+})];
+})
+},
+_dependencies: [asPrimitiveValue(ECOPClientVariables.getCurrentDevice()), asPrimitiveValue(model.variables.slugParam1In), asPrimitiveValue(model.variables.slugParam2In)]
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebScreen);
+	
+    return View;
+});
+define("ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP_ReleaseTogglesReactive.controller", "ECOP_FE_Core.model", "ECOP_FE_Core.controller", "ECP_Cart_CW.controller", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Base_RPat.controller", "ECOP.languageResources", "ECOP.clientVariables", "ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$translationsResources", "ECOP.CMSBlogOverviewPageFlow.controller", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_FE_Core.model$OrderEditDetailsRec", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$OrderEdit_GetDetails", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECOP.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$TextTextDecimalRecord", "ECOP.model$TextTextRecord", "ECOP.model$TextTextTextDecimalBooleanRecord", "ECOP.controller$RemovePreloadHTML", "CMS_Monolith.controller$AnchorLink_ScrollTo", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat"], function (OutSystems, ECOPModel, ECOPController, ECOP_ReleaseTogglesReactiveController, ECOP_FE_CoreModel, ECOP_FE_CoreController, ECP_Cart_CWController, CMS_MonolithModel, CMS_MonolithController, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Base_RPatController, ECOPLanguageResources, ECOPClientVariables, ECOP_CMSBlogOverviewPageFlow_Recipes_mvc_TranslationsResources, ECOP_CMSBlogOverviewPageFlowController) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECOP_CMSBlogOverviewPageFlow_Recipes_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onContentLoaded$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnContentLoaded");
+callContext = controller.callContext(callContext);
+// Execute Action: AnchorLink_ScrollTo
+CMS_MonolithController.default.anchorLink_ScrollTo$Action(callContext);
+// Execute Action: RemovePreloadHTML
+ECOPController.default.removePreloadHTML$Action(callContext);
+};
+Controller.prototype._handler_CallbackOrderEditing$Action = function (callbackOrderEditingIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CallbackOrderEditing");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.CMSBlogOverviewPageFlow.Recipes.Handler_CallbackOrderEditing$vars"))());
+vars.value.callbackOrderEditingIdInLocal = callbackOrderEditingIdIn;
+var orderIsCancelledVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: OrderIsCancelled
+model.flush();
+return ECOPController.default.callback_OrderEdit$Action(vars.value.callbackOrderEditingIdInLocal, callContext).then(function (value) {
+orderIsCancelledVar.value = value;
+}).then(function () {
+// Destination: /ECOP/order-details
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "order-details", {
+OrderId: OS.DataConversion.ServerDataConverter.to(orderIsCancelledVar.value.orderIdOut, OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+});
+};
+Controller.registerVariableGroupType("ECOP.CMSBlogOverviewPageFlow.Recipes.Handler_CallbackOrderEditing$vars", [{
+name: "CallbackOrderEditingId",
+attrName: "callbackOrderEditingIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._handler_StoreSelectorExposedAction$Action = function (openStoreSelector_JSIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StoreSelectorExposedAction");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.CMSBlogOverviewPageFlow.Recipes.Handler_StoreSelectorExposedAction$vars"))());
+vars.value.openStoreSelector_JSInLocal = openStoreSelector_JSIn;
+// JS_OpenStoreSelector = OpenStoreSelector_JS
+model.variables.jS_OpenStoreSelectorVar = vars.value.openStoreSelector_JSInLocal;
+};
+Controller.registerVariableGroupType("ECOP.CMSBlogOverviewPageFlow.Recipes.Handler_StoreSelectorExposedAction$vars", [{
+name: "OpenStoreSelector_JS",
+attrName: "openStoreSelector_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._injectSEOMetadata$Action = function (seoDataIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("InjectSEOMetadata");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.CMSBlogOverviewPageFlow.Recipes.InjectSEOMetadata$vars"))());
+vars.value.seoDataInLocal = seoDataIn.clone();
+// Execute Action: SEOMetadta_Inject
+ECOP_Reactive_PatController.default.sEOMetadta_Inject$Action(vars.value.seoDataInLocal, callContext);
+// PageTitle = SeoData.Title
+model.variables.pageTitleVar = vars.value.seoDataInLocal.titleAttr;
+};
+Controller.registerVariableGroupType("ECOP.CMSBlogOverviewPageFlow.Recipes.InjectSEOMetadata$vars", [{
+name: "SeoData",
+attrName: "seoDataInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECOP_Reactive_PatModel.SEO_StructRec();
+},
+complexType: ECOP_Reactive_PatModel.SEO_StructRec
+}]);
+Controller.prototype._handler_StoreUpdated$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StoreUpdated");
+callContext = controller.callContext(callContext);
+// Destination: /ECOP/recepten
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "recepten/:slugParam1?/:slugParam2?", {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.prototype._handler_NoStoreSelected$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_NoStoreSelected");
+callContext = controller.callContext(callContext);
+// Execute Action: JS_ExecuteObjFunction_OpenStoreSelector
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.jS_OpenStoreSelectorVar, callContext);
+};
+
+Controller.prototype.onContentLoaded$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onContentLoaded$Action, callContext);
+
+};
+Controller.prototype.handler_CallbackOrderEditing$Action = function (callbackOrderEditingIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CallbackOrderEditing$Action, callContext, callbackOrderEditingIdIn);
+
+};
+Controller.prototype.handler_StoreSelectorExposedAction$Action = function (openStoreSelector_JSIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StoreSelectorExposedAction$Action, callContext, openStoreSelector_JSIn);
+
+};
+Controller.prototype.injectSEOMetadata$Action = function (seoDataIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._injectSEOMetadata$Action, callContext, seoDataIn);
+
+};
+Controller.prototype.handler_StoreUpdated$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StoreUpdated$Action, callContext);
+
+};
+Controller.prototype.handler_NoStoreSelected$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_NoStoreSelected$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return ECOP_CMSBlogOverviewPageFlowController.default.handleError(ex, this.callContext());
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOPLanguageResources);
+});
+
+define("ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$translationsResources", ["exports", "ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$translationsResources.nl-NL"], function (exports, ECOP_CMSBlogOverviewPageFlow_Recipes_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECOP_CMSBlogOverviewPageFlow_Recipes_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECOP.CMSBlogOverviewPageFlow.Recipes.mvc$translationsResources.nl-NL", [], function () {
+return {
+"jqDN71v6wUeQuXWsOcnQPA#TitleExpression.232134692.1": "Recepten - voor jou | PLUS"
+};
+});

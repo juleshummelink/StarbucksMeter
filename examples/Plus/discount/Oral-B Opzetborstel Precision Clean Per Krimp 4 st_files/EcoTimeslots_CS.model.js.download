@@ -1,0 +1,1077 @@
+﻿define("EcoTimeslots_CS.model$TimeslotStateRec", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var TimeslotStateRec = (function (_super) {
+__extends(TimeslotStateRec, _super);
+function TimeslotStateRec(defaults) {
+_super.apply(this, arguments);
+}
+TimeslotStateRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Color", "colorAttr", "Color", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Is_Active", "is_ActiveAttr", "Is_Active", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TimeslotStateRec.init();
+return TimeslotStateRec;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.TimeslotStateRec = TimeslotStateRec;
+
+});
+define("EcoTimeslots_CS.model$TimeslotStateList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$TimeslotStateRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var TimeslotStateList = (function (_super) {
+__extends(TimeslotStateList, _super);
+function TimeslotStateList(defaults) {
+_super.apply(this, arguments);
+}
+TimeslotStateList.itemType = EcoTimeslots_CSModel.TimeslotStateRec;
+return TimeslotStateList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.TimeslotStateList = TimeslotStateList;
+
+});
+define("EcoTimeslots_CS.model$EcoTimeslotTemplateRec", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var EcoTimeslotTemplateRec = (function (_super) {
+__extends(EcoTimeslotTemplateRec, _super);
+function EcoTimeslotTemplateRec(defaults) {
+_super.apply(this, arguments);
+}
+EcoTimeslotTemplateRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Index", "indexAttr", "Index", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EcoTimeslotTemplateRec.init();
+return EcoTimeslotTemplateRec;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.EcoTimeslotTemplateRec = EcoTimeslotTemplateRec;
+
+});
+define("EcoTimeslots_CS.model$EcoTimeslotTemplateRecord", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$EcoTimeslotTemplateRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var EcoTimeslotTemplateRecord = (function (_super) {
+__extends(EcoTimeslotTemplateRecord, _super);
+function EcoTimeslotTemplateRecord(defaults) {
+_super.apply(this, arguments);
+}
+EcoTimeslotTemplateRecord.attributesToDeclare = function () {
+return [
+this.attr("EcoTimeslotTemplate", "ecoTimeslotTemplateAttr", "EcoTimeslotTemplate", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.EcoTimeslotTemplateRec());
+}, true, EcoTimeslots_CSModel.EcoTimeslotTemplateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+EcoTimeslotTemplateRecord.fromStructure = function (str) {
+return new EcoTimeslotTemplateRecord(new EcoTimeslotTemplateRecord.RecordClass({
+ecoTimeslotTemplateAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+EcoTimeslotTemplateRecord._isAnonymousRecord = true;
+EcoTimeslotTemplateRecord.UniqueId = "3fd4646e-4640-9978-aab7-fa08748beed5";
+EcoTimeslotTemplateRecord.init();
+return EcoTimeslotTemplateRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.EcoTimeslotTemplateRecord = EcoTimeslotTemplateRecord;
+
+});
+define("EcoTimeslots_CS.model$EcoTimeslotTemplateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$EcoTimeslotTemplateRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var EcoTimeslotTemplateRecordList = (function (_super) {
+__extends(EcoTimeslotTemplateRecordList, _super);
+function EcoTimeslotTemplateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+EcoTimeslotTemplateRecordList.itemType = EcoTimeslots_CSModel.EcoTimeslotTemplateRecord;
+return EcoTimeslotTemplateRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.EcoTimeslotTemplateRecordList = EcoTimeslotTemplateRecordList;
+
+});
+define("EcoTimeslots_CS.model$StoreList", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "EcoTimeslots_CS.model", "Store_CS.model$StoreRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$Store_CS"], function (exports, OutSystems, Store_CSModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreList = (function (_super) {
+__extends(StoreList, _super);
+function StoreList(defaults) {
+_super.apply(this, arguments);
+}
+StoreList.itemType = Store_CSModel.StoreRec;
+return StoreList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.StoreList = StoreList;
+
+});
+define("EcoTimeslots_CS.model$TimeSlot_MapRec", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var TimeSlot_MapRec = (function (_super) {
+__extends(TimeSlot_MapRec, _super);
+function TimeSlot_MapRec(defaults) {
+_super.apply(this, arguments);
+}
+TimeSlot_MapRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("TimeslotInstanceId", "timeslotInstanceIdAttr", "TimeslotInstanceId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ECOTimeslots", "eCOTimeslotsAttr", "ECOTimeslots", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TimeSlot_MapRec.init();
+return TimeSlot_MapRec;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.TimeSlot_MapRec = TimeSlot_MapRec;
+
+});
+define("EcoTimeslots_CS.model$TimeSlot_MapList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$TimeSlot_MapRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var TimeSlot_MapList = (function (_super) {
+__extends(TimeSlot_MapList, _super);
+function TimeSlot_MapList(defaults) {
+_super.apply(this, arguments);
+}
+TimeSlot_MapList.itemType = EcoTimeslots_CSModel.TimeSlot_MapRec;
+return TimeSlot_MapList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.TimeSlot_MapList = TimeSlot_MapList;
+
+});
+define("EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceRec", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var Cached_StoreTimeslotInstanceRec = (function (_super) {
+__extends(Cached_StoreTimeslotInstanceRec, _super);
+function Cached_StoreTimeslotInstanceRec(defaults) {
+_super.apply(this, arguments);
+}
+Cached_StoreTimeslotInstanceRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("WeekdayId", "weekdayIdAttr", "WeekdayId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("AllocatedCapacity", "allocatedCapacityAttr", "AllocatedCapacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("EcoAllocatedCapacity", "ecoAllocatedCapacityAttr", "EcoAllocatedCapacity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Capacity", "capacityAttr", "Capacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsException", "isExceptionAttr", "IsException", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Remaining", "remainingAttr", "Remaining", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("JSON", "jSONAttr", "JSON", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EcoTemporaryReservations", "ecoTemporaryReservationsAttr", "EcoTemporaryReservations", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Cached_StoreTimeslotInstanceRec.init();
+return Cached_StoreTimeslotInstanceRec;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRec = Cached_StoreTimeslotInstanceRec;
+
+});
+define("EcoTimeslots_CS.model$StoreEcoTimeslotInstanceRec", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstanceRec = (function (_super) {
+__extends(StoreEcoTimeslotInstanceRec, _super);
+function StoreEcoTimeslotInstanceRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstanceRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("AllocatedCapacity", "allocatedCapacityAttr", "AllocatedCapacity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Capacity", "capacityAttr", "Capacity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Remaining", "remainingAttr", "Remaining", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Reserved", "reservedAttr", "Reserved", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ECOReserved", "eCOReservedAttr", "ECOReserved", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("JSON", "jSONAttr", "JSON", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("JSON_ZipCodes", "jSON_ZipCodesAttr", "JSON_ZipCodes", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreEcoTimeslotInstanceRec.init();
+return StoreEcoTimeslotInstanceRec;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRec = StoreEcoTimeslotInstanceRec;
+
+});
+define("EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceRec", "EcoTimeslots_CS.model$StoreEcoTimeslotInstanceRec", "EcoTimeslots_CS.model$TimeSlot_MapRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord = (function (_super) {
+__extends(Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord, _super);
+function Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord(defaults) {
+_super.apply(this, arguments);
+}
+Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord.attributesToDeclare = function () {
+return [
+this.attr("Cached_StoreTimeslotInstance", "cached_StoreTimeslotInstanceAttr", "Cached_StoreTimeslotInstance", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRec());
+}, true, EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRec), 
+this.attr("StoreEcoTimeslotInstance", "storeEcoTimeslotInstanceAttr", "StoreEcoTimeslotInstance", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRec());
+}, true, EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRec), 
+this.attr("TimeSlot_Map", "timeSlot_MapAttr", "TimeSlot_Map", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.TimeSlot_MapRec());
+}, true, EcoTimeslots_CSModel.TimeSlot_MapRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord._isAnonymousRecord = true;
+Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord.UniqueId = "338954da-de98-037e-c3c4-c3e2f37a5b63";
+Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord.init();
+return Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord = Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord;
+
+});
+define("EcoTimeslots_CS.model$StoreEcoTimeslotInstanceRecord", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$StoreEcoTimeslotInstanceRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstanceRecord = (function (_super) {
+__extends(StoreEcoTimeslotInstanceRecord, _super);
+function StoreEcoTimeslotInstanceRecord(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstanceRecord.attributesToDeclare = function () {
+return [
+this.attr("StoreEcoTimeslotInstance", "storeEcoTimeslotInstanceAttr", "StoreEcoTimeslotInstance", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRec());
+}, true, EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreEcoTimeslotInstanceRecord.fromStructure = function (str) {
+return new StoreEcoTimeslotInstanceRecord(new StoreEcoTimeslotInstanceRecord.RecordClass({
+storeEcoTimeslotInstanceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+StoreEcoTimeslotInstanceRecord._isAnonymousRecord = true;
+StoreEcoTimeslotInstanceRecord.UniqueId = "38478fad-3b99-a72f-a566-1eef130d52de";
+StoreEcoTimeslotInstanceRecord.init();
+return StoreEcoTimeslotInstanceRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRecord = StoreEcoTimeslotInstanceRecord;
+
+});
+define("EcoTimeslots_CS.model$StoreEcoTimeslotInstanceRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$StoreEcoTimeslotInstanceRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstanceRecordList = (function (_super) {
+__extends(StoreEcoTimeslotInstanceRecordList, _super);
+function StoreEcoTimeslotInstanceRecordList(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstanceRecordList.itemType = EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRecord;
+return StoreEcoTimeslotInstanceRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRecordList = StoreEcoTimeslotInstanceRecordList;
+
+});
+define("EcoTimeslots_CS.model$TimeSlot_MapRecord", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$TimeSlot_MapRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var TimeSlot_MapRecord = (function (_super) {
+__extends(TimeSlot_MapRecord, _super);
+function TimeSlot_MapRecord(defaults) {
+_super.apply(this, arguments);
+}
+TimeSlot_MapRecord.attributesToDeclare = function () {
+return [
+this.attr("TimeSlot_Map", "timeSlot_MapAttr", "TimeSlot_Map", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.TimeSlot_MapRec());
+}, true, EcoTimeslots_CSModel.TimeSlot_MapRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+TimeSlot_MapRecord.fromStructure = function (str) {
+return new TimeSlot_MapRecord(new TimeSlot_MapRecord.RecordClass({
+timeSlot_MapAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+TimeSlot_MapRecord._isAnonymousRecord = true;
+TimeSlot_MapRecord.UniqueId = "4419c269-5538-0533-ad68-94cb6f29e139";
+TimeSlot_MapRecord.init();
+return TimeSlot_MapRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.TimeSlot_MapRecord = TimeSlot_MapRecord;
+
+});
+define("EcoTimeslots_CS.model$TimeslotStateRecord", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$TimeslotStateRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var TimeslotStateRecord = (function (_super) {
+__extends(TimeslotStateRecord, _super);
+function TimeslotStateRecord(defaults) {
+_super.apply(this, arguments);
+}
+TimeslotStateRecord.attributesToDeclare = function () {
+return [
+this.attr("TimeslotState", "timeslotStateAttr", "TimeslotState", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.TimeslotStateRec());
+}, true, EcoTimeslots_CSModel.TimeslotStateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+TimeslotStateRecord.fromStructure = function (str) {
+return new TimeslotStateRecord(new TimeslotStateRecord.RecordClass({
+timeslotStateAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+TimeslotStateRecord._isAnonymousRecord = true;
+TimeslotStateRecord.UniqueId = "44698617-5793-4a78-3f2e-a194fcc64894";
+TimeslotStateRecord.init();
+return TimeslotStateRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.TimeslotStateRecord = TimeslotStateRecord;
+
+});
+define("EcoTimeslots_CS.model$WeekdayList", ["exports", "OutSystems/ClientRuntime/Main", "FND_DateTime_Lib.model", "EcoTimeslots_CS.model", "FND_DateTime_Lib.model$WeekdayRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$FND_DateTime_Lib"], function (exports, OutSystems, FND_DateTime_LibModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var WeekdayList = (function (_super) {
+__extends(WeekdayList, _super);
+function WeekdayList(defaults) {
+_super.apply(this, arguments);
+}
+WeekdayList.itemType = FND_DateTime_LibModel.WeekdayRec;
+return WeekdayList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.WeekdayList = WeekdayList;
+
+});
+define("EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceRecord", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var Cached_StoreTimeslotInstanceRecord = (function (_super) {
+__extends(Cached_StoreTimeslotInstanceRecord, _super);
+function Cached_StoreTimeslotInstanceRecord(defaults) {
+_super.apply(this, arguments);
+}
+Cached_StoreTimeslotInstanceRecord.attributesToDeclare = function () {
+return [
+this.attr("Cached_StoreTimeslotInstance", "cached_StoreTimeslotInstanceAttr", "Cached_StoreTimeslotInstance", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRec());
+}, true, EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Cached_StoreTimeslotInstanceRecord.fromStructure = function (str) {
+return new Cached_StoreTimeslotInstanceRecord(new Cached_StoreTimeslotInstanceRecord.RecordClass({
+cached_StoreTimeslotInstanceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Cached_StoreTimeslotInstanceRecord._isAnonymousRecord = true;
+Cached_StoreTimeslotInstanceRecord.UniqueId = "d48144b7-9e2a-ab77-cca8-e004cf084207";
+Cached_StoreTimeslotInstanceRecord.init();
+return Cached_StoreTimeslotInstanceRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRecord = Cached_StoreTimeslotInstanceRecord;
+
+});
+define("EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var Cached_StoreTimeslotInstanceRecordList = (function (_super) {
+__extends(Cached_StoreTimeslotInstanceRecordList, _super);
+function Cached_StoreTimeslotInstanceRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Cached_StoreTimeslotInstanceRecordList.itemType = EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRecord;
+return Cached_StoreTimeslotInstanceRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRecordList = Cached_StoreTimeslotInstanceRecordList;
+
+});
+define("EcoTimeslots_CS.model$WeekdayRecord", ["exports", "OutSystems/ClientRuntime/Main", "FND_DateTime_Lib.model", "EcoTimeslots_CS.model", "FND_DateTime_Lib.model$WeekdayRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$FND_DateTime_Lib"], function (exports, OutSystems, FND_DateTime_LibModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var WeekdayRecord = (function (_super) {
+__extends(WeekdayRecord, _super);
+function WeekdayRecord(defaults) {
+_super.apply(this, arguments);
+}
+WeekdayRecord.attributesToDeclare = function () {
+return [
+this.attr("Weekday", "weekdayAttr", "Weekday", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new FND_DateTime_LibModel.WeekdayRec());
+}, true, FND_DateTime_LibModel.WeekdayRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+WeekdayRecord.fromStructure = function (str) {
+return new WeekdayRecord(new WeekdayRecord.RecordClass({
+weekdayAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+WeekdayRecord._isAnonymousRecord = true;
+WeekdayRecord.UniqueId = "6deb4a76-922c-128b-7382-be9f0b709887";
+WeekdayRecord.init();
+return WeekdayRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.WeekdayRecord = WeekdayRecord;
+
+});
+define("EcoTimeslots_CS.model$WeekdayRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$WeekdayRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var WeekdayRecordList = (function (_super) {
+__extends(WeekdayRecordList, _super);
+function WeekdayRecordList(defaults) {
+_super.apply(this, arguments);
+}
+WeekdayRecordList.itemType = EcoTimeslots_CSModel.WeekdayRecord;
+return WeekdayRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.WeekdayRecordList = WeekdayRecordList;
+
+});
+define("EcoTimeslots_CS.model$TimeslotStateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$TimeslotStateRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var TimeslotStateRecordList = (function (_super) {
+__extends(TimeslotStateRecordList, _super);
+function TimeslotStateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TimeslotStateRecordList.itemType = EcoTimeslots_CSModel.TimeslotStateRecord;
+return TimeslotStateRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.TimeslotStateRecordList = TimeslotStateRecordList;
+
+});
+define("EcoTimeslots_CS.model$StoreEcoTimeslotInstance_StagingRec", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstance_StagingRec = (function (_super) {
+__extends(StoreEcoTimeslotInstance_StagingRec, _super);
+function StoreEcoTimeslotInstance_StagingRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstance_StagingRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsProcessed", "isProcessedAttr", "IsProcessed", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("TimeslotsTemplateId", "timeslotsTemplateIdAttr", "TimeslotsTemplateId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreEcoTimeslotInstance_StagingRec.init();
+return StoreEcoTimeslotInstance_StagingRec;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.StoreEcoTimeslotInstance_StagingRec = StoreEcoTimeslotInstance_StagingRec;
+
+});
+define("EcoTimeslots_CS.model$StoreEcoTimeslotInstance_StagingRecord", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$StoreEcoTimeslotInstance_StagingRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstance_StagingRecord = (function (_super) {
+__extends(StoreEcoTimeslotInstance_StagingRecord, _super);
+function StoreEcoTimeslotInstance_StagingRecord(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstance_StagingRecord.attributesToDeclare = function () {
+return [
+this.attr("StoreEcoTimeslotInstance_Staging", "storeEcoTimeslotInstance_StagingAttr", "StoreEcoTimeslotInstance_Staging", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.StoreEcoTimeslotInstance_StagingRec());
+}, true, EcoTimeslots_CSModel.StoreEcoTimeslotInstance_StagingRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreEcoTimeslotInstance_StagingRecord.fromStructure = function (str) {
+return new StoreEcoTimeslotInstance_StagingRecord(new StoreEcoTimeslotInstance_StagingRecord.RecordClass({
+storeEcoTimeslotInstance_StagingAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+StoreEcoTimeslotInstance_StagingRecord._isAnonymousRecord = true;
+StoreEcoTimeslotInstance_StagingRecord.UniqueId = "dfcb6a1a-f335-dd6b-8945-a24373414190";
+StoreEcoTimeslotInstance_StagingRecord.init();
+return StoreEcoTimeslotInstance_StagingRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.StoreEcoTimeslotInstance_StagingRecord = StoreEcoTimeslotInstance_StagingRecord;
+
+});
+define("EcoTimeslots_CS.model$StoreEcoTimeslotInstance_StagingRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$StoreEcoTimeslotInstance_StagingRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstance_StagingRecordList = (function (_super) {
+__extends(StoreEcoTimeslotInstance_StagingRecordList, _super);
+function StoreEcoTimeslotInstance_StagingRecordList(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstance_StagingRecordList.itemType = EcoTimeslots_CSModel.StoreEcoTimeslotInstance_StagingRecord;
+return StoreEcoTimeslotInstance_StagingRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.StoreEcoTimeslotInstance_StagingRecordList = StoreEcoTimeslotInstance_StagingRecordList;
+
+});
+define("EcoTimeslots_CS.model$StoreRecord", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "EcoTimeslots_CS.model", "Store_CS.model$StoreRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$Store_CS"], function (exports, OutSystems, Store_CSModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreRecord = (function (_super) {
+__extends(StoreRecord, _super);
+function StoreRecord(defaults) {
+_super.apply(this, arguments);
+}
+StoreRecord.attributesToDeclare = function () {
+return [
+this.attr("Store", "storeAttr", "Store", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.StoreRec());
+}, true, Store_CSModel.StoreRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreRecord.fromStructure = function (str) {
+return new StoreRecord(new StoreRecord.RecordClass({
+storeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+StoreRecord._isAnonymousRecord = true;
+StoreRecord.UniqueId = "b699f68d-4431-93c2-a4a1-9aaac9061b4b";
+StoreRecord.init();
+return StoreRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.StoreRecord = StoreRecord;
+
+});
+define("EcoTimeslots_CS.model$StoreRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$StoreRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreRecordList = (function (_super) {
+__extends(StoreRecordList, _super);
+function StoreRecordList(defaults) {
+_super.apply(this, arguments);
+}
+StoreRecordList.itemType = EcoTimeslots_CSModel.StoreRecord;
+return StoreRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.StoreRecordList = StoreRecordList;
+
+});
+define("EcoTimeslots_CS.model$SyncStoreTimeslotInstance_AuxRec", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var SyncStoreTimeslotInstance_AuxRec = (function (_super) {
+__extends(SyncStoreTimeslotInstance_AuxRec, _super);
+function SyncStoreTimeslotInstance_AuxRec(defaults) {
+_super.apply(this, arguments);
+}
+SyncStoreTimeslotInstance_AuxRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Date", "dateAttr", "Date", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Zipcode", "zipcodeAttr", "Zipcode", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+SyncStoreTimeslotInstance_AuxRec.init();
+return SyncStoreTimeslotInstance_AuxRec;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.SyncStoreTimeslotInstance_AuxRec = SyncStoreTimeslotInstance_AuxRec;
+
+});
+define("EcoTimeslots_CS.model$SyncStoreTimeslotInstance_AuxRecord", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$SyncStoreTimeslotInstance_AuxRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var SyncStoreTimeslotInstance_AuxRecord = (function (_super) {
+__extends(SyncStoreTimeslotInstance_AuxRecord, _super);
+function SyncStoreTimeslotInstance_AuxRecord(defaults) {
+_super.apply(this, arguments);
+}
+SyncStoreTimeslotInstance_AuxRecord.attributesToDeclare = function () {
+return [
+this.attr("SyncStoreTimeslotInstance_Aux", "syncStoreTimeslotInstance_AuxAttr", "SyncStoreTimeslotInstance_Aux", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new EcoTimeslots_CSModel.SyncStoreTimeslotInstance_AuxRec());
+}, true, EcoTimeslots_CSModel.SyncStoreTimeslotInstance_AuxRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+SyncStoreTimeslotInstance_AuxRecord.fromStructure = function (str) {
+return new SyncStoreTimeslotInstance_AuxRecord(new SyncStoreTimeslotInstance_AuxRecord.RecordClass({
+syncStoreTimeslotInstance_AuxAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SyncStoreTimeslotInstance_AuxRecord._isAnonymousRecord = true;
+SyncStoreTimeslotInstance_AuxRecord.UniqueId = "63b9bb2f-7d3f-0318-088f-4ed2d0390718";
+SyncStoreTimeslotInstance_AuxRecord.init();
+return SyncStoreTimeslotInstance_AuxRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.SyncStoreTimeslotInstance_AuxRecord = SyncStoreTimeslotInstance_AuxRecord;
+
+});
+define("EcoTimeslots_CS.model$DeliveryTypeList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "EcoTimeslots_CS.model", "Store_Delivery_CS.model$DeliveryTypeRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$Store_Delivery_CS"], function (exports, OutSystems, Store_Delivery_CSModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var DeliveryTypeList = (function (_super) {
+__extends(DeliveryTypeList, _super);
+function DeliveryTypeList(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryTypeList.itemType = Store_Delivery_CSModel.DeliveryTypeRec;
+return DeliveryTypeList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.DeliveryTypeList = DeliveryTypeList;
+
+});
+define("EcoTimeslots_CS.model$StoreEcoTimeslotInstance_StagingList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$StoreEcoTimeslotInstance_StagingRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstance_StagingList = (function (_super) {
+__extends(StoreEcoTimeslotInstance_StagingList, _super);
+function StoreEcoTimeslotInstance_StagingList(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstance_StagingList.itemType = EcoTimeslots_CSModel.StoreEcoTimeslotInstance_StagingRec;
+return StoreEcoTimeslotInstance_StagingList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.StoreEcoTimeslotInstance_StagingList = StoreEcoTimeslotInstance_StagingList;
+
+});
+define("EcoTimeslots_CS.model$StoreTimeslotInstanceRecord", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "EcoTimeslots_CS.model", "Store_Capacity_CS.model$StoreTimeslotInstanceRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$Store_Capacity_CS"], function (exports, OutSystems, Store_Capacity_CSModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotInstanceRecord = (function (_super) {
+__extends(StoreTimeslotInstanceRecord, _super);
+function StoreTimeslotInstanceRecord(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotInstanceRecord.attributesToDeclare = function () {
+return [
+this.attr("StoreTimeslotInstance", "storeTimeslotInstanceAttr", "StoreTimeslotInstance", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.StoreTimeslotInstanceRec());
+}, true, Store_Capacity_CSModel.StoreTimeslotInstanceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreTimeslotInstanceRecord.fromStructure = function (str) {
+return new StoreTimeslotInstanceRecord(new StoreTimeslotInstanceRecord.RecordClass({
+storeTimeslotInstanceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+StoreTimeslotInstanceRecord._isAnonymousRecord = true;
+StoreTimeslotInstanceRecord.UniqueId = "6a598c04-1175-8f35-3d66-cc1a3304e618";
+StoreTimeslotInstanceRecord.init();
+return StoreTimeslotInstanceRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.StoreTimeslotInstanceRecord = StoreTimeslotInstanceRecord;
+
+});
+define("EcoTimeslots_CS.model$DeliveryTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "Store_Delivery_CS.model", "EcoTimeslots_CS.model", "Store_Delivery_CS.model$DeliveryTypeRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$Store_Delivery_CS"], function (exports, OutSystems, Store_Delivery_CSModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var DeliveryTypeRecord = (function (_super) {
+__extends(DeliveryTypeRecord, _super);
+function DeliveryTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("DeliveryType", "deliveryTypeAttr", "DeliveryType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Delivery_CSModel.DeliveryTypeRec());
+}, true, Store_Delivery_CSModel.DeliveryTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryTypeRecord.fromStructure = function (str) {
+return new DeliveryTypeRecord(new DeliveryTypeRecord.RecordClass({
+deliveryTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DeliveryTypeRecord._isAnonymousRecord = true;
+DeliveryTypeRecord.UniqueId = "93ec4eef-67a5-9962-bb69-ba9f29ee139a";
+DeliveryTypeRecord.init();
+return DeliveryTypeRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.DeliveryTypeRecord = DeliveryTypeRecord;
+
+});
+define("EcoTimeslots_CS.model$DeliveryTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$DeliveryTypeRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var DeliveryTypeRecordList = (function (_super) {
+__extends(DeliveryTypeRecordList, _super);
+function DeliveryTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryTypeRecordList.itemType = EcoTimeslots_CSModel.DeliveryTypeRecord;
+return DeliveryTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.DeliveryTypeRecordList = DeliveryTypeRecordList;
+
+});
+define("EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecordList = (function (_super) {
+__extends(Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecordList, _super);
+function Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecordList.itemType = EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecord;
+return Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecordList = Cached_StoreTimeslotInstanceStoreEcoTimeslotInstanceTimeSlot_MapRecordList;
+
+});
+define("EcoTimeslots_CS.model$TimeSlot_MapRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$TimeSlot_MapRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var TimeSlot_MapRecordList = (function (_super) {
+__extends(TimeSlot_MapRecordList, _super);
+function TimeSlot_MapRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TimeSlot_MapRecordList.itemType = EcoTimeslots_CSModel.TimeSlot_MapRecord;
+return TimeSlot_MapRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.TimeSlot_MapRecordList = TimeSlot_MapRecordList;
+
+});
+define("EcoTimeslots_CS.model$UserRecord", ["exports", "OutSystems/ClientRuntime/Main", "ServiceCenter.model", "EcoTimeslots_CS.model", "ServiceCenter.model$UserRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$ServiceCenter"], function (exports, OutSystems, ServiceCenterModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var UserRecord = (function (_super) {
+__extends(UserRecord, _super);
+function UserRecord(defaults) {
+_super.apply(this, arguments);
+}
+UserRecord.attributesToDeclare = function () {
+return [
+this.attr("User", "userAttr", "User", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ServiceCenterModel.UserRec());
+}, true, ServiceCenterModel.UserRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+UserRecord.fromStructure = function (str) {
+return new UserRecord(new UserRecord.RecordClass({
+userAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+UserRecord._isAnonymousRecord = true;
+UserRecord.UniqueId = "ced01335-8a82-a813-f1d9-a5108f17ce79";
+UserRecord.init();
+return UserRecord;
+})(OS.DataTypes.GenericRecord);
+EcoTimeslots_CSModel.UserRecord = UserRecord;
+
+});
+define("EcoTimeslots_CS.model$UserRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$UserRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var UserRecordList = (function (_super) {
+__extends(UserRecordList, _super);
+function UserRecordList(defaults) {
+_super.apply(this, arguments);
+}
+UserRecordList.itemType = EcoTimeslots_CSModel.UserRecord;
+return UserRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.UserRecordList = UserRecordList;
+
+});
+define("EcoTimeslots_CS.model$SyncStoreTimeslotInstance_AuxList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$SyncStoreTimeslotInstance_AuxRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var SyncStoreTimeslotInstance_AuxList = (function (_super) {
+__extends(SyncStoreTimeslotInstance_AuxList, _super);
+function SyncStoreTimeslotInstance_AuxList(defaults) {
+_super.apply(this, arguments);
+}
+SyncStoreTimeslotInstance_AuxList.itemType = EcoTimeslots_CSModel.SyncStoreTimeslotInstance_AuxRec;
+return SyncStoreTimeslotInstance_AuxList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.SyncStoreTimeslotInstance_AuxList = SyncStoreTimeslotInstance_AuxList;
+
+});
+define("EcoTimeslots_CS.model$StoreTimeslotInstanceList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "EcoTimeslots_CS.model", "Store_Capacity_CS.model$StoreTimeslotInstanceRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$Store_Capacity_CS"], function (exports, OutSystems, Store_Capacity_CSModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotInstanceList = (function (_super) {
+__extends(StoreTimeslotInstanceList, _super);
+function StoreTimeslotInstanceList(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotInstanceList.itemType = Store_Capacity_CSModel.StoreTimeslotInstanceRec;
+return StoreTimeslotInstanceList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.StoreTimeslotInstanceList = StoreTimeslotInstanceList;
+
+});
+define("EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$Cached_StoreTimeslotInstanceRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var Cached_StoreTimeslotInstanceList = (function (_super) {
+__extends(Cached_StoreTimeslotInstanceList, _super);
+function Cached_StoreTimeslotInstanceList(defaults) {
+_super.apply(this, arguments);
+}
+Cached_StoreTimeslotInstanceList.itemType = EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceRec;
+return Cached_StoreTimeslotInstanceList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.Cached_StoreTimeslotInstanceList = Cached_StoreTimeslotInstanceList;
+
+});
+define("EcoTimeslots_CS.model$StoreTimeslotInstanceRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$StoreTimeslotInstanceRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotInstanceRecordList = (function (_super) {
+__extends(StoreTimeslotInstanceRecordList, _super);
+function StoreTimeslotInstanceRecordList(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotInstanceRecordList.itemType = EcoTimeslots_CSModel.StoreTimeslotInstanceRecord;
+return StoreTimeslotInstanceRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.StoreTimeslotInstanceRecordList = StoreTimeslotInstanceRecordList;
+
+});
+define("EcoTimeslots_CS.model$StoreEcoTimeslotInstanceList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$StoreEcoTimeslotInstanceRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstanceList = (function (_super) {
+__extends(StoreEcoTimeslotInstanceList, _super);
+function StoreEcoTimeslotInstanceList(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstanceList.itemType = EcoTimeslots_CSModel.StoreEcoTimeslotInstanceRec;
+return StoreEcoTimeslotInstanceList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.StoreEcoTimeslotInstanceList = StoreEcoTimeslotInstanceList;
+
+});
+define("EcoTimeslots_CS.model$UserList", ["exports", "OutSystems/ClientRuntime/Main", "ServiceCenter.model", "EcoTimeslots_CS.model", "ServiceCenter.model$UserRec", "EcoTimeslots_CS.referencesHealth", "EcoTimeslots_CS.referencesHealth$ServiceCenter"], function (exports, OutSystems, ServiceCenterModel, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var UserList = (function (_super) {
+__extends(UserList, _super);
+function UserList(defaults) {
+_super.apply(this, arguments);
+}
+UserList.itemType = ServiceCenterModel.UserRec;
+return UserList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.UserList = UserList;
+
+});
+define("EcoTimeslots_CS.model$SyncStoreTimeslotInstance_AuxRecordList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$SyncStoreTimeslotInstance_AuxRecord"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var SyncStoreTimeslotInstance_AuxRecordList = (function (_super) {
+__extends(SyncStoreTimeslotInstance_AuxRecordList, _super);
+function SyncStoreTimeslotInstance_AuxRecordList(defaults) {
+_super.apply(this, arguments);
+}
+SyncStoreTimeslotInstance_AuxRecordList.itemType = EcoTimeslots_CSModel.SyncStoreTimeslotInstance_AuxRecord;
+return SyncStoreTimeslotInstance_AuxRecordList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.SyncStoreTimeslotInstance_AuxRecordList = SyncStoreTimeslotInstance_AuxRecordList;
+
+});
+define("EcoTimeslots_CS.model$EcoTimeslotTemplateList", ["exports", "OutSystems/ClientRuntime/Main", "EcoTimeslots_CS.model", "EcoTimeslots_CS.model$EcoTimeslotTemplateRec"], function (exports, OutSystems, EcoTimeslots_CSModel) {
+var OS = OutSystems.Internal;
+var EcoTimeslotTemplateList = (function (_super) {
+__extends(EcoTimeslotTemplateList, _super);
+function EcoTimeslotTemplateList(defaults) {
+_super.apply(this, arguments);
+}
+EcoTimeslotTemplateList.itemType = EcoTimeslots_CSModel.EcoTimeslotTemplateRec;
+return EcoTimeslotTemplateList;
+})(OS.DataTypes.GenericRecordList);
+EcoTimeslots_CSModel.EcoTimeslotTemplateList = EcoTimeslotTemplateList;
+
+});
+define("EcoTimeslots_CS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var EcoTimeslots_CSModel = exports;
+Object.defineProperty(EcoTimeslots_CSModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["4e1d3d73-2767-40ef-a599-ed8504e8b512"];
+}
+});
+
+EcoTimeslots_CSModel.staticEntities = {};
+EcoTimeslots_CSModel.staticEntities.timeslotState = {};
+var getTimeslotStateRecord = function (record) {
+return EcoTimeslots_CSModel.module.staticEntities["ac89ce65-3958-4ea8-95db-f0a2ab78cada"][record];
+};
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.timeslotState, "available", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getTimeslotStateRecord("4e489df3-e35a-48b4-a638-b8837c097524"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.timeslotState, "full", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getTimeslotStateRecord("595446ba-b671-45bc-8c00-a96edcb4b2e5"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.timeslotState, "unAvailable", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getTimeslotStateRecord("5d129865-b85a-4486-885b-ebe497e7f2be"));
+}
+});
+
+EcoTimeslots_CSModel.staticEntities.deliveryType = {};
+var getDeliveryTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["0af98b4a-aaad-47e4-b45e-97f60ea225e8"].staticEntities["b7804dcf-8813-4bc3-8d2d-709c9c337390"][record];
+};
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.deliveryType, "pickupExpress", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getDeliveryTypeRecord("1b64233d-be56-4f61-9eea-760ff532257d"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.deliveryType, "deliveryExpress", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getDeliveryTypeRecord("c6b5c357-c9d9-4137-ab19-3f3e72248267"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.deliveryType, "delivery", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getDeliveryTypeRecord("cbacd628-993d-47da-a2ac-3b7cfc4be04d"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.deliveryType, "pickup", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getDeliveryTypeRecord("f7c45d8a-0855-4e68-ae1c-e0af1d8d8c6c"));
+}
+});
+
+EcoTimeslots_CSModel.staticEntities.weekday = {};
+var getWeekdayRecord = function (record) {
+return OS.ApplicationInfo.getModules()["e8050bcf-0dc4-4cd2-b952-82df38e18861"].staticEntities["6ba8752f-6d2e-4c8c-bbf1-01bc61cd5ce5"][record];
+};
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.weekday, "sunday", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getWeekdayRecord("34594b10-0e22-42a6-b39e-6abcbf7a2d87"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.weekday, "tuesday", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getWeekdayRecord("7a431589-342a-4550-b33e-6c86bdaef975"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.weekday, "wednesday", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getWeekdayRecord("8178d69e-92df-4208-8e02-5e11f9ceecb5"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.weekday, "thursday", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getWeekdayRecord("983546b1-9636-4ec3-96dc-56e0b42049a2"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.weekday, "friday", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getWeekdayRecord("b1712936-fbb6-490c-a024-656e6ec12003"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.weekday, "monday", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getWeekdayRecord("b9ad1092-7019-4bcf-af40-4728be3139da"));
+}
+});
+
+Object.defineProperty(EcoTimeslots_CSModel.staticEntities.weekday, "saturday", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getWeekdayRecord("fd9d811e-eea1-4ded-83a1-f0008612f4d0"));
+}
+});
+
+});

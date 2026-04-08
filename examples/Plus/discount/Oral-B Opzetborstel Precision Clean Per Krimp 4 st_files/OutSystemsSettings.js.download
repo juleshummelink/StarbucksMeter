@@ -1,0 +1,33 @@
+define('OutSystems/ClientRuntime/Settings',["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.getEnvParams = exports.setPlatformSettings = exports.EnvParam = void 0;
+    var EnvParam;
+    (function (EnvParam) {
+        EnvParam.DbNullDatesTZAware = false;
+        EnvParam.NullDatesTZAware = true;
+        EnvParam.ForceXhrCommunication = false;
+        EnvParam.IndexedDBOffline = false;
+        EnvParam.CanDisableAutoUpgrade = false;
+        EnvParam.UseNewWebSQLImpl = false;
+        EnvParam.ListItemIdWithoutModelId = false;
+        EnvParam.SendEnvParamOnManifestRequest = false;
+        EnvParam.UseNewJSONSerialization = false;
+        EnvParam.CDNFilenameVersioning = false;
+        EnvParam.AllowInterAppNavigationWhenAppIsRoot = true;
+        EnvParam.EnforceUnsafeEval = true;
+    })(EnvParam = exports.EnvParam || (exports.EnvParam = {}));
+    function setPlatformSettings(config) {
+        for (var _i = 0, _a = Object.keys(config); _i < _a.length; _i++) {
+            var k = _a[_i];
+            EnvParam[k] = config[k];
+        }
+    }
+    exports.setPlatformSettings = setPlatformSettings;
+    function getEnvParams() {
+        return EnvParam;
+    }
+    exports.getEnvParams = getEnvParams;
+});
+// All licensing information regarding this source code can be found in the LICENSES.txt file.
+//# sourceMappingURL=OutSystemsSettings.js.map?ts=1704966261735

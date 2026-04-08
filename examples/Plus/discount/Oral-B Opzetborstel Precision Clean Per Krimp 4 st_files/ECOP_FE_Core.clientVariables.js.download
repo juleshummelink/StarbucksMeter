@@ -1,0 +1,197 @@
+﻿define("ECOP_FE_Core.clientVariables", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+var ClientVariables = (function (_super) {
+var clientVarsService;
+function ClientVariables() {
+clientVarsService = OS.Injector.resolve(OS.ServiceNames.ClientVariablesService);
+}
+ClientVariables.prototype.getDisclaimers = function () {
+return clientVarsService.getVariable("Disclaimers", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setDisclaimers = function (value) {
+return clientVarsService.setVariable("Disclaimers", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getContentfulAPI_SpaceId = function () {
+return clientVarsService.getVariable("ContentfulAPI_SpaceId", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setContentfulAPI_SpaceId = function (value) {
+return clientVarsService.setVariable("ContentfulAPI_SpaceId", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getGTM_Enabled_WEB = function () {
+return clientVarsService.getVariable("GTM_Enabled_WEB", "ECOP_FE_Core", OS.Types.Boolean, true);
+};
+ClientVariables.prototype.setGTM_Enabled_WEB = function (value) {
+return clientVarsService.setVariable("GTM_Enabled_WEB", "ECOP_FE_Core", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getUserStoreId = function () {
+return clientVarsService.getVariable("UserStoreId", "ECOP_FE_Core", OS.Types.LongInteger);
+};
+ClientVariables.prototype.setUserStoreId = function (value) {
+return clientVarsService.setVariable("UserStoreId", "ECOP_FE_Core", OS.Types.LongInteger, value);
+};
+ClientVariables.prototype.getContentfulAPI_ApiKey = function () {
+return clientVarsService.getVariable("ContentfulAPI_ApiKey", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setContentfulAPI_ApiKey = function (value) {
+return clientVarsService.setVariable("ContentfulAPI_ApiKey", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getContentfulAPI_ApiHost = function () {
+return clientVarsService.getVariable("ContentfulAPI_ApiHost", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setContentfulAPI_ApiHost = function (value) {
+return clientVarsService.setVariable("ContentfulAPI_ApiHost", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getGTM_OrderIndex = function () {
+return clientVarsService.getVariable("GTM_OrderIndex", "ECOP_FE_Core", OS.Types.Integer);
+};
+ClientVariables.prototype.setGTM_OrderIndex = function (value) {
+return clientVarsService.setVariable("GTM_OrderIndex", "ECOP_FE_Core", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getContentfulAPI_Environment = function () {
+return clientVarsService.getVariable("ContentfulAPI_Environment", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setContentfulAPI_Environment = function (value) {
+return clientVarsService.setVariable("ContentfulAPI_Environment", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getOWGUID = function () {
+return clientVarsService.getVariable("OWGUID", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setOWGUID = function (value) {
+return clientVarsService.setVariable("OWGUID", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getPromotionPaginationIndex = function () {
+return clientVarsService.getVariable("PromotionPaginationIndex", "ECOP_FE_Core", OS.Types.Integer);
+};
+ClientVariables.prototype.setPromotionPaginationIndex = function (value) {
+return clientVarsService.setVariable("PromotionPaginationIndex", "ECOP_FE_Core", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getIsOrderEditMode = function () {
+return clientVarsService.getVariable("IsOrderEditMode", "ECOP_FE_Core", OS.Types.Boolean, false);
+};
+ClientVariables.prototype.setIsOrderEditMode = function (value) {
+return clientVarsService.setVariable("IsOrderEditMode", "ECOP_FE_Core", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getAndroidApp = function () {
+return clientVarsService.getVariable("AndroidApp", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setAndroidApp = function (value) {
+return clientVarsService.setVariable("AndroidApp", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getOrderEditId = function () {
+return clientVarsService.getVariable("OrderEditId", "ECOP_FE_Core", OS.Types.Text, "");
+};
+ClientVariables.prototype.setOrderEditId = function (value) {
+return clientVarsService.setVariable("OrderEditId", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getGTM_Enabled_MOBILE = function () {
+return clientVarsService.getVariable("GTM_Enabled_MOBILE", "ECOP_FE_Core", OS.Types.Boolean, true);
+};
+ClientVariables.prototype.setGTM_Enabled_MOBILE = function (value) {
+return clientVarsService.setVariable("GTM_Enabled_MOBILE", "ECOP_FE_Core", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getCartId_Web = function () {
+return clientVarsService.getVariable("CartId_Web", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setCartId_Web = function (value) {
+return clientVarsService.setVariable("CartId_Web", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getUserStoreName = function () {
+return clientVarsService.getVariable("UserStoreName", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setUserStoreName = function (value) {
+return clientVarsService.setVariable("UserStoreName", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getB2BUserExcludedCategories = function () {
+return clientVarsService.getVariable("B2BUserExcludedCategories", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setB2BUserExcludedCategories = function (value) {
+return clientVarsService.setVariable("B2BUserExcludedCategories", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getGTM_TWRequestId = function () {
+return clientVarsService.getVariable("GTM_TWRequestId", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setGTM_TWRequestId = function (value) {
+return clientVarsService.setVariable("GTM_TWRequestId", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getOWAccountType = function () {
+return clientVarsService.getVariable("OWAccountType", "ECOP_FE_Core", OS.Types.Integer);
+};
+ClientVariables.prototype.setOWAccountType = function (value) {
+return clientVarsService.setVariable("OWAccountType", "ECOP_FE_Core", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getUserStoreChannelId = function () {
+return clientVarsService.getVariable("UserStoreChannelId", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setUserStoreChannelId = function (value) {
+return clientVarsService.setVariable("UserStoreChannelId", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getCartVersion_Web = function () {
+return clientVarsService.getVariable("CartVersion_Web", "ECOP_FE_Core", OS.Types.Integer);
+};
+ClientVariables.prototype.setCartVersion_Web = function (value) {
+return clientVarsService.setVariable("CartVersion_Web", "ECOP_FE_Core", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getLocale = function () {
+return clientVarsService.getVariable("Locale", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setLocale = function (value) {
+return clientVarsService.setVariable("Locale", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getFictionalCutOffMoment = function () {
+return clientVarsService.getVariable("FictionalCutOffMoment", "ECOP_FE_Core", OS.Types.DateTime);
+};
+ClientVariables.prototype.setFictionalCutOffMoment = function (value) {
+return clientVarsService.setVariable("FictionalCutOffMoment", "ECOP_FE_Core", OS.Types.DateTime, value);
+};
+ClientVariables.prototype.getIosApp = function () {
+return clientVarsService.getVariable("IosApp", "ECOP_FE_Core", OS.Types.Text);
+};
+ClientVariables.prototype.setIosApp = function (value) {
+return clientVarsService.setVariable("IosApp", "ECOP_FE_Core", OS.Types.Text, value);
+};
+ClientVariables.prototype.getOrderEditVersion = function () {
+return clientVarsService.getVariable("OrderEditVersion", "ECOP_FE_Core", OS.Types.Integer, 0);
+};
+ClientVariables.prototype.setOrderEditVersion = function (value) {
+return clientVarsService.setVariable("OrderEditVersion", "ECOP_FE_Core", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getUserStoreNumber = function () {
+return clientVarsService.getVariable("UserStoreNumber", "ECOP_FE_Core", OS.Types.Integer);
+};
+ClientVariables.prototype.setUserStoreNumber = function (value) {
+return clientVarsService.setVariable("UserStoreNumber", "ECOP_FE_Core", OS.Types.Integer, value);
+};
+ClientVariables.prototype.serialize = function () {
+return {
+Disclaimers: OS.DataConversion.ServerDataConverter.to(this.getDisclaimers(), OS.Types.Text),
+ContentfulAPI_SpaceId: OS.DataConversion.ServerDataConverter.to(this.getContentfulAPI_SpaceId(), OS.Types.Text),
+GTM_Enabled_WEB: OS.DataConversion.ServerDataConverter.to(this.getGTM_Enabled_WEB(), OS.Types.Boolean),
+UserStoreId: OS.DataConversion.ServerDataConverter.to(this.getUserStoreId(), OS.Types.LongInteger),
+ContentfulAPI_ApiKey: OS.DataConversion.ServerDataConverter.to(this.getContentfulAPI_ApiKey(), OS.Types.Text),
+ContentfulAPI_ApiHost: OS.DataConversion.ServerDataConverter.to(this.getContentfulAPI_ApiHost(), OS.Types.Text),
+GTM_OrderIndex: OS.DataConversion.ServerDataConverter.to(this.getGTM_OrderIndex(), OS.Types.Integer),
+ContentfulAPI_Environment: OS.DataConversion.ServerDataConverter.to(this.getContentfulAPI_Environment(), OS.Types.Text),
+OWGUID: OS.DataConversion.ServerDataConverter.to(this.getOWGUID(), OS.Types.Text),
+PromotionPaginationIndex: OS.DataConversion.ServerDataConverter.to(this.getPromotionPaginationIndex(), OS.Types.Integer),
+IsOrderEditMode: OS.DataConversion.ServerDataConverter.to(this.getIsOrderEditMode(), OS.Types.Boolean),
+AndroidApp: OS.DataConversion.ServerDataConverter.to(this.getAndroidApp(), OS.Types.Text),
+OrderEditId: OS.DataConversion.ServerDataConverter.to(this.getOrderEditId(), OS.Types.Text),
+GTM_Enabled_MOBILE: OS.DataConversion.ServerDataConverter.to(this.getGTM_Enabled_MOBILE(), OS.Types.Boolean),
+CartId_Web: OS.DataConversion.ServerDataConverter.to(this.getCartId_Web(), OS.Types.Text),
+UserStoreName: OS.DataConversion.ServerDataConverter.to(this.getUserStoreName(), OS.Types.Text),
+B2BUserExcludedCategories: OS.DataConversion.ServerDataConverter.to(this.getB2BUserExcludedCategories(), OS.Types.Text),
+GTM_TWRequestId: OS.DataConversion.ServerDataConverter.to(this.getGTM_TWRequestId(), OS.Types.Text),
+OWAccountType: OS.DataConversion.ServerDataConverter.to(this.getOWAccountType(), OS.Types.Integer),
+UserStoreChannelId: OS.DataConversion.ServerDataConverter.to(this.getUserStoreChannelId(), OS.Types.Text),
+CartVersion_Web: OS.DataConversion.ServerDataConverter.to(this.getCartVersion_Web(), OS.Types.Integer),
+Locale: OS.DataConversion.ServerDataConverter.to(this.getLocale(), OS.Types.Text),
+FictionalCutOffMoment: OS.DataConversion.ServerDataConverter.to(this.getFictionalCutOffMoment(), OS.Types.DateTime),
+IosApp: OS.DataConversion.ServerDataConverter.to(this.getIosApp(), OS.Types.Text),
+OrderEditVersion: OS.DataConversion.ServerDataConverter.to(this.getOrderEditVersion(), OS.Types.Integer),
+UserStoreNumber: OS.DataConversion.ServerDataConverter.to(this.getUserStoreNumber(), OS.Types.Integer)
+};
+};
+return ClientVariables;
+})();
+return new ClientVariables();
+});

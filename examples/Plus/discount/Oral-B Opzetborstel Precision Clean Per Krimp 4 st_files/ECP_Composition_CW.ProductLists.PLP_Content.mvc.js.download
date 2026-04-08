@@ -1,0 +1,3407 @@
+﻿define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Promotion_CW.model", "ECP_Product_BL.model", "CMS_Monolith.model", "ECOP_FE_Core.model", "ECOP_Base_RPat.controller", "ECP_Composition_CW.controller", "ECP_Promotion_CW.controller", "ECP_Cart_CW.controller", "ECP_GlobalSearch_IS.model", "ECOP_ReleaseTogglesReactive.controller", "CMS_Monolith.controller$GetStaticImage", "ECP_Composition_CW.referencesHealth", "ECP_Composition_CW.referencesHealth$CMS_Monolith", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECP_Composition_CW.referencesHealth$ECOP_FE_Core", "CMS_Monolith.controller$GetClickDelay", "ECP_Composition_CW.model$Filter_ItemList", "ECP_Composition_CW.model$PLP_StrList", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Composition_CW.referencesHealth$ECP_Promotion_CW", "ECP_Composition_CW.model$LineItemList", "ECP_Product_BL.model$PLP_StrRec", "ECP_Composition_CW.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "ECP_Composition_CW.model$Logo_InfoList", "ECP_Composition_CW.model$TextRecordList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_MediaRec", "ECP_Composition_CW.model$ProductPromotionDetailsList", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECP_Composition_CW.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_SponsoredProductView", "ECOP_FE_Core.controller$GTMFormat_ItemListId", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECOP_Base_RPat.controller$BannerPlacement", "ECP_Composition_CW.referencesHealth$ECOP_Base_RPat", "ECP_Composition_CW.controller$SanitizeFilterURL", "ECOP_Base_RPat.controller$IntersectionObserver_Disconnect", "ECP_Composition_CW.model$FilterExtended_StrList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$IsPreloadedHTML", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Promotion_CW.controller$WeekPeriodForDay_Get", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECP_Composition_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECP_GlobalSearch_IS.model$Filter_ItemRec", "ECP_Composition_CW.referencesHealth$ECP_GlobalSearch_IS", "ECP_Composition_CW.model$IntersectionObserverEntryList", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$GTMEvent_Search_SuggestionTerm", "ECOP_FE_Core.controller$Set_GTM_Tweakwise", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Composition_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Composition_CW.model$PLP_StrIntegerRecordList", "ECP_Composition_CW.model$Sort_ItemList", "ECOP_Base_RPat.controller$Format_StringSplit", "ECP_Composition_CW.model$ProductPromotionBannerList", "ECP_GlobalSearch_IS.model$Filter_StrRec"], function (OutSystems, ECP_Composition_CWModel, CMS_MonolithController, ECOP_FE_CoreController, ECP_Promotion_CWModel, ECP_Product_BLModel, CMS_MonolithModel, ECOP_FE_CoreModel, ECOP_Base_RPatController, ECP_Composition_CWController, ECP_Promotion_CWController, ECP_Cart_CWController, ECP_GlobalSearch_ISModel, ECOP_ReleaseTogglesReactiveController) {
+var OS = OutSystems.Internal;
+
+var GetReleaseToggleDataActRec = (function (_super) {
+__extends(GetReleaseToggleDataActRec, _super);
+function GetReleaseToggleDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetReleaseToggleDataActRec.attributesToDeclare = function () {
+return [
+this.attr("ECOP_9523_IsEnabled", "eCOP_9523_IsEnabledOut", "ECOP_9523_IsEnabled", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetReleaseToggleDataActRec.fromStructure = function (str) {
+return new GetReleaseToggleDataActRec(new GetReleaseToggleDataActRec.RecordClass({
+eCOP_9523_IsEnabledOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetReleaseToggleDataActRec.init();
+return GetReleaseToggleDataActRec;
+})(OS.Model.DataSourceRecord);
+var GetPromotionBannersDataActRec = (function (_super) {
+__extends(GetPromotionBannersDataActRec, _super);
+function GetPromotionBannersDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetPromotionBannersDataActRec.attributesToDeclare = function () {
+return [
+this.attr("PromotionBannersList", "promotionBannersListOut", "PromotionBannersList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Composition_CWModel.ProductPromotionBannerList());
+}, true, ECP_Composition_CWModel.ProductPromotionBannerList)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetPromotionBannersDataActRec.fromStructure = function (str) {
+return new GetPromotionBannersDataActRec(new GetPromotionBannersDataActRec.RecordClass({
+promotionBannersListOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetPromotionBannersDataActRec.init();
+return GetPromotionBannersDataActRec;
+})(OS.Model.DataSourceRecord);
+var GetProductListAndCategoryInfoDataActRec = (function (_super) {
+__extends(GetProductListAndCategoryInfoDataActRec, _super);
+function GetProductListAndCategoryInfoDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetProductListAndCategoryInfoDataActRec.attributesToDeclare = function () {
+return [
+this.attr("TotalPages", "totalPagesOut", "TotalPages", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("SuggestedSearchTerm", "suggestedSearchTermOut", "SuggestedSearchTerm", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("TotalNumberItems", "totalNumberItemsOut", "TotalNumberItems", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("FilterList", "filterListOut", "FilterList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Composition_CWModel.FilterExtended_StrList());
+}, true, ECP_Composition_CWModel.FilterExtended_StrList), 
+this.attr("TotalSelectedFilters", "totalSelectedFiltersOut", "TotalSelectedFilters", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("SortList", "sortListOut", "SortList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Composition_CWModel.Sort_ItemList());
+}, true, ECP_Composition_CWModel.Sort_ItemList), 
+this.attr("Offer", "offerOut", "Offer", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_GlobalSearch_ISModel.Filter_StrRec());
+}, true, ECP_GlobalSearch_ISModel.Filter_StrRec), 
+this.attr("SuggestedTerm", "suggestedTermOut", "SuggestedTerm", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RedirectURL", "redirectURLOut", "RedirectURL", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsExternalURL", "isExternalURLOut", "IsExternalURL", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsRedirectToNotFound", "isRedirectToNotFoundOut", "IsRedirectToNotFound", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ProductList", "productListOut", "ProductList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Composition_CWModel.PLP_StrIntegerRecordList());
+}, true, ECP_Composition_CWModel.PLP_StrIntegerRecordList), 
+this.attr("LocalCategoryID_Out", "localCategoryID_OutOut", "LocalCategoryID_Out", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("LocalCategoryName_Out", "localCategoryName_OutOut", "LocalCategoryName_Out", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LocalCategoryParentId_Out", "localCategoryParentId_OutOut", "LocalCategoryParentId_Out", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("LocalCategory_h1Title_Out", "localCategory_h1Title_OutOut", "LocalCategory_h1Title_Out", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("TweakWiseId", "tweakWiseIdOut", "TweakWiseId", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetProductListAndCategoryInfoDataActRec.init();
+return GetProductListAndCategoryInfoDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("AppliedFiltersList", "appliedFiltersListVar", "AppliedFiltersList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Composition_CWModel.Filter_ItemList());
+}, false, ECP_Composition_CWModel.Filter_ItemList), 
+this.attr("LocalCategoryID", "localCategoryIDVar", "LocalCategoryID", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("LocalCategoryName", "localCategoryNameVar", "LocalCategoryName", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("LocalCategoryParentId", "localCategoryParentIdVar", "LocalCategoryParentId", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("LocalCategoryTitle", "localCategoryTitleVar", "LocalCategoryTitle", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("IsLoadingMore", "isLoadingMoreVar", "IsLoadingMore", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsFirstDataFetched", "isFirstDataFetchedVar", "IsFirstDataFetched", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ShowFilters", "showFiltersVar", "ShowFilters", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsShowData", "isShowDataVar", "IsShowData", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("StoreNumber", "storeNumberVar", "StoreNumber", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("StoreChannel", "storeChannelVar", "StoreChannel", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("CheckoutId", "checkoutIdVar", "CheckoutId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("IsOrderEditMode", "isOrderEditModeVar", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ProductList_All", "productList_AllVar", "ProductList_All", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Composition_CWModel.PLP_StrList());
+}, false, ECP_Composition_CWModel.PLP_StrList), 
+this.attr("PageNumber", "pageNumberVar", "PageNumber", true, false, OS.Types.Integer, function () {
+return 1;
+}, false), 
+this.attr("SelectedSort", "selectedSortVar", "SelectedSort", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("OrderEditId", "orderEditIdVar", "OrderEditId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("IsListRendered", "isListRenderedVar", "IsListRendered", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsAlreadyFetch", "isAlreadyFetchVar", "IsAlreadyFetch", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsPromotionBannersFetched", "isPromotionBannersFetchedVar", "IsPromotionBannersFetched", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("Period", "periodVar", "Period", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_CWModel.Period_DateRec());
+}, false, ECP_Promotion_CWModel.Period_DateRec), 
+this.attr("UserStoreId", "userStoreIdVar", "UserStoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("FilterExpandedList", "filterExpandedListVar", "FilterExpandedList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.BooleanList());
+}, false, OS.DataTypes.BooleanList), 
+this.attr("ItemsInCart", "itemsInCartVar", "ItemsInCart", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Composition_CWModel.LineItemList());
+}, false, ECP_Composition_CWModel.LineItemList), 
+this.attr("HideDummy", "hideDummyVar", "HideDummy", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CategorySlug", "categorySlugIn", "CategorySlug", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_categorySlugInDataFetchStatus", "_categorySlugInDataFetchStatus", "_categorySlugInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("SearchKeyword", "searchKeywordIn", "SearchKeyword", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_searchKeywordInDataFetchStatus", "_searchKeywordInDataFetchStatus", "_searchKeywordInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDesktop", "isDesktopIn", "IsDesktop", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDesktopInDataFetchStatus", "_isDesktopInDataFetchStatus", "_isDesktopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsSearch", "isSearchIn", "IsSearch", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isSearchInDataFetchStatus", "_isSearchInDataFetchStatus", "_isSearchInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("URLPageNumber", "uRLPageNumberIn", "URLPageNumber", true, false, OS.Types.Integer, function () {
+return 1;
+}, false), 
+this.attr("_uRLPageNumberInDataFetchStatus", "_uRLPageNumberInDataFetchStatus", "_uRLPageNumberInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("FilterQueryURL", "filterQueryURLIn", "FilterQueryURL", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_filterQueryURLInDataFetchStatus", "_filterQueryURLInDataFetchStatus", "_filterQueryURLInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsMobile", "isMobileIn", "IsMobile", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isMobileInDataFetchStatus", "_isMobileInDataFetchStatus", "_isMobileInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsTablet", "isTabletIn", "IsTablet", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isTabletInDataFetchStatus", "_isTabletInDataFetchStatus", "_isTabletInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Monitoring_FlowTypeId", "monitoring_FlowTypeIdIn", "Monitoring_FlowTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_monitoring_FlowTypeIdInDataFetchStatus", "_monitoring_FlowTypeIdInDataFetchStatus", "_monitoring_FlowTypeIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsCustomerUnderAge", "isCustomerUnderAgeIn", "IsCustomerUnderAge", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isCustomerUnderAgeInDataFetchStatus", "_isCustomerUnderAgeInDataFetchStatus", "_isCustomerUnderAgeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetReleaseToggle", "getReleaseToggleDataAct", "getReleaseToggleDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetReleaseToggleDataActRec());
+}, true, GetReleaseToggleDataActRec), 
+this.attr("GetPromotionBanners", "getPromotionBannersDataAct", "getPromotionBannersDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetPromotionBannersDataActRec());
+}, true, GetPromotionBannersDataActRec), 
+this.attr("GetProductListAndCategoryInfo", "getProductListAndCategoryInfoDataAct", "getProductListAndCategoryInfoDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetProductListAndCategoryInfoDataActRec());
+}, true, GetProductListAndCategoryInfoDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {
+Checkbox3: OS.Model.ValidationWidgetRecord,
+SortDropdown: OS.Model.ValidationWidgetRecord
+};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return true;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("CategorySlug" in inputs) {
+this.variables.categorySlugIn = inputs.CategorySlug;
+if("_categorySlugInDataFetchStatus" in inputs) {
+this.variables._categorySlugInDataFetchStatus = inputs._categorySlugInDataFetchStatus;
+}
+
+}
+
+if("SearchKeyword" in inputs) {
+this.variables.searchKeywordIn = inputs.SearchKeyword;
+if("_searchKeywordInDataFetchStatus" in inputs) {
+this.variables._searchKeywordInDataFetchStatus = inputs._searchKeywordInDataFetchStatus;
+}
+
+}
+
+if("IsDesktop" in inputs) {
+this.variables.isDesktopIn = inputs.IsDesktop;
+if("_isDesktopInDataFetchStatus" in inputs) {
+this.variables._isDesktopInDataFetchStatus = inputs._isDesktopInDataFetchStatus;
+}
+
+}
+
+if("IsSearch" in inputs) {
+this.variables.isSearchIn = inputs.IsSearch;
+if("_isSearchInDataFetchStatus" in inputs) {
+this.variables._isSearchInDataFetchStatus = inputs._isSearchInDataFetchStatus;
+}
+
+}
+
+if("URLPageNumber" in inputs) {
+this.variables.uRLPageNumberIn = inputs.URLPageNumber;
+if("_uRLPageNumberInDataFetchStatus" in inputs) {
+this.variables._uRLPageNumberInDataFetchStatus = inputs._uRLPageNumberInDataFetchStatus;
+}
+
+}
+
+if("FilterQueryURL" in inputs) {
+this.variables.filterQueryURLIn = inputs.FilterQueryURL;
+if("_filterQueryURLInDataFetchStatus" in inputs) {
+this.variables._filterQueryURLInDataFetchStatus = inputs._filterQueryURLInDataFetchStatus;
+}
+
+}
+
+if("IsMobile" in inputs) {
+this.variables.isMobileIn = inputs.IsMobile;
+if("_isMobileInDataFetchStatus" in inputs) {
+this.variables._isMobileInDataFetchStatus = inputs._isMobileInDataFetchStatus;
+}
+
+}
+
+if("IsTablet" in inputs) {
+this.variables.isTabletIn = inputs.IsTablet;
+if("_isTabletInDataFetchStatus" in inputs) {
+this.variables._isTabletInDataFetchStatus = inputs._isTabletInDataFetchStatus;
+}
+
+}
+
+if("Monitoring_FlowTypeId" in inputs) {
+this.variables.monitoring_FlowTypeIdIn = inputs.Monitoring_FlowTypeId;
+if("_monitoring_FlowTypeIdInDataFetchStatus" in inputs) {
+this.variables._monitoring_FlowTypeIdInDataFetchStatus = inputs._monitoring_FlowTypeIdInDataFetchStatus;
+}
+
+}
+
+if("IsCustomerUnderAge" in inputs) {
+this.variables.isCustomerUnderAgeIn = inputs.IsCustomerUnderAge;
+if("_isCustomerUnderAgeInDataFetchStatus" in inputs) {
+this.variables._isCustomerUnderAgeInDataFetchStatus = inputs._isCustomerUnderAgeInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "ProductLists.PLP_Content");
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Composition_CW.controller", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Promotion_CW.model", "ECP_Product_BL.model", "CMS_Monolith.model", "ECOP_FE_Core.model", "ECOP_Base_RPat.controller", "ECP_Promotion_CW.controller", "ECP_Cart_CW.controller", "ECP_GlobalSearch_IS.model", "ECOP_ReleaseTogglesReactive.controller", "react", "OutSystems/ReactView/Main", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$model", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.EmptyState.mvc$view", "ECP_Product_CW.Categories.CategoryList_TF.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Content.Tag.mvc$view", "PLUS_OutSystemsUI_2_8_0.Content.Accordion.mvc$view", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$view", "ECP_Product_CW.ProductList.ProductItem.mvc$view", "CMS_Monolith.CMS_ProductPromotionBanner_RCW.ProductPromotionBanner_TF.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.GridNumberOfColumnsPerRow_OnResizeChange.mvc$view", "ECOP_Base_RPat.CustomPatterns.IntersectionObserver.mvc$view", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$view", "ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$view", "ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$view", "CMS_Monolith.controller$GetStaticImage", "ECP_Composition_CW.referencesHealth", "ECP_Composition_CW.referencesHealth$CMS_Monolith", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECP_Composition_CW.referencesHealth$ECOP_FE_Core", "CMS_Monolith.controller$GetClickDelay", "ECP_Composition_CW.model$Filter_ItemList", "ECP_Composition_CW.model$PLP_StrList", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Composition_CW.referencesHealth$ECP_Promotion_CW", "ECP_Composition_CW.model$LineItemList", "ECP_Product_BL.model$PLP_StrRec", "ECP_Composition_CW.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "ECP_Composition_CW.model$Logo_InfoList", "ECP_Composition_CW.model$TextRecordList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_MediaRec", "ECP_Composition_CW.model$ProductPromotionDetailsList", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECP_Composition_CW.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_SponsoredProductView", "ECOP_FE_Core.controller$GTMFormat_ItemListId", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECOP_Base_RPat.controller$BannerPlacement", "ECP_Composition_CW.referencesHealth$ECOP_Base_RPat", "ECP_Composition_CW.controller$SanitizeFilterURL", "ECOP_Base_RPat.controller$IntersectionObserver_Disconnect", "ECP_Composition_CW.model$FilterExtended_StrList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$IsPreloadedHTML", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Promotion_CW.controller$WeekPeriodForDay_Get", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECP_Composition_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECP_GlobalSearch_IS.model$Filter_ItemRec", "ECP_Composition_CW.referencesHealth$ECP_GlobalSearch_IS", "ECP_Composition_CW.model$IntersectionObserverEntryList", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$GTMEvent_Search_SuggestionTerm", "ECOP_FE_Core.controller$Set_GTM_Tweakwise", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Composition_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Composition_CW.model$PLP_StrIntegerRecordList", "ECP_Composition_CW.model$Sort_ItemList", "ECOP_Base_RPat.controller$Format_StringSplit", "ECP_Composition_CW.model$ProductPromotionBannerList", "ECP_GlobalSearch_IS.model$Filter_StrRec"], function (OutSystems, ECP_Composition_CWModel, ECP_Composition_CWController, CMS_MonolithController, ECOP_FE_CoreController, ECP_Promotion_CWModel, ECP_Product_BLModel, CMS_MonolithModel, ECOP_FE_CoreModel, ECOP_Base_RPatController, ECP_Promotion_CWController, ECP_Cart_CWController, ECP_GlobalSearch_ISModel, ECOP_ReleaseTogglesReactiveController, React, OSView, ECP_Composition_CW_ProductLists_PLP_Content_mvc_model, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller, OSWidgets, ECOP_Base_RPat_CustomPatterns_EmptyState_mvc_view, ECP_Product_CW_Categories_CategoryList_TF_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_Tag_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_Accordion_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view, ECP_Product_CW_ProductList_ProductItem_mvc_view, CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, ECOP_Reactive_Pat_CustomPatterns_GridNumberOfColumnsPerRow_OnResizeChange_mvc_view, ECOP_Base_RPat_CustomPatterns_IntersectionObserver_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_view, ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "ProductLists.PLP_Content";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_EmptyState_mvc_view, ECP_Product_CW_Categories_CategoryList_TF_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_Tag_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_Accordion_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view, ECP_Product_CW_ProductList_ProductItem_mvc_view, CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, ECOP_Reactive_Pat_CustomPatterns_GridNumberOfColumnsPerRow_OnResizeChange_mvc_view, ECOP_Base_RPat_CustomPatterns_IntersectionObserver_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_view, ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Composition_CW_ProductLists_PLP_Content_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), $if((model.variables.isShowDataVar || model.variables.hideDummyVar), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("DIV_MainContent.Style"), function () {
+return (("plp-content-wrapper" + ((model.variables.isDesktopIn) ? (" padding-top-base") : (" padding-top-s"))) + (((model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr && model.variables.productList_AllVar.isEmpty)) ? (" is-empty") : ("")));
+}, function () {
+return model.variables.isDesktopIn;
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr;
+}, function () {
+return model.variables.productList_AllVar.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "DIV_MainContent"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isDesktopInDataFetchStatus)
+}, $if((model.variables.productList_AllVar.isEmpty && !(model.variables.isLoadingMoreVar)), false, this, function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_EmptyState_mvc_view, {
+inputs: {
+ExtendedClass_Content: "margin-top-s plp-empty-state"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+topContent: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "heading1",
+value: model.getCachedValue(idService.getId("hKi+jACne0y4DpkYNur_6g.Value"), function () {
+return (((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("zOuL0tKNpU2_JxcwikSJ_w#ValueExpression.527432519.1", "Search results for") + " ‘") + (((model.variables.searchKeywordIn === "")) ? (model.variables.localCategoryTitleVar) : (model.variables.searchKeywordIn))) + "’");
+}, function () {
+return model.variables.searchKeywordIn;
+}, function () {
+return model.variables.localCategoryTitleVar;
+}),
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._searchKeywordInDataFetchStatus)
+})];
+}),
+image: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Image, {
+type: /*External*/ 1,
+url: model.getCachedValue(idService.getId("M2wMsdmVfE2MjiAtJ0bCaw.Url"), function () {
+return CMS_MonolithController.default.getStaticImage$Action("ECOP-No-Results-Main", 0, 0, 0, "", false, callContext).urlOut;
+}),
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("LYTcqrtBNEifc8L2O0NhBw#Value", "Unfortunately there are no results for")), React.createElement(OSWidgets.Expression, {
+style: "font-semi-bold",
+value: model.getCachedValue(idService.getId("cu59l8TUwEu3rpuHw_Sa7g.Value"), function () {
+return ((" \'" + (((model.variables.searchKeywordIn === "")) ? (model.variables.localCategoryTitleVar) : (model.variables.searchKeywordIn))) + "\'");
+}, function () {
+return model.variables.searchKeywordIn;
+}, function () {
+return model.variables.localCategoryTitleVar;
+}),
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._searchKeywordInDataFetchStatus)
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("U53F8VUM+0+RqtZOlvlUXw#Value", "You may want to try a different search term or make your search term a little less specific."))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-m",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.goToProducts$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "gtm-no-results-link",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+extendedProperties: {
+style: "text-decoration: underline;"
+},
+text: [$text(getTranslation("Z6zhJOxWh06yaqn6MpAY4g#Value", "You can also view our range"))],
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._searchKeywordInDataFetchStatus), asPrimitiveValue(model.variables.localCategoryTitleVar), asPrimitiveValue(model.variables.searchKeywordIn)]
+})];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("AXF4O7dQcUaRLt_ywAnUhA.Style"), function () {
+return (("plp-filters-wrapper" + ((model.variables.showFiltersVar) ? (" filters-visible") : (""))) + ((!(model.variables.appliedFiltersListVar.isEmpty)) ? (" has-filters-selected") : ("")));
+}, function () {
+return model.variables.showFiltersVar;
+}, function () {
+return model.variables.appliedFiltersListVar.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.isDesktopIn, false, this, function () {
+return [$if(!(model.variables.isSearchIn), false, this, function () {
+return [React.createElement(ECP_Product_CW_Categories_CategoryList_TF_mvc_view, {
+inputs: {
+ApplyShowMoreOption: true,
+IsPageSearch: true,
+OneWelcomeUserId: model.getCachedValue(idService.getId("0wpkXDN8w0yASH1v6TogTA.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+}),
+ParentId: model.variables.localCategoryParentIdVar,
+CategoryName: model.variables.localCategoryNameVar,
+CategoryId: model.variables.localCategoryIDVar
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+navigateLevelDown$Action: function (categoryIdIn, categoryNameIn, parentIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.categoryListNavigate$Action(categoryIdIn, categoryNameIn, parentIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+navigateLevelUp$Action: function (categoryIdIn, categoryNameIn, parentIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.categoryListNavigate$Action(categoryIdIn, categoryNameIn, parentIdIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "11",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-filters-header",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "heading2",
+text: [$text(getTranslation("f9rzL4pzvEyue_N9RfK8dA#Value", "Filters"))],
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggleShowFilters$Action(true, controller.callContext(eventHandlerContext));
+
+;
+},
+style: "gtm-close-filters",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "close",
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size_s
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "16",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})))];
+}), $if(!(model.variables.appliedFiltersListVar.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "selected-filters",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "font-semi-bold",
+text: [$text(getTranslation("wod29YwZyEmg0ZhuzxAPTQ#Value", "My selection"))],
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.appliedFiltersListVar,
+style: "list list-group",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Content_Tag_mvc_view, {
+inputs: {
+Color: model.getCachedValue(idService.getId("Lg+wF5nv+06tEskQ0JPgWw.Color"), function () {
+return OS.BuiltinFunctions.textToIdentifier("secondary-light");
+}),
+ExtendedClass: model.getCachedValue(idService.getId("Lg+wF5nv+06tEskQ0JPgWw.ExtendedClass"), function () {
+return (((model.variables.appliedFiltersListVar.getCurrentRowNumber(callContext.iterationContext) < (model.variables.appliedFiltersListVar.length - 1))) ? ("margin-right-s margin-bottom-s") : (""));
+}, function () {
+return model.variables.appliedFiltersListVar.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.appliedFiltersListVar.length;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "22",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+tag: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.appliedFiltersListVar.getCurrent(callContext.iterationContext).nameAttr,
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onChange_FilterOrSortBy$Action(model.variables.appliedFiltersListVar.getCurrent(callContext.iterationContext).uRLAttr, false, controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "margin-left-base gtm-remove-filter",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "24"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size_s,
+Name: "close"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "25",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.appliedFiltersListVar.getCurrent(callContext.iterationContext).nameAttr)]
+})];
+}, callContext, idService, "1")
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_ClearAllFilters$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "margin-bottom-base gtm-clear-filters",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "text-underline",
+text: [$text(getTranslation("xe2XmFuz+02BFw759rVYcA#Value", "Clear all filters"))],
+_idProps: {
+service: idService,
+uuid: "27"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "accordion-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_Accordion_mvc_view, {
+inputs: {
+MultipleItems: true,
+ExtendedClass: "gtm-filters-accordions"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "29",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getProductListAndCategoryInfoDataAct.filterListOut,
+style: "list list-group",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "31"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.nameAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrentRowNumber(callContext.iterationContext))]
+}, $if((model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrentRowNumber(callContext.iterationContext) <= 9), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+"data-filter-section": model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.nameAttr
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view, {
+inputs: {
+IsExpanded: (model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrentRowNumber(callContext.iterationContext) <= 4),
+_isExpandedInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "33",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.nameAttr,
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+})];
+}),
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr,
+style: model.getCachedValue(idService.getId("gxlgUPiCSU6NoaQwmW0eEw.Style"), function () {
+return ("list list-group plp-filter-section-list" + ((!(model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr)) ? (" disabled") : ("")));
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr;
+}),
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("PnDOLvnVD02SbHq_yJfzvw.Style"), function () {
+return ("margin-top-xs" + ((((model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrentRowNumber(callContext.iterationContext) < 6) || model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr)) ? ("") : (" hidden")));
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr),
+_dependencies: [asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).quantityAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).nameAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr)]
+}, React.createElement(OSWidgets.ListItem, {
+extendedEvents: {
+onKeyPress: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onKeypress$Action(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext), controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+extendedProperties: {
+"aria-label": model.getCachedValue(idService.getId("ListItem1.aria-label"), function () {
+return (((!(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr)) ? (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("758gRE7I0UiqHv9WshDv3Q#Value.-1033534300.1", "Select filter ")) : (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("758gRE7I0UiqHv9WshDv3Q#Value.2144668541.1", "Unselect filter "))) + model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).nameAttr);
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr;
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).nameAttr;
+}),
+"data-filter-name": model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).nameAttr
+},
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_Filter$Action(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext), controller.callContext(eventHandlerContext));
+});
+;
+},
+style: model.getCachedValue(idService.getId("ListItem1.Style"), function () {
+return ("list-item gtm-filter-item" + ((model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr) ? (" is-selected") : ("")));
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr;
+}),
+triggerActionOnFullSwipeLeft: true,
+triggerActionOnFullSwipeRight: true,
+_idProps: {
+service: idService,
+name: "ListItem1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr),
+placeholders: {
+leftActions: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "display-flex",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "checkbox-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Checkbox, {
+_validationProps: {
+validationService: validationService
+},
+enabled: true,
+style: "checkbox",
+variable: model.createVariable(OS.Types.Boolean, model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr, function (value) {
+model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr = value;
+}),
+_idProps: {
+service: idService,
+name: "Checkbox3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+variable_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+})), React.createElement(OSWidgets.Label, {
+style: "margin-left-s",
+targetWidget: "Checkbox3",
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).nameAttr,
+_idProps: {
+service: idService,
+uuid: "42"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+})), React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "ThemeGrid_MarginGutter"
+},
+style: "text-neutral-5 margin-left-s",
+value: (("(" + OS.BuiltinFunctions.longIntegerToText(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).quantityAttr)) + ")"),
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+}))];
+}),
+rightActions: PlaceholderContent.Empty
+}
+}))];
+}, callContext, idService, "3")
+},
+_dependencies: [asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr)]
+}), $if((model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.length > 6), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggleIsExpanded$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "font-semi-bold text-underline",
+value: model.getCachedValue(idService.getId("00zwS2ZRWUO2QM8FQzW6Wg.Value"), function () {
+return ((model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr) ? (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("zLINk9y_TUe4UJJTJfQjWg#ValueExpression.42216636.1", "Show less")) : (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("zLINk9y_TUe4UJJTJfQjWg#ValueExpression.42255992.1", "Show more")));
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "46"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+})))];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.nameAttr)]
+}))];
+}, function () {
+return [];
+}))];
+}, callContext, idService, "3")
+},
+_dependencies: [asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)]
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr), asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.filterListOut)]
+})), $if(!(model.variables.isDesktopIn), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "filters-wrapper-button",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "47"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggleShowFilters$Action(false, controller.callContext(eventHandlerContext));
+
+;
+},
+style: "btn btn-primary gtm-show-results",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "48"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: ((((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("d67W6JuMkEaJ8w4q3s9saA#ValueExpression.2576157.1", "Show") + " ") + (model.variables.getProductListAndCategoryInfoDataAct.totalNumberItemsOut).toString()) + " ") + OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("d67W6JuMkEaJ8w4q3s9saA#ValueExpression.-1003761308.1", "products")),
+_idProps: {
+service: idService,
+uuid: "49"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+})))];
+}, function () {
+return [];
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-results-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "50"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-results-header",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "51"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h1",
+_idProps: {
+service: idService,
+uuid: "52"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.getCachedValue(idService.getId("l2upWG2hXUuqlZq6Qi3Vqw.Value"), function () {
+return ((model.variables.isSearchIn) ? ((((OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("HoFZyyKN70+BhcxE0FpLlw#ValueExpression.527432519.1", "Search results for") + " ‘") + model.variables.searchKeywordIn) + "’")) : ((((model.variables.localCategoryTitleVar === "")) ? (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("HoFZyyKN70+BhcxE0FpLlw#ValueExpression.-939117180.1", "Products")) : (model.variables.localCategoryTitleVar))));
+}, function () {
+return model.variables.isSearchIn;
+}, function () {
+return model.variables.searchKeywordIn;
+}, function () {
+return model.variables.localCategoryTitleVar;
+}),
+_idProps: {
+service: idService,
+uuid: "53"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isSearchInDataFetchStatus, model.variables._searchKeywordInDataFetchStatus)
+})), $if((((!(model.variables.productList_AllVar.isEmpty) && ((model.variables.getProductListAndCategoryInfoDataAct.suggestedTermOut) !== (""))) && ((model.variables.searchKeywordIn) !== (""))) && ((model.variables.searchKeywordIn) !== (model.variables.getProductListAndCategoryInfoDataAct.suggestedTermOut))), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "54"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("5GOdfYPA906hkpPPnADpnQ#Value", "Did you mean:")), React.createElement(OSWidgets.Expression, {
+style: "font-semi-bold",
+value: (" " + model.variables.getProductListAndCategoryInfoDataAct.suggestedTermOut),
+_idProps: {
+service: idService,
+uuid: "55"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+}), "?")];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.topContent,
+style: "ph plp-results-wrapper__top-content",
+_idProps: {
+service: idService,
+name: "TopContent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "top-information vertical-align",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "57"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "display-flex",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "58"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "font-semi-bold",
+value: ((model.variables.getProductListAndCategoryInfoDataAct.totalNumberItemsOut).toString() + " "),
+_idProps: {
+service: idService,
+uuid: "59"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+}), React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "ThemeGrid_MarginGutter"
+},
+value: model.getCachedValue(idService.getId("NI1MLHRlGkCDTrvPDwSWuw.Value"), function () {
+return ((((model.variables.getProductListAndCategoryInfoDataAct.totalNumberItemsOut) !== (1))) ? (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("f6Eh2wA+xE66KCWePWoz9g#ValueExpression.-1003761308.1", "products")) : (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("f6Eh2wA+xE66KCWePWoz9g#ValueExpression.-309474065.1", "product")));
+}, function () {
+return model.variables.getProductListAndCategoryInfoDataAct.totalNumberItemsOut;
+}),
+_idProps: {
+service: idService,
+uuid: "60"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "dropdowns-wrapper vertical-align",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "61"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-right-base plp-sort-btn-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "62"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "font-semi-bold sort-label",
+text: [$text(getTranslation("zO0sEh+B90qEUSOoGVO_aQ#Value", "Sort by"))],
+_idProps: {
+service: idService,
+uuid: "63"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.toggleShowFilters$Action(false, controller.callContext(eventHandlerContext));
+
+;
+},
+style: "neutral-button gtm-filter-open",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "64"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "65"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, "Filter"), React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "filter"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "66",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))), $if(model.variables.getProductListAndCategoryInfoDataAct.isDataFetchedAttr, false, this, function () {
+return [React.createElement(OSWidgets.Dropdown, {
+_validationProps: {
+validationService: validationService
+},
+dropdownMode: /*Custom*/ 1,
+enabled: true,
+extendedEvents: {
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_SortDropdown$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+list: model.variables.getProductListAndCategoryInfoDataAct.sortListOut,
+mandatory: false,
+style: "dropdown dropdown-sort-options gtm-sort-options-dropdown",
+values: function (elem) {
+return elem.uRLAttr;
+},
+variable: model.createVariable(OS.Types.Text, model.variables.selectedSortVar, function (value) {
+model.variables.selectedSortVar = value;
+}),
+_idProps: {
+service: idService,
+name: "SortDropdown"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+list_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.getProductListAndCategoryInfoDataAct.sortListOut.getCurrent(callContext.iterationContext).nameAttr,
+_idProps: {
+service: idService,
+uuid: "68"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr),
+_dependencies: []
+})];
+}, callContext, idService, "4")
+},
+_dependencies: [asPrimitiveValue(model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr)]
+})];
+}, function () {
+return [$if(true, false, this, function () {
+return [];
+}, function () {
+return [];
+})];
+})))), $if((model.variables.isFirstDataFetchedVar || model.variables.hideDummyVar), false, this, function () {
+return [$if(!(model.variables.productList_AllVar.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "69"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"infinite-scroll-threshold": model.getCachedValue(idService.getId("ProductsList.infinite-scroll-threshold"), function () {
+return (((model.variables.isDesktopIn) ? (2000) : (1000))).toString();
+}, function () {
+return model.variables.isDesktopIn;
+}),
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+onScrollEnding: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_OnScrollEnding$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+source: model.variables.productList_AllVar,
+style: "list list-group plp-results-list",
+tag: "div",
+_idProps: {
+service: idService,
+name: "ProductsList"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedEvents: {
+"componentDidMount": function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.componentDidMount_ProductList$Action((model.variables.productList_AllVar.getCurrentRowNumber(callContext.iterationContext)).toString(), controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+extendedProperties: {
+title: model.variables.productList_AllVar.getCurrent(callContext.iterationContext).nameAttr,
+"aria-label": ((model.variables.productList_AllVar.getCurrent(callContext.iterationContext).nameAttr + " ") + model.variables.productList_AllVar.getCurrent(callContext.iterationContext).product_SubtitleAttr)
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(model.variables.productList_AllVar.getCurrent(callContext.iterationContext).slugAttr, OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "produt_item_link"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.isCustomerUnderAgeIn), asPrimitiveValue(model.variables.isMobileIn), asPrimitiveValue(model.variables._isCustomerUnderAgeInDataFetchStatus), asPrimitiveValue(model.variables._isMobileInDataFetchStatus), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.periodVar.toDateAttr), asPrimitiveValue(model.variables.storeChannelVar), asPrimitiveValue(model.variables.productList_AllVar.getCurrentRowNumber(callContext.iterationContext)), asPrimitiveValue(model.variables.productList_AllVar.getCurrent(callContext.iterationContext))]
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+"product-index": (model.variables.productList_AllVar.getCurrentRowNumber(callContext.iterationContext)).toString()
+},
+style: model.getCachedValue(idService.getId("DXcnO6CLRE69+eLNM6zNlg.Style"), function () {
+return ((((((model.variables.productList_AllVar.getCurrent(callContext.iterationContext).citrusAdIdAttr) !== (""))) ? ("gtm-plp-ad") : ("")) + " ") + "display-inline");
+}, function () {
+return model.variables.productList_AllVar.getCurrent(callContext.iterationContext).citrusAdIdAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "72"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECP_Product_CW_ProductList_ProductItem_mvc_view, {
+inputs: {
+IsImgLazyLoaded: (model.variables.productList_AllVar.getCurrentRowNumber(callContext.iterationContext) > 8),
+ProductRowNumber: model.variables.productList_AllVar.getCurrentRowNumber(callContext.iterationContext),
+IsSponsored: model.getCachedValue(idService.getId("BOtFEjn3Ek2khAi8c8+eTQ.IsSponsored"), function () {
+return ((OS.BuiltinFunctions.trim(model.variables.productList_AllVar.getCurrent(callContext.iterationContext).citrusAdIdAttr)) !== (""));
+}, function () {
+return model.variables.productList_AllVar.getCurrent(callContext.iterationContext).citrusAdIdAttr;
+}),
+ChannelId: model.variables.storeChannelVar,
+ItemListName: "Promotions",
+PromotionPeriod_EndDate: model.variables.periodVar.toDateAttr,
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+CenterCTAButton: !(model.variables.isMobileIn),
+_centerCTAButtonInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isMobileInDataFetchStatus),
+ProductInfo: model.variables.productList_AllVar.getCurrent(callContext.iterationContext),
+ClickDelayValue: model.getCachedValue(idService.getId("BOtFEjn3Ek2khAi8c8+eTQ.ClickDelayValue"), function () {
+return CMS_MonolithController.default.getClickDelay$Action(callContext).clickDelayOut;
+}),
+IsLocalItem: model.variables.productList_AllVar.getCurrent(callContext.iterationContext).isLocalItemAttr,
+IsCustomerUnderAge: model.variables.isCustomerUnderAgeIn,
+_isCustomerUnderAgeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isCustomerUnderAgeInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+forceRefresh$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_ForceRefresh$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+cartOrdered$Action: function (checkoutIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CartOrdered$Action(checkoutIdIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "73",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})))];
+}, callContext, idService, "5")
+},
+_dependencies: [asPrimitiveValue(model.variables.isCustomerUnderAgeIn), asPrimitiveValue(model.variables.isMobileIn), asPrimitiveValue(model.variables._isCustomerUnderAgeInDataFetchStatus), asPrimitiveValue(model.variables._isMobileInDataFetchStatus), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.periodVar.toDateAttr), asPrimitiveValue(model.variables.storeChannelVar)]
+}), React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getPromotionBannersDataAct.promotionBannersListOut,
+style: "list list-group promotion-banner-list",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "74"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getPromotionBannersDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "promotion-banner",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "75"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.storeChannelVar), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.isDesktopIn), asPrimitiveValue(model.variables.isTabletIn), asPrimitiveValue(model.variables.isMobileIn), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._isDesktopInDataFetchStatus), asPrimitiveValue(model.variables._isTabletInDataFetchStatus), asPrimitiveValue(model.variables._isMobileInDataFetchStatus), asPrimitiveValue(model.variables.getPromotionBannersDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getPromotionBannersDataAct.promotionBannersListOut.length), asPrimitiveValue(model.variables.getPromotionBannersDataAct.promotionBannersListOut.getCurrentRowNumber(callContext.iterationContext)), asPrimitiveValue(model.variables.getPromotionBannersDataAct.promotionBannersListOut.getCurrent(callContext.iterationContext))]
+}, React.createElement(CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, {
+inputs: {
+ProductPromotionBanner: model.variables.getPromotionBannersDataAct.promotionBannersListOut.getCurrent(callContext.iterationContext),
+_productPromotionBannerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getPromotionBannersDataAct.dataFetchStatusAttr),
+ActiveDevice: model.getCachedValue(idService.getId("WdKre4X+i0CP7dmla20_3g.ActiveDevice"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_ActiveDeviceRec();
+rec.isPhoneAttr = model.variables.isMobileIn;
+rec.isTabletAttr = model.variables.isTabletIn;
+rec.isDesktopAttr = model.variables.isDesktopIn;
+return rec;
+}();
+}, function () {
+return model.variables.isMobileIn;
+}, function () {
+return model.variables.isTabletIn;
+}, function () {
+return model.variables.isDesktopIn;
+}),
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isMobileInDataFetchStatus, model.variables._isTabletInDataFetchStatus, model.variables._isDesktopInDataFetchStatus),
+IsPlpVersion: true,
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+ChannelId: model.variables.storeChannelVar
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+forceRefresh$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_ForceRefresh$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditingIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditingIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "76",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), $if((model.variables.getPromotionBannersDataAct.promotionBannersListOut.getCurrentRowNumber(callContext.iterationContext) === (model.variables.getPromotionBannersDataAct.promotionBannersListOut.length - 1)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.componentDidMount_PromotionBanners$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+style: "sr-only",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "77"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+}))];
+}, callContext, idService, "6")
+},
+_dependencies: [asPrimitiveValue(model.variables.storeChannelVar), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.isDesktopIn), asPrimitiveValue(model.variables.isTabletIn), asPrimitiveValue(model.variables.isMobileIn), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._isDesktopInDataFetchStatus), asPrimitiveValue(model.variables._isTabletInDataFetchStatus), asPrimitiveValue(model.variables._isMobileInDataFetchStatus), asPrimitiveValue(model.variables.getPromotionBannersDataAct.dataFetchStatusAttr)]
+}), $if(model.variables.isListRenderedVar, false, this, function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_GridNumberOfColumnsPerRow_OnResizeChange_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+mutationEvent_Trigger$Action: function (numberOfColumnsIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_OnResize_GridNumberOfCols$Action(numberOfColumnsIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "78",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+}), $if(model.variables.getReleaseToggleDataAct.eCOP_9523_IsEnabledOut, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "ObservedContainer_EndOfProductsList"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(ECOP_Base_RPat_CustomPatterns_IntersectionObserver_mvc_view, {
+inputs: {
+RootMargin: "500px",
+RootElementIsScreenContainer: true,
+TargetElementWidgetId: idService.getId("ObservedContainer_EndOfProductsList")
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+onObserved$Action: function (intersectionObserverEntriesIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_OnObservedEndOfList$Action(intersectionObserverEntriesIn, controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "IntersectionObserver",
+alias: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})), $if(model.variables.isLoadingMoreVar, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "text-align-center text-neutral-8 padding-y-xxxl",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "81"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Image, {
+type: /*External*/ 1,
+url: model.getCachedValue(idService.getId("srDr25Zx5Ui1Wuej7b9eOQ.Url"), function () {
+return CMS_MonolithController.default.getStaticImage$Action("ecop-spinner-gif", 0, 0, 0, "", false, callContext).urlOut;
+}),
+_idProps: {
+service: idService,
+uuid: "82"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.bottomContent,
+style: "ph plp-results-wrapper__bottom-content",
+_idProps: {
+service: idService,
+name: "BottomContent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+})];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "84",
+alias: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "85",
+alias: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}))];
+}))];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "86",
+alias: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_view, {
+inputs: {
+IsDesktop: model.variables.isDesktopIn,
+_isDesktopInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isDesktopInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "87",
+alias: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._isDesktopInDataFetchStatus), asPrimitiveValue(model.variables.isDesktopIn)]
+})];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Composition_CW.controller", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Promotion_CW.model", "ECP_Product_BL.model", "CMS_Monolith.model", "ECOP_FE_Core.model", "ECOP_Base_RPat.controller", "ECP_Promotion_CW.controller", "ECP_Cart_CW.controller", "ECP_GlobalSearch_IS.model", "ECOP_ReleaseTogglesReactive.controller", "ECP_Composition_CW.languageResources", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$translationsResources", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ToggleShowFilters.NavigateBeforeFiltersJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ToggleShowFilters.CheckIfNavigationIsNeededJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ToggleShowFilters.NavigateJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ComponentDidMount_PromotionBanners.BannerPlacementTimeoutJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnInitialize.CheckIfIsBackButtonNavigationJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.Handler_OnObservedEndOfList.JavaScript1JS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnReady.JS_ExposeActionsJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnClick_ClearAllFilters.NavigateJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.JS_InitSponsoredProductsViewport.InitSponsoredProductsViewportJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnAfterFetch_GetProductList.ShowData_AsyncJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnAfterFetch_GetProductList.BannerPlacementTimeoutJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnKeypress.UserPressedReturnKeyJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.Handler_FilterOrSort.ScrollToTopJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ComponentDidMount_ProductList.BannerPlacementTimeoutJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ComponentDidMount_ProductList.SponsoredProductViewport_TimeoutJS", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnChange_FilterOrSortBy.NavigateJS", "CMS_Monolith.controller$GetStaticImage", "ECP_Composition_CW.referencesHealth", "ECP_Composition_CW.referencesHealth$CMS_Monolith", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECP_Composition_CW.referencesHealth$ECOP_FE_Core", "CMS_Monolith.controller$GetClickDelay", "ECP_Composition_CW.model$Filter_ItemList", "ECP_Composition_CW.model$PLP_StrList", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Composition_CW.referencesHealth$ECP_Promotion_CW", "ECP_Composition_CW.model$LineItemList", "ECP_Product_BL.model$PLP_StrRec", "ECP_Composition_CW.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "ECP_Composition_CW.model$Logo_InfoList", "ECP_Composition_CW.model$TextRecordList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_MediaRec", "ECP_Composition_CW.model$ProductPromotionDetailsList", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECP_Composition_CW.model$GTM_ProductItemList", "ECOP_FE_Core.controller$GTMEvent_SponsoredProductView", "ECOP_FE_Core.controller$GTMFormat_ItemListId", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECOP_Base_RPat.controller$BannerPlacement", "ECP_Composition_CW.referencesHealth$ECOP_Base_RPat", "ECP_Composition_CW.controller$SanitizeFilterURL", "ECOP_Base_RPat.controller$IntersectionObserver_Disconnect", "ECP_Composition_CW.model$FilterExtended_StrList", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$IsPreloadedHTML", "ECOP_FE_Core.controller$OrderEdit_Get", "ECOP_FE_Core.controller$Cart_Client_GetId", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Promotion_CW.controller$WeekPeriodForDay_Get", "ECP_Cart_CW.controller$Cart_GetItemsList", "ECP_Composition_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP_FE_Core.controller$Get_Client_UserStoreNumber", "ECP_GlobalSearch_IS.model$Filter_ItemRec", "ECP_Composition_CW.referencesHealth$ECP_GlobalSearch_IS", "ECP_Composition_CW.model$IntersectionObserverEntryList", "ECOP_FE_Core.controller$GTMEvent_ViewItemList", "ECOP_FE_Core.controller$GTMEvent_Search_SuggestionTerm", "ECOP_FE_Core.controller$Set_GTM_Tweakwise", "ECOP_FE_Core.controller$GTMFormat_Coupon", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Composition_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECP_Composition_CW.model$PLP_StrIntegerRecordList", "ECP_Composition_CW.model$Sort_ItemList", "ECOP_Base_RPat.controller$Format_StringSplit", "ECP_Composition_CW.model$ProductPromotionBannerList", "ECP_GlobalSearch_IS.model$Filter_StrRec"], function (OutSystems, ECP_Composition_CWModel, ECP_Composition_CWController, CMS_MonolithController, ECOP_FE_CoreController, ECP_Promotion_CWModel, ECP_Product_BLModel, CMS_MonolithModel, ECOP_FE_CoreModel, ECOP_Base_RPatController, ECP_Promotion_CWController, ECP_Cart_CWController, ECP_GlobalSearch_ISModel, ECOP_ReleaseTogglesReactiveController, ECP_Composition_CWLanguageResources, ECP_Composition_CW_ProductLists_PLP_Content_mvc_TranslationsResources, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ToggleShowFilters_NavigateBeforeFiltersJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ToggleShowFilters_CheckIfNavigationIsNeededJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ToggleShowFilters_NavigateJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ComponentDidMount_PromotionBanners_BannerPlacementTimeoutJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnInitialize_CheckIfIsBackButtonNavigationJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_Handler_OnObservedEndOfList_JavaScript1JS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnReady_JS_ExposeActionsJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnClick_ClearAllFilters_NavigateJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_JS_InitSponsoredProductsViewport_InitSponsoredProductsViewportJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnAfterFetch_GetProductList_ShowData_AsyncJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnAfterFetch_GetProductList_BannerPlacementTimeoutJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnKeypress_UserPressedReturnKeyJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_Handler_FilterOrSort_ScrollToTopJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ComponentDidMount_ProductList_BannerPlacementTimeoutJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ComponentDidMount_ProductList_SponsoredProductViewport_TimeoutJS, ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnChange_FilterOrSortBy_NavigateJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+validateMobileFilterResize$Action: function () {
+return controller.executeActionInsideJSNode(controller._validateMobileFilterResize$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ValidateMobileFilterResize");
+},
+handler_ForceRefreshWhenTimeslotIsModified$Action: function () {
+return controller.executeActionInsideJSNode(controller._handler_ForceRefreshWhenTimeslotIsModified$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Handler_ForceRefreshWhenTimeslotIsModified");
+},
+elementVisibleViewport$Action: function (currentRowNumberIn) {
+currentRowNumberIn = (currentRowNumberIn === undefined) ? 0 : currentRowNumberIn;
+return controller.executeActionInsideJSNode(controller._elementVisibleViewport$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(currentRowNumberIn, OS.Types.Integer)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ElementVisibleViewport");
+},
+showData$Action: function () {
+return controller.executeActionInsideJSNode(controller._showData$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ShowData");
+},
+jS_InitSponsoredProductsViewport$Action: function () {
+return controller.executeActionInsideJSNode(controller._jS_InitSponsoredProductsViewport$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "JS_InitSponsoredProductsViewport");
+}
+};
+this.dataFetchDependenciesOriginal = {
+getReleaseToggle$DataActRefresh: 0,
+getPromotionBanners$DataActRefresh: 0,
+getProductListAndCategoryInfo$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getReleaseToggle$DataActRefresh: [],
+getPromotionBanners$DataActRefresh: [],
+getProductListAndCategoryInfo$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Composition_CW_ProductLists_PLP_Content_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.getReleaseToggle$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetReleaseToggle", "screenservices/ECP_Composition_CW/ProductLists/PLP_Content/DataActionGetReleaseToggle", "NcihXNlqoQNBWB1HCM3FMw", function (b) {
+model.variables.getReleaseToggleDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getReleaseToggleDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getReleaseToggleDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true);
+};
+Controller.prototype.getPromotionBanners$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetPromotionBanners", "screenservices/ECP_Composition_CW/ProductLists/PLP_Content/DataActionGetPromotionBanners", "7P7a6BOu_1R4hZ0ztWRuqg", function (b) {
+model.variables.getPromotionBannersDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getPromotionBannersDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getPromotionBannersDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true);
+};
+Controller.prototype.getProductListAndCategoryInfo$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetProductListAndCategoryInfo", "screenservices/ECP_Composition_CW/ProductLists/PLP_Content/DataActionGetProductListAndCategoryInfo", "cafT+CKg7ockKx+9Kx_BsQ", function (b) {
+model.variables.getProductListAndCategoryInfoDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getProductListAndCategoryInfoDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getProductListAndCategoryInfoDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true).then(function () {
+return controller._onAfterFetch_GetProductList$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["getReleaseToggle$DataActRefresh", "getPromotionBanners$DataActRefresh", "getProductListAndCategoryInfo$DataActRefresh"];
+// Client Actions
+Controller.prototype._elementVisibleViewport$Action = function (currentRowNumberIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ElementVisibleViewport");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.ElementVisibleViewport$vars"))());
+vars.value.currentRowNumberInLocal = currentRowNumberIn;
+// Execute Action: GTMEvent_SponsoredProductView
+ECOP_FE_CoreController.default.gTMEvent_SponsoredProductView$Action(function () {
+var list = new ECP_Composition_CWModel.GTM_ProductItemList();
+list.pushAll([function () {
+var rec = new ECOP_FE_CoreModel.GTM_ProductItemRec();
+rec.item_idAttr = model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).sKUAttr;
+rec.item_nameAttr = model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).nameAttr;
+rec.currencyAttr = "EUR";
+rec.item_brandAttr = model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).brandAttr;
+rec.item_categoryAttr = ((!(model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.isEmpty)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(0).nameAttr) : (""));
+rec.item_category2Attr = (((!(model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.isEmpty) && (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length >= 2))) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(1).nameAttr) : (""));
+rec.item_category3Attr = (((!(model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.isEmpty) && (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length >= 3))) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(2).nameAttr) : (""));
+rec.item_category4Attr = (((!(model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.isEmpty) && (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length >= 4))) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(3).nameAttr) : (""));
+rec.item_list_idAttr = ECOP_FE_CoreController.default.gTMFormat_ItemListId$Action((((model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length === 4)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(3).nameAttr) : ((((model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length === 3)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(2).nameAttr) : ((((model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length === 2)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(1).nameAttr) : ((((model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length === 1)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(0).nameAttr) : ("")))))))), callContext).formatedTextOut;
+rec.item_list_nameAttr = (((model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length === 4)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(3).nameAttr) : ((((model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length === 3)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(2).nameAttr) : ((((model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length === 2)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(1).nameAttr) : ((((model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.length === 1)) ? (model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).categoriesAttr.getItem(0).nameAttr) : (""))))))));
+rec.sponsor_idAttr = model.variables.productList_AllVar.getItem(vars.value.currentRowNumberInLocal).citrusAdIdAttr;
+rec.sponsor_location_indexAttr = (vars.value.currentRowNumberInLocal + 1);
+return rec;
+}()]);
+return list;
+}(), callContext);
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.ElementVisibleViewport$vars", [{
+name: "CurrentRowNumber",
+attrName: "currentRowNumberInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._handler_OnResize_GridNumberOfCols$Action = function (numberOfColumnsIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_OnResize_GridNumberOfCols");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.Handler_OnResize_GridNumberOfCols$vars"))());
+vars.value.numberOfColumnsInLocal = numberOfColumnsIn;
+// Execute Action: BannerPlacement
+ECOP_Base_RPatController.default.bannerPlacement$Action(".screen-container .plp-results-list > a", ".screen-container .promotion-banner-list .promotion-banner", ".screen-container .plp-results-list .promotion-banner", ".screen-container .promotion-banner-list", ".screen-container .plp-results-list", vars.value.numberOfColumnsInLocal, model.variables.getProductListAndCategoryInfoDataAct.totalNumberItemsOut, model.variables.isMobileIn, callContext);
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.Handler_OnResize_GridNumberOfCols$vars", [{
+name: "NumberOfColumns",
+attrName: "numberOfColumnsInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._toggleShowFilters$Action = function (isCancelIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ToggleShowFilters");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.ToggleShowFilters$vars"))());
+vars.value.isCancelInLocal = isCancelIn;
+var checkIfNavigationIsNeededJSResult = new OS.DataTypes.VariableHolder();
+// ShowFilters = notShowFilters
+model.variables.showFiltersVar = !(model.variables.showFiltersVar);
+// not ShowFilters
+if((!(model.variables.showFiltersVar))) {
+// Not cancel
+if((!(vars.value.isCancelInLocal))) {
+checkIfNavigationIsNeededJSResult.value = controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ToggleShowFilters_CheckIfNavigationIsNeededJS, "CheckIfNavigationIsNeeded", "ToggleShowFilters", {
+FilterUrl: OS.DataConversion.JSNodeParamConverter.to(ECP_Composition_CWController.default.sanitizeFilterURL$Action(model.variables.filterQueryURLIn, callContext).sanitizedFilterURLOut, OS.Types.Text),
+NeedsNavigation: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.ToggleShowFilters$checkIfNavigationIsNeededJSResult"))();
+jsNodeResult.needsNavigationOut = OS.DataConversion.JSNodeParamConverter.from($parameters.NeedsNavigation, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// Navigation needed
+if((checkIfNavigationIsNeededJSResult.value.needsNavigationOut)) {
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ToggleShowFilters_NavigateJS, "Navigate", "ToggleShowFilters", {
+FilteredURL: OS.DataConversion.JSNodeParamConverter.to(ECP_Composition_CWController.default.sanitizeFilterURL$Action(model.variables.filterQueryURLIn, callContext).sanitizedFilterURLOut, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+}
+
+} else {
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ToggleShowFilters_NavigateBeforeFiltersJS, "NavigateBeforeFilters", "ToggleShowFilters", null, function ($parameters) {
+}, {}, {});
+}
+
+}
+
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.ToggleShowFilters$vars", [{
+name: "IsCancel",
+attrName: "isCancelInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.ToggleShowFilters$checkIfNavigationIsNeededJSResult", [{
+name: "NeedsNavigation",
+attrName: "needsNavigationOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._componentDidMount_PromotionBanners$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComponentDidMount_PromotionBanners");
+callContext = controller.callContext(callContext);
+// IsPromotionBannersFetched = True
+model.variables.isPromotionBannersFetchedVar = true;
+if((model.variables.isListRenderedVar)) {
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ComponentDidMount_PromotionBanners_BannerPlacementTimeoutJS, "BannerPlacementTimeout", "ComponentDidMount_PromotionBanners", {
+TotalNumberItems: OS.DataConversion.JSNodeParamConverter.to(model.variables.getProductListAndCategoryInfoDataAct.totalNumberItemsOut, OS.Types.Integer),
+IsMobile: OS.DataConversion.JSNodeParamConverter.to(model.variables.isMobileIn, OS.Types.Boolean)
+}, function ($parameters) {
+}, {
+BannerPlacement: ECOP_Base_RPatController.default.clientActionProxies.bannerPlacement$Action
+}, {});
+}
+
+};
+Controller.prototype._handler_OnScrollEnding$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_OnScrollEnding");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+if((model.variables.getReleaseToggleDataAct.eCOP_9523_IsEnabledOut)) {
+// IsLoadingMore?
+if((model.variables.isLoadingMoreVar)) {
+return OS.Flow.returnAsync();
+
+} else {
+// LastPage?
+if(((model.variables.pageNumberVar >= model.variables.getProductListAndCategoryInfoDataAct.totalPagesOut))) {
+// Execute Action: IntersectionObserver_Disconnect
+ECOP_Base_RPatController.default.intersectionObserver_Disconnect$Action(idService.getId("IntersectionObserver"), callContext);
+return OS.Flow.returnAsync();
+
+}
+
+}
+
+} else {
+// LastPage?
+if(((model.variables.pageNumberVar >= model.variables.getProductListAndCategoryInfoDataAct.totalPagesOut))) {
+return OS.Flow.returnAsync();
+
+}
+
+}
+
+// IsLoadingMore = True
+model.variables.isLoadingMoreVar = true;
+// PageNumber = PageNumber + 1
+model.variables.pageNumberVar = (model.variables.pageNumberVar + 1);
+// FilterExpandedList = GetProductListAndCategoryInfo.FilterList
+model.variables.filterExpandedListVar = OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.getProductListAndCategoryInfoDataAct.filterListOut, new OS.DataTypes.BooleanList(), function (source, target) {
+target = source.isExpandedAttr;
+return target;
+});
+// Refresh Query: GetProductListAndCategoryInfo
+var result = controller.getProductListAndCategoryInfo$DataActRefresh(callContext);
+model.flush();
+return result.then(function () {
+// IsLoadingMore = False
+model.variables.isLoadingMoreVar = false;
+});
+});
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var isOrderEditMode_GetVar = new OS.DataTypes.VariableHolder();
+var isPreloadedHTMLVar = new OS.DataTypes.VariableHolder();
+var orderEdit_GetVar = new OS.DataTypes.VariableHolder();
+var cart_Client_GetIdVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreIdVar = new OS.DataTypes.VariableHolder();
+var weekPeriodForDay_GetVar = new OS.DataTypes.VariableHolder();
+var cart_GetItemsListVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreChannelIdVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreNumberVar = new OS.DataTypes.VariableHolder();
+var checkIfIsBackButtonNavigationJSResult = new OS.DataTypes.VariableHolder();
+// Execute Action: IsPreloadedHTML
+isPreloadedHTMLVar.value = ECOP_FE_CoreController.default.isPreloadedHTML$Action(callContext);
+
+// IsPromotionBannersFetched = False
+model.variables.isPromotionBannersFetchedVar = false;
+// IsListRendered = False
+model.variables.isListRenderedVar = false;
+// HideDummy = IsPreloadedHTML.IsActive
+model.variables.hideDummyVar = isPreloadedHTMLVar.value.isActiveOut;
+checkIfIsBackButtonNavigationJSResult.value = controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnInitialize_CheckIfIsBackButtonNavigationJS, "CheckIfIsBackButtonNavigation", "OnInitialize", {
+IsBackButtonNavigation: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnInitialize$checkIfIsBackButtonNavigationJSResult"))();
+jsNodeResult.isBackButtonNavigationOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsBackButtonNavigation, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// Not from back btn navigation
+if((!(!(checkIfIsBackButtonNavigationJSResult.value.isBackButtonNavigationOut)))) {
+// Reset side menu control var
+// ShowFilters = False
+model.variables.showFiltersVar = false;
+// PageNumber = 1
+model.variables.pageNumberVar = 1;
+}
+
+if((((model.variables.uRLPageNumberIn) !== (0)))) {
+// PageNumber = URLPageNumber
+model.variables.pageNumberVar = model.variables.uRLPageNumberIn;
+}
+
+// Reset IsShowData
+// IsShowData = False
+model.variables.isShowDataVar = false;
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.productList_AllVar, callContext);
+// Execute Action: Get_Client_UserStoreNumber
+get_Client_UserStoreNumberVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreNumber$Action(callContext);
+
+// Execute Action: OrderEdit_Get
+orderEdit_GetVar.value = ECOP_FE_CoreController.default.orderEdit_Get$Action(callContext);
+
+// Execute Action: Get_Client_UserStoreId
+get_Client_UserStoreIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext);
+
+// Execute Action: Cart_Client_GetId
+cart_Client_GetIdVar.value = ECOP_FE_CoreController.default.cart_Client_GetId$Action(callContext);
+
+// Execute Action: Get_Client_UserStoreChannelId
+get_Client_UserStoreChannelIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreChannelId$Action(callContext);
+
+// Execute Action: IsOrderEditMode_Get
+isOrderEditMode_GetVar.value = ECOP_FE_CoreController.default.isOrderEditMode_Get$Action(callContext);
+
+// Execute Action: WeekPeriodForDay_Get
+weekPeriodForDay_GetVar.value = ECP_Promotion_CWController.default.weekPeriodForDay_Get$Action(OS.BuiltinFunctions.currDate(), callContext);
+
+// Execute Action: Cart_GetItemsList
+cart_GetItemsListVar.value = ECP_Cart_CWController.default.cart_GetItemsList$Action(callContext);
+
+// Set locals
+// StoreNumber = Get_Client_UserStoreNumber.StoreNumber
+model.variables.storeNumberVar = get_Client_UserStoreNumberVar.value.storeNumberOut;
+// CheckoutId = Cart_Client_GetId.CartId
+model.variables.checkoutIdVar = cart_Client_GetIdVar.value.cartIdOut;
+// StoreChannel = Get_Client_UserStoreChannelId.UserStoreChannelId
+model.variables.storeChannelVar = get_Client_UserStoreChannelIdVar.value.userStoreChannelIdOut;
+// IsOrderEditMode = IsOrderEditMode_Get.IsActive
+model.variables.isOrderEditModeVar = isOrderEditMode_GetVar.value.isActiveOut;
+// OrderEditId = OrderEdit_Get.OrderEditId
+model.variables.orderEditIdVar = orderEdit_GetVar.value.orderEditIdOut;
+// Period = WeekPeriodForDay_Get.Period
+model.variables.periodVar = weekPeriodForDay_GetVar.value.periodOut;
+// UserStoreId = Get_Client_UserStoreId.UserStoreId
+model.variables.userStoreIdVar = get_Client_UserStoreIdVar.value.userStoreIdOut;
+// ItemsInCart = Cart_GetItemsList.ItemsList
+model.variables.itemsInCartVar = cart_GetItemsListVar.value.itemsListOut;
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnInitialize$checkIfIsBackButtonNavigationJSResult", [{
+name: "IsBackButtonNavigation",
+attrName: "isBackButtonNavigationOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onClick_Filter$Action = function (clickedFilterIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_Filter");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnClick_Filter$vars"))());
+vars.value.clickedFilterInLocal = clickedFilterIn.clone();
+return OS.Flow.executeAsyncFlow(function () {
+// ToggleIsSelected
+// GetProductListAndCategoryInfo.FilterList.Current.Filter_Str.FilterItem.Current.IsSelected = GetProductListAndCategoryInfo.FilterList.Current.Filter_Str.FilterItem.Current.IsSelected
+model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr = model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).filter_StrAttr.filterItemAttr.getCurrent(callContext.iterationContext).isSelectedAttr;
+// Execute Action: OnChange_FilterOrSortBy
+return controller._onChange_FilterOrSortBy$Action(vars.value.clickedFilterInLocal.uRLAttr, false, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnClick_Filter$vars", [{
+name: "ClickedFilter",
+attrName: "clickedFilterInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_GlobalSearch_ISModel.Filter_ItemRec();
+},
+complexType: ECP_GlobalSearch_ISModel.Filter_ItemRec
+}]);
+Controller.prototype._handler_ForceRefreshWhenTimeslotIsModified$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ForceRefreshWhenTimeslotIsModified");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// IsShowData = False
+model.variables.isShowDataVar = false;
+// Execute Action: ListClear_PLPList
+OS.SystemActions.listClear(model.variables.productList_AllVar, callContext);
+// Refresh Query: GetProductListAndCategoryInfo
+var result = controller.getProductListAndCategoryInfo$DataActRefresh(callContext);
+model.flush();
+return result.then(function () {
+// IsShowData = True
+model.variables.isShowDataVar = true;
+});
+});
+};
+Controller.prototype._validateMobileFilterResize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ValidateMobileFilterResize");
+callContext = controller.callContext(callContext);
+// FiltersSidebarOpen?
+if((model.variables.showFiltersVar)) {
+// Execute Action: ToggleShowFilters
+controller._toggleShowFilters$Action(false, callContext);
+}
+
+};
+Controller.prototype._handler_OnObservedEndOfList$Action = function (intersectionObserverEntryListIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_OnObservedEndOfList");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.Handler_OnObservedEndOfList$vars"))());
+vars.value.intersectionObserverEntryListInLocal = intersectionObserverEntryListIn.clone();
+var listIndexOf_IsIntersectingVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((model.variables.getReleaseToggleDataAct.eCOP_9523_IsEnabledOut)) {
+// Execute Action: ListIndexOf_IsIntersecting
+listIndexOf_IsIntersectingVar.value = OS.SystemActions.listIndexOf(vars.value.intersectionObserverEntryListInLocal, function (p) {
+return p.isIntersectingAttr;
+}, callContext);
+
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_Handler_OnObservedEndOfList_JavaScript1JS, "JavaScript1", "Handler_OnObservedEndOfList", {
+EntryListLength: OS.DataConversion.JSNodeParamConverter.to(vars.value.intersectionObserverEntryListInLocal.length, OS.Types.Integer),
+IsIntersecting: OS.DataConversion.JSNodeParamConverter.to(((listIndexOf_IsIntersectingVar.value.positionOut) !== (-1)), OS.Types.Boolean)
+}, function ($parameters) {
+}, {}, {});
+// IsLoadingMore?
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.isLoadingMoreVar))) {
+// IsIntersecting?
+return OS.Flow.executeSequence(function () {
+if((((listIndexOf_IsIntersectingVar.value.positionOut) !== (-1)))) {
+// LastPage?
+return OS.Flow.executeSequence(function () {
+if(((model.variables.pageNumberVar >= model.variables.getProductListAndCategoryInfoDataAct.totalPagesOut))) {
+// Execute Action: IntersectionObserver_Disconnect
+ECOP_Base_RPatController.default.intersectionObserver_Disconnect$Action(idService.getId("IntersectionObserver"), callContext);
+} else {
+// IsLoadingMore = True
+model.variables.isLoadingMoreVar = true;
+// PageNumber = PageNumber + 1
+model.variables.pageNumberVar = (model.variables.pageNumberVar + 1);
+// FilterExpandedList = GetProductListAndCategoryInfo.FilterList
+model.variables.filterExpandedListVar = OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.getProductListAndCategoryInfoDataAct.filterListOut, new OS.DataTypes.BooleanList(), function (source, target) {
+target = source.isExpandedAttr;
+return target;
+});
+// Refresh Query: GetProductListAndCategoryInfo
+var result = controller.getProductListAndCategoryInfo$DataActRefresh(callContext);
+model.flush();
+return result.then(function () {
+// IsLoadingMore = False
+model.variables.isLoadingMoreVar = false;
+});
+}
+
+});
+}
+
+});
+}
+
+});
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.Handler_OnObservedEndOfList$vars", [{
+name: "IntersectionObserverEntryList",
+attrName: "intersectionObserverEntryListInLocal",
+mandatory: true,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Composition_CWModel.IntersectionObserverEntryList();
+},
+complexType: ECP_Composition_CWModel.IntersectionObserverEntryList
+}]);
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var jS_ExposeActionsJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+jS_ExposeActionsJSResult.value = controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnReady_JS_ExposeActionsJS, "JS_ExposeActions", "OnReady", {
+ValidateMobileFilterResize_Obj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object),
+Handler_ForceRefresh_Obj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnReady$jS_ExposeActionsJSResult"))();
+jsNodeResult.validateMobileFilterResize_ObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ValidateMobileFilterResize_Obj, OS.Types.Object);
+jsNodeResult.handler_ForceRefresh_ObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Handler_ForceRefresh_Obj, OS.Types.Object);
+return jsNodeResult;
+}, {
+ValidateMobileFilterResize: controller.clientActionProxies.validateMobileFilterResize$Action,
+Handler_ForceRefreshWhenTimeslotIsModified: controller.clientActionProxies.handler_ForceRefreshWhenTimeslotIsModified$Action
+}, {});
+// Trigger Event: ExposeActions
+return controller.exposeActions$Action(jS_ExposeActionsJSResult.value.validateMobileFilterResize_ObjOut, jS_ExposeActionsJSResult.value.handler_ForceRefresh_ObjOut, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnReady$jS_ExposeActionsJSResult", [{
+name: "ValidateMobileFilterResize_Obj",
+attrName: "validateMobileFilterResize_ObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "Handler_ForceRefresh_Obj",
+attrName: "handler_ForceRefresh_ObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._handler_ForceRefresh$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ForceRefresh");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ListClear_PLPList
+OS.SystemActions.listClear(model.variables.productList_AllVar, callContext);
+// Refresh Query: GetProductListAndCategoryInfo
+var result = controller.getProductListAndCategoryInfo$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+Controller.prototype._handler_CartOrdered$Action = function (checkoutId2In, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CartOrdered");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.Handler_CartOrdered$vars"))());
+vars.value.checkoutId2InLocal = checkoutId2In;
+return OS.Flow.executeAsyncFlow(function () {
+// CheckoutId = CheckoutId2
+model.variables.checkoutIdVar = vars.value.checkoutId2InLocal;
+// Execute Action: Handler_ForceRefresh
+return controller._handler_ForceRefresh$Action(callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.Handler_CartOrdered$vars", [{
+name: "CheckoutId2",
+attrName: "checkoutId2InLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._showData$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ShowData");
+callContext = controller.callContext(callContext);
+// ShowData
+// IsShowData = True
+model.variables.isShowDataVar = true;
+// IsFirstDataFetched = True
+model.variables.isFirstDataFetchedVar = true;
+// IsLoadingMore = False
+model.variables.isLoadingMoreVar = false;
+// IsAlreadyFetch = True
+model.variables.isAlreadyFetchVar = true;
+// HideDummy = False
+model.variables.hideDummyVar = false;
+};
+Controller.prototype._onClick_ClearAllFilters$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_ClearAllFilters");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// IsDesktop
+if((model.variables.isDesktopIn)) {
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnClick_ClearAllFilters_NavigateJS, "Navigate", "OnClick_ClearAllFilters", {
+SearchKeyword: OS.DataConversion.JSNodeParamConverter.to(model.variables.searchKeywordIn, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+} else {
+// DUMMY
+}
+
+// Execute Action: Handler_FilterOrSort
+return controller._handler_FilterOrSort$Action("", callContext);
+});
+};
+Controller.prototype._jS_InitSponsoredProductsViewport$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("JS_InitSponsoredProductsViewport");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_JS_InitSponsoredProductsViewport_InitSponsoredProductsViewportJS, "InitSponsoredProductsViewport", "JS_InitSponsoredProductsViewport", null, function ($parameters) {
+}, {
+ElementVisibleViewport: controller.clientActionProxies.elementVisibleViewport$Action
+}, {});
+};
+Controller.prototype._onAfterFetch_GetProductList$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_GetProductList");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnAfterFetch_GetProductList$vars"))());
+var listIndexOf_SelectedSortVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((((model.variables.getProductListAndCategoryInfoDataAct.redirectURLOut) !== ("")))) {
+// Trigger Event: RedirectURL
+return controller.redirectURL$Action(model.variables.getProductListAndCategoryInfoDataAct.redirectURLOut, model.variables.getProductListAndCategoryInfoDataAct.isExternalURLOut, callContext);
+} else {
+return OS.Flow.executeSequence(function () {
+if(model.variables.getProductListAndCategoryInfoDataAct.isRedirectToNotFoundOut) {
+// Destination: /ECOP/pagina-niet-gevonden
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "pagina-niet-gevonden", {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+} else {
+// CategoryInfo
+// LocalCategoryID = GetProductListAndCategoryInfo.LocalCategoryID_Out
+model.variables.localCategoryIDVar = model.variables.getProductListAndCategoryInfoDataAct.localCategoryID_OutOut;
+// LocalCategoryParentId = GetProductListAndCategoryInfo.LocalCategoryParentId_Out
+model.variables.localCategoryParentIdVar = model.variables.getProductListAndCategoryInfoDataAct.localCategoryParentId_OutOut;
+// LocalCategoryName = GetProductListAndCategoryInfo.LocalCategoryName_Out
+model.variables.localCategoryNameVar = model.variables.getProductListAndCategoryInfoDataAct.localCategoryName_OutOut;
+// h1 = title
+// LocalCategoryTitle = GetProductListAndCategoryInfo.LocalCategory_h1Title_Out
+model.variables.localCategoryTitleVar = model.variables.getProductListAndCategoryInfoDataAct.localCategory_h1Title_OutOut;
+// Trigger Event: CategoryNameFetched
+return controller.categoryNameFetched$Action(model.variables.localCategoryNameVar, callContext).then(function () {
+// Execute Action: ListAppendTo_ProductsAll
+OS.SystemActions.listAppendAll(model.variables.productList_AllVar, OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.getProductListAndCategoryInfoDataAct.productListOut, new ECP_Composition_CWModel.PLP_StrList(), function (source, target) {
+target = source.pLP_StrAttr;
+return target;
+}), callContext);
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnAfterFetch_GetProductList_ShowData_AsyncJS, "ShowData_Async", "OnAfterFetch_GetProductList", null, function ($parameters) {
+}, {
+ShowData: controller.clientActionProxies.showData$Action
+}, {});
+}).then(function () {
+// SearchedBySuggestedTerm?
+if(((((!(model.variables.productList_AllVar.isEmpty) && ((model.variables.getProductListAndCategoryInfoDataAct.suggestedTermOut) !== (""))) && ((model.variables.searchKeywordIn) !== (""))) && ((model.variables.searchKeywordIn) !== (model.variables.getProductListAndCategoryInfoDataAct.suggestedTermOut))))) {
+// Execute Action: GTMEvent_Search_SuggestionTerm
+ECOP_FE_CoreController.default.gTMEvent_Search_SuggestionTerm$Action(model.variables.searchKeywordIn, model.variables.getProductListAndCategoryInfoDataAct.suggestedTermOut, callContext);
+}
+
+// Trigger Event: OnAfterFetch
+return controller.onAfterFetch$Action(model.variables.productList_AllVar.isEmpty, model.variables.getProductListAndCategoryInfoDataAct.totalPagesOut, !(model.variables.isFirstDataFetchedVar), callContext).then(function () {
+// Execute Action: ListIndexOf_SelectedSort
+listIndexOf_SelectedSortVar.value = OS.SystemActions.listIndexOf(model.variables.getProductListAndCategoryInfoDataAct.sortListOut, function (p) {
+return p.isSelectedAttr;
+}, callContext);
+
+});
+}).then(function () {
+// Found
+if((((listIndexOf_SelectedSortVar.value.positionOut) !== (-1)))) {
+// SelectedSort = GetProductListAndCategoryInfo.SortList[ListIndexOf_SelectedSort.Position].URL
+model.variables.selectedSortVar = model.variables.getProductListAndCategoryInfoDataAct.sortListOut.getItem(listIndexOf_SelectedSortVar.value.positionOut).uRLAttr;
+}
+
+// Execute Action: UpdateAppliedFiltersURLs
+controller._updateAppliedFiltersURLs$Action(callContext);
+// ECOP_8395
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Composition_CWModel.staticEntities.releaseToggle.eCOP_8395, callContext).isEnabledOut)) {
+// Execute Action: Set_GTM_Tweakwise
+ECOP_FE_CoreController.default.set_GTM_Tweakwise$Action(model.variables.getProductListAndCategoryInfoDataAct.tweakWiseIdOut, callContext);
+}
+
+// GTM_ItemListName = "PLP " + If
+vars.value.gTM_ItemListNameVar = ("PLP " + ((((model.variables.searchKeywordIn) !== (""))) ? (model.variables.searchKeywordIn) : ((((model.variables.productList_AllVar.getCurrent(callContext.iterationContext).categoriesAttr.length === 4)) ? (model.variables.productList_AllVar.getCurrent(callContext.iterationContext).categoriesAttr.getItem(3).nameAttr) : ((((model.variables.productList_AllVar.getCurrent(callContext.iterationContext).categoriesAttr.length === 3)) ? (model.variables.productList_AllVar.getCurrent(callContext.iterationContext).categoriesAttr.getItem(2).nameAttr) : ((((model.variables.productList_AllVar.getCurrent(callContext.iterationContext).categoriesAttr.length === 2)) ? (model.variables.productList_AllVar.getCurrent(callContext.iterationContext).categoriesAttr.getItem(1).nameAttr) : ((((model.variables.productList_AllVar.getCurrent(callContext.iterationContext).categoriesAttr.length === 1)) ? (model.variables.productList_AllVar.getCurrent(callContext.iterationContext).categoriesAttr.getItem(0).nameAttr) : ("")))))))))));
+// Execute Action: GTMEvent_ViewItemList
+ECOP_FE_CoreController.default.gTMEvent_ViewItemList$Action(OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.productList_AllVar, new ECP_Composition_CWModel.GTM_ProductItemList(), function (source, target) {
+target.item_idAttr = source.sKUAttr;
+target.item_nameAttr = source.nameAttr;
+target.affiliationAttr = (model.variables.storeNumberVar).toString();
+target.couponAttr = ECOP_FE_CoreController.default.gTMFormat_Coupon$Action(source.promotionLabelAttr, callContext).formatedTextOut;
+target.currencyAttr = "EUR";
+target.indexAttr = 0;
+target.item_brandAttr = source.brandAttr;
+target.item_categoryAttr = ((!(source.categoriesAttr.isEmpty)) ? (source.categoriesAttr.getItem(0).nameAttr) : (""));
+target.item_category2Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 2))) ? (source.categoriesAttr.getItem(1).nameAttr) : (""));
+target.item_category3Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 3))) ? (source.categoriesAttr.getItem(2).nameAttr) : (""));
+target.item_category4Attr = (((!(source.categoriesAttr.isEmpty) && (source.categoriesAttr.length >= 4))) ? (source.categoriesAttr.getItem(3).nameAttr) : (""));
+target.item_list_idAttr = ECOP_FE_CoreController.default.gTMFormat_ItemListId$Action(vars.value.gTM_ItemListNameVar, callContext).formatedTextOut;
+target.item_list_nameAttr = vars.value.gTM_ItemListNameVar;
+target.priceAttr = source.originalPriceAttr;
+target.quantityAttr = source.quantityAttr;
+return target;
+}), vars.value.gTM_ItemListNameVar, callContext);
+if((model.variables.isPromotionBannersFetchedVar)) {
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnAfterFetch_GetProductList_BannerPlacementTimeoutJS, "BannerPlacementTimeout", "OnAfterFetch_GetProductList", {
+IsMobile: OS.DataConversion.JSNodeParamConverter.to(model.variables.isMobileIn, OS.Types.Boolean),
+TotalNumberItems: OS.DataConversion.JSNodeParamConverter.to(model.variables.getProductListAndCategoryInfoDataAct.totalNumberItemsOut, OS.Types.Integer)
+}, function ($parameters) {
+}, {
+BannerPlacement: ECOP_Base_RPatController.default.clientActionProxies.bannerPlacement$Action
+}, {});
+}
+
+});
+}
+
+});
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnAfterFetch_GetProductList$vars", [{
+name: "GTM_ItemListName",
+attrName: "gTM_ItemListNameVar",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onClick_SortDropdown$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_SortDropdown");
+callContext = controller.callContext(callContext);
+var listIndexOf_SelectedSortVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ListIndexOf_SelectedSort
+listIndexOf_SelectedSortVar.value = OS.SystemActions.listIndexOf(model.variables.getProductListAndCategoryInfoDataAct.sortListOut, function (p) {
+return p.isSelectedAttr;
+}, callContext);
+
+// not found?
+if((!((listIndexOf_SelectedSortVar.value.positionOut === -1)))) {
+// Different sort?
+if((!(((model.variables.getProductListAndCategoryInfoDataAct.sortListOut.getItem(listIndexOf_SelectedSortVar.value.positionOut).uRLAttr) !== (model.variables.selectedSortVar))))) {
+return OS.Flow.returnAsync();
+
+}
+
+}
+
+// Execute Action: OnChange_FilterOrSortBy
+return controller._onChange_FilterOrSortBy$Action(model.variables.selectedSortVar, true, callContext);
+});
+};
+Controller.prototype._onKeypress$Action = function (clickedFilterIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnKeypress");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnKeypress$vars"))());
+vars.value.clickedFilterInLocal = clickedFilterIn.clone();
+var userPressedReturnKeyJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+userPressedReturnKeyJSResult.value = controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnKeypress_UserPressedReturnKeyJS, "UserPressedReturnKey", "OnKeypress", {
+IsLinkClick: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnKeypress$userPressedReturnKeyJSResult"))();
+jsNodeResult.isLinkClickOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsLinkClick, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+return OS.Flow.executeSequence(function () {
+if((userPressedReturnKeyJSResult.value.isLinkClickOut)) {
+// Execute Action: OnClick_Filter
+return controller._onClick_Filter$Action(vars.value.clickedFilterInLocal, callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnKeypress$vars", [{
+name: "ClickedFilter",
+attrName: "clickedFilterInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_GlobalSearch_ISModel.Filter_ItemRec();
+},
+complexType: ECP_GlobalSearch_ISModel.Filter_ItemRec
+}]);
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnKeypress$userPressedReturnKeyJSResult", [{
+name: "IsLinkClick",
+attrName: "isLinkClickOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._handler_FilterOrSort$Action = function (uRLQueryIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_FilterOrSort");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.Handler_FilterOrSort$vars"))());
+vars.value.uRLQueryInLocal = uRLQueryIn;
+return OS.Flow.executeAsyncFlow(function () {
+// FilterQueryURL = URLQuery
+model.variables.filterQueryURLIn = vars.value.uRLQueryInLocal;
+// PageNumber = 1
+model.variables.pageNumberVar = 1;
+// IsLoadingMore = True
+model.variables.isLoadingMoreVar = true;
+// IsFirstDataFetched = False
+model.variables.isFirstDataFetchedVar = false;
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_Handler_FilterOrSort_ScrollToTopJS, "ScrollToTop", "Handler_FilterOrSort", null, function ($parameters) {
+}, {}, {});
+// Execute Action: ListClear_ProductList_All
+OS.SystemActions.listClear(model.variables.productList_AllVar, callContext);
+// Refresh Query: GetProductListAndCategoryInfo
+var result = controller.getProductListAndCategoryInfo$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.Handler_FilterOrSort$vars", [{
+name: "URLQuery",
+attrName: "uRLQueryInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._componentDidMount_ProductList$Action = function (elementPositionIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComponentDidMount_ProductList");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.ComponentDidMount_ProductList$vars"))());
+vars.value.elementPositionInLocal = elementPositionIn;
+return OS.Flow.executeAsyncFlow(function () {
+// IsLastElement?
+return OS.Flow.executeSequence(function () {
+if(((vars.value.elementPositionInLocal === ((model.variables.productList_AllVar.length - 1)).toString()))) {
+// IsListRendered = True
+model.variables.isListRenderedVar = true;
+if((model.variables.isPromotionBannersFetchedVar)) {
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ComponentDidMount_ProductList_BannerPlacementTimeoutJS, "BannerPlacementTimeout", "ComponentDidMount_ProductList", {
+IsMobile: OS.DataConversion.JSNodeParamConverter.to(model.variables.isMobileIn, OS.Types.Boolean),
+TotalNumberItems: OS.DataConversion.JSNodeParamConverter.to(model.variables.getProductListAndCategoryInfoDataAct.totalNumberItemsOut, OS.Types.Integer)
+}, function ($parameters) {
+}, {
+BannerPlacement: ECOP_Base_RPatController.default.clientActionProxies.bannerPlacement$Action
+}, {});
+}
+
+// Trigger Event: ProductListMounted
+return controller.productListMounted$Action(callContext).then(function () {
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_ComponentDidMount_ProductList_SponsoredProductViewport_TimeoutJS, "SponsoredProductViewport_Timeout", "ComponentDidMount_ProductList", null, function ($parameters) {
+}, {
+JS_InitSponsoredProductsViewport: controller.clientActionProxies.jS_InitSponsoredProductsViewport$Action
+}, {});
+});
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.ComponentDidMount_ProductList$vars", [{
+name: "ElementPosition",
+attrName: "elementPositionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._toggleIsExpanded$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ToggleIsExpanded");
+callContext = controller.callContext(callContext);
+// GetProductListAndCategoryInfo.FilterList.Current.IsExpanded = notGetProductListAndCategoryInfo.FilterList.Current.IsExpanded
+model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr = !(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getCurrent(callContext.iterationContext).isExpandedAttr);
+};
+Controller.prototype._onChange_FilterOrSortBy$Action = function (uRLIn, isSortingIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnChange_FilterOrSortBy");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnChange_FilterOrSortBy$vars"))());
+vars.value.uRLInLocal = uRLIn;
+vars.value.isSortingInLocal = isSortingIn;
+var format_StringSplitVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+do {
+// Sorting?
+if((!(vars.value.isSortingInLocal))) {
+// Execute Action: Format_StringSplit
+format_StringSplitVar.value = ECOP_Base_RPatController.default.format_StringSplit$Action(model.variables.filterQueryURLIn, "&", callContext);
+
+// Filters and Sort values
+// Foreach Format_StringSplit.List
+callContext.iterationContext.registerIterationStart(format_StringSplitVar.value.listOut);
+try {var listIterator = callContext.iterationContext.getIterator(format_StringSplitVar.value.listOut);
+var listIndex = 0;
+while (((listIndex < format_StringSplitVar.value.listOut.length))) {
+listIterator.currentRowNumber = listIndex;
+// Sort?
+if((((OS.BuiltinFunctions.index(format_StringSplitVar.value.listOut.getItem(listIndex.valueOf()), "tn_sort=", 0, false, false)) !== (-1)))) {
+// FilterQueryURL = URL + "&" + Format_StringSplit.List.Current
+model.variables.filterQueryURLIn = ((vars.value.uRLInLocal + "&") + format_StringSplitVar.value.listOut.getItem(listIndex.valueOf()));
+// HasSorting = True
+vars.value.hasSortingVar = true;
+}
+
+listIndex++;
+}
+
+} finally {
+callContext.iterationContext.registerIterationEnd(format_StringSplitVar.value.listOut);
+}
+
+// No Sorting found?
+if((!(((model.variables.filterQueryURLIn === OS.BuiltinFunctions.nullTextIdentifier()) || !(vars.value.hasSortingVar))))) {
+break;
+}
+
+}
+
+// FilterQueryURL = URL
+model.variables.filterQueryURLIn = vars.value.uRLInLocal;
+} while(false)
+;
+return OS.Flow.executeSequence(function () {
+if(((model.variables.isDesktopIn || vars.value.isSortingInLocal))) {
+controller.safeExecuteJSNode(ECP_Composition_CW_ProductLists_PLP_Content_mvc_controller_OnChange_FilterOrSortBy_NavigateJS, "Navigate", "OnChange_FilterOrSortBy", {
+Filters: OS.DataConversion.JSNodeParamConverter.to((((model.variables.filterQueryURLIn === "")) ? ("") : (("?" + ECP_Composition_CWController.default.sanitizeFilterURL$Action(model.variables.filterQueryURLIn, callContext).sanitizedFilterURLOut))), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+} else {
+// Execute Action: Handler_FilterOrSort
+return controller._handler_FilterOrSort$Action(model.variables.filterQueryURLIn, callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.OnChange_FilterOrSortBy$vars", [{
+name: "URL",
+attrName: "uRLInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "IsSorting",
+attrName: "isSortingInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "HasSorting",
+attrName: "hasSortingVar",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._updateAppliedFiltersURLs$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("UpdateAppliedFiltersURLs");
+callContext = controller.callContext(callContext);
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.appliedFiltersListVar, callContext);
+// Foreach GetProductListAndCategoryInfo.FilterList
+callContext.iterationContext.registerIterationStart(model.variables.getProductListAndCategoryInfoDataAct.filterListOut);
+try {var filterListIterator = callContext.iterationContext.getIterator(model.variables.getProductListAndCategoryInfoDataAct.filterListOut);
+var filterListIndex = 0;
+while (((filterListIndex < model.variables.getProductListAndCategoryInfoDataAct.filterListOut.length))) {
+filterListIterator.currentRowNumber = filterListIndex;
+// Foreach GetProductListAndCategoryInfo.FilterList.Current.Filter_Str.FilterItem
+callContext.iterationContext.registerIterationStart(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getItem(filterListIndex.valueOf()).filter_StrAttr.filterItemAttr);
+try {var filterItemIterator = callContext.iterationContext.getIterator(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getItem(filterListIndex.valueOf()).filter_StrAttr.filterItemAttr);
+var filterItemIndex = 0;
+while (((filterItemIndex < model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getItem(filterListIndex.valueOf()).filter_StrAttr.filterItemAttr.length))) {
+filterItemIterator.currentRowNumber = filterItemIndex;
+if((model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getItem(filterListIndex.valueOf()).filter_StrAttr.filterItemAttr.getItem(filterItemIndex.valueOf()).isSelectedAttr)) {
+// Execute Action: ListAppend
+OS.SystemActions.listAppend(model.variables.appliedFiltersListVar, model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getItem(filterListIndex.valueOf()).filter_StrAttr.filterItemAttr.getItem(filterItemIndex.valueOf()), callContext);
+}
+
+filterItemIndex++;
+}
+
+} finally {
+callContext.iterationContext.registerIterationEnd(model.variables.getProductListAndCategoryInfoDataAct.filterListOut.getItem(filterListIndex.valueOf()).filter_StrAttr.filterItemAttr);
+}
+
+filterListIndex++;
+}
+
+} finally {
+callContext.iterationContext.registerIterationEnd(model.variables.getProductListAndCategoryInfoDataAct.filterListOut);
+}
+
+};
+Controller.prototype._categoryListNavigate$Action = function (categoryId2In, categoryName2In, parentId2In, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CategoryListNavigate");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.CategoryListNavigate$vars"))());
+vars.value.categoryId2InLocal = categoryId2In;
+vars.value.categoryName2InLocal = categoryName2In;
+vars.value.parentId2InLocal = parentId2In;
+// CategoryInputs
+// LocalCategoryName = CategoryName2
+model.variables.localCategoryNameVar = vars.value.categoryName2InLocal;
+// LocalCategoryParentId = ParentId2
+model.variables.localCategoryParentIdVar = vars.value.parentId2InLocal;
+// LocalCategoryID = CategoryId2
+model.variables.localCategoryIDVar = vars.value.categoryId2InLocal;
+};
+Controller.registerVariableGroupType("ECP_Composition_CW.ProductLists.PLP_Content.CategoryListNavigate$vars", [{
+name: "CategoryId2",
+attrName: "categoryId2InLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "CategoryName2",
+attrName: "categoryName2InLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ParentId2",
+attrName: "parentId2InLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+
+Controller.prototype.elementVisibleViewport$Action = function (currentRowNumberIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._elementVisibleViewport$Action, callContext, currentRowNumberIn);
+
+};
+Controller.prototype.handler_OnResize_GridNumberOfCols$Action = function (numberOfColumnsIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_OnResize_GridNumberOfCols$Action, callContext, numberOfColumnsIn);
+
+};
+Controller.prototype.toggleShowFilters$Action = function (isCancelIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toggleShowFilters$Action, callContext, isCancelIn);
+
+};
+Controller.prototype.componentDidMount_PromotionBanners$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._componentDidMount_PromotionBanners$Action, callContext);
+
+};
+Controller.prototype.handler_OnScrollEnding$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_OnScrollEnding$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.onClick_Filter$Action = function (clickedFilterIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_Filter$Action, callContext, clickedFilterIn);
+
+};
+Controller.prototype.handler_ForceRefreshWhenTimeslotIsModified$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ForceRefreshWhenTimeslotIsModified$Action, callContext);
+
+};
+Controller.prototype.validateMobileFilterResize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._validateMobileFilterResize$Action, callContext);
+
+};
+Controller.prototype.handler_OnObservedEndOfList$Action = function (intersectionObserverEntryListIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_OnObservedEndOfList$Action, callContext, intersectionObserverEntryListIn);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.handler_ForceRefresh$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ForceRefresh$Action, callContext);
+
+};
+Controller.prototype.handler_CartOrdered$Action = function (checkoutId2In, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CartOrdered$Action, callContext, checkoutId2In);
+
+};
+Controller.prototype.showData$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._showData$Action, callContext);
+
+};
+Controller.prototype.onClick_ClearAllFilters$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_ClearAllFilters$Action, callContext);
+
+};
+Controller.prototype.jS_InitSponsoredProductsViewport$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._jS_InitSponsoredProductsViewport$Action, callContext);
+
+};
+Controller.prototype.onAfterFetch_GetProductList$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_GetProductList$Action, callContext);
+
+};
+Controller.prototype.onClick_SortDropdown$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_SortDropdown$Action, callContext);
+
+};
+Controller.prototype.onKeypress$Action = function (clickedFilterIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onKeypress$Action, callContext, clickedFilterIn);
+
+};
+Controller.prototype.handler_FilterOrSort$Action = function (uRLQueryIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_FilterOrSort$Action, callContext, uRLQueryIn);
+
+};
+Controller.prototype.componentDidMount_ProductList$Action = function (elementPositionIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._componentDidMount_ProductList$Action, callContext, elementPositionIn);
+
+};
+Controller.prototype.toggleIsExpanded$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toggleIsExpanded$Action, callContext);
+
+};
+Controller.prototype.onChange_FilterOrSortBy$Action = function (uRLIn, isSortingIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onChange_FilterOrSortBy$Action, callContext, uRLIn, isSortingIn);
+
+};
+Controller.prototype.updateAppliedFiltersURLs$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._updateAppliedFiltersURLs$Action, callContext);
+
+};
+Controller.prototype.categoryListNavigate$Action = function (categoryId2In, categoryName2In, parentId2In, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._categoryListNavigate$Action, callContext, categoryId2In, categoryName2In, parentId2In);
+
+};
+Controller.prototype.onAfterFetch$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.categoryNameFetched$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.goToProducts$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.exposeActions$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.productListMounted$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.redirectURL$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.callbackOrderEdit$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.noStoreSelected$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Composition_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Composition_CWLanguageResources);
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ToggleShowFilters.NavigateBeforeFiltersJS", [], function () {
+return function ($actions, $roles, $public) {
+$public.Navigation.navigateTo(window.location.pathname + window.location.search);
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ToggleShowFilters.CheckIfNavigationIsNeededJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.NeedsNavigation = window.location.search != "?"+$parameters.FilterUrl
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ToggleShowFilters.NavigateJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+let search = $parameters.FilteredURL == "" ? "" : "?"+$parameters.FilteredURL;
+$public.Navigation.navigateTo(window.location.pathname + search);
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ComponentDidMount_PromotionBanners.BannerPlacementTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+setTimeout(() => $actions.BannerPlacement(".screen-container .plp-results-list > a", ".screen-container .promotion-banner-list .promotion-banner", ".screen-container .plp-results-list .promotion-banner", ".screen-container .promotion-banner-list", ".screen-container .plp-results-list", 0, $parameters.TotalNumberItems, $parameters.IsMobile), 0)
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnInitialize.CheckIfIsBackButtonNavigationJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.IsBackButtonNavigation = $public.Navigation.navigatedFromHistory()
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.Handler_OnObservedEndOfList.JavaScript1JS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+console.log('ObserverEntryList Length = ' + $parameters.EntryListLength + ', IsIntersecting = ' + $parameters.IsIntersecting);
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnReady.JS_ExposeActionsJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.ValidateMobileFilterResize_Obj = $actions.ValidateMobileFilterResize;
+
+$parameters.Handler_ForceRefresh_Obj = $actions.Handler_ForceRefreshWhenTimeslotIsModified;
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnClick_ClearAllFilters.NavigateJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+let searchTerm = $parameters.SearchKeyword == "" ? "" : "?SearchTerm=" + $parameters.SearchKeyword;
+$public.Navigation.navigateTo(window.location.pathname + searchTerm);
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.JS_InitSponsoredProductsViewport.InitSponsoredProductsViewportJS", [], function () {
+return function ($actions, $roles, $public) {
+var callback = (entries, observer) => {
+  entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            $actions.ElementVisibleViewport(parseInt(entry.target.getAttribute('product-index')));
+        }
+  })
+};
+
+var observer = new IntersectionObserver(callback, {
+  threshold: [0.5]
+});
+
+document.querySelectorAll('.gtm-plp-ad').forEach((el)=> {
+    if (el.dataset.libraryNameObserverType === 'true') 
+    {
+        //If the element is already being observed there's no need to be reobserved again. This is to protect form infinite scroll duplicates
+    } else {
+        observer.observe(el);
+        el.dataset.libraryNameObserverType = 'true';
+    }
+});
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnAfterFetch_GetProductList.ShowData_AsyncJS", [], function () {
+return function ($actions, $roles, $public) {
+const show_promise = new Promise((resolve,reject) => {
+    $actions.ShowData();
+    resolve();
+});
+
+show_promise.catch(function(error) {
+    console.log("Promise error:" + error);
+});
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnAfterFetch_GetProductList.BannerPlacementTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+setTimeout(() => $actions.BannerPlacement(".screen-container .plp-results-list > a", ".screen-container .promotion-banner-list .promotion-banner", ".screen-container .plp-results-list .promotion-banner", ".screen-container .promotion-banner-list", ".screen-container .plp-results-list", 0, $parameters.TotalNumberItems, $parameters.IsMobile), 0)
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnKeypress.UserPressedReturnKeyJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if(window.event.keyCode == 13) {     
+    $parameters.IsLinkClick = true;
+}
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.Handler_FilterOrSort.ScrollToTopJS", [], function () {
+return function ($actions, $roles, $public) {
+var screenCont = document.querySelector('.desktop .screen-container');
+if(screenCont)
+    screenCont.scrollTo({top: 0, behavior: 'smooth'});
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ComponentDidMount_ProductList.BannerPlacementTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+setTimeout(() => $actions.BannerPlacement(".screen-container .plp-results-list > a", ".screen-container .promotion-banner-list .promotion-banner", ".screen-container .plp-results-list .promotion-banner", ".screen-container .promotion-banner-list", ".screen-container .plp-results-list", 0, $parameters.TotalNumberItems, $parameters.IsMobile), 0)
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.ComponentDidMount_ProductList.SponsoredProductViewport_TimeoutJS", [], function () {
+return function ($actions, $roles, $public) {
+setTimeout(() => $actions.JS_InitSponsoredProductsViewport(), 500)
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$controller.OnChange_FilterOrSortBy.NavigateJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$public.Navigation.navigateTo(window.location.pathname + $parameters.Filters);
+
+
+};
+});
+
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$translationsResources", ["exports", "ECP_Composition_CW.ProductLists.PLP_Content.mvc$translationsResources.nl-NL"], function (exports, ECP_Composition_CW_ProductLists_PLP_Content_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Composition_CW_ProductLists_PLP_Content_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content.mvc$translationsResources.nl-NL", [], function () {
+return {
+"zO0sEh+B90qEUSOoGVO_aQ#Value": "Sorteer op",
+"f6Eh2wA+xE66KCWePWoz9g#ValueExpression.-1003761308.1": "producten",
+"f6Eh2wA+xE66KCWePWoz9g#ValueExpression.-309474065.1": "product",
+"5GOdfYPA906hkpPPnADpnQ#Value": "Bedoelde je misschien:",
+"HoFZyyKN70+BhcxE0FpLlw#ValueExpression.-939117180.1": "Producten",
+"HoFZyyKN70+BhcxE0FpLlw#ValueExpression.527432519.1": "Zoekresultaten voor",
+"d67W6JuMkEaJ8w4q3s9saA#ValueExpression.-1003761308.1": "producten",
+"d67W6JuMkEaJ8w4q3s9saA#ValueExpression.2576157.1": "Toon",
+"zLINk9y_TUe4UJJTJfQjWg#ValueExpression.42216636.1": "Toon minder",
+"zLINk9y_TUe4UJJTJfQjWg#ValueExpression.42255992.1": "Toon meer",
+"758gRE7I0UiqHv9WshDv3Q#Value.-1033534300.1": "Selecteer filter",
+"758gRE7I0UiqHv9WshDv3Q#Value.2144668541.1": "Deselecteer filter",
+"xe2XmFuz+02BFw759rVYcA#Value": "Wis alle filters",
+"wod29YwZyEmg0ZhuzxAPTQ#Value": "Mijn selectie",
+"f9rzL4pzvEyue_N9RfK8dA#Value": "Filteren",
+"Z6zhJOxWh06yaqn6MpAY4g#Value": "Je kunt ook ons assortiment bekijken",
+"U53F8VUM+0+RqtZOlvlUXw#Value": "Misschien kun je een andere zoekterm proberen of je zoekterm iets minder specifiek maken.",
+"LYTcqrtBNEifc8L2O0NhBw#Value": "Er zijn helaas geen resultaten voor",
+"zOuL0tKNpU2_JxcwikSJ_w#ValueExpression.527432519.1": "Zoekresultaten voor"
+};
+});

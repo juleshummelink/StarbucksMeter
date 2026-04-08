@@ -1,0 +1,1169 @@
+﻿define("ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "CMS_Monolith.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$model", "PLUS_OutSystemsUI_2_8_0.Utilities.Separator.mvc$model", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$model", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$GetStaticImage", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Set_Client_UserStoreId", "ECP_Store_CW.model$StoreInfoRec"], function (OutSystems, ECP_Store_CWModel, CMS_MonolithController, ECP_Cart_CWController, ECOP_FE_CoreController, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvcModel, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvcModel) {
+var OS = OutSystems.Internal;
+
+var GetImageAndStoreInfoDataActRec = (function (_super) {
+__extends(GetImageAndStoreInfoDataActRec, _super);
+function GetImageAndStoreInfoDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetImageAndStoreInfoDataActRec.attributesToDeclare = function () {
+return [
+this.attr("StoreInfo", "storeInfoOut", "StoreInfo", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Store_CWModel.StoreInfoRec());
+}, true, ECP_Store_CWModel.StoreInfoRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetImageAndStoreInfoDataActRec.fromStructure = function (str) {
+return new GetImageAndStoreInfoDataActRec(new GetImageAndStoreInfoDataActRec.RecordClass({
+storeInfoOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetImageAndStoreInfoDataActRec.init();
+return GetImageAndStoreInfoDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ShowData", "showDataVar", "ShowData", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("UserStoreId", "userStoreIdIn", "UserStoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("_userStoreIdInDataFetchStatus", "_userStoreIdInDataFetchStatus", "_userStoreIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsOrderEditMode", "isOrderEditModeIn", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetImageAndStoreInfo", "getImageAndStoreInfoDataAct", "getImageAndStoreInfoDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetImageAndStoreInfoDataActRec());
+}, true, GetImageAndStoreInfoDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets || ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("UserStoreId" in inputs) {
+this.variables.userStoreIdIn = inputs.UserStoreId;
+if("_userStoreIdInDataFetchStatus" in inputs) {
+this.variables._userStoreIdInDataFetchStatus = inputs._userStoreIdInDataFetchStatus;
+}
+
+}
+
+if("IsOrderEditMode" in inputs) {
+this.variables.isOrderEditModeIn = inputs.IsOrderEditMode;
+if("_isOrderEditModeInDataFetchStatus" in inputs) {
+this.variables._isOrderEditModeInDataFetchStatus = inputs._isOrderEditModeInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "StoreFlow.StoreInfoContent");
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "CMS_Monolith.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "react", "OutSystems/ReactView/Main", "ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$model", "ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$controller", "ECP_Store_CW.clientVariables", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$view", "PLUS_OutSystemsUI_2_8_0.Utilities.Separator.mvc$view", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$view", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$GetStaticImage", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Set_Client_UserStoreId", "ECP_Store_CW.model$StoreInfoRec"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, CMS_MonolithController, ECP_Cart_CWController, ECOP_FE_CoreController, React, OSView, ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_model, ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_controller, ECP_Store_CWClientVariables, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "StoreFlow.StoreInfoContent";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-info-content",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Image, {
+extendedProperties: {
+width: "284",
+height: "110",
+"loading": "lazy"
+},
+style: "store-info-content--image",
+type: /*External*/ 1,
+url: model.getCachedValue(idService.getId("r9xkLWaeJUuMHZnnndMRTQ.Url"), function () {
+return CMS_MonolithController.default.getStaticImage$Action("YOUR_PLUS_DROPDOWN", 311, 110, CMS_MonolithController.default.imageUtils_GetCDNImgCompressionRatio$Action(callContext).cDNImgCompressionRatioOut, ECP_Store_CWModel.staticEntities.contentfulImageResizeBehavior.fill, false, callContext).urlOut;
+}),
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-info-content--content",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.showDataVar, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "font-semi-bold",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+extendedProperties: {
+"aria-live": "assertive",
+role: "alert"
+},
+style: "place",
+value: model.variables.getImageAndStoreInfoDataAct.storeInfoOut.storeNameAttr,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getImageAndStoreInfoDataAct.dataFetchStatusAttr)
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "font-regular place",
+value: model.variables.getImageAndStoreInfoDataAct.storeInfoOut.storeAddressAttr,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getImageAndStoreInfoDataAct.dataFetchStatusAttr)
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.getImageAndStoreInfoDataAct.storeInfoOut.hasPickupAttr, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "text-success margin-right-s font-regular",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "check"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Text, {
+style: "margin-left-s",
+text: [$text(getTranslation("n3BPK8kYM0KU4Ctc72UIeA#Value", "Pickup"))],
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "margin-right-s font-regular",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "close"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Text, {
+style: "margin-left-s",
+text: [$text(getTranslation("vR+_o3v3ckucOzP0ws0EZw#Value", "Pickup"))],
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}), $if(model.variables.getImageAndStoreInfoDataAct.storeInfoOut.hasDeliveryAttr, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "text-success font-regular",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "check"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "15",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Text, {
+style: "margin-left-s",
+text: [$text(getTranslation("Git6uCZbuEGo1jSGJfENdg#Value", "Delivery"))],
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "font-regular",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "close"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "18",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Text, {
+style: "margin-left-s",
+text: [$text(getTranslation("RUiK_tV20EiMtGCX4tSj_A#Value", "Delivery"))],
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.getImageAndStoreInfoDataAct.storeInfoOut.openingHoursRangeAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+value: (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("o1nFKxSd_E6BIovYL3pYIA#ValueExpression.-1242739299.1", "Today • ") + model.variables.getImageAndStoreInfoDataAct.storeInfoOut.openingHoursRangeAttr),
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getImageAndStoreInfoDataAct.dataFetchStatusAttr)
+})];
+}, function () {
+return [];
+})), React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+isDefault: false,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_ReserveYourMoment$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "btn btn-primary margin-top-m margin-bottom-s gtm-reserve-moment-button",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("gxLD_WeO9Uy98c9oJVLIlQ#Value", "Reserve your moment"))],
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "24",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "font-semi-bold",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "25"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS Giel Smits De Meern",
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "27"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "font-regular place",
+value: "Molenpolder 116-118, De Meern",
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "text-success margin-right-s font-regular",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "check"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "31",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Text, {
+style: "margin-left-s",
+text: [$text(getTranslation("VNW7f58rrkSCKYr8I39QQA#Value", "Pickup"))],
+_idProps: {
+service: idService,
+uuid: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "text-success font-regular",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "check"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "34",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Text, {
+style: "margin-left-s",
+text: [$text(getTranslation("IkSDVN_t3kKMFfyE+zM02A#Value", "Delivery"))],
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-s place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: "Vandaag • 08:00 - 20:00",
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.dummy$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "btn btn-primary margin-top-m margin-bottom-s gtm-reserve-moment-button",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("b12d6P1sHEeD+JCaGXVM_Q#Value", "Reserve your moment"))],
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+},
+_dependencies: []
+})];
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view, {
+inputs: {
+Color: ECP_Store_CWModel.staticEntities.color.neutral3
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "40",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_StoreInformation$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "gtm-store-info-link",
+visible: true,
+_idProps: {
+service: idService,
+name: "Storeinfolink"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("IC2yn_q8q06FDiLxlM10VQ#Value", "Store information"))],
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.isOrderEditModeIn, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "store-info-change-link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "store-info-change-link_disabled cursor-disabled",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "46"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.dummy$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "gtm-store-info-change-link",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "47"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("iq65W+YwUUGRJ+5wHaTFLQ#Value", "Change store"))],
+_idProps: {
+service: idService,
+uuid: "48"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))), React.createElement(ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view, {
+inputs: {
+HoverContainerClass: "store-info-content",
+HoverElementsClass: "store-info-change-link_disabled",
+PositionRelativeToParent: true,
+TooltipWidth: 230
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "49",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+tooltipContent: new PlaceholderContent(function () {
+return [$text(getTranslation("k30t13E7x0e8KbNf4wXR4g#Value", "You cannot change this while changing your order."))];
+})
+},
+_dependencies: []
+})];
+}, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_ChangeStore$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "gtm-store-info-change-link",
+visible: true,
+_idProps: {
+service: idService,
+name: "ChangeStore"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("q19tAxr_XUm6D29YLUg0Ug#Value", "Change store"))],
+_idProps: {
+service: idService,
+uuid: "51"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "CMS_Monolith.controller", "ECP_Cart_CW.controller", "ECOP_FE_Core.controller", "ECP_Store_CW.languageResources", "ECP_Store_CW.clientVariables", "ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$translationsResources", "ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$controller.OnClick_ChangeStore.RemoveRoleJS", "ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$controller.OnReady.GetJSExposedActionsJS", "CMS_Monolith.controller$ImageUtils_GetCDNImgCompressionRatio", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$GetStaticImage", "ECP_Cart_CW.controller$ClearClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Set_Client_UserStoreId", "ECP_Store_CW.model$StoreInfoRec"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, CMS_MonolithController, ECP_Cart_CWController, ECOP_FE_CoreController, ECP_Store_CWLanguageResources, ECP_Store_CWClientVariables, ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_TranslationsResources, ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_controller_OnClick_ChangeStore_RemoveRoleJS, ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_controller_OnReady_GetJSExposedActionsJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+jS_RefreshStoreInfo$Action: function () {
+return controller.executeActionInsideJSNode(controller._jS_RefreshStoreInfo$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "JS_RefreshStoreInfo");
+}
+};
+this.dataFetchDependenciesOriginal = {
+getImageAndStoreInfo$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getImageAndStoreInfo$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_TranslationsResources;
+// Server Actions
+Controller.prototype.store_GenerateSlug_Cache$ServerAction = function (storeIdIn, callContext) {
+var controller = this.controller;
+var inputs = {
+StoreId: OS.DataConversion.ServerDataConverter.to(storeIdIn, OS.Types.LongInteger)
+};
+return controller.callServerAction("Store_GenerateSlug_Cache", "screenservices/ECP_Store_CW/StoreFlow/StoreInfoContent/ActionStore_GenerateSlug_Cache", "g9x_Zdjx5vvO6VSEgMJShw", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoContent$rssespacestore_cs_ActionStore_GenerateSlug_Cache"))();
+executeServerActionResult.storeSlugOut = OS.DataConversion.ServerDataConverter.from(outputs.StoreSlug, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoContent$rssespacestore_cs_ActionStore_GenerateSlug_Cache", [{
+name: "StoreSlug",
+attrName: "storeSlugOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+
+// Aggregates and Data Actions
+Controller.prototype.getImageAndStoreInfo$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetImageAndStoreInfo", "screenservices/ECP_Store_CW/StoreFlow/StoreInfoContent/DataActionGetImageAndStoreInfo", "wGanGgbYj+OU1f2SqxCWLQ", function (b) {
+model.variables.getImageAndStoreInfoDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getImageAndStoreInfoDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getImageAndStoreInfoDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true).then(function () {
+return controller._onAfterFetch_GetStoreInfo$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["getImageAndStoreInfo$DataActRefresh"];
+// Client Actions
+Controller.prototype._onClick_ChangeStore$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_ChangeStore");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ClearClientVar_ClickedProductSKU
+ECP_Cart_CWController.default.clearClientVar_ClickedProductSKU$Action(callContext);
+controller.safeExecuteJSNode(ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_controller_OnClick_ChangeStore_RemoveRoleJS, "RemoveRole", "OnClick_ChangeStore", {
+ChangeStore_Link: OS.DataConversion.JSNodeParamConverter.to(idService.getId("ChangeStore"), OS.Types.Text),
+StoreInfo_Link: OS.DataConversion.JSNodeParamConverter.to(idService.getId("Storeinfolink"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+// Trigger Event: StorePickerOpened
+return controller.storePickerOpened$Action(callContext);
+});
+};
+Controller.prototype._jS_RefreshStoreInfo$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("JS_RefreshStoreInfo");
+callContext = controller.callContext(callContext);
+var get_Client_UserStoreIdVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// ShowData = False
+model.variables.showDataVar = false;
+// Execute Action: Get_Client_UserStoreId
+get_Client_UserStoreIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext);
+
+// UserStoreId = Get_Client_UserStoreId.UserStoreId
+model.variables.userStoreIdIn = get_Client_UserStoreIdVar.value.userStoreIdOut;
+// Refresh Query: GetImageAndStoreInfo
+var result = controller.getImageAndStoreInfo$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+Controller.prototype._onClick_ReserveYourMoment$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_ReserveYourMoment");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: ReserveMomentOpened
+return controller.reserveMomentOpened$Action(callContext);
+});
+};
+Controller.prototype._onClick_StoreInformation$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_StoreInformation");
+callContext = controller.callContext(callContext);
+var store_GenerateSlug_CacheVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreIdVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: Get_Client_UserStoreId
+get_Client_UserStoreIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext);
+
+// Execute Action: Store_GenerateSlug_Cache
+model.flush();
+return controller.store_GenerateSlug_Cache$ServerAction(get_Client_UserStoreIdVar.value.userStoreIdOut, callContext).then(function (value) {
+store_GenerateSlug_CacheVar.value = value;
+}).then(function () {
+// Trigger Event: LinkToStorePage
+return controller.linkToStorePage$Action(store_GenerateSlug_CacheVar.value.storeSlugOut, callContext);
+});
+});
+};
+Controller.prototype._dummy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Dummy");
+callContext = controller.callContext(callContext);
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var getJSExposedActionsJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+getJSExposedActionsJSResult.value = controller.safeExecuteJSNode(ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_controller_OnReady_GetJSExposedActionsJS, "GetJSExposedActions", "OnReady", {
+refreshStoreInfo: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoContent.OnReady$getJSExposedActionsJSResult"))();
+jsNodeResult.refreshStoreInfoOut = OS.DataConversion.JSNodeParamConverter.from($parameters.refreshStoreInfo, OS.Types.Object);
+return jsNodeResult;
+}, {
+JS_RefreshStoreInfo: controller.clientActionProxies.jS_RefreshStoreInfo$Action
+}, {});
+// Trigger Event: StoreInfoActionsExposed
+return controller.storeInfoActionsExposed$Action(getJSExposedActionsJSResult.value.refreshStoreInfoOut, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoContent.OnReady$getJSExposedActionsJSResult", [{
+name: "refreshStoreInfo",
+attrName: "refreshStoreInfoOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._onAfterFetch_GetStoreInfo$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_GetStoreInfo");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// ShowData = True
+model.variables.showDataVar = true;
+// UserStoreChanged
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.userStoreIdIn.equals(model.variables.getImageAndStoreInfoDataAct.storeInfoOut.userStoreIdAttr)))) {
+// Execute Action: Set_Client_UserStoreId
+model.flush();
+return ECOP_FE_CoreController.default.set_Client_UserStoreId$Action(model.variables.getImageAndStoreInfoDataAct.storeInfoOut.userStoreIdAttr, callContext);
+}
+
+});
+});
+};
+
+Controller.prototype.onClick_ChangeStore$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_ChangeStore$Action, callContext);
+
+};
+Controller.prototype.jS_RefreshStoreInfo$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._jS_RefreshStoreInfo$Action, callContext);
+
+};
+Controller.prototype.onClick_ReserveYourMoment$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_ReserveYourMoment$Action, callContext);
+
+};
+Controller.prototype.onClick_StoreInformation$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_StoreInformation$Action, callContext);
+
+};
+Controller.prototype.dummy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._dummy$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.onAfterFetch_GetStoreInfo$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_GetStoreInfo$Action, callContext);
+
+};
+Controller.prototype.storeInfoActionsExposed$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.reserveMomentOpened$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.storePickerOpened$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.linkToStorePage$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Store_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Store_CWLanguageResources);
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$controller.OnClick_ChangeStore.RemoveRoleJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+document.getElementById($parameters.StoreInfo_Link).removeAttribute("role");
+document.getElementById($parameters.StoreInfo_Link).removeAttribute("href");
+
+document.getElementById($parameters.ChangeStore_Link).removeAttribute("role");
+document.getElementById($parameters.ChangeStore_Link).removeAttribute("href");
+};
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$controller.OnReady.GetJSExposedActionsJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+$parameters.refreshStoreInfo = $actions.JS_RefreshStoreInfo;
+};
+});
+
+define("ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$translationsResources", ["exports", "ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$translationsResources.nl-NL"], function (exports, ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$translationsResources.nl-NL", [], function () {
+return {
+"q19tAxr_XUm6D29YLUg0Ug#Value": "Winkel wijzigen",
+"k30t13E7x0e8KbNf4wXR4g#Value": "Tijdens het wijzigen van je bestelling kun je dit niet wijzigen.",
+"iq65W+YwUUGRJ+5wHaTFLQ#Value": "Winkel wijzigen",
+"IC2yn_q8q06FDiLxlM10VQ#Value": "Winkelinformatie",
+"b12d6P1sHEeD+JCaGXVM_Q#Value": "Reserveer jouw moment",
+"IkSDVN_t3kKMFfyE+zM02A#Value": "Bezorgen",
+"VNW7f58rrkSCKYr8I39QQA#Value": "Ophalen",
+"gxLD_WeO9Uy98c9oJVLIlQ#Value": "Reserveer jouw moment",
+"o1nFKxSd_E6BIovYL3pYIA#ValueExpression.-1242739299.1": "Vandaag • ",
+"RUiK_tV20EiMtGCX4tSj_A#Value": "Bezorgen",
+"Git6uCZbuEGo1jSGJfENdg#Value": "Bezorgen",
+"vR+_o3v3ckucOzP0ws0EZw#Value": "Ophalen",
+"n3BPK8kYM0KU4Ctc72UIeA#Value": "Ophalen"
+};
+});

@@ -1,0 +1,372 @@
+﻿define("ECP_DiscountCode_BL.model$VoucherItem_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var VoucherItem_StrRec = (function (_super) {
+__extends(VoucherItem_StrRec, _super);
+function VoucherItem_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+VoucherItem_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Coupon_Id", "coupon_IdAttr", "Coupon_Id", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Coupon_Description", "coupon_DescriptionAttr", "Coupon_Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Coupon_Code", "coupon_CodeAttr", "Coupon_Code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Coupon_ExternalCode", "coupon_ExternalCodeAttr", "Coupon_ExternalCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CouponType_Id", "couponType_IdAttr", "CouponType_Id", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CouponStatus_Id", "couponStatus_IdAttr", "CouponStatus_Id", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Coupon_StartDate", "coupon_StartDateAttr", "Coupon_StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Coupon_EndDate", "coupon_EndDateAttr", "Coupon_EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CouponService_IsDelivery", "couponService_IsDeliveryAttr", "CouponService_IsDelivery", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("CouponService_IsPickup", "couponService_IsPickupAttr", "CouponService_IsPickup", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("CouponService_MinimalOrderAmount", "couponService_MinimalOrderAmountAttr", "CouponService_MinimalOrderAmount", false, false, OS.Types.Decimal, function () {
+return OS.BuiltinFunctions.integerToDecimal(0);
+}, true), 
+this.attr("Coupon_UsageFrequencyId", "coupon_UsageFrequencyIdAttr", "Coupon_UsageFrequencyId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Coupon_NumberOfTimesLeftToApply", "coupon_NumberOfTimesLeftToApplyAttr", "Coupon_NumberOfTimesLeftToApply", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CoupounSetting_StoreCoverageId", "coupounSetting_StoreCoverageIdAttr", "CoupounSetting_StoreCoverageId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CouponSetting_ZipCodeCoverageId", "couponSetting_ZipCodeCoverageIdAttr", "CouponSetting_ZipCodeCoverageId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CouponSetting_IsAvalailableAllDays", "couponSetting_IsAvalailableAllDaysAttr", "CouponSetting_IsAvalailableAllDays", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CouponSetting_IsAvailableForAllSlots", "couponSetting_IsAvailableForAllSlotsAttr", "CouponSetting_IsAvailableForAllSlots", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Coupon_IsManuallyAdded", "coupon_IsManuallyAddedAttr", "Coupon_IsManuallyAdded", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Coupon_IsApplied", "coupon_IsAppliedAttr", "Coupon_IsApplied", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+VoucherItem_StrRec.init();
+return VoucherItem_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_DiscountCode_BLModel.VoucherItem_StrRec = VoucherItem_StrRec;
+
+});
+define("ECP_DiscountCode_BL.model$VoucherPersonal_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var VoucherPersonal_StrRec = (function (_super) {
+__extends(VoucherPersonal_StrRec, _super);
+function VoucherPersonal_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+VoucherPersonal_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Coupon_Name", "coupon_NameAttr", "Coupon_Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ServiceItem_SKU", "serviceItem_SKUAttr", "ServiceItem_SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+VoucherPersonal_StrRec.init();
+return VoucherPersonal_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_DiscountCode_BLModel.VoucherPersonal_StrRec = VoucherPersonal_StrRec;
+
+});
+define("ECP_DiscountCode_BL.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var LongIntegerList = (function (_super) {
+__extends(LongIntegerList, _super);
+function LongIntegerList(defaults) {
+_super.apply(this, arguments);
+}
+LongIntegerList.itemType = OS.Types.LongInteger;
+return LongIntegerList;
+})(OS.DataTypes.GenericRecordList);
+ECP_DiscountCode_BLModel.LongIntegerList = LongIntegerList;
+
+});
+define("ECP_DiscountCode_BL.model$TextTextRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var TextTextRecord = (function (_super) {
+__extends(TextTextRecord, _super);
+function TextTextRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextRecord.attributesToDeclare = function () {
+return [
+this.attr("CountryCode", "countryCodeAttr", "CountryCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ZipCode", "zipCodeAttr", "ZipCode", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextRecord._isAnonymousRecord = true;
+TextTextRecord.UniqueId = "048e7e85-a1f9-f4a0-34de-d3b536323c9c";
+TextTextRecord.init();
+return TextTextRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_DiscountCode_BLModel.TextTextRecord = TextTextRecord;
+
+});
+define("ECP_DiscountCode_BL.model$TextText1RecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model", "ECP_DiscountCode_BL.model$TextTextRecord"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var TextText1RecordList = (function (_super) {
+__extends(TextText1RecordList, _super);
+function TextText1RecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextText1RecordList.itemType = ECP_DiscountCode_BLModel.TextTextRecord;
+return TextText1RecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_DiscountCode_BLModel.TextText1RecordList = TextText1RecordList;
+
+});
+define("ECP_DiscountCode_BL.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var TimeList = (function (_super) {
+__extends(TimeList, _super);
+function TimeList(defaults) {
+_super.apply(this, arguments);
+}
+TimeList.itemType = OS.Types.Time;
+return TimeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_DiscountCode_BLModel.TimeList = TimeList;
+
+});
+define("ECP_DiscountCode_BL.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var IntegerList = (function (_super) {
+__extends(IntegerList, _super);
+function IntegerList(defaults) {
+_super.apply(this, arguments);
+}
+IntegerList.itemType = OS.Types.Integer;
+return IntegerList;
+})(OS.DataTypes.GenericRecordList);
+ECP_DiscountCode_BLModel.IntegerList = IntegerList;
+
+});
+define("ECP_DiscountCode_BL.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+ECP_DiscountCode_BLModel.TextList = TextList;
+
+});
+define("ECP_DiscountCode_BL.model$Voucher_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model", "ECP_DiscountCode_BL.model$VoucherItem_StrRec", "ECP_DiscountCode_BL.model$TextText1RecordList"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var Voucher_StrRec = (function (_super) {
+__extends(Voucher_StrRec, _super);
+function Voucher_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Voucher_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Voucher", "voucherAttr", "Voucher", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_DiscountCode_BLModel.VoucherItem_StrRec());
+}, true, ECP_DiscountCode_BLModel.VoucherItem_StrRec), 
+this.attr("StoreList", "storeListAttr", "StoreList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.LongIntegerList());
+}, true, OS.DataTypes.LongIntegerList), 
+this.attr("ZipCodeList", "zipCodeListAttr", "ZipCodeList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_DiscountCode_BLModel.TextText1RecordList());
+}, true, ECP_DiscountCode_BLModel.TextText1RecordList), 
+this.attr("TimeslotList", "timeslotListAttr", "TimeslotList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TimeList());
+}, true, OS.DataTypes.TimeList), 
+this.attr("DayList", "dayListAttr", "DayList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.IntegerList());
+}, true, OS.DataTypes.IntegerList), 
+this.attr("ProductList", "productListAttr", "ProductList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Voucher_StrRec.init();
+return Voucher_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_DiscountCode_BLModel.Voucher_StrRec = Voucher_StrRec;
+
+});
+define("ECP_DiscountCode_BL.model$VoucherAux_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var VoucherAux_StrRec = (function (_super) {
+__extends(VoucherAux_StrRec, _super);
+function VoucherAux_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+VoucherAux_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Coupon_Id", "coupon_IdAttr", "Coupon_Id", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Coupon_Code", "coupon_CodeAttr", "Coupon_Code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Coupon_ExternalCode", "coupon_ExternalCodeAttr", "Coupon_ExternalCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Coupon_Name", "coupon_NameAttr", "Coupon_Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Coupon_Description", "coupon_DescriptionAttr", "Coupon_Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CouponType_Id", "couponType_IdAttr", "CouponType_Id", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Coupon_HasMinimalOrderAmount", "coupon_HasMinimalOrderAmountAttr", "Coupon_HasMinimalOrderAmount", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Coupon_UsageFrequency", "coupon_UsageFrequencyAttr", "Coupon_UsageFrequency", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Customer_NumberOfTimesApplied", "customer_NumberOfTimesAppliedAttr", "Customer_NumberOfTimesApplied", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Coupon_IsApplicableAtStore", "coupon_IsApplicableAtStoreAttr", "Coupon_IsApplicableAtStore", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Coupon_IsApplicableForDate", "coupon_IsApplicableForDateAttr", "Coupon_IsApplicableForDate", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Coupon_IsApplicableForSlot", "coupon_IsApplicableForSlotAttr", "Coupon_IsApplicableForSlot", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Coupon_IsApplicableForZipCode", "coupon_IsApplicableForZipCodeAttr", "Coupon_IsApplicableForZipCode", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Coupon_AppliesToServiceMethod", "coupon_AppliesToServiceMethodAttr", "Coupon_AppliesToServiceMethod", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Coupon_StartDate", "coupon_StartDateAttr", "Coupon_StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Coupon_EndDate", "coupon_EndDateAttr", "Coupon_EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+VoucherAux_StrRec.init();
+return VoucherAux_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_DiscountCode_BLModel.VoucherAux_StrRec = VoucherAux_StrRec;
+
+});
+define("ECP_DiscountCode_BL.model$VoucherOptionItem_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var VoucherOptionItem_StrRec = (function (_super) {
+__extends(VoucherOptionItem_StrRec, _super);
+function VoucherOptionItem_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+VoucherOptionItem_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Label", "labelAttr", "Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsSelected", "isSelectedAttr", "IsSelected", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Code", "codeAttr", "Code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExpiresAt", "expiresAtAttr", "ExpiresAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("AddToList", "addToListAttr", "AddToList", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ServiceItemList", "serviceItemListAttr", "ServiceItemList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+VoucherOptionItem_StrRec.init();
+return VoucherOptionItem_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_DiscountCode_BLModel.VoucherOptionItem_StrRec = VoucherOptionItem_StrRec;
+
+});
+define("ECP_DiscountCode_BL.model$DiscountCodeTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var DiscountCodeTypeRec = (function (_super) {
+__extends(DiscountCodeTypeRec, _super);
+function DiscountCodeTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+DiscountCodeTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DiscountCodeTypeRec.init();
+return DiscountCodeTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_DiscountCode_BLModel.DiscountCodeTypeRec = DiscountCodeTypeRec;
+
+});
+define("ECP_DiscountCode_BL.model$ValidationReasonRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_DiscountCode_BL.model"], function (exports, OutSystems, ECP_DiscountCode_BLModel) {
+var OS = OutSystems.Internal;
+var ValidationReasonRec = (function (_super) {
+__extends(ValidationReasonRec, _super);
+function ValidationReasonRec(defaults) {
+_super.apply(this, arguments);
+}
+ValidationReasonRec.attributesToDeclare = function () {
+return [
+this.attr("Code", "codeAttr", "Code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "Message", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ValidationReasonRec.init();
+return ValidationReasonRec;
+})(OS.DataTypes.GenericRecord);
+ECP_DiscountCode_BLModel.ValidationReasonRec = ValidationReasonRec;
+
+});
+define("ECP_DiscountCode_BL.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_DiscountCode_BLModel = exports;
+});

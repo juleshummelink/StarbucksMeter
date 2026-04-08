@@ -1,0 +1,896 @@
+﻿define("Store_Capacity_CS.model$StoreCutOffMomentRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var StoreCutOffMomentRec = (function (_super) {
+__extends(StoreCutOffMomentRec, _super);
+function StoreCutOffMomentRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreCutOffMomentRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Timeout", "timeoutAttr", "Timeout", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("B2BTimeout", "b2BTimeoutAttr", "B2BTimeout", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreCutOffMomentRec.init();
+return StoreCutOffMomentRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.StoreCutOffMomentRec = StoreCutOffMomentRec;
+
+});
+define("Store_Capacity_CS.model$Capacity_HistoryExceptionDaysRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_HistoryExceptionDaysRec = (function (_super) {
+__extends(Capacity_HistoryExceptionDaysRec, _super);
+function Capacity_HistoryExceptionDaysRec(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_HistoryExceptionDaysRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Timeslot", "timeslotAttr", "Timeslot", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsClosed", "isClosedAttr", "IsClosed", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Capacity_HistoryExceptionDaysRec.init();
+return Capacity_HistoryExceptionDaysRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.Capacity_HistoryExceptionDaysRec = Capacity_HistoryExceptionDaysRec;
+
+});
+define("Store_Capacity_CS.model$Capacity_TemplateTimeslotRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_TemplateTimeslotRec = (function (_super) {
+__extends(Capacity_TemplateTimeslotRec, _super);
+function Capacity_TemplateTimeslotRec(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_TemplateTimeslotRec.attributesToDeclare = function () {
+return [
+this.attr("TimeslotRange", "timeslotRangeAttr", "TimeslotRange", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LastWeekUsed", "lastWeekUsedAttr", "LastWeekUsed", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("LastWeekTotalCapacity", "lastWeekTotalCapacityAttr", "LastWeekTotalCapacity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CurrentWeekTotalCapacity", "currentWeekTotalCapacityAttr", "CurrentWeekTotalCapacity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsException", "isExceptionAttr", "IsException", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Capacity_TemplateTimeslotRec.init();
+return Capacity_TemplateTimeslotRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.Capacity_TemplateTimeslotRec = Capacity_TemplateTimeslotRec;
+
+});
+define("Store_Capacity_CS.model$StoreTimeslotExceptionRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotExceptionRec = (function (_super) {
+__extends(StoreTimeslotExceptionRec, _super);
+function StoreTimeslotExceptionRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotExceptionRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Capacity", "capacityAttr", "Capacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreTimeslotExceptionRec.init();
+return StoreTimeslotExceptionRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.StoreTimeslotExceptionRec = StoreTimeslotExceptionRec;
+
+});
+define("Store_Capacity_CS.model$Capacity_ExceptionDaysRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_ExceptionDaysRec = (function (_super) {
+__extends(Capacity_ExceptionDaysRec, _super);
+function Capacity_ExceptionDaysRec(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_ExceptionDaysRec.attributesToDeclare = function () {
+return [
+this.attr("StoreTimeslotExceptionId", "storeTimeslotExceptionIdAttr", "StoreTimeslotExceptionId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Timeslot", "timeslotAttr", "Timeslot", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsClosed", "isClosedAttr", "IsClosed", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Capacity_ExceptionDaysRec.init();
+return Capacity_ExceptionDaysRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.Capacity_ExceptionDaysRec = Capacity_ExceptionDaysRec;
+
+});
+define("Store_Capacity_CS.model$TimeslotItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var TimeslotItemRec = (function (_super) {
+__extends(TimeslotItemRec, _super);
+function TimeslotItemRec(defaults) {
+_super.apply(this, arguments);
+}
+TimeslotItemRec.attributesToDeclare = function () {
+return [
+this.attr("TimeslotInstance_Id", "timeslotInstance_IdAttr", "TimeslotInstance_Id", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryType_Id", "deliveryType_IdAttr", "DeliveryType_Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Slot_Date", "slot_DateAttr", "Slot_Date", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Weekday_Id", "weekday_IdAttr", "Weekday_Id", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Weekday_Label", "weekday_LabelAttr", "Weekday_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slot_StartTime", "slot_StartTimeAttr", "Slot_StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Slot_EndTime", "slot_EndTimeAttr", "Slot_EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Service_Price", "service_PriceAttr", "Service_Price", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Slot_IsSelected", "slot_IsSelectedAttr", "Slot_IsSelected", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Slot_IsFull", "slot_IsFullAttr", "Slot_IsFull", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Order_IsAdvancedSlot", "order_IsAdvancedSlotAttr", "Order_IsAdvancedSlot", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsDeliveryBundleEligible", "isDeliveryBundleEligibleAttr", "IsDeliveryBundleEligible", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TimeslotItemRec.init();
+return TimeslotItemRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.TimeslotItemRec = TimeslotItemRec;
+
+});
+define("Store_Capacity_CS.model$TimeslotItemList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$TimeslotItemRec"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var TimeslotItemList = (function (_super) {
+__extends(TimeslotItemList, _super);
+function TimeslotItemList(defaults) {
+_super.apply(this, arguments);
+}
+TimeslotItemList.itemType = Store_Capacity_CSModel.TimeslotItemRec;
+return TimeslotItemList;
+})(OS.DataTypes.GenericRecordList);
+Store_Capacity_CSModel.TimeslotItemList = TimeslotItemList;
+
+});
+define("Store_Capacity_CS.model$MomentRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$TimeslotItemList"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var MomentRec = (function (_super) {
+__extends(MomentRec, _super);
+function MomentRec(defaults) {
+_super.apply(this, arguments);
+}
+MomentRec.attributesToDeclare = function () {
+return [
+this.attr("Date", "dateAttr", "Date", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Weekday", "weekdayAttr", "Weekday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsSelected", "isSelectedAttr", "IsSelected", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("AllTimeslotsFull", "allTimeslotsFullAttr", "AllTimeslotsFull", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Timeslots", "timeslotsAttr", "Timeslots", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.TimeslotItemList());
+}, true, Store_Capacity_CSModel.TimeslotItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+MomentRec.init();
+return MomentRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.MomentRec = MomentRec;
+
+});
+define("Store_Capacity_CS.model$MomentList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$MomentRec"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var MomentList = (function (_super) {
+__extends(MomentList, _super);
+function MomentList(defaults) {
+_super.apply(this, arguments);
+}
+MomentList.itemType = Store_Capacity_CSModel.MomentRec;
+return MomentList;
+})(OS.DataTypes.GenericRecordList);
+Store_Capacity_CSModel.MomentList = MomentList;
+
+});
+define("Store_Capacity_CS.model$ServiceTimeslotsRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$MomentList"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var ServiceTimeslotsRec = (function (_super) {
+__extends(ServiceTimeslotsRec, _super);
+function ServiceTimeslotsRec(defaults) {
+_super.apply(this, arguments);
+}
+ServiceTimeslotsRec.attributesToDeclare = function () {
+return [
+this.attr("Store_Name", "store_NameAttr", "Store_Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Store_Address", "store_AddressAttr", "Store_Address", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Delivery_FromPrice", "delivery_FromPriceAttr", "Delivery_FromPrice", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Pickup_FromPrice", "pickup_FromPriceAttr", "Pickup_FromPrice", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Service_IsDeliveryAvailable", "service_IsDeliveryAvailableAttr", "Service_IsDeliveryAvailable", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Serice_IsPickupAvailable", "serice_IsPickupAvailableAttr", "Serice_IsPickupAvailable", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DeliveryTimeslotList", "deliveryTimeslotListAttr", "DeliveryTimeslotList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.MomentList());
+}, true, Store_Capacity_CSModel.MomentList), 
+this.attr("PickupTimeslotList", "pickupTimeslotListAttr", "PickupTimeslotList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.MomentList());
+}, true, Store_Capacity_CSModel.MomentList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ServiceTimeslotsRec.init();
+return ServiceTimeslotsRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.ServiceTimeslotsRec = ServiceTimeslotsRec;
+
+});
+define("Store_Capacity_CS.model$StoreCapacitySettingRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var StoreCapacitySettingRec = (function (_super) {
+__extends(StoreCapacitySettingRec, _super);
+function StoreCapacitySettingRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreCapacitySettingRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CapacityWeekId", "capacityWeekIdAttr", "CapacityWeekId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreCapacitySettingRec.init();
+return StoreCapacitySettingRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.StoreCapacitySettingRec = StoreCapacitySettingRec;
+
+});
+define("Store_Capacity_CS.model$StoreEcoTimeslotInstanceRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var StoreEcoTimeslotInstanceRec = (function (_super) {
+__extends(StoreEcoTimeslotInstanceRec, _super);
+function StoreEcoTimeslotInstanceRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreEcoTimeslotInstanceRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Capacity", "capacityAttr", "Capacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("AllocatedCapacity", "allocatedCapacityAttr", "AllocatedCapacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Remaining", "remainingAttr", "Remaining", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ECOReserved", "eCOReservedAttr", "ECOReserved", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("JSON", "jSONAttr", "JSON", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("JSON_ZipCodes", "jSON_ZipCodesAttr", "JSON_ZipCodes", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("EcoTimeslotTemplateId", "ecoTimeslotTemplateIdAttr", "EcoTimeslotTemplateId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreEcoTimeslotInstanceRec.init();
+return StoreEcoTimeslotInstanceRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.StoreEcoTimeslotInstanceRec = StoreEcoTimeslotInstanceRec;
+
+});
+define("Store_Capacity_CS.model$CapacityWeekRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var CapacityWeekRec = (function (_super) {
+__extends(CapacityWeekRec, _super);
+function CapacityWeekRec(defaults) {
+_super.apply(this, arguments);
+}
+CapacityWeekRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("WeekValue", "weekValueAttr", "WeekValue", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CapacityWeekRec.init();
+return CapacityWeekRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.CapacityWeekRec = CapacityWeekRec;
+
+});
+define("Store_Capacity_CS.model$Capacity_ExceptionTimeslotRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_ExceptionTimeslotRec = (function (_super) {
+__extends(Capacity_ExceptionTimeslotRec, _super);
+function Capacity_ExceptionTimeslotRec(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_ExceptionTimeslotRec.attributesToDeclare = function () {
+return [
+this.attr("TimeslotRange", "timeslotRangeAttr", "TimeslotRange", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Capacity", "capacityAttr", "Capacity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsChanged", "isChangedAttr", "IsChanged", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsValid", "isValidAttr", "IsValid", false, false, OS.Types.Boolean, function () {
+return true;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Capacity_ExceptionTimeslotRec.init();
+return Capacity_ExceptionTimeslotRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.Capacity_ExceptionTimeslotRec = Capacity_ExceptionTimeslotRec;
+
+});
+define("Store_Capacity_CS.model$EcoTimeslotTemplateRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var EcoTimeslotTemplateRec = (function (_super) {
+__extends(EcoTimeslotTemplateRec, _super);
+function EcoTimeslotTemplateRec(defaults) {
+_super.apply(this, arguments);
+}
+EcoTimeslotTemplateRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Index", "indexAttr", "Index", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsArchived", "isArchivedAttr", "IsArchived", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EcoTimeslotTemplateRec.init();
+return EcoTimeslotTemplateRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.EcoTimeslotTemplateRec = EcoTimeslotTemplateRec;
+
+});
+define("Store_Capacity_CS.model$StoreTimeslotInstanceRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotInstanceRec = (function (_super) {
+__extends(StoreTimeslotInstanceRec, _super);
+function StoreTimeslotInstanceRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotInstanceRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("WeekdayId", "weekdayIdAttr", "WeekdayId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("AllocatedCapacity", "allocatedCapacityAttr", "AllocatedCapacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Capacity", "capacityAttr", "Capacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsException", "isExceptionAttr", "IsException", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EcoAllocatedCapacity", "ecoAllocatedCapacityAttr", "EcoAllocatedCapacity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Remaining", "remainingAttr", "Remaining", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("JSON", "jSONAttr", "JSON", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EcoTemporaryReservations", "ecoTemporaryReservationsAttr", "EcoTemporaryReservations", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreTimeslotInstanceRec.init();
+return StoreTimeslotInstanceRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.StoreTimeslotInstanceRec = StoreTimeslotInstanceRec;
+
+});
+define("Store_Capacity_CS.model$", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+Store_Capacity_CSModel.TextList = TextList;
+
+});
+define("Store_Capacity_CS.model$Capacity_ExceptionTimeslotList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$Capacity_ExceptionTimeslotRec"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_ExceptionTimeslotList = (function (_super) {
+__extends(Capacity_ExceptionTimeslotList, _super);
+function Capacity_ExceptionTimeslotList(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_ExceptionTimeslotList.itemType = Store_Capacity_CSModel.Capacity_ExceptionTimeslotRec;
+return Capacity_ExceptionTimeslotList;
+})(OS.DataTypes.GenericRecordList);
+Store_Capacity_CSModel.Capacity_ExceptionTimeslotList = Capacity_ExceptionTimeslotList;
+
+});
+define("Store_Capacity_CS.model$Capacity_Exception_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$Capacity_ExceptionTimeslotList"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_Exception_StrRec = (function (_super) {
+__extends(Capacity_Exception_StrRec, _super);
+function Capacity_Exception_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_Exception_StrRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Date", "dateAttr", "Date", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("TimeslotRange", "timeslotRangeAttr", "TimeslotRange", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("DS_Capacity", "dS_CapacityAttr", "DS_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_ExceptionTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_ExceptionTimeslotList), 
+this.attr("DX_Capacity", "dX_CapacityAttr", "DX_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_ExceptionTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_ExceptionTimeslotList), 
+this.attr("PS_Capacity", "pS_CapacityAttr", "PS_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_ExceptionTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_ExceptionTimeslotList), 
+this.attr("PX_Capacity", "pX_CapacityAttr", "PX_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_ExceptionTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_ExceptionTimeslotList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Capacity_Exception_StrRec.init();
+return Capacity_Exception_StrRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.Capacity_Exception_StrRec = Capacity_Exception_StrRec;
+
+});
+define("Store_Capacity_CS.model$StoreTimeslotTemplateRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotTemplateRec = (function (_super) {
+__extends(StoreTimeslotTemplateRec, _super);
+function StoreTimeslotTemplateRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotTemplateRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("WeekdayId", "weekdayIdAttr", "WeekdayId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Capacity", "capacityAttr", "Capacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreTimeslotTemplateRec.init();
+return StoreTimeslotTemplateRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.StoreTimeslotTemplateRec = StoreTimeslotTemplateRec;
+
+});
+define("Store_Capacity_CS.model$Capacity_TemplateTimeslotList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$Capacity_TemplateTimeslotRec"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_TemplateTimeslotList = (function (_super) {
+__extends(Capacity_TemplateTimeslotList, _super);
+function Capacity_TemplateTimeslotList(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_TemplateTimeslotList.itemType = Store_Capacity_CSModel.Capacity_TemplateTimeslotRec;
+return Capacity_TemplateTimeslotList;
+})(OS.DataTypes.GenericRecordList);
+Store_Capacity_CSModel.Capacity_TemplateTimeslotList = Capacity_TemplateTimeslotList;
+
+});
+define("Store_Capacity_CS.model$Capacity_Week_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$Capacity_TemplateTimeslotList"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_Week_StrRec = (function (_super) {
+__extends(Capacity_Week_StrRec, _super);
+function Capacity_Week_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_Week_StrRec.attributesToDeclare = function () {
+return [
+this.attr("CapacityDate", "capacityDateAttr", "CapacityDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CapacityWeekdayId", "capacityWeekdayIdAttr", "CapacityWeekdayId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DeliverTypeId", "deliverTypeIdAttr", "DeliverTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("STD_Capacity", "sTD_CapacityAttr", "STD_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_TemplateTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_TemplateTimeslotList), 
+this.attr("EX_Capcity", "eX_CapcityAttr", "EX_Capcity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_TemplateTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_TemplateTimeslotList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Capacity_Week_StrRec.init();
+return Capacity_Week_StrRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.Capacity_Week_StrRec = Capacity_Week_StrRec;
+
+});
+define("Store_Capacity_CS.model$Capacity_Week_StrList", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$Capacity_Week_StrRec"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_Week_StrList = (function (_super) {
+__extends(Capacity_Week_StrList, _super);
+function Capacity_Week_StrList(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_Week_StrList.itemType = Store_Capacity_CSModel.Capacity_Week_StrRec;
+return Capacity_Week_StrList;
+})(OS.DataTypes.GenericRecordList);
+Store_Capacity_CSModel.Capacity_Week_StrList = Capacity_Week_StrList;
+
+});
+define("Store_Capacity_CS.model$Capacity_WeekTemplate_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$Capacity_Week_StrList"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_WeekTemplate_StrRec = (function (_super) {
+__extends(Capacity_WeekTemplate_StrRec, _super);
+function Capacity_WeekTemplate_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_WeekTemplate_StrRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("TimeslotRange", "timeslotRangeAttr", "TimeslotRange", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("CapacityWeek_Str", "capacityWeek_StrAttr", "CapacityWeek_Str", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_Week_StrList());
+}, true, Store_Capacity_CSModel.Capacity_Week_StrList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Capacity_WeekTemplate_StrRec.init();
+return Capacity_WeekTemplate_StrRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.Capacity_WeekTemplate_StrRec = Capacity_WeekTemplate_StrRec;
+
+});
+define("Store_Capacity_CS.model$StoreTimeslotInstanceHistoryRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var StoreTimeslotInstanceHistoryRec = (function (_super) {
+__extends(StoreTimeslotInstanceHistoryRec, _super);
+function StoreTimeslotInstanceHistoryRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreTimeslotInstanceHistoryRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryTypeId", "deliveryTypeIdAttr", "DeliveryTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("WeekdayId", "weekdayIdAttr", "WeekdayId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("AllocatedCapacity", "allocatedCapacityAttr", "AllocatedCapacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Capacity", "capacityAttr", "Capacity", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsException", "isExceptionAttr", "IsException", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreTimeslotInstanceHistoryRec.init();
+return StoreTimeslotInstanceHistoryRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.StoreTimeslotInstanceHistoryRec = StoreTimeslotInstanceHistoryRec;
+
+});
+define("Store_Capacity_CS.model$Capacity_Template_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_Capacity_CS.model", "Store_Capacity_CS.model$Capacity_TemplateTimeslotList"], function (exports, OutSystems, Store_Capacity_CSModel) {
+var OS = OutSystems.Internal;
+var Capacity_Template_StrRec = (function (_super) {
+__extends(Capacity_Template_StrRec, _super);
+function Capacity_Template_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Capacity_Template_StrRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CapacityDate", "capacityDateAttr", "CapacityDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CapacityWeekdayId", "capacityWeekdayIdAttr", "CapacityWeekdayId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("TimeslotRange", "timeslotRangeAttr", "TimeslotRange", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("DS_Capacity", "dS_CapacityAttr", "DS_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_TemplateTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_TemplateTimeslotList), 
+this.attr("DX_Capacity", "dX_CapacityAttr", "DX_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_TemplateTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_TemplateTimeslotList), 
+this.attr("PS_Capacity", "pS_CapacityAttr", "PS_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_TemplateTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_TemplateTimeslotList), 
+this.attr("PX_Capacity", "pX_CapacityAttr", "PX_Capacity", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.Capacity_TemplateTimeslotList());
+}, true, Store_Capacity_CSModel.Capacity_TemplateTimeslotList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Capacity_Template_StrRec.init();
+return Capacity_Template_StrRec;
+})(OS.DataTypes.GenericRecord);
+Store_Capacity_CSModel.Capacity_Template_StrRec = Capacity_Template_StrRec;
+
+});
+define("Store_Capacity_CS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var Store_Capacity_CSModel = exports;
+});

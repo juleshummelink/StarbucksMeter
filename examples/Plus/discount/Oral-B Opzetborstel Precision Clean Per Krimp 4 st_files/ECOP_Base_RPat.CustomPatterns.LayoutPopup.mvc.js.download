@@ -1,0 +1,392 @@
+﻿define("ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("NoFooterMarginTop", "noFooterMarginTopIn", "NoFooterMarginTop", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_noFooterMarginTopInDataFetchStatus", "_noFooterMarginTopInDataFetchStatus", "_noFooterMarginTopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("HideCloseButton", "hideCloseButtonIn", "HideCloseButton", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_hideCloseButtonInDataFetchStatus", "_hideCloseButtonInDataFetchStatus", "_hideCloseButtonInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("VerticalAlignFooterButtons", "verticalAlignFooterButtonsIn", "VerticalAlignFooterButtons", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_verticalAlignFooterButtonsInDataFetchStatus", "_verticalAlignFooterButtonsInDataFetchStatus", "_verticalAlignFooterButtonsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("StackedButtons", "stackedButtonsIn", "StackedButtons", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_stackedButtonsInDataFetchStatus", "_stackedButtonsInDataFetchStatus", "_stackedButtonsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("FullWidthBtns", "fullWidthBtnsIn", "FullWidthBtns", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_fullWidthBtnsInDataFetchStatus", "_fullWidthBtnsInDataFetchStatus", "_fullWidthBtnsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets;
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+if("NoFooterMarginTop" in inputs) {
+this.variables.noFooterMarginTopIn = inputs.NoFooterMarginTop;
+if("_noFooterMarginTopInDataFetchStatus" in inputs) {
+this.variables._noFooterMarginTopInDataFetchStatus = inputs._noFooterMarginTopInDataFetchStatus;
+}
+
+}
+
+if("HideCloseButton" in inputs) {
+this.variables.hideCloseButtonIn = inputs.HideCloseButton;
+if("_hideCloseButtonInDataFetchStatus" in inputs) {
+this.variables._hideCloseButtonInDataFetchStatus = inputs._hideCloseButtonInDataFetchStatus;
+}
+
+}
+
+if("VerticalAlignFooterButtons" in inputs) {
+this.variables.verticalAlignFooterButtonsIn = inputs.VerticalAlignFooterButtons;
+if("_verticalAlignFooterButtonsInDataFetchStatus" in inputs) {
+this.variables._verticalAlignFooterButtonsInDataFetchStatus = inputs._verticalAlignFooterButtonsInDataFetchStatus;
+}
+
+}
+
+if("StackedButtons" in inputs) {
+this.variables.stackedButtonsIn = inputs.StackedButtons;
+if("_stackedButtonsInDataFetchStatus" in inputs) {
+this.variables._stackedButtonsInDataFetchStatus = inputs._stackedButtonsInDataFetchStatus;
+}
+
+}
+
+if("FullWidthBtns" in inputs) {
+this.variables.fullWidthBtnsIn = inputs.FullWidthBtns;
+if("_fullWidthBtnsInDataFetchStatus" in inputs) {
+this.variables._fullWidthBtnsInDataFetchStatus = inputs._fullWidthBtnsInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.LayoutPopup");
+});
+define("ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$model", "ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, React, OSView, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_model, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_controller, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.LayoutPopup";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("Fl65E+4TRkOT8KkbEEvdtA.Style"), function () {
+return ((("popup-layout" + ((model.variables.stackedButtonsIn) ? (" popup-stacked-footer") : (""))) + ((model.variables.fullWidthBtnsIn) ? (" popup-btns-full") : (""))) + ((((model.variables.extendedClassIn) !== (""))) ? ((" " + model.variables.extendedClassIn)) : ("")));
+}, function () {
+return model.variables.stackedButtonsIn;
+}, function () {
+return model.variables.fullWidthBtnsIn;
+}, function () {
+return model.variables.extendedClassIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._stackedButtonsInDataFetchStatus, model.variables._fullWidthBtnsInDataFetchStatus, model.variables._extendedClassInDataFetchStatus)
+}, $if(model.variables.hideCloseButtonIn, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "popup-layout-close",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.close$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "close"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})))];
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.header,
+style: "ph popup-layout__header",
+_idProps: {
+service: idService,
+name: "Header"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.content,
+style: "popup-layout-content",
+_idProps: {
+service: idService,
+name: "Content"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("oP3JZcrlY0m9s7gPJ8p9qQ.Style"), function () {
+return ("popup-layout-footer align-items-center display-flex justify-content-flex-end" + ((model.variables.verticalAlignFooterButtonsIn) ? (" popup-layout__buttons-align") : ("")));
+}, function () {
+return model.variables.verticalAlignFooterButtonsIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._verticalAlignFooterButtonsInDataFetchStatus)
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.footerLeftButton,
+gridProperties: {
+classes: "OSInline"
+},
+style: model.getCachedValue(idService.getId("FooterLeftButton.Style"), function () {
+return ("ph" + ((model.variables.noFooterMarginTopIn) ? ("") : (" margin-top-m")));
+}, function () {
+return model.variables.noFooterMarginTopIn;
+}),
+_idProps: {
+service: idService,
+name: "FooterLeftButton"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._noFooterMarginTopInDataFetchStatus)
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.footerRightButtom,
+gridProperties: {
+classes: "OSInline"
+},
+style: model.getCachedValue(idService.getId("FooterRightButtom.Style"), function () {
+return (("ph" + ((model.variables.stackedButtonsIn) ? ("") : (" margin-left-m"))) + ((model.variables.noFooterMarginTopIn) ? ("") : (" margin-top-m")));
+}, function () {
+return model.variables.stackedButtonsIn;
+}, function () {
+return model.variables.noFooterMarginTopIn;
+}),
+_idProps: {
+service: idService,
+name: "FooterRightButtom"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._stackedButtonsInDataFetchStatus, model.variables._noFooterMarginTopInDataFetchStatus)
+}))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.languageResources", "ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$translationsResources"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, ECOP_Base_RPatLanguageResources, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+
+Controller.prototype.close$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Base_RPatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Base_RPatLanguageResources);
+});
+
+define("ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

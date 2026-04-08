@@ -1,0 +1,388 @@
+﻿define("ECOP.AA_Common.Breadcrumbs_Dummy.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "PLUS_OutSystemsUI_2_8_0.Navigation.Breadcrumbs.mvc$model", "PLUS_OutSystemsUI_2_8_0.Navigation.BreadcrumbsItem.mvc$model"], function (OutSystems, ECOPModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, PLUS_OutSystemsUI_2_8_0_Navigation_Breadcrumbs_mvcModel, PLUS_OutSystemsUI_2_8_0_Navigation_BreadcrumbsItem_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets || PLUS_OutSystemsUI_2_8_0_Navigation_Breadcrumbs_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Navigation_BreadcrumbsItem_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+};
+return Model;
+})(OS.Model.VariablelessViewModel);
+return new OS.Model.ModelFactory(Model, "AA_Common.Breadcrumbs_Dummy");
+});
+define("ECOP.AA_Common.Breadcrumbs_Dummy.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "react", "OutSystems/ReactView/Main", "ECOP.AA_Common.Breadcrumbs_Dummy.mvc$model", "ECOP.AA_Common.Breadcrumbs_Dummy.mvc$controller", "ECOP.clientVariables", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Navigation.Breadcrumbs.mvc$view", "PLUS_OutSystemsUI_2_8_0.Navigation.BreadcrumbsItem.mvc$view"], function (OutSystems, ECOPModel, ECOPController, React, OSView, ECOP_AA_Common_Breadcrumbs_Dummy_mvc_model, ECOP_AA_Common_Breadcrumbs_Dummy_mvc_controller, ECOPClientVariables, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Navigation_Breadcrumbs_mvc_view, PLUS_OutSystemsUI_2_8_0_Navigation_BreadcrumbsItem_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "AA_Common.Breadcrumbs_Dummy";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Navigation_Breadcrumbs_mvc_view, PLUS_OutSystemsUI_2_8_0_Navigation_BreadcrumbsItem_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_AA_Common_Breadcrumbs_Dummy_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_AA_Common_Breadcrumbs_Dummy_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "breadcrums-wrapper text-ellipsis",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "breadcrums-left-content",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "place",
+Name: "arrow-left",
+Size: ECOPModel.staticEntities.iconSize.size_s
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-left-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("Ja9bLb4Ys0q03Nxt7WYBWA#Value", "Back"))],
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), $if(!(ECOPClientVariables.getIsPhone()), false, this, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_Breadcrumbs_mvc_view, {
+inputs: {
+ExtendedClass: "margin-left-m"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "5",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [$if(ECOPClientVariables.getIsDesktop(), false, this, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_BreadcrumbsItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "6",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: ["Home"],
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+icon: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Icon, {
+icon: "angle-right",
+iconSize: /*FontSize*/ 0,
+style: "icon place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_BreadcrumbsItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("lZ+1VOjjXUSOsQTm8mKguw#Value", "Products"))],
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+icon: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Icon, {
+icon: "angle-right",
+iconSize: /*FontSize*/ 0,
+style: "icon place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+}, function () {
+return [];
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_BreadcrumbsItem_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "Aardappel, groente, fruit",
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+icon: PlaceholderContent.Empty
+},
+_dependencies: []
+})];
+})
+},
+_dependencies: [asPrimitiveValue(ECOPClientVariables.getIsDesktop())]
+})];
+}, function () {
+return [];
+}))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP.AA_Common.Breadcrumbs_Dummy.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP.languageResources", "ECOP.clientVariables", "ECOP.AA_Common.Breadcrumbs_Dummy.mvc$translationsResources"], function (OutSystems, ECOPModel, ECOPController, ECOPLanguageResources, ECOPClientVariables, ECOP_AA_Common_Breadcrumbs_Dummy_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECOP_AA_Common_Breadcrumbs_Dummy_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOPLanguageResources);
+});
+
+define("ECOP.AA_Common.Breadcrumbs_Dummy.mvc$translationsResources", ["exports", "ECOP.AA_Common.Breadcrumbs_Dummy.mvc$translationsResources.nl-NL"], function (exports, ECOP_AA_Common_Breadcrumbs_Dummy_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECOP_AA_Common_Breadcrumbs_Dummy_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECOP.AA_Common.Breadcrumbs_Dummy.mvc$translationsResources.nl-NL", [], function () {
+return {
+"lZ+1VOjjXUSOsQTm8mKguw#Value": "Producten",
+"Ja9bLb4Ys0q03Nxt7WYBWA#Value": "Terug"
+};
+});

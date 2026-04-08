@@ -1,0 +1,1459 @@
+﻿define("CT_Supporting_IS.model$Token2Rec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Token2Rec = (function (_super) {
+__extends(Token2Rec, _super);
+function Token2Rec(defaults) {
+_super.apply(this, arguments);
+}
+Token2Rec.attributesToDeclare = function () {
+return [
+this.attr("Access_token", "access_tokenAttr", "access_token", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Token_type", "token_typeAttr", "token_type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Expires_in", "expires_inAttr", "expires_in", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Scope", "scopeAttr", "scope", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Refresh_token", "refresh_tokenAttr", "refresh_token", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Token2Rec.init();
+return Token2Rec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Token2Rec = Token2Rec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_ConflictingResourceRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_ConflictingResourceRec = (function (_super) {
+__extends(CT_Type_ConflictingResourceRec, _super);
+function CT_Type_ConflictingResourceRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_ConflictingResourceRec.attributesToDeclare = function () {
+return [
+this.attr("TypeId", "typeIdAttr", "typeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_ConflictingResourceRec.init();
+return CT_Type_ConflictingResourceRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_ConflictingResourceRec = CT_Type_ConflictingResourceRec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_ErrorItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_ConflictingResourceRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_ErrorItemRec = (function (_super) {
+__extends(CT_Type_ErrorItemRec, _super);
+function CT_Type_ErrorItemRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_ErrorItemRec.attributesToDeclare = function () {
+return [
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DuplicateValue", "duplicateValueAttr", "duplicateValue", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Field", "fieldAttr", "field", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ConflictingResource", "conflictingResourceAttr", "conflictingResource", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_ConflictingResourceRec());
+}, true, CT_Supporting_ISModel.CT_Type_ConflictingResourceRec), 
+this.attr("CurrentVersion", "currentVersionAttr", "currentVersion", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_ErrorItemRec.init();
+return CT_Type_ErrorItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_ErrorItemRec = CT_Type_ErrorItemRec;
+
+});
+define("CT_Supporting_IS.model$GraphQL_Request2Rec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var GraphQL_Request2Rec = (function (_super) {
+__extends(GraphQL_Request2Rec, _super);
+function GraphQL_Request2Rec(defaults) {
+_super.apply(this, arguments);
+}
+GraphQL_Request2Rec.attributesToDeclare = function () {
+return [
+this.attr("Query", "queryAttr", "query", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OperationName", "operationNameAttr", "operationName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Variables", "variablesAttr", "variables", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GraphQL_Request2Rec.init();
+return GraphQL_Request2Rec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.GraphQL_Request2Rec = GraphQL_Request2Rec;
+
+});
+define("CT_Supporting_IS.model$TypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var TypeRec = (function (_super) {
+__extends(TypeRec, _super);
+function TypeRec(defaults) {
+_super.apply(this, arguments);
+}
+TypeRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TypeRec.fromStructure = function (str) {
+return new TypeRec(new TypeRec.RecordClass({
+nameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+TypeRec.init();
+return TypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.TypeRec = TypeRec;
+
+});
+define("CT_Supporting_IS.model$LastModifiedBy2Rec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var LastModifiedBy2Rec = (function (_super) {
+__extends(LastModifiedBy2Rec, _super);
+function LastModifiedBy2Rec(defaults) {
+_super.apply(this, arguments);
+}
+LastModifiedBy2Rec.attributesToDeclare = function () {
+return [
+this.attr("ClientId", "clientIdAttr", "clientId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsPlatformClient", "isPlatformClientAttr", "isPlatformClient", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LastModifiedBy2Rec.init();
+return LastModifiedBy2Rec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.LastModifiedBy2Rec = LastModifiedBy2Rec;
+
+});
+define("CT_Supporting_IS.model$", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.TextList = TextList;
+
+});
+define("CT_Supporting_IS.model$GraphQL_VariableRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var GraphQL_VariableRec = (function (_super) {
+__extends(GraphQL_VariableRec, _super);
+function GraphQL_VariableRec(defaults) {
+_super.apply(this, arguments);
+}
+GraphQL_VariableRec.attributesToDeclare = function () {
+return [
+this.attr("Limit", "limitAttr", "limit", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("WhereClause", "whereClauseAttr", "whereclause", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Offset", "offsetAttr", "offset", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("skus", "skusAttr", "skus", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("channels", "channelsAttr", "channels", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("ChannelId", "channelIdAttr", "channelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Sku", "skuAttr", "sku", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Sort", "sortAttr", "sort", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("Text", "textAttr", "text", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("includeChannelIds", "includeChannelIdsAttr", "includeChannelIds", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("orderNumber", "orderNumberAttr", "orderNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GraphQL_VariableRec.init();
+return GraphQL_VariableRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.GraphQL_VariableRec = GraphQL_VariableRec;
+
+});
+define("CT_Supporting_IS.model$GraphQL_RequestRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$GraphQL_VariableRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var GraphQL_RequestRec = (function (_super) {
+__extends(GraphQL_RequestRec, _super);
+function GraphQL_RequestRec(defaults) {
+_super.apply(this, arguments);
+}
+GraphQL_RequestRec.attributesToDeclare = function () {
+return [
+this.attr("Query", "queryAttr", "query", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OperationName", "operationNameAttr", "operationName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Variables", "variablesAttr", "variables", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.GraphQL_VariableRec());
+}, true, CT_Supporting_ISModel.GraphQL_VariableRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GraphQL_RequestRec.init();
+return GraphQL_RequestRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.GraphQL_RequestRec = GraphQL_RequestRec;
+
+});
+define("CT_Supporting_IS.model$ConflictingResourceRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ConflictingResourceRec = (function (_super) {
+__extends(ConflictingResourceRec, _super);
+function ConflictingResourceRec(defaults) {
+_super.apply(this, arguments);
+}
+ConflictingResourceRec.attributesToDeclare = function () {
+return [
+this.attr("TypeId", "typeIdAttr", "typeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ConflictingResourceRec.init();
+return ConflictingResourceRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.ConflictingResourceRec = ConflictingResourceRec;
+
+});
+define("CT_Supporting_IS.model$Deprecated_ErrorItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$ConflictingResourceRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Deprecated_ErrorItemRec = (function (_super) {
+__extends(Deprecated_ErrorItemRec, _super);
+function Deprecated_ErrorItemRec(defaults) {
+_super.apply(this, arguments);
+}
+Deprecated_ErrorItemRec.attributesToDeclare = function () {
+return [
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DuplicateValue", "duplicateValueAttr", "duplicateValue", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Field", "fieldAttr", "field", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ConflictingResource", "conflictingResourceAttr", "conflictingResource", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.ConflictingResourceRec());
+}, true, CT_Supporting_ISModel.ConflictingResourceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Deprecated_ErrorItemRec.init();
+return Deprecated_ErrorItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Deprecated_ErrorItemRec = Deprecated_ErrorItemRec;
+
+});
+define("CT_Supporting_IS.model$Deprecated_ErrorItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$Deprecated_ErrorItemRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Deprecated_ErrorItemList = (function (_super) {
+__extends(Deprecated_ErrorItemList, _super);
+function Deprecated_ErrorItemList(defaults) {
+_super.apply(this, arguments);
+}
+Deprecated_ErrorItemList.itemType = CT_Supporting_ISModel.Deprecated_ErrorItemRec;
+return Deprecated_ErrorItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.Deprecated_ErrorItemList = Deprecated_ErrorItemList;
+
+});
+define("CT_Supporting_IS.model$Deprecated_ErrorRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$Deprecated_ErrorItemList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Deprecated_ErrorRec = (function (_super) {
+__extends(Deprecated_ErrorRec, _super);
+function Deprecated_ErrorRec(defaults) {
+_super.apply(this, arguments);
+}
+Deprecated_ErrorRec.attributesToDeclare = function () {
+return [
+this.attr("StatusCode", "statusCodeAttr", "statusCode", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Message", "messageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ErrorItemList", "errorItemListAttr", "errors", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.Deprecated_ErrorItemList());
+}, true, CT_Supporting_ISModel.Deprecated_ErrorItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Deprecated_ErrorRec.init();
+return Deprecated_ErrorRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Deprecated_ErrorRec = Deprecated_ErrorRec;
+
+});
+define("CT_Supporting_IS.model$TokenRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var TokenRec = (function (_super) {
+__extends(TokenRec, _super);
+function TokenRec(defaults) {
+_super.apply(this, arguments);
+}
+TokenRec.attributesToDeclare = function () {
+return [
+this.attr("Access_token", "access_tokenAttr", "access_token", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Token_type", "token_typeAttr", "token_type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Expires_in", "expires_inAttr", "expires_in", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Scope", "scopeAttr", "scope", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Refresh_token", "refresh_tokenAttr", "refresh_token", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TokenRec.init();
+return TokenRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.TokenRec = TokenRec;
+
+});
+define("CT_Supporting_IS.model$ErrorResponseCodeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorResponseCodeRec = (function (_super) {
+__extends(ErrorResponseCodeRec, _super);
+function ErrorResponseCodeRec(defaults) {
+_super.apply(this, arguments);
+}
+ErrorResponseCodeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ErrorId", "errorIdAttr", "ErrorId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsToRetry", "isToRetryAttr", "IsToRetry", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ErrorResponseCodeRec.init();
+return ErrorResponseCodeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.ErrorResponseCodeRec = ErrorResponseCodeRec;
+
+});
+define("CT_Supporting_IS.model$NameRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var NameRec = (function (_super) {
+__extends(NameRec, _super);
+function NameRec(defaults) {
+_super.apply(this, arguments);
+}
+NameRec.attributesToDeclare = function () {
+return [
+this.attr("EnUS", "enUSAttr", "en-US", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NlNL", "nlNLAttr", "nl-NL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+NameRec.init();
+return NameRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.NameRec = NameRec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_EnumValueRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_EnumValueRec = (function (_super) {
+__extends(CT_Type_EnumValueRec, _super);
+function CT_Type_EnumValueRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_EnumValueRec.attributesToDeclare = function () {
+return [
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "label", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_EnumValueRec.init();
+return CT_Type_EnumValueRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_EnumValueRec = CT_Type_EnumValueRec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_EnumValueList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_EnumValueRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_EnumValueList = (function (_super) {
+__extends(CT_Type_EnumValueList, _super);
+function CT_Type_EnumValueList(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_EnumValueList.itemType = CT_Supporting_ISModel.CT_Type_EnumValueRec;
+return CT_Type_EnumValueList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.CT_Type_EnumValueList = CT_Type_EnumValueList;
+
+});
+define("CT_Supporting_IS.model$CT_Type_FieldTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_EnumValueList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_FieldTypeRec = (function (_super) {
+__extends(CT_Type_FieldTypeRec, _super);
+function CT_Type_FieldTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_FieldTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EnumValue", "enumValueAttr", "values", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_EnumValueList());
+}, true, CT_Supporting_ISModel.CT_Type_EnumValueList), 
+this.attr("ReferenceTypeId", "referenceTypeIdAttr", "referenceTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_FieldTypeRec.init();
+return CT_Type_FieldTypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_FieldTypeRec = CT_Type_FieldTypeRec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_LocalizedStringRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_LocalizedStringRec = (function (_super) {
+__extends(CT_Type_LocalizedStringRec, _super);
+function CT_Type_LocalizedStringRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_LocalizedStringRec.attributesToDeclare = function () {
+return [
+this.attr("ENUS", "eNUSAttr", "en-us", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NLNL", "nLNLAttr", "nl-nl", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_LocalizedStringRec.init();
+return CT_Type_LocalizedStringRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_LocalizedStringRec = CT_Type_LocalizedStringRec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_FieldDefinitionRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_FieldTypeRec", "CT_Supporting_IS.model$CT_Type_LocalizedStringRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_FieldDefinitionRec = (function (_super) {
+__extends(CT_Type_FieldDefinitionRec, _super);
+function CT_Type_FieldDefinitionRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_FieldDefinitionRec.attributesToDeclare = function () {
+return [
+this.attr("FieldType", "fieldTypeAttr", "type", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_FieldTypeRec());
+}, true, CT_Supporting_ISModel.CT_Type_FieldTypeRec), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "label", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_LocalizedStringRec());
+}, true, CT_Supporting_ISModel.CT_Type_LocalizedStringRec), 
+this.attr("IsRequired", "isRequiredAttr", "required", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("TextInputHint", "textInputHintAttr", "inputHint", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_FieldDefinitionRec.init();
+return CT_Type_FieldDefinitionRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_FieldDefinitionRec = CT_Type_FieldDefinitionRec;
+
+});
+define("CT_Supporting_IS.model$ActionItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$NameRec", "CT_Supporting_IS.model$CT_Type_FieldDefinitionRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ActionItemRec = (function (_super) {
+__extends(ActionItemRec, _super);
+function ActionItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ActionItemRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.NameRec());
+}, true, CT_Supporting_ISModel.NameRec), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "description", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.NameRec());
+}, true, CT_Supporting_ISModel.NameRec), 
+this.attr("FieldDefinition", "fieldDefinitionAttr", "fieldDefinition", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_FieldDefinitionRec());
+}, true, CT_Supporting_ISModel.CT_Type_FieldDefinitionRec), 
+this.attr("FieldName", "fieldNameAttr", "fieldName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("label", "labelAttr", "label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("inputHint", "inputHintAttr", "inputHint", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ActionItemRec.init();
+return ActionItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.ActionItemRec = ActionItemRec;
+
+});
+define("CT_Supporting_IS.model$ActionItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$ActionItemRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ActionItemList = (function (_super) {
+__extends(ActionItemList, _super);
+function ActionItemList(defaults) {
+_super.apply(this, arguments);
+}
+ActionItemList.itemType = CT_Supporting_ISModel.ActionItemRec;
+return ActionItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.ActionItemList = ActionItemList;
+
+});
+define("CT_Supporting_IS.model$CT_Type_UpdateRequestRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$ActionItemList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_UpdateRequestRec = (function (_super) {
+__extends(CT_Type_UpdateRequestRec, _super);
+function CT_Type_UpdateRequestRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_UpdateRequestRec.attributesToDeclare = function () {
+return [
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Actions", "actionsAttr", "actions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.ActionItemList());
+}, true, CT_Supporting_ISModel.ActionItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_UpdateRequestRec.init();
+return CT_Type_UpdateRequestRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_UpdateRequestRec = CT_Type_UpdateRequestRec;
+
+});
+define("CT_Supporting_IS.model$LocalizedStringRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var LocalizedStringRec = (function (_super) {
+__extends(LocalizedStringRec, _super);
+function LocalizedStringRec(defaults) {
+_super.apply(this, arguments);
+}
+LocalizedStringRec.attributesToDeclare = function () {
+return [
+this.attr("ENUS", "eNUSAttr", "en-us", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NLNL", "nLNLAttr", "nl-nl", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LocalizedStringRec.init();
+return LocalizedStringRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.LocalizedStringRec = LocalizedStringRec;
+
+});
+define("CT_Supporting_IS.model$Type_EnumValueRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Type_EnumValueRec = (function (_super) {
+__extends(Type_EnumValueRec, _super);
+function Type_EnumValueRec(defaults) {
+_super.apply(this, arguments);
+}
+Type_EnumValueRec.attributesToDeclare = function () {
+return [
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "label", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Type_EnumValueRec.init();
+return Type_EnumValueRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Type_EnumValueRec = Type_EnumValueRec;
+
+});
+define("CT_Supporting_IS.model$Type_EnumValueList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$Type_EnumValueRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Type_EnumValueList = (function (_super) {
+__extends(Type_EnumValueList, _super);
+function Type_EnumValueList(defaults) {
+_super.apply(this, arguments);
+}
+Type_EnumValueList.itemType = CT_Supporting_ISModel.Type_EnumValueRec;
+return Type_EnumValueList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.Type_EnumValueList = Type_EnumValueList;
+
+});
+define("CT_Supporting_IS.model$FieldTypeStructRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$Type_EnumValueList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var FieldTypeStructRec = (function (_super) {
+__extends(FieldTypeStructRec, _super);
+function FieldTypeStructRec(defaults) {
+_super.apply(this, arguments);
+}
+FieldTypeStructRec.attributesToDeclare = function () {
+return [
+this.attr("FieldTypeId", "fieldTypeIdAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EnumValueList", "enumValueListAttr", "values", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.Type_EnumValueList());
+}, true, CT_Supporting_ISModel.Type_EnumValueList), 
+this.attr("ReferenceTypeId", "referenceTypeIdAttr", "referenceTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FieldTypeStructRec.init();
+return FieldTypeStructRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.FieldTypeStructRec = FieldTypeStructRec;
+
+});
+define("CT_Supporting_IS.model$Type_FieldDefinitionRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$LocalizedStringRec", "CT_Supporting_IS.model$FieldTypeStructRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Type_FieldDefinitionRec = (function (_super) {
+__extends(Type_FieldDefinitionRec, _super);
+function Type_FieldDefinitionRec(defaults) {
+_super.apply(this, arguments);
+}
+Type_FieldDefinitionRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "label", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.LocalizedStringRec());
+}, true, CT_Supporting_ISModel.LocalizedStringRec), 
+this.attr("IsRequired", "isRequiredAttr", "required", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("FieldType", "fieldTypeAttr", "type", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.FieldTypeStructRec());
+}, true, CT_Supporting_ISModel.FieldTypeStructRec), 
+this.attr("TextInputHintId", "textInputHintIdAttr", "inputHint", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CouldBeUpdated", "couldBeUpdatedAttr", "CouldBeUpdated", false, false, OS.Types.Boolean, function () {
+return true;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Type_FieldDefinitionRec.init();
+return Type_FieldDefinitionRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Type_FieldDefinitionRec = Type_FieldDefinitionRec;
+
+});
+define("CT_Supporting_IS.model$Type_FieldDefinitionList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$Type_FieldDefinitionRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Type_FieldDefinitionList = (function (_super) {
+__extends(Type_FieldDefinitionList, _super);
+function Type_FieldDefinitionList(defaults) {
+_super.apply(this, arguments);
+}
+Type_FieldDefinitionList.itemType = CT_Supporting_ISModel.Type_FieldDefinitionRec;
+return Type_FieldDefinitionList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.Type_FieldDefinitionList = Type_FieldDefinitionList;
+
+});
+define("CT_Supporting_IS.model$Type_TypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$LocalizedStringRec", "CT_Supporting_IS.model$Type_FieldDefinitionList", "CT_Supporting_IS.model$Deprecated_ErrorItemList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Type_TypeRec = (function (_super) {
+__extends(Type_TypeRec, _super);
+function Type_TypeRec(defaults) {
+_super.apply(this, arguments);
+}
+Type_TypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("LastModifiedAt", "lastModifiedAtAttr", "lastModifiedAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.LocalizedStringRec());
+}, true, CT_Supporting_ISModel.LocalizedStringRec), 
+this.attr("Description", "descriptionAttr", "description", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.LocalizedStringRec());
+}, true, CT_Supporting_ISModel.LocalizedStringRec), 
+this.attr("ResourceTypeIdList", "resourceTypeIdListAttr", "resourceTypeIds", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("FieldDefinitionList", "fieldDefinitionListAttr", "fieldDefinitions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.Type_FieldDefinitionList());
+}, true, CT_Supporting_ISModel.Type_FieldDefinitionList), 
+this.attr("StatusCode", "statusCodeAttr", "statusCode", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ErrorMessage", "errorMessageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ErrorItemList", "errorItemListAttr", "errors", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.Deprecated_ErrorItemList());
+}, true, CT_Supporting_ISModel.Deprecated_ErrorItemList), 
+this.attr("WasSelected", "wasSelectedAttr", "WasSelected", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Type_TypeRec.init();
+return Type_TypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Type_TypeRec = Type_TypeRec;
+
+});
+define("CT_Supporting_IS.model$Type_TypeList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$Type_TypeRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Type_TypeList = (function (_super) {
+__extends(Type_TypeList, _super);
+function Type_TypeList(defaults) {
+_super.apply(this, arguments);
+}
+Type_TypeList.itemType = CT_Supporting_ISModel.Type_TypeRec;
+return Type_TypeList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.Type_TypeList = Type_TypeList;
+
+});
+define("CT_Supporting_IS.model$Type_PaginatedResultsRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$Type_TypeList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Type_PaginatedResultsRec = (function (_super) {
+__extends(Type_PaginatedResultsRec, _super);
+function Type_PaginatedResultsRec(defaults) {
+_super.apply(this, arguments);
+}
+Type_PaginatedResultsRec.attributesToDeclare = function () {
+return [
+this.attr("Offset", "offsetAttr", "offset", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Limit", "limitAttr", "limit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Count", "countAttr", "count", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Type_TypeList", "type_TypeListAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.Type_TypeList());
+}, true, CT_Supporting_ISModel.Type_TypeList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Type_PaginatedResultsRec.init();
+return Type_PaginatedResultsRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Type_PaginatedResultsRec = Type_PaginatedResultsRec;
+
+});
+define("CT_Supporting_IS.model$ResourceTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ResourceTypeRec = (function (_super) {
+__extends(ResourceTypeRec, _super);
+function ResourceTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+ResourceTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ResourceTypeRec.fromStructure = function (str) {
+return new ResourceTypeRec(new ResourceTypeRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ResourceTypeRec.init();
+return ResourceTypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.ResourceTypeRec = ResourceTypeRec;
+
+});
+define("CT_Supporting_IS.model$ErrorItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorItemRec = (function (_super) {
+__extends(ErrorItemRec, _super);
+function ErrorItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemRec.attributesToDeclare = function () {
+return [
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CurrentVersion", "currentVersionAttr", "CurrentVersion", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ErrorItemRec.init();
+return ErrorItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.ErrorItemRec = ErrorItemRec;
+
+});
+define("CT_Supporting_IS.model$ErrorItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$ErrorItemRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorItemList = (function (_super) {
+__extends(ErrorItemList, _super);
+function ErrorItemList(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemList.itemType = CT_Supporting_ISModel.ErrorItemRec;
+return ErrorItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.ErrorItemList = ErrorItemList;
+
+});
+define("CT_Supporting_IS.model$ErrorRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$ErrorItemList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorRec = (function (_super) {
+__extends(ErrorRec, _super);
+function ErrorRec(defaults) {
+_super.apply(this, arguments);
+}
+ErrorRec.attributesToDeclare = function () {
+return [
+this.attr("StatusCode", "statusCodeAttr", "statusCode", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Message", "messageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ErrorItemList", "errorItemListAttr", "errors", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.ErrorItemList());
+}, true, CT_Supporting_ISModel.ErrorItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ErrorRec.init();
+return ErrorRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.ErrorRec = ErrorRec;
+
+});
+define("CT_Supporting_IS.model$FieldDefinitionItemRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$NameRec", "CT_Supporting_IS.model$TypeRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var FieldDefinitionItemRec = (function (_super) {
+__extends(FieldDefinitionItemRec, _super);
+function FieldDefinitionItemRec(defaults) {
+_super.apply(this, arguments);
+}
+FieldDefinitionItemRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "label", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.NameRec());
+}, true, CT_Supporting_ISModel.NameRec), 
+this.attr("Required", "requiredAttr", "required", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.TypeRec());
+}, true, CT_Supporting_ISModel.TypeRec), 
+this.attr("InputHint", "inputHintAttr", "inputHint", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FieldDefinitionItemRec.init();
+return FieldDefinitionItemRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.FieldDefinitionItemRec = FieldDefinitionItemRec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_FieldDefinitionList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_FieldDefinitionRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_FieldDefinitionList = (function (_super) {
+__extends(CT_Type_FieldDefinitionList, _super);
+function CT_Type_FieldDefinitionList(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_FieldDefinitionList.itemType = CT_Supporting_ISModel.CT_Type_FieldDefinitionRec;
+return CT_Type_FieldDefinitionList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.CT_Type_FieldDefinitionList = CT_Type_FieldDefinitionList;
+
+});
+define("CT_Supporting_IS.model$CT_Type_DraftRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_LocalizedStringRec", "CT_Supporting_IS.model$CT_Type_FieldDefinitionList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_DraftRec = (function (_super) {
+__extends(CT_Type_DraftRec, _super);
+function CT_Type_DraftRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_DraftRec.attributesToDeclare = function () {
+return [
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_LocalizedStringRec());
+}, true, CT_Supporting_ISModel.CT_Type_LocalizedStringRec), 
+this.attr("Description", "descriptionAttr", "description", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_LocalizedStringRec());
+}, true, CT_Supporting_ISModel.CT_Type_LocalizedStringRec), 
+this.attr("ResourceTypeIdList", "resourceTypeIdListAttr", "resourceTypeIds", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("FieldDefinitionList", "fieldDefinitionListAttr", "fieldDefinitions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_FieldDefinitionList());
+}, true, CT_Supporting_ISModel.CT_Type_FieldDefinitionList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_DraftRec.init();
+return CT_Type_DraftRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_DraftRec = CT_Type_DraftRec;
+
+});
+define("CT_Supporting_IS.model$StateTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var StateTypeRec = (function (_super) {
+__extends(StateTypeRec, _super);
+function StateTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+StateTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StateTypeRec.fromStructure = function (str) {
+return new StateTypeRec(new StateTypeRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+StateTypeRec.init();
+return StateTypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.StateTypeRec = StateTypeRec;
+
+});
+define("CT_Supporting_IS.model$Variable_WhereClauseRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Variable_WhereClauseRec = (function (_super) {
+__extends(Variable_WhereClauseRec, _super);
+function Variable_WhereClauseRec(defaults) {
+_super.apply(this, arguments);
+}
+Variable_WhereClauseRec.attributesToDeclare = function () {
+return [
+this.attr("WhereClause", "whereClauseAttr", "whereclause", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Variable_WhereClauseRec.fromStructure = function (str) {
+return new Variable_WhereClauseRec(new Variable_WhereClauseRec.RecordClass({
+whereClauseAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Variable_WhereClauseRec.init();
+return Variable_WhereClauseRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Variable_WhereClauseRec = Variable_WhereClauseRec;
+
+});
+define("CT_Supporting_IS.model$Variable_LimitSortOffsetAndWhereClauseRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Variable_LimitSortOffsetAndWhereClauseRec = (function (_super) {
+__extends(Variable_LimitSortOffsetAndWhereClauseRec, _super);
+function Variable_LimitSortOffsetAndWhereClauseRec(defaults) {
+_super.apply(this, arguments);
+}
+Variable_LimitSortOffsetAndWhereClauseRec.attributesToDeclare = function () {
+return [
+this.attr("Limit", "limitAttr", "limit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Sort", "sortAttr", "sort", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("Offset", "offsetAttr", "offset", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("WhereClause", "whereClauseAttr", "whereclause", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Variable_LimitSortOffsetAndWhereClauseRec.init();
+return Variable_LimitSortOffsetAndWhereClauseRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Variable_LimitSortOffsetAndWhereClauseRec = Variable_LimitSortOffsetAndWhereClauseRec;
+
+});
+define("CT_Supporting_IS.model$ReferenceTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var ReferenceTypeRec = (function (_super) {
+__extends(ReferenceTypeRec, _super);
+function ReferenceTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+ReferenceTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ReferenceTypeRec.init();
+return ReferenceTypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.ReferenceTypeRec = ReferenceTypeRec;
+
+});
+define("CT_Supporting_IS.model$Variable_LimitAndWhereClauseRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Variable_LimitAndWhereClauseRec = (function (_super) {
+__extends(Variable_LimitAndWhereClauseRec, _super);
+function Variable_LimitAndWhereClauseRec(defaults) {
+_super.apply(this, arguments);
+}
+Variable_LimitAndWhereClauseRec.attributesToDeclare = function () {
+return [
+this.attr("Limit", "limitAttr", "limit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("WhereClause", "whereClauseAttr", "whereclause", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Variable_LimitAndWhereClauseRec.init();
+return Variable_LimitAndWhereClauseRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Variable_LimitAndWhereClauseRec = Variable_LimitAndWhereClauseRec;
+
+});
+define("CT_Supporting_IS.model$FieldTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var FieldTypeRec = (function (_super) {
+__extends(FieldTypeRec, _super);
+function FieldTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+FieldTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FieldTypeRec.fromStructure = function (str) {
+return new FieldTypeRec(new FieldTypeRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+FieldTypeRec.init();
+return FieldTypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.FieldTypeRec = FieldTypeRec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_ErrorItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_ErrorItemRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_ErrorItemList = (function (_super) {
+__extends(CT_Type_ErrorItemList, _super);
+function CT_Type_ErrorItemList(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_ErrorItemList.itemType = CT_Supporting_ISModel.CT_Type_ErrorItemRec;
+return CT_Type_ErrorItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.CT_Type_ErrorItemList = CT_Type_ErrorItemList;
+
+});
+define("CT_Supporting_IS.model$CT_Type_TypeRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_LocalizedStringRec", "CT_Supporting_IS.model$CT_Type_FieldDefinitionList", "CT_Supporting_IS.model$CT_Type_ErrorItemList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_TypeRec = (function (_super) {
+__extends(CT_Type_TypeRec, _super);
+function CT_Type_TypeRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_TypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("LastModifiedAt", "lastModifiedAtAttr", "lastModifiedAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_LocalizedStringRec());
+}, true, CT_Supporting_ISModel.CT_Type_LocalizedStringRec), 
+this.attr("Description", "descriptionAttr", "description", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_LocalizedStringRec());
+}, true, CT_Supporting_ISModel.CT_Type_LocalizedStringRec), 
+this.attr("ResourceTypeIdList", "resourceTypeIdListAttr", "resourceTypeIds", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("FieldDefinitionList", "fieldDefinitionListAttr", "fieldDefinitions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_FieldDefinitionList());
+}, true, CT_Supporting_ISModel.CT_Type_FieldDefinitionList), 
+this.attr("StatusCode", "statusCodeAttr", "statusCode", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Message", "messageAttr", "message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ErrorItemList", "errorItemListAttr", "errors", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_ErrorItemList());
+}, true, CT_Supporting_ISModel.CT_Type_ErrorItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_TypeRec.init();
+return CT_Type_TypeRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_TypeRec = CT_Type_TypeRec;
+
+});
+define("CT_Supporting_IS.model$CT_Type_TypeList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_TypeRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_TypeList = (function (_super) {
+__extends(CT_Type_TypeList, _super);
+function CT_Type_TypeList(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_TypeList.itemType = CT_Supporting_ISModel.CT_Type_TypeRec;
+return CT_Type_TypeList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.CT_Type_TypeList = CT_Type_TypeList;
+
+});
+define("CT_Supporting_IS.model$CT_Type_PaginatedResultsRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$CT_Type_TypeList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_PaginatedResultsRec = (function (_super) {
+__extends(CT_Type_PaginatedResultsRec, _super);
+function CT_Type_PaginatedResultsRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_PaginatedResultsRec.attributesToDeclare = function () {
+return [
+this.attr("Offset", "offsetAttr", "offset", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Limit", "limitAttr", "limit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Count", "countAttr", "count", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CT_Type_TypeList", "cT_Type_TypeListAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.CT_Type_TypeList());
+}, true, CT_Supporting_ISModel.CT_Type_TypeList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_PaginatedResultsRec.init();
+return CT_Type_PaginatedResultsRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_PaginatedResultsRec = CT_Type_PaginatedResultsRec;
+
+});
+define("CT_Supporting_IS.model$", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.TextList = TextList;
+
+});
+define("CT_Supporting_IS.model$Type_DraftRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$LocalizedStringRec", "CT_Supporting_IS.model$Type_FieldDefinitionList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var Type_DraftRec = (function (_super) {
+__extends(Type_DraftRec, _super);
+function Type_DraftRec(defaults) {
+_super.apply(this, arguments);
+}
+Type_DraftRec.attributesToDeclare = function () {
+return [
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.LocalizedStringRec());
+}, true, CT_Supporting_ISModel.LocalizedStringRec), 
+this.attr("Description", "descriptionAttr", "description", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.LocalizedStringRec());
+}, true, CT_Supporting_ISModel.LocalizedStringRec), 
+this.attr("ResourceTypeIdList", "resourceTypeIdListAttr", "resourceTypeIds", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("FieldDefinitionList", "fieldDefinitionListAttr", "fieldDefinitions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.Type_FieldDefinitionList());
+}, true, CT_Supporting_ISModel.Type_FieldDefinitionList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Type_DraftRec.init();
+return Type_DraftRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.Type_DraftRec = Type_DraftRec;
+
+});
+define("CT_Supporting_IS.model$TextInputHintRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var TextInputHintRec = (function (_super) {
+__extends(TextInputHintRec, _super);
+function TextInputHintRec(defaults) {
+_super.apply(this, arguments);
+}
+TextInputHintRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextInputHintRec.fromStructure = function (str) {
+return new TextInputHintRec(new TextInputHintRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+TextInputHintRec.init();
+return TextInputHintRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.TextInputHintRec = TextInputHintRec;
+
+});
+define("CT_Supporting_IS.model$VariableRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var VariableRec = (function (_super) {
+__extends(VariableRec, _super);
+function VariableRec(defaults) {
+_super.apply(this, arguments);
+}
+VariableRec.attributesToDeclare = function () {
+return [
+this.attr("Limit", "limitAttr", "limit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("WhereClause", "whereClauseAttr", "whereclause", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Sort", "sortAttr", "sort", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Offset", "offsetAttr", "offset", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Text", "textAttr", "text", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "sku", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariableRec.init();
+return VariableRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.VariableRec = VariableRec;
+
+});
+define("CT_Supporting_IS.model$FieldDefinitionItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$FieldDefinitionItemRec"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var FieldDefinitionItemList = (function (_super) {
+__extends(FieldDefinitionItemList, _super);
+function FieldDefinitionItemList(defaults) {
+_super.apply(this, arguments);
+}
+FieldDefinitionItemList.itemType = CT_Supporting_ISModel.FieldDefinitionItemRec;
+return FieldDefinitionItemList;
+})(OS.DataTypes.GenericRecordList);
+CT_Supporting_ISModel.FieldDefinitionItemList = FieldDefinitionItemList;
+
+});
+define("CT_Supporting_IS.model$CT_Type_GetByIdResponseRec", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "CT_Supporting_IS.model$LastModifiedBy2Rec", "CT_Supporting_IS.model$NameRec", "CT_Supporting_IS.model$FieldDefinitionItemList"], function (exports, OutSystems, CT_Supporting_ISModel) {
+var OS = OutSystems.Internal;
+var CT_Type_GetByIdResponseRec = (function (_super) {
+__extends(CT_Type_GetByIdResponseRec, _super);
+function CT_Type_GetByIdResponseRec(defaults) {
+_super.apply(this, arguments);
+}
+CT_Type_GetByIdResponseRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "createdAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("LastModifiedAt", "lastModifiedAtAttr", "lastModifiedAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("LastModifiedBy", "lastModifiedByAttr", "lastModifiedBy", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.LastModifiedBy2Rec());
+}, true, CT_Supporting_ISModel.LastModifiedBy2Rec), 
+this.attr("CreatedBy", "createdByAttr", "createdBy", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.LastModifiedBy2Rec());
+}, true, CT_Supporting_ISModel.LastModifiedBy2Rec), 
+this.attr("Key", "keyAttr", "key", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.NameRec());
+}, true, CT_Supporting_ISModel.NameRec), 
+this.attr("Description", "descriptionAttr", "description", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.NameRec());
+}, true, CT_Supporting_ISModel.NameRec), 
+this.attr("ResourceTypeIds", "resourceTypeIdsAttr", "resourceTypeIds", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("FieldDefinitions", "fieldDefinitionsAttr", "fieldDefinitions", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.FieldDefinitionItemList());
+}, true, CT_Supporting_ISModel.FieldDefinitionItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+CT_Type_GetByIdResponseRec.init();
+return CT_Type_GetByIdResponseRec;
+})(OS.DataTypes.GenericRecord);
+CT_Supporting_ISModel.CT_Type_GetByIdResponseRec = CT_Type_GetByIdResponseRec;
+
+});
+define("CT_Supporting_IS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var CT_Supporting_ISModel = exports;
+});

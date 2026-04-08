@@ -1,0 +1,288 @@
+﻿define("ECP_Cart_CW.clientVariables", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+var ClientVariables = (function (_super) {
+var clientVarsService;
+function ClientVariables() {
+clientVarsService = OS.Injector.resolve(OS.ServiceNames.ClientVariablesService);
+}
+ClientVariables.prototype.getCartPromotionDeliveryDate = function () {
+return clientVarsService.getVariable("CartPromotionDeliveryDate", "ECP_Cart_CW", OS.Types.Date);
+};
+ClientVariables.prototype.setCartPromotionDeliveryDate = function (value) {
+return clientVarsService.setVariable("CartPromotionDeliveryDate", "ECP_Cart_CW", OS.Types.Date, value);
+};
+ClientVariables.prototype.getCartPromosList = function () {
+return clientVarsService.getVariable("CartPromosList", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setCartPromosList = function (value) {
+return clientVarsService.setVariable("CartPromosList", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getUserHasEntitlement = function () {
+return clientVarsService.getVariable("UserHasEntitlement", "ECP_Cart_CW", OS.Types.Boolean);
+};
+ClientVariables.prototype.setUserHasEntitlement = function (value) {
+return clientVarsService.setVariable("UserHasEntitlement", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getNumRequestsPending = function () {
+return clientVarsService.getVariable("NumRequestsPending", "ECP_Cart_CW", OS.Types.Integer);
+};
+ClientVariables.prototype.setNumRequestsPending = function (value) {
+return clientVarsService.setVariable("NumRequestsPending", "ECP_Cart_CW", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getCartItemsList = function () {
+return clientVarsService.getVariable("CartItemsList", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setCartItemsList = function (value) {
+return clientVarsService.setVariable("CartItemsList", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getPreviousCartItemsList = function () {
+return clientVarsService.getVariable("PreviousCartItemsList", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setPreviousCartItemsList = function (value) {
+return clientVarsService.setVariable("PreviousCartItemsList", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getCartVoucherList_RM = function () {
+return clientVarsService.getVariable("CartVoucherList_RM", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setCartVoucherList_RM = function (value) {
+return clientVarsService.setVariable("CartVoucherList_RM", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getCartVoucherList_Temp_P = function () {
+return clientVarsService.getVariable("CartVoucherList_Temp_P", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setCartVoucherList_Temp_P = function (value) {
+return clientVarsService.setVariable("CartVoucherList_Temp_P", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getCartUnavailableItemList = function () {
+return clientVarsService.getVariable("CartUnavailableItemList", "ECP_Cart_CW", OS.Types.Text, "");
+};
+ClientVariables.prototype.setCartUnavailableItemList = function (value) {
+return clientVarsService.setVariable("CartUnavailableItemList", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getCartVoucherList_Temp_AlwaysVisible_P = function () {
+return clientVarsService.getVariable("CartVoucherList_Temp_AlwaysVisible_P", "ECP_Cart_CW", OS.Types.Boolean);
+};
+ClientVariables.prototype.setCartVoucherList_Temp_AlwaysVisible_P = function (value) {
+return clientVarsService.setVariable("CartVoucherList_Temp_AlwaysVisible_P", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getMaxRequestsPending = function () {
+return clientVarsService.getVariable("MaxRequestsPending", "ECP_Cart_CW", OS.Types.Integer);
+};
+ClientVariables.prototype.setMaxRequestsPending = function (value) {
+return clientVarsService.setVariable("MaxRequestsPending", "ECP_Cart_CW", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getRetryMechanismMaxRetries = function () {
+return clientVarsService.getVariable("RetryMechanismMaxRetries", "ECP_Cart_CW", OS.Types.Integer, 5);
+};
+ClientVariables.prototype.setRetryMechanismMaxRetries = function (value) {
+return clientVarsService.setVariable("RetryMechanismMaxRetries", "ECP_Cart_CW", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getClickedProductSKU = function () {
+return clientVarsService.getVariable("ClickedProductSKU", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setClickedProductSKU = function (value) {
+return clientVarsService.setVariable("ClickedProductSKU", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getTotalDiscount = function () {
+return clientVarsService.getVariable("TotalDiscount", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setTotalDiscount = function (value) {
+return clientVarsService.setVariable("TotalDiscount", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getShowBanner_NoTimeslotSelected = function () {
+return clientVarsService.getVariable("ShowBanner_NoTimeslotSelected", "ECP_Cart_CW", OS.Types.Boolean, false);
+};
+ClientVariables.prototype.setShowBanner_NoTimeslotSelected = function (value) {
+return clientVarsService.setVariable("ShowBanner_NoTimeslotSelected", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getStoreServiceCost = function () {
+return clientVarsService.getVariable("StoreServiceCost", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setStoreServiceCost = function (value) {
+return clientVarsService.setVariable("StoreServiceCost", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getHideBanner_NoTimeslotSelected = function () {
+return clientVarsService.getVariable("HideBanner_NoTimeslotSelected", "ECP_Cart_CW", OS.Types.Boolean, false);
+};
+ClientVariables.prototype.setHideBanner_NoTimeslotSelected = function (value) {
+return clientVarsService.setVariable("HideBanner_NoTimeslotSelected", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getCouponViaURL = function () {
+return clientVarsService.getVariable("CouponViaURL", "ECP_Cart_CW", OS.Types.Text, "");
+};
+ClientVariables.prototype.setCouponViaURL = function (value) {
+return clientVarsService.setVariable("CouponViaURL", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getTotalDepositFee = function () {
+return clientVarsService.getVariable("TotalDepositFee", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setTotalDepositFee = function (value) {
+return clientVarsService.setVariable("TotalDepositFee", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getCartVoucherList_Temp_AlwaysVisible_RM = function () {
+return clientVarsService.getVariable("CartVoucherList_Temp_AlwaysVisible_RM", "ECP_Cart_CW", OS.Types.Boolean);
+};
+ClientVariables.prototype.setCartVoucherList_Temp_AlwaysVisible_RM = function (value) {
+return clientVarsService.setVariable("CartVoucherList_Temp_AlwaysVisible_RM", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getTotalProductsCosts = function () {
+return clientVarsService.getVariable("TotalProductsCosts", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setTotalProductsCosts = function (value) {
+return clientVarsService.setVariable("TotalProductsCosts", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getTotalPrice_Temp = function () {
+return clientVarsService.getVariable("TotalPrice_Temp", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setTotalPrice_Temp = function (value) {
+return clientVarsService.setVariable("TotalPrice_Temp", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getTotalPrice = function () {
+return clientVarsService.getVariable("TotalPrice", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setTotalPrice = function (value) {
+return clientVarsService.setVariable("TotalPrice", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getIsCreatingCart = function () {
+return clientVarsService.getVariable("IsCreatingCart", "ECP_Cart_CW", OS.Types.Boolean);
+};
+ClientVariables.prototype.setIsCreatingCart = function (value) {
+return clientVarsService.setVariable("IsCreatingCart", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getTotalPLUSPunten_Temp = function () {
+return clientVarsService.getVariable("TotalPLUSPunten_Temp", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setTotalPLUSPunten_Temp = function (value) {
+return clientVarsService.setVariable("TotalPLUSPunten_Temp", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getHideBanner_TimeslotSelected = function () {
+return clientVarsService.getVariable("HideBanner_TimeslotSelected", "ECP_Cart_CW", OS.Types.Boolean, false);
+};
+ClientVariables.prototype.setHideBanner_TimeslotSelected = function (value) {
+return clientVarsService.setVariable("HideBanner_TimeslotSelected", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getIsBundleNudgeShow = function () {
+return clientVarsService.getVariable("IsBundleNudgeShow", "ECP_Cart_CW", OS.Types.Boolean);
+};
+ClientVariables.prototype.setIsBundleNudgeShow = function (value) {
+return clientVarsService.setVariable("IsBundleNudgeShow", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getPlusPuntenPreferenceChanged = function () {
+return clientVarsService.getVariable("PlusPuntenPreferenceChanged", "ECP_Cart_CW", OS.Types.Boolean, false);
+};
+ClientVariables.prototype.setPlusPuntenPreferenceChanged = function (value) {
+return clientVarsService.setVariable("PlusPuntenPreferenceChanged", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getMinThreshold_NoServiceFee = function () {
+return clientVarsService.getVariable("MinThreshold_NoServiceFee", "ECP_Cart_CW", OS.Types.Integer);
+};
+ClientVariables.prototype.setMinThreshold_NoServiceFee = function (value) {
+return clientVarsService.setVariable("MinThreshold_NoServiceFee", "ECP_Cart_CW", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getShippingCosts = function () {
+return clientVarsService.getVariable("ShippingCosts", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setShippingCosts = function (value) {
+return clientVarsService.setVariable("ShippingCosts", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getCartTotalItems = function () {
+return clientVarsService.getVariable("CartTotalItems", "ECP_Cart_CW", OS.Types.Integer);
+};
+ClientVariables.prototype.setCartTotalItems = function (value) {
+return clientVarsService.setVariable("CartTotalItems", "ECP_Cart_CW", OS.Types.Integer, value);
+};
+ClientVariables.prototype.getNextThresholdValue = function () {
+return clientVarsService.getVariable("NextThresholdValue", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setNextThresholdValue = function (value) {
+return clientVarsService.setVariable("NextThresholdValue", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getDeliverySaveValue = function () {
+return clientVarsService.getVariable("DeliverySaveValue", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setDeliverySaveValue = function (value) {
+return clientVarsService.setVariable("DeliverySaveValue", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getTotalPLUSPunten = function () {
+return clientVarsService.getVariable("TotalPLUSPunten", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setTotalPLUSPunten = function (value) {
+return clientVarsService.setVariable("TotalPLUSPunten", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getCartVoucherList_P = function () {
+return clientVarsService.getVariable("CartVoucherList_P", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setCartVoucherList_P = function (value) {
+return clientVarsService.setVariable("CartVoucherList_P", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getDeliveryBundleMinValue = function () {
+return clientVarsService.getVariable("DeliveryBundleMinValue", "ECP_Cart_CW", OS.Types.Decimal);
+};
+ClientVariables.prototype.setDeliveryBundleMinValue = function (value) {
+return clientVarsService.setVariable("DeliveryBundleMinValue", "ECP_Cart_CW", OS.Types.Decimal, value);
+};
+ClientVariables.prototype.getCartDeliveryCostBreakdown = function () {
+return clientVarsService.getVariable("CartDeliveryCostBreakdown", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setCartDeliveryCostBreakdown = function (value) {
+return clientVarsService.setVariable("CartDeliveryCostBreakdown", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.getIsEntitlementActivated = function () {
+return clientVarsService.getVariable("IsEntitlementActivated", "ECP_Cart_CW", OS.Types.Boolean);
+};
+ClientVariables.prototype.setIsEntitlementActivated = function (value) {
+return clientVarsService.setVariable("IsEntitlementActivated", "ECP_Cart_CW", OS.Types.Boolean, value);
+};
+ClientVariables.prototype.getCartVoucherList_Temp_RM = function () {
+return clientVarsService.getVariable("CartVoucherList_Temp_RM", "ECP_Cart_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setCartVoucherList_Temp_RM = function (value) {
+return clientVarsService.setVariable("CartVoucherList_Temp_RM", "ECP_Cart_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.serialize = function () {
+return {
+CartPromotionDeliveryDate: OS.DataConversion.ServerDataConverter.to(this.getCartPromotionDeliveryDate(), OS.Types.Date),
+CartPromosList: OS.DataConversion.ServerDataConverter.to(this.getCartPromosList(), OS.Types.Text),
+UserHasEntitlement: OS.DataConversion.ServerDataConverter.to(this.getUserHasEntitlement(), OS.Types.Boolean),
+NumRequestsPending: OS.DataConversion.ServerDataConverter.to(this.getNumRequestsPending(), OS.Types.Integer),
+CartItemsList: OS.DataConversion.ServerDataConverter.to(this.getCartItemsList(), OS.Types.Text),
+PreviousCartItemsList: OS.DataConversion.ServerDataConverter.to(this.getPreviousCartItemsList(), OS.Types.Text),
+CartVoucherList_RM: OS.DataConversion.ServerDataConverter.to(this.getCartVoucherList_RM(), OS.Types.Text),
+CartVoucherList_Temp_P: OS.DataConversion.ServerDataConverter.to(this.getCartVoucherList_Temp_P(), OS.Types.Text),
+CartUnavailableItemList: OS.DataConversion.ServerDataConverter.to(this.getCartUnavailableItemList(), OS.Types.Text),
+CartVoucherList_Temp_AlwaysVisible_P: OS.DataConversion.ServerDataConverter.to(this.getCartVoucherList_Temp_AlwaysVisible_P(), OS.Types.Boolean),
+MaxRequestsPending: OS.DataConversion.ServerDataConverter.to(this.getMaxRequestsPending(), OS.Types.Integer),
+RetryMechanismMaxRetries: OS.DataConversion.ServerDataConverter.to(this.getRetryMechanismMaxRetries(), OS.Types.Integer),
+ClickedProductSKU: OS.DataConversion.ServerDataConverter.to(this.getClickedProductSKU(), OS.Types.Text),
+TotalDiscount: OS.DataConversion.ServerDataConverter.to(this.getTotalDiscount(), OS.Types.Decimal),
+ShowBanner_NoTimeslotSelected: OS.DataConversion.ServerDataConverter.to(this.getShowBanner_NoTimeslotSelected(), OS.Types.Boolean),
+StoreServiceCost: OS.DataConversion.ServerDataConverter.to(this.getStoreServiceCost(), OS.Types.Decimal),
+HideBanner_NoTimeslotSelected: OS.DataConversion.ServerDataConverter.to(this.getHideBanner_NoTimeslotSelected(), OS.Types.Boolean),
+CouponViaURL: OS.DataConversion.ServerDataConverter.to(this.getCouponViaURL(), OS.Types.Text),
+TotalDepositFee: OS.DataConversion.ServerDataConverter.to(this.getTotalDepositFee(), OS.Types.Decimal),
+CartVoucherList_Temp_AlwaysVisible_RM: OS.DataConversion.ServerDataConverter.to(this.getCartVoucherList_Temp_AlwaysVisible_RM(), OS.Types.Boolean),
+TotalProductsCosts: OS.DataConversion.ServerDataConverter.to(this.getTotalProductsCosts(), OS.Types.Decimal),
+TotalPrice_Temp: OS.DataConversion.ServerDataConverter.to(this.getTotalPrice_Temp(), OS.Types.Decimal),
+TotalPrice: OS.DataConversion.ServerDataConverter.to(this.getTotalPrice(), OS.Types.Decimal),
+IsCreatingCart: OS.DataConversion.ServerDataConverter.to(this.getIsCreatingCart(), OS.Types.Boolean),
+TotalPLUSPunten_Temp: OS.DataConversion.ServerDataConverter.to(this.getTotalPLUSPunten_Temp(), OS.Types.Decimal),
+HideBanner_TimeslotSelected: OS.DataConversion.ServerDataConverter.to(this.getHideBanner_TimeslotSelected(), OS.Types.Boolean),
+IsBundleNudgeShow: OS.DataConversion.ServerDataConverter.to(this.getIsBundleNudgeShow(), OS.Types.Boolean),
+PlusPuntenPreferenceChanged: OS.DataConversion.ServerDataConverter.to(this.getPlusPuntenPreferenceChanged(), OS.Types.Boolean),
+MinThreshold_NoServiceFee: OS.DataConversion.ServerDataConverter.to(this.getMinThreshold_NoServiceFee(), OS.Types.Integer),
+ShippingCosts: OS.DataConversion.ServerDataConverter.to(this.getShippingCosts(), OS.Types.Decimal),
+CartTotalItems: OS.DataConversion.ServerDataConverter.to(this.getCartTotalItems(), OS.Types.Integer),
+NextThresholdValue: OS.DataConversion.ServerDataConverter.to(this.getNextThresholdValue(), OS.Types.Decimal),
+DeliverySaveValue: OS.DataConversion.ServerDataConverter.to(this.getDeliverySaveValue(), OS.Types.Decimal),
+TotalPLUSPunten: OS.DataConversion.ServerDataConverter.to(this.getTotalPLUSPunten(), OS.Types.Decimal),
+CartVoucherList_P: OS.DataConversion.ServerDataConverter.to(this.getCartVoucherList_P(), OS.Types.Text),
+DeliveryBundleMinValue: OS.DataConversion.ServerDataConverter.to(this.getDeliveryBundleMinValue(), OS.Types.Decimal),
+CartDeliveryCostBreakdown: OS.DataConversion.ServerDataConverter.to(this.getCartDeliveryCostBreakdown(), OS.Types.Text),
+IsEntitlementActivated: OS.DataConversion.ServerDataConverter.to(this.getIsEntitlementActivated(), OS.Types.Boolean),
+CartVoucherList_Temp_RM: OS.DataConversion.ServerDataConverter.to(this.getCartVoucherList_Temp_RM(), OS.Types.Text)
+};
+};
+return ClientVariables;
+})();
+return new ClientVariables();
+});

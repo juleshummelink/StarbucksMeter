@@ -1,0 +1,946 @@
+﻿define("ECP_Promotion_BL.model$Period_DateRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Period_DateRec = (function (_super) {
+__extends(Period_DateRec, _super);
+function Period_DateRec(defaults) {
+_super.apply(this, arguments);
+}
+Period_DateRec.attributesToDeclare = function () {
+return [
+this.attr("FromDate", "fromDateAttr", "FromDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("ToDate", "toDateAttr", "ToDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Period_DateRec.init();
+return Period_DateRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.Period_DateRec = Period_DateRec;
+
+});
+define("ECP_Promotion_BL.model$Logo_InfoList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_BL.model", "ECP_Product_BL.model$Logo_InfoRec", "ECP_Promotion_BL.referencesHealth", "ECP_Promotion_BL.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoList = (function (_super) {
+__extends(Logo_InfoList, _super);
+function Logo_InfoList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoList.itemType = ECP_Product_BLModel.Logo_InfoRec;
+return Logo_InfoList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_BLModel.Logo_InfoList = Logo_InfoList;
+
+});
+define("ECP_Promotion_BL.model$Text1Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Text1Record = (function (_super) {
+__extends(Text1Record, _super);
+function Text1Record(defaults) {
+_super.apply(this, arguments);
+}
+Text1Record.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Text1Record.fromStructure = function (str) {
+return new Text1Record(new Text1Record.RecordClass({
+nameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Text1Record._isAnonymousRecord = true;
+Text1Record.UniqueId = "140ae763-5b5c-550e-5f93-324b123e0b4f";
+Text1Record.init();
+return Text1Record;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.Text1Record = Text1Record;
+
+});
+define("ECP_Promotion_BL.model$TextRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_BL.model$Text1Record"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var TextRecordList = (function (_super) {
+__extends(TextRecordList, _super);
+function TextRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextRecordList.itemType = ECP_Promotion_BLModel.Text1Record;
+return TextRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_BLModel.TextRecordList = TextRecordList;
+
+});
+define("ECP_Promotion_BL.model$Promotion_PLP_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_BL.model", "ECP_Product_BL.model$PLP_StrRec", "ECP_Promotion_BL.referencesHealth", "ECP_Promotion_BL.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Promotion_PLP_StrRec = (function (_super) {
+__extends(Promotion_PLP_StrRec, _super);
+function Promotion_PLP_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Promotion_PLP_StrRec.attributesToDeclare = function () {
+return [
+this.attr("PLP_Str", "pLP_StrAttr", "PLP_Str", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PLP_StrRec());
+}, true, ECP_Product_BLModel.PLP_StrRec), 
+this.attr("DisplayInfo_Label", "displayInfo_LabelAttr", "DisplayInfo_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayInfo_BasedLabel", "displayInfo_BasedLabelAttr", "DisplayInfo_BasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price_Original", "price_OriginalAttr", "Price_Original", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Promotion_PLP_StrRec.init();
+return Promotion_PLP_StrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.Promotion_PLP_StrRec = Promotion_PLP_StrRec;
+
+});
+define("ECP_Promotion_BL.model$Promotion_PLP_StrList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_BL.model$Promotion_PLP_StrRec"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Promotion_PLP_StrList = (function (_super) {
+__extends(Promotion_PLP_StrList, _super);
+function Promotion_PLP_StrList(defaults) {
+_super.apply(this, arguments);
+}
+Promotion_PLP_StrList.itemType = ECP_Promotion_BLModel.Promotion_PLP_StrRec;
+return Promotion_PLP_StrList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_BLModel.Promotion_PLP_StrList = Promotion_PLP_StrList;
+
+});
+define("ECP_Promotion_BL.model$OfferDetail_WithProductsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_BL.model$Promotion_PLP_StrList"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var OfferDetail_WithProductsRec = (function (_super) {
+__extends(OfferDetail_WithProductsRec, _super);
+function OfferDetail_WithProductsRec(defaults) {
+_super.apply(this, arguments);
+}
+OfferDetail_WithProductsRec.attributesToDeclare = function () {
+return [
+this.attr("Promotion_Id", "promotion_IdAttr", "Promotion_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Offer_Id", "offer_IdAttr", "Offer_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Brand", "brandAttr", "Brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Example", "exampleAttr", "Example", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Variant", "variantAttr", "Variant", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Package", "packageAttr", "Package", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Explanation", "explanationAttr", "Explanation", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaTitle", "metaTitleAttr", "MetaTitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaDescription", "metaDescriptionAttr", "MetaDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Highest", "priceOriginal_HighestAttr", "PriceOriginal_Highest", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Lowest", "priceOriginal_LowestAttr", "PriceOriginal_Lowest", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DisplayInfo_Label", "displayInfo_LabelAttr", "DisplayInfo_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayInfo_PromotionBasedLabel", "displayInfo_PromotionBasedLabelAttr", "DisplayInfo_PromotionBasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StartDate", "startDateAttr", "StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDate", "endDateAttr", "EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsFreeDeliveryOffer", "isFreeDeliveryOfferAttr", "IsFreeDeliveryOffer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("LoyaltyInfoID", "loyaltyInfoIDAttr", "LoyaltyInfoID", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StampURL", "stampURLAttr", "StampURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductList", "productListAttr", "ProductList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.Promotion_PLP_StrList());
+}, true, ECP_Promotion_BLModel.Promotion_PLP_StrList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OfferDetail_WithProductsRec.init();
+return OfferDetail_WithProductsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.OfferDetail_WithProductsRec = OfferDetail_WithProductsRec;
+
+});
+define("ECP_Promotion_BL.model$ProductPromotionAttributes_StructRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var ProductPromotionAttributes_StructRec = (function (_super) {
+__extends(ProductPromotionAttributes_StructRec, _super);
+function ProductPromotionAttributes_StructRec(defaults) {
+_super.apply(this, arguments);
+}
+ProductPromotionAttributes_StructRec.attributesToDeclare = function () {
+return [
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionID", "promotionIDAttr", "PromotionID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionUUID", "promotionUUIDAttr", "PromotionUUID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionWeek", "promotionWeekAttr", "PromotionWeek", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("InPromotion", "inPromotionAttr", "InPromotion", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ProductPromotionAttributes_StructRec.init();
+return ProductPromotionAttributes_StructRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.ProductPromotionAttributes_StructRec = ProductPromotionAttributes_StructRec;
+
+});
+define("ECP_Promotion_BL.model$ProductsWithPromotionsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var ProductsWithPromotionsRec = (function (_super) {
+__extends(ProductsWithPromotionsRec, _super);
+function ProductsWithPromotionsRec(defaults) {
+_super.apply(this, arguments);
+}
+ProductsWithPromotionsRec.attributesToDeclare = function () {
+return [
+this.attr("Sku", "skuAttr", "Sku", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "Version", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Promotion", "promotionAttr", "Promotion", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ProductsWithPromotionsRec.init();
+return ProductsWithPromotionsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.ProductsWithPromotionsRec = ProductsWithPromotionsRec;
+
+});
+define("ECP_Promotion_BL.model$ProductPromotionDetailsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_BL.model", "ECP_Product_BL.model$Logo_PLPRec", "ECP_Promotion_BL.referencesHealth", "ECP_Promotion_BL.referencesHealth$ECP_Product_BL", "ECP_Promotion_BL.model$TextRecordList"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var ProductPromotionDetailsRec = (function (_super) {
+__extends(ProductPromotionDetailsRec, _super);
+function ProductPromotionDetailsRec(defaults) {
+_super.apply(this, arguments);
+}
+ProductPromotionDetailsRec.attributesToDeclare = function () {
+return [
+this.attr("PromotionId", "promotionIdAttr", "PromotionId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OfferId", "offerIdAttr", "OfferId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductName", "productNameAttr", "ProductName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionLabel", "promotionLabelAttr", "PromotionLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionBasedLabel", "promotionBasedLabelAttr", "PromotionBasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Subtitle", "subtitleAttr", "Subtitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Brand", "brandAttr", "Brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayInfo_Label", "displayInfo_LabelAttr", "DisplayInfo_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayInfo_PromotionBasedLabel", "displayInfo_PromotionBasedLabelAttr", "DisplayInfo_PromotionBasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NewPrice", "newPriceAttr", "NewPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal", "priceOriginalAttr", "PriceOriginal", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Highest", "priceOriginal_HighestAttr", "PriceOriginal_Highest", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Lowest", "priceOriginal_LowestAttr", "PriceOriginal_Lowest", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("StartDate", "startDateAttr", "StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDate", "endDateAttr", "EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Position", "positionAttr", "Position", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsProduct", "isProductAttr", "IsProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsFreeDeliveryOffer", "isFreeDeliveryOfferAttr", "IsFreeDeliveryOffer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsSingleProductPromotion", "isSingleProductPromotionAttr", "IsSingleProductPromotion", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("BadgeQuantity", "badgeQuantityAttr", "BadgeQuantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Logos", "logosAttr", "Logos", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_PLPRec());
+}, true, ECP_Product_BLModel.Logo_PLPRec), 
+this.attr("IsProductOverMajorityAge", "isProductOverMajorityAgeAttr", "IsProductOverMajorityAge", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Categories", "categoriesAttr", "Categories", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.TextRecordList());
+}, true, ECP_Promotion_BLModel.TextRecordList), 
+this.attr("PromotionVariant", "promotionVariantAttr", "PromotionVariant", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionPackage", "promotionPackageAttr", "PromotionPackage", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionExplanation", "promotionExplanationAttr", "PromotionExplanation", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductSKU", "productSKUAttr", "ProductSKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductLineItemId", "productLineItemIdAttr", "ProductLineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StampURL", "stampURLAttr", "StampURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MaxOrderLimit", "maxOrderLimitAttr", "MaxOrderLimit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ProductPromotionDetailsRec.init();
+return ProductPromotionDetailsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.ProductPromotionDetailsRec = ProductPromotionDetailsRec;
+
+});
+define("ECP_Promotion_BL.model$Promotions_HotCacheRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Promotions_HotCacheRec = (function (_super) {
+__extends(Promotions_HotCacheRec, _super);
+function Promotions_HotCacheRec(defaults) {
+_super.apply(this, arguments);
+}
+Promotions_HotCacheRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreNumber", "storeNumberAttr", "StoreNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ChannelId", "channelIdAttr", "ChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WhereClause", "whereClauseAttr", "WhereClause", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsNextWeek", "isNextWeekAttr", "IsNextWeek", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PromotionCount", "promotionCountAttr", "PromotionCount", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ProductsOnPromotion", "productsOnPromotionAttr", "ProductsOnPromotion", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("RefreshedOn", "refreshedOnAttr", "RefreshedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Promotions_HotCacheRec.init();
+return Promotions_HotCacheRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.Promotions_HotCacheRec = Promotions_HotCacheRec;
+
+});
+define("ECP_Promotion_BL.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_BLModel.TextList = TextList;
+
+});
+define("ECP_Promotion_BL.model$OfferRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var OfferRec = (function (_super) {
+__extends(OfferRec, _super);
+function OfferRec(defaults) {
+_super.apply(this, arguments);
+}
+OfferRec.attributesToDeclare = function () {
+return [
+this.attr("PromotionID", "promotionIDAttr", "PromotionID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Offer_Id", "offer_IdAttr", "Offer_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PromotionSortOrder", "promotionSortOrderAttr", "PromotionSortOrder", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Brand", "brandAttr", "Brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Example", "exampleAttr", "Example", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Variant", "variantAttr", "Variant", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Explanation", "explanationAttr", "Explanation", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Package", "packageAttr", "Package", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaTitle", "metaTitleAttr", "MetaTitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaDescription", "metaDescriptionAttr", "MetaDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NewPrice", "newPriceAttr", "NewPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Product", "priceOriginal_ProductAttr", "PriceOriginal_Product", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Highest", "priceOriginal_HighestAttr", "PriceOriginal_Highest", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Lowest", "priceOriginal_LowestAttr", "PriceOriginal_Lowest", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IsOfflineSaleOnly", "isOfflineSaleOnlyAttr", "IsOfflineSaleOnly", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsProductOverMajorityAge", "isProductOverMajorityAgeAttr", "IsProductOverMajorityAge", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DisplayInfo_Label", "displayInfo_LabelAttr", "DisplayInfo_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayInfo_PromotionBasedLabel", "displayInfo_PromotionBasedLabelAttr", "DisplayInfo_PromotionBasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StartDate", "startDateAttr", "StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDate", "endDateAttr", "EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsFreeDeliveryOffer", "isFreeDeliveryOfferAttr", "IsFreeDeliveryOffer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsSingleProduct", "isSingleProductAttr", "IsSingleProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Product_SKU", "product_SKUAttr", "Product_SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Product_LineItemId", "product_LineItemIdAttr", "Product_LineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Product_Quantity", "product_QuantityAttr", "Product_Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ProductLoyaltyInfoID", "productLoyaltyInfoIDAttr", "ProductLoyaltyInfoID", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Product_IsNIX18", "product_IsNIX18Attr", "Product_IsNIX18", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Product_MaxOrderLimit", "product_MaxOrderLimitAttr", "Product_MaxOrderLimit", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StampURL", "stampURLAttr", "StampURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StoreNumberList", "storeNumberListAttr", "StoreNumberList", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+OfferRec.init();
+return OfferRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.OfferRec = OfferRec;
+
+});
+define("ECP_Promotion_BL.model$OfferList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_BL.model$OfferRec"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var OfferList = (function (_super) {
+__extends(OfferList, _super);
+function OfferList(defaults) {
+_super.apply(this, arguments);
+}
+OfferList.itemType = ECP_Promotion_BLModel.OfferRec;
+return OfferList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_BLModel.OfferList = OfferList;
+
+});
+define("ECP_Promotion_BL.model$CategoryRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_BL.model$OfferList"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var CategoryRec = (function (_super) {
+__extends(CategoryRec, _super);
+function CategoryRec(defaults) {
+_super.apply(this, arguments);
+}
+CategoryRec.attributesToDeclare = function () {
+return [
+this.attr("CategoryId", "categoryIdAttr", "CategoryId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CategoryLabel", "categoryLabelAttr", "CategoryLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CategorySortOrder", "categorySortOrderAttr", "CategorySortOrder", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Offers", "offersAttr", "Offers", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.OfferList());
+}, true, ECP_Promotion_BLModel.OfferList), 
+this.attr("SKUsAvailable", "sKUsAvailableAttr", "SKUsAvailable", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList), 
+this.attr("NumberOfProducts", "numberOfProductsAttr", "NumberOfProducts", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CategoryRec.init();
+return CategoryRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.CategoryRec = CategoryRec;
+
+});
+define("ECP_Promotion_BL.model$Period_DisplayRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Period_DisplayRec = (function (_super) {
+__extends(Period_DisplayRec, _super);
+function Period_DisplayRec(defaults) {
+_super.apply(this, arguments);
+}
+Period_DisplayRec.attributesToDeclare = function () {
+return [
+this.attr("FromDate_Text", "fromDate_TextAttr", "FromDate_Text", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ToDate_Text", "toDate_TextAttr", "ToDate_Text", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Period_DisplayRec.init();
+return Period_DisplayRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.Period_DisplayRec = Period_DisplayRec;
+
+});
+define("ECP_Promotion_BL.model$Promotions_HotCache_BinaryRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Promotions_HotCache_BinaryRec = (function (_super) {
+__extends(Promotions_HotCache_BinaryRec, _super);
+function Promotions_HotCache_BinaryRec(defaults) {
+_super.apply(this, arguments);
+}
+Promotions_HotCache_BinaryRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Result", "resultAttr", "Result", true, false, OS.Types.BinaryData, function () {
+return OS.DataTypes.BinaryData.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Promotions_HotCache_BinaryRec.init();
+return Promotions_HotCache_BinaryRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.Promotions_HotCache_BinaryRec = Promotions_HotCache_BinaryRec;
+
+});
+define("ECP_Promotion_BL.model$OfferBannerTileRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var OfferBannerTileRec = (function (_super) {
+__extends(OfferBannerTileRec, _super);
+function OfferBannerTileRec(defaults) {
+_super.apply(this, arguments);
+}
+OfferBannerTileRec.attributesToDeclare = function () {
+return [
+this.attr("Promotion_Id", "promotion_IdAttr", "Promotion_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Offer_Id", "offer_IdAttr", "Offer_Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Brand", "brandAttr", "Brand", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Example", "exampleAttr", "Example", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Variant", "variantAttr", "Variant", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Explanation", "explanationAttr", "Explanation", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Package", "packageAttr", "Package", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaTitle", "metaTitleAttr", "MetaTitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetaDescription", "metaDescriptionAttr", "MetaDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NewPrice", "newPriceAttr", "NewPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal", "priceOriginalAttr", "PriceOriginal", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Highest", "priceOriginal_HighestAttr", "PriceOriginal_Highest", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PriceOriginal_Lowest", "priceOriginal_LowestAttr", "PriceOriginal_Lowest", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("DisplayInfo_Label", "displayInfo_LabelAttr", "DisplayInfo_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayInfo_PromotionBasedLabel", "displayInfo_PromotionBasedLabelAttr", "DisplayInfo_PromotionBasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StartDate", "startDateAttr", "StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDate", "endDateAttr", "EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsFreeDeliveryOffer", "isFreeDeliveryOfferAttr", "IsFreeDeliveryOffer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsSingleProduct", "isSingleProductAttr", "IsSingleProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Product_SKU", "product_SKUAttr", "Product_SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Product_LineItemId", "product_LineItemIdAttr", "Product_LineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Product_Quantity", "product_QuantityAttr", "Product_Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StampURL", "stampURLAttr", "StampURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsProductOverMajorityAge", "isProductOverMajorityAgeAttr", "IsProductOverMajorityAge", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OfferBannerTileRec.init();
+return OfferBannerTileRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.OfferBannerTileRec = OfferBannerTileRec;
+
+});
+define("ECP_Promotion_BL.model$ProductOfferInfoRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var ProductOfferInfoRec = (function (_super) {
+__extends(ProductOfferInfoRec, _super);
+function ProductOfferInfoRec(defaults) {
+_super.apply(this, arguments);
+}
+ProductOfferInfoRec.attributesToDeclare = function () {
+return [
+this.attr("PromotionId", "promotionIdAttr", "PromotionId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OfferId", "offerIdAttr", "OfferId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StartDate", "startDateAttr", "StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDate", "endDateAttr", "EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsFreeDeliveryOffer", "isFreeDeliveryOfferAttr", "IsFreeDeliveryOffer", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DisplayInfo_Label", "displayInfo_LabelAttr", "DisplayInfo_Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DisplayInfo_PromotionBasedLabel", "displayInfo_PromotionBasedLabelAttr", "DisplayInfo_PromotionBasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsSingleProduct", "isSingleProductAttr", "IsSingleProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PriceOriginal_Product", "priceOriginal_ProductAttr", "PriceOriginal_Product", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("NewPrice", "newPriceAttr", "NewPrice", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Title", "titleAttr", "Title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Example", "exampleAttr", "Example", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Explanation", "explanationAttr", "Explanation", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Variant", "variantAttr", "Variant", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Package", "packageAttr", "Package", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LoyaltyInfoID", "loyaltyInfoIDAttr", "LoyaltyInfoID", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ProductOfferInfoRec.init();
+return ProductOfferInfoRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.ProductOfferInfoRec = ProductOfferInfoRec;
+
+});
+define("ECP_Promotion_BL.model$Promotions_HotCacheRefresh_JobRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Promotions_HotCacheRefresh_JobRec = (function (_super) {
+__extends(Promotions_HotCacheRefresh_JobRec, _super);
+function Promotions_HotCacheRefresh_JobRec(defaults) {
+_super.apply(this, arguments);
+}
+Promotions_HotCacheRefresh_JobRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CreatedAt", "createdAtAttr", "CreatedAt", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Execution_MaxThreads", "execution_MaxThreadsAttr", "Execution_MaxThreads", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Promotions_HotCacheRefresh_JobRec.init();
+return Promotions_HotCacheRefresh_JobRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.Promotions_HotCacheRefresh_JobRec = Promotions_HotCacheRefresh_JobRec;
+
+});
+define("ECP_Promotion_BL.model$Promotions_HotCache_TrackerRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var Promotions_HotCache_TrackerRec = (function (_super) {
+__extends(Promotions_HotCache_TrackerRec, _super);
+function Promotions_HotCache_TrackerRec(defaults) {
+_super.apply(this, arguments);
+}
+Promotions_HotCache_TrackerRec.attributesToDeclare = function () {
+return [
+this.attr("GUID", "gUIDAttr", "GUID", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StoreNumber", "storeNumberAttr", "StoreNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ChannelId", "channelIdAttr", "ChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WhereClause", "whereClauseAttr", "WhereClause", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsNextWeek", "isNextWeekAttr", "IsNextWeek", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("JobId", "jobIdAttr", "JobId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Promotions_HotCache_TrackerRec.init();
+return Promotions_HotCache_TrackerRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.Promotions_HotCache_TrackerRec = Promotions_HotCache_TrackerRec;
+
+});
+define("ECP_Promotion_BL.model$PromotionPeriodRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var PromotionPeriodRec = (function (_super) {
+__extends(PromotionPeriodRec, _super);
+function PromotionPeriodRec(defaults) {
+_super.apply(this, arguments);
+}
+PromotionPeriodRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Is_Active", "is_ActiveAttr", "Is_Active", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionPeriodRec.init();
+return PromotionPeriodRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.PromotionPeriodRec = PromotionPeriodRec;
+
+});
+define("ECP_Promotion_BL.model$CategoryList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_BL.model$CategoryRec"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var CategoryList = (function (_super) {
+__extends(CategoryList, _super);
+function CategoryList(defaults) {
+_super.apply(this, arguments);
+}
+CategoryList.itemType = ECP_Promotion_BLModel.CategoryRec;
+return CategoryList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_BLModel.CategoryList = CategoryList;
+
+});
+define("ECP_Promotion_BL.model$PromotionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_BL.model$CategoryList"], function (exports, OutSystems, ECP_Promotion_BLModel) {
+var OS = OutSystems.Internal;
+var PromotionRec = (function (_super) {
+__extends(PromotionRec, _super);
+function PromotionRec(defaults) {
+_super.apply(this, arguments);
+}
+PromotionRec.attributesToDeclare = function () {
+return [
+this.attr("Categories", "categoriesAttr", "Categories", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.CategoryList());
+}, true, ECP_Promotion_BLModel.CategoryList)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionRec.fromStructure = function (str) {
+return new PromotionRec(new PromotionRec.RecordClass({
+categoriesAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PromotionRec.init();
+return PromotionRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_BLModel.PromotionRec = PromotionRec;
+
+});
+define("ECP_Promotion_BL.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_Promotion_BLModel = exports;
+});

@@ -1,0 +1,57 @@
+﻿define("ECOP_ReleaseTogglesReactive.clientVariables", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+var ClientVariables = (function (_super) {
+var clientVarsService;
+function ClientVariables() {
+clientVarsService = OS.Injector.resolve(OS.ServiceNames.ClientVariablesService);
+}
+ClientVariables.prototype.getAttract_SyncDateTime = function () {
+return clientVarsService.getVariable("Attract_SyncDateTime", "ECOP_ReleaseTogglesReactive", OS.Types.DateTime);
+};
+ClientVariables.prototype.setAttract_SyncDateTime = function (value) {
+return clientVarsService.setVariable("Attract_SyncDateTime", "ECOP_ReleaseTogglesReactive", OS.Types.DateTime, value);
+};
+ClientVariables.prototype.getAttract_ReleaseTogglesStateAsJSON = function () {
+return clientVarsService.getVariable("Attract_ReleaseTogglesStateAsJSON", "ECOP_ReleaseTogglesReactive", OS.Types.Text);
+};
+ClientVariables.prototype.setAttract_ReleaseTogglesStateAsJSON = function (value) {
+return clientVarsService.setVariable("Attract_ReleaseTogglesStateAsJSON", "ECOP_ReleaseTogglesReactive", OS.Types.Text, value);
+};
+ClientVariables.prototype.getConvert_SyncDataVersion = function () {
+return clientVarsService.getVariable("Convert_SyncDataVersion", "ECOP_ReleaseTogglesReactive", OS.Types.DateTime);
+};
+ClientVariables.prototype.setConvert_SyncDataVersion = function (value) {
+return clientVarsService.setVariable("Convert_SyncDataVersion", "ECOP_ReleaseTogglesReactive", OS.Types.DateTime, value);
+};
+ClientVariables.prototype.getAttract_SyncDataVersion = function () {
+return clientVarsService.getVariable("Attract_SyncDataVersion", "ECOP_ReleaseTogglesReactive", OS.Types.DateTime);
+};
+ClientVariables.prototype.setAttract_SyncDataVersion = function (value) {
+return clientVarsService.setVariable("Attract_SyncDataVersion", "ECOP_ReleaseTogglesReactive", OS.Types.DateTime, value);
+};
+ClientVariables.prototype.getConvert_ReleaseTogglesStateAsJSON = function () {
+return clientVarsService.getVariable("Convert_ReleaseTogglesStateAsJSON", "ECOP_ReleaseTogglesReactive", OS.Types.Text);
+};
+ClientVariables.prototype.setConvert_ReleaseTogglesStateAsJSON = function (value) {
+return clientVarsService.setVariable("Convert_ReleaseTogglesStateAsJSON", "ECOP_ReleaseTogglesReactive", OS.Types.Text, value);
+};
+ClientVariables.prototype.getConvert_SyncDateTime = function () {
+return clientVarsService.getVariable("Convert_SyncDateTime", "ECOP_ReleaseTogglesReactive", OS.Types.DateTime);
+};
+ClientVariables.prototype.setConvert_SyncDateTime = function (value) {
+return clientVarsService.setVariable("Convert_SyncDateTime", "ECOP_ReleaseTogglesReactive", OS.Types.DateTime, value);
+};
+ClientVariables.prototype.serialize = function () {
+return {
+Attract_SyncDateTime: OS.DataConversion.ServerDataConverter.to(this.getAttract_SyncDateTime(), OS.Types.DateTime),
+Attract_ReleaseTogglesStateAsJSON: OS.DataConversion.ServerDataConverter.to(this.getAttract_ReleaseTogglesStateAsJSON(), OS.Types.Text),
+Convert_SyncDataVersion: OS.DataConversion.ServerDataConverter.to(this.getConvert_SyncDataVersion(), OS.Types.DateTime),
+Attract_SyncDataVersion: OS.DataConversion.ServerDataConverter.to(this.getAttract_SyncDataVersion(), OS.Types.DateTime),
+Convert_ReleaseTogglesStateAsJSON: OS.DataConversion.ServerDataConverter.to(this.getConvert_ReleaseTogglesStateAsJSON(), OS.Types.Text),
+Convert_SyncDateTime: OS.DataConversion.ServerDataConverter.to(this.getConvert_SyncDateTime(), OS.Types.DateTime)
+};
+};
+return ClientVariables;
+})();
+return new ClientVariables();
+});

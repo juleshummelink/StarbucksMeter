@@ -1,0 +1,3363 @@
+﻿define("ECP_Promotion_CW.model$SpaceRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_Promotion_CW.model", "PLUS_OutSystemsUI_2_8_0.model$SpaceRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SpaceRecord = (function (_super) {
+__extends(SpaceRecord, _super);
+function SpaceRecord(defaults) {
+_super.apply(this, arguments);
+}
+SpaceRecord.attributesToDeclare = function () {
+return [
+this.attr("Space", "spaceAttr", "Space", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.SpaceRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.SpaceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+SpaceRecord.fromStructure = function (str) {
+return new SpaceRecord(new SpaceRecord.RecordClass({
+spaceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SpaceRecord._isAnonymousRecord = true;
+SpaceRecord.UniqueId = "8e39d152-5764-212a-93d3-ef8ba655c299";
+SpaceRecord.init();
+return SpaceRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.SpaceRecord = SpaceRecord;
+
+});
+define("ECP_Promotion_CW.model$SpaceRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$SpaceRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SpaceRecordList = (function (_super) {
+__extends(SpaceRecordList, _super);
+function SpaceRecordList(defaults) {
+_super.apply(this, arguments);
+}
+SpaceRecordList.itemType = ECP_Promotion_CWModel.SpaceRecord;
+return SpaceRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.SpaceRecordList = SpaceRecordList;
+
+});
+define("ECP_Promotion_CW.model$Period_DateRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Period_DateRec = (function (_super) {
+__extends(Period_DateRec, _super);
+function Period_DateRec(defaults) {
+_super.apply(this, arguments);
+}
+Period_DateRec.attributesToDeclare = function () {
+return [
+this.attr("FromDate", "fromDateAttr", "FromDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("ToDate", "toDateAttr", "ToDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Period_DateRec.init();
+return Period_DateRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.Period_DateRec = Period_DateRec;
+
+});
+define("ECP_Promotion_CW.model$Period_DateRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Period_DateRec"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Period_DateRecord = (function (_super) {
+__extends(Period_DateRecord, _super);
+function Period_DateRecord(defaults) {
+_super.apply(this, arguments);
+}
+Period_DateRecord.attributesToDeclare = function () {
+return [
+this.attr("Period_Date", "period_DateAttr", "Period_Date", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_CWModel.Period_DateRec());
+}, true, ECP_Promotion_CWModel.Period_DateRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Period_DateRecord.fromStructure = function (str) {
+return new Period_DateRecord(new Period_DateRecord.RecordClass({
+period_DateAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Period_DateRecord._isAnonymousRecord = true;
+Period_DateRecord.UniqueId = "3d1b113c-d473-3637-cbf2-0de67abc0ebe";
+Period_DateRecord.init();
+return Period_DateRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.Period_DateRecord = Period_DateRecord;
+
+});
+define("ECP_Promotion_CW.model$Period_DateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Period_DateRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Period_DateRecordList = (function (_super) {
+__extends(Period_DateRecordList, _super);
+function Period_DateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Period_DateRecordList.itemType = ECP_Promotion_CWModel.Period_DateRecord;
+return Period_DateRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Period_DateRecordList = Period_DateRecordList;
+
+});
+define("ECP_Promotion_CW.model$Logo_InfoList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_CW.model", "ECP_Product_BL.model$Logo_InfoRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoList = (function (_super) {
+__extends(Logo_InfoList, _super);
+function Logo_InfoList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoList.itemType = ECP_Product_BLModel.Logo_InfoRec;
+return Logo_InfoList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Logo_InfoList = Logo_InfoList;
+
+});
+define("ECP_Promotion_CW.model$SpaceList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_Promotion_CW.model", "PLUS_OutSystemsUI_2_8_0.model$SpaceRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SpaceList = (function (_super) {
+__extends(SpaceList, _super);
+function SpaceList(defaults) {
+_super.apply(this, arguments);
+}
+SpaceList.itemType = PLUS_OutSystemsUI_2_8_0Model.SpaceRec;
+return SpaceList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.SpaceList = SpaceList;
+
+});
+define("ECP_Promotion_CW.model$GTM_ProductItemRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_FE_Core.model", "ECP_Promotion_CW.model", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_FE_Core"], function (exports, OutSystems, ECOP_FE_CoreModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var GTM_ProductItemRecord = (function (_super) {
+__extends(GTM_ProductItemRecord, _super);
+function GTM_ProductItemRecord(defaults) {
+_super.apply(this, arguments);
+}
+GTM_ProductItemRecord.attributesToDeclare = function () {
+return [
+this.attr("GTM_ProductItem", "gTM_ProductItemAttr", "GTM_ProductItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_FE_CoreModel.GTM_ProductItemRec());
+}, true, ECOP_FE_CoreModel.GTM_ProductItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GTM_ProductItemRecord.fromStructure = function (str) {
+return new GTM_ProductItemRecord(new GTM_ProductItemRecord.RecordClass({
+gTM_ProductItemAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GTM_ProductItemRecord._isAnonymousRecord = true;
+GTM_ProductItemRecord.UniqueId = "c0fb6b72-524f-3d7d-bc48-390bddbb2cd0";
+GTM_ProductItemRecord.init();
+return GTM_ProductItemRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.GTM_ProductItemRecord = GTM_ProductItemRecord;
+
+});
+define("ECP_Promotion_CW.model$GTM_ProductItemRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$GTM_ProductItemRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var GTM_ProductItemRecordList = (function (_super) {
+__extends(GTM_ProductItemRecordList, _super);
+function GTM_ProductItemRecordList(defaults) {
+_super.apply(this, arguments);
+}
+GTM_ProductItemRecordList.itemType = ECP_Promotion_CWModel.GTM_ProductItemRecord;
+return GTM_ProductItemRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.GTM_ProductItemRecordList = GTM_ProductItemRecordList;
+
+});
+define("ECP_Promotion_CW.model$TextRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextRecord = (function (_super) {
+__extends(TextRecord, _super);
+function TextRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextRecord.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextRecord.fromStructure = function (str) {
+return new TextRecord(new TextRecord.RecordClass({
+nameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+TextRecord._isAnonymousRecord = true;
+TextRecord.UniqueId = "140ae763-5b5c-550e-5f93-324b123e0b4f";
+TextRecord.init();
+return TextRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.TextRecord = TextRecord;
+
+});
+define("ECP_Promotion_CW.model$SettingRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model", "ECP_Promotion_CW.model", "ECP_Setting_CS.model$SettingRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Setting_CS"], function (exports, OutSystems, ECP_Setting_CSModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SettingRecord = (function (_super) {
+__extends(SettingRecord, _super);
+function SettingRecord(defaults) {
+_super.apply(this, arguments);
+}
+SettingRecord.attributesToDeclare = function () {
+return [
+this.attr("Setting", "settingAttr", "Setting", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Setting_CSModel.SettingRec());
+}, true, ECP_Setting_CSModel.SettingRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+SettingRecord.fromStructure = function (str) {
+return new SettingRecord(new SettingRecord.RecordClass({
+settingAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SettingRecord._isAnonymousRecord = true;
+SettingRecord.UniqueId = "bc21006d-bd1f-4e33-0ac9-75981d164b84";
+SettingRecord.init();
+return SettingRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.SettingRecord = SettingRecord;
+
+});
+define("ECP_Promotion_CW.model$SettingRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$SettingRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SettingRecordList = (function (_super) {
+__extends(SettingRecordList, _super);
+function SettingRecordList(defaults) {
+_super.apply(this, arguments);
+}
+SettingRecordList.itemType = ECP_Promotion_CWModel.SettingRecord;
+return SettingRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.SettingRecordList = SettingRecordList;
+
+});
+define("ECP_Promotion_CW.model$ShapeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_Promotion_CW.model", "PLUS_OutSystemsUI_2_8_0.model$ShapeRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ShapeRecord = (function (_super) {
+__extends(ShapeRecord, _super);
+function ShapeRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShapeRecord.attributesToDeclare = function () {
+return [
+this.attr("Shape", "shapeAttr", "Shape", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.ShapeRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.ShapeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShapeRecord.fromStructure = function (str) {
+return new ShapeRecord(new ShapeRecord.RecordClass({
+shapeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShapeRecord._isAnonymousRecord = true;
+ShapeRecord.UniqueId = "96db0c33-40f1-a2a3-a416-4bfe9984a8d6";
+ShapeRecord.init();
+return ShapeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.ShapeRecord = ShapeRecord;
+
+});
+define("ECP_Promotion_CW.model$ShapeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$ShapeRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ShapeRecordList = (function (_super) {
+__extends(ShapeRecordList, _super);
+function ShapeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShapeRecordList.itemType = ECP_Promotion_CWModel.ShapeRecord;
+return ShapeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.ShapeRecordList = ShapeRecordList;
+
+});
+define("ECP_Promotion_CW.model$SizeList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_Promotion_CW.model", "PLUS_OutSystemsUI_2_8_0.model$SizeRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SizeList = (function (_super) {
+__extends(SizeList, _super);
+function SizeList(defaults) {
+_super.apply(this, arguments);
+}
+SizeList.itemType = PLUS_OutSystemsUI_2_8_0Model.SizeRec;
+return SizeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.SizeList = SizeList;
+
+});
+define("ECP_Promotion_CW.model$TextRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$TextRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextRecordList = (function (_super) {
+__extends(TextRecordList, _super);
+function TextRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextRecordList.itemType = ECP_Promotion_CWModel.TextRecord;
+return TextRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.TextRecordList = TextRecordList;
+
+});
+define("ECP_Promotion_CW.model$PLP_StrRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_CW.model", "ECP_Product_BL.model$PLP_StrRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PLP_StrRecord = (function (_super) {
+__extends(PLP_StrRecord, _super);
+function PLP_StrRecord(defaults) {
+_super.apply(this, arguments);
+}
+PLP_StrRecord.attributesToDeclare = function () {
+return [
+this.attr("PLP_Str", "pLP_StrAttr", "PLP_Str", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.PLP_StrRec());
+}, true, ECP_Product_BLModel.PLP_StrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PLP_StrRecord.fromStructure = function (str) {
+return new PLP_StrRecord(new PLP_StrRecord.RecordClass({
+pLP_StrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PLP_StrRecord._isAnonymousRecord = true;
+PLP_StrRecord.UniqueId = "1e25eac4-3f95-55c5-2dd6-af8d6e63d4d1";
+PLP_StrRecord.init();
+return PLP_StrRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.PLP_StrRecord = PLP_StrRecord;
+
+});
+define("ECP_Promotion_CW.model$PromotionPeriodRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$PromotionPeriodRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionPeriodRecord = (function (_super) {
+__extends(PromotionPeriodRecord, _super);
+function PromotionPeriodRecord(defaults) {
+_super.apply(this, arguments);
+}
+PromotionPeriodRecord.attributesToDeclare = function () {
+return [
+this.attr("PromotionPeriod", "promotionPeriodAttr", "PromotionPeriod", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.PromotionPeriodRec());
+}, true, ECP_Promotion_BLModel.PromotionPeriodRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionPeriodRecord.fromStructure = function (str) {
+return new PromotionPeriodRecord(new PromotionPeriodRecord.RecordClass({
+promotionPeriodAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PromotionPeriodRecord._isAnonymousRecord = true;
+PromotionPeriodRecord.UniqueId = "720ece16-2109-0dde-6cf7-0379317d3a82";
+PromotionPeriodRecord.init();
+return PromotionPeriodRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.PromotionPeriodRecord = PromotionPeriodRecord;
+
+});
+define("ECP_Promotion_CW.model$PromotionPeriodRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$PromotionPeriodRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionPeriodRecordList = (function (_super) {
+__extends(PromotionPeriodRecordList, _super);
+function PromotionPeriodRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionPeriodRecordList.itemType = ECP_Promotion_CWModel.PromotionPeriodRecord;
+return PromotionPeriodRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.PromotionPeriodRecordList = PromotionPeriodRecordList;
+
+});
+define("ECP_Promotion_CW.model$Promotion_PLP_StrList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$Promotion_PLP_StrRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Promotion_PLP_StrList = (function (_super) {
+__extends(Promotion_PLP_StrList, _super);
+function Promotion_PLP_StrList(defaults) {
+_super.apply(this, arguments);
+}
+Promotion_PLP_StrList.itemType = ECP_Promotion_BLModel.Promotion_PLP_StrRec;
+return Promotion_PLP_StrList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Promotion_PLP_StrList = Promotion_PLP_StrList;
+
+});
+define("ECP_Promotion_CW.model$TextTextTextDecimalBooleanRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextTextDecimalBooleanRecord = (function (_super) {
+__extends(TextTextTextDecimalBooleanRecord, _super);
+function TextTextTextDecimalBooleanRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextTextDecimalBooleanRecord.attributesToDeclare = function () {
+return [
+this.attr("BasedLabel", "basedLabelAttr", "BasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StampURL", "stampURLAttr", "StampURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NewPrice", "newPriceAttr", "NewPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IsFreeDelivery", "isFreeDeliveryAttr", "IsFreeDelivery", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextTextDecimalBooleanRecord._isAnonymousRecord = true;
+TextTextTextDecimalBooleanRecord.UniqueId = "30b0959f-37ff-6a66-be86-8204d768a768";
+TextTextTextDecimalBooleanRecord.init();
+return TextTextTextDecimalBooleanRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.TextTextTextDecimalBooleanRecord = TextTextTextDecimalBooleanRecord;
+
+});
+define("ECP_Promotion_CW.model$SizeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_Promotion_CW.model", "PLUS_OutSystemsUI_2_8_0.model$SizeRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SizeRecord = (function (_super) {
+__extends(SizeRecord, _super);
+function SizeRecord(defaults) {
+_super.apply(this, arguments);
+}
+SizeRecord.attributesToDeclare = function () {
+return [
+this.attr("Size", "sizeAttr", "Size", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.SizeRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.SizeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+SizeRecord.fromStructure = function (str) {
+return new SizeRecord(new SizeRecord.RecordClass({
+sizeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SizeRecord._isAnonymousRecord = true;
+SizeRecord.UniqueId = "348e0a22-f7b2-e7c2-ba6b-5894b124dcd4";
+SizeRecord.init();
+return SizeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.SizeRecord = SizeRecord;
+
+});
+define("ECP_Promotion_CW.model$PLP_StrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$PLP_StrRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PLP_StrRecordList = (function (_super) {
+__extends(PLP_StrRecordList, _super);
+function PLP_StrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PLP_StrRecordList.itemType = ECP_Promotion_CWModel.PLP_StrRecord;
+return PLP_StrRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.PLP_StrRecordList = PLP_StrRecordList;
+
+});
+define("ECP_Promotion_CW.model$Period_DisplayRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Period_DisplayRec = (function (_super) {
+__extends(Period_DisplayRec, _super);
+function Period_DisplayRec(defaults) {
+_super.apply(this, arguments);
+}
+Period_DisplayRec.attributesToDeclare = function () {
+return [
+this.attr("FromDate_Text", "fromDate_TextAttr", "FromDate_Text", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ToDate_Text", "toDate_TextAttr", "ToDate_Text", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Period_DisplayRec.init();
+return Period_DisplayRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.Period_DisplayRec = Period_DisplayRec;
+
+});
+define("ECP_Promotion_CW.model$Period_DisplayList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Period_DisplayRec"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Period_DisplayList = (function (_super) {
+__extends(Period_DisplayList, _super);
+function Period_DisplayList(defaults) {
+_super.apply(this, arguments);
+}
+Period_DisplayList.itemType = ECP_Promotion_CWModel.Period_DisplayRec;
+return Period_DisplayList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Period_DisplayList = Period_DisplayList;
+
+});
+define("ECP_Promotion_CW.model$ShapeList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_Promotion_CW.model", "PLUS_OutSystemsUI_2_8_0.model$ShapeRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ShapeList = (function (_super) {
+__extends(ShapeList, _super);
+function ShapeList(defaults) {
+_super.apply(this, arguments);
+}
+ShapeList.itemType = PLUS_OutSystemsUI_2_8_0Model.ShapeRec;
+return ShapeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.ShapeList = ShapeList;
+
+});
+define("ECP_Promotion_CW.model$", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextList = (function (_super) {
+__extends(TextList, _super);
+function TextList(defaults) {
+_super.apply(this, arguments);
+}
+TextList.itemType = OS.Types.Text;
+return TextList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.TextList = TextList;
+
+});
+define("ECP_Promotion_CW.model$OfferList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$OfferRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var OfferList = (function (_super) {
+__extends(OfferList, _super);
+function OfferList(defaults) {
+_super.apply(this, arguments);
+}
+OfferList.itemType = ECP_Promotion_BLModel.OfferRec;
+return OfferList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.OfferList = OfferList;
+
+});
+define("ECP_Promotion_CW.model$CategoryList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$CategoryRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var CategoryList = (function (_super) {
+__extends(CategoryList, _super);
+function CategoryList(defaults) {
+_super.apply(this, arguments);
+}
+CategoryList.itemType = ECP_Promotion_BLModel.CategoryRec;
+return CategoryList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.CategoryList = CategoryList;
+
+});
+define("ECP_Promotion_CW.model$PromotionRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$PromotionRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionRecord = (function (_super) {
+__extends(PromotionRecord, _super);
+function PromotionRecord(defaults) {
+_super.apply(this, arguments);
+}
+PromotionRecord.attributesToDeclare = function () {
+return [
+this.attr("Promotion", "promotionAttr", "Promotion", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.PromotionRec());
+}, true, ECP_Promotion_BLModel.PromotionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionRecord.fromStructure = function (str) {
+return new PromotionRecord(new PromotionRecord.RecordClass({
+promotionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PromotionRecord._isAnonymousRecord = true;
+PromotionRecord.UniqueId = "e120305e-c8a7-b7af-4842-0676ff7ca27e";
+PromotionRecord.init();
+return PromotionRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.PromotionRecord = PromotionRecord;
+
+});
+define("ECP_Promotion_CW.model$PromotionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$PromotionRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionRecordList = (function (_super) {
+__extends(PromotionRecordList, _super);
+function PromotionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionRecordList.itemType = ECP_Promotion_CWModel.PromotionRecord;
+return PromotionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.PromotionRecordList = PromotionRecordList;
+
+});
+define("ECP_Promotion_CW.model$CategoryRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$CategoryRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var CategoryRecord = (function (_super) {
+__extends(CategoryRecord, _super);
+function CategoryRecord(defaults) {
+_super.apply(this, arguments);
+}
+CategoryRecord.attributesToDeclare = function () {
+return [
+this.attr("Category", "categoryAttr", "Category", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.CategoryRec());
+}, true, ECP_Promotion_BLModel.CategoryRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CategoryRecord.fromStructure = function (str) {
+return new CategoryRecord(new CategoryRecord.RecordClass({
+categoryAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+CategoryRecord._isAnonymousRecord = true;
+CategoryRecord.UniqueId = "494e9145-ce00-77e6-f7dd-fbaee55b4e3d";
+CategoryRecord.init();
+return CategoryRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.CategoryRecord = CategoryRecord;
+
+});
+define("ECP_Promotion_CW.model$ColorRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_Promotion_CW.model", "PLUS_OutSystemsUI_2_8_0.model$ColorRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ColorRecord = (function (_super) {
+__extends(ColorRecord, _super);
+function ColorRecord(defaults) {
+_super.apply(this, arguments);
+}
+ColorRecord.attributesToDeclare = function () {
+return [
+this.attr("Color", "colorAttr", "Color", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.ColorRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.ColorRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ColorRecord.fromStructure = function (str) {
+return new ColorRecord(new ColorRecord.RecordClass({
+colorAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ColorRecord._isAnonymousRecord = true;
+ColorRecord.UniqueId = "977afe8c-3ec5-3a27-2571-f14fca9df2d8";
+ColorRecord.init();
+return ColorRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.ColorRecord = ColorRecord;
+
+});
+define("ECP_Promotion_CW.model$ColorRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$ColorRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ColorRecordList = (function (_super) {
+__extends(ColorRecordList, _super);
+function ColorRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ColorRecordList.itemType = ECP_Promotion_CWModel.ColorRecord;
+return ColorRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.ColorRecordList = ColorRecordList;
+
+});
+define("ECP_Promotion_CW.model$Logo_PLPRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_CW.model", "ECP_Product_BL.model$Logo_PLPRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Logo_PLPRecord = (function (_super) {
+__extends(Logo_PLPRecord, _super);
+function Logo_PLPRecord(defaults) {
+_super.apply(this, arguments);
+}
+Logo_PLPRecord.attributesToDeclare = function () {
+return [
+this.attr("Logo_PLP", "logo_PLPAttr", "Logo_PLP", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_PLPRec());
+}, true, ECP_Product_BLModel.Logo_PLPRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Logo_PLPRecord.fromStructure = function (str) {
+return new Logo_PLPRecord(new Logo_PLPRecord.RecordClass({
+logo_PLPAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Logo_PLPRecord._isAnonymousRecord = true;
+Logo_PLPRecord.UniqueId = "d0ce5b1e-2e14-41d2-04fd-3650c819a617";
+Logo_PLPRecord.init();
+return Logo_PLPRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.Logo_PLPRecord = Logo_PLPRecord;
+
+});
+define("ECP_Promotion_CW.model$Logo_PLPRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Logo_PLPRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Logo_PLPRecordList = (function (_super) {
+__extends(Logo_PLPRecordList, _super);
+function Logo_PLPRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_PLPRecordList.itemType = ECP_Promotion_CWModel.Logo_PLPRecord;
+return Logo_PLPRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Logo_PLPRecordList = Logo_PLPRecordList;
+
+});
+define("ECP_Promotion_CW.model$TextTextRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextRecord = (function (_super) {
+__extends(TextTextRecord, _super);
+function TextTextRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextRecord.attributesToDeclare = function () {
+return [
+this.attr("Label", "labelAttr", "Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("URL", "uRLAttr", "URL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextRecord._isAnonymousRecord = true;
+TextTextRecord.UniqueId = "629e7732-61c2-8a00-ccee-573f075880ed";
+TextTextRecord.init();
+return TextTextRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.TextTextRecord = TextTextRecord;
+
+});
+define("ECP_Promotion_CW.model$TextTextRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$TextTextRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextRecordList = (function (_super) {
+__extends(TextTextRecordList, _super);
+function TextTextRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextRecordList.itemType = ECP_Promotion_CWModel.TextTextRecord;
+return TextTextRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.TextTextRecordList = TextTextRecordList;
+
+});
+define("ECP_Promotion_CW.model$TextTextDecimalRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextDecimalRecord = (function (_super) {
+__extends(TextTextDecimalRecord, _super);
+function TextTextDecimalRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextDecimalRecord.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Webkey", "webkeyAttr", "Webkey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderHint", "orderHintAttr", "OrderHint", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextDecimalRecord._isAnonymousRecord = true;
+TextTextDecimalRecord.UniqueId = "d99b6224-2f6c-59fe-b2c8-0a7c429cfbcd";
+TextTextDecimalRecord.init();
+return TextTextDecimalRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.TextTextDecimalRecord = TextTextDecimalRecord;
+
+});
+define("ECP_Promotion_CW.model$LineItemRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_Promotion_CW.model", "ECP_Checkout_BL.model$LineItemRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var LineItemRecord = (function (_super) {
+__extends(LineItemRecord, _super);
+function LineItemRecord(defaults) {
+_super.apply(this, arguments);
+}
+LineItemRecord.attributesToDeclare = function () {
+return [
+this.attr("LineItem", "lineItemAttr", "LineItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.LineItemRec());
+}, true, ECP_Checkout_BLModel.LineItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+LineItemRecord.fromStructure = function (str) {
+return new LineItemRecord(new LineItemRecord.RecordClass({
+lineItemAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+LineItemRecord._isAnonymousRecord = true;
+LineItemRecord.UniqueId = "5a28b736-f238-a0f4-2428-c7fb72d2737c";
+LineItemRecord.init();
+return LineItemRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.LineItemRecord = LineItemRecord;
+
+});
+define("ECP_Promotion_CW.model$OfferRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$OfferRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var OfferRecord = (function (_super) {
+__extends(OfferRecord, _super);
+function OfferRecord(defaults) {
+_super.apply(this, arguments);
+}
+OfferRecord.attributesToDeclare = function () {
+return [
+this.attr("Offer", "offerAttr", "Offer", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.OfferRec());
+}, true, ECP_Promotion_BLModel.OfferRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OfferRecord.fromStructure = function (str) {
+return new OfferRecord(new OfferRecord.RecordClass({
+offerAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OfferRecord._isAnonymousRecord = true;
+OfferRecord.UniqueId = "97dd6ba1-b02f-f30b-c81a-fe5484f90817";
+OfferRecord.init();
+return OfferRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.OfferRecord = OfferRecord;
+
+});
+define("ECP_Promotion_CW.model$OfferRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$OfferRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var OfferRecordList = (function (_super) {
+__extends(OfferRecordList, _super);
+function OfferRecordList(defaults) {
+_super.apply(this, arguments);
+}
+OfferRecordList.itemType = ECP_Promotion_CWModel.OfferRecord;
+return OfferRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.OfferRecordList = OfferRecordList;
+
+});
+define("ECP_Promotion_CW.model$TextTextDateDateDateDateRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextDateDateDateDateRecord = (function (_super) {
+__extends(TextTextDateDateDateDateRecord, _super);
+function TextTextDateDateDateDateRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextDateDateDateDateRecord.attributesToDeclare = function () {
+return [
+this.attr("CurrentPeriod_Weekday", "currentPeriod_WeekdayAttr", "CurrentPeriod_Weekday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NextPeriod_Weekday", "nextPeriod_WeekdayAttr", "NextPeriod_Weekday", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CurrentPeriod_EndDate", "currentPeriod_EndDateAttr", "CurrentPeriod_EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CurrentPeriod_StartDate", "currentPeriod_StartDateAttr", "CurrentPeriod_StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("NextPeriod_EndDate", "nextPeriod_EndDateAttr", "NextPeriod_EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("NextPeriod_StartDate", "nextPeriod_StartDateAttr", "NextPeriod_StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextDateDateDateDateRecord._isAnonymousRecord = true;
+TextTextDateDateDateDateRecord.UniqueId = "be504304-e0b5-17c9-4ddf-bffea52467e0";
+TextTextDateDateDateDateRecord.init();
+return TextTextDateDateDateDateRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.TextTextDateDateDateDateRecord = TextTextDateDateDateDateRecord;
+
+});
+define("ECP_Promotion_CW.model$TextTextDateDateDateDateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$TextTextDateDateDateDateRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextDateDateDateDateRecordList = (function (_super) {
+__extends(TextTextDateDateDateDateRecordList, _super);
+function TextTextDateDateDateDateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextDateDateDateDateRecordList.itemType = ECP_Promotion_CWModel.TextTextDateDateDateDateRecord;
+return TextTextDateDateDateDateRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.TextTextDateDateDateDateRecordList = TextTextDateDateDateDateRecordList;
+
+});
+define("ECP_Promotion_CW.model$FlowTypeList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "ECP_Promotion_CW.model", "PL_MT_Customer_Data.model$FlowTypeRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var FlowTypeList = (function (_super) {
+__extends(FlowTypeList, _super);
+function FlowTypeList(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeList.itemType = PL_MT_Customer_DataModel.FlowTypeRec;
+return FlowTypeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.FlowTypeList = FlowTypeList;
+
+});
+define("ECP_Promotion_CW.model$SettingList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model", "ECP_Promotion_CW.model", "ECP_Setting_CS.model$SettingRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Setting_CS"], function (exports, OutSystems, ECP_Setting_CSModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SettingList = (function (_super) {
+__extends(SettingList, _super);
+function SettingList(defaults) {
+_super.apply(this, arguments);
+}
+SettingList.itemType = ECP_Setting_CSModel.SettingRec;
+return SettingList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.SettingList = SettingList;
+
+});
+define("ECP_Promotion_CW.model$DateDateRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var DateDateRecord = (function (_super) {
+__extends(DateDateRecord, _super);
+function DateDateRecord(defaults) {
+_super.apply(this, arguments);
+}
+DateDateRecord.attributesToDeclare = function () {
+return [
+this.attr("PeriodEndDate", "periodEndDateAttr", "PeriodEndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("PeriodStartDate", "periodStartDateAttr", "PeriodStartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DateDateRecord._isAnonymousRecord = true;
+DateDateRecord.UniqueId = "9e3e668c-40e3-1de0-f340-b00aecb474ef";
+DateDateRecord.init();
+return DateDateRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.DateDateRecord = DateDateRecord;
+
+});
+define("ECP_Promotion_CW.model$DateDateRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$DateDateRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var DateDateRecordList = (function (_super) {
+__extends(DateDateRecordList, _super);
+function DateDateRecordList(defaults) {
+_super.apply(this, arguments);
+}
+DateDateRecordList.itemType = ECP_Promotion_CWModel.DateDateRecord;
+return DateDateRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.DateDateRecordList = DateDateRecordList;
+
+});
+define("ECP_Promotion_CW.model$ReleaseToggleList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Convert_ReleaseToggles_Lib.model", "ECP_Promotion_CW.model", "ECOP_Convert_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Convert_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Convert_ReleaseToggles_LibModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleList = (function (_super) {
+__extends(ReleaseToggleList, _super);
+function ReleaseToggleList(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleList.itemType = ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec;
+return ReleaseToggleList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.ReleaseToggleList = ReleaseToggleList;
+
+});
+define("ECP_Promotion_CW.model$ContentfulImageResizeBehaviorRecord", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_Promotion_CW.model", "CMS_Monolith.model$ContentfulImageResizeBehaviorRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ContentfulImageResizeBehaviorRecord = (function (_super) {
+__extends(ContentfulImageResizeBehaviorRecord, _super);
+function ContentfulImageResizeBehaviorRecord(defaults) {
+_super.apply(this, arguments);
+}
+ContentfulImageResizeBehaviorRecord.attributesToDeclare = function () {
+return [
+this.attr("ContentfulImageResizeBehavior", "contentfulImageResizeBehaviorAttr", "ContentfulImageResizeBehavior", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.ContentfulImageResizeBehaviorRec());
+}, true, CMS_MonolithModel.ContentfulImageResizeBehaviorRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ContentfulImageResizeBehaviorRecord.fromStructure = function (str) {
+return new ContentfulImageResizeBehaviorRecord(new ContentfulImageResizeBehaviorRecord.RecordClass({
+contentfulImageResizeBehaviorAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ContentfulImageResizeBehaviorRecord._isAnonymousRecord = true;
+ContentfulImageResizeBehaviorRecord.UniqueId = "7fc0fb97-8085-0983-0362-a149b287e924";
+ContentfulImageResizeBehaviorRecord.init();
+return ContentfulImageResizeBehaviorRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.ContentfulImageResizeBehaviorRecord = ContentfulImageResizeBehaviorRecord;
+
+});
+define("ECP_Promotion_CW.model$ContentfulImageResizeBehaviorRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$ContentfulImageResizeBehaviorRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ContentfulImageResizeBehaviorRecordList = (function (_super) {
+__extends(ContentfulImageResizeBehaviorRecordList, _super);
+function ContentfulImageResizeBehaviorRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ContentfulImageResizeBehaviorRecordList.itemType = ECP_Promotion_CWModel.ContentfulImageResizeBehaviorRecord;
+return ContentfulImageResizeBehaviorRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.ContentfulImageResizeBehaviorRecordList = ContentfulImageResizeBehaviorRecordList;
+
+});
+define("ECP_Promotion_CW.model$Logo_InfoRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_CW.model", "ECP_Product_BL.model$Logo_InfoRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoRecord = (function (_super) {
+__extends(Logo_InfoRecord, _super);
+function Logo_InfoRecord(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoRecord.attributesToDeclare = function () {
+return [
+this.attr("Logo_Info", "logo_InfoAttr", "Logo_Info", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoRec());
+}, true, ECP_Product_BLModel.Logo_InfoRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Logo_InfoRecord.fromStructure = function (str) {
+return new Logo_InfoRecord(new Logo_InfoRecord.RecordClass({
+logo_InfoAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Logo_InfoRecord._isAnonymousRecord = true;
+Logo_InfoRecord.UniqueId = "c32b9ad5-41d4-2d41-9ca7-4059e703d797";
+Logo_InfoRecord.init();
+return Logo_InfoRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.Logo_InfoRecord = Logo_InfoRecord;
+
+});
+define("ECP_Promotion_CW.model$Logo_InfoRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Logo_InfoRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoRecordList = (function (_super) {
+__extends(Logo_InfoRecordList, _super);
+function Logo_InfoRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoRecordList.itemType = ECP_Promotion_CWModel.Logo_InfoRecord;
+return Logo_InfoRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Logo_InfoRecordList = Logo_InfoRecordList;
+
+});
+define("ECP_Promotion_CW.model$TextTextIntegerRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextIntegerRecord = (function (_super) {
+__extends(TextTextIntegerRecord, _super);
+function TextTextIntegerRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextIntegerRecord.attributesToDeclare = function () {
+return [
+this.attr("LineItemId", "lineItemIdAttr", "LineItemId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SKU", "sKUAttr", "SKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Quantity", "quantityAttr", "Quantity", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextIntegerRecord._isAnonymousRecord = true;
+TextTextIntegerRecord.UniqueId = "6fc2871a-2d85-1fec-9b79-b21e1b78fef5";
+TextTextIntegerRecord.init();
+return TextTextIntegerRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.TextTextIntegerRecord = TextTextIntegerRecord;
+
+});
+define("ECP_Promotion_CW.model$LineItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_Promotion_CW.model", "ECP_Checkout_BL.model$LineItemRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var LineItemList = (function (_super) {
+__extends(LineItemList, _super);
+function LineItemList(defaults) {
+_super.apply(this, arguments);
+}
+LineItemList.itemType = ECP_Checkout_BLModel.LineItemRec;
+return LineItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.LineItemList = LineItemList;
+
+});
+define("ECP_Promotion_CW.model$UserRecord", ["exports", "OutSystems/ClientRuntime/Main", "ServiceCenter.model", "ECP_Promotion_CW.model", "ServiceCenter.model$UserRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ServiceCenter"], function (exports, OutSystems, ServiceCenterModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var UserRecord = (function (_super) {
+__extends(UserRecord, _super);
+function UserRecord(defaults) {
+_super.apply(this, arguments);
+}
+UserRecord.attributesToDeclare = function () {
+return [
+this.attr("User", "userAttr", "User", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ServiceCenterModel.UserRec());
+}, true, ServiceCenterModel.UserRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+UserRecord.fromStructure = function (str) {
+return new UserRecord(new UserRecord.RecordClass({
+userAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+UserRecord._isAnonymousRecord = true;
+UserRecord.UniqueId = "ced01335-8a82-a813-f1d9-a5108f17ce79";
+UserRecord.init();
+return UserRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.UserRecord = UserRecord;
+
+});
+define("ECP_Promotion_CW.model$UserRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$UserRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var UserRecordList = (function (_super) {
+__extends(UserRecordList, _super);
+function UserRecordList(defaults) {
+_super.apply(this, arguments);
+}
+UserRecordList.itemType = ECP_Promotion_CWModel.UserRecord;
+return UserRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.UserRecordList = UserRecordList;
+
+});
+define("ECP_Promotion_CW.model$PLP_StrList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_CW.model", "ECP_Product_BL.model$PLP_StrRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PLP_StrList = (function (_super) {
+__extends(PLP_StrList, _super);
+function PLP_StrList(defaults) {
+_super.apply(this, arguments);
+}
+PLP_StrList.itemType = ECP_Product_BLModel.PLP_StrRec;
+return PLP_StrList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.PLP_StrList = PLP_StrList;
+
+});
+define("ECP_Promotion_CW.model$SizeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$SizeRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var SizeRecordList = (function (_super) {
+__extends(SizeRecordList, _super);
+function SizeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+SizeRecordList.itemType = ECP_Promotion_CWModel.SizeRecord;
+return SizeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.SizeRecordList = SizeRecordList;
+
+});
+define("ECP_Promotion_CW.model$Promotion_PLP_StrRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$Promotion_PLP_StrRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Promotion_PLP_StrRecord = (function (_super) {
+__extends(Promotion_PLP_StrRecord, _super);
+function Promotion_PLP_StrRecord(defaults) {
+_super.apply(this, arguments);
+}
+Promotion_PLP_StrRecord.attributesToDeclare = function () {
+return [
+this.attr("Promotion_PLP_Str", "promotion_PLP_StrAttr", "Promotion_PLP_Str", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.Promotion_PLP_StrRec());
+}, true, ECP_Promotion_BLModel.Promotion_PLP_StrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Promotion_PLP_StrRecord.fromStructure = function (str) {
+return new Promotion_PLP_StrRecord(new Promotion_PLP_StrRecord.RecordClass({
+promotion_PLP_StrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Promotion_PLP_StrRecord._isAnonymousRecord = true;
+Promotion_PLP_StrRecord.UniqueId = "a96c8e97-814c-98ff-3c34-160d3c8149d2";
+Promotion_PLP_StrRecord.init();
+return Promotion_PLP_StrRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.Promotion_PLP_StrRecord = Promotion_PLP_StrRecord;
+
+});
+define("ECP_Promotion_CW.model$Promotion_PLP_StrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Promotion_PLP_StrRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Promotion_PLP_StrRecordList = (function (_super) {
+__extends(Promotion_PLP_StrRecordList, _super);
+function Promotion_PLP_StrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Promotion_PLP_StrRecordList.itemType = ECP_Promotion_CWModel.Promotion_PLP_StrRecord;
+return Promotion_PLP_StrRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Promotion_PLP_StrRecordList = Promotion_PLP_StrRecordList;
+
+});
+define("ECP_Promotion_CW.model$IconSizeRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECP_Promotion_CW.model", "ECOP_Base_RPat.model$IconSizeRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECOP_Base_RPatModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var IconSizeRecord = (function (_super) {
+__extends(IconSizeRecord, _super);
+function IconSizeRecord(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeRecord.attributesToDeclare = function () {
+return [
+this.attr("IconSize", "iconSizeAttr", "IconSize", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Base_RPatModel.IconSizeRec());
+}, true, ECOP_Base_RPatModel.IconSizeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+IconSizeRecord.fromStructure = function (str) {
+return new IconSizeRecord(new IconSizeRecord.RecordClass({
+iconSizeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+IconSizeRecord._isAnonymousRecord = true;
+IconSizeRecord.UniqueId = "cc34ba93-b7c0-df48-371b-92fa466ec993";
+IconSizeRecord.init();
+return IconSizeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.IconSizeRecord = IconSizeRecord;
+
+});
+define("ECP_Promotion_CW.model$IconSizeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$IconSizeRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var IconSizeRecordList = (function (_super) {
+__extends(IconSizeRecordList, _super);
+function IconSizeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeRecordList.itemType = ECP_Promotion_CWModel.IconSizeRecord;
+return IconSizeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.IconSizeRecordList = IconSizeRecordList;
+
+});
+define("ECP_Promotion_CW.model$LineItemRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$LineItemRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var LineItemRecordList = (function (_super) {
+__extends(LineItemRecordList, _super);
+function LineItemRecordList(defaults) {
+_super.apply(this, arguments);
+}
+LineItemRecordList.itemType = ECP_Promotion_CWModel.LineItemRecord;
+return LineItemRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.LineItemRecordList = LineItemRecordList;
+
+});
+define("ECP_Promotion_CW.model$OfferDetail_WithProductsList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$OfferDetail_WithProductsRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var OfferDetail_WithProductsList = (function (_super) {
+__extends(OfferDetail_WithProductsList, _super);
+function OfferDetail_WithProductsList(defaults) {
+_super.apply(this, arguments);
+}
+OfferDetail_WithProductsList.itemType = ECP_Promotion_BLModel.OfferDetail_WithProductsRec;
+return OfferDetail_WithProductsList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.OfferDetail_WithProductsList = OfferDetail_WithProductsList;
+
+});
+define("ECP_Promotion_CW.model$Period_DisplayRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Period_DisplayRec"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Period_DisplayRecord = (function (_super) {
+__extends(Period_DisplayRecord, _super);
+function Period_DisplayRecord(defaults) {
+_super.apply(this, arguments);
+}
+Period_DisplayRecord.attributesToDeclare = function () {
+return [
+this.attr("Period_Display", "period_DisplayAttr", "Period_Display", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_CWModel.Period_DisplayRec());
+}, true, ECP_Promotion_CWModel.Period_DisplayRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Period_DisplayRecord.fromStructure = function (str) {
+return new Period_DisplayRecord(new Period_DisplayRecord.RecordClass({
+period_DisplayAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Period_DisplayRecord._isAnonymousRecord = true;
+Period_DisplayRecord.UniqueId = "a3353e08-cdf7-ded9-a923-d28976ba7017";
+Period_DisplayRecord.init();
+return Period_DisplayRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.Period_DisplayRecord = Period_DisplayRecord;
+
+});
+define("ECP_Promotion_CW.model$GTM_ProductItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_FE_Core.model", "ECP_Promotion_CW.model", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_FE_Core"], function (exports, OutSystems, ECOP_FE_CoreModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var GTM_ProductItemList = (function (_super) {
+__extends(GTM_ProductItemList, _super);
+function GTM_ProductItemList(defaults) {
+_super.apply(this, arguments);
+}
+GTM_ProductItemList.itemType = ECOP_FE_CoreModel.GTM_ProductItemRec;
+return GTM_ProductItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.GTM_ProductItemList = GTM_ProductItemList;
+
+});
+define("ECP_Promotion_CW.model$PromotionPeriodList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$PromotionPeriodRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionPeriodList = (function (_super) {
+__extends(PromotionPeriodList, _super);
+function PromotionPeriodList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionPeriodList.itemType = ECP_Promotion_BLModel.PromotionPeriodRec;
+return PromotionPeriodList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.PromotionPeriodList = PromotionPeriodList;
+
+});
+define("ECP_Promotion_CW.model$TextTextDecimalRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$TextTextDecimalRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextDecimalRecordList = (function (_super) {
+__extends(TextTextDecimalRecordList, _super);
+function TextTextDecimalRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextDecimalRecordList.itemType = ECP_Promotion_CWModel.TextTextDecimalRecord;
+return TextTextDecimalRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.TextTextDecimalRecordList = TextTextDecimalRecordList;
+
+});
+define("ECP_Promotion_CW.model$ColorList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_Promotion_CW.model", "PLUS_OutSystemsUI_2_8_0.model$ColorRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ColorList = (function (_super) {
+__extends(ColorList, _super);
+function ColorList(defaults) {
+_super.apply(this, arguments);
+}
+ColorList.itemType = PLUS_OutSystemsUI_2_8_0Model.ColorRec;
+return ColorList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.ColorList = ColorList;
+
+});
+define("ECP_Promotion_CW.model$ContentfulImageResizeBehaviorList", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_Promotion_CW.model", "CMS_Monolith.model$ContentfulImageResizeBehaviorRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ContentfulImageResizeBehaviorList = (function (_super) {
+__extends(ContentfulImageResizeBehaviorList, _super);
+function ContentfulImageResizeBehaviorList(defaults) {
+_super.apply(this, arguments);
+}
+ContentfulImageResizeBehaviorList.itemType = CMS_MonolithModel.ContentfulImageResizeBehaviorRec;
+return ContentfulImageResizeBehaviorList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.ContentfulImageResizeBehaviorList = ContentfulImageResizeBehaviorList;
+
+});
+define("ECP_Promotion_CW.model$IconSizeList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECP_Promotion_CW.model", "ECOP_Base_RPat.model$IconSizeRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECOP_Base_RPatModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var IconSizeList = (function (_super) {
+__extends(IconSizeList, _super);
+function IconSizeList(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeList.itemType = ECOP_Base_RPatModel.IconSizeRec;
+return IconSizeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.IconSizeList = IconSizeList;
+
+});
+define("ECP_Promotion_CW.model$FlowTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "ECP_Promotion_CW.model", "PL_MT_Customer_Data.model$FlowTypeRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var FlowTypeRecord = (function (_super) {
+__extends(FlowTypeRecord, _super);
+function FlowTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("FlowType", "flowTypeAttr", "FlowType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Customer_DataModel.FlowTypeRec());
+}, true, PL_MT_Customer_DataModel.FlowTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+FlowTypeRecord.fromStructure = function (str) {
+return new FlowTypeRecord(new FlowTypeRecord.RecordClass({
+flowTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+FlowTypeRecord._isAnonymousRecord = true;
+FlowTypeRecord.UniqueId = "f7930230-e456-48d0-4263-d440d8543804";
+FlowTypeRecord.init();
+return FlowTypeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.FlowTypeRecord = FlowTypeRecord;
+
+});
+define("ECP_Promotion_CW.model$FlowTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$FlowTypeRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var FlowTypeRecordList = (function (_super) {
+__extends(FlowTypeRecordList, _super);
+function FlowTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeRecordList.itemType = ECP_Promotion_CWModel.FlowTypeRecord;
+return FlowTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.FlowTypeRecordList = FlowTypeRecordList;
+
+});
+define("ECP_Promotion_CW.model$OfferDetail_WithProductsRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$OfferDetail_WithProductsRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var OfferDetail_WithProductsRecord = (function (_super) {
+__extends(OfferDetail_WithProductsRecord, _super);
+function OfferDetail_WithProductsRecord(defaults) {
+_super.apply(this, arguments);
+}
+OfferDetail_WithProductsRecord.attributesToDeclare = function () {
+return [
+this.attr("OfferDetail_WithProducts", "offerDetail_WithProductsAttr", "OfferDetail_WithProducts", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.OfferDetail_WithProductsRec());
+}, true, ECP_Promotion_BLModel.OfferDetail_WithProductsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+OfferDetail_WithProductsRecord.fromStructure = function (str) {
+return new OfferDetail_WithProductsRecord(new OfferDetail_WithProductsRecord.RecordClass({
+offerDetail_WithProductsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+OfferDetail_WithProductsRecord._isAnonymousRecord = true;
+OfferDetail_WithProductsRecord.UniqueId = "c3955de1-8e0a-3ebb-f299-9b0dcac88102";
+OfferDetail_WithProductsRecord.init();
+return OfferDetail_WithProductsRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.OfferDetail_WithProductsRecord = OfferDetail_WithProductsRecord;
+
+});
+define("ECP_Promotion_CW.model$TextTextTextDecimalBooleanRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$TextTextTextDecimalBooleanRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextTextDecimalBooleanRecordList = (function (_super) {
+__extends(TextTextTextDecimalBooleanRecordList, _super);
+function TextTextTextDecimalBooleanRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextTextDecimalBooleanRecordList.itemType = ECP_Promotion_CWModel.TextTextTextDecimalBooleanRecord;
+return TextTextTextDecimalBooleanRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.TextTextTextDecimalBooleanRecordList = TextTextTextDecimalBooleanRecordList;
+
+});
+define("ECP_Promotion_CW.model$Period_DateList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Period_DateRec"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Period_DateList = (function (_super) {
+__extends(Period_DateList, _super);
+function Period_DateList(defaults) {
+_super.apply(this, arguments);
+}
+Period_DateList.itemType = ECP_Promotion_CWModel.Period_DateRec;
+return Period_DateList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Period_DateList = Period_DateList;
+
+});
+define("ECP_Promotion_CW.model$OfferDetail_WithProductsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$OfferDetail_WithProductsRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var OfferDetail_WithProductsRecordList = (function (_super) {
+__extends(OfferDetail_WithProductsRecordList, _super);
+function OfferDetail_WithProductsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+OfferDetail_WithProductsRecordList.itemType = ECP_Promotion_CWModel.OfferDetail_WithProductsRecord;
+return OfferDetail_WithProductsRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.OfferDetail_WithProductsRecordList = OfferDetail_WithProductsRecordList;
+
+});
+define("ECP_Promotion_CW.model$CategoryRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$CategoryRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var CategoryRecordList = (function (_super) {
+__extends(CategoryRecordList, _super);
+function CategoryRecordList(defaults) {
+_super.apply(this, arguments);
+}
+CategoryRecordList.itemType = ECP_Promotion_CWModel.CategoryRecord;
+return CategoryRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.CategoryRecordList = CategoryRecordList;
+
+});
+define("ECP_Promotion_CW.model$Logo_PLPList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_Promotion_CW.model", "ECP_Product_BL.model$Logo_PLPRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Logo_PLPList = (function (_super) {
+__extends(Logo_PLPList, _super);
+function Logo_PLPList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_PLPList.itemType = ECP_Product_BLModel.Logo_PLPRec;
+return Logo_PLPList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Logo_PLPList = Logo_PLPList;
+
+});
+define("ECP_Promotion_CW.model$PromotionOfferStyleRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECP_Promotion_CW.model", "ECOP_Base_RPat.model$PromotionOfferStyleRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECOP_Base_RPatModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionOfferStyleRecord = (function (_super) {
+__extends(PromotionOfferStyleRecord, _super);
+function PromotionOfferStyleRecord(defaults) {
+_super.apply(this, arguments);
+}
+PromotionOfferStyleRecord.attributesToDeclare = function () {
+return [
+this.attr("PromotionOfferStyle", "promotionOfferStyleAttr", "PromotionOfferStyle", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Base_RPatModel.PromotionOfferStyleRec());
+}, true, ECOP_Base_RPatModel.PromotionOfferStyleRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionOfferStyleRecord.fromStructure = function (str) {
+return new PromotionOfferStyleRecord(new PromotionOfferStyleRecord.RecordClass({
+promotionOfferStyleAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PromotionOfferStyleRecord._isAnonymousRecord = true;
+PromotionOfferStyleRecord.UniqueId = "f280e044-70f1-a981-eff8-0682d48dd5e6";
+PromotionOfferStyleRecord.init();
+return PromotionOfferStyleRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.PromotionOfferStyleRecord = PromotionOfferStyleRecord;
+
+});
+define("ECP_Promotion_CW.model$PromotionOfferStyleRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$PromotionOfferStyleRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionOfferStyleRecordList = (function (_super) {
+__extends(PromotionOfferStyleRecordList, _super);
+function PromotionOfferStyleRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionOfferStyleRecordList.itemType = ECP_Promotion_CWModel.PromotionOfferStyleRecord;
+return PromotionOfferStyleRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.PromotionOfferStyleRecordList = PromotionOfferStyleRecordList;
+
+});
+define("ECP_Promotion_CW.model$Period_DisplayRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$Period_DisplayRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var Period_DisplayRecordList = (function (_super) {
+__extends(Period_DisplayRecordList, _super);
+function Period_DisplayRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Period_DisplayRecordList.itemType = ECP_Promotion_CWModel.Period_DisplayRecord;
+return Period_DisplayRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.Period_DisplayRecordList = Period_DisplayRecordList;
+
+});
+define("ECP_Promotion_CW.model$ReleaseToggleRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Convert_ReleaseToggles_Lib.model", "ECP_Promotion_CW.model", "ECOP_Convert_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Convert_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Convert_ReleaseToggles_LibModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleRecord = (function (_super) {
+__extends(ReleaseToggleRecord, _super);
+function ReleaseToggleRecord(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleRecord.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggle", "releaseToggleAttr", "ReleaseToggle", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec());
+}, true, ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ReleaseToggleRecord.fromStructure = function (str) {
+return new ReleaseToggleRecord(new ReleaseToggleRecord.RecordClass({
+releaseToggleAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ReleaseToggleRecord._isAnonymousRecord = true;
+ReleaseToggleRecord.UniqueId = "f46bda88-0174-3e6e-a043-3a5d8d4d2714";
+ReleaseToggleRecord.init();
+return ReleaseToggleRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_Promotion_CWModel.ReleaseToggleRecord = ReleaseToggleRecord;
+
+});
+define("ECP_Promotion_CW.model$ReleaseToggleRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$ReleaseToggleRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleRecordList = (function (_super) {
+__extends(ReleaseToggleRecordList, _super);
+function ReleaseToggleRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleRecordList.itemType = ECP_Promotion_CWModel.ReleaseToggleRecord;
+return ReleaseToggleRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.ReleaseToggleRecordList = ReleaseToggleRecordList;
+
+});
+define("ECP_Promotion_CW.model$TextTextIntegerRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.model$TextTextIntegerRecord"], function (exports, OutSystems, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var TextTextIntegerRecordList = (function (_super) {
+__extends(TextTextIntegerRecordList, _super);
+function TextTextIntegerRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextIntegerRecordList.itemType = ECP_Promotion_CWModel.TextTextIntegerRecord;
+return TextTextIntegerRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.TextTextIntegerRecordList = TextTextIntegerRecordList;
+
+});
+define("ECP_Promotion_CW.model$PromotionList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model$PromotionRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL"], function (exports, OutSystems, ECP_Promotion_BLModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionList = (function (_super) {
+__extends(PromotionList, _super);
+function PromotionList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionList.itemType = ECP_Promotion_BLModel.PromotionRec;
+return PromotionList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.PromotionList = PromotionList;
+
+});
+define("ECP_Promotion_CW.model$UserList", ["exports", "OutSystems/ClientRuntime/Main", "ServiceCenter.model", "ECP_Promotion_CW.model", "ServiceCenter.model$UserRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ServiceCenter"], function (exports, OutSystems, ServiceCenterModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var UserList = (function (_super) {
+__extends(UserList, _super);
+function UserList(defaults) {
+_super.apply(this, arguments);
+}
+UserList.itemType = ServiceCenterModel.UserRec;
+return UserList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.UserList = UserList;
+
+});
+define("ECP_Promotion_CW.model$PromotionOfferStyleList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECP_Promotion_CW.model", "ECOP_Base_RPat.model$PromotionOfferStyleRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECOP_Base_RPatModel, ECP_Promotion_CWModel) {
+var OS = OutSystems.Internal;
+var PromotionOfferStyleList = (function (_super) {
+__extends(PromotionOfferStyleList, _super);
+function PromotionOfferStyleList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionOfferStyleList.itemType = ECOP_Base_RPatModel.PromotionOfferStyleRec;
+return PromotionOfferStyleList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Promotion_CWModel.PromotionOfferStyleList = PromotionOfferStyleList;
+
+});
+define("ECP_Promotion_CW.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_Promotion_CWModel = exports;
+Object.defineProperty(ECP_Promotion_CWModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["8bd980cb-bd94-440b-895e-25bdadf3d391"];
+}
+});
+
+ECP_Promotion_CWModel.staticEntities = {};
+ECP_Promotion_CWModel.staticEntities.flowType = {};
+var getFlowTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["0db7a3aa-3ba8-4c90-8413-acb9b60cff25"].staticEntities["6bb428b5-7018-45ca-af8b-185e2335aebb"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "conversationDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0c128578-608d-4617-9f4c-1e735a421035"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "addProductList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0c5897ff-67e2-4c89-af03-8785ad01368c"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "winkelNewsfeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0fecb8a2-c489-445b-91f6-1a7cb93e3d60"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "winkelNewsFeedLoadFeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("15ab26bf-a902-43ba-b498-437142abe656"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "checkOutOrders", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("2f2bf013-4dc8-4787-a8ae-01aeb75db8e5"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator2_ADP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("44d96a4e-28fe-4683-95d1-afb3dfba2339"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator3_AFAS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5a1a5fcc-3587-4a14-bf4c-68e39e020c4e"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator7_ChangedUsers", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5c37b6e0-3236-4778-914b-8480762ea110"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "conversation", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5c920beb-407d-49f9-8346-1f53e6411fc3"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "pCMP_CouponSave", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5ebc8f83-c547-4ef5-a0df-372c5670a96b"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFCAPI_StoreMate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("6254fa35-fd69-4363-8649-a16cc5746c7e"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "orderList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("710003ed-d828-4334-ab43-e5a1bb7105a1"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator4_ProcessIdentities", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("712b5f02-6506-48f8-b77d-bc14a84b03af"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator5_InStagingObjects", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("72900b32-c6ff-4a68-8c71-5debb5e1e078"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFCAPI_ADP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("78d2ab42-14d4-4471-b6f8-96e166efccbb"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "conversationList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7a65e7eb-762d-4cb4-b297-0ad1d6b910b9"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "planningCreateRoosters", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7dc371a1-6b4a-4494-a7b0-8770dfa133e0"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iCTPostsLoadFeet", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7dda6a51-b2b2-4a65-81da-d204f493f4a7"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "login", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7ddde5eb-0b5b-4d2a-bd1c-08d2f73523d0"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator10_UserEvents", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("8c986199-70ab-4f35-bd0e-f3d97e31e7e5"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "planning", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("8e911bb2-8a3d-4500-bd39-a6cfd3a1f018"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator8_ChangedGroups", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("973f86dd-42da-4885-b064-ba57502aa0b8"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "mAPP_MedewerkersAppLoad", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("9a93dc30-48b8-468b-ac49-3f89f3d33fca"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "syncConversation", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("9f1de325-ded4-4e26-bd3b-afc52f206653"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "vanServicekantoorNewsFeedLoadFeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("a59bea59-7865-4b36-8976-bbc5d33589c8"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator1_DotWeb", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("a7db7aa0-915f-4d3a-8366-cb7fa4a35d4a"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "productCategoriesList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("adbcdc4a-68d7-414c-b285-7d968746ad0f"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "addProductDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("b0c0654b-7d44-4019-8995-f22401cea21a"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iCTPosts", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bb56cb1c-961a-4007-9af9-69ccaccad35e"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iCTPostsPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bd25654a-79a6-47d0-9b9b-c3d157d0e69a"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "cMP_SaveFlow", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bef92209-6859-41b9-b1b7-787d508db955"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "productsList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("c3c69dcd-f766-4834-b299-a79221ab3e92"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "winkelNewsFeedPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("c6029504-b25e-48d4-9f3f-685b81050586"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "vanServicekantoor", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("ccfddc94-f28b-473a-a578-14a21bf02abb"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "planningLoadRoosters", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("ced63398-7e05-4ef5-9615-2f3876213c73"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFCAPI_CGO", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("e0479c8d-fee0-4fc6-8e04-970d5d31ce07"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "promotions", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("e4f7130c-6bf0-4b54-843b-8d48aea67a80"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator6_AppsAndRoles", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("efa2b28a-e129-4b5c-9109-71ef66ef0acb"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "vanServicekantoorNewsFeedPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f0fb6723-cb8e-4ebd-8c26-9dd85ffe93e6"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "iFC_Orchestrator9_QueuedUsers", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f1282986-e2e2-4b73-8510-7a1f46948e35"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "searchProduct", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f5f46627-8177-4079-8674-584ceb4eb986"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.flowType, "pCMP_CouponDelete", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f7aac01c-b75b-493f-b38c-1d6bd4e3cc9e"));
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.releaseToggle = {};
+var getReleaseToggleRecord = function (record) {
+return OS.ApplicationInfo.getModules()["2dfb77fa-8700-4ea1-8e4f-f12257666ac9"].staticEntities["006c8f18-9f13-4ebd-b5f0-4983ee7871b1"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "deliveryBundle", {
+get: function () {
+return getReleaseToggleRecord("009e4d1f-7e40-471b-a8fe-8789d5eb2683");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7000", {
+get: function () {
+return getReleaseToggleRecord("010521ae-921c-41a0-8f86-441552f08889");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9076", {
+get: function () {
+return getReleaseToggleRecord("0198cb2c-7aa7-4881-a17e-cdeeda1cb79e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7491", {
+get: function () {
+return getReleaseToggleRecord("02d26d02-01b5-4ebf-b42e-a462c391d519");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "christmasSnow", {
+get: function () {
+return getReleaseToggleRecord("02f90f56-5130-4df8-9d55-e258a5d8e57d");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8803", {
+get: function () {
+return getReleaseToggleRecord("03bc0826-13f3-4bb2-a70b-70828a803df1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8218", {
+get: function () {
+return getReleaseToggleRecord("03d07781-fe57-4619-abbb-0432b93a6a92");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7127", {
+get: function () {
+return getReleaseToggleRecord("061ab324-b607-49ef-8958-f7e59b1cec54");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8701", {
+get: function () {
+return getReleaseToggleRecord("062679a4-f815-4933-a2a6-84fe6233ea2e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8966", {
+get: function () {
+return getReleaseToggleRecord("071b8ba3-7723-427f-8500-067203fbd237");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5354", {
+get: function () {
+return getReleaseToggleRecord("095d2498-0fdd-4433-88d4-470d381ad972");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "payOnAccount", {
+get: function () {
+return getReleaseToggleRecord("0a4cf766-11bc-49e6-b04b-be873ef9564c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8049", {
+get: function () {
+return getReleaseToggleRecord("0b8783c3-4f35-4c4e-b204-7c32cd3d008c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6467", {
+get: function () {
+return getReleaseToggleRecord("0d050683-6efb-420e-9bb4-8665718a794a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7199", {
+get: function () {
+return getReleaseToggleRecord("0d46b913-43cc-4083-8c39-e8a5d1d76220");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8739", {
+get: function () {
+return getReleaseToggleRecord("0e57c5ad-c9c6-4c38-a16d-637a33190fac");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7541", {
+get: function () {
+return getReleaseToggleRecord("1401e84a-c2c1-42fb-9ac1-8943bc0a4148");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5412", {
+get: function () {
+return getReleaseToggleRecord("1461890f-bc5a-42d1-b80c-568bddd7947e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8491", {
+get: function () {
+return getReleaseToggleRecord("14859786-0ee2-4de7-a7f7-66e0a858a581");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7830", {
+get: function () {
+return getReleaseToggleRecord("150fb59e-f3b6-4371-bfb7-d2c8ef5d8f59");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "iNC_ExtendedPromotionPeriods", {
+get: function () {
+return getReleaseToggleRecord("154dd6fa-bd8f-442f-9aa9-c2e6199dfeb4");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "timeslotsUnder25", {
+get: function () {
+return getReleaseToggleRecord("1980c2bc-b513-44d2-b1e6-ca91e9cfc9ec");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9004", {
+get: function () {
+return getReleaseToggleRecord("199d3d54-654b-4c9d-acf8-4d5dd0054d12");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8891", {
+get: function () {
+return getReleaseToggleRecord("1a805ae3-4152-4d0d-8387-cd98af003e91");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8565", {
+get: function () {
+return getReleaseToggleRecord("1b0edc90-d386-4e25-b9e6-b0af1ae8fd4d");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9437", {
+get: function () {
+return getReleaseToggleRecord("1ef340b8-5ad5-4af0-8b76-097c09ed45a2");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5403", {
+get: function () {
+return getReleaseToggleRecord("22c74ee2-846a-41c6-8757-29ed0c58c5f4");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7651", {
+get: function () {
+return getReleaseToggleRecord("23ebcf74-341e-4fb8-9014-8e62106dc0a3");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5370", {
+get: function () {
+return getReleaseToggleRecord("2638d07f-ac63-47d4-9bc4-0c7e6ca2ad88");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5514", {
+get: function () {
+return getReleaseToggleRecord("2749e2a4-929a-422a-8aae-c04eaf59c5bc");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7434", {
+get: function () {
+return getReleaseToggleRecord("275ca408-2a99-41ec-9ca3-8b0419371cf1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9572", {
+get: function () {
+return getReleaseToggleRecord("27d21bb3-d26c-490d-89ed-4e953815acb1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "kPN_SMS_Connector", {
+get: function () {
+return getReleaseToggleRecord("2a9b15b2-6850-47a9-a481-ad12e2be102c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "payOnAccountPart2", {
+get: function () {
+return getReleaseToggleRecord("313ea02e-20f8-4a01-9298-e17243536212");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7888", {
+get: function () {
+return getReleaseToggleRecord("32e0f623-55ee-4ac2-81cf-4ceffa12e63f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "iNC_CustWithoutrLoyaltyCard", {
+get: function () {
+return getReleaseToggleRecord("33b7b510-9f7d-454c-8ec8-677e779d3282");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "iNC_CustWithoutrLoyaltyCard_Fix", {
+get: function () {
+return getReleaseToggleRecord("353f093e-513e-4310-a085-27dc002c96cd");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9155", {
+get: function () {
+return getReleaseToggleRecord("36ff75b6-bb28-4cad-82a0-a871050eadac");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8702", {
+get: function () {
+return getReleaseToggleRecord("38fcb6d4-f3f1-4094-8a1a-9d5972e2b2dc");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7414", {
+get: function () {
+return getReleaseToggleRecord("3a670b15-b4ad-472c-8b8b-f6d97253e2b3");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7108", {
+get: function () {
+return getReleaseToggleRecord("3aac4b01-2c5c-45db-9dd1-3e5d00bdedf0");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5269", {
+get: function () {
+return getReleaseToggleRecord("3b5adc62-6fa2-473e-9777-6d25043ecad9");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8376", {
+get: function () {
+return getReleaseToggleRecord("3e4d762b-8540-4c99-89ed-414db6311af8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5691", {
+get: function () {
+return getReleaseToggleRecord("3fad6725-84b3-454c-92d0-f7a4b4a3a77c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "deliveryBundlePunchOutOrder", {
+get: function () {
+return getReleaseToggleRecord("40a25524-7b18-4f84-86e5-3ca9cdf436c2");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "deliveryBundle_APP", {
+get: function () {
+return getReleaseToggleRecord("44e63ae1-13fa-4d80-8d23-4d7d3170f80e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP6488", {
+get: function () {
+return getReleaseToggleRecord("45bc7278-03f7-41c0-a2ce-d8a0dd3762ca");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8425", {
+get: function () {
+return getReleaseToggleRecord("463fb651-7bf2-43e3-89f8-f6b71847a64c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8052", {
+get: function () {
+return getReleaseToggleRecord("4a5c2132-c8ec-4af7-b3ac-272f9f0d817f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7757", {
+get: function () {
+return getReleaseToggleRecord("4b0f30af-a02b-4cd3-b7bc-ef1b185a1116");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5328", {
+get: function () {
+return getReleaseToggleRecord("4c826897-f057-4dd1-880f-127d7629d145");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6641", {
+get: function () {
+return getReleaseToggleRecord("4e0a682d-00a3-4c25-82d1-87453ac7b3da");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8797", {
+get: function () {
+return getReleaseToggleRecord("4e95a0c3-277c-4b02-9f1f-15cb8ba49a2a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7003", {
+get: function () {
+return getReleaseToggleRecord("4ee649d7-6660-4364-bf7d-c408ed3487c8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "optimizationCartRetry", {
+get: function () {
+return getReleaseToggleRecord("50014e59-d41a-4ee7-8755-bb42fdfacd30");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6965", {
+get: function () {
+return getReleaseToggleRecord("504b050e-ce6f-4d20-a22f-d9a36f109c13");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6260", {
+get: function () {
+return getReleaseToggleRecord("51be07e2-c7d0-405c-a9d3-0a27f7dc4083");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8174", {
+get: function () {
+return getReleaseToggleRecord("5203e4cc-572a-4e38-a352-fd853c8ffac8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6363", {
+get: function () {
+return getReleaseToggleRecord("55847c15-4fce-4345-8b10-383f303d8030");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8792", {
+get: function () {
+return getReleaseToggleRecord("569d39a9-a7e8-47b4-821a-ebce7e8d6be0");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "everyoneQRCode", {
+get: function () {
+return getReleaseToggleRecord("583fc797-5428-4b4d-90c9-cf37b5418323");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8759", {
+get: function () {
+return getReleaseToggleRecord("59e8fd84-d74c-4792-9be5-c609279a0602");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8395", {
+get: function () {
+return getReleaseToggleRecord("5f8699af-e879-4161-a132-cecdaebd3c15");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "supERP_NewERP", {
+get: function () {
+return getReleaseToggleRecord("5fb6a650-10f2-4361-90ce-0bdf630a8230");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5358", {
+get: function () {
+return getReleaseToggleRecord("5ffcfa80-b301-496b-a2d7-b73585f7364e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6639", {
+get: function () {
+return getReleaseToggleRecord("62010d0d-f77e-4c82-8410-9623ab77157f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5506", {
+get: function () {
+return getReleaseToggleRecord("62a920a8-8c83-48d0-b4ae-857abf1a41e8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8703", {
+get: function () {
+return getReleaseToggleRecord("632090d6-e321-488b-a139-caeea0936483");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9375", {
+get: function () {
+return getReleaseToggleRecord("64627607-b539-40e8-8d30-f367e63f26c1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7464", {
+get: function () {
+return getReleaseToggleRecord("67339b27-333c-4924-85c8-5406d3cd5d53");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7297", {
+get: function () {
+return getReleaseToggleRecord("67651a97-a3d2-45ca-a0d9-1545cfc1eb50");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "tEST_ForceOneWelcomeUpdateErrro", {
+get: function () {
+return getReleaseToggleRecord("690a3d1a-0f29-486b-a42d-6f394e9a24d1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5708", {
+get: function () {
+return getReleaseToggleRecord("691e474a-de41-45db-a1fc-0b18462a540c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6872", {
+get: function () {
+return getReleaseToggleRecord("6b26d785-e719-49bf-bfe3-c50d4d2b7e45");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5719", {
+get: function () {
+return getReleaseToggleRecord("6b3cf775-946c-4a7a-8a7a-67b572e7c321");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5800", {
+get: function () {
+return getReleaseToggleRecord("6cd6f146-4f44-43f0-b327-955c95a32c8c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8147", {
+get: function () {
+return getReleaseToggleRecord("707bef84-d33c-4f05-8176-22f08e2b1a3d");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7798_SetRedemptionBooleanInSavingsQR", {
+get: function () {
+return getReleaseToggleRecord("70ab926a-d69d-4c3a-a73f-4b83b7771b5f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9231", {
+get: function () {
+return getReleaseToggleRecord("71602d95-bee3-4b4c-acb2-64d0790acd89");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9154", {
+get: function () {
+return getReleaseToggleRecord("71654fc0-35f4-466c-8c5b-f1383a71441d");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5386", {
+get: function () {
+return getReleaseToggleRecord("721ee7c1-2dd3-4508-b982-dfd4d44904ba");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5833", {
+get: function () {
+return getReleaseToggleRecord("75b9f6a6-3522-460c-bb27-bbe69d9a0968");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7054", {
+get: function () {
+return getReleaseToggleRecord("75f37f38-908c-4fb1-bcb9-bafc56bf7b61");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5327", {
+get: function () {
+return getReleaseToggleRecord("7668af7a-0064-4223-9dff-a2f2a2a73b80");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6503", {
+get: function () {
+return getReleaseToggleRecord("7db5d8c1-4e55-437d-ad16-9089c937afba");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5889", {
+get: function () {
+return getReleaseToggleRecord("7f0c5573-4ec9-46e3-9be8-2068aaf2042f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8192", {
+get: function () {
+return getReleaseToggleRecord("8197b2a7-f211-4887-9b05-e119c37a1141");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8375", {
+get: function () {
+return getReleaseToggleRecord("81d055db-31c6-4a15-aa92-3083149a4ae1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "oS_ServiceWorker", {
+get: function () {
+return getReleaseToggleRecord("8348dfa9-ab1b-4340-95db-9db23beb6c53");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5338", {
+get: function () {
+return getReleaseToggleRecord("8485009c-5765-46b1-89a3-b0c966c447d7");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8414", {
+get: function () {
+return getReleaseToggleRecord("848b89a5-a4ee-4d46-aa4c-3eb2c28b9acf");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5330", {
+get: function () {
+return getReleaseToggleRecord("84fa4fc2-b2c6-47e8-9c0e-515204f16ac5");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8513", {
+get: function () {
+return getReleaseToggleRecord("85dfe213-e0fa-424f-be9d-3a23e6e9126e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9151", {
+get: function () {
+return getReleaseToggleRecord("88360362-0299-4425-a405-bfa39683ffa1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6942", {
+get: function () {
+return getReleaseToggleRecord("891a1323-617e-4b40-8a62-c8e54f88bcee");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "deliveryBundleBanner", {
+get: function () {
+return getReleaseToggleRecord("893ae778-1a06-4728-8542-ef1815abb563");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8188", {
+get: function () {
+return getReleaseToggleRecord("89bc66b1-14b3-4e2a-89e0-aa1b3a120b2b");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "giveAwayPLUSPoints", {
+get: function () {
+return getReleaseToggleRecord("8cf27946-2280-474a-be3a-3f3a90df7ddd");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5381", {
+get: function () {
+return getReleaseToggleRecord("8e62d1f0-d609-42e7-843c-6ed3915f1395");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7269", {
+get: function () {
+return getReleaseToggleRecord("8e81a1cf-eb31-42f1-ab2a-2a77ff857779");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "digitalSavingOnly", {
+get: function () {
+return getReleaseToggleRecord("90270a86-e68a-4bf8-880d-5d021703ed50");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7843", {
+get: function () {
+return getReleaseToggleRecord("94cc04a4-8a8e-45cc-bf85-56083460419e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7580", {
+get: function () {
+return getReleaseToggleRecord("94f84b60-161a-4715-b99a-1e2c5d131a34");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5259", {
+get: function () {
+return getReleaseToggleRecord("972c4ca7-7d29-455d-9466-3e3e20891076");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "promotionPageOptimization", {
+get: function () {
+return getReleaseToggleRecord("99fee0f7-44ee-4ca3-833d-cb2ceb1bc5ee");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7157", {
+get: function () {
+return getReleaseToggleRecord("9ae83456-2fd0-430c-a79a-fd1ca65bdba6");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9249", {
+get: function () {
+return getReleaseToggleRecord("9af52f6b-4a12-4ef9-8727-910a52f19bec");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9545", {
+get: function () {
+return getReleaseToggleRecord("9bb6ba51-763d-4cd1-888d-a08c1a7200cc");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9272", {
+get: function () {
+return getReleaseToggleRecord("9e58ec97-7c09-4d3f-b615-8ac1d2cb3cdd");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "rFC_PersistentLogin", {
+get: function () {
+return getReleaseToggleRecord("9ef27ba9-28d6-461e-8b80-e0cdeffc8716");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "deliveryBundleAnalytics", {
+get: function () {
+return getReleaseToggleRecord("9f37adcd-ecc8-41a9-be8f-cab4e6e6c968");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8920", {
+get: function () {
+return getReleaseToggleRecord("9f98dfa8-1ec2-4fb1-ba1d-10a3fc9e6fcc");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7590", {
+get: function () {
+return getReleaseToggleRecord("a2739fb4-2264-4e39-b605-e41c82e96d78");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7831", {
+get: function () {
+return getReleaseToggleRecord("a52d104c-d69e-436f-9bc8-e9baf8c60cbf");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9039", {
+get: function () {
+return getReleaseToggleRecord("a5a1cff5-8a0a-44a4-8f87-2e2d3e0609c1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6686", {
+get: function () {
+return getReleaseToggleRecord("a5b69b1f-ae31-4f88-88d3-189e33168028");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6181", {
+get: function () {
+return getReleaseToggleRecord("a5f1427f-a77c-4d21-a2f8-f257153e7b19");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6341", {
+get: function () {
+return getReleaseToggleRecord("a71afe87-5726-401f-a1a1-dcf7d69549d8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5443", {
+get: function () {
+return getReleaseToggleRecord("a7e65ad0-c2ab-43ed-8cbc-4e53d716d570");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8925", {
+get: function () {
+return getReleaseToggleRecord("a8166111-2d85-4e38-817b-6ccc1c41b6f6");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7501", {
+get: function () {
+return getReleaseToggleRecord("a99a6d16-8d0f-40a1-9d7d-caf380de3f5d");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8223", {
+get: function () {
+return getReleaseToggleRecord("aaa58661-dbe8-4ca4-abe8-aa5fb393872e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8163", {
+get: function () {
+return getReleaseToggleRecord("acf1cab1-ea68-43dc-a413-a64811932118");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9192", {
+get: function () {
+return getReleaseToggleRecord("ad334e7d-f242-41e1-a0dc-58646e10932a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6204", {
+get: function () {
+return getReleaseToggleRecord("aea50ea5-43fe-4dbd-981a-584cf24f43e1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8766_1", {
+get: function () {
+return getReleaseToggleRecord("af51227b-343d-4461-bc9a-47daa1fc8af7");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5439", {
+get: function () {
+return getReleaseToggleRecord("b1b22a72-d4be-402e-bd55-6cea49ba7dd7");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "dynamicDelivery_DefaultConfig", {
+get: function () {
+return getReleaseToggleRecord("b3151c30-d916-4413-b4e3-e419999fba49");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6822", {
+get: function () {
+return getReleaseToggleRecord("b42517a1-a54e-4ded-9929-b02e0576691e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7796", {
+get: function () {
+return getReleaseToggleRecord("b48286ae-ce85-4744-ac83-7ba2654acb2f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8770", {
+get: function () {
+return getReleaseToggleRecord("b750bfdb-d5f3-46a4-b424-eea625bc1fef");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8783", {
+get: function () {
+return getReleaseToggleRecord("bb776da8-1906-435c-aac1-ba63280227c5");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6353", {
+get: function () {
+return getReleaseToggleRecord("bc3dc251-96ce-408e-b235-a3ee90e0ea90");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "tEST_PromotionFolderPeriodSync", {
+get: function () {
+return getReleaseToggleRecord("bc633818-466a-4ff9-ba80-5341a46bf140");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5474", {
+get: function () {
+return getReleaseToggleRecord("bdd7d9e2-8b2b-4f76-8bdf-45d1f18661ad");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5544", {
+get: function () {
+return getReleaseToggleRecord("bfd895bf-2566-4f1e-8e52-e9788d0b8746");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6425", {
+get: function () {
+return getReleaseToggleRecord("c0a266e6-955b-4b7a-820c-9cfec7789b76");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "outageControlPart1", {
+get: function () {
+return getReleaseToggleRecord("c2ccb979-ee12-45eb-8217-50dbdc57eed3");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8465", {
+get: function () {
+return getReleaseToggleRecord("c3041729-5426-48a2-b41a-162415e995d9");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7296", {
+get: function () {
+return getReleaseToggleRecord("c380714d-f2fd-48ae-a51c-f71a02f9907b");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8157", {
+get: function () {
+return getReleaseToggleRecord("c3ed1d8d-7369-4a4d-b5eb-3c721a10eb06");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6139", {
+get: function () {
+return getReleaseToggleRecord("c437f199-810e-40a5-b76a-e2b08e57c205");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6766", {
+get: function () {
+return getReleaseToggleRecord("c51d55cc-4722-4255-8103-3d5457741f81");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6182", {
+get: function () {
+return getReleaseToggleRecord("c9000fb1-174f-4cfa-9360-e7c2412bf712");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7799", {
+get: function () {
+return getReleaseToggleRecord("ca06b47b-9d91-4a2e-8603-f9e6f21c4dc2");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9006", {
+get: function () {
+return getReleaseToggleRecord("cb633e8b-32a0-4e07-a295-f669ca5bb1d4");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8377", {
+get: function () {
+return getReleaseToggleRecord("cc733814-f028-405f-bf69-91db0576454a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7793", {
+get: function () {
+return getReleaseToggleRecord("ce6af3dc-a302-4ce3-b76a-d8c822b8ba2c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8040", {
+get: function () {
+return getReleaseToggleRecord("cea7e13d-f5f2-44e5-9c20-51e92ef11c0a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "promoFreeProduct", {
+get: function () {
+return getReleaseToggleRecord("cee4c66f-79b8-4163-bd90-a336cbea01c8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6514", {
+get: function () {
+return getReleaseToggleRecord("d0a51bea-3e2c-4d08-827f-1fa85cdf0501");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5437", {
+get: function () {
+return getReleaseToggleRecord("d251d252-f9f0-41f4-8ac4-c1d3d453b7c4");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "accessibilityFeatures", {
+get: function () {
+return getReleaseToggleRecord("d28936bf-ca09-4801-bf59-ee26397c8b34");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7315", {
+get: function () {
+return getReleaseToggleRecord("d7b78448-5d38-46ba-bcad-962506f5bbb5");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7351", {
+get: function () {
+return getReleaseToggleRecord("d96084ad-27c5-47a8-a368-6c7d2dc09fe0");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7554", {
+get: function () {
+return getReleaseToggleRecord("dac3562a-c4d2-4485-8ea5-8028fe81d588");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6235", {
+get: function () {
+return getReleaseToggleRecord("db8e0a6b-7a1a-490c-96dc-b30018105142");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6233", {
+get: function () {
+return getReleaseToggleRecord("ddb30369-2762-4e95-ab89-52d3be23c89d");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6214", {
+get: function () {
+return getReleaseToggleRecord("deb8071c-9662-40ac-a15f-cc7431945a04");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6231", {
+get: function () {
+return getReleaseToggleRecord("df741f09-1474-4106-8548-cf6bee819e3a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6878", {
+get: function () {
+return getReleaseToggleRecord("e0bd17a2-9030-49a2-af55-e35fcfda8715");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9262", {
+get: function () {
+return getReleaseToggleRecord("e14804eb-7733-4426-8812-683265533122");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "loginUsingAPI", {
+get: function () {
+return getReleaseToggleRecord("e392e913-b54d-4407-b2a0-aa016d821316");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6791", {
+get: function () {
+return getReleaseToggleRecord("e3cf51cc-2e4c-4066-a6a4-6fe670a56ef6");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "tEST_PromotionFolderPeriodSyncAPI", {
+get: function () {
+return getReleaseToggleRecord("e3f09a48-5610-4bc8-8d40-8b506d875f11");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7544", {
+get: function () {
+return getReleaseToggleRecord("e4893ee7-ba1c-4e33-b4be-20bd006080a1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9042", {
+get: function () {
+return getReleaseToggleRecord("e5597fa9-f6af-4c15-99cb-03047382ba24");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8417", {
+get: function () {
+return getReleaseToggleRecord("e664b9e2-b518-499e-880c-1f2bb86e5581");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9190", {
+get: function () {
+return getReleaseToggleRecord("e7e7c7ef-a020-4fcf-89a0-2b3acb87e2de");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7626", {
+get: function () {
+return getReleaseToggleRecord("ea2add44-03b7-4486-9ec4-0dffd424a033");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7497", {
+get: function () {
+return getReleaseToggleRecord("eaca1556-9c47-4afb-b8ab-4c73962d3fd4");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7005_ChristmasPackageShop", {
+get: function () {
+return getReleaseToggleRecord("ec2354d4-b1a5-48b7-98d1-5c951df5d658");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6255", {
+get: function () {
+return getReleaseToggleRecord("ec87c6ca-30e8-4cbe-9024-780ee7b1e1e2");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7842", {
+get: function () {
+return getReleaseToggleRecord("ed35bc69-f6cf-4588-be16-d751092f2650");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_7797", {
+get: function () {
+return getReleaseToggleRecord("ed59a13e-e1d6-4e0e-b54d-44c97678fb5e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5407", {
+get: function () {
+return getReleaseToggleRecord("ee81e6e8-f2ad-480a-9cee-59bd1ede29aa");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "hideAllergensPDP", {
+get: function () {
+return getReleaseToggleRecord("ef1f19a3-5215-4f7c-80e4-77cdf9764106");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6188", {
+get: function () {
+return getReleaseToggleRecord("f59c0121-eb31-4ea3-8226-fe1c7efd72c6");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "localAssortment", {
+get: function () {
+return getReleaseToggleRecord("f6b33e62-1525-4794-8ed4-9ae2352384af");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6249", {
+get: function () {
+return getReleaseToggleRecord("f7b7f31a-eb17-4d8f-9a46-a813ced05b7b");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_5827", {
+get: function () {
+return getReleaseToggleRecord("f9ba7759-5ad1-4c8e-a28a-9d7877e9be3f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "ecoTimeSlots", {
+get: function () {
+return getReleaseToggleRecord("fbd96f5f-d944-4d9a-8fb1-a7e0b8a07460");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_8195", {
+get: function () {
+return getReleaseToggleRecord("fc004186-66fe-4ea9-8cfa-0a95a5c1e523");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_6385", {
+get: function () {
+return getReleaseToggleRecord("fdad1842-66b9-40c6-8a5d-6182814f9a94");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.releaseToggle, "eCOP_9518", {
+get: function () {
+return getReleaseToggleRecord("fddd9adf-0ca9-4681-904a-f01fecd48863");
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.iconSize = {};
+var getIconSizeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["43d7ddb8-26e2-46dc-89d9-110bbee31fe6"].staticEntities["24f2b1d3-ca7f-4178-aed4-366682d9fd21"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.iconSize, "size2x", {
+get: function () {
+return getIconSizeRecord("1c026924-e833-40f9-a9b7-5ee9c2484999");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.iconSize, "size4x", {
+get: function () {
+return getIconSizeRecord("883f5137-1031-4610-8600-d0b7952b90af");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.iconSize, "size_lg", {
+get: function () {
+return getIconSizeRecord("9666c499-be59-4034-9681-68f1aef77d26");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.iconSize, "size5x", {
+get: function () {
+return getIconSizeRecord("cebb3bb7-3333-4dea-b3e1-ef1e27f45d1e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.iconSize, "size_s", {
+get: function () {
+return getIconSizeRecord("ed070b47-4b3d-4abc-9bdd-7ac3c89bcc32");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.iconSize, "size3x", {
+get: function () {
+return getIconSizeRecord("fd4844cc-e3a5-4a81-a266-c14dc099f4e4");
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.promotionOfferStyle = {};
+var getPromotionOfferStyleRecord = function (record) {
+return OS.ApplicationInfo.getModules()["43d7ddb8-26e2-46dc-89d9-110bbee31fe6"].staticEntities["8c9b403a-b655-4450-87ea-428f6f61b55b"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.promotionOfferStyle, "orange", {
+get: function () {
+return getPromotionOfferStyleRecord("42480cbd-020b-43bf-ac7f-b9519f1224dc");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.promotionOfferStyle, "red", {
+get: function () {
+return getPromotionOfferStyleRecord("60be5a20-a215-4cff-bf59-df3ae25c6691");
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.contentfulImageResizeBehavior = {};
+var getContentfulImageResizeBehaviorRecord = function (record) {
+return OS.ApplicationInfo.getModules()["a1c15895-6516-4d7b-93b3-d3eba9d86d40"].staticEntities["01fbca84-9c48-44fd-bf1a-d2d368f26b54"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.contentfulImageResizeBehavior, "fill", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("4722ee03-2d28-4a61-9cc8-5c6e9bf4273f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.contentfulImageResizeBehavior, "crop", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("5d821e67-aa78-4da9-bb81-4dd989581e9e");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.contentfulImageResizeBehavior, "scale", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("d5d3c663-1955-42c8-ab52-b74520c5b9fd");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.contentfulImageResizeBehavior, "pad", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("d93f3319-2a60-4cdf-a624-ccaa9917ee7a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.contentfulImageResizeBehavior, "thumb", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("f33881e4-6bbd-428e-94ab-dc0a336d6930");
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.promotionPeriod = {};
+var getPromotionPeriodRecord = function (record) {
+return OS.ApplicationInfo.getModules()["b0d31ed3-3609-4577-adab-82baa110457c"].staticEntities["8440f296-f0e5-4c64-ba60-dd7c5fec95f6"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.promotionPeriod, "nextWeek", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getPromotionPeriodRecord("14782567-9c17-42c1-aab8-67aacf31f684"));
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.promotionPeriod, "currentWeek", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getPromotionPeriodRecord("76d1956f-cf52-4f42-af5b-c1e3d43011de"));
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.size = {};
+var getSizeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["1ac110b4-8964-470b-a6b2-81ae4a6b5bde"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.size, "medium", {
+get: function () {
+return getSizeRecord("0f4cba2c-32d2-4bef-b0e8-0ecd7eadbffa");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.size, "small", {
+get: function () {
+return getSizeRecord("9133cb8a-ca17-4e39-a9fd-4a07cf123c82");
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.shape = {};
+var getShapeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["6fe168a9-c16d-4cdb-9b6f-a9e6c6b79326"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.shape, "sharp", {
+get: function () {
+return getShapeRecord("94deb1f5-6153-4438-92ad-cedea3c1f6f0");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.shape, "softRounded", {
+get: function () {
+return getShapeRecord("d1093539-d77d-439d-8d53-03d2e0053a52");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.shape, "rounded", {
+get: function () {
+return getShapeRecord("f20c2269-270a-43b2-ba29-bd8fbff2519f");
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.space = {};
+var getSpaceRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["8fb3d471-82a4-439c-9cc1-0555dfa91451"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.space, "large", {
+get: function () {
+return getSpaceRecord("51b55067-e608-49ed-9f00-1faf9e4a694a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.space, "medium", {
+get: function () {
+return getSpaceRecord("7340e97f-de64-4337-ad0d-1defcab8adb2");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.space, "xXLarge", {
+get: function () {
+return getSpaceRecord("823213f8-9df9-4de0-8aba-2b5566e6f87d");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.space, "extraSmall", {
+get: function () {
+return getSpaceRecord("83adf9ba-fbcf-4ce0-b4a4-bc6330956b89");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.space, "small", {
+get: function () {
+return getSpaceRecord("919210a5-6b3b-40c9-9a28-b4e2c28a46f8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.space, "base", {
+get: function () {
+return getSpaceRecord("f0572ad3-54ac-4755-8c8e-a9004171fcb1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.space, "extraLarge", {
+get: function () {
+return getSpaceRecord("f8dafab9-63b9-40b2-9755-f2f8fa3d6e84");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.space, "none", {
+get: function () {
+return getSpaceRecord("fb937b97-bd94-4ba4-80ff-446cb3bdf6ae");
+}
+});
+
+ECP_Promotion_CWModel.staticEntities.color = {};
+var getColorRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["cb6d1da7-26d4-45d9-bc22-9a4c482e6ce2"][record];
+};
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral9", {
+get: function () {
+return getColorRecord("04a6c700-0ae5-44d5-81ce-34ec81d72c1c");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "grape", {
+get: function () {
+return getColorRecord("0d81324f-81ae-44eb-b81e-cd27ebce7460");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral7", {
+get: function () {
+return getColorRecord("1434454b-4d44-4ec7-a9ee-8353529b1621");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral10", {
+get: function () {
+return getColorRecord("1566893e-a30d-405f-878b-e64efdab7f7b");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "teal", {
+get: function () {
+return getColorRecord("19254415-08b2-4887-a6cf-36433bb1ade0");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "primary", {
+get: function () {
+return getColorRecord("1df261bf-454e-49a0-951e-87f6077cbbc1");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral4", {
+get: function () {
+return getColorRecord("20d4e7d1-c296-4853-b584-d2b004ddf9f5");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral8", {
+get: function () {
+return getColorRecord("31cd8495-438d-4825-8a93-c083bf6f016a");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "indigo", {
+get: function () {
+return getColorRecord("47b9565a-4f82-4a9d-a543-4aaa707853ac");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "orange", {
+get: function () {
+return getColorRecord("4d20d5b8-5570-4e18-9345-55772434a9ad");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "lime", {
+get: function () {
+return getColorRecord("50b20d51-09a6-43df-aa5d-6ae3c99f31e8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "cyan", {
+get: function () {
+return getColorRecord("59edafdd-089e-409e-a2d2-78298e55e0f2");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "secondary", {
+get: function () {
+return getColorRecord("61f545b9-e074-40ee-a884-8102a56d9ee7");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral6", {
+get: function () {
+return getColorRecord("69c65fbc-5ddc-4e41-afcf-03acff40e7a8");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "yellow", {
+get: function () {
+return getColorRecord("80145099-0e84-4301-902b-2bd6a933e319");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral2", {
+get: function () {
+return getColorRecord("8577e423-4296-434f-9ca1-9a18b91e0c29");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral1", {
+get: function () {
+return getColorRecord("9946980c-176a-4345-90ff-312523579ef0");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral3", {
+get: function () {
+return getColorRecord("b7447296-c2b5-4d01-883b-b49d25b1c8a6");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "transparent", {
+get: function () {
+return getColorRecord("b87c59d9-4a95-4567-876d-b978ca413429");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "violet", {
+get: function () {
+return getColorRecord("bb39306e-ce82-47a7-9c0f-a78f92ff53c6");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "blue", {
+get: function () {
+return getColorRecord("c1bb8b1b-2f09-4fe9-bec9-eeb243b903d5");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral5", {
+get: function () {
+return getColorRecord("c1d63249-fde7-4438-b4c9-d445bcfc9257");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "red", {
+get: function () {
+return getColorRecord("d6c564f5-847a-4155-ba84-91b826bd676f");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "pink", {
+get: function () {
+return getColorRecord("e9991560-a98c-431e-a583-b707840dc2f3");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "green", {
+get: function () {
+return getColorRecord("ede4099b-595f-47f0-98ed-583414f4f6bd");
+}
+});
+
+Object.defineProperty(ECP_Promotion_CWModel.staticEntities.color, "neutral0", {
+get: function () {
+return getColorRecord("fb934ce5-6b33-4c96-8d40-b06352706a8d");
+}
+});
+
+});

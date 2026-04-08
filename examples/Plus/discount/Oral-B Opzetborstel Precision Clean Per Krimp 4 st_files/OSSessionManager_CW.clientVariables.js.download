@@ -1,0 +1,22 @@
+﻿define("OSSessionManager_CW.clientVariables", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+var ClientVariables = (function (_super) {
+var clientVarsService;
+function ClientVariables() {
+clientVarsService = OS.Injector.resolve(OS.ServiceNames.ClientVariablesService);
+}
+ClientVariables.prototype.getSessionId = function () {
+return clientVarsService.getVariable("SessionId", "OSSessionManager_CW", OS.Types.Text);
+};
+ClientVariables.prototype.setSessionId = function (value) {
+return clientVarsService.setVariable("SessionId", "OSSessionManager_CW", OS.Types.Text, value);
+};
+ClientVariables.prototype.serialize = function () {
+return {
+SessionId: OS.DataConversion.ServerDataConverter.to(this.getSessionId(), OS.Types.Text)
+};
+};
+return ClientVariables;
+})();
+return new ClientVariables();
+});

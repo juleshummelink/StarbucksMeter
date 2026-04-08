@@ -1,0 +1,140 @@
+﻿define("ECP_Customer_CW.referencesHealth$CMP_CS", [], function () {
+// Reference to producer 'CMP_CS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$CMS_Monolith", [], function () {
+// Reference to producer 'CMS_Monolith' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$CMS_Monolith_CW", [], function () {
+// Reference to producer 'CMS_Monolith_CW' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$Countries", [], function () {
+// Reference to producer 'Countries' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$CT_Cart_IS", [], function () {
+// Reference to producer 'CT_Cart_IS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$CT_Product_IS", [], function () {
+// Reference to producer 'CT_Product_IS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$DigitalWallet_IS", [], function () {
+// Reference to producer 'DigitalWallet_IS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOM_Product_CS", [], function () {
+// Reference to producer 'ECOM_Product_CS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP", [], function () {
+// Reference to producer 'ECOP' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP_Base_Assets", [], function () {
+// Reference to producer 'ECOP_Base_Assets' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP_Base_RPat", [], function () {
+// Reference to producer 'ECOP_Base_RPat' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP_Base_Theme", [], function () {
+// Reference to producer 'ECOP_Base_Theme' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP_Convert_ReleaseToggles_CS", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_CS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP_Convert_ReleaseToggles_Lib", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_Lib' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP_FE_Core", [], function () {
+// Reference to producer 'ECOP_FE_Core' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP_Reactive_Pat", [], function () {
+// Reference to producer 'ECOP_Reactive_Pat' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECOP_ReleaseTogglesReactive", [], function () {
+// Reference to producer 'ECOP_ReleaseTogglesReactive' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Cart_BL", [], function () {
+// Reference to producer 'ECP_Cart_BL' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Cart_CW", [], function () {
+// Reference to producer 'ECP_Cart_CW' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Category_CS", [], function () {
+// Reference to producer 'ECP_Category_CS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Checkout_BL", [], function () {
+// Reference to producer 'ECP_Checkout_BL' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Customer_BL", [], function () {
+// Reference to producer 'ECP_Customer_BL' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Customer_CS", [], function () {
+// Reference to producer 'ECP_Customer_CS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Entitlement_BL", [], function () {
+// Reference to producer 'ECP_Entitlement_BL' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_ExceptionHandling_Lib", [], function () {
+// Reference to producer 'ECP_ExceptionHandling_Lib' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Order_BL", [], function () {
+// Reference to producer 'ECP_Order_BL' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Product_BL", [], function () {
+// Reference to producer 'ECP_Product_BL' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Product_CW", [], function () {
+// Reference to producer 'ECP_Product_CW' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Promotion_BL", [], function () {
+// Reference to producer 'ECP_Promotion_BL' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Promotion_CW", [], function () {
+// Reference to producer 'ECP_Promotion_CW' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ECP_Setting_CS", [], function () {
+// Reference to producer 'ECP_Setting_CS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$FND_Geo_Lib", [], function () {
+// Reference to producer 'FND_Geo_Lib' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$FND_PostalCode_IS", [], function () {
+// Reference to producer 'FND_PostalCode_IS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$HTTPRequestHandler", [], function () {
+// Reference to producer 'HTTPRequestHandler' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$JWT", [], function () {
+// Reference to producer 'JWT' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$OneWelcome_IS", [], function () {
+// Reference to producer 'OneWelcome_IS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$Order_IS", [], function () {
+// Reference to producer 'Order_IS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$OSSessionManager_CW", [], function () {
+// Reference to producer 'OSSessionManager_CW' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$OTP_Generator_BL", [], function () {
+// Reference to producer 'OTP_Generator_BL' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", [], function () {
+// Reference to producer 'PLUS_OutSystemsUI_2_8_0' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$Sanitization", [], function () {
+// Reference to producer 'Sanitization' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$ServiceCenter", [], function () {
+// Reference to producer 'ServiceCenter' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$Store_CS", [], function () {
+// Reference to producer 'Store_CS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$Store_Delivery_CS", [], function () {
+// Reference to producer 'Store_Delivery_CS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$StripePayment_IS", [], function () {
+// Reference to producer 'StripePayment_IS' is OK.
+});
+define("ECP_Customer_CW.referencesHealth$Users", [], function () {
+// Reference to producer 'Users' is OK.
+});
+define("ECP_Customer_CW.referencesHealth", [], function () {
+});

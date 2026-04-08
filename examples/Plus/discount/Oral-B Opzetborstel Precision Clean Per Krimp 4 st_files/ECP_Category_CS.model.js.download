@@ -1,0 +1,227 @@
+﻿define("ECP_Category_CS.model$ContentfulAPISettingsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Category_CS.model"], function (exports, OutSystems, ECP_Category_CSModel) {
+var OS = OutSystems.Internal;
+var ContentfulAPISettingsRec = (function (_super) {
+__extends(ContentfulAPISettingsRec, _super);
+function ContentfulAPISettingsRec(defaults) {
+_super.apply(this, arguments);
+}
+ContentfulAPISettingsRec.attributesToDeclare = function () {
+return [
+this.attr("ApiKey", "apiKeyAttr", "ApiKey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Environment", "environmentAttr", "Environment", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Space", "spaceAttr", "Space", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ApiHost", "apiHostAttr", "ApiHost", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsPreview", "isPreviewAttr", "IsPreview", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("RemoveUnresolved", "removeUnresolvedAttr", "RemoveUnresolved", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("AndroidAppURL", "androidAppURLAttr", "AndroidAppURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IosAppURL", "iosAppURLAttr", "IosAppURL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ContentfulAPISettingsRec.init();
+return ContentfulAPISettingsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Category_CSModel.ContentfulAPISettingsRec = ContentfulAPISettingsRec;
+
+});
+define("ECP_Category_CS.model$Category_strRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Category_CS.model"], function (exports, OutSystems, ECP_Category_CSModel) {
+var OS = OutSystems.Internal;
+var Category_strRec = (function (_super) {
+__extends(Category_strRec, _super);
+function Category_strRec(defaults) {
+_super.apply(this, arguments);
+}
+Category_strRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExternalId", "externalIdAttr", "ExternalId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ImageURL", "imageURLAttr", "ImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ImageLabel", "imageLabelAttr", "ImageLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasChild", "hasChildAttr", "HasChild", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ParentName", "parentNameAttr", "ParentName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ParentExternalId", "parentExternalIdAttr", "ParentExternalId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("SortOrder", "sortOrderAttr", "SortOrder", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsSeasonal", "isSeasonalAttr", "IsSeasonal", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Category_strRec.init();
+return Category_strRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Category_CSModel.Category_strRec = Category_strRec;
+
+});
+define("ECP_Category_CS.model$SortOrderTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Category_CS.model"], function (exports, OutSystems, ECP_Category_CSModel) {
+var OS = OutSystems.Internal;
+var SortOrderTypeRec = (function (_super) {
+__extends(SortOrderTypeRec, _super);
+function SortOrderTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+SortOrderTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Identifier", "identifierAttr", "Identifier", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsActive", "isActiveAttr", "IsActive", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+SortOrderTypeRec.init();
+return SortOrderTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Category_CSModel.SortOrderTypeRec = SortOrderTypeRec;
+
+});
+define("ECP_Category_CS.model$CategoryRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Category_CS.model"], function (exports, OutSystems, ECP_Category_CSModel) {
+var OS = OutSystems.Internal;
+var CategoryRec = (function (_super) {
+__extends(CategoryRec, _super);
+function CategoryRec(defaults) {
+_super.apply(this, arguments);
+}
+CategoryRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Title", "titleAttr", "Title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExternalId", "externalIdAttr", "ExternalId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("WebKey", "webKeyAttr", "WebKey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Parent_WebKey", "parent_WebKeyAttr", "Parent_WebKey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Ancestor_WebKey", "ancestor_WebKeyAttr", "Ancestor_WebKey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SortOrder", "sortOrderAttr", "SortOrder", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IsVisible", "isVisibleAttr", "IsVisible", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsHighlighted", "isHighlightedAttr", "IsHighlighted", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsActive", "isActiveAttr", "IsActive", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CategoryRec.init();
+return CategoryRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Category_CSModel.CategoryRec = CategoryRec;
+
+});
+define("ECP_Category_CS.model$CategorySortOrderTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Category_CS.model"], function (exports, OutSystems, ECP_Category_CSModel) {
+var OS = OutSystems.Internal;
+var CategorySortOrderTypeRec = (function (_super) {
+__extends(CategorySortOrderTypeRec, _super);
+function CategorySortOrderTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+CategorySortOrderTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CategoryId", "categoryIdAttr", "CategoryId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("SortOrderTypeId", "sortOrderTypeIdAttr", "SortOrderTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SortOrder", "sortOrderAttr", "SortOrder", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IsActive", "isActiveAttr", "IsActive", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CategorySortOrderTypeRec.init();
+return CategorySortOrderTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Category_CSModel.CategorySortOrderTypeRec = CategorySortOrderTypeRec;
+
+});
+define("ECP_Category_CS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_Category_CSModel = exports;
+});

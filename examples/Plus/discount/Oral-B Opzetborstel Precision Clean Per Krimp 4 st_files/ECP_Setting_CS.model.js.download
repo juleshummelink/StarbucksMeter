@@ -1,0 +1,404 @@
+﻿define("ECP_Setting_CS.model$CMS_ImageRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var CMS_ImageRec = (function (_super) {
+__extends(CMS_ImageRec, _super);
+function CMS_ImageRec(defaults) {
+_super.apply(this, arguments);
+}
+CMS_ImageRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Slug", "slugAttr", "Slug", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CMS_ImageRec.init();
+return CMS_ImageRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.CMS_ImageRec = CMS_ImageRec;
+
+});
+define("ECP_Setting_CS.model$V1_Multilingual_SettingsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var V1_Multilingual_SettingsRec = (function (_super) {
+__extends(V1_Multilingual_SettingsRec, _super);
+function V1_Multilingual_SettingsRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_Multilingual_SettingsRec.attributesToDeclare = function () {
+return [
+this.attr("Language", "languageAttr", "Language", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Country", "countryAttr", "Country", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "Value", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_Multilingual_SettingsRec.init();
+return V1_Multilingual_SettingsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.V1_Multilingual_SettingsRec = V1_Multilingual_SettingsRec;
+
+});
+define("ECP_Setting_CS.model$OutageControlRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var OutageControlRec = (function (_super) {
+__extends(OutageControlRec, _super);
+function OutageControlRec(defaults) {
+_super.apply(this, arguments);
+}
+OutageControlRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsPersistentNotificationOn", "isPersistentNotificationOnAttr", "IsPersistentNotificationOn", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsPersistentNotificationCOMS", "isPersistentNotificationCOMSAttr", "IsPersistentNotificationCOMS", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsUnavailableWeb", "isUnavailableWebAttr", "IsUnavailableWeb", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsUnavailableMobile", "isUnavailableMobileAttr", "IsUnavailableMobile", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PersistentNotification_Value", "persistentNotification_ValueAttr", "PersistentNotification_Value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PersistentNotification_COMS", "persistentNotification_COMSAttr", "PersistentNotification_COMS", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UnavailableWeb_Value", "unavailableWeb_ValueAttr", "UnavailableWeb_Value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UnavailableMobile_Value", "unavailableMobile_ValueAttr", "UnavailableMobile_Value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OutageControlRec.init();
+return OutageControlRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.OutageControlRec = OutageControlRec;
+
+});
+define("ECP_Setting_CS.model$CookieTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var CookieTypeRec = (function (_super) {
+__extends(CookieTypeRec, _super);
+function CookieTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+CookieTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CookieTypeRec.fromStructure = function (str) {
+return new CookieTypeRec(new CookieTypeRec.RecordClass({
+nameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+CookieTypeRec.init();
+return CookieTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.CookieTypeRec = CookieTypeRec;
+
+});
+define("ECP_Setting_CS.model$SettingValueStrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var SettingValueStrRec = (function (_super) {
+__extends(SettingValueStrRec, _super);
+function SettingValueStrRec(defaults) {
+_super.apply(this, arguments);
+}
+SettingValueStrRec.attributesToDeclare = function () {
+return [
+this.attr("SettingId", "settingIdAttr", "SettingId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Code", "codeAttr", "Code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+SettingValueStrRec.init();
+return SettingValueStrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.SettingValueStrRec = SettingValueStrRec;
+
+});
+define("ECP_Setting_CS.model$AppMinVersionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var AppMinVersionRec = (function (_super) {
+__extends(AppMinVersionRec, _super);
+function AppMinVersionRec(defaults) {
+_super.apply(this, arguments);
+}
+AppMinVersionRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("AndroidMinVersion", "androidMinVersionAttr", "AndroidMinVersion", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IOSMinVersion", "iOSMinVersionAttr", "IOSMinVersion", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AndroidLatestReleasedVersion", "androidLatestReleasedVersionAttr", "AndroidLatestReleasedVersion", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("iOSLatestReleasedVersion", "iOSLatestReleasedVersionAttr", "iOSLatestReleasedVersion", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SuggestedUpdateMessage", "suggestedUpdateMessageAttr", "SuggestedUpdateMessage", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MandatoryUpdateMessage", "mandatoryUpdateMessageAttr", "MandatoryUpdateMessage", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AppMinVersionRec.init();
+return AppMinVersionRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.AppMinVersionRec = AppMinVersionRec;
+
+});
+define("ECP_Setting_CS.model$V1_Multilingual_SettingsList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model", "ECP_Setting_CS.model$V1_Multilingual_SettingsRec"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var V1_Multilingual_SettingsList = (function (_super) {
+__extends(V1_Multilingual_SettingsList, _super);
+function V1_Multilingual_SettingsList(defaults) {
+_super.apply(this, arguments);
+}
+V1_Multilingual_SettingsList.itemType = ECP_Setting_CSModel.V1_Multilingual_SettingsRec;
+return V1_Multilingual_SettingsList;
+})(OS.DataTypes.GenericRecordList);
+ECP_Setting_CSModel.V1_Multilingual_SettingsList = V1_Multilingual_SettingsList;
+
+});
+define("ECP_Setting_CS.model$V1_SettingsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model", "ECP_Setting_CS.model$V1_Multilingual_SettingsList"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var V1_SettingsRec = (function (_super) {
+__extends(V1_SettingsRec, _super);
+function V1_SettingsRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_SettingsRec.attributesToDeclare = function () {
+return [
+this.attr("Type", "typeAttr", "Type", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Code", "codeAttr", "Code", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MultilingualSettings", "multilingualSettingsAttr", "MultilingualSettings", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Setting_CSModel.V1_Multilingual_SettingsList());
+}, true, ECP_Setting_CSModel.V1_Multilingual_SettingsList)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_SettingsRec.init();
+return V1_SettingsRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.V1_SettingsRec = V1_SettingsRec;
+
+});
+define("ECP_Setting_CS.model$SettingMultilingualRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var SettingMultilingualRec = (function (_super) {
+__extends(SettingMultilingualRec, _super);
+function SettingMultilingualRec(defaults) {
+_super.apply(this, arguments);
+}
+SettingMultilingualRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("SettingId", "settingIdAttr", "SettingId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("LanguageId", "languageIdAttr", "LanguageId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CountryId", "countryIdAttr", "CountryId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Value", "valueAttr", "Value", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+SettingMultilingualRec.init();
+return SettingMultilingualRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.SettingMultilingualRec = SettingMultilingualRec;
+
+});
+define("ECP_Setting_CS.model$MultilingualSettingStrRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var MultilingualSettingStrRec = (function (_super) {
+__extends(MultilingualSettingStrRec, _super);
+function MultilingualSettingStrRec(defaults) {
+_super.apply(this, arguments);
+}
+MultilingualSettingStrRec.attributesToDeclare = function () {
+return [
+this.attr("LanguageId", "languageIdAttr", "LanguageId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CountryId", "countryIdAttr", "CountryId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MultilingualSettingStrRec.init();
+return MultilingualSettingStrRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.MultilingualSettingStrRec = MultilingualSettingStrRec;
+
+});
+define("ECP_Setting_CS.model$CookieRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var CookieRec = (function (_super) {
+__extends(CookieRec, _super);
+function CookieRec(defaults) {
+_super.apply(this, arguments);
+}
+CookieRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Goal", "goalAttr", "Goal", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CookieTypeId", "cookieTypeIdAttr", "CookieTypeId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsSession", "isSessionAttr", "IsSession", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ExpirationTime", "expirationTimeAttr", "ExpirationTime", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IsAddedManually", "isAddedManuallyAttr", "IsAddedManually", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CookieRec.init();
+return CookieRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.CookieRec = CookieRec;
+
+});
+define("ECP_Setting_CS.model$SettingRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Setting_CS.model"], function (exports, OutSystems, ECP_Setting_CSModel) {
+var OS = OutSystems.Internal;
+var SettingRec = (function (_super) {
+__extends(SettingRec, _super);
+function SettingRec(defaults) {
+_super.apply(this, arguments);
+}
+SettingRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Code", "codeAttr", "Code", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ValueTypeId", "valueTypeIdAttr", "ValueTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("IsMultilingual", "isMultilingualAttr", "IsMultilingual", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Value", "valueAttr", "Value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+SettingRec.init();
+return SettingRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Setting_CSModel.SettingRec = SettingRec;
+
+});
+define("ECP_Setting_CS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_Setting_CSModel = exports;
+});

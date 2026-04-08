@@ -1,0 +1,404 @@
+﻿define("ECP_Store_CW.controller$CheckStoreSelectorPrompt", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECOP_FE_Core.controller", "ECP_Store_CW.clientVariables", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECOP_FE_Core"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECOP_FE_CoreController, ECP_Store_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Store_CWController.default.checkStoreSelectorPrompt$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.CheckStoreSelectorPrompt$outVars"))());
+// Does user have store selected ? 
+if((!(!(ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext).userStoreIdOut.equals(OS.BuiltinFunctions.integerToLongInteger(OS.BuiltinFunctions.nullIdentifier())))))) {
+// Set trigger
+// TriggerStoreSelector = TriggerStoreSelectorPromt
+outVars.value.triggerStoreSelectorOut = ECP_Store_CWClientVariables.getTriggerStoreSelectorPromt();
+}
+
+return outVars.value;
+};
+var controller = ECP_Store_CWController.default;
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.CheckStoreSelectorPrompt$outVars", [{
+name: "TriggerStoreSelector",
+attrName: "triggerStoreSelectorOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Store_CWController.default.clientActionProxies.checkStoreSelectorPrompt$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Store_CWController.default.checkStoreSelectorPrompt$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+TriggerStoreSelector: OS.DataConversion.JSNodeParamConverter.to(actionResults.triggerStoreSelectorOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_Store_CW.controller$Format_GetCoordinatesWGS84", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECP_Store_CW.clientVariables"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECP_Store_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Store_CWController.default.format_GetCoordinatesWGS84$Action = function (latitudeIn, longitudeIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.Format_GetCoordinatesWGS84$vars"))());
+vars.value.latitudeInLocal = latitudeIn;
+vars.value.longitudeInLocal = longitudeIn;
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.Format_GetCoordinatesWGS84$outVars"))());
+// ValidCoordinates
+if(((!(vars.value.latitudeInLocal.equals(OS.BuiltinFunctions.integerToDecimal(0))) && !(vars.value.longitudeInLocal.equals(OS.BuiltinFunctions.integerToDecimal(0)))))) {
+// WGS84Coordinates = Latitude + "," + Longitude
+outVars.value.wGS84CoordinatesOut = ((OS.BuiltinFunctions.decimalToText(vars.value.latitudeInLocal) + ",") + OS.BuiltinFunctions.decimalToText(vars.value.longitudeInLocal));
+}
+
+return outVars.value;
+};
+var controller = ECP_Store_CWController.default;
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.Format_GetCoordinatesWGS84$vars", [{
+name: "Latitude",
+attrName: "latitudeInLocal",
+mandatory: true,
+dataType: OS.Types.Decimal,
+defaultValue: function () {
+return OS.DataTypes.Decimal.defaultValue;
+}
+}, {
+name: "Longitude",
+attrName: "longitudeInLocal",
+mandatory: true,
+dataType: OS.Types.Decimal,
+defaultValue: function () {
+return OS.DataTypes.Decimal.defaultValue;
+}
+}]);
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.Format_GetCoordinatesWGS84$outVars", [{
+name: "WGS84Coordinates",
+attrName: "wGS84CoordinatesOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Store_CWController.default.clientActionProxies.format_GetCoordinatesWGS84$Action = function (latitudeIn, longitudeIn) {
+latitudeIn = (latitudeIn === undefined) ? OS.DataTypes.Decimal.defaultValue : latitudeIn;
+longitudeIn = (longitudeIn === undefined) ? OS.DataTypes.Decimal.defaultValue : longitudeIn;
+return controller.executeActionInsideJSNode(ECP_Store_CWController.default.format_GetCoordinatesWGS84$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(latitudeIn, OS.Types.Decimal), OS.DataConversion.JSNodeParamConverter.from(longitudeIn, OS.Types.Decimal)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+WGS84Coordinates: OS.DataConversion.JSNodeParamConverter.to(actionResults.wGS84CoordinatesOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_Store_CW.controller$Store_SetNewStore", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECP_Cart_BL.model", "ECP_Cart_CW.controller", "CT_Cart_IS.model", "ECP_Store_CW.clientVariables", "ECP_Store_CW.model$PromotionLineItemList", "ECP_Cart_BL.model$DeliveryCostBreakdown_StrRec", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECP_Cart_BL", "ECP_Cart_CW.controller$Cart_SetTotals", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "CT_Cart_IS.model$MyCart_StrRec", "ECP_Store_CW.referencesHealth$CT_Cart_IS", "ECP_Store_CW.controller$ServerAction.CartStore_SetNewChannel"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECP_Cart_BLModel, ECP_Cart_CWController, CT_Cart_ISModel, ECP_Store_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Store_CWController.default.store_SetNewStore$Action = function (selectedStoreIdIn, cartIdIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.Store_SetNewStore$vars"))());
+vars.value.selectedStoreIdInLocal = selectedStoreIdIn;
+vars.value.cartIdInLocal = cartIdIn;
+var cartStore_SetNewChannelVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.Store_SetNewStore$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: CartStore_SetNewChannel
+return controller.cartStore_SetNewChannel$ServerAction(vars.value.selectedStoreIdInLocal, vars.value.cartIdInLocal, callContext).then(function (value) {
+cartStore_SetNewChannelVar.value = value;
+}).then(function () {
+// Execute Action: Cart_Client_UpdateClientTotals
+ECP_Cart_CWController.default.cart_SetTotals$Action(cartStore_SetNewChannelVar.value.myCartOut.totalPriceAttr, OS.DataTypes.Decimal.defaultValue, cartStore_SetNewChannelVar.value.myCartOut.totalLineItemQuantityAttr, cartStore_SetNewChannelVar.value.myCartOut.idAttr, cartStore_SetNewChannelVar.value.myCartOut.versionAttr, cartStore_SetNewChannelVar.value.myCartOut.shippingTotalPriceAttr, cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.depositFeeAttr, cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.pLUSPointsCostsAttr, cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.productCostsAttr, new ECP_Store_CWModel.PromotionLineItemList(), cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.promotionDeliveryDateAttr, OS.DataTypes.Decimal.defaultValue, OS.DataTypes.Decimal.defaultValue, 0, cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.smallOrderFeeAttr, cartStore_SetNewChannelVar.value.myCartOut.lineItemsAttr.length, (!(cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.deliveryTypeIdAttr.equals(OS.BuiltinFunctions.integerToLongInteger(OS.BuiltinFunctions.nullIdentifier()))) && !(cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.deliveryStartTimeAttr.equals(cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.deliveryEndTimeAttr))), new ECP_Cart_BLModel.DeliveryCostBreakdown_StrRec(), cartStore_SetNewChannelVar.value.myCartOut.customFieldsAttr.isEntitlementAppliedAttr, false, OS.BuiltinFunctions.integerToDecimal(0), false, callContext);
+// Set Output
+// MyCart = CartStore_SetNewChannel.MyCart
+outVars.value.myCartOut = cartStore_SetNewChannelVar.value.myCartOut;
+// IsOrdered = CartStore_SetNewChannel.IsOrdered
+outVars.value.isOrderedOut = cartStore_SetNewChannelVar.value.isOrderedOut;
+});
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = ECP_Store_CWController.default;
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.Store_SetNewStore$vars", [{
+name: "SelectedStoreId",
+attrName: "selectedStoreIdInLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}, {
+name: "CartId",
+attrName: "cartIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.Store_SetNewStore$outVars", [{
+name: "MyCart",
+attrName: "myCartOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new CT_Cart_ISModel.MyCart_StrRec();
+},
+complexType: CT_Cart_ISModel.MyCart_StrRec
+}, {
+name: "IsOrdered",
+attrName: "isOrderedOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Store_CWController.default.clientActionProxies.store_SetNewStore$Action = function (selectedStoreIdIn, cartIdIn) {
+selectedStoreIdIn = (selectedStoreIdIn === undefined) ? OS.DataTypes.LongInteger.defaultValue : selectedStoreIdIn;
+cartIdIn = (cartIdIn === undefined) ? "" : cartIdIn;
+return controller.executeActionInsideJSNode(ECP_Store_CWController.default.store_SetNewStore$Action.bind(controller, selectedStoreIdIn, OS.DataConversion.JSNodeParamConverter.from(cartIdIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+MyCart: actionResults.myCartOut,
+IsOrdered: OS.DataConversion.JSNodeParamConverter.to(actionResults.isOrderedOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("ECP_Store_CW.controller$Store_Update", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECOP_FE_Core.controller", "ECP_Store_CW.clientVariables", "ECP_Store_CW.controller$ServerAction.Store_Update", "ECOP_FE_Core.controller$Set_Client_UserStoreId", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$GTMEvent_StorePicker_ChangedStore"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECOP_FE_CoreController, ECP_Store_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Store_CWController.default.store_Update$Action = function (oneWelcomeUserIdIn, storeIdIn, storeNameIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.Store_Update$vars"))());
+vars.value.oneWelcomeUserIdInLocal = oneWelcomeUserIdIn;
+vars.value.storeIdInLocal = storeIdIn;
+vars.value.storeNameInLocal = storeNameIn;
+return OS.Flow.executeAsyncFlow(function () {
+// No OneWelcome User ID?
+return OS.Flow.executeSequence(function () {
+if((!((OS.BuiltinFunctions.trim(vars.value.oneWelcomeUserIdInLocal) === "")))) {
+// Execute Action: Store_Update
+return controller.store_Update$ServerAction(vars.value.oneWelcomeUserIdInLocal, vars.value.storeIdInLocal, callContext);
+}
+
+}).then(function () {
+// Execute Action: Set_Client_UserStoreId
+return ECOP_FE_CoreController.default.set_Client_UserStoreId$Action(vars.value.storeIdInLocal, callContext).then(function () {
+// Execute Action: GTMEvent_StorePicker_ChangedStore
+ECOP_FE_CoreController.default.gTMEvent_StorePicker_ChangedStore$Action(vars.value.storeNameInLocal, callContext);
+});
+});
+}).then(function () {
+return ;
+});
+};
+var controller = ECP_Store_CWController.default;
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.Store_Update$vars", [{
+name: "OneWelcomeUserId",
+attrName: "oneWelcomeUserIdInLocal",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "StoreId",
+attrName: "storeIdInLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}, {
+name: "StoreName",
+attrName: "storeNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Store_CWController.default.clientActionProxies.store_Update$Action = function (oneWelcomeUserIdIn, storeIdIn, storeNameIn) {
+oneWelcomeUserIdIn = (oneWelcomeUserIdIn === undefined) ? "" : oneWelcomeUserIdIn;
+storeIdIn = (storeIdIn === undefined) ? OS.DataTypes.LongInteger.defaultValue : storeIdIn;
+storeNameIn = (storeNameIn === undefined) ? "" : storeNameIn;
+return controller.executeActionInsideJSNode(ECP_Store_CWController.default.store_Update$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(oneWelcomeUserIdIn, OS.Types.Text), storeIdIn, OS.DataConversion.JSNodeParamConverter.from(storeNameIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_Store_CW.controller$UpdateStoreSelector", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Store_CW.clientVariables", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECOP_ReleaseTogglesReactiveController, ECP_Store_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Store_CWController.default.updateStoreSelector$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+// ECOP_7464
+if((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Store_CWModel.staticEntities.releaseToggle.eCOP_7464, callContext).isEnabledOut)) {
+// Update Trigger
+// TriggerStoreSelectorPromt = False
+ECP_Store_CWClientVariables.setTriggerStoreSelectorPromt(false);
+}
+
+return ;
+};
+var controller = ECP_Store_CWController.default;
+ECP_Store_CWController.default.clientActionProxies.updateStoreSelector$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Store_CWController.default.updateStoreSelector$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+
+define("ECP_Store_CW.controller$ValidateZipcodeTerm", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECP_Store_CW.controller$ValidateZipcodeTerm.IsZipCodeNLJS", "ECP_Store_CW.clientVariables", "ECP_Store_CW.model$TextBooleanRecord"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECP_Store_CW_controller_ValidateZipcodeTerm_IsZipCodeNLJS, ECP_Store_CWClientVariables) {
+var OS = OutSystems.Internal;
+ECP_Store_CWController.default.validateZipcodeTerm$Action = function (searchTermIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.ValidateZipcodeTerm$vars"))());
+vars.value.searchTermInLocal = searchTermIn;
+var isZipCodeNLJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.ValidateZipcodeTerm$outVars"))());
+isZipCodeNLJSResult.value = controller.safeExecuteJSNode(ECP_Store_CW_controller_ValidateZipcodeTerm_IsZipCodeNLJS, "IsZipCodeNL", "ValidateZipcodeTerm", {
+Searchterm: OS.DataConversion.JSNodeParamConverter.to(vars.value.searchTermInLocal, OS.Types.Text),
+IsZipcode: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.ValidateZipcodeTerm$isZipCodeNLJSResult"))();
+jsNodeResult.isZipcodeOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsZipcode, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsZipcode
+if((isZipCodeNLJSResult.value.isZipcodeOut)) {
+// IsSearchByZipCode = True
+outVars.value.isSearchByZipCodeOut = true;
+} else {
+// Not_ZipCode
+// IsSearchByZipCode = False
+outVars.value.isSearchByZipCodeOut = false;
+}
+
+// Valid
+// InputValidation.Valid = True
+outVars.value.inputValidationOut.validAttr = true;
+// InputValidation.ValidationMessage = ""
+outVars.value.inputValidationOut.validationMessageAttr = "";
+return outVars.value;
+};
+var controller = ECP_Store_CWController.default;
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.ValidateZipcodeTerm$vars", [{
+name: "SearchTerm",
+attrName: "searchTermInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.ValidateZipcodeTerm$isZipCodeNLJSResult", [{
+name: "IsZipcode",
+attrName: "isZipcodeOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW.ValidateZipcodeTerm$outVars", [{
+name: "IsSearchByZipCode",
+attrName: "isSearchByZipCodeOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "InputValidation",
+attrName: "inputValidationOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Store_CWModel.TextBooleanRecord();
+},
+complexType: ECP_Store_CWModel.TextBooleanRecord
+}]);
+ECP_Store_CWController.default.clientActionProxies.validateZipcodeTerm$Action = function (searchTermIn) {
+searchTermIn = (searchTermIn === undefined) ? "" : searchTermIn;
+return controller.executeActionInsideJSNode(ECP_Store_CWController.default.validateZipcodeTerm$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(searchTermIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsSearchByZipCode: OS.DataConversion.JSNodeParamConverter.to(actionResults.isSearchByZipCodeOut, OS.Types.Boolean),
+InputValidation: actionResults.inputValidationOut
+};
+});
+};
+});
+define("ECP_Store_CW.controller$ValidateZipcodeTerm.IsZipCodeNLJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var regex_test = new RegExp(/^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}?$/i);
+if(regex_test.test($parameters.Searchterm)) {
+    $parameters.IsZipcode = true;
+}else {
+    $parameters.IsZipcode = false;
+}
+
+};
+});
+
+define("ECP_Store_CW.controller$ServerAction.CartStore_SetNewChannel", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "CT_Cart_IS.model", "CT_Cart_IS.model$MyCart_StrRec", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$CT_Cart_IS"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CWController, CT_Cart_ISModel) {
+var OS = OutSystems.Internal;
+ECP_Store_CWController.default.cartStore_SetNewChannel$ServerAction = function (storeIdIn, cartIdIn, callContext) {
+var controller = this.controller;
+var inputs = {
+StoreId: OS.DataConversion.ServerDataConverter.to(storeIdIn, OS.Types.LongInteger),
+CartId: OS.DataConversion.ServerDataConverter.to(cartIdIn, OS.Types.Text)
+};
+return controller.callServerAction("CartStore_SetNewChannel", "screenservices/ECP_Store_CW/ActionCartStore_SetNewChannel", "4B0syT8lKJtZSFTYSZH2_Q", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW$rssespaceecp_cart_bl_ActionCartStore_SetNewChannel"))();
+executeServerActionResult.myCartOut = OS.DataConversion.ServerDataConverter.from(outputs.MyCart, CT_Cart_ISModel.MyCart_StrRec);
+executeServerActionResult.isOrderedOut = OS.DataConversion.ServerDataConverter.from(outputs.IsOrdered, OS.Types.Boolean);
+return executeServerActionResult;
+});
+};
+ECP_Store_CWController.default.constructor.registerVariableGroupType("ECP_Store_CW$rssespaceecp_cart_bl_ActionCartStore_SetNewChannel", [{
+name: "MyCart",
+attrName: "myCartOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new CT_Cart_ISModel.MyCart_StrRec();
+},
+complexType: CT_Cart_ISModel.MyCart_StrRec
+}, {
+name: "IsOrdered",
+attrName: "isOrderedOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+});
+define("ECP_Store_CW.controller$ServerAction.Store_Update", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CWController) {
+var OS = OutSystems.Internal;
+ECP_Store_CWController.default.store_Update$ServerAction = function (oneWelcomeUserIdIn, storeIdIn, callContext) {
+var controller = this.controller;
+var inputs = {
+OneWelcomeUserId: OS.DataConversion.ServerDataConverter.to(oneWelcomeUserIdIn, OS.Types.Text),
+StoreId: OS.DataConversion.ServerDataConverter.to(storeIdIn, OS.Types.LongInteger)
+};
+return controller.callServerAction("Store_Update", "screenservices/ECP_Store_CW/ActionStore_Update", "G9sq0VrfKql1OlIp++xk+w", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+});
+};
+});
+define("ECP_Store_CW.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller$translationsResources"], function (exports, OutSystems, ECP_Store_CWModel, ECP_Store_CW_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECP_Store_CWController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Store_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECP_Store_CWController.default = new Controller(ECP_Store_CW_Controller_translationsResources, "ECP_Store_CW");
+});
+define("ECP_Store_CW.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

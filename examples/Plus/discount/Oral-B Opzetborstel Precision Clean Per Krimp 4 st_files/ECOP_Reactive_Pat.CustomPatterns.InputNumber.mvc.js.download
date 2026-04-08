@@ -1,0 +1,437 @@
+﻿define("ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("InputVar", "inputVarIn", "InputVar", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_inputVarInDataFetchStatus", "_inputVarInDataFetchStatus", "_inputVarInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("MaxNumber", "maxNumberIn", "MaxNumber", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_maxNumberInDataFetchStatus", "_maxNumberInDataFetchStatus", "_maxNumberInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("MinNumber", "minNumberIn", "MinNumber", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_minNumberInDataFetchStatus", "_minNumberInDataFetchStatus", "_minNumberInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("PromptText", "promptTextIn", "PromptText", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_promptTextInDataFetchStatus", "_promptTextInDataFetchStatus", "_promptTextInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("InputClasses", "inputClassesIn", "InputClasses", true, false, OS.Types.Text, function () {
+return "form-control";
+}, false), 
+this.attr("_inputClassesInDataFetchStatus", "_inputClassesInDataFetchStatus", "_inputClassesInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsChangeOnBlur", "isChangeOnBlurIn", "IsChangeOnBlur", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isChangeOnBlurInDataFetchStatus", "_isChangeOnBlurInDataFetchStatus", "_isChangeOnBlurInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {
+Input_InputVar: OS.Model.ValidationWidgetRecord
+};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return true;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("InputVar" in inputs) {
+this.variables.inputVarIn = inputs.InputVar;
+if("_inputVarInDataFetchStatus" in inputs) {
+this.variables._inputVarInDataFetchStatus = inputs._inputVarInDataFetchStatus;
+}
+
+}
+
+if("MaxNumber" in inputs) {
+this.variables.maxNumberIn = inputs.MaxNumber;
+if("_maxNumberInDataFetchStatus" in inputs) {
+this.variables._maxNumberInDataFetchStatus = inputs._maxNumberInDataFetchStatus;
+}
+
+}
+
+if("MinNumber" in inputs) {
+this.variables.minNumberIn = inputs.MinNumber;
+if("_minNumberInDataFetchStatus" in inputs) {
+this.variables._minNumberInDataFetchStatus = inputs._minNumberInDataFetchStatus;
+}
+
+}
+
+if("PromptText" in inputs) {
+this.variables.promptTextIn = inputs.PromptText;
+if("_promptTextInDataFetchStatus" in inputs) {
+this.variables._promptTextInDataFetchStatus = inputs._promptTextInDataFetchStatus;
+}
+
+}
+
+if("InputClasses" in inputs) {
+this.variables.inputClassesIn = inputs.InputClasses;
+if("_inputClassesInDataFetchStatus" in inputs) {
+this.variables._inputClassesInDataFetchStatus = inputs._inputClassesInDataFetchStatus;
+}
+
+}
+
+if("IsChangeOnBlur" in inputs) {
+this.variables.isChangeOnBlurIn = inputs.IsChangeOnBlur;
+if("_isChangeOnBlurInDataFetchStatus" in inputs) {
+this.variables._isChangeOnBlurInDataFetchStatus = inputs._isChangeOnBlurInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.InputNumber");
+});
+define("ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$controller", "OutSystems/ReactWidgets/Main"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, React, OSView, ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_model, ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.InputNumber";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Input, {
+_validationProps: {
+validationService: validationService
+},
+enabled: true,
+extendedEvents: {
+onInput: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onInput_CheckMaxMin$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+onKeyDown: function () {
+var eventHandlerContext = callContext.clone();
+controller.onKeydown_PreventSpecialCharacters$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+onBlur: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.input_InputVarOnBlur$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+extendedProperties: {
+min: (model.variables.minNumberIn).toString(),
+max: (model.variables.maxNumberIn).toString()
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+inputType: /*Number*/ 2,
+mandatory: false,
+maxLength: 0,
+prompt: model.variables.promptTextIn,
+style: model.variables.inputClassesIn,
+variable: model.createVariable(OS.Types.Integer, model.variables.inputVarIn, function (value) {
+model.variables.inputVarIn = value;
+}),
+_idProps: {
+service: idService,
+name: "Input_InputVar"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+prompt_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._promptTextInDataFetchStatus),
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._inputClassesInDataFetchStatus),
+variable_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._inputVarInDataFetchStatus)
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.languageResources", "ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$translationsResources", "ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$controller.OnInput_CheckMaxMin.CheckMaxOrMinValuesJS", "ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$controller.OnKeydown_PreventSpecialCharacters.AllowOnlyNumbersJS"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_PatLanguageResources, ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_TranslationsResources, ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_controller_OnInput_CheckMaxMin_CheckMaxOrMinValuesJS, ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_controller_OnKeydown_PreventSpecialCharacters_AllowOnlyNumbersJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+setValue$Action: function (newValIn) {
+newValIn = (newValIn === undefined) ? 0 : newValIn;
+return controller.executeActionInsideJSNode(controller._setValue$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(newValIn, OS.Types.Integer)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "SetValue");
+},
+input_InputVarOnBlur$Action: function () {
+return controller.executeActionInsideJSNode(controller._input_InputVarOnBlur$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Input_InputVarOnBlur");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._input_InputVarOnBlur$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Input_InputVarOnBlur");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((model.variables.isChangeOnBlurIn)) {
+// Trigger Event: ValueChanged
+return controller.valueChanged$Action(model.variables.inputVarIn, callContext);
+}
+
+});
+});
+};
+Controller.prototype._setValue$Action = function (newValIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetValue");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.InputNumber.SetValue$vars"))());
+vars.value.newValInLocal = newValIn;
+// InputVar = NewVal
+model.variables.inputVarIn = vars.value.newValInLocal;
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.InputNumber.SetValue$vars", [{
+name: "NewVal",
+attrName: "newValInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._onInput_CheckMaxMin$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInput_CheckMaxMin");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_controller_OnInput_CheckMaxMin_CheckMaxOrMinValuesJS, "CheckMaxOrMinValues", "OnInput_CheckMaxMin", null, function ($parameters) {
+}, {
+SetValue: controller.clientActionProxies.setValue$Action
+}, {});
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.isChangeOnBlurIn))) {
+// Trigger Event: ValueChanged
+return controller.valueChanged$Action(model.variables.inputVarIn, callContext);
+}
+
+});
+});
+};
+Controller.prototype._onKeydown_PreventSpecialCharacters$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnKeydown_PreventSpecialCharacters");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_InputNumber_mvc_controller_OnKeydown_PreventSpecialCharacters_AllowOnlyNumbersJS, "AllowOnlyNumbers", "OnKeydown_PreventSpecialCharacters", null, function ($parameters) {
+}, {
+Input_InputVarOnBlur: controller.clientActionProxies.input_InputVarOnBlur$Action
+}, {});
+};
+
+Controller.prototype.input_InputVarOnBlur$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._input_InputVarOnBlur$Action, callContext);
+
+};
+Controller.prototype.setValue$Action = function (newValIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setValue$Action, callContext, newValIn);
+
+};
+Controller.prototype.onInput_CheckMaxMin$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInput_CheckMaxMin$Action, callContext);
+
+};
+Controller.prototype.onKeydown_PreventSpecialCharacters$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onKeydown_PreventSpecialCharacters$Action, callContext);
+
+};
+Controller.prototype.valueChanged$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Reactive_PatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Reactive_PatLanguageResources);
+});
+define("ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$controller.OnInput_CheckMaxMin.CheckMaxOrMinValuesJS", [], function () {
+return function ($actions, $roles, $public) {
+
+var this_ = event.target;
+if(this_.value !== ""){
+    var this_val = parseInt(this_.value);
+    var this_val_max = parseInt(this_.max);
+    var this_val_min = parseInt(this_.min);
+    
+    if(parseInt(this_.value) > parseInt(this_.max)) {
+        $actions.SetValue(parseInt(this_.max));
+    }
+    else if(parseInt(this_.value) < parseInt(this_.min)) {
+        $actions.SetValue(parseInt(this_.min));
+    }
+}
+
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$controller.OnKeydown_PreventSpecialCharacters.AllowOnlyNumbersJS", [], function () {
+return function ($actions, $roles, $public) {
+if (event.key === 'e' || event.key === '+' || event.key === '.' || event.key === ',' || event.key === "Unidentified") {
+    event.preventDefault();
+}
+else if (event.keyCode === 13) {
+    $actions.Input_InputVarOnBlur();
+}
+    
+};
+});
+
+define("ECOP_Reactive_Pat.CustomPatterns.InputNumber.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

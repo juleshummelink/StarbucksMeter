@@ -1,0 +1,208 @@
+﻿define("ECOP.AA_Common.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECP_ExceptionHandling_Lib.controller", "PL_MT_ExceptionHandling_BL.controller", "ECP_Order_CW.controller", "CMS_Monolith.controller", "ECOP.clientVariables", "ECOP.AA_Common.controller.OnException.ForceLayoutReloadJS", "ECOP.AA_Common.controller$translationsResources", "ECP_ExceptionHandling_Lib.controller$ValidateAndReturnExceptionType", "ECOP.referencesHealth", "ECOP.referencesHealth$ECP_ExceptionHandling_Lib", "PL_MT_ExceptionHandling_BL.controller$LogException", "ECOP.referencesHealth$PL_MT_ExceptionHandling_BL", "ECOP.controller$Logout_OneWelcome", "ECP_Order_CW.controller$ResetCheckoutClients", "ECOP.referencesHealth$ECP_Order_CW", "CMS_Monolith.controller$Exception_GeneralHandling", "ECOP.referencesHealth$CMS_Monolith", "ECOP.controller$ServerAction.Wrapper_GetTextSettingValue_Cache", "ECOP.controller$Login_OneWelcome"], function (exports, OutSystems, ECOPModel, ECOPController, ECP_ExceptionHandling_LibController, PL_MT_ExceptionHandling_BLController, ECP_Order_CWController, CMS_MonolithController, ECOPClientVariables, ECOP_AA_Common_controller_OnException_ForceLayoutReloadJS, ECOP_AA_Common_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECOP_AA_CommonController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+Controller.prototype.handleError = function (ex, callContext) {
+var controller = this.controller;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var communicationExceptionVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var securityExceptionVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var getGenericErrorMessage_CacheVar = new OS.DataTypes.VariableHolder();
+var validateAndReturnExceptionTypeVar = new OS.DataTypes.VariableHolder();
+var logExceptionVar = new OS.DataTypes.VariableHolder();
+var logException4Var = new OS.DataTypes.VariableHolder();
+var logout_OneWelcome2Var = new OS.DataTypes.VariableHolder();
+var logException2Var = new OS.DataTypes.VariableHolder();
+var exception_GeneralHandlingVar = new OS.DataTypes.VariableHolder();
+var logException3Var = new OS.DataTypes.VariableHolder();
+var login_OneWelcome2Var = new OS.DataTypes.VariableHolder();
+var logException5Var = new OS.DataTypes.VariableHolder();
+var logout_OneWelcomeVar = new OS.DataTypes.VariableHolder();
+OS.Logger.trace("AA_Common.OnException", OS.Exceptions.getMessage(ex), ex.name);
+if(OS.ErrorHandling.ignoreError(ex, callContext)) {
+return OS.ErrorHandling.IGNORED_ERROR_RESULT;
+}
+
+return OS.Flow.tryCatch(function () {
+OS.Logger.trace("AA_Common.OnException", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: CommunicationException
+if(OS.Exceptions.isInstanceOf(ex, OS.Exceptions.Exceptions.CommunicationException)) {
+OS.Logger.error(null, ex);
+communicationExceptionVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: LogException5
+return PL_MT_ExceptionHandling_BLController.default.logException$Action(ECOPModel.staticEntities.exceptionType2.error, "Global Exception Handling", "", "", "", "ECOP:AA_Common:OnException", (OS.BuiltinFunctions.getUserId()).toString(), "CommunicationException", communicationExceptionVar.value.exceptionMessageAttr, callContext).then(function (value) {
+logException5Var.value = value;
+}).then(function () {
+OS.FeedbackMessageService.showFeedbackMessage(communicationExceptionVar.value.exceptionMessageAttr, /*Error*/ 3);
+return OS.Flow.returnAsync();
+
+});
+});
+}
+
+// Handle Error: SecurityException
+if(OS.Exceptions.isInstanceOf(ex, OS.Exceptions.Exceptions.SecurityException)) {
+OS.Logger.error(null, ex);
+securityExceptionVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: Logout_OneWelcome
+return ECOPController.default.logout_OneWelcome$Action(callContext).then(function (value) {
+logout_OneWelcomeVar.value = value;
+}).then(function () {
+// Execute Action: Login_OneWelcome2
+return ECOPController.default.login_OneWelcome$Action(callContext).then(function (value) {
+login_OneWelcome2Var.value = value;
+});
+}).then(function () {
+// Reset Last Known URL
+// LastKnownURL = If
+ECOPClientVariables.setLastKnownURL(((((OS.BuiltinFunctions.index(ECOPClientVariables.getLastKnownURL(), "account-omzetten", 0, false, false) >= 0) || (OS.BuiltinFunctions.index(ECOPClientVariables.getLastKnownURL(), "AccountConversion", 0, false, false) >= 0))) ? (ECOPClientVariables.getLastKnownURL()) : ("")));
+// Destination: /ECOP/
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL(login_OneWelcome2Var.value.loginURLOut, {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+});
+}
+
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: ValidateAndReturnExceptionType
+validateAndReturnExceptionTypeVar.value = ECP_ExceptionHandling_LibController.default.validateAndReturnExceptionType$Action(allExceptionsVar.value.exceptionMessageAttr, callContext);
+
+// ExceptionType = Null
+return OS.Flow.executeSequence(function () {
+if((!((validateAndReturnExceptionTypeVar.value.userExceptionTypeIdOut === OS.BuiltinFunctions.nullTextIdentifier())))) {
+return OS.Flow.executeSequence(function () {
+if(((validateAndReturnExceptionTypeVar.value.userExceptionTypeIdOut === ECOPModel.staticEntities.exceptionType.notFound))) {
+// Execute Action: LogException3
+return PL_MT_ExceptionHandling_BLController.default.logException$Action(ECOPModel.staticEntities.exceptionType2.error, "Global Exception Handling", "", "", "", "ECOP:AA_Common:OnException", (OS.BuiltinFunctions.getUserId()).toString(), "Page Not Found", allExceptionsVar.value.exceptionMessageAttr, callContext).then(function (value) {
+logException3Var.value = value;
+}).then(function () {
+// Destination: /ECOP/pagina-niet-gevonden
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "pagina-niet-gevonden", {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+} else {
+return OS.Flow.executeSequence(function () {
+if(((validateAndReturnExceptionTypeVar.value.userExceptionTypeIdOut === ECOPModel.staticEntities.exceptionType.inactiveUser) || (validateAndReturnExceptionTypeVar.value.userExceptionTypeIdOut === ECOPModel.staticEntities.exceptionType.accessDenied))) {
+// Execute Action: Logout_OneWelcome2
+return ECOPController.default.logout_OneWelcome$Action(callContext).then(function (value) {
+logout_OneWelcome2Var.value = value;
+}).then(function () {
+// Reset Last Known URL
+// LastKnownURL = ""
+ECOPClientVariables.setLastKnownURL("");
+// Execute Action: LogException2
+return PL_MT_ExceptionHandling_BLController.default.logException$Action(ECOPModel.staticEntities.exceptionType2.error, "Global Exception Handling", "", "", "", "ECOP:AA_Common:OnException", (OS.BuiltinFunctions.getUserId()).toString(), "User Logout from OneWelcome", allExceptionsVar.value.exceptionMessageAttr, callContext).then(function (value) {
+logException2Var.value = value;
+});
+}).then(function () {
+// Destination: /ECOP/
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL(logout_OneWelcome2Var.value.logoutURLOut, {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+} else {
+return OS.Flow.executeSequence(function () {
+if((validateAndReturnExceptionTypeVar.value.userExceptionTypeIdOut === OS.BuiltinFunctions.textToIdentifier("UnknowCart"))) {
+// Execute Action: ResetCheckoutClients
+ECP_Order_CWController.default.resetCheckoutClients$Action(callContext);
+// Execute Action: LogException4
+return PL_MT_ExceptionHandling_BLController.default.logException$Action(ECOPModel.staticEntities.exceptionType2.error, "Global Exception Handling", "", "", "", "ECOP:AA_Common:OnException", (OS.BuiltinFunctions.getUserId()).toString(), "Force Layout reload", allExceptionsVar.value.exceptionMessageAttr, callContext).then(function (value) {
+logException4Var.value = value;
+}).then(function () {
+controller.safeExecuteJSNode(ECOP_AA_Common_controller_OnException_ForceLayoutReloadJS, "ForceLayoutReload", "OnException", null, function ($parameters) {
+}, {}, {});
+return OS.Flow.returnAsync();
+
+});
+}
+
+});
+}
+
+});
+}
+
+});
+}
+
+}).then(function () {
+// Execute Action: Exception_GeneralHandling
+return CMS_MonolithController.default.exception_GeneralHandling$Action(allExceptionsVar.value.exceptionMessageAttr, callContext).then(function (value) {
+exception_GeneralHandlingVar.value = value;
+}).then(function () {
+// Execute Action: GetGenericErrorMessage_Cache
+return controller.wrapper_GetTextSettingValue_Cache$ServerAction("ECOP_ERROR_GENERIC", "nl-NL", callContext).then(function (value) {
+getGenericErrorMessage_CacheVar.value = value;
+});
+}).then(function () {
+// Execute Action: LogException
+return PL_MT_ExceptionHandling_BLController.default.logException$Action(ECOPModel.staticEntities.exceptionType2.error, "Global Exception Handling", "", "", "", "ECOP:AA_Common:OnException", (OS.BuiltinFunctions.getUserId()).toString(), ("Generic message showed to user: " + getGenericErrorMessage_CacheVar.value.textValueOut), allExceptionsVar.value.exceptionMessageAttr, callContext).then(function (value) {
+logExceptionVar.value = value;
+});
+}).then(function () {
+OS.FeedbackMessageService.showFeedbackMessage(getGenericErrorMessage_CacheVar.value.textValueOut, /*Error*/ 3);
+return OS.Flow.returnAsync();
+
+});
+});
+});
+}
+
+throw ex;
+}, function (unhandledEx) {
+OS.Logger.trace("AA_Common.OnException", OS.Exceptions.getMessage(ex), ex.name);
+if(!(OS.ErrorHandling.ignoreError(unhandledEx, callContext))) {
+OS.ErrorHandling.handleError(unhandledEx, callContext);
+return OS.ErrorHandling.UNHANDLED_ERROR_RESULT;
+
+}
+
+return OS.ErrorHandling.IGNORED_ERROR_RESULT;
+
+});
+
+
+};
+Controller.prototype.wrapper_GetTextSettingValue_Cache$ServerAction = function (settingCodeIn, localeIn, callContext) {
+var controller = this.controller;
+var inputs = {
+SettingCode: OS.DataConversion.ServerDataConverter.to(settingCodeIn, OS.Types.Text),
+Locale: OS.DataConversion.ServerDataConverter.to(localeIn, OS.Types.Text)
+};
+return controller.callServerAction("Wrapper_GetTextSettingValue_Cache", "screenservices/ECOP/ActionWrapper_GetTextSettingValue_Cache", "CQz8RRLvDYTRaJRXgkHAnA", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECOP.AA_Common$rssespaceecp_setting_cs_ActionWrapper_GetTextSettingValue_Cache"))();
+executeServerActionResult.textValueOut = OS.DataConversion.ServerDataConverter.from(outputs.TextValue, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("ECOP.AA_Common$rssespaceecp_setting_cs_ActionWrapper_GetTextSettingValue_Cache", [{
+name: "TextValue",
+attrName: "textValueOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+return Controller;
+})(OS.Controller.BaseController);
+ECOP_AA_CommonController.default = new Controller(ECOP_AA_Common_Controller_translationsResources);
+});
+define("ECOP.AA_Common.controller.OnException.ForceLayoutReloadJS", [], function () {
+return function ($actions, $roles, $public) {
+window.location.reload();
+};
+});
+
+define("ECOP.AA_Common.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

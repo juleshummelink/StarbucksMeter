@@ -1,0 +1,65 @@
+﻿define("ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith", [], function () {
+// Reference to producer 'CMS_Monolith' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS", [], function () {
+// Reference to producer 'CT_ShoppingList_IS' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$CT_Supporting_IS", [], function () {
+// Reference to producer 'CT_Supporting_IS' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECOP", [], function () {
+// Reference to producer 'ECOP' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECOP_Base_RPat", [], function () {
+// Reference to producer 'ECOP_Base_RPat' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECOP_Base_Theme", [], function () {
+// Reference to producer 'ECOP_Base_Theme' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECOP_Convert_ReleaseToggles_Lib", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_Lib' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECOP_FE_Core", [], function () {
+// Reference to producer 'ECOP_FE_Core' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECOP_Reactive_Pat", [], function () {
+// Reference to producer 'ECOP_Reactive_Pat' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECOP_ReleaseTogglesReactive", [], function () {
+// Reference to producer 'ECOP_ReleaseTogglesReactive' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECP_Cart_BL", [], function () {
+// Reference to producer 'ECP_Cart_BL' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECP_Cart_CW", [], function () {
+// Reference to producer 'ECP_Cart_CW' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL", [], function () {
+// Reference to producer 'ECP_Checkout_BL' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECP_Customer_CW", [], function () {
+// Reference to producer 'ECP_Customer_CW' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECP_ExceptionHandling_Lib", [], function () {
+// Reference to producer 'ECP_ExceptionHandling_Lib' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECP_Order_BL", [], function () {
+// Reference to producer 'ECP_Order_BL' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECP_Product_BL", [], function () {
+// Reference to producer 'ECP_Product_BL' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL", [], function () {
+// Reference to producer 'ECP_ShoppingList_BL' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$PLUS_OutSystemsUI_2_8_0", [], function () {
+// Reference to producer 'PLUS_OutSystemsUI_2_8_0' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$ServiceCenter", [], function () {
+// Reference to producer 'ServiceCenter' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth$Users", [], function () {
+// Reference to producer 'Users' is OK.
+});
+define("ECP_ShoppingList_RCW.referencesHealth", [], function () {
+});

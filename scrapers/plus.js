@@ -38,7 +38,31 @@ async function scrape(page, url) {
 
   if (currentPrice === null) await diagnose(page, 'Plus');
 
-  const originalPrice = await originalPriceFromVanText(page);
+  // Strategy 1: DOM element with "price-previous" / "PricePrevious" in class or id.
+  // Try innerText first (renders OutSystems data-expression spans correctly).
+  let originalPrice = await page.evaluate(() => {
+    const selectors = [
+      '[class*="price-previous"]',
+      '[class*="price_previous"]',
+      '[class*="PricePrevious"]',
+      '[id*="PricePrevious"]',
+    ];
+    for (const sel of selectors) {
+      for (const el of document.querySelectorAll(sel)) {
+        const text = (el.innerText ?? el.textContent ?? '').trim();
+        const m = text.match(/(\d+)[,.](\d{2})/);
+        if (m) {
+          const p = parseFloat(`${m[1]}.${m[2]}`);
+          if (p > 0 && p < 500) return p;
+        }
+      }
+    }
+    return null;
+  });
+
+  // Strategy 2: "van X,XX" text pattern (generic fallback)
+  if (originalPrice === null) originalPrice = await originalPriceFromVanText(page);
+
   const validOriginal =
     originalPrice !== null && currentPrice !== null && originalPrice > currentPrice
       ? originalPrice

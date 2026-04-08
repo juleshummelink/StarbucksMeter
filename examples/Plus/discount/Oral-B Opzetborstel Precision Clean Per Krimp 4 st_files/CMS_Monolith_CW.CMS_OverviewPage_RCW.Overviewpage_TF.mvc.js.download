@@ -1,0 +1,2127 @@
+﻿define("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$model", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith.controller", "CMS_Monolith.model", "ECP_Product_BL.model", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Reactive_Pat.model", "CMS_Monolith.CMS_Shared_RCW.ImageWrapperProgressiveJPG_TF.mvc$model", "PLUS_OutSystemsUI_2_8_0.Adaptive.Columns2.mvc$model", "CMS_Monolith_CW.CMS_Assembly_RCW.TwoColumnContainer_1Column_TF.mvc$model", "CMS_Monolith_CW.CMS_Assembly_RCW.TextBlock_TF.mvc$model", "CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$model", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$model", "CMS_Monolith.CMS_HighlightedItemsComponent_RCW.HighlightedItem.mvc$model", "CMS_Monolith.CMS_Shared_RCW.CTA_TF.mvc$model", "CMS_Monolith.CMS_Shared_RCW.ImageWrapperProgressiveJPG.mvc$model", "CMS_Monolith.CMS_Link_Lib.LinkWrapper_Web.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "CMS_Monolith.CMS_Banner_RCW.BigBanner_TF.mvc$model", "CMS_Monolith.CMS_Banner_RCW.N_ColumnContainer_TF.mvc$model", "CMS_Monolith.CMS_Recipe_RCW.RecipeComponent_TF.mvc$model", "CMS_Monolith.CMS_ProductPromotionBanner_RCW.ProductPromotionBanner_TF.mvc$model", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$model", "CMS_Monolith.controller$Text_Slugify", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith", "CMS_Monolith_CW.model$AnchorLink_AnchorLinkList", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith_CW.model$LineItemList", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$Shared_ImageParametersRec", "CMS_Monolith.model$CMS_Assembly_ColumnRec", "CMS_Monolith.model$Shared_BulletPointsRec", "CMS_Monolith.model$CMS_Assembly_TextBlockRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_QuoteRec", "CMS_Monolith.model$Shared_KiyohWidgetRec", "CMS_Monolith.model$ProductComponentRec", "CMS_Monolith_CW.model$ProductTileDataList", "CMS_Monolith_CW.model$TextRecordList", "CMS_Monolith.model$HighlightedItemRec", "CMS_Monolith_CW.model$Shared_TagList", "CMS_Monolith.model$Shared_Link_OSRec", "CMS_Monolith.model$BigbannerRec", "CMS_Monolith.model$N_ColumnContainerRec", "CMS_Monolith_CW.model$SmallBannerList", "CMS_Monolith.model$RecipeComponentRec", "CMS_Monolith_CW.model$RecipeItemList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith_CW.model$ProductPromotionDetailsList", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith_CW.referencesHealth$ECP_Product_BL", "CMS_Monolith_CW.model$Logo_InfoList", "CMS_Monolith.model$AnchorLink_AnchorLinkRec", "PLUS_OutSystemsUI_2_8_0.controller$ScrollToElement", "CMS_Monolith_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "CMS_Monolith.model$Raw_Shared_SeoDataRec", "ECOP_Reactive_Pat.model$SEO_StructRec", "CMS_Monolith_CW.referencesHealth$ECOP_Reactive_Pat", "CMS_Monolith.model$OverviewPageRec"], function (OutSystems, CMS_Monolith_CWModel, CMS_MonolithController, CMS_MonolithModel, ECP_Product_BLModel, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Reactive_PatModel, CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvcModel, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvcModel, CMS_Monolith_CW_CMS_Assembly_RCW_TwoColumnContainer_1Column_TF_mvcModel, CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvcModel, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvcModel, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvcModel, CMS_Monolith_CMS_HighlightedItemsComponent_RCW_HighlightedItem_mvcModel, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvcModel, CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_mvcModel, CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvcModel, CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvcModel, CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvcModel, CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvcModel, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel) {
+var OS = OutSystems.Internal;
+
+var GetContentDataActRec = (function (_super) {
+__extends(GetContentDataActRec, _super);
+function GetContentDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetContentDataActRec.attributesToDeclare = function () {
+return [
+this.attr("OverviewPage", "overviewPageOut", "OverviewPage", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.OverviewPageRec());
+}, true, CMS_MonolithModel.OverviewPageRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetContentDataActRec.fromStructure = function (str) {
+return new GetContentDataActRec(new GetContentDataActRec.RecordClass({
+overviewPageOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetContentDataActRec.init();
+return GetContentDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("AnchorLinkList", "anchorLinkListVar", "AnchorLinkList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_Monolith_CWModel.AnchorLink_AnchorLinkList());
+}, false, CMS_Monolith_CWModel.AnchorLink_AnchorLinkList), 
+this.attr("IsMobile", "isMobileVar", "IsMobile", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("MaximumTiles", "maximumTilesVar", "MaximumTiles", true, false, OS.Types.Integer, function () {
+return 4;
+}, false), 
+this.attr("CurrentFilter_PageSlug", "currentFilter_PageSlugVar", "CurrentFilter_PageSlug", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("CurrentFilter_SlugParameter", "currentFilter_SlugParameterVar", "CurrentFilter_SlugParameter", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("CurrentFilter_SecondarySlugParameter", "currentFilter_SecondarySlugParameterVar", "CurrentFilter_SecondarySlugParameter", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("Offset", "offsetVar", "Offset", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("SectionIds_local", "sectionIds_localVar", "SectionIds_local", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, false, OS.DataTypes.TextList), 
+this.attr("PageSlug", "pageSlugIn", "PageSlug", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_pageSlugInDataFetchStatus", "_pageSlugInDataFetchStatus", "_pageSlugInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("SlugParameter", "slugParameterIn", "SlugParameter", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_slugParameterInDataFetchStatus", "_slugParameterInDataFetchStatus", "_slugParameterInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("SecondarySlugParameter", "secondarySlugParameterIn", "SecondarySlugParameter", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_secondarySlugParameterInDataFetchStatus", "_secondarySlugParameterInDataFetchStatus", "_secondarySlugParameterInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ActiveDevice", "activeDeviceIn", "ActiveDevice", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_ActiveDeviceRec());
+}, false, CMS_MonolithModel.Shared_ActiveDeviceRec), 
+this.attr("_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ChannelId", "channelIdIn", "ChannelId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_channelIdInDataFetchStatus", "_channelIdInDataFetchStatus", "_channelIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("UserStoreId", "userStoreIdIn", "UserStoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("_userStoreIdInDataFetchStatus", "_userStoreIdInDataFetchStatus", "_userStoreIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsOrderEditMode", "isOrderEditModeIn", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OrderEditId", "orderEditIdIn", "OrderEditId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_orderEditIdInDataFetchStatus", "_orderEditIdInDataFetchStatus", "_orderEditIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ItemsInCart", "itemsInCartIn", "ItemsInCart", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_Monolith_CWModel.LineItemList());
+}, false, CMS_Monolith_CWModel.LineItemList), 
+this.attr("_itemsInCartInDataFetchStatus", "_itemsInCartInDataFetchStatus", "_itemsInCartInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("StoreNumber", "storeNumberIn", "StoreNumber", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_storeNumberInDataFetchStatus", "_storeNumberInDataFetchStatus", "_storeNumberInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CheckoutId", "checkoutIdIn", "CheckoutId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_checkoutIdInDataFetchStatus", "_checkoutIdInDataFetchStatus", "_checkoutIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetContent", "getContentDataAct", "getContentDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetContentDataActRec());
+}, true, GetContentDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((((((((((((((CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvcModel.hasValidationWidgets || PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvcModel.hasValidationWidgets) || CMS_Monolith_CW_CMS_Assembly_RCW_TwoColumnContainer_1Column_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_HighlightedItemsComponent_RCW_HighlightedItem_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("PageSlug" in inputs) {
+this.variables.pageSlugIn = inputs.PageSlug;
+if("_pageSlugInDataFetchStatus" in inputs) {
+this.variables._pageSlugInDataFetchStatus = inputs._pageSlugInDataFetchStatus;
+}
+
+}
+
+if("SlugParameter" in inputs) {
+this.variables.slugParameterIn = inputs.SlugParameter;
+if("_slugParameterInDataFetchStatus" in inputs) {
+this.variables._slugParameterInDataFetchStatus = inputs._slugParameterInDataFetchStatus;
+}
+
+}
+
+if("SecondarySlugParameter" in inputs) {
+this.variables.secondarySlugParameterIn = inputs.SecondarySlugParameter;
+if("_secondarySlugParameterInDataFetchStatus" in inputs) {
+this.variables._secondarySlugParameterInDataFetchStatus = inputs._secondarySlugParameterInDataFetchStatus;
+}
+
+}
+
+if("ActiveDevice" in inputs) {
+this.variables.activeDeviceIn = inputs.ActiveDevice;
+if("_activeDeviceInDataFetchStatus" in inputs) {
+this.variables._activeDeviceInDataFetchStatus = inputs._activeDeviceInDataFetchStatus;
+}
+
+}
+
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("ChannelId" in inputs) {
+this.variables.channelIdIn = inputs.ChannelId;
+if("_channelIdInDataFetchStatus" in inputs) {
+this.variables._channelIdInDataFetchStatus = inputs._channelIdInDataFetchStatus;
+}
+
+}
+
+if("UserStoreId" in inputs) {
+this.variables.userStoreIdIn = inputs.UserStoreId;
+if("_userStoreIdInDataFetchStatus" in inputs) {
+this.variables._userStoreIdInDataFetchStatus = inputs._userStoreIdInDataFetchStatus;
+}
+
+}
+
+if("IsOrderEditMode" in inputs) {
+this.variables.isOrderEditModeIn = inputs.IsOrderEditMode;
+if("_isOrderEditModeInDataFetchStatus" in inputs) {
+this.variables._isOrderEditModeInDataFetchStatus = inputs._isOrderEditModeInDataFetchStatus;
+}
+
+}
+
+if("OrderEditId" in inputs) {
+this.variables.orderEditIdIn = inputs.OrderEditId;
+if("_orderEditIdInDataFetchStatus" in inputs) {
+this.variables._orderEditIdInDataFetchStatus = inputs._orderEditIdInDataFetchStatus;
+}
+
+}
+
+if("ItemsInCart" in inputs) {
+this.variables.itemsInCartIn = inputs.ItemsInCart;
+if("_itemsInCartInDataFetchStatus" in inputs) {
+this.variables._itemsInCartInDataFetchStatus = inputs._itemsInCartInDataFetchStatus;
+}
+
+}
+
+if("StoreNumber" in inputs) {
+this.variables.storeNumberIn = inputs.StoreNumber;
+if("_storeNumberInDataFetchStatus" in inputs) {
+this.variables._storeNumberInDataFetchStatus = inputs._storeNumberInDataFetchStatus;
+}
+
+}
+
+if("CheckoutId" in inputs) {
+this.variables.checkoutIdIn = inputs.CheckoutId;
+if("_checkoutIdInDataFetchStatus" in inputs) {
+this.variables._checkoutIdInDataFetchStatus = inputs._checkoutIdInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CMS_OverviewPage_RCW.Overviewpage_TF");
+});
+define("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$view", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith_CW.controller", "CMS_Monolith.controller", "CMS_Monolith.model", "ECP_Product_BL.model", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Reactive_Pat.model", "react", "OutSystems/ReactView/Main", "CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$model", "CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$controller", "OutSystems/ReactWidgets/Main", "CMS_Monolith.CMS_Shared_RCW.ImageWrapperProgressiveJPG_TF.mvc$view", "PLUS_OutSystemsUI_2_8_0.Adaptive.Columns2.mvc$view", "CMS_Monolith_CW.CMS_Assembly_RCW.TwoColumnContainer_1Column_TF.mvc$view", "CMS_Monolith_CW.CMS_Assembly_RCW.TextBlock_TF.mvc$view", "CMS_Monolith_CW.CMS_Shared_RCW.VideoWrapper_TF.mvc$view", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$view", "CMS_Monolith.CMS_HighlightedItemsComponent_RCW.HighlightedItem.mvc$view", "CMS_Monolith.CMS_Shared_RCW.CTA_TF.mvc$view", "CMS_Monolith.CMS_Shared_RCW.ImageWrapperProgressiveJPG.mvc$view", "CMS_Monolith.CMS_Link_Lib.LinkWrapper_Web.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "CMS_Monolith.CMS_Banner_RCW.BigBanner_TF.mvc$view", "CMS_Monolith.CMS_Banner_RCW.N_ColumnContainer_TF.mvc$view", "CMS_Monolith.CMS_Recipe_RCW.RecipeComponent_TF.mvc$view", "CMS_Monolith.CMS_ProductPromotionBanner_RCW.ProductPromotionBanner_TF.mvc$view", "ECOP_Base_RPat.EasyPlaceholder.EasyPlaceholder.mvc$view", "CMS_Monolith.controller$Text_Slugify", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith", "CMS_Monolith_CW.model$AnchorLink_AnchorLinkList", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith_CW.model$LineItemList", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$Shared_ImageParametersRec", "CMS_Monolith.model$CMS_Assembly_ColumnRec", "CMS_Monolith.model$Shared_BulletPointsRec", "CMS_Monolith.model$CMS_Assembly_TextBlockRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_QuoteRec", "CMS_Monolith.model$Shared_KiyohWidgetRec", "CMS_Monolith.model$ProductComponentRec", "CMS_Monolith_CW.model$ProductTileDataList", "CMS_Monolith_CW.model$TextRecordList", "CMS_Monolith.model$HighlightedItemRec", "CMS_Monolith_CW.model$Shared_TagList", "CMS_Monolith.model$Shared_Link_OSRec", "CMS_Monolith.model$BigbannerRec", "CMS_Monolith.model$N_ColumnContainerRec", "CMS_Monolith_CW.model$SmallBannerList", "CMS_Monolith.model$RecipeComponentRec", "CMS_Monolith_CW.model$RecipeItemList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith_CW.model$ProductPromotionDetailsList", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith_CW.referencesHealth$ECP_Product_BL", "CMS_Monolith_CW.model$Logo_InfoList", "CMS_Monolith.model$AnchorLink_AnchorLinkRec", "PLUS_OutSystemsUI_2_8_0.controller$ScrollToElement", "CMS_Monolith_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "CMS_Monolith.model$Raw_Shared_SeoDataRec", "ECOP_Reactive_Pat.model$SEO_StructRec", "CMS_Monolith_CW.referencesHealth$ECOP_Reactive_Pat", "CMS_Monolith.model$OverviewPageRec"], function (OutSystems, CMS_Monolith_CWModel, CMS_Monolith_CWController, CMS_MonolithController, CMS_MonolithModel, ECP_Product_BLModel, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Reactive_PatModel, React, OSView, CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_model, CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_controller, OSWidgets, CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvc_view, CMS_Monolith_CW_CMS_Assembly_RCW_TwoColumnContainer_1Column_TF_mvc_view, CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvc_view, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_view, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_view, CMS_Monolith_CMS_HighlightedItemsComponent_RCW_HighlightedItem_mvc_view, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_mvc_view, CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvc_view, CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvc_view, CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvc_view, CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CMS_OverviewPage_RCW.Overviewpage_TF";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvc_view, CMS_Monolith_CW_CMS_Assembly_RCW_TwoColumnContainer_1Column_TF_mvc_view, CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvc_view, CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_view, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_view, CMS_Monolith_CMS_HighlightedItemsComponent_RCW_HighlightedItem_mvc_view, CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_mvc_view, CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvc_view, CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvc_view, CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvc_view, CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), $if(model.variables.getContentDataAct.isDataFetchedAttr, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.componentDidMount$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+style: "cf-overview-page",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.getContentDataAct.overviewPageOut.imageAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("kvEo3P+EmkGa8fbtEFabNg.Style"), function () {
+return ("cf-overview-page__image-wrapper " + ((model.variables.activeDeviceIn.isPhoneAttr) ? ("margin-bottom-m") : ("margin-bottom-l")));
+}, function () {
+return model.variables.activeDeviceIn.isPhoneAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+}, React.createElement(CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvc_view, {
+inputs: {
+Image: model.variables.getContentDataAct.overviewPageOut.imageAttr,
+_imageInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+ImageParameters: model.getCachedValue(idService.getId("XT_paxv52Eis9l6pd0mtBQ.ImageParameters"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_ImageParametersRec();
+rec.widthAttr = 1440;
+rec.heightAttr = 230;
+rec.resizeBehaviorAttr = CMS_Monolith_CWModel.staticEntities.contentfulImageResizeBehavior.fill;
+return rec;
+}();
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+}), $if(((model.variables.getContentDataAct.overviewPageOut.titleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-overview-page__title margin-bottom-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h1",
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "heading1",
+value: model.variables.getContentDataAct.overviewPageOut.titleAttr,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+})))];
+}, function () {
+return [];
+}), $if(((model.variables.getContentDataAct.overviewPageOut.introTextAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("sbOGqBBkaE27hxfcvchZBw.Style"), function () {
+return ("cf-overview-page__intro-text " + ((model.variables.activeDeviceIn.isPhoneAttr) ? ("margin-bottom-l") : ("margin-bottom-xl")));
+}, function () {
+return model.variables.activeDeviceIn.isPhoneAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.getContentDataAct.overviewPageOut.introTextAttr,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+}))];
+}, function () {
+return [];
+}), $if((model.variables.getContentDataAct.overviewPageOut.isAnchorLinksAttr && !(model.variables.anchorLinkListVar.isEmpty)), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-anchors",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.anchorLinkListVar,
+style: "cf-anchors__list",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.htmlTag_ScrollTo$Action(model.variables.anchorLinkListVar.getCurrent(callContext.iterationContext).idAttr, controller.callContext(eventHandlerContext));
+
+;
+},
+style: "cf-anchors__btn",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.anchorLinkListVar.getCurrent(callContext.iterationContext).titleAttr)]
+}, React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "Adaptive"
+},
+style: "cf-anchors__btn-text trunc-lines-1",
+value: model.variables.anchorLinkListVar.getCurrent(callContext.iterationContext).titleAttr,
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, callContext, idService, "1")
+},
+_dependencies: []
+})))];
+}, function () {
+return [];
+}), $if(!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.List, {
+animateItems: true,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getContentDataAct.overviewPageOut.sectionListAttr,
+style: "cf-overview-page_sections-list",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+className: model.getCachedValue(idService.getId("ZsQkHZeRo0OO9ULh3BzLGw.class"), function () {
+return ("cf-overview-page__section" + ((((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.length - 1)))) ? (((((!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr.isEmpty) || !(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.isEmpty)) || !(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr.productspromotionsAttr.isEmpty))) ? (" highlighted-component_margin ") : ((((!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.recipeItemsAttr.isEmpty) && (OS.BuiltinFunctions.trim(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.cTAAttr.linkAttr.urlAttr) === ""))) ? (" margin-bottom-base") : (" not-recipe-component_margin"))))) : ("")));
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.length;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr.isEmpty;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.isEmpty;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr.productspromotionsAttr.isEmpty;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.recipeItemsAttr.isEmpty;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.cTAAttr.linkAttr.urlAttr;
+})
+},
+tag: "section",
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.channelIdIn), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.activeDeviceIn), asPrimitiveValue(model.variables._channelIdInDataFetchStatus), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrentRowNumber(callContext.iterationContext)), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).recipeComponentAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).bigbannerAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.titleAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.cTAAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.titleAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productComponentAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).videoAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).imageAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).textBlockAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.leftColumnAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.rightColumnAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.internalTitleAttr)]
+}, $if(((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.internalTitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SectionId$Action(idService.getId("SectionWrapperTwoColumnContainer"), model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.anchorLinkTitleAttr, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+style: "cf-two-column-container",
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperTwoColumnContainer"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Adaptive_Columns2_mvc_view, {
+inputs: {
+GutterSize: model.getCachedValue(idService.getId("PAnBpl4iu0eoUz5mKQWgiQ.GutterSize"), function () {
+return (((model.variables.activeDeviceIn.isPhoneAttr || model.variables.activeDeviceIn.isTabletAttr)) ? (CMS_Monolith_CWModel.staticEntities.gutterSize.extraLarge) : (CMS_Monolith_CWModel.staticEntities.gutterSize.medium));
+}, function () {
+return model.variables.activeDeviceIn.isPhoneAttr;
+}, function () {
+return model.variables.activeDeviceIn.isTabletAttr;
+}),
+_gutterSizeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+ExtendedClass: "cf-two-column-container__wrapper align-items-top",
+TabletBehavior: CMS_Monolith_CWModel.staticEntities.breakColumns.all,
+PhoneBehavior: CMS_Monolith_CWModel.staticEntities.breakColumns.all
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "16",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+column1: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "LeftColumn"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CW_CMS_Assembly_RCW_TwoColumnContainer_1Column_TF_mvc_view, {
+inputs: {
+OtherTextBlockHasTitle: ((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.rightColumnAttr.textBlockAttr.titleAttr) !== ("")),
+_otherTextBlockHasTitleInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+Column: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.leftColumnAttr,
+_columnInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "18",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+column2: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "RightColumn"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CW_CMS_Assembly_RCW_TwoColumnContainer_1Column_TF_mvc_view, {
+inputs: {
+OtherTextBlockHasTitle: ((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.leftColumnAttr.textBlockAttr.titleAttr) !== ("")),
+_otherTextBlockHasTitleInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+Column: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.rightColumnAttr,
+_columnInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "20",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.activeDeviceIn), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.leftColumnAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).twoColumnContainerAttr.rightColumnAttr)]
+}))];
+}, function () {
+return [$if((!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).textBlockAttr.textHtmlAttr.isEmpty) || ((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).textBlockAttr.parsedHTMLAttr) !== (""))), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SectionId$Action(idService.getId("SectionWrapperTextBlock"), model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).textBlockAttr.anchorLinkTitleAttr, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperTextBlock"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CW_CMS_Assembly_RCW_TextBlock_TF_mvc_view, {
+inputs: {
+IsSectionComponent: true,
+TextBlock: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).textBlockAttr,
+_textBlockInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "22",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [$if(((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).imageAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperImageWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_TF_mvc_view, {
+inputs: {
+Lazyload: model.getCachedValue(idService.getId("tECBKdPK602qxyPXFlsizg.Lazyload"), function () {
+return (((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrentRowNumber(callContext.iterationContext) < 2)) ? (false) : (true));
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+_lazyloadInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+Image: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).imageAttr,
+_imageInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+ExtendedClass: "cf-overview-page__section-image-wrapper"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "24",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [$if(((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).videoAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperVideoWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CW_CMS_Shared_RCW_VideoWrapper_TF_mvc_view, {
+inputs: {
+VideoWrapper: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).videoAttr,
+_videoWrapperInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "26",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [$if(((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productComponentAttr.internalTitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SectionId$Action(idService.getId("SectionWrapperProductComponent"), model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productComponentAttr.anchorLinkTitleAttr, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperProductComponent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_view, {
+inputs: {
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+ProductComponent: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productComponentAttr,
+_productComponentInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+ChannelId: model.variables.channelIdIn,
+_channelIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._channelIdInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+callbackOrderEdit$Action: function (callbackOrderEditingIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEditing$Action(callbackOrderEditingIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "28",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [$if(!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SectionId$Action(idService.getId("SectionWrapperHighlightedItemsComponent"), model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.anchorLinkTitleAttr, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperHighlightedItemsComponent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-highlighted-items-component",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("Npi05kNfCEGiggyfnqNIUA.class"), function () {
+return ("cf-highlighted-items-component__title-wrapper " + ((model.variables.activeDeviceIn.isPhoneAttr) ? ("margin-bottom-base") : ("margin-bottom-m")));
+}, function () {
+return model.variables.activeDeviceIn.isPhoneAttr;
+})
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "31"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+name: model.getCachedValue(idService.getId("XVpYhc_NT0qDKsIRoEx8kA.name"), function () {
+return CMS_MonolithController.default.text_Slugify$Action(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.titleAttr, callContext).slugifiedTextOut;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.titleAttr;
+}),
+className: "heading2 font-bold"
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.titleAttr,
+_idProps: {
+service: idService,
+name: "H2Element4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-highlighted-items-component__items ",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.List, {
+animateItems: true,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr,
+style: model.getCachedValue(idService.getId("2OdC7vYWbkqIXzZZNznH2g.Style"), function () {
+return ("cf-highlighted-items-component__items-list padding-bottom-base" + (((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr.length === 1)) ? (" single-item") : ("")));
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr.length;
+}),
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(CMS_Monolith_CMS_HighlightedItemsComponent_RCW_HighlightedItem_mvc_view, {
+inputs: {
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+HighlightedItem: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.itemsAttr.getCurrent(callContext.iterationContext),
+_highlightedItemInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "36",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, callContext, idService, "3")
+},
+_dependencies: [asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables.activeDeviceIn)]
+})];
+}, function () {
+return [];
+})), $if(((OS.BuiltinFunctions.trim(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.cTAAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-highlighted-items-component__cta",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, {
+inputs: {
+CTA_Inp: model.getCachedValue(idService.getId("x3Z4CxoAdEq5S1vkYCE5pw.CTA_Inp"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.cTAAttr, new CMS_MonolithModel.Shared_Link2PdfOrPageRec(), function (source, target) {
+target = source.linkAttr;
+return target;
+});
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).highlightedItemsComponentAttr.cTAAttr;
+}),
+_cTA_InpInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+ExtendedClass: "margin-top-s"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "38",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+})))];
+}, function () {
+return [$if(!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SectionId$Action(idService.getId("SectionWrapperLinkBlockComponent"), model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.anchorLinkTitleAttr, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperLinkBlockComponent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: "cf-link-block-component"
+},
+gridProperties: {
+classes: "OSInline"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "40"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.titleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-link-block-component__title margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+name: model.getCachedValue(idService.getId("JDis_28ryk2IGf9cmboXcQ.name"), function () {
+return CMS_MonolithController.default.text_Slugify$Action(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.titleAttr, callContext).slugifiedTextOut;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.titleAttr;
+}),
+className: "heading2"
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "42"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.titleAttr,
+_idProps: {
+service: idService,
+name: "H2Element3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+})))];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.List, {
+animateItems: true,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr,
+style: "list list-group cf-link-block-component__items",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("i3yLgfqANkeyTPaImVSIVg.class"), function () {
+return (("cf-link-block-component__item " + ((model.variables.activeDeviceIn.isDesktopAttr) ? ("quarter-width") : (((model.variables.activeDeviceIn.isTabletAttr) ? ("half-width") : ("full-width"))))) + ((model.variables.activeDeviceIn.isDesktopAttr) ? (((OS.BuiltinFunctions.mod(OS.BuiltinFunctions.integerToDecimal(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrentRowNumber(callContext.iterationContext)), OS.BuiltinFunctions.integerToDecimal(4)).equals(OS.BuiltinFunctions.integerToDecimal(0))) ? (" padding-right-18") : (((OS.BuiltinFunctions.mod(OS.BuiltinFunctions.integerToDecimal(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrentRowNumber(callContext.iterationContext)), OS.BuiltinFunctions.integerToDecimal(4)).equals(OS.BuiltinFunctions.integerToDecimal(1))) ? (" padding-mid-1") : (((OS.BuiltinFunctions.mod(OS.BuiltinFunctions.integerToDecimal(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrentRowNumber(callContext.iterationContext)), OS.BuiltinFunctions.integerToDecimal(4)).equals(OS.BuiltinFunctions.integerToDecimal(2))) ? (" padding-mid-2") : (" padding-left-18"))))))) : (((model.variables.activeDeviceIn.isTabletAttr) ? (((OS.BuiltinFunctions.mod(OS.BuiltinFunctions.integerToDecimal(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrentRowNumber(callContext.iterationContext)), OS.BuiltinFunctions.integerToDecimal(2)).equals(OS.BuiltinFunctions.integerToDecimal(0))) ? (" padding-right-12") : (" padding-left-12"))) : ("")))));
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}, function () {
+return model.variables.activeDeviceIn.isTabletAttr;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrentRowNumber(callContext.iterationContext);
+})
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).cTAAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).titleAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).imageAttr)]
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: "cf-link-block-item"
+},
+gridProperties: {
+classes: "OSInline"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "46"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).imageAttr.urlAttr) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Shared_RCW_ImageWrapperProgressiveJPG_mvc_view, {
+inputs: {
+ExtendedClass: "cf-link-block-item__image margin-bottom-base",
+ImageParameters: model.getCachedValue(idService.getId("Z902zKtWTEmZyeAPA8uYtQ.ImageParameters"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_ImageParametersRec();
+rec.widthAttr = 342;
+rec.heightAttr = 145;
+rec.resizeBehaviorAttr = CMS_Monolith_CWModel.staticEntities.contentfulImageResizeBehavior.fill;
+return rec;
+}();
+}),
+Image: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).imageAttr,
+_imageInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "47",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-link-block-item__title margin-bottom-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "48"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+name: model.getCachedValue(idService.getId("Y+XwnEEMSkKqSfw9dWNimg.name"), function () {
+return CMS_MonolithController.default.text_Slugify$Action(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).titleAttr, callContext).slugifiedTextOut;
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).titleAttr;
+}),
+className: "heading3 "
+},
+tag: "h3",
+_idProps: {
+service: idService,
+uuid: "49"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).titleAttr,
+_idProps: {
+service: idService,
+name: "H3Element"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+}))), React.createElement(OSWidgets.List, {
+animateItems: true,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("RODx6vIaNUSB41RORKjZ4A.class"), function () {
+return ("list list-group cf-link-block-item__link-list" + ((((OS.BuiltinFunctions.trim(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).cTAAttr.internalTitleAttr)) !== (""))) ? (" margin-bottom-base") : ("")));
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).cTAAttr.internalTitleAttr;
+}),
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr,
+style: "\"list list-group\"",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "51"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: true,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("I1YGRkZis0a64c83CqonAw.class"), function () {
+return ((((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.length - 1)))) ? ("margin-bottom-s") : (""));
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.length;
+})
+},
+visible: ((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.getCurrent(callContext.iterationContext).urlAttr) !== ("")),
+_idProps: {
+service: idService,
+uuid: "52"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+visible_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+_dependencies: [asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.getCurrent(callContext.iterationContext).titleAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.getCurrent(callContext.iterationContext).urlAttr)]
+}, React.createElement(CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvc_view, {
+inputs: {
+URL: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.getCurrent(callContext.iterationContext).urlAttr,
+_uRLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "53",
+alias: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+linkWrapper: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "54"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: CMS_Monolith_CWModel.staticEntities.iconSize.size_s,
+Name: "arrow-right"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "55",
+alias: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "cf-link-block-item__link-text margin-left-xs",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "56"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "Adaptive"
+},
+value: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.getCurrent(callContext.iterationContext).titleAttr,
+_idProps: {
+service: idService,
+uuid: "57"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).linkListAttr.getCurrent(callContext.iterationContext).titleAttr)]
+}))];
+}, callContext, idService, "5")
+},
+_dependencies: [asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr)]
+}), $if(((OS.BuiltinFunctions.trim(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).cTAAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Shared_RCW_CTA_TF_mvc_view, {
+inputs: {
+CTA_Inp: model.getCachedValue(idService.getId("510VBkg15kCvtWztKnAf5Q.CTA_Inp"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).cTAAttr, new CMS_MonolithModel.Shared_Link2PdfOrPageRec(), function (source, target) {
+target = source.linkAttr;
+return target;
+});
+}, function () {
+return model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).linkBlockComponentAttr.linkBlockItemsAttr.getCurrent(callContext.iterationContext).cTAAttr;
+}),
+_cTA_InpInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "58",
+alias: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})))];
+}, callContext, idService, "5")
+},
+_dependencies: [asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables.activeDeviceIn.isTabletAttr), asPrimitiveValue(model.variables.activeDeviceIn.isDesktopAttr)]
+})))];
+}, function () {
+return [$if(((model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).bigbannerAttr.internalTitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperBigbanner"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvc_view, {
+inputs: {
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+BigBanner: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).bigbannerAttr,
+_bigBannerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+Lazyload: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "60",
+alias: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [$if(!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.smallBannersAttr.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SectionId$Action(idService.getId("SectionWrapperNColumncontainer"), model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.anchorLinkTitleAttr, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperNColumncontainer"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvc_view, {
+inputs: {
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+N_ColumnContainer: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr,
+_n_ColumnContainerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "62",
+alias: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [$if(!(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.recipeItemsAttr.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SectionId$Action(idService.getId("SectionWrapperRecipeComponent"), model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.anchorLinkTitleAttr, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperRecipeComponent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvc_view, {
+inputs: {
+RecipeComponent: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).recipeComponentAttr,
+_recipeComponentInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "64",
+alias: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [$if(((OS.BuiltinFunctions.trim(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SectionId$Action(idService.getId("SectionWrapperProductPromotionBanner"), model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr.anchorLinkTitleAttr, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapperProductPromotionBanner"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, {
+inputs: {
+ChannelId: model.variables.channelIdIn,
+_channelIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._channelIdInDataFetchStatus),
+ProductPromotionBanner: model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr,
+_productPromotionBannerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getContentDataAct.dataFetchStatusAttr),
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+forceRefresh$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_ForceRefresh$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditingIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEditing$Action(callbackOrderEditingIdIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "66",
+alias: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+})];
+})];
+})];
+})];
+})];
+})];
+})];
+})];
+})];
+})];
+}))];
+}, callContext, idService, "5")
+},
+_dependencies: [asPrimitiveValue(model.variables.channelIdIn), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.activeDeviceIn), asPrimitiveValue(model.variables._channelIdInDataFetchStatus), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables.getContentDataAct.dataFetchStatusAttr)]
+})];
+}, function () {
+return [];
+}))];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_EasyPlaceholder_EasyPlaceholder_mvc_view, {
+inputs: {
+IsDataFetched: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "67",
+alias: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-overview-page",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "68"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-overview-page__image-wrapper margin-bottom-l place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "69"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-overview-page__title margin-bottom-s heading1 place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "70"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-overview-page__intro-text margin-bottom-xl place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "71"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+style: "height: 100vh;"
+},
+style: "cf-overview-page_sections-list OSFillParent place",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "72"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+},
+_dependencies: []
+})];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$controller", ["OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model", "CMS_Monolith_CW.controller", "CMS_Monolith.controller", "CMS_Monolith.model", "ECP_Product_BL.model", "PLUS_OutSystemsUI_2_8_0.controller", "ECOP_Reactive_Pat.model", "CMS_Monolith_CW.languageResources", "CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$controller.HtmlTag_ScrollTo.IsHeaderFixed_IsMenuHiddenJS", "CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$controller.ComponentDidMount.ScrollIntoViewJS", "CMS_Monolith.controller$Text_Slugify", "CMS_Monolith_CW.referencesHealth", "CMS_Monolith_CW.referencesHealth$CMS_Monolith", "CMS_Monolith_CW.model$AnchorLink_AnchorLinkList", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith_CW.model$LineItemList", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$Shared_ImageParametersRec", "CMS_Monolith.model$CMS_Assembly_ColumnRec", "CMS_Monolith.model$Shared_BulletPointsRec", "CMS_Monolith.model$CMS_Assembly_TextBlockRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_QuoteRec", "CMS_Monolith.model$Shared_KiyohWidgetRec", "CMS_Monolith.model$ProductComponentRec", "CMS_Monolith_CW.model$ProductTileDataList", "CMS_Monolith_CW.model$TextRecordList", "CMS_Monolith.model$HighlightedItemRec", "CMS_Monolith_CW.model$Shared_TagList", "CMS_Monolith.model$Shared_Link_OSRec", "CMS_Monolith.model$BigbannerRec", "CMS_Monolith.model$N_ColumnContainerRec", "CMS_Monolith_CW.model$SmallBannerList", "CMS_Monolith.model$RecipeComponentRec", "CMS_Monolith_CW.model$RecipeItemList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith_CW.model$ProductPromotionDetailsList", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith_CW.referencesHealth$ECP_Product_BL", "CMS_Monolith_CW.model$Logo_InfoList", "CMS_Monolith.model$AnchorLink_AnchorLinkRec", "PLUS_OutSystemsUI_2_8_0.controller$ScrollToElement", "CMS_Monolith_CW.referencesHealth$PLUS_OutSystemsUI_2_8_0", "CMS_Monolith.model$Raw_Shared_SeoDataRec", "ECOP_Reactive_Pat.model$SEO_StructRec", "CMS_Monolith_CW.referencesHealth$ECOP_Reactive_Pat", "CMS_Monolith.model$OverviewPageRec"], function (OutSystems, CMS_Monolith_CWModel, CMS_Monolith_CWController, CMS_MonolithController, CMS_MonolithModel, ECP_Product_BLModel, PLUS_OutSystemsUI_2_8_0Controller, ECOP_Reactive_PatModel, CMS_Monolith_CWLanguageResources, CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_controller_HtmlTag_ScrollTo_IsHeaderFixed_IsMenuHiddenJS, CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_controller_ComponentDidMount_ScrollIntoViewJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+getContent$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getContent$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.getContent$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetContent", "screenservices/CMS_Monolith_CW/CMS_OverviewPage_RCW/Overviewpage_TF/DataActionGetContent", "lx0jDJccUyYo8etL8rfqjg", function (b) {
+model.variables.getContentDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getContentDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getContentDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, false).then(function () {
+return controller._onAfterFetch_GetContent$Action(controller.callContext(callContext));
+});
+};
+
+Controller.prototype.dataFetchActionNames = ["getContent$DataActRefresh"];
+// Client Actions
+Controller.prototype._checkAndTriggerSectionIdEvent$Action = function (anchorLinkIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CheckAndTriggerSectionIdEvent");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.CheckAndTriggerSectionIdEvent$vars"))());
+vars.value.anchorLinkInLocal = anchorLinkIn.clone();
+var listFilter_SecionIDVar = new OS.DataTypes.VariableHolder();
+// Execute Action: ListFilter_SecionID
+listFilter_SecionIDVar.value = OS.SystemActions.listFilter(model.variables.sectionIds_localVar, function (p) {
+return (p === vars.value.anchorLinkInLocal.idAttr);
+}, callContext);
+
+// Unique ID?
+if((listFilter_SecionIDVar.value.filteredListOut.isEmpty)) {
+// Execute Action: Handler_SectionGetAnchor
+controller._handler_SectionGetAnchor$Action(vars.value.anchorLinkInLocal, callContext);
+// Execute Action: ListAppend_SectionId
+OS.SystemActions.listAppend(model.variables.sectionIds_localVar, vars.value.anchorLinkInLocal.idAttr, callContext);
+}
+
+};
+Controller.registerVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.CheckAndTriggerSectionIdEvent$vars", [{
+name: "AnchorLink",
+attrName: "anchorLinkInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new CMS_MonolithModel.AnchorLink_AnchorLinkRec();
+},
+complexType: CMS_MonolithModel.AnchorLink_AnchorLinkRec
+}]);
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+// Execute Action: ListClear
+OS.SystemActions.listClear(model.variables.anchorLinkListVar, callContext);
+// OriginalFilters
+// CurrentFilter_PageSlug = PageSlug
+model.variables.currentFilter_PageSlugVar = model.variables.pageSlugIn;
+// CurrentFilter_SlugParameter = SlugParameter
+model.variables.currentFilter_SlugParameterVar = model.variables.slugParameterIn;
+// CurrentFilter_SecondarySlugParameter = SecondarySlugParameter
+model.variables.currentFilter_SecondarySlugParameterVar = model.variables.secondarySlugParameterIn;
+};
+Controller.prototype._handler_SectionGetAnchor$Action = function (anchorLinkIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_SectionGetAnchor");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.Handler_SectionGetAnchor$vars"))());
+vars.value.anchorLinkInLocal = anchorLinkIn.clone();
+// Execute Action: ListAppend
+OS.SystemActions.listAppend(model.variables.anchorLinkListVar, vars.value.anchorLinkInLocal, callContext);
+// Execute Action: ListSort
+OS.SystemActions.listSort(model.variables.anchorLinkListVar, function (p) {
+return p.orderAttr;
+}, true, callContext);
+};
+Controller.registerVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.Handler_SectionGetAnchor$vars", [{
+name: "AnchorLink",
+attrName: "anchorLinkInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new CMS_MonolithModel.AnchorLink_AnchorLinkRec();
+},
+complexType: CMS_MonolithModel.AnchorLink_AnchorLinkRec
+}]);
+Controller.prototype._htmlTag_ScrollTo$Action = function (htmlElementIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("HtmlTag_ScrollTo");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.HtmlTag_ScrollTo$vars"))());
+vars.value.htmlElementIdInLocal = htmlElementIdIn;
+var isHeaderFixed_IsMenuHiddenJSResult = new OS.DataTypes.VariableHolder();
+do {
+isHeaderFixed_IsMenuHiddenJSResult.value = controller.safeExecuteJSNode(CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_controller_HtmlTag_ScrollTo_IsHeaderFixed_IsMenuHiddenJS, "IsHeaderFixed_IsMenuHidden", "HtmlTag_ScrollTo", {
+IsFixed: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+IsMenuHidden: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.HtmlTag_ScrollTo$isHeaderFixed_IsMenuHiddenJSResult"))();
+jsNodeResult.isFixedOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsFixed, OS.Types.Boolean);
+jsNodeResult.isMenuHiddenOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsMenuHidden, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// Phone?
+if((model.variables.activeDeviceIn.isPhoneAttr)) {
+// Offset = If
+model.variables.offsetVar = ((isHeaderFixed_IsMenuHiddenJSResult.value.isFixedOut) ? (24) : (152));
+} else {
+if((!(isHeaderFixed_IsMenuHiddenJSResult.value.isFixedOut))) {
+// Offset = 112
+model.variables.offsetVar = 112;
+break;
+} else {
+if((isHeaderFixed_IsMenuHiddenJSResult.value.isFixedOut && isHeaderFixed_IsMenuHiddenJSResult.value.isMenuHiddenOut)) {
+// Offset = 0
+model.variables.offsetVar = 0;
+break;
+} else {
+if((isHeaderFixed_IsMenuHiddenJSResult.value.isFixedOut && !(isHeaderFixed_IsMenuHiddenJSResult.value.isMenuHiddenOut))) {
+// Offset = -47
+model.variables.offsetVar = -47;
+break;
+}
+
+}
+
+}
+
+}
+
+// -
+// -
+} while(false)
+;
+// Execute Action: ScrollToElement
+PLUS_OutSystemsUI_2_8_0Controller.default.scrollToElement$Action(vars.value.htmlElementIdInLocal, true, model.variables.offsetVar, callContext);
+};
+Controller.registerVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.HtmlTag_ScrollTo$vars", [{
+name: "HtmlElementId",
+attrName: "htmlElementIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.registerVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.HtmlTag_ScrollTo$isHeaderFixed_IsMenuHiddenJSResult", [{
+name: "IsFixed",
+attrName: "isFixedOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "IsMenuHidden",
+attrName: "isMenuHiddenOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._componentDidMount$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComponentDidMount");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: ContentLoaded
+return controller.contentLoaded$Action(callContext).then(function () {
+// If the URL contains #hash tries to scroll into the element if it exists. 
+//Example: https://ecop.plus.nl/goed-eten/kwaliteit#ontdek-ons-plus-huismerk would look for a element with name or id = "ontdek-ons-plus-huismerk" and navigate to it.
+//
+controller.safeExecuteJSNode(CMS_Monolith_CW_CMS_OverviewPage_RCW_Overviewpage_TF_mvc_controller_ComponentDidMount_ScrollIntoViewJS, "ScrollIntoView", "ComponentDidMount", null, function ($parameters) {
+}, {}, {});
+});
+});
+};
+Controller.prototype._onAfterFetch_GetContent$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnAfterFetch_GetContent");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.getContentDataAct.hasFetchErrorAttr))) {
+// Trigger Event: SeoMetaData
+return controller.seoMetaData$Action(OS.DataConversion.JSConversions.typeConvertRecord(model.variables.getContentDataAct.overviewPageOut.seoAttr, new ECOP_Reactive_PatModel.SEO_StructRec(), function (source, target) {
+target.titleAttr = source.titleAttr;
+target.descriptionAttr = source.descriptionAttr;
+target.noIndexAttr = source.no_indexAttr;
+target.oGTitleAttr = source.titleAttr;
+target.oGDescriptionAttr = source.descriptionAttr;
+target.oGImageURLAttr = ((((model.variables.getContentDataAct.overviewPageOut.imageAttr.urlAttr) !== (""))) ? (("https:" + model.variables.getContentDataAct.overviewPageOut.imageAttr.urlAttr)) : (""));
+target.canonicalURLAttr = source.canonicalTagAttr;
+return target;
+}), callContext);
+}
+
+});
+});
+};
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Page filters changed?
+return OS.Flow.executeSequence(function () {
+if((((((model.variables.pageSlugIn) !== (model.variables.currentFilter_PageSlugVar)) || ((model.variables.slugParameterIn) !== (model.variables.currentFilter_SlugParameterVar))) || ((model.variables.secondarySlugParameterIn) !== (model.variables.currentFilter_SecondarySlugParameterVar))))) {
+// Refresh Query: GetContent
+var result = controller.getContent$DataActRefresh(callContext);
+model.flush();
+return result.then(function () {
+// CurrentFilters
+// CurrentFilter_PageSlug = PageSlug
+model.variables.currentFilter_PageSlugVar = model.variables.pageSlugIn;
+// CurrentFilter_SlugParameter = SlugParameter
+model.variables.currentFilter_SlugParameterVar = model.variables.slugParameterIn;
+// CurrentFilter_SecondarySlugParameter = SecondarySlugParameter
+model.variables.currentFilter_SecondarySlugParameterVar = model.variables.secondarySlugParameterIn;
+});
+}
+
+});
+});
+};
+Controller.prototype._handler_SectionId$Action = function (sectionIdIn, componentTitleIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_SectionId");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.Handler_SectionId$vars"))());
+vars.value.sectionIdInLocal = sectionIdIn;
+vars.value.componentTitleInLocal = componentTitleIn;
+if((model.variables.getContentDataAct.overviewPageOut.isAnchorLinksAttr)) {
+// AnchorLinkTitle?
+if((((OS.BuiltinFunctions.trim(vars.value.componentTitleInLocal)) !== ("")))) {
+// Execute Action: CheckAndTriggerSectionIdEvent
+controller._checkAndTriggerSectionIdEvent$Action(function () {
+var rec = new CMS_MonolithModel.AnchorLink_AnchorLinkRec();
+rec.idAttr = vars.value.sectionIdInLocal;
+rec.titleAttr = vars.value.componentTitleInLocal;
+rec.orderAttr = OS.BuiltinFunctions.integerToDecimal(model.variables.getContentDataAct.overviewPageOut.sectionListAttr.getCurrentRowNumber(callContext.iterationContext));
+return rec;
+}(), callContext);
+}
+
+}
+
+};
+Controller.registerVariableGroupType("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.Handler_SectionId$vars", [{
+name: "SectionId",
+attrName: "sectionIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ComponentTitle",
+attrName: "componentTitleInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._handler_ForceRefresh$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ForceRefresh");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Refresh Query: GetContent
+var result = controller.getContent$DataActRefresh(callContext);
+model.flush();
+return result;
+});
+};
+
+Controller.prototype.checkAndTriggerSectionIdEvent$Action = function (anchorLinkIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._checkAndTriggerSectionIdEvent$Action, callContext, anchorLinkIn);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.handler_SectionGetAnchor$Action = function (anchorLinkIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_SectionGetAnchor$Action, callContext, anchorLinkIn);
+
+};
+Controller.prototype.htmlTag_ScrollTo$Action = function (htmlElementIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._htmlTag_ScrollTo$Action, callContext, htmlElementIdIn);
+
+};
+Controller.prototype.componentDidMount$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._componentDidMount$Action, callContext);
+
+};
+Controller.prototype.onAfterFetch_GetContent$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onAfterFetch_GetContent$Action, callContext);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.handler_SectionId$Action = function (sectionIdIn, componentTitleIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_SectionId$Action, callContext, sectionIdIn, componentTitleIn);
+
+};
+Controller.prototype.handler_ForceRefresh$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ForceRefresh$Action, callContext);
+
+};
+Controller.prototype.callbackOrderEditing$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.seoMetaData$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.noStoreSelected$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.contentLoaded$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return CMS_Monolith_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, CMS_Monolith_CWLanguageResources);
+});
+define("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$controller.HtmlTag_ScrollTo.IsHeaderFixed_IsMenuHiddenJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+ var layout = document.querySelector('.layout');
+$parameters.IsFixed = layout.classList.contains('fixed-header');
+$parameters.IsMenuHidden = layout.classList.contains('hide-menu');
+};
+});
+define("CMS_Monolith_CW.CMS_OverviewPage_RCW.Overviewpage_TF.mvc$controller.ComponentDidMount.ScrollIntoViewJS", [], function () {
+return function ($actions, $roles, $public) {
+let fragmentIdentifier = window.location.hash;
+let screenContainer = document.querySelector(".screen-container");
+
+if (fragmentIdentifier && screenContainer) {
+    let targetElement = document.querySelector('[name="' + fragmentIdentifier.slice(1) + '"]');
+    if (targetElement) {
+        let headerOffset = document.querySelector(".header-content").offsetHeight;
+        let elementPosition = targetElement.getBoundingClientRect().top;
+        let offsetPosition = elementPosition - headerOffset - 25;
+        screenContainer.scrollTo(0, offsetPosition);
+    }
+}
+
+};
+});
+

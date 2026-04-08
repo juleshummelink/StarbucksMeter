@@ -1,0 +1,1274 @@
+﻿define("OneWelcome_IS.model$EmailRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var EmailRec = (function (_super) {
+__extends(EmailRec, _super);
+function EmailRec(defaults) {
+_super.apply(this, arguments);
+}
+EmailRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Primary", "primaryAttr", "primary", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EmailRec.init();
+return EmailRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.EmailRec = EmailRec;
+
+});
+define("OneWelcome_IS.model$EmailList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$EmailRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var EmailList = (function (_super) {
+__extends(EmailList, _super);
+function EmailList(defaults) {
+_super.apply(this, arguments);
+}
+EmailList.itemType = OneWelcome_ISModel.EmailRec;
+return EmailList;
+})(OS.DataTypes.GenericRecordList);
+OneWelcome_ISModel.EmailList = EmailList;
+
+});
+define("OneWelcome_IS.model$Urn_scim_schemas_extension_iwelcome_1_0Rec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var Urn_scim_schemas_extension_iwelcome_1_0Rec = (function (_super) {
+__extends(Urn_scim_schemas_extension_iwelcome_1_0Rec, _super);
+function Urn_scim_schemas_extension_iwelcome_1_0Rec(defaults) {
+_super.apply(this, arguments);
+}
+Urn_scim_schemas_extension_iwelcome_1_0Rec.attributesToDeclare = function () {
+return [
+this.attr("LastSuccessfulLogin", "lastSuccessfulLoginAttr", "lastSuccessfulLogin", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("State", "stateAttr", "state", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BirthDate", "birthDateAttr", "birthDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsPasswordChangeRequired", "isPasswordChangeRequiredAttr", "IsPasswordChangeRequired", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Urn_scim_schemas_extension_iwelcome_1_0Rec.init();
+return Urn_scim_schemas_extension_iwelcome_1_0Rec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.Urn_scim_schemas_extension_iwelcome_1_0Rec = Urn_scim_schemas_extension_iwelcome_1_0Rec;
+
+});
+define("OneWelcome_IS.model$B2BAccountAttributeRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var B2BAccountAttributeRec = (function (_super) {
+__extends(B2BAccountAttributeRec, _super);
+function B2BAccountAttributeRec(defaults) {
+_super.apply(this, arguments);
+}
+B2BAccountAttributeRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CompanyName", "companyNameAttr", "CompanyName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Department", "departmentAttr", "Department", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("KVKNumber", "kVKNumberAttr", "KVKNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("VATNumber", "vATNumberAttr", "VATNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CostCenter", "costCenterAttr", "CostCenter", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MaxOrderValue", "maxOrderValueAttr", "MaxOrderValue", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("WebCategories", "webCategoriesAttr", "WebCategories", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MonthlyBudget", "monthlyBudgetAttr", "MonthlyBudget", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Branche", "brancheAttr", "Branche", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Primary", "primaryAttr", "primary", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+B2BAccountAttributeRec.init();
+return B2BAccountAttributeRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.B2BAccountAttributeRec = B2BAccountAttributeRec;
+
+});
+define("OneWelcome_IS.model$B2BAccountAttributeList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$B2BAccountAttributeRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var B2BAccountAttributeList = (function (_super) {
+__extends(B2BAccountAttributeList, _super);
+function B2BAccountAttributeList(defaults) {
+_super.apply(this, arguments);
+}
+B2BAccountAttributeList.itemType = OneWelcome_ISModel.B2BAccountAttributeRec;
+return B2BAccountAttributeList;
+})(OS.DataTypes.GenericRecordList);
+OneWelcome_ISModel.B2BAccountAttributeList = B2BAccountAttributeList;
+
+});
+define("OneWelcome_IS.model$Urn_scim_schemas_extension_plus_inviteRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$B2BAccountAttributeList"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var Urn_scim_schemas_extension_plus_inviteRec = (function (_super) {
+__extends(Urn_scim_schemas_extension_plus_inviteRec, _super);
+function Urn_scim_schemas_extension_plus_inviteRec(defaults) {
+_super.apply(this, arguments);
+}
+Urn_scim_schemas_extension_plus_inviteRec.attributesToDeclare = function () {
+return [
+this.attr("IsB2B", "isB2BAttr", "IsB2B", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsB2C", "isB2CAttr", "IsB2C", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("B2BAccounts", "b2BAccountsAttr", "B2BAccounts", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.B2BAccountAttributeList());
+}, true, OneWelcome_ISModel.B2BAccountAttributeList)
+].concat(_super.attributesToDeclare.call(this));
+};
+Urn_scim_schemas_extension_plus_inviteRec.init();
+return Urn_scim_schemas_extension_plus_inviteRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.Urn_scim_schemas_extension_plus_inviteRec = Urn_scim_schemas_extension_plus_inviteRec;
+
+});
+define("OneWelcome_IS.model$ProfileInformation_InviteRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$EmailList", "OneWelcome_IS.model$Urn_scim_schemas_extension_iwelcome_1_0Rec", "OneWelcome_IS.model$Urn_scim_schemas_extension_plus_inviteRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var ProfileInformation_InviteRec = (function (_super) {
+__extends(ProfileInformation_InviteRec, _super);
+function ProfileInformation_InviteRec(defaults) {
+_super.apply(this, arguments);
+}
+ProfileInformation_InviteRec.attributesToDeclare = function () {
+return [
+this.attr("Emails", "emailsAttr", "emails", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.EmailList());
+}, true, OneWelcome_ISModel.EmailList), 
+this.attr("Urn_scim_schemas_extension_iwelcome_1_0", "urn_scim_schemas_extension_iwelcome_1_0Attr", "urn:scim:schemas:extension:iwelcome:1.0", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.Urn_scim_schemas_extension_iwelcome_1_0Rec());
+}, true, OneWelcome_ISModel.Urn_scim_schemas_extension_iwelcome_1_0Rec), 
+this.attr("Urn_scim_schemas_extension_plus_1_0", "urn_scim_schemas_extension_plus_1_0Attr", "urn:scim:schemas:extension:plus:1.0", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.Urn_scim_schemas_extension_plus_inviteRec());
+}, true, OneWelcome_ISModel.Urn_scim_schemas_extension_plus_inviteRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ProfileInformation_InviteRec.init();
+return ProfileInformation_InviteRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.ProfileInformation_InviteRec = ProfileInformation_InviteRec;
+
+});
+define("OneWelcome_IS.model$DeliveryAddressRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var DeliveryAddressRec = (function (_super) {
+__extends(DeliveryAddressRec, _super);
+function DeliveryAddressRec(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryAddressRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Street", "streetAttr", "Street", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HouseNumber", "houseNumberAttr", "HouseNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HouseNumberAddition", "houseNumberAdditionAttr", "HouseNumberAddition", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PostalCode", "postalCodeAttr", "PostalCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "City", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Country", "countryAttr", "Country", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CountryISO2", "countryISO2Attr", "CountryISO2", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CountryId", "countryIdAttr", "CountryId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryAddressRec.init();
+return DeliveryAddressRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.DeliveryAddressRec = DeliveryAddressRec;
+
+});
+define("OneWelcome_IS.model$NewsletterSubscribedRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var NewsletterSubscribedRec = (function (_super) {
+__extends(NewsletterSubscribedRec, _super);
+function NewsletterSubscribedRec(defaults) {
+_super.apply(this, arguments);
+}
+NewsletterSubscribedRec.attributesToDeclare = function () {
+return [
+this.attr("ConsentId", "consentIdAttr", "ConsentId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NewsletterId", "newsletterIdAttr", "NewsletterId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Locale", "localeAttr", "Locale", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsSubscribed", "isSubscribedAttr", "IsSubscribed", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("SubscribedOn", "subscribedOnAttr", "SubscribedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+NewsletterSubscribedRec.init();
+return NewsletterSubscribedRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.NewsletterSubscribedRec = NewsletterSubscribedRec;
+
+});
+define("OneWelcome_IS.model$ServiceAccountRITMRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var ServiceAccountRITMRec = (function (_super) {
+__extends(ServiceAccountRITMRec, _super);
+function ServiceAccountRITMRec(defaults) {
+_super.apply(this, arguments);
+}
+ServiceAccountRITMRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ServiceAccount", "serviceAccountAttr", "ServiceAccount", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Password", "passwordAttr", "Password", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ClientId", "clientIdAttr", "ClientId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ClientSecret", "clientSecretAttr", "ClientSecret", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("APIKey", "aPIKeyAttr", "APIKey", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ServiceAccountRITMRec.init();
+return ServiceAccountRITMRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.ServiceAccountRITMRec = ServiceAccountRITMRec;
+
+});
+define("OneWelcome_IS.model$ContactRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var ContactRec = (function (_super) {
+__extends(ContactRec, _super);
+function ContactRec(defaults) {
+_super.apply(this, arguments);
+}
+ContactRec.attributesToDeclare = function () {
+return [
+this.attr("Email", "emailAttr", "Email", false, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("PhoneNumber", "phoneNumberAttr", "PhoneNumber", false, false, OS.Types.PhoneNumber, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ContactRec.init();
+return ContactRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.ContactRec = ContactRec;
+
+});
+define("OneWelcome_IS.model$AccessRoleNameRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var AccessRoleNameRec = (function (_super) {
+__extends(AccessRoleNameRec, _super);
+function AccessRoleNameRec(defaults) {
+_super.apply(this, arguments);
+}
+AccessRoleNameRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AccessRoleNameRec.fromStructure = function (str) {
+return new AccessRoleNameRec(new AccessRoleNameRec.RecordClass({
+nameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+AccessRoleNameRec.init();
+return AccessRoleNameRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.AccessRoleNameRec = AccessRoleNameRec;
+
+});
+define("OneWelcome_IS.model$PersonalRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var PersonalRec = (function (_super) {
+__extends(PersonalRec, _super);
+function PersonalRec(defaults) {
+_super.apply(this, arguments);
+}
+PersonalRec.attributesToDeclare = function () {
+return [
+this.attr("DisplayName", "displayNameAttr", "DisplayName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FirstName", "firstNameAttr", "FirstName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SurnamePrefix", "surnamePrefixAttr", "SurnamePrefix", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Surname", "surnameAttr", "Surname", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BirthDate", "birthDateAttr", "BirthDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsUnderAge", "isUnderAgeAttr", "IsUnderAge", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PersonalRec.init();
+return PersonalRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.PersonalRec = PersonalRec;
+
+});
+define("OneWelcome_IS.model$B2BAccountRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var B2BAccountRec = (function (_super) {
+__extends(B2BAccountRec, _super);
+function B2BAccountRec(defaults) {
+_super.apply(this, arguments);
+}
+B2BAccountRec.attributesToDeclare = function () {
+return [
+this.attr("Value", "valueAttr", "value", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CompanyName", "companyNameAttr", "CompanyName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Department", "departmentAttr", "Department", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("KVKNumber", "kVKNumberAttr", "KVKNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("VATNumber", "vATNumberAttr", "VATNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CostCenter", "costCenterAttr", "CostCenter", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MaxOrderValue", "maxOrderValueAttr", "MaxOrderValue", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("WebCategories", "webCategoriesAttr", "WebCategories", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MonthlyBudget", "monthlyBudgetAttr", "MonthlyBudget", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Branche", "brancheAttr", "Branche", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PayOnAccountStatus", "payOnAccountStatusAttr", "PayOnAccountStatus", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+B2BAccountRec.init();
+return B2BAccountRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.B2BAccountRec = B2BAccountRec;
+
+});
+define("OneWelcome_IS.model$OrderPreferencesRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var OrderPreferencesRec = (function (_super) {
+__extends(OrderPreferencesRec, _super);
+function OrderPreferencesRec(defaults) {
+_super.apply(this, arguments);
+}
+OrderPreferencesRec.attributesToDeclare = function () {
+return [
+this.attr("FavoriteStore", "favoriteStoreAttr", "FavoriteStore", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HasLoyaltyCard", "hasLoyaltyCardAttr", "HasLoyaltyCard", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("LoyaltyCardId", "loyaltyCardIdAttr", "LoyaltyCardId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AllowAlternateProduct", "allowAlternateProductAttr", "AllowAlternateProduct", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CommunicationChannel", "communicationChannelAttr", "CommunicationChannel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CommunicationLevel", "communicationLevelAttr", "CommunicationLevel", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OrderPreferencesRec.init();
+return OrderPreferencesRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.OrderPreferencesRec = OrderPreferencesRec;
+
+});
+define("OneWelcome_IS.model$B2BUsersTableInfoRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var B2BUsersTableInfoRec = (function (_super) {
+__extends(B2BUsersTableInfoRec, _super);
+function B2BUsersTableInfoRec(defaults) {
+_super.apply(this, arguments);
+}
+B2BUsersTableInfoRec.attributesToDeclare = function () {
+return [
+this.attr("UID", "uIDAttr", "UID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("GroupCode", "groupCodeAttr", "GroupCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerName", "customerNameAttr", "CustomerName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EmailAddress", "emailAddressAttr", "EmailAddress", true, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("Department", "departmentAttr", "Department", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Status", "statusAttr", "Status", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Expenditure", "expenditureAttr", "Expenditure", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AccessRoleName", "accessRoleNameAttr", "AccessRoleName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsAdmin", "isAdminAttr", "IsAdmin", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("SortOrder", "sortOrderAttr", "SortOrder", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CostCenter", "costCenterAttr", "CostCenter", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DebitID", "debitIDAttr", "DebitID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CompanyName", "companyNameAttr", "CompanyName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("KVKNumber", "kVKNumberAttr", "KVKNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("VATNumber", "vATNumberAttr", "VATNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MaxOrderValue", "maxOrderValueAttr", "MaxOrderValue", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("WebCategories", "webCategoriesAttr", "WebCategories", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MonthlyBudget", "monthlyBudgetAttr", "MonthlyBudget", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Branche", "brancheAttr", "Branche", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Type", "typeAttr", "type", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PayOnAccountStatus", "payOnAccountStatusAttr", "PayOnAccountStatus", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+B2BUsersTableInfoRec.init();
+return B2BUsersTableInfoRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.B2BUsersTableInfoRec = B2BUsersTableInfoRec;
+
+});
+define("OneWelcome_IS.model$GroupMembershipAttribute_InviteRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var GroupMembershipAttribute_InviteRec = (function (_super) {
+__extends(GroupMembershipAttribute_InviteRec, _super);
+function GroupMembershipAttribute_InviteRec(defaults) {
+_super.apply(this, arguments);
+}
+GroupMembershipAttribute_InviteRec.attributesToDeclare = function () {
+return [
+this.attr("Owner", "ownerAttr", "owner", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+GroupMembershipAttribute_InviteRec.fromStructure = function (str) {
+return new GroupMembershipAttribute_InviteRec(new GroupMembershipAttribute_InviteRec.RecordClass({
+ownerAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GroupMembershipAttribute_InviteRec.init();
+return GroupMembershipAttribute_InviteRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.GroupMembershipAttribute_InviteRec = GroupMembershipAttribute_InviteRec;
+
+});
+define("OneWelcome_IS.model$GroupMembershipItem_InviteRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$GroupMembershipAttribute_InviteRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var GroupMembershipItem_InviteRec = (function (_super) {
+__extends(GroupMembershipItem_InviteRec, _super);
+function GroupMembershipItem_InviteRec(defaults) {
+_super.apply(this, arguments);
+}
+GroupMembershipItem_InviteRec.attributesToDeclare = function () {
+return [
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Attributes", "attributesAttr", "attributes", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.GroupMembershipAttribute_InviteRec());
+}, true, OneWelcome_ISModel.GroupMembershipAttribute_InviteRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GroupMembershipItem_InviteRec.init();
+return GroupMembershipItem_InviteRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.GroupMembershipItem_InviteRec = GroupMembershipItem_InviteRec;
+
+});
+define("OneWelcome_IS.model$GroupMembershipItem_InviteList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$GroupMembershipItem_InviteRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var GroupMembershipItem_InviteList = (function (_super) {
+__extends(GroupMembershipItem_InviteList, _super);
+function GroupMembershipItem_InviteList(defaults) {
+_super.apply(this, arguments);
+}
+GroupMembershipItem_InviteList.itemType = OneWelcome_ISModel.GroupMembershipItem_InviteRec;
+return GroupMembershipItem_InviteList;
+})(OS.DataTypes.GenericRecordList);
+OneWelcome_ISModel.GroupMembershipItem_InviteList = GroupMembershipItem_InviteList;
+
+});
+define("OneWelcome_IS.model$StructureMembershipItem_InviteRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$GroupMembershipItem_InviteList"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var StructureMembershipItem_InviteRec = (function (_super) {
+__extends(StructureMembershipItem_InviteRec, _super);
+function StructureMembershipItem_InviteRec(defaults) {
+_super.apply(this, arguments);
+}
+StructureMembershipItem_InviteRec.attributesToDeclare = function () {
+return [
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("GroupMemberships", "groupMembershipsAttr", "groupMemberships", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.GroupMembershipItem_InviteList());
+}, true, OneWelcome_ISModel.GroupMembershipItem_InviteList)
+].concat(_super.attributesToDeclare.call(this));
+};
+StructureMembershipItem_InviteRec.init();
+return StructureMembershipItem_InviteRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.StructureMembershipItem_InviteRec = StructureMembershipItem_InviteRec;
+
+});
+define("OneWelcome_IS.model$EmailVerificationRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var EmailVerificationRec = (function (_super) {
+__extends(EmailVerificationRec, _super);
+function EmailVerificationRec(defaults) {
+_super.apply(this, arguments);
+}
+EmailVerificationRec.attributesToDeclare = function () {
+return [
+this.attr("IsMailVerified", "isMailVerifiedAttr", "IsMailVerified", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("MailVerificationTimestamp", "mailVerificationTimestampAttr", "MailVerificationTimestamp", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EmailVerificationRec.init();
+return EmailVerificationRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.EmailVerificationRec = EmailVerificationRec;
+
+});
+define("OneWelcome_IS.model$LoyaltyPreferencesRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var LoyaltyPreferencesRec = (function (_super) {
+__extends(LoyaltyPreferencesRec, _super);
+function LoyaltyPreferencesRec(defaults) {
+_super.apply(this, arguments);
+}
+LoyaltyPreferencesRec.attributesToDeclare = function () {
+return [
+this.attr("CampaignId", "campaignIdAttr", "CampaignId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SavingType", "savingTypeAttr", "SavingType", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CampaignName", "campaignNameAttr", "CampaignName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CampaignTypeId", "campaignTypeIdAttr", "CampaignTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AssetId", "assetIdAttr", "AssetId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LoyaltyPreferencesRec.init();
+return LoyaltyPreferencesRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.LoyaltyPreferencesRec = LoyaltyPreferencesRec;
+
+});
+define("OneWelcome_IS.model$LoyaltyPreferencesList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$LoyaltyPreferencesRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var LoyaltyPreferencesList = (function (_super) {
+__extends(LoyaltyPreferencesList, _super);
+function LoyaltyPreferencesList(defaults) {
+_super.apply(this, arguments);
+}
+LoyaltyPreferencesList.itemType = OneWelcome_ISModel.LoyaltyPreferencesRec;
+return LoyaltyPreferencesList;
+})(OS.DataTypes.GenericRecordList);
+OneWelcome_ISModel.LoyaltyPreferencesList = LoyaltyPreferencesList;
+
+});
+define("OneWelcome_IS.model$B2BAccountList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$B2BAccountRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var B2BAccountList = (function (_super) {
+__extends(B2BAccountList, _super);
+function B2BAccountList(defaults) {
+_super.apply(this, arguments);
+}
+B2BAccountList.itemType = OneWelcome_ISModel.B2BAccountRec;
+return B2BAccountList;
+})(OS.DataTypes.GenericRecordList);
+OneWelcome_ISModel.B2BAccountList = B2BAccountList;
+
+});
+define("OneWelcome_IS.model$AccessRoleRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var AccessRoleRec = (function (_super) {
+__extends(AccessRoleRec, _super);
+function AccessRoleRec(defaults) {
+_super.apply(this, arguments);
+}
+AccessRoleRec.attributesToDeclare = function () {
+return [
+this.attr("StartDate", "startDateAttr", "startDate", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDate", "endDateAttr", "endDate", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Code", "codeAttr", "code", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AssignedStructureCode", "assignedStructureCodeAttr", "assignedStructureCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AssignedStructureGroup", "assignedStructureGroupAttr", "assignedStructureGroup", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AccessRoleRec.init();
+return AccessRoleRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.AccessRoleRec = AccessRoleRec;
+
+});
+define("OneWelcome_IS.model$AccessRoleList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$AccessRoleRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var AccessRoleList = (function (_super) {
+__extends(AccessRoleList, _super);
+function AccessRoleList(defaults) {
+_super.apply(this, arguments);
+}
+AccessRoleList.itemType = OneWelcome_ISModel.AccessRoleRec;
+return AccessRoleList;
+})(OS.DataTypes.GenericRecordList);
+OneWelcome_ISModel.AccessRoleList = AccessRoleList;
+
+});
+define("OneWelcome_IS.model$PaymentPreferencesRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var PaymentPreferencesRec = (function (_super) {
+__extends(PaymentPreferencesRec, _super);
+function PaymentPreferencesRec(defaults) {
+_super.apply(this, arguments);
+}
+PaymentPreferencesRec.attributesToDeclare = function () {
+return [
+this.attr("DebitID", "debitIDAttr", "DebitID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsSaleOnAccount", "isSaleOnAccountAttr", "IsSaleOnAccount", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsDirectDebit", "isDirectDebitAttr", "IsDirectDebit", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PreferredPaymentMethod", "preferredPaymentMethodAttr", "PreferredPaymentMethod", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PrintItemsOnCustomerInvoice", "printItemsOnCustomerInvoiceAttr", "PrintItemsOnCustomerInvoice", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PaymentPreferencesRec.init();
+return PaymentPreferencesRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.PaymentPreferencesRec = PaymentPreferencesRec;
+
+});
+define("OneWelcome_IS.model$CustomerInfoRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$PersonalRec", "OneWelcome_IS.model$ContactRec", "OneWelcome_IS.model$DeliveryAddressRec", "OneWelcome_IS.model$OrderPreferencesRec", "OneWelcome_IS.model$EmailVerificationRec", "OneWelcome_IS.model$LoyaltyPreferencesList", "OneWelcome_IS.model$B2BAccountList", "OneWelcome_IS.model$AccessRoleList", "OneWelcome_IS.model$PaymentPreferencesRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var CustomerInfoRec = (function (_super) {
+__extends(CustomerInfoRec, _super);
+function CustomerInfoRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerInfoRec.attributesToDeclare = function () {
+return [
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdAttr", "OneWelcomeUserId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OutSystemsUserId", "outSystemsUserIdAttr", "OutSystemsUserId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsB2C", "isB2CAttr", "IsB2C", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StripeID", "stripeIDAttr", "StripeID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsB2B", "isB2BAttr", "IsB2B", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("State", "stateAttr", "State", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PayOnAccountStatus", "payOnAccountStatusAttr", "PayOnAccountStatus", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Personal", "personalAttr", "Personal", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.PersonalRec());
+}, true, OneWelcome_ISModel.PersonalRec), 
+this.attr("Contact", "contactAttr", "Contact", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.ContactRec());
+}, true, OneWelcome_ISModel.ContactRec), 
+this.attr("DeliveryAddress", "deliveryAddressAttr", "DeliveryAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.DeliveryAddressRec());
+}, true, OneWelcome_ISModel.DeliveryAddressRec), 
+this.attr("OrderPreferences", "orderPreferencesAttr", "OrderPreferences", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.OrderPreferencesRec());
+}, true, OneWelcome_ISModel.OrderPreferencesRec), 
+this.attr("EmailVerification", "emailVerificationAttr", "EmailVerification", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.EmailVerificationRec());
+}, true, OneWelcome_ISModel.EmailVerificationRec), 
+this.attr("LoyaltyPreferences", "loyaltyPreferencesAttr", "LoyaltyPreferences", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.LoyaltyPreferencesList());
+}, true, OneWelcome_ISModel.LoyaltyPreferencesList), 
+this.attr("B2BAccounts", "b2BAccountsAttr", "B2BAccounts", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.B2BAccountList());
+}, true, OneWelcome_ISModel.B2BAccountList), 
+this.attr("AccessRoles", "accessRolesAttr", "AccessRoles", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.AccessRoleList());
+}, true, OneWelcome_ISModel.AccessRoleList), 
+this.attr("PaymentPreferences", "paymentPreferencesAttr", "PaymentPreferences", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.PaymentPreferencesRec());
+}, true, OneWelcome_ISModel.PaymentPreferencesRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerInfoRec.init();
+return CustomerInfoRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.CustomerInfoRec = CustomerInfoRec;
+
+});
+define("OneWelcome_IS.model$StructureMembershipItem_InviteList", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$StructureMembershipItem_InviteRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var StructureMembershipItem_InviteList = (function (_super) {
+__extends(StructureMembershipItem_InviteList, _super);
+function StructureMembershipItem_InviteList(defaults) {
+_super.apply(this, arguments);
+}
+StructureMembershipItem_InviteList.itemType = OneWelcome_ISModel.StructureMembershipItem_InviteRec;
+return StructureMembershipItem_InviteList;
+})(OS.DataTypes.GenericRecordList);
+OneWelcome_ISModel.StructureMembershipItem_InviteList = StructureMembershipItem_InviteList;
+
+});
+define("OneWelcome_IS.model$InviteUserRequestRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$ProfileInformation_InviteRec", "OneWelcome_IS.model$StructureMembershipItem_InviteList"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var InviteUserRequestRec = (function (_super) {
+__extends(InviteUserRequestRec, _super);
+function InviteUserRequestRec(defaults) {
+_super.apply(this, arguments);
+}
+InviteUserRequestRec.attributesToDeclare = function () {
+return [
+this.attr("ProfileInformation", "profileInformationAttr", "profileInformation", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.ProfileInformation_InviteRec());
+}, true, OneWelcome_ISModel.ProfileInformation_InviteRec), 
+this.attr("StructureMemberships", "structureMembershipsAttr", "structureMemberships", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.StructureMembershipItem_InviteList());
+}, true, OneWelcome_ISModel.StructureMembershipItem_InviteList)
+].concat(_super.attributesToDeclare.call(this));
+};
+InviteUserRequestRec.init();
+return InviteUserRequestRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.InviteUserRequestRec = InviteUserRequestRec;
+
+});
+define("OneWelcome_IS.model$UserStateRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var UserStateRec = (function (_super) {
+__extends(UserStateRec, _super);
+function UserStateRec(defaults) {
+_super.apply(this, arguments);
+}
+UserStateRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+UserStateRec.fromStructure = function (str) {
+return new UserStateRec(new UserStateRec.RecordClass({
+idAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+UserStateRec.init();
+return UserStateRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.UserStateRec = UserStateRec;
+
+});
+define("OneWelcome_IS.model$B2BConfigurationRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var B2BConfigurationRec = (function (_super) {
+__extends(B2BConfigurationRec, _super);
+function B2BConfigurationRec(defaults) {
+_super.apply(this, arguments);
+}
+B2BConfigurationRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StructureCode", "structureCodeAttr", "StructureCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+B2BConfigurationRec.init();
+return B2BConfigurationRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.B2BConfigurationRec = B2BConfigurationRec;
+
+});
+define("OneWelcome_IS.model$Payment3Rec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var Payment3Rec = (function (_super) {
+__extends(Payment3Rec, _super);
+function Payment3Rec(defaults) {
+_super.apply(this, arguments);
+}
+Payment3Rec.attributesToDeclare = function () {
+return [
+this.attr("DebitID", "debitIDAttr", "DebitID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsSaleOnAccount", "isSaleOnAccountAttr", "IsSaleOnAccount", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsDirectDebit", "isDirectDebitAttr", "IsDirectDebit", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PreferredPaymentMethod", "preferredPaymentMethodAttr", "PreferredPaymentMethod", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PrintItemsOnCustomerInvoice", "printItemsOnCustomerInvoiceAttr", "PrintItemsOnCustomerInvoice", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Payment3Rec.init();
+return Payment3Rec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.Payment3Rec = Payment3Rec;
+
+});
+define("OneWelcome_IS.model$CustomerInfo_SCIMRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var CustomerInfo_SCIMRec = (function (_super) {
+__extends(CustomerInfo_SCIMRec, _super);
+function CustomerInfo_SCIMRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerInfo_SCIMRec.attributesToDeclare = function () {
+return [
+this.attr("State", "stateAttr", "State", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerInfo_SCIMRec.init();
+return CustomerInfo_SCIMRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.CustomerInfo_SCIMRec = CustomerInfo_SCIMRec;
+
+});
+define("OneWelcome_IS.model$ErrorOutputRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var ErrorOutputRec = (function (_super) {
+__extends(ErrorOutputRec, _super);
+function ErrorOutputRec(defaults) {
+_super.apply(this, arguments);
+}
+ErrorOutputRec.attributesToDeclare = function () {
+return [
+this.attr("Error", "errorAttr", "error", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Error_description", "error_descriptionAttr", "error_description", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ErrorOutputRec.init();
+return ErrorOutputRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.ErrorOutputRec = ErrorOutputRec;
+
+});
+define("OneWelcome_IS.model$OWConfigurationRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var OWConfigurationRec = (function (_super) {
+__extends(OWConfigurationRec, _super);
+function OWConfigurationRec(defaults) {
+_super.apply(this, arguments);
+}
+OWConfigurationRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BaseURL", "baseURLAttr", "BaseURL", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("BaseLoginURL", "baseLoginURLAttr", "BaseLoginURL", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AuthClientId", "authClientIdAttr", "AuthClientId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AuthClientSecret", "authClientSecretAttr", "AuthClientSecret", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LoginCallbackURL", "loginCallbackURLAttr", "LoginCallbackURL", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LogoutCallbackURL", "logoutCallbackURLAttr", "LogoutCallbackURL", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RegisterCallbackURL", "registerCallbackURLAttr", "RegisterCallbackURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ChangePasswordURL", "changePasswordURLAttr", "ChangePasswordURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ChangeEmailURL", "changeEmailURLAttr", "ChangeEmailURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ChangePhoneNumberURL", "changePhoneNumberURLAttr", "ChangePhoneNumberURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+OWConfigurationRec.init();
+return OWConfigurationRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.OWConfigurationRec = OWConfigurationRec;
+
+});
+define("OneWelcome_IS.model$CustomerInfo_FullRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model", "OneWelcome_IS.model$PersonalRec", "OneWelcome_IS.model$ContactRec", "OneWelcome_IS.model$DeliveryAddressRec", "OneWelcome_IS.model$OrderPreferencesRec", "OneWelcome_IS.model$EmailVerificationRec", "OneWelcome_IS.model$LoyaltyPreferencesList", "OneWelcome_IS.model$B2BAccountList", "OneWelcome_IS.model$PaymentPreferencesRec"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var CustomerInfo_FullRec = (function (_super) {
+__extends(CustomerInfo_FullRec, _super);
+function CustomerInfo_FullRec(defaults) {
+_super.apply(this, arguments);
+}
+CustomerInfo_FullRec.attributesToDeclare = function () {
+return [
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdAttr", "OneWelcomeUserId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OutSystemsUserId", "outSystemsUserIdAttr", "OutSystemsUserId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsB2C", "isB2CAttr", "IsB2C", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StripeID", "stripeIDAttr", "StripeID", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsB2B", "isB2BAttr", "IsB2B", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("State", "stateAttr", "State", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Personal", "personalAttr", "Personal", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.PersonalRec());
+}, true, OneWelcome_ISModel.PersonalRec), 
+this.attr("Contact", "contactAttr", "Contact", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.ContactRec());
+}, true, OneWelcome_ISModel.ContactRec), 
+this.attr("DeliveryAddress", "deliveryAddressAttr", "DeliveryAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.DeliveryAddressRec());
+}, true, OneWelcome_ISModel.DeliveryAddressRec), 
+this.attr("OrderPreferences", "orderPreferencesAttr", "OrderPreferences", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.OrderPreferencesRec());
+}, true, OneWelcome_ISModel.OrderPreferencesRec), 
+this.attr("EmailVerification", "emailVerificationAttr", "EmailVerification", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.EmailVerificationRec());
+}, true, OneWelcome_ISModel.EmailVerificationRec), 
+this.attr("LoyaltyPreferences", "loyaltyPreferencesAttr", "LoyaltyPreferences", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.LoyaltyPreferencesList());
+}, true, OneWelcome_ISModel.LoyaltyPreferencesList), 
+this.attr("B2BAccounts", "b2BAccountsAttr", "B2BAccounts", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.B2BAccountList());
+}, true, OneWelcome_ISModel.B2BAccountList), 
+this.attr("PaymentPreferences", "paymentPreferencesAttr", "PaymentPreferences", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new OneWelcome_ISModel.PaymentPreferencesRec());
+}, true, OneWelcome_ISModel.PaymentPreferencesRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CustomerInfo_FullRec.init();
+return CustomerInfo_FullRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.CustomerInfo_FullRec = CustomerInfo_FullRec;
+
+});
+define("OneWelcome_IS.model$ServiceAccountSCIMRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var ServiceAccountSCIMRec = (function (_super) {
+__extends(ServiceAccountSCIMRec, _super);
+function ServiceAccountSCIMRec(defaults) {
+_super.apply(this, arguments);
+}
+ServiceAccountSCIMRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("GrantType", "grantTypeAttr", "GrantType", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Scope", "scopeAttr", "Scope", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ClientId", "clientIdAttr", "ClientId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ClientSecret", "clientSecretAttr", "ClientSecret", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ServiceAccountSCIMRec.init();
+return ServiceAccountSCIMRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.ServiceAccountSCIMRec = ServiceAccountSCIMRec;
+
+});
+define("OneWelcome_IS.model$NewsletterRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var NewsletterRec = (function (_super) {
+__extends(NewsletterRec, _super);
+function NewsletterRec(defaults) {
+_super.apply(this, arguments);
+}
+NewsletterRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Locale", "localeAttr", "Locale", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+NewsletterRec.init();
+return NewsletterRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.NewsletterRec = NewsletterRec;
+
+});
+define("OneWelcome_IS.model$PaymentRec", ["exports", "OutSystems/ClientRuntime/Main", "OneWelcome_IS.model"], function (exports, OutSystems, OneWelcome_ISModel) {
+var OS = OutSystems.Internal;
+var PaymentRec = (function (_super) {
+__extends(PaymentRec, _super);
+function PaymentRec(defaults) {
+_super.apply(this, arguments);
+}
+PaymentRec.attributesToDeclare = function () {
+return [
+this.attr("DebitID", "debitIDAttr", "DebitID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("IsSaleOnAccount", "isSaleOnAccountAttr", "IsSaleOnAccount", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsDirectDebit", "isDirectDebitAttr", "IsDirectDebit", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PreferredPaymentMethod", "preferredPaymentMethodAttr", "PreferredPaymentMethod", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PrintItemsOnCustomerInvoice", "printItemsOnCustomerInvoiceAttr", "PrintItemsOnCustomerInvoice", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PaymentRec.init();
+return PaymentRec;
+})(OS.DataTypes.GenericRecord);
+OneWelcome_ISModel.PaymentRec = PaymentRec;
+
+});
+define("OneWelcome_IS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var OneWelcome_ISModel = exports;
+});

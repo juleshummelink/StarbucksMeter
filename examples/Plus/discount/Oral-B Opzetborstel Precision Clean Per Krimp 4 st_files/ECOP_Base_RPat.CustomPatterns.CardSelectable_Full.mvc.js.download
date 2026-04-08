@@ -1,0 +1,407 @@
+﻿define("ECOP_Base_RPat.CustomPatterns.CardSelectable_Full.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model"], function (OutSystems, ECOP_Base_RPatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsSelected", "isSelectedIn", "IsSelected", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isSelectedInDataFetchStatus", "_isSelectedInDataFetchStatus", "_isSelectedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDisabled", "isDisabledIn", "IsDisabled", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDisabledInDataFetchStatus", "_isDisabledInDataFetchStatus", "_isDisabledInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDisabledWithBlackText", "isDisabledWithBlackTextIn", "IsDisabledWithBlackText", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDisabledWithBlackTextInDataFetchStatus", "_isDisabledWithBlackTextInDataFetchStatus", "_isDisabledWithBlackTextInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("RadioButtonTabIndex", "radioButtonTabIndexIn", "RadioButtonTabIndex", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_radioButtonTabIndexInDataFetchStatus", "_radioButtonTabIndexInDataFetchStatus", "_radioButtonTabIndexInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {
+RadioGroup1: OS.Model.ValidationWidgetRecord
+};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return true;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("IsSelected" in inputs) {
+this.variables.isSelectedIn = inputs.IsSelected;
+if("_isSelectedInDataFetchStatus" in inputs) {
+this.variables._isSelectedInDataFetchStatus = inputs._isSelectedInDataFetchStatus;
+}
+
+}
+
+if("IsDisabled" in inputs) {
+this.variables.isDisabledIn = inputs.IsDisabled;
+if("_isDisabledInDataFetchStatus" in inputs) {
+this.variables._isDisabledInDataFetchStatus = inputs._isDisabledInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+if("IsDisabledWithBlackText" in inputs) {
+this.variables.isDisabledWithBlackTextIn = inputs.IsDisabledWithBlackText;
+if("_isDisabledWithBlackTextInDataFetchStatus" in inputs) {
+this.variables._isDisabledWithBlackTextInDataFetchStatus = inputs._isDisabledWithBlackTextInDataFetchStatus;
+}
+
+}
+
+if("RadioButtonTabIndex" in inputs) {
+this.variables.radioButtonTabIndexIn = inputs.RadioButtonTabIndex;
+if("_radioButtonTabIndexInDataFetchStatus" in inputs) {
+this.variables._radioButtonTabIndexInDataFetchStatus = inputs._radioButtonTabIndexInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.CardSelectable_Full");
+});
+define("ECOP_Base_RPat.CustomPatterns.CardSelectable_Full.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Base_RPat.CustomPatterns.CardSelectable_Full.mvc$model", "ECOP_Base_RPat.CustomPatterns.CardSelectable_Full.mvc$controller", "OutSystems/ReactWidgets/Main", "PLUS_OutSystemsUI_2_8_0.Content.Card.mvc$view", "PLUS_OutSystemsUI_2_8_0.Adaptive.ColumnsMediumRight.mvc$view"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, React, OSView, ECOP_Base_RPat_CustomPatterns_CardSelectable_Full_mvc_model, ECOP_Base_RPat_CustomPatterns_CardSelectable_Full_mvc_controller, OSWidgets, PLUS_OutSystemsUI_2_8_0_Content_Card_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_ColumnsMediumRight_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.CardSelectable_Full";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [PLUS_OutSystemsUI_2_8_0_Content_Card_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_ColumnsMediumRight_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_CardSelectable_Full_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Base_RPat_CustomPatterns_CardSelectable_Full_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_Card_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("d619l+CAGkmWUIzfrynT+A.ExtendedClass"), function () {
+return ((("card-selectable-full" + ((model.variables.isSelectedIn) ? (" active") : (""))) + ((model.variables.isDisabledIn) ? (" disabled") : (""))) + (((model.variables.extendedClassIn === "")) ? ("") : ((" " + model.variables.extendedClassIn))));
+}, function () {
+return model.variables.isSelectedIn;
+}, function () {
+return model.variables.isDisabledIn;
+}, function () {
+return model.variables.extendedClassIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isSelectedInDataFetchStatus, model.variables._isDisabledInDataFetchStatus, model.variables._extendedClassInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Adaptive_ColumnsMediumRight_mvc_view, {
+inputs: {
+GutterSize: ECOP_Base_RPatModel.staticEntities.gutterSize.extraSmall,
+ExtendedClass: "align-items-center"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+column1: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.RadioGroup, {
+_validationProps: {
+validationService: validationService
+},
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+mandatory: false,
+style: "radio-group ",
+variable: model.createVariable(OS.Types.Boolean, model.variables.isSelectedIn, function (value) {
+model.variables.isSelectedIn = value;
+}),
+_idProps: {
+service: idService,
+name: "RadioGroup1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+variable_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isSelectedInDataFetchStatus)
+}, React.createElement(OSWidgets.RadioButton, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+style: "radio-button ",
+value: true,
+visible: true,
+_idProps: {
+service: idService,
+name: "RadioButton1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.radioLabel,
+_idProps: {
+service: idService,
+name: "RadioLabel"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))];
+}),
+column2: new PlaceholderContent(function () {
+return [$if(!(model.variables.isDisabledIn), false, this, function () {
+return [React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.rightText,
+style: "card-selectable-full-right font-semi-bold text-align-right",
+_idProps: {
+service: idService,
+name: "RightText"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+})];
+})
+}
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.bottomText,
+style: model.getCachedValue(idService.getId("BottomText.Style"), function () {
+return ("card-selectable-full-text margin-top-xs " + ((model.variables.isDisabledWithBlackTextIn) ? ("card-selectable-disabled-normal-text") : (((model.variables.isDisabledIn) ? ("text-neutral-7") : ("")))));
+}, function () {
+return model.variables.isDisabledWithBlackTextIn;
+}, function () {
+return model.variables.isDisabledIn;
+}),
+_idProps: {
+service: idService,
+name: "BottomText"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isDisabledWithBlackTextInDataFetchStatus, model.variables._isDisabledInDataFetchStatus)
+})];
+})
+}
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Base_RPat.CustomPatterns.CardSelectable_Full.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Base_RPat.controller", "ECOP_Base_RPat.languageResources", "ECOP_Base_RPat.CustomPatterns.CardSelectable_Full.mvc$translationsResources"], function (OutSystems, ECOP_Base_RPatModel, ECOP_Base_RPatController, ECOP_Base_RPatLanguageResources, ECOP_Base_RPat_CustomPatterns_CardSelectable_Full_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Base_RPat_CustomPatterns_CardSelectable_Full_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onClick$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.isDisabledIn))) {
+// Trigger Event: CardClick
+return controller.cardClick$Action(callContext);
+}
+
+});
+});
+};
+
+Controller.prototype.onClick$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick$Action, callContext);
+
+};
+Controller.prototype.cardClick$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Base_RPatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Base_RPatLanguageResources);
+});
+
+define("ECOP_Base_RPat.CustomPatterns.CardSelectable_Full.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

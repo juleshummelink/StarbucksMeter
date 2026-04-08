@@ -1,0 +1,1165 @@
+﻿define("PL_MT_ECOP_FE.model$LogExceptionStrRec", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrRec = (function (_super) {
+__extends(LogExceptionStrRec, _super);
+function LogExceptionStrRec(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrRec.attributesToDeclare = function () {
+return [
+this.attr("Environment", "environmentAttr", "Environment", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Customer", "customerAttr", "Customer", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ApplicationName", "applicationNameAttr", "ApplicationName", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionType", "exceptionTypeAttr", "ExceptionType", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionSubTypeName", "exceptionSubTypeNameAttr", "ExceptionSubTypeName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RequestKey", "requestKeyAttr", "RequestKey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Module", "moduleAttr", "Module", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Screen", "screenAttr", "Screen", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Action", "actionAttr", "Action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("User", "userAttr", "User", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "Message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionMessage", "exceptionMessageAttr", "ExceptionMessage", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LogExceptionStrRec.init();
+return LogExceptionStrRec;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ECOP_FEModel.LogExceptionStrRec = LogExceptionStrRec;
+
+});
+define("PL_MT_ECOP_FE.model$LogExceptionStrRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$LogExceptionStrRec"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrRecord = (function (_super) {
+__extends(LogExceptionStrRecord, _super);
+function LogExceptionStrRecord(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrRecord.attributesToDeclare = function () {
+return [
+this.attr("LogExceptionStr", "logExceptionStrAttr", "LogExceptionStr", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_ECOP_FEModel.LogExceptionStrRec());
+}, true, PL_MT_ECOP_FEModel.LogExceptionStrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+LogExceptionStrRecord.fromStructure = function (str) {
+return new LogExceptionStrRecord(new LogExceptionStrRecord.RecordClass({
+logExceptionStrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+LogExceptionStrRecord._isAnonymousRecord = true;
+LogExceptionStrRecord.UniqueId = "6023d021-2ed7-5411-cca1-4a031c27e982";
+LogExceptionStrRecord.init();
+return LogExceptionStrRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ECOP_FEModel.LogExceptionStrRecord = LogExceptionStrRecord;
+
+});
+define("PL_MT_ECOP_FE.model$LogExceptionStrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$LogExceptionStrRecord"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrRecordList = (function (_super) {
+__extends(LogExceptionStrRecordList, _super);
+function LogExceptionStrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrRecordList.itemType = PL_MT_ECOP_FEModel.LogExceptionStrRecord;
+return LogExceptionStrRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.LogExceptionStrRecordList = LogExceptionStrRecordList;
+
+});
+define("PL_MT_ECOP_FE.model$GlobalTypeList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_ECOP_FE.model", "PL_MT_Customer_Data.model$GlobalTypeRec", "PL_MT_ECOP_FE.referencesHealth", "PL_MT_ECOP_FE.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var GlobalTypeList = (function (_super) {
+__extends(GlobalTypeList, _super);
+function GlobalTypeList(defaults) {
+_super.apply(this, arguments);
+}
+GlobalTypeList.itemType = PL_MT_Customer_DataModel.GlobalTypeRec;
+return GlobalTypeList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.GlobalTypeList = GlobalTypeList;
+
+});
+define("PL_MT_ECOP_FE.model$APM_SettingsRec", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var APM_SettingsRec = (function (_super) {
+__extends(APM_SettingsRec, _super);
+function APM_SettingsRec(defaults) {
+_super.apply(this, arguments);
+}
+APM_SettingsRec.attributesToDeclare = function () {
+return [
+this.attr("ServerURL", "serverURLAttr", "ServerURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ServiceName", "serviceNameAttr", "ServiceName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ServiceVersion", "serviceVersionAttr", "ServiceVersion", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SecretToken", "secretTokenAttr", "SecretToken", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MetricsIntervalMS", "metricsIntervalMSAttr", "MetricsIntervalMS", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("EnvironmentName", "environmentNameAttr", "EnvironmentName", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+APM_SettingsRec.init();
+return APM_SettingsRec;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ECOP_FEModel.APM_SettingsRec = APM_SettingsRec;
+
+});
+define("PL_MT_ECOP_FE.model$APM_SettingsRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$APM_SettingsRec"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var APM_SettingsRecord = (function (_super) {
+__extends(APM_SettingsRecord, _super);
+function APM_SettingsRecord(defaults) {
+_super.apply(this, arguments);
+}
+APM_SettingsRecord.attributesToDeclare = function () {
+return [
+this.attr("APM_Settings", "aPM_SettingsAttr", "APM_Settings", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_ECOP_FEModel.APM_SettingsRec());
+}, true, PL_MT_ECOP_FEModel.APM_SettingsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+APM_SettingsRecord.fromStructure = function (str) {
+return new APM_SettingsRecord(new APM_SettingsRecord.RecordClass({
+aPM_SettingsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+APM_SettingsRecord._isAnonymousRecord = true;
+APM_SettingsRecord.UniqueId = "b9965319-4506-0159-5081-0d56b5eba0ec";
+APM_SettingsRecord.init();
+return APM_SettingsRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ECOP_FEModel.APM_SettingsRecord = APM_SettingsRecord;
+
+});
+define("PL_MT_ECOP_FE.model$APM_SettingsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$APM_SettingsRecord"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var APM_SettingsRecordList = (function (_super) {
+__extends(APM_SettingsRecordList, _super);
+function APM_SettingsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+APM_SettingsRecordList.itemType = PL_MT_ECOP_FEModel.APM_SettingsRecord;
+return APM_SettingsRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.APM_SettingsRecordList = APM_SettingsRecordList;
+
+});
+define("PL_MT_ECOP_FE.model$ApplicationsList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_ECOP_FE.model", "PL_MT_Customer_Data.model$ApplicationsRec", "PL_MT_ECOP_FE.referencesHealth", "PL_MT_ECOP_FE.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var ApplicationsList = (function (_super) {
+__extends(ApplicationsList, _super);
+function ApplicationsList(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationsList.itemType = PL_MT_Customer_DataModel.ApplicationsRec;
+return ApplicationsList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.ApplicationsList = ApplicationsList;
+
+});
+define("PL_MT_ECOP_FE.model$ApplicationsRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_ECOP_FE.model", "PL_MT_Customer_Data.model$ApplicationsRec", "PL_MT_ECOP_FE.referencesHealth", "PL_MT_ECOP_FE.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var ApplicationsRecord = (function (_super) {
+__extends(ApplicationsRecord, _super);
+function ApplicationsRecord(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationsRecord.attributesToDeclare = function () {
+return [
+this.attr("Applications", "applicationsAttr", "Applications", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Customer_DataModel.ApplicationsRec());
+}, true, PL_MT_Customer_DataModel.ApplicationsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ApplicationsRecord.fromStructure = function (str) {
+return new ApplicationsRecord(new ApplicationsRecord.RecordClass({
+applicationsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ApplicationsRecord._isAnonymousRecord = true;
+ApplicationsRecord.UniqueId = "578e14e5-e5b3-0513-761d-c033c37c0741";
+ApplicationsRecord.init();
+return ApplicationsRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ECOP_FEModel.ApplicationsRecord = ApplicationsRecord;
+
+});
+define("PL_MT_ECOP_FE.model$APM_SettingsList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$APM_SettingsRec"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var APM_SettingsList = (function (_super) {
+__extends(APM_SettingsList, _super);
+function APM_SettingsList(defaults) {
+_super.apply(this, arguments);
+}
+APM_SettingsList.itemType = PL_MT_ECOP_FEModel.APM_SettingsRec;
+return APM_SettingsList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.APM_SettingsList = APM_SettingsList;
+
+});
+define("PL_MT_ECOP_FE.model$FlowTypeList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_ECOP_FE.model", "PL_MT_Customer_Data.model$FlowTypeRec", "PL_MT_ECOP_FE.referencesHealth", "PL_MT_ECOP_FE.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var FlowTypeList = (function (_super) {
+__extends(FlowTypeList, _super);
+function FlowTypeList(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeList.itemType = PL_MT_Customer_DataModel.FlowTypeRec;
+return FlowTypeList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.FlowTypeList = FlowTypeList;
+
+});
+define("PL_MT_ECOP_FE.model$ApplicationsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$ApplicationsRecord"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var ApplicationsRecordList = (function (_super) {
+__extends(ApplicationsRecordList, _super);
+function ApplicationsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationsRecordList.itemType = PL_MT_ECOP_FEModel.ApplicationsRecord;
+return ApplicationsRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.ApplicationsRecordList = ApplicationsRecordList;
+
+});
+define("PL_MT_ECOP_FE.model$ExceptionType_MTList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_ECOP_FE.model", "PL_MT_Settings_Lib.model$ExceptionTypeRec", "PL_MT_ECOP_FE.referencesHealth", "PL_MT_ECOP_FE.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var ExceptionType_MTList = (function (_super) {
+__extends(ExceptionType_MTList, _super);
+function ExceptionType_MTList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionType_MTList.itemType = PL_MT_Settings_LibModel.ExceptionTypeRec;
+return ExceptionType_MTList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.ExceptionType_MTList = ExceptionType_MTList;
+
+});
+define("PL_MT_ECOP_FE.model$ExceptionType_MTRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_ECOP_FE.model", "PL_MT_Settings_Lib.model$ExceptionTypeRec", "PL_MT_ECOP_FE.referencesHealth", "PL_MT_ECOP_FE.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var ExceptionType_MTRecord = (function (_super) {
+__extends(ExceptionType_MTRecord, _super);
+function ExceptionType_MTRecord(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionType_MTRecord.attributesToDeclare = function () {
+return [
+this.attr("ExceptionType", "exceptionTypeAttr", "ExceptionType_MT", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Settings_LibModel.ExceptionTypeRec());
+}, true, PL_MT_Settings_LibModel.ExceptionTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExceptionType_MTRecord.fromStructure = function (str) {
+return new ExceptionType_MTRecord(new ExceptionType_MTRecord.RecordClass({
+exceptionTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ExceptionType_MTRecord._isAnonymousRecord = true;
+ExceptionType_MTRecord.UniqueId = "95ad47d1-8e8e-2d48-700f-1a00533c0266";
+ExceptionType_MTRecord.init();
+return ExceptionType_MTRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ECOP_FEModel.ExceptionType_MTRecord = ExceptionType_MTRecord;
+
+});
+define("PL_MT_ECOP_FE.model$FlowTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_ECOP_FE.model", "PL_MT_Customer_Data.model$FlowTypeRec", "PL_MT_ECOP_FE.referencesHealth", "PL_MT_ECOP_FE.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var FlowTypeRecord = (function (_super) {
+__extends(FlowTypeRecord, _super);
+function FlowTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("FlowType", "flowTypeAttr", "FlowType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Customer_DataModel.FlowTypeRec());
+}, true, PL_MT_Customer_DataModel.FlowTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+FlowTypeRecord.fromStructure = function (str) {
+return new FlowTypeRecord(new FlowTypeRecord.RecordClass({
+flowTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+FlowTypeRecord._isAnonymousRecord = true;
+FlowTypeRecord.UniqueId = "f7930230-e456-48d0-4263-d440d8543804";
+FlowTypeRecord.init();
+return FlowTypeRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ECOP_FEModel.FlowTypeRecord = FlowTypeRecord;
+
+});
+define("PL_MT_ECOP_FE.model$FlowTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$FlowTypeRecord"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var FlowTypeRecordList = (function (_super) {
+__extends(FlowTypeRecordList, _super);
+function FlowTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeRecordList.itemType = PL_MT_ECOP_FEModel.FlowTypeRecord;
+return FlowTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.FlowTypeRecordList = FlowTypeRecordList;
+
+});
+define("PL_MT_ECOP_FE.model$GlobalTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_ECOP_FE.model", "PL_MT_Customer_Data.model$GlobalTypeRec", "PL_MT_ECOP_FE.referencesHealth", "PL_MT_ECOP_FE.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var GlobalTypeRecord = (function (_super) {
+__extends(GlobalTypeRecord, _super);
+function GlobalTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+GlobalTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("GlobalType", "globalTypeAttr", "GlobalType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Customer_DataModel.GlobalTypeRec());
+}, true, PL_MT_Customer_DataModel.GlobalTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GlobalTypeRecord.fromStructure = function (str) {
+return new GlobalTypeRecord(new GlobalTypeRecord.RecordClass({
+globalTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GlobalTypeRecord._isAnonymousRecord = true;
+GlobalTypeRecord.UniqueId = "c1a07a62-0850-ea56-a432-abd9c36da832";
+GlobalTypeRecord.init();
+return GlobalTypeRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_ECOP_FEModel.GlobalTypeRecord = GlobalTypeRecord;
+
+});
+define("PL_MT_ECOP_FE.model$GlobalTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$GlobalTypeRecord"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var GlobalTypeRecordList = (function (_super) {
+__extends(GlobalTypeRecordList, _super);
+function GlobalTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+GlobalTypeRecordList.itemType = PL_MT_ECOP_FEModel.GlobalTypeRecord;
+return GlobalTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.GlobalTypeRecordList = GlobalTypeRecordList;
+
+});
+define("PL_MT_ECOP_FE.model$ExceptionType_MTRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$ExceptionType_MTRecord"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var ExceptionType_MTRecordList = (function (_super) {
+__extends(ExceptionType_MTRecordList, _super);
+function ExceptionType_MTRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionType_MTRecordList.itemType = PL_MT_ECOP_FEModel.ExceptionType_MTRecord;
+return ExceptionType_MTRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.ExceptionType_MTRecordList = ExceptionType_MTRecordList;
+
+});
+define("PL_MT_ECOP_FE.model$LogExceptionStrList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ECOP_FE.model", "PL_MT_ECOP_FE.model$LogExceptionStrRec"], function (exports, OutSystems, PL_MT_ECOP_FEModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrList = (function (_super) {
+__extends(LogExceptionStrList, _super);
+function LogExceptionStrList(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrList.itemType = PL_MT_ECOP_FEModel.LogExceptionStrRec;
+return LogExceptionStrList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_ECOP_FEModel.LogExceptionStrList = LogExceptionStrList;
+
+});
+define("PL_MT_ECOP_FE.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var PL_MT_ECOP_FEModel = exports;
+Object.defineProperty(PL_MT_ECOP_FEModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["3e272d73-c622-4b77-b4e8-7a118069d1f0"];
+}
+});
+
+PL_MT_ECOP_FEModel.staticEntities = {};
+PL_MT_ECOP_FEModel.staticEntities.flowType = {};
+var getFlowTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["0db7a3aa-3ba8-4c90-8413-acb9b60cff25"].staticEntities["6bb428b5-7018-45ca-af8b-185e2335aebb"][record];
+};
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "conversationDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0c128578-608d-4617-9f4c-1e735a421035"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "addProductList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0c5897ff-67e2-4c89-af03-8785ad01368c"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "winkelNewsfeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0fecb8a2-c489-445b-91f6-1a7cb93e3d60"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "winkelNewsFeedLoadFeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("15ab26bf-a902-43ba-b498-437142abe656"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "checkOutOrders", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("2f2bf013-4dc8-4787-a8ae-01aeb75db8e5"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator2_ADP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("44d96a4e-28fe-4683-95d1-afb3dfba2339"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator3_AFAS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5a1a5fcc-3587-4a14-bf4c-68e39e020c4e"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator7_ChangedUsers", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5c37b6e0-3236-4778-914b-8480762ea110"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "conversation", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5c920beb-407d-49f9-8346-1f53e6411fc3"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "pCMP_CouponSave", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5ebc8f83-c547-4ef5-a0df-372c5670a96b"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFCAPI_StoreMate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("6254fa35-fd69-4363-8649-a16cc5746c7e"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "orderList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("710003ed-d828-4334-ab43-e5a1bb7105a1"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator4_ProcessIdentities", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("712b5f02-6506-48f8-b77d-bc14a84b03af"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator5_InStagingObjects", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("72900b32-c6ff-4a68-8c71-5debb5e1e078"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFCAPI_ADP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("78d2ab42-14d4-4471-b6f8-96e166efccbb"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "conversationList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7a65e7eb-762d-4cb4-b297-0ad1d6b910b9"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "planningCreateRoosters", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7dc371a1-6b4a-4494-a7b0-8770dfa133e0"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iCTPostsLoadFeet", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7dda6a51-b2b2-4a65-81da-d204f493f4a7"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "login", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7ddde5eb-0b5b-4d2a-bd1c-08d2f73523d0"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator10_UserEvents", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("8c986199-70ab-4f35-bd0e-f3d97e31e7e5"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "planning", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("8e911bb2-8a3d-4500-bd39-a6cfd3a1f018"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator8_ChangedGroups", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("973f86dd-42da-4885-b064-ba57502aa0b8"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "mAPP_MedewerkersAppLoad", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("9a93dc30-48b8-468b-ac49-3f89f3d33fca"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "syncConversation", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("9f1de325-ded4-4e26-bd3b-afc52f206653"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "vanServicekantoorNewsFeedLoadFeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("a59bea59-7865-4b36-8976-bbc5d33589c8"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator1_DotWeb", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("a7db7aa0-915f-4d3a-8366-cb7fa4a35d4a"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "productCategoriesList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("adbcdc4a-68d7-414c-b285-7d968746ad0f"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "addProductDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("b0c0654b-7d44-4019-8995-f22401cea21a"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iCTPosts", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bb56cb1c-961a-4007-9af9-69ccaccad35e"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iCTPostsPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bd25654a-79a6-47d0-9b9b-c3d157d0e69a"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "cMP_SaveFlow", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bef92209-6859-41b9-b1b7-787d508db955"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "productsList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("c3c69dcd-f766-4834-b299-a79221ab3e92"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "winkelNewsFeedPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("c6029504-b25e-48d4-9f3f-685b81050586"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "vanServicekantoor", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("ccfddc94-f28b-473a-a578-14a21bf02abb"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "planningLoadRoosters", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("ced63398-7e05-4ef5-9615-2f3876213c73"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFCAPI_CGO", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("e0479c8d-fee0-4fc6-8e04-970d5d31ce07"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "promotions", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("e4f7130c-6bf0-4b54-843b-8d48aea67a80"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator6_AppsAndRoles", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("efa2b28a-e129-4b5c-9109-71ef66ef0acb"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "vanServicekantoorNewsFeedPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f0fb6723-cb8e-4ebd-8c26-9dd85ffe93e6"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "iFC_Orchestrator9_QueuedUsers", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f1282986-e2e2-4b73-8510-7a1f46948e35"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "searchProduct", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f5f46627-8177-4079-8674-584ceb4eb986"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.flowType, "pCMP_CouponDelete", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f7aac01c-b75b-493f-b38c-1d6bd4e3cc9e"));
+}
+});
+
+PL_MT_ECOP_FEModel.staticEntities.applications = {};
+var getApplicationsRecord = function (record) {
+return OS.ApplicationInfo.getModules()["0db7a3aa-3ba8-4c90-8413-acb9b60cff25"].staticEntities["90dfab80-bd0d-4cd4-9b5a-2902c5afc8bc"][record];
+};
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "mongoDB", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("0561ecde-1255-4a00-ac58-0488c0e080a4"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "eCOP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("16a6c588-ccd9-410a-9f19-f8b1455ac2a0"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "cM", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("192d0b31-f8ee-4228-a171-3b8e7805925d"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "pLUS_ESB", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("269f9ef4-f385-4abe-8a04-cd23636794e0"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "aBeta", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("53d0e67e-a929-41ee-a951-4b7ddd7420a0"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "mAPP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("5ec5d759-a914-4599-aae8-288c9298f090"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "nativeApp_API", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("6719f544-2a14-4d0b-be58-b95ffee17d77"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "contentful", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("813bd9d7-aedc-4065-ac6e-511a08440343"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "tweakwise", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("866d0fca-4585-4cee-bd08-84d6ddc6b984"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "storeOpsDIPS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("c6a0b20d-ed2d-4dc7-a929-62ea00d532ea"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "medewerkersApp", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("ce35a07f-52e4-4321-8ed6-c877d5b32fd8"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "cOMS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("d28711c6-3f17-48df-a1f0-af46bc499f39"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "commerceTools", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("e5b38bd3-dd5d-4ccd-90ec-206c0fb2a43c"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "eCOPApp", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("eb33f148-9994-46e7-ba42-c81a2ca5fdfd"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.applications, "oneWelcome", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("febdd9b6-1b45-4f26-8d28-1b7b438b4ed0"));
+}
+});
+
+PL_MT_ECOP_FEModel.staticEntities.globalType = {};
+var getGlobalTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["0db7a3aa-3ba8-4c90-8413-acb9b60cff25"].staticEntities["bd7f798f-6e49-4f68-91b1-20c4a0d24249"][record];
+};
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "register", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0aa3d9a8-d587-4afb-9bb3-f74df1f5fc40"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "searchProduct", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0bcf10af-16d0-4ae7-ab22-d19636d08efa"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "iCTPosts", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0cb64fef-7578-4dae-9c80-bec674b97f74"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "images", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0cfe40ea-372d-4b09-8eab-7f1c3c99bb84"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "iDP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0e20dd17-3500-497e-bed4-4b790cd1f239"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "timeslotExceptionsUpdate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("110ccb5c-7b51-4a17-8194-0d2f04a3940b"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "cOMS_Store", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("12d11902-6e19-462f-b54c-35bccb04e770"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "dynamicOrderCost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("1d7d934a-3a8e-44d7-bd58-bcabaca99b52"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "promotions", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("209f9e3b-7d0a-42b7-ae1e-adb16c2a52ee"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "iFC", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("2eab98a9-2839-4951-82fc-0cbe5878db25"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "checkOutOrders", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("31eebc09-8bf4-4d40-a56c-294d6981973a"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "localAD", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("320dbb97-4abc-45d6-814f-b938ec319c22"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "conversationList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("3589f0f2-8232-45a2-b5ec-d471ba3de392"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "ordersCanceled", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("3c707c76-36b3-4dc7-9a5b-c9762b13d875"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "addProductDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("4196a2e6-f0ae-4cbc-b9f0-83ea8bffe359"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "dataFeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("43c8822f-640b-4283-b861-7136c879892b"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "productsSynchronization", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("45b4f817-d491-4e92-8a1a-8bf526d8b83c"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "login", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("46493d71-839f-4248-9e65-c5a586ef0175"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "ecoDynamicOrderCost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("47fc614f-3957-48e7-a5de-d9f0d5d237c4"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "bundleEMS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("4beb84d4-0621-40b4-aef4-7ea22612465e"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "payOnAccount", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("54506f0f-7901-4d61-8188-a2cbc895aa17"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "addProductList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("5a9725e8-58f7-4449-b625-1406a9f1c9fc"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "aPI_Duration", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("68373b57-845c-4a87-93c8-664569d8686e"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "legacyLDAP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("6bbfd9ea-b916-40c7-9b4c-9290407810a3"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "productCategoriesList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("6d6437e6-5ec2-4724-93df-562ce24caddf"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "tweakwiseDataSync", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("6e5ede59-aafd-4a59-b94e-1326209762a3"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "winkelNewsfeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("766196c9-ae04-4071-b757-b159d00501c2"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "nativeApp_API", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("76c85429-b8df-405c-8d2d-109aee9de956"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "orderCouponRedeem", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("7e7da676-5fae-401a-87cf-c51aab8d9202"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "orderConfirmation", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("7f5c6543-6b74-4282-8b7e-6e5aa0c94962"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "productsList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("80c4675b-0e0e-4e46-bfd1-3b923062b56b"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "orderList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("85db8df5-32b8-4e43-8f6f-4557f19fe7f9"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "stripeAPI", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("87396844-2fe0-4fd8-a800-d2dd5291d156"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "sMS_Send", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("87b09a6e-3f05-4af1-99f7-eed8758927e6"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "timer", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("8842d3c7-13ad-4b2e-a372-636fe76e4ee7"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "timeslotInstanceUpdate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("8a3d9ba5-f541-4297-ad17-753af40d4457"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "circuitBreaker", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("8fc03cdd-319a-44ff-a83b-8d1ac2c158e5"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "orderAsyncProcess", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("9a35cfef-1339-4fe5-80c8-111ad64e5944"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "dataObject", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("9ba1226c-f1e3-4553-b787-a820972e19cf"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "timeslotTemplateUpdate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("9c8f239a-a2f8-4cf4-b6fc-96e405771106"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "iFCAPI", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("a19eb789-0d91-4c7d-8857-352eb734e26e"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "vanServicekantoorNewsfeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("a40d83ac-230e-42a8-808e-367c6c56676f"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "sperwerAD", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("a78cbebd-f008-4779-b0c7-c8814caf9a25"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "ordersEvents", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("a7956857-df2e-44c1-bafc-7ad85508adc2"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "retailMedia", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("b5835e60-6c09-45fe-8684-e6ad86ef0da8"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "screenError", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("be37c48a-1190-4a6c-8fe0-74cc8f55781d"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "generic", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("c7cc97a7-cb5e-4012-9eba-1a7620c02d54"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "oneWelcomeAPI", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("d0f34340-4f73-479a-842e-72aa1dc84303"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "cartConnectAPI", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("d3434727-d040-4eb6-89c4-a14329f6b4bc"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "ordersCreated", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("d3afd0c8-0dce-4011-9120-01beb1c85164"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "storeOps", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("d3fad33a-2838-46c3-b6e1-00088ec048ec"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "eMS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("e4feffbc-8ca9-4505-baaf-0d2a284bf9e9"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "azureAD", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("ef331aba-e2bc-4ea3-a4e7-3ab937fc1932"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "ordersWithErrors", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("f1afd47d-10b9-4cd3-a889-4b8534ab33cd"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "planning", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("f7a9ddcc-de33-4e0e-9580-4c0adbee7119"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.globalType, "conversationDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("fb6b9bc2-268c-4fe4-8646-bbaf5b8a4b21"));
+}
+});
+
+PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT = {};
+var getExceptionType_MTRecord = function (record) {
+return OS.ApplicationInfo.getModules()["7cc666b3-f0fe-4bfa-89a0-8a114439bd7b"].staticEntities["3f1e4964-34c1-409c-85aa-446253d90218"][record];
+};
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT, "integration", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionType_MTRecord("0013a738-029f-42cf-8f2e-a6996bc36b99"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT, "performance", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionType_MTRecord("3efae6ac-8b85-4a82-bd14-84ec66362bfe"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT, "error", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionType_MTRecord("66c600ac-cc93-4d5f-b77f-5e4e3e2cb914"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT, "other", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionType_MTRecord("82580e1b-e552-49cd-b5b1-50cc60b1631f"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT, "network", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionType_MTRecord("b24e1f3d-05d2-4a80-a819-348d83f6d571"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT, "communication", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionType_MTRecord("bb632b24-3687-4293-bd17-128e8bcac732"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT, "database", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionType_MTRecord("bf735632-c6a3-434b-bc30-877b77dd8cc6"));
+}
+});
+
+Object.defineProperty(PL_MT_ECOP_FEModel.staticEntities.exceptionType_MT, "security", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionType_MTRecord("e113d5d3-ba09-4568-be47-c1180830481b"));
+}
+});
+
+});

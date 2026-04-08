@@ -1,0 +1,561 @@
+﻿define("ECP_Composition_CW.Promotions.CategoryOffers.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$model", "ECP_Promotion_CW.PromotionListFlow.OfferItem.mvc$model", "ECP_Promotion_BL.model$CategoryRec", "ECP_Composition_CW.referencesHealth", "ECP_Composition_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Composition_CW.referencesHealth$ECP_Promotion_CW", "ECP_Promotion_BL.model$OfferRec", "ECOP_Base_RPat.controller$BannerPlacement", "ECP_Composition_CW.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECP_Composition_CW.referencesHealth$ECOP_FE_Core"], function (OutSystems, ECP_Composition_CWModel, ECP_Promotion_BLModel, ECP_Promotion_CWModel, ECOP_Base_RPatController, ECOP_FE_CoreController, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsListRendered", "isListRenderedVar", "IsListRendered", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsPromotionBannersFetched", "isPromotionBannersFetchedVar", "IsPromotionBannersFetched", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("URL", "uRLVar", "URL", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("StoreChannelId", "storeChannelIdVar", "StoreChannelId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Category", "categoryIn", "Category", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.CategoryRec());
+}, false, ECP_Promotion_BLModel.CategoryRec), 
+this.attr("_categoryInDataFetchStatus", "_categoryInDataFetchStatus", "_categoryInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ClickDelayValue", "clickDelayValueIn", "ClickDelayValue", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_clickDelayValueInDataFetchStatus", "_clickDelayValueInDataFetchStatus", "_clickDelayValueInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDataFetched", "isDataFetchedIn", "IsDataFetched", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDataFetchedInDataFetchStatus", "_isDataFetchedInDataFetchStatus", "_isDataFetchedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsPhone", "isPhoneIn", "IsPhone", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isPhoneInDataFetchStatus", "_isPhoneInDataFetchStatus", "_isPhoneInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("PromotionPeriod", "promotionPeriodIn", "PromotionPeriod", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_CWModel.Period_DateRec());
+}, false, ECP_Promotion_CWModel.Period_DateRec), 
+this.attr("_promotionPeriodInDataFetchStatus", "_promotionPeriodInDataFetchStatus", "_promotionPeriodInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsCustomerUnderAge", "isCustomerUnderAgeIn", "IsCustomerUnderAge", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isCustomerUnderAgeInDataFetchStatus", "_isCustomerUnderAgeInDataFetchStatus", "_isCustomerUnderAgeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("PromotionPeriodId", "promotionPeriodIdIn", "PromotionPeriodId", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_promotionPeriodIdInDataFetchStatus", "_promotionPeriodIdInDataFetchStatus", "_promotionPeriodIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsTimetraveler", "isTimetravelerIn", "IsTimetraveler", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isTimetravelerInDataFetchStatus", "_isTimetravelerInDataFetchStatus", "_isTimetravelerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel.hasValidationWidgets || ECP_Promotion_CW_PromotionListFlow_OfferItem_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("Category" in inputs) {
+this.variables.categoryIn = inputs.Category;
+if("_categoryInDataFetchStatus" in inputs) {
+this.variables._categoryInDataFetchStatus = inputs._categoryInDataFetchStatus;
+}
+
+}
+
+if("ClickDelayValue" in inputs) {
+this.variables.clickDelayValueIn = inputs.ClickDelayValue;
+if("_clickDelayValueInDataFetchStatus" in inputs) {
+this.variables._clickDelayValueInDataFetchStatus = inputs._clickDelayValueInDataFetchStatus;
+}
+
+}
+
+if("IsDataFetched" in inputs) {
+this.variables.isDataFetchedIn = inputs.IsDataFetched;
+if("_isDataFetchedInDataFetchStatus" in inputs) {
+this.variables._isDataFetchedInDataFetchStatus = inputs._isDataFetchedInDataFetchStatus;
+}
+
+}
+
+if("IsPhone" in inputs) {
+this.variables.isPhoneIn = inputs.IsPhone;
+if("_isPhoneInDataFetchStatus" in inputs) {
+this.variables._isPhoneInDataFetchStatus = inputs._isPhoneInDataFetchStatus;
+}
+
+}
+
+if("PromotionPeriod" in inputs) {
+this.variables.promotionPeriodIn = inputs.PromotionPeriod;
+if("_promotionPeriodInDataFetchStatus" in inputs) {
+this.variables._promotionPeriodInDataFetchStatus = inputs._promotionPeriodInDataFetchStatus;
+}
+
+}
+
+if("IsCustomerUnderAge" in inputs) {
+this.variables.isCustomerUnderAgeIn = inputs.IsCustomerUnderAge;
+if("_isCustomerUnderAgeInDataFetchStatus" in inputs) {
+this.variables._isCustomerUnderAgeInDataFetchStatus = inputs._isCustomerUnderAgeInDataFetchStatus;
+}
+
+}
+
+if("PromotionPeriodId" in inputs) {
+this.variables.promotionPeriodIdIn = inputs.PromotionPeriodId;
+if("_promotionPeriodIdInDataFetchStatus" in inputs) {
+this.variables._promotionPeriodIdInDataFetchStatus = inputs._promotionPeriodIdInDataFetchStatus;
+}
+
+}
+
+if("IsTimetraveler" in inputs) {
+this.variables.isTimetravelerIn = inputs.IsTimetraveler;
+if("_isTimetravelerInDataFetchStatus" in inputs) {
+this.variables._isTimetravelerInDataFetchStatus = inputs._isTimetravelerInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Promotions.CategoryOffers");
+});
+define("ECP_Composition_CW.Promotions.CategoryOffers.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Composition_CW.controller", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "react", "OutSystems/ReactView/Main", "ECP_Composition_CW.Promotions.CategoryOffers.mvc$model", "ECP_Composition_CW.Promotions.CategoryOffers.mvc$controller", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$view", "OutSystems/ReactWidgets/Main", "ECP_Promotion_CW.PromotionListFlow.OfferItem.mvc$view", "ECP_Promotion_BL.model$CategoryRec", "ECP_Composition_CW.referencesHealth", "ECP_Composition_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Composition_CW.referencesHealth$ECP_Promotion_CW", "ECP_Promotion_BL.model$OfferRec", "ECOP_Base_RPat.controller$BannerPlacement", "ECP_Composition_CW.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECP_Composition_CW.referencesHealth$ECOP_FE_Core"], function (OutSystems, ECP_Composition_CWModel, ECP_Composition_CWController, ECP_Promotion_BLModel, ECP_Promotion_CWModel, ECOP_Base_RPatController, ECOP_FE_CoreController, React, OSView, ECP_Composition_CW_Promotions_CategoryOffers_mvc_model, ECP_Composition_CW_Promotions_CategoryOffers_mvc_controller, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, OSWidgets, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Promotions.CategoryOffers";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Composition_CW_Promotions_CategoryOffers_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Composition_CW_Promotions_CategoryOffers_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, {
+inputs: {
+NoPaddingLeft: model.variables.isPhoneIn,
+_noPaddingLeftInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus),
+NoPaddingTop: true,
+BackgroundCSSClass: "background-neutral-0",
+NoPaddingBottom: true,
+NoPaddingRight: model.variables.isPhoneIn,
+_noPaddingRightInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+className: model.getCachedValue(idService.getId("c8faY0WzzkWvUCLAahxPxA.class"), function () {
+return ("promo-category-offer" + ((model.variables.isPhoneIn) ? (" padding-x-base") : ("")));
+}, function () {
+return model.variables.isPhoneIn;
+})
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.categoryIn.categoryLabelAttr,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus)
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("yVUX4w_9ykaGT2I_9A4Jhw.Style"), function () {
+return ("plp-results-wrapper promotions-list-section" + (((model.variables.isDataFetchedIn && model.variables.categoryIn.offersAttr.isEmpty)) ? (" is-empty") : ("")));
+}, function () {
+return model.variables.isDataFetchedIn;
+}, function () {
+return model.variables.categoryIn.offersAttr.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isDataFetchedInDataFetchStatus, model.variables._categoryInDataFetchStatus)
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.componentDidMount$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.categoryIn.offersAttr,
+style: "list list-group plp-results-list promotions-list",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+title: model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).nameAttr,
+"aria-label": ((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).nameAttr + " ") + model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).exampleAttr)
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL(((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).isSingleProductAttr) ? (("/product/" + ((((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).slugAttr) !== (""))) ? (model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).slugAttr) : ("plus-prei-1-stuks-449412")))) : ((model.variables.uRLVar + model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).slugAttr))), {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.isCustomerUnderAgeIn), asPrimitiveValue(model.variables.clickDelayValueIn), asPrimitiveValue(model.variables.promotionPeriodIn.toDateAttr), asPrimitiveValue(model.variables.promotionPeriodIn.fromDateAttr), asPrimitiveValue(model.variables.promotionPeriodIdIn), asPrimitiveValue(model.variables.isTimetravelerIn), asPrimitiveValue(model.variables.storeChannelIdVar), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._isCustomerUnderAgeInDataFetchStatus), asPrimitiveValue(model.variables._clickDelayValueInDataFetchStatus), asPrimitiveValue(model.variables._promotionPeriodInDataFetchStatus), asPrimitiveValue(model.variables._promotionPeriodIdInDataFetchStatus), asPrimitiveValue(model.variables._isTimetravelerInDataFetchStatus), asPrimitiveValue(model.variables._categoryInDataFetchStatus), asPrimitiveValue(model.variables.categoryIn.categoryLabelAttr), asPrimitiveValue(model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext))]
+}, React.createElement(ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view, {
+inputs: {
+IsAddPerfMark: false,
+Offer: model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext),
+_offerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus),
+StoreChannelD: model.variables.storeChannelIdVar,
+ShowStartDate_Label: model.getCachedValue(idService.getId("EGn7x7yJ6E+BH+GVDqK5CA.ShowStartDate_Label"), function () {
+return ((model.variables.isTimetravelerIn) ? ((((model.variables.promotionPeriodIdIn === ECP_Composition_CWModel.staticEntities.promotionPeriod.currentWeek)) ? (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr.equals(model.variables.promotionPeriodIn.fromDateAttr)) ? (false) : (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr.gt(model.variables.promotionPeriodIn.fromDateAttr)) ? (true) : (false))))) : ((((model.variables.promotionPeriodIdIn === ECP_Composition_CWModel.staticEntities.promotionPeriod.nextWeek)) ? (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr.equals(model.variables.promotionPeriodIn.fromDateAttr)) ? (false) : (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr.gt(model.variables.promotionPeriodIn.fromDateAttr)) ? (true) : (false))))) : (false))))) : ((((model.variables.promotionPeriodIdIn === ECP_Composition_CWModel.staticEntities.promotionPeriod.currentWeek)) ? (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr.equals(model.variables.promotionPeriodIn.fromDateAttr)) ? (false) : (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr.gt(model.variables.promotionPeriodIn.fromDateAttr)) ? (true) : (false))))) : ((((model.variables.promotionPeriodIdIn === ECP_Composition_CWModel.staticEntities.promotionPeriod.nextWeek)) ? (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr.equals(model.variables.promotionPeriodIn.fromDateAttr)) ? (false) : (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr.gt(model.variables.promotionPeriodIn.fromDateAttr)) ? (true) : (false))))) : (false))))));
+}, function () {
+return model.variables.isTimetravelerIn;
+}, function () {
+return model.variables.promotionPeriodIdIn;
+}, function () {
+return model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).startDateAttr;
+}, function () {
+return model.variables.promotionPeriodIn.fromDateAttr;
+}),
+_showStartDate_LabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isTimetravelerInDataFetchStatus, model.variables._promotionPeriodIdInDataFetchStatus, model.variables._categoryInDataFetchStatus, model.variables._promotionPeriodInDataFetchStatus),
+ClickDelayValue: model.variables.clickDelayValueIn,
+_clickDelayValueInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._clickDelayValueInDataFetchStatus),
+IsCustomerUnderAge: model.variables.isCustomerUnderAgeIn,
+_isCustomerUnderAgeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isCustomerUnderAgeInDataFetchStatus),
+ShowStartDate_NameOfDay: true,
+CategoryName: model.variables.categoryIn.categoryLabelAttr,
+_categoryNameInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._categoryInDataFetchStatus),
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+ShowEndDate_Label: model.getCachedValue(idService.getId("EGn7x7yJ6E+BH+GVDqK5CA.ShowEndDate_Label"), function () {
+return ((model.variables.isTimetravelerIn) ? ((((model.variables.promotionPeriodIdIn === ECP_Composition_CWModel.staticEntities.promotionPeriod.currentWeek)) ? (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr.equals(model.variables.promotionPeriodIn.toDateAttr)) ? (false) : (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr.gt(model.variables.promotionPeriodIn.toDateAttr)) ? (true) : (false))))) : ((((model.variables.promotionPeriodIdIn === ECP_Composition_CWModel.staticEntities.promotionPeriod.nextWeek)) ? (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr.equals(model.variables.promotionPeriodIn.toDateAttr)) ? (false) : (((!(model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr.equals(model.variables.promotionPeriodIn.toDateAttr))) ? (true) : (false))))) : (false))))) : ((((model.variables.promotionPeriodIdIn === ECP_Composition_CWModel.staticEntities.promotionPeriod.currentWeek)) ? (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr.equals(model.variables.promotionPeriodIn.toDateAttr)) ? (false) : (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr.gt(model.variables.promotionPeriodIn.toDateAttr)) ? (true) : (false))))) : ((((model.variables.promotionPeriodIdIn === ECP_Composition_CWModel.staticEntities.promotionPeriod.nextWeek)) ? (((model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr.equals(model.variables.promotionPeriodIn.toDateAttr)) ? (false) : (((!(model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr.equals(model.variables.promotionPeriodIn.toDateAttr))) ? (true) : (false))))) : (false))))));
+}, function () {
+return model.variables.isTimetravelerIn;
+}, function () {
+return model.variables.promotionPeriodIdIn;
+}, function () {
+return model.variables.categoryIn.offersAttr.getCurrent(callContext.iterationContext).endDateAttr;
+}, function () {
+return model.variables.promotionPeriodIn.toDateAttr;
+}),
+_showEndDate_LabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isTimetravelerInDataFetchStatus, model.variables._promotionPeriodIdInDataFetchStatus, model.variables._categoryInDataFetchStatus, model.variables._promotionPeriodInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+forceRefresh$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.forceRefresh$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+cartOrdered$Action: function (checkoutIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.cartOrdered$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "6",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, callContext, idService, "1")
+},
+_dependencies: [asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.categoryIn.categoryLabelAttr), asPrimitiveValue(model.variables.isCustomerUnderAgeIn), asPrimitiveValue(model.variables.clickDelayValueIn), asPrimitiveValue(model.variables.promotionPeriodIn.toDateAttr), asPrimitiveValue(model.variables.promotionPeriodIn.fromDateAttr), asPrimitiveValue(model.variables.promotionPeriodIdIn), asPrimitiveValue(model.variables.isTimetravelerIn), asPrimitiveValue(model.variables.storeChannelIdVar), asPrimitiveValue(model.variables.uRLVar), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._isCustomerUnderAgeInDataFetchStatus), asPrimitiveValue(model.variables._clickDelayValueInDataFetchStatus), asPrimitiveValue(model.variables._promotionPeriodInDataFetchStatus), asPrimitiveValue(model.variables._promotionPeriodIdInDataFetchStatus), asPrimitiveValue(model.variables._isTimetravelerInDataFetchStatus), asPrimitiveValue(model.variables._categoryInDataFetchStatus)]
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.isCustomerUnderAgeIn), asPrimitiveValue(model.variables.clickDelayValueIn), asPrimitiveValue(model.variables.promotionPeriodIn.toDateAttr), asPrimitiveValue(model.variables.promotionPeriodIn.fromDateAttr), asPrimitiveValue(model.variables.promotionPeriodIdIn), asPrimitiveValue(model.variables.isTimetravelerIn), asPrimitiveValue(model.variables.storeChannelIdVar), asPrimitiveValue(model.variables.uRLVar), asPrimitiveValue(model.variables.isDataFetchedIn), asPrimitiveValue(model.variables.categoryIn.offersAttr), asPrimitiveValue(model.variables.categoryIn.categoryLabelAttr), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._isCustomerUnderAgeInDataFetchStatus), asPrimitiveValue(model.variables._clickDelayValueInDataFetchStatus), asPrimitiveValue(model.variables._promotionPeriodInDataFetchStatus), asPrimitiveValue(model.variables._promotionPeriodIdInDataFetchStatus), asPrimitiveValue(model.variables._isTimetravelerInDataFetchStatus), asPrimitiveValue(model.variables._isDataFetchedInDataFetchStatus), asPrimitiveValue(model.variables._categoryInDataFetchStatus), asPrimitiveValue(model.variables._isPhoneInDataFetchStatus), asPrimitiveValue(model.variables.isPhoneIn)]
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Composition_CW.Promotions.CategoryOffers.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Composition_CW.controller", "ECP_Promotion_BL.model", "ECP_Promotion_CW.model", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECP_Composition_CW.languageResources", "ECP_Composition_CW.Promotions.CategoryOffers.mvc$translationsResources", "ECP_Promotion_BL.model$CategoryRec", "ECP_Composition_CW.referencesHealth", "ECP_Composition_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.model$Period_DateRec", "ECP_Composition_CW.referencesHealth$ECP_Promotion_CW", "ECP_Promotion_BL.model$OfferRec", "ECOP_Base_RPat.controller$BannerPlacement", "ECP_Composition_CW.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECP_Composition_CW.referencesHealth$ECOP_FE_Core"], function (OutSystems, ECP_Composition_CWModel, ECP_Composition_CWController, ECP_Promotion_BLModel, ECP_Promotion_CWModel, ECOP_Base_RPatController, ECOP_FE_CoreController, ECP_Composition_CWLanguageResources, ECP_Composition_CW_Promotions_CategoryOffers_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Composition_CW_Promotions_CategoryOffers_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._componentDidMount$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComponentDidMount");
+callContext = controller.callContext(callContext);
+// IsListRendered = True
+model.variables.isListRenderedVar = true;
+if((model.variables.isPromotionBannersFetchedVar)) {
+// Execute Action: BannerPlacement
+ECOP_Base_RPatController.default.bannerPlacement$Action(".screen-container .plp-results-list > a", ".screen-container .promotion-banner-list .promotion-banner", ".screen-container .plp-results-list .promotion-banner", ".screen-container .promotion-banner-list", ".screen-container .plp-results-list", 0, model.variables.categoryIn.offersAttr.length, model.variables.isPhoneIn, callContext);
+}
+
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var get_Client_UserStoreChannelIdVar = new OS.DataTypes.VariableHolder();
+// Execute Action: Get_Client_UserStoreChannelId
+get_Client_UserStoreChannelIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreChannelId$Action(callContext);
+
+// URL = If
+model.variables.uRLVar = ((model.variables.isTimetravelerIn) ? ("/timetraveler/") : ("/aanbiedingen/"));
+// StoreChannelId = Get_Client_UserStoreChannelId.UserStoreChannelId
+model.variables.storeChannelIdVar = get_Client_UserStoreChannelIdVar.value.userStoreChannelIdOut;
+};
+
+Controller.prototype.componentDidMount$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._componentDidMount$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.forceRefresh$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.callbackOrderEdit$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.noStoreSelected$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.cartOrdered$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Composition_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Composition_CWLanguageResources);
+});
+
+define("ECP_Composition_CW.Promotions.CategoryOffers.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

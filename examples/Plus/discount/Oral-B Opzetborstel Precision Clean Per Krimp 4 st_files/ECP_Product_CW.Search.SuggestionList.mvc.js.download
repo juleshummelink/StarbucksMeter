@@ -1,0 +1,917 @@
+﻿define("ECP_Product_CW.Search.SuggestionList.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECOP_FE_Core.controller", "ECOP_Base_RPat.CustomPatterns.ListItemSmall.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "PLUS_OutSystemsUI_2_8_0.Utilities.Separator.mvc$model", "ECOP_FE_Core.controller$GetSuggestionTextHiglighted", "ECP_Product_CW.referencesHealth", "ECP_Product_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$GTMEvent_Search_ViewAllRecipes_Clicked", "ECOP_FE_Core.controller$GTMEvent_Search_SuggestionTerm", "ECOP_FE_Core.controller$GTMEvent_Search_AllProducts_Clicked"], function (OutSystems, ECP_Product_CWModel, ECOP_FE_CoreController, ECOP_Base_RPat_CustomPatterns_ListItemSmall_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvcModel) {
+var OS = OutSystems.Internal;
+
+var GetSuggestionsDataActRec = (function (_super) {
+__extends(GetSuggestionsDataActRec, _super);
+function GetSuggestionsDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetSuggestionsDataActRec.attributesToDeclare = function () {
+return [
+this.attr("SuggestionsList", "suggestionsListOut", "SuggestionsList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new OS.DataTypes.TextList());
+}, true, OS.DataTypes.TextList)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetSuggestionsDataActRec.fromStructure = function (str) {
+return new GetSuggestionsDataActRec(new GetSuggestionsDataActRec.RecordClass({
+suggestionsListOut: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GetSuggestionsDataActRec.init();
+return GetSuggestionsDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("AuxSearchText", "auxSearchTextVar", "AuxSearchText", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("SearchText", "searchTextIn", "SearchText", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_searchTextInDataFetchStatus", "_searchTextInDataFetchStatus", "_searchTextInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsMobile", "isMobileIn", "IsMobile", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isMobileInDataFetchStatus", "_isMobileInDataFetchStatus", "_isMobileInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetSuggestions", "getSuggestionsDataAct", "getSuggestionsDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetSuggestionsDataActRec());
+}, true, GetSuggestionsDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((ECOP_Base_RPat_CustomPatterns_ListItemSmall_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("SearchText" in inputs) {
+this.variables.searchTextIn = inputs.SearchText;
+if("_searchTextInDataFetchStatus" in inputs) {
+this.variables._searchTextInDataFetchStatus = inputs._searchTextInDataFetchStatus;
+}
+
+}
+
+if("IsMobile" in inputs) {
+this.variables.isMobileIn = inputs.IsMobile;
+if("_isMobileInDataFetchStatus" in inputs) {
+this.variables._isMobileInDataFetchStatus = inputs._isMobileInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Search.SuggestionList");
+});
+define("ECP_Product_CW.Search.SuggestionList.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller", "ECOP_FE_Core.controller", "react", "OutSystems/ReactView/Main", "ECP_Product_CW.Search.SuggestionList.mvc$model", "ECP_Product_CW.Search.SuggestionList.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.ListItemSmall.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Utilities.Separator.mvc$view", "ECOP_FE_Core.controller$GetSuggestionTextHiglighted", "ECP_Product_CW.referencesHealth", "ECP_Product_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$GTMEvent_Search_ViewAllRecipes_Clicked", "ECOP_FE_Core.controller$GTMEvent_Search_SuggestionTerm", "ECOP_FE_Core.controller$GTMEvent_Search_AllProducts_Clicked"], function (OutSystems, ECP_Product_CWModel, ECP_Product_CWController, ECOP_FE_CoreController, React, OSView, ECP_Product_CW_Search_SuggestionList_mvc_model, ECP_Product_CW_Search_SuggestionList_mvc_controller, OSWidgets, ECOP_Base_RPat_CustomPatterns_ListItemSmall_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Search.SuggestionList";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_ListItemSmall_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Product_CW_Search_SuggestionList_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Product_CW_Search_SuggestionList_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-y-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h4",
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: model.getCachedValue(idService.getId("ProdLabel.Style"), function () {
+return (((model.variables.isMobileIn) ? ("font-size-h4") : ("font-size-h6")) + " font-semi-bold");
+}, function () {
+return model.variables.isMobileIn;
+}),
+text: [$text(getTranslation("ylXuKRAI+EKBQDRU6a7PTw#Value", "Products"))],
+_idProps: {
+service: idService,
+name: "ProdLabel"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isMobileInDataFetchStatus)
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "auto-suggestion-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True",
+role: "listbox",
+"aria-labelledby": idService.getId("ProdLabel")
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Custom*/ 1,
+source: model.variables.getSuggestionsDataAct.suggestionsListOut,
+style: "list list-group",
+tag: "ul",
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getSuggestionsDataAct.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+tag: "li",
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedEvents: {
+onKeyDown: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onKeydown_Link$Action(model.variables.getSuggestionsDataAct.suggestionsListOut.getCurrent(callContext.iterationContext), controller.callContext(eventHandlerContext));
+});
+;
+},
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.componentDidMount_SuggestionLink$Action(model.variables.getSuggestionsDataAct.suggestionsListOut.getCurrentRowNumber(callContext.iterationContext), ECOP_FE_CoreController.default.getSuggestionTextHiglighted$Action(model.variables.getSuggestionsDataAct.suggestionsListOut.getCurrent(callContext.iterationContext), model.variables.searchTextIn, callContext).suggestionTextHiglightedHtmlOut, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_Link$Action(model.variables.searchTextIn, model.variables.getSuggestionsDataAct.suggestionsListOut.getCurrent(callContext.iterationContext), controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "auto-suggestion-item gtm-search-autosuggestion",
+visible: true,
+_idProps: {
+service: idService,
+name: "lnk_Suggestion"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}, callContext, idService, "1")
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "auto-suggestion-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedEvents: {
+onKeyDown: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onKeydown_SearchTerm$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_SearchInAllProducts$Action(model.variables.searchTextIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "auto-suggestion-item-last font-regular gtm-search-all",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_ListItemSmall_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "place",
+Name: "next-arrow text-neutral-5"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "11",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+centerLeft: new PlaceholderContent(function () {
+return [$text(getTranslation("lnXoXn6vD0mSSWGxGHaJbw#Value", "Search for \'")), React.createElement(OSWidgets.Expression, {
+style: "text-green font-semi-bold",
+value: model.variables.searchTextIn,
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._searchTextInDataFetchStatus)
+}), $text(getTranslation("piPKdxBR_Umxi+_nnE9FHA#Value", "\' in all products"))];
+}),
+centerRight: PlaceholderContent.Empty,
+right: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables._searchTextInDataFetchStatus), asPrimitiveValue(model.variables.searchTextIn)]
+}))), React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_Separator_mvc_view, {
+inputs: {
+Space: ECP_Product_CWModel.staticEntities.space.small
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "13",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-y-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h4",
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: model.getCachedValue(idService.getId("ReceptenLabel.Style"), function () {
+return (((model.variables.isMobileIn) ? ("font-size-h4") : ("font-size-h6")) + " font-semi-bold");
+}, function () {
+return model.variables.isMobileIn;
+}),
+text: [$text(getTranslation("OWz30Oz5jE+4BIiSbXe1UA#Value", "Recipes"))],
+_idProps: {
+service: idService,
+name: "ReceptenLabel"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isMobileInDataFetchStatus)
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "auto-suggestion-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedEvents: {
+onKeyDown: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onKeydown_SearchTerm$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_SearchInAllRecipes$Action(model.variables.searchTextIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "auto-suggestion-item-last font-regular gtm-view-recipes-all",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_ListItemSmall_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "19",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "place",
+Name: "next-arrow text-neutral-5"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "20",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+centerLeft: new PlaceholderContent(function () {
+return [$text(getTranslation("qveArKcuB0CLwQPDOoGG4Q#Value", "Search for \'")), React.createElement(OSWidgets.Expression, {
+style: "text-green font-semi-bold",
+value: model.variables.searchTextIn,
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._searchTextInDataFetchStatus)
+}), $text(getTranslation("nwX8i1wvLEqRLw7pWepIMw#Value", "\' in all recipes"))];
+}),
+centerRight: PlaceholderContent.Empty,
+right: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables._searchTextInDataFetchStatus), asPrimitiveValue(model.variables.searchTextIn)]
+})))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Product_CW.Search.SuggestionList.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller", "ECOP_FE_Core.controller", "ECP_Product_CW.languageResources", "ECP_Product_CW.Search.SuggestionList.mvc$translationsResources", "ECP_Product_CW.Search.SuggestionList.mvc$controller.OnKeydown_SearchTerm.IsTabOrEscJS", "ECP_Product_CW.Search.SuggestionList.mvc$controller.OnKeydown_Link.keyCodeJS", "ECP_Product_CW.Search.SuggestionList.mvc$controller.ComponentDidMount_SuggestionLink.InjectHTMLJS", "ECOP_FE_Core.controller$GetSuggestionTextHiglighted", "ECP_Product_CW.referencesHealth", "ECP_Product_CW.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$GTMEvent_Search_ViewAllRecipes_Clicked", "ECOP_FE_Core.controller$GTMEvent_Search_SuggestionTerm", "ECOP_FE_Core.controller$GTMEvent_Search_AllProducts_Clicked"], function (OutSystems, ECP_Product_CWModel, ECP_Product_CWController, ECOP_FE_CoreController, ECP_Product_CWLanguageResources, ECP_Product_CW_Search_SuggestionList_mvc_TranslationsResources, ECP_Product_CW_Search_SuggestionList_mvc_controller_OnKeydown_SearchTerm_IsTabOrEscJS, ECP_Product_CW_Search_SuggestionList_mvc_controller_OnKeydown_Link_keyCodeJS, ECP_Product_CW_Search_SuggestionList_mvc_controller_ComponentDidMount_SuggestionLink_InjectHTMLJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+getSuggestions$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getSuggestions$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Product_CW_Search_SuggestionList_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.getSuggestions$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetSuggestions", "screenservices/ECP_Product_CW/Search/SuggestionList/DataActionGetSuggestions", "+WwSb1rRKtEiHmRHs48Tsw", function (b) {
+model.variables.getSuggestionsDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getSuggestionsDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getSuggestionsDataAct.constructor));
+}, undefined, undefined, undefined, callContext, undefined, true);
+};
+
+Controller.prototype.dataFetchActionNames = ["getSuggestions$DataActRefresh"];
+// Client Actions
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Has minimum length?
+return OS.Flow.executeSequence(function () {
+if(((OS.BuiltinFunctions.length(OS.BuiltinFunctions.trim(model.variables.searchTextIn)) >= 3))) {
+// Keyword didn't change?
+return OS.Flow.executeSequence(function () {
+if((!((model.variables.searchTextIn === model.variables.auxSearchTextVar)))) {
+// Refresh Query: GetSuggestions
+var result = controller.getSuggestions$DataActRefresh(callContext);
+model.flush();
+return result.then(function () {
+// Set auxiliar search keyword
+// AuxSearchText = SearchText
+model.variables.auxSearchTextVar = model.variables.searchTextIn;
+});
+}
+
+});
+}
+
+});
+});
+};
+Controller.prototype._onClick_SearchInAllRecipes$Action = function (searchTermIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_SearchInAllRecipes");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnClick_SearchInAllRecipes$vars"))());
+vars.value.searchTermInLocal = searchTermIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GTMEvent_Search_ViewAllRecipes_Clicked
+ECOP_FE_CoreController.default.gTMEvent_Search_ViewAllRecipes_Clicked$Action(vars.value.searchTermInLocal, callContext);
+// Trigger Event: ViewAllRecipesClicked
+return controller.viewAllRecipesClicked$Action(vars.value.searchTermInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnClick_SearchInAllRecipes$vars", [{
+name: "SearchTerm",
+attrName: "searchTermInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onKeydown_SearchTerm$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnKeydown_SearchTerm");
+callContext = controller.callContext(callContext);
+var isTabOrEscJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+isTabOrEscJSResult.value = controller.safeExecuteJSNode(ECP_Product_CW_Search_SuggestionList_mvc_controller_OnKeydown_SearchTerm_IsTabOrEscJS, "IsTabOrEsc", "OnKeydown_SearchTerm", {
+IsTabOrEsc: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnKeydown_SearchTerm$isTabOrEscJSResult"))();
+jsNodeResult.isTabOrEscOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsTabOrEsc, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsTabOrEsc
+return OS.Flow.executeSequence(function () {
+if((isTabOrEscJSResult.value.isTabOrEscOut)) {
+// Trigger Event: HideDropdown
+return controller.hideDropdown$Action(callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnKeydown_SearchTerm$isTabOrEscJSResult", [{
+name: "IsTabOrEsc",
+attrName: "isTabOrEscOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onKeydown_Link$Action = function (searchTermIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnKeydown_Link");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnKeydown_Link$vars"))());
+vars.value.searchTermInLocal = searchTermIn;
+var keyCodeJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+keyCodeJSResult.value = controller.safeExecuteJSNode(ECP_Product_CW_Search_SuggestionList_mvc_controller_OnKeydown_Link_keyCodeJS, "keyCode", "OnKeydown_Link", {
+Keycode: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnKeydown_Link$keyCodeJSResult"))();
+jsNodeResult.keycodeOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Keycode, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// ENTER
+return OS.Flow.executeSequence(function () {
+if(((keyCodeJSResult.value.keycodeOut === "13"))) {
+// Execute Action: OnClick_SearchInAllProducts
+return controller._onClick_SearchInAllProducts$Action(vars.value.searchTermInLocal, callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnKeydown_Link$vars", [{
+name: "SearchTerm",
+attrName: "searchTermInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnKeydown_Link$keyCodeJSResult", [{
+name: "Keycode",
+attrName: "keycodeOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._componentDidMount_SuggestionLink$Action = function (currRowNumberIn, hTMLIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComponentDidMount_SuggestionLink");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SuggestionList.ComponentDidMount_SuggestionLink$vars"))());
+vars.value.currRowNumberInLocal = currRowNumberIn;
+vars.value.hTMLInLocal = hTMLIn;
+controller.safeExecuteJSNode(ECP_Product_CW_Search_SuggestionList_mvc_controller_ComponentDidMount_SuggestionLink_InjectHTMLJS, "InjectHTML", "ComponentDidMount_SuggestionLink", {
+HTML: OS.DataConversion.JSNodeParamConverter.to(vars.value.hTMLInLocal, OS.Types.Text),
+CurrRowNumber: OS.DataConversion.JSNodeParamConverter.to(vars.value.currRowNumberInLocal, OS.Types.Integer)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SuggestionList.ComponentDidMount_SuggestionLink$vars", [{
+name: "CurrRowNumber",
+attrName: "currRowNumberInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "HTML",
+attrName: "hTMLInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+// Set auxiliar search text
+// AuxSearchText = SearchText
+model.variables.auxSearchTextVar = model.variables.searchTextIn;
+};
+Controller.prototype._onClick_Link$Action = function (searchTermIn, suggestionIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_Link");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnClick_Link$vars"))());
+vars.value.searchTermInLocal = searchTermIn;
+vars.value.suggestionInLocal = suggestionIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GTMEvent_Search_SuggestionTerm
+ECOP_FE_CoreController.default.gTMEvent_Search_SuggestionTerm$Action(vars.value.searchTermInLocal, vars.value.suggestionInLocal, callContext);
+// Trigger Event: SuggestedTermClicked
+return controller.suggestedTermClicked$Action(vars.value.suggestionInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnClick_Link$vars", [{
+name: "SearchTerm",
+attrName: "searchTermInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Suggestion",
+attrName: "suggestionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onClick_SearchInAllProducts$Action = function (searchTermIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_SearchInAllProducts");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnClick_SearchInAllProducts$vars"))());
+vars.value.searchTermInLocal = searchTermIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GTMEvent_Search_AllProducts_Clicked
+ECOP_FE_CoreController.default.gTMEvent_Search_AllProducts_Clicked$Action(vars.value.searchTermInLocal, callContext);
+// Trigger Event: SuggestedTermClicked
+return controller.suggestedTermClicked$Action(vars.value.searchTermInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("ECP_Product_CW.Search.SuggestionList.OnClick_SearchInAllProducts$vars", [{
+name: "SearchTerm",
+attrName: "searchTermInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.onClick_SearchInAllRecipes$Action = function (searchTermIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_SearchInAllRecipes$Action, callContext, searchTermIn);
+
+};
+Controller.prototype.onKeydown_SearchTerm$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onKeydown_SearchTerm$Action, callContext);
+
+};
+Controller.prototype.onKeydown_Link$Action = function (searchTermIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onKeydown_Link$Action, callContext, searchTermIn);
+
+};
+Controller.prototype.componentDidMount_SuggestionLink$Action = function (currRowNumberIn, hTMLIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._componentDidMount_SuggestionLink$Action, callContext, currRowNumberIn, hTMLIn);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.onClick_Link$Action = function (searchTermIn, suggestionIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_Link$Action, callContext, searchTermIn, suggestionIn);
+
+};
+Controller.prototype.onClick_SearchInAllProducts$Action = function (searchTermIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_SearchInAllProducts$Action, callContext, searchTermIn);
+
+};
+Controller.prototype.hideDropdown$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.suggestedTermClicked$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.viewAllRecipesClicked$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Product_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Product_CWLanguageResources);
+});
+define("ECP_Product_CW.Search.SuggestionList.mvc$controller.OnKeydown_SearchTerm.IsTabOrEscJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if(!event.shiftKey && event.keyCode == 9 || event.keyCode == 27)
+    $parameters.IsTabOrEsc = true;
+};
+});
+define("ECP_Product_CW.Search.SuggestionList.mvc$controller.OnKeydown_Link.keyCodeJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.Keycode = event.keyCode;
+};
+});
+define("ECP_Product_CW.Search.SuggestionList.mvc$controller.ComponentDidMount_SuggestionLink.InjectHTMLJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+document.querySelectorAll('.auto-suggestion-item')[$parameters.CurrRowNumber].innerHTML = $parameters.HTML
+};
+});
+
+define("ECP_Product_CW.Search.SuggestionList.mvc$translationsResources", ["exports", "ECP_Product_CW.Search.SuggestionList.mvc$translationsResources.nl-NL"], function (exports, ECP_Product_CW_Search_SuggestionList_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Product_CW_Search_SuggestionList_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Product_CW.Search.SuggestionList.mvc$translationsResources.nl-NL", [], function () {
+return {
+"nwX8i1wvLEqRLw7pWepIMw#Value": "’ in alle recepten",
+"qveArKcuB0CLwQPDOoGG4Q#Value": "Zoeken naar ‘",
+"OWz30Oz5jE+4BIiSbXe1UA#Value": "Recepten",
+"piPKdxBR_Umxi+_nnE9FHA#Value": "’ in alle producten",
+"lnXoXn6vD0mSSWGxGHaJbw#Value": "Zoeken naar ‘",
+"ylXuKRAI+EKBQDRU6a7PTw#Value": "Producten"
+};
+});

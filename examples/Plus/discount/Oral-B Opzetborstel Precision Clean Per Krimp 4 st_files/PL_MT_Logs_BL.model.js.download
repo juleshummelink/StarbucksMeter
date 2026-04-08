@@ -1,0 +1,2010 @@
+﻿define("PL_MT_Logs_BL.model$ELK_APIRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_IS.model", "PL_MT_Logs_BL.model", "PL_MT_Logs_IS.model$ELK_APIRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Logs_IS"], function (exports, OutSystems, PL_MT_Logs_ISModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELK_APIRecord = (function (_super) {
+__extends(ELK_APIRecord, _super);
+function ELK_APIRecord(defaults) {
+_super.apply(this, arguments);
+}
+ELK_APIRecord.attributesToDeclare = function () {
+return [
+this.attr("ELK_API", "eLK_APIAttr", "ELK_API", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Logs_ISModel.ELK_APIRec());
+}, true, PL_MT_Logs_ISModel.ELK_APIRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ELK_APIRecord.fromStructure = function (str) {
+return new ELK_APIRecord(new ELK_APIRecord.RecordClass({
+eLK_APIAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ELK_APIRecord._isAnonymousRecord = true;
+ELK_APIRecord.UniqueId = "d0956f2a-219e-2db4-a887-9388438aa851";
+ELK_APIRecord.init();
+return ELK_APIRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.ELK_APIRecord = ELK_APIRecord;
+
+});
+define("PL_MT_Logs_BL.model$ELK_APIRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$ELK_APIRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELK_APIRecordList = (function (_super) {
+__extends(ELK_APIRecordList, _super);
+function ELK_APIRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ELK_APIRecordList.itemType = PL_MT_Logs_BLModel.ELK_APIRecord;
+return ELK_APIRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ELK_APIRecordList = ELK_APIRecordList;
+
+});
+define("PL_MT_Logs_BL.model$MTApplicationRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$MTApplicationRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MTApplicationRecord = (function (_super) {
+__extends(MTApplicationRecord, _super);
+function MTApplicationRecord(defaults) {
+_super.apply(this, arguments);
+}
+MTApplicationRecord.attributesToDeclare = function () {
+return [
+this.attr("MTApplication", "mTApplicationAttr", "MTApplication", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Settings_LibModel.MTApplicationRec());
+}, true, PL_MT_Settings_LibModel.MTApplicationRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MTApplicationRecord.fromStructure = function (str) {
+return new MTApplicationRecord(new MTApplicationRecord.RecordClass({
+mTApplicationAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MTApplicationRecord._isAnonymousRecord = true;
+MTApplicationRecord.UniqueId = "04fb7929-ad7d-d2cf-8bdb-4b9e5bec5244";
+MTApplicationRecord.init();
+return MTApplicationRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.MTApplicationRecord = MTApplicationRecord;
+
+});
+define("PL_MT_Logs_BL.model$JsonObjectRecord", ["exports", "OutSystems/ClientRuntime/Main", "Extension.ElasticNestIntegration.model", "PL_MT_Logs_BL.model", "Extension.ElasticNestIntegration.model$JsonObjectRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$ElasticNestIntegration"], function (exports, OutSystems, Extension_ElasticNestIntegrationModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var JsonObjectRecord = (function (_super) {
+__extends(JsonObjectRecord, _super);
+function JsonObjectRecord(defaults) {
+_super.apply(this, arguments);
+}
+JsonObjectRecord.attributesToDeclare = function () {
+return [
+this.attr("JsonObject", "jsonObjectAttr", "JsonObject", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Extension_ElasticNestIntegrationModel.JsonObjectRec());
+}, true, Extension_ElasticNestIntegrationModel.JsonObjectRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+JsonObjectRecord.fromStructure = function (str) {
+return new JsonObjectRecord(new JsonObjectRecord.RecordClass({
+jsonObjectAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+JsonObjectRecord._isAnonymousRecord = true;
+JsonObjectRecord.UniqueId = "f4cce6b7-d68b-779d-7b72-05dca8044143";
+JsonObjectRecord.init();
+return JsonObjectRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.JsonObjectRecord = JsonObjectRecord;
+
+});
+define("PL_MT_Logs_BL.model$JsonObjectRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$JsonObjectRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var JsonObjectRecordList = (function (_super) {
+__extends(JsonObjectRecordList, _super);
+function JsonObjectRecordList(defaults) {
+_super.apply(this, arguments);
+}
+JsonObjectRecordList.itemType = PL_MT_Logs_BLModel.JsonObjectRecord;
+return JsonObjectRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.JsonObjectRecordList = JsonObjectRecordList;
+
+});
+define("PL_MT_Logs_BL.model$ElasticRequestList", ["exports", "OutSystems/ClientRuntime/Main", "Extension.ElasticNestIntegration.model", "PL_MT_Logs_BL.model", "Extension.ElasticNestIntegration.model$ElasticRequestRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$ElasticNestIntegration"], function (exports, OutSystems, Extension_ElasticNestIntegrationModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ElasticRequestList = (function (_super) {
+__extends(ElasticRequestList, _super);
+function ElasticRequestList(defaults) {
+_super.apply(this, arguments);
+}
+ElasticRequestList.itemType = Extension_ElasticNestIntegrationModel.ElasticRequestRec;
+return ElasticRequestList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ElasticRequestList = ElasticRequestList;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringTraceRec", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringTraceRec = (function (_super) {
+__extends(MonitoringTraceRec, _super);
+function MonitoringTraceRec(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringTraceRec.attributesToDeclare = function () {
+return [
+this.attr("GlobalType", "globalTypeAttr", "GlobalType", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreationDateTime", "creationDateTimeAttr", "CreationDateTime", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Action", "actionAttr", "Action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Duration", "durationAttr", "Duration", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ExternalApp", "externalAppAttr", "ExternalApp", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "Message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Flow", "flowAttr", "Flow", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AuxJSON", "auxJSONAttr", "AuxJSON", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MonitoringTraceRec.init();
+return MonitoringTraceRec;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.MonitoringTraceRec = MonitoringTraceRec;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringTraceList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MonitoringTraceRec"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringTraceList = (function (_super) {
+__extends(MonitoringTraceList, _super);
+function MonitoringTraceList(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringTraceList.itemType = PL_MT_Logs_BLModel.MonitoringTraceRec;
+return MonitoringTraceList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MonitoringTraceList = MonitoringTraceList;
+
+});
+define("PL_MT_Logs_BL.model$MTAppOSAppsList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$MTAppOSAppsRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MTAppOSAppsList = (function (_super) {
+__extends(MTAppOSAppsList, _super);
+function MTAppOSAppsList(defaults) {
+_super.apply(this, arguments);
+}
+MTAppOSAppsList.itemType = PL_MT_Settings_LibModel.MTAppOSAppsRec;
+return MTAppOSAppsList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MTAppOSAppsList = MTAppOSAppsList;
+
+});
+define("PL_MT_Logs_BL.model$ElasticRequestRecord", ["exports", "OutSystems/ClientRuntime/Main", "Extension.ElasticNestIntegration.model", "PL_MT_Logs_BL.model", "Extension.ElasticNestIntegration.model$ElasticRequestRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$ElasticNestIntegration"], function (exports, OutSystems, Extension_ElasticNestIntegrationModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ElasticRequestRecord = (function (_super) {
+__extends(ElasticRequestRecord, _super);
+function ElasticRequestRecord(defaults) {
+_super.apply(this, arguments);
+}
+ElasticRequestRecord.attributesToDeclare = function () {
+return [
+this.attr("ElasticRequest", "elasticRequestAttr", "ElasticRequest", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Extension_ElasticNestIntegrationModel.ElasticRequestRec());
+}, true, Extension_ElasticNestIntegrationModel.ElasticRequestRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ElasticRequestRecord.fromStructure = function (str) {
+return new ElasticRequestRecord(new ElasticRequestRecord.RecordClass({
+elasticRequestAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ElasticRequestRecord._isAnonymousRecord = true;
+ElasticRequestRecord.UniqueId = "1bc2d3a2-9189-f2b0-4b34-84c83d8aab05";
+ElasticRequestRecord.init();
+return ElasticRequestRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.ElasticRequestRecord = ElasticRequestRecord;
+
+});
+define("PL_MT_Logs_BL.model$AuxJSONToMonitoringRec", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var AuxJSONToMonitoringRec = (function (_super) {
+__extends(AuxJSONToMonitoringRec, _super);
+function AuxJSONToMonitoringRec(defaults) {
+_super.apply(this, arguments);
+}
+AuxJSONToMonitoringRec.attributesToDeclare = function () {
+return [
+this.attr("UserId", "userIdAttr", "UserId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LoginIP", "loginIPAttr", "LoginIP", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AuxJSONToMonitoringRec.init();
+return AuxJSONToMonitoringRec;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.AuxJSONToMonitoringRec = AuxJSONToMonitoringRec;
+
+});
+define("PL_MT_Logs_BL.model$AuxJSONToMonitoringRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$AuxJSONToMonitoringRec"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var AuxJSONToMonitoringRecord = (function (_super) {
+__extends(AuxJSONToMonitoringRecord, _super);
+function AuxJSONToMonitoringRecord(defaults) {
+_super.apply(this, arguments);
+}
+AuxJSONToMonitoringRecord.attributesToDeclare = function () {
+return [
+this.attr("AuxJSONToMonitoring", "auxJSONToMonitoringAttr", "AuxJSONToMonitoring", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Logs_BLModel.AuxJSONToMonitoringRec());
+}, true, PL_MT_Logs_BLModel.AuxJSONToMonitoringRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+AuxJSONToMonitoringRecord.fromStructure = function (str) {
+return new AuxJSONToMonitoringRecord(new AuxJSONToMonitoringRecord.RecordClass({
+auxJSONToMonitoringAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+AuxJSONToMonitoringRecord._isAnonymousRecord = true;
+AuxJSONToMonitoringRecord.UniqueId = "24bc077c-23f9-7b42-83cd-206a42220b99";
+AuxJSONToMonitoringRecord.init();
+return AuxJSONToMonitoringRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.AuxJSONToMonitoringRecord = AuxJSONToMonitoringRecord;
+
+});
+define("PL_MT_Logs_BL.model$GlobalTypeList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_Logs_BL.model", "PL_MT_Customer_Data.model$GlobalTypeRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var GlobalTypeList = (function (_super) {
+__extends(GlobalTypeList, _super);
+function GlobalTypeList(defaults) {
+_super.apply(this, arguments);
+}
+GlobalTypeList.itemType = PL_MT_Customer_DataModel.GlobalTypeRec;
+return GlobalTypeList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.GlobalTypeList = GlobalTypeList;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringCustomerList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$MonitoringCustomerRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringCustomerList = (function (_super) {
+__extends(MonitoringCustomerList, _super);
+function MonitoringCustomerList(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringCustomerList.itemType = PL_MT_Settings_LibModel.MonitoringCustomerRec;
+return MonitoringCustomerList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MonitoringCustomerList = MonitoringCustomerList;
+
+});
+define("PL_MT_Logs_BL.model$Create_PL_Monitoring_LogRequestRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_IS.model", "PL_MT_Logs_BL.model", "PL_MT_Logs_IS.model$Create_PL_Monitoring_LogRequestRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Logs_IS"], function (exports, OutSystems, PL_MT_Logs_ISModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var Create_PL_Monitoring_LogRequestRecord = (function (_super) {
+__extends(Create_PL_Monitoring_LogRequestRecord, _super);
+function Create_PL_Monitoring_LogRequestRecord(defaults) {
+_super.apply(this, arguments);
+}
+Create_PL_Monitoring_LogRequestRecord.attributesToDeclare = function () {
+return [
+this.attr("Create_PL_Monitoring_LogRequest", "create_PL_Monitoring_LogRequestAttr", "Create_PL_Monitoring_LogRequest", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Logs_ISModel.Create_PL_Monitoring_LogRequestRec());
+}, true, PL_MT_Logs_ISModel.Create_PL_Monitoring_LogRequestRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Create_PL_Monitoring_LogRequestRecord.fromStructure = function (str) {
+return new Create_PL_Monitoring_LogRequestRecord(new Create_PL_Monitoring_LogRequestRecord.RecordClass({
+create_PL_Monitoring_LogRequestAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Create_PL_Monitoring_LogRequestRecord._isAnonymousRecord = true;
+Create_PL_Monitoring_LogRequestRecord.UniqueId = "30169c52-06d5-06e0-2bc7-176e20f7687e";
+Create_PL_Monitoring_LogRequestRecord.init();
+return Create_PL_Monitoring_LogRequestRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.Create_PL_Monitoring_LogRequestRecord = Create_PL_Monitoring_LogRequestRecord;
+
+});
+define("PL_MT_Logs_BL.model$JsonObjectList", ["exports", "OutSystems/ClientRuntime/Main", "Extension.ElasticNestIntegration.model", "PL_MT_Logs_BL.model", "Extension.ElasticNestIntegration.model$JsonObjectRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$ElasticNestIntegration"], function (exports, OutSystems, Extension_ElasticNestIntegrationModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var JsonObjectList = (function (_super) {
+__extends(JsonObjectList, _super);
+function JsonObjectList(defaults) {
+_super.apply(this, arguments);
+}
+JsonObjectList.itemType = Extension_ElasticNestIntegrationModel.JsonObjectRec;
+return JsonObjectList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.JsonObjectList = JsonObjectList;
+
+});
+define("PL_MT_Logs_BL.model$ApplicationsList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_Logs_BL.model", "PL_MT_Customer_Data.model$ApplicationsRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ApplicationsList = (function (_super) {
+__extends(ApplicationsList, _super);
+function ApplicationsList(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationsList.itemType = PL_MT_Customer_DataModel.ApplicationsRec;
+return ApplicationsList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ApplicationsList = ApplicationsList;
+
+});
+define("PL_MT_Logs_BL.model$LogExceptionStrRec", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrRec = (function (_super) {
+__extends(LogExceptionStrRec, _super);
+function LogExceptionStrRec(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrRec.attributesToDeclare = function () {
+return [
+this.attr("Environment", "environmentAttr", "Environment", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Customer", "customerAttr", "Customer", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ApplicationName", "applicationNameAttr", "ApplicationName", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionType", "exceptionTypeAttr", "ExceptionType", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionSubTypeName", "exceptionSubTypeNameAttr", "ExceptionSubTypeName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RequestKey", "requestKeyAttr", "RequestKey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Module", "moduleAttr", "Module", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Screen", "screenAttr", "Screen", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Action", "actionAttr", "Action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("User", "userAttr", "User", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "Message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionMessage", "exceptionMessageAttr", "ExceptionMessage", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+LogExceptionStrRec.init();
+return LogExceptionStrRec;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.LogExceptionStrRec = LogExceptionStrRec;
+
+});
+define("PL_MT_Logs_BL.model$ElasticRequestStructureRecord", ["exports", "OutSystems/ClientRuntime/Main", "Extension.ElasticNestIntegration.model", "PL_MT_Logs_BL.model", "Extension.ElasticNestIntegration.model$ElasticRequestStructureRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$ElasticNestIntegration"], function (exports, OutSystems, Extension_ElasticNestIntegrationModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ElasticRequestStructureRecord = (function (_super) {
+__extends(ElasticRequestStructureRecord, _super);
+function ElasticRequestStructureRecord(defaults) {
+_super.apply(this, arguments);
+}
+ElasticRequestStructureRecord.attributesToDeclare = function () {
+return [
+this.attr("ElasticRequestStructure", "elasticRequestStructureAttr", "ElasticRequestStructure", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Extension_ElasticNestIntegrationModel.ElasticRequestStructureRec());
+}, true, Extension_ElasticNestIntegrationModel.ElasticRequestStructureRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ElasticRequestStructureRecord.fromStructure = function (str) {
+return new ElasticRequestStructureRecord(new ElasticRequestStructureRecord.RecordClass({
+elasticRequestStructureAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ElasticRequestStructureRecord._isAnonymousRecord = true;
+ElasticRequestStructureRecord.UniqueId = "485098f9-b98c-1121-70eb-000f58573d53";
+ElasticRequestStructureRecord.init();
+return ElasticRequestStructureRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.ElasticRequestStructureRecord = ElasticRequestStructureRecord;
+
+});
+define("PL_MT_Logs_BL.model$LogMonitoringToProcessRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Logs_Lib.model$LogMonitoringToProcessRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Logs_Lib"], function (exports, OutSystems, PL_MT_Logs_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var LogMonitoringToProcessRecord = (function (_super) {
+__extends(LogMonitoringToProcessRecord, _super);
+function LogMonitoringToProcessRecord(defaults) {
+_super.apply(this, arguments);
+}
+LogMonitoringToProcessRecord.attributesToDeclare = function () {
+return [
+this.attr("LogMonitoringToProcess", "logMonitoringToProcessAttr", "LogMonitoringToProcess", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Logs_LibModel.LogMonitoringToProcessRec());
+}, true, PL_MT_Logs_LibModel.LogMonitoringToProcessRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+LogMonitoringToProcessRecord.fromStructure = function (str) {
+return new LogMonitoringToProcessRecord(new LogMonitoringToProcessRecord.RecordClass({
+logMonitoringToProcessAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+LogMonitoringToProcessRecord._isAnonymousRecord = true;
+LogMonitoringToProcessRecord.UniqueId = "c158a4d8-150a-a8ed-bc19-bcd88c08b5bc";
+LogMonitoringToProcessRecord.init();
+return LogMonitoringToProcessRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.LogMonitoringToProcessRecord = LogMonitoringToProcessRecord;
+
+});
+define("PL_MT_Logs_BL.model$LogMonitoringToProcessRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$LogMonitoringToProcessRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var LogMonitoringToProcessRecordList = (function (_super) {
+__extends(LogMonitoringToProcessRecordList, _super);
+function LogMonitoringToProcessRecordList(defaults) {
+_super.apply(this, arguments);
+}
+LogMonitoringToProcessRecordList.itemType = PL_MT_Logs_BLModel.LogMonitoringToProcessRecord;
+return LogMonitoringToProcessRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.LogMonitoringToProcessRecordList = LogMonitoringToProcessRecordList;
+
+});
+define("PL_MT_Logs_BL.model$ELKPlatformtIngestionPipelinesRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$ELKPlatformtIngestionPipelinesRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELKPlatformtIngestionPipelinesRecord = (function (_super) {
+__extends(ELKPlatformtIngestionPipelinesRecord, _super);
+function ELKPlatformtIngestionPipelinesRecord(defaults) {
+_super.apply(this, arguments);
+}
+ELKPlatformtIngestionPipelinesRecord.attributesToDeclare = function () {
+return [
+this.attr("ELKPlatformtIngestionPipelines", "eLKPlatformtIngestionPipelinesAttr", "ELKPlatformtIngestionPipelines", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Settings_LibModel.ELKPlatformtIngestionPipelinesRec());
+}, true, PL_MT_Settings_LibModel.ELKPlatformtIngestionPipelinesRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ELKPlatformtIngestionPipelinesRecord.fromStructure = function (str) {
+return new ELKPlatformtIngestionPipelinesRecord(new ELKPlatformtIngestionPipelinesRecord.RecordClass({
+eLKPlatformtIngestionPipelinesAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ELKPlatformtIngestionPipelinesRecord._isAnonymousRecord = true;
+ELKPlatformtIngestionPipelinesRecord.UniqueId = "54f4ed04-0b10-d4f1-8de5-ac77f31c59ad";
+ELKPlatformtIngestionPipelinesRecord.init();
+return ELKPlatformtIngestionPipelinesRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.ELKPlatformtIngestionPipelinesRecord = ELKPlatformtIngestionPipelinesRecord;
+
+});
+define("PL_MT_Logs_BL.model$ELKPlatformPipelineTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$ELKPlatformPipelineTypeRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELKPlatformPipelineTypeRecord = (function (_super) {
+__extends(ELKPlatformPipelineTypeRecord, _super);
+function ELKPlatformPipelineTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+ELKPlatformPipelineTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("ELKPlatformPipelineType", "eLKPlatformPipelineTypeAttr", "ELKPlatformPipelineType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Settings_LibModel.ELKPlatformPipelineTypeRec());
+}, true, PL_MT_Settings_LibModel.ELKPlatformPipelineTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ELKPlatformPipelineTypeRecord.fromStructure = function (str) {
+return new ELKPlatformPipelineTypeRecord(new ELKPlatformPipelineTypeRecord.RecordClass({
+eLKPlatformPipelineTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ELKPlatformPipelineTypeRecord._isAnonymousRecord = true;
+ELKPlatformPipelineTypeRecord.UniqueId = "555a0407-38c1-2222-4223-ceb430ee07dc";
+ELKPlatformPipelineTypeRecord.init();
+return ELKPlatformPipelineTypeRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.ELKPlatformPipelineTypeRecord = ELKPlatformPipelineTypeRecord;
+
+});
+define("PL_MT_Logs_BL.model$ApplicationsRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_Logs_BL.model", "PL_MT_Customer_Data.model$ApplicationsRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ApplicationsRecord = (function (_super) {
+__extends(ApplicationsRecord, _super);
+function ApplicationsRecord(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationsRecord.attributesToDeclare = function () {
+return [
+this.attr("Applications", "applicationsAttr", "Applications", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Customer_DataModel.ApplicationsRec());
+}, true, PL_MT_Customer_DataModel.ApplicationsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ApplicationsRecord.fromStructure = function (str) {
+return new ApplicationsRecord(new ApplicationsRecord.RecordClass({
+applicationsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ApplicationsRecord._isAnonymousRecord = true;
+ApplicationsRecord.UniqueId = "578e14e5-e5b3-0513-761d-c033c37c0741";
+ApplicationsRecord.init();
+return ApplicationsRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.ApplicationsRecord = ApplicationsRecord;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringRec", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringRec = (function (_super) {
+__extends(MonitoringRec, _super);
+function MonitoringRec(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringRec.attributesToDeclare = function () {
+return [
+this.attr("GlobalType", "globalTypeAttr", "GlobalType", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CreationDateTime", "creationDateTimeAttr", "CreationDateTime", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("Action", "actionAttr", "Action", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Duration", "durationAttr", "Duration", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ExternalApp", "externalAppAttr", "ExternalApp", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Message", "messageAttr", "Message", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Flow", "flowAttr", "Flow", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ApplicationName", "applicationNameAttr", "ApplicationName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Environment", "environmentAttr", "Environment", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("AuxJSON", "auxJSONAttr", "AuxJSON", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+MonitoringRec.init();
+return MonitoringRec;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.MonitoringRec = MonitoringRec;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MonitoringRec"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringRecord = (function (_super) {
+__extends(MonitoringRecord, _super);
+function MonitoringRecord(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringRecord.attributesToDeclare = function () {
+return [
+this.attr("Monitoring", "monitoringAttr", "Monitoring", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Logs_BLModel.MonitoringRec());
+}, true, PL_MT_Logs_BLModel.MonitoringRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MonitoringRecord.fromStructure = function (str) {
+return new MonitoringRecord(new MonitoringRecord.RecordClass({
+monitoringAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MonitoringRecord._isAnonymousRecord = true;
+MonitoringRecord.UniqueId = "599ef387-1c32-fe26-6703-e428f7b0f966";
+MonitoringRecord.init();
+return MonitoringRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.MonitoringRecord = MonitoringRecord;
+
+});
+define("PL_MT_Logs_BL.model$ELK_APIList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_IS.model", "PL_MT_Logs_BL.model", "PL_MT_Logs_IS.model$ELK_APIRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Logs_IS"], function (exports, OutSystems, PL_MT_Logs_ISModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELK_APIList = (function (_super) {
+__extends(ELK_APIList, _super);
+function ELK_APIList(defaults) {
+_super.apply(this, arguments);
+}
+ELK_APIList.itemType = PL_MT_Logs_ISModel.ELK_APIRec;
+return ELK_APIList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ELK_APIList = ELK_APIList;
+
+});
+define("PL_MT_Logs_BL.model$FlowTypeList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_Logs_BL.model", "PL_MT_Customer_Data.model$FlowTypeRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var FlowTypeList = (function (_super) {
+__extends(FlowTypeList, _super);
+function FlowTypeList(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeList.itemType = PL_MT_Customer_DataModel.FlowTypeRec;
+return FlowTypeList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.FlowTypeList = FlowTypeList;
+
+});
+define("PL_MT_Logs_BL.model$ApplicationsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$ApplicationsRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ApplicationsRecordList = (function (_super) {
+__extends(ApplicationsRecordList, _super);
+function ApplicationsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationsRecordList.itemType = PL_MT_Logs_BLModel.ApplicationsRecord;
+return ApplicationsRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ApplicationsRecordList = ApplicationsRecordList;
+
+});
+define("PL_MT_Logs_BL.model$ExceptionTypeList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$ExceptionTypeRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeList = (function (_super) {
+__extends(ExceptionTypeList, _super);
+function ExceptionTypeList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeList.itemType = PL_MT_Settings_LibModel.ExceptionTypeRec;
+return ExceptionTypeList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ExceptionTypeList = ExceptionTypeList;
+
+});
+define("PL_MT_Logs_BL.model$MTApplicationRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MTApplicationRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MTApplicationRecordList = (function (_super) {
+__extends(MTApplicationRecordList, _super);
+function MTApplicationRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MTApplicationRecordList.itemType = PL_MT_Logs_BLModel.MTApplicationRecord;
+return MTApplicationRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MTApplicationRecordList = MTApplicationRecordList;
+
+});
+define("PL_MT_Logs_BL.model$AuxJSONToMonitoringList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$AuxJSONToMonitoringRec"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var AuxJSONToMonitoringList = (function (_super) {
+__extends(AuxJSONToMonitoringList, _super);
+function AuxJSONToMonitoringList(defaults) {
+_super.apply(this, arguments);
+}
+AuxJSONToMonitoringList.itemType = PL_MT_Logs_BLModel.AuxJSONToMonitoringRec;
+return AuxJSONToMonitoringList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.AuxJSONToMonitoringList = AuxJSONToMonitoringList;
+
+});
+define("PL_MT_Logs_BL.model$ELKPlatformtIngestionPipelinesRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$ELKPlatformtIngestionPipelinesRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELKPlatformtIngestionPipelinesRecordList = (function (_super) {
+__extends(ELKPlatformtIngestionPipelinesRecordList, _super);
+function ELKPlatformtIngestionPipelinesRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ELKPlatformtIngestionPipelinesRecordList.itemType = PL_MT_Logs_BLModel.ELKPlatformtIngestionPipelinesRecord;
+return ELKPlatformtIngestionPipelinesRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ELKPlatformtIngestionPipelinesRecordList = ELKPlatformtIngestionPipelinesRecordList;
+
+});
+define("PL_MT_Logs_BL.model$MTAppOSAppsRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$MTAppOSAppsRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MTAppOSAppsRecord = (function (_super) {
+__extends(MTAppOSAppsRecord, _super);
+function MTAppOSAppsRecord(defaults) {
+_super.apply(this, arguments);
+}
+MTAppOSAppsRecord.attributesToDeclare = function () {
+return [
+this.attr("MTAppOSApps", "mTAppOSAppsAttr", "MTAppOSApps", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Settings_LibModel.MTAppOSAppsRec());
+}, true, PL_MT_Settings_LibModel.MTAppOSAppsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MTAppOSAppsRecord.fromStructure = function (str) {
+return new MTAppOSAppsRecord(new MTAppOSAppsRecord.RecordClass({
+mTAppOSAppsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MTAppOSAppsRecord._isAnonymousRecord = true;
+MTAppOSAppsRecord.UniqueId = "e47b2408-bbf5-2966-e47d-84a97ff82f4a";
+MTAppOSAppsRecord.init();
+return MTAppOSAppsRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.MTAppOSAppsRecord = MTAppOSAppsRecord;
+
+});
+define("PL_MT_Logs_BL.model$MTAppOSAppsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MTAppOSAppsRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MTAppOSAppsRecordList = (function (_super) {
+__extends(MTAppOSAppsRecordList, _super);
+function MTAppOSAppsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MTAppOSAppsRecordList.itemType = PL_MT_Logs_BLModel.MTAppOSAppsRecord;
+return MTAppOSAppsRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MTAppOSAppsRecordList = MTAppOSAppsRecordList;
+
+});
+define("PL_MT_Logs_BL.model$LogExceptionStrRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$LogExceptionStrRec"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrRecord = (function (_super) {
+__extends(LogExceptionStrRecord, _super);
+function LogExceptionStrRecord(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrRecord.attributesToDeclare = function () {
+return [
+this.attr("LogExceptionStr", "logExceptionStrAttr", "LogExceptionStr", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Logs_BLModel.LogExceptionStrRec());
+}, true, PL_MT_Logs_BLModel.LogExceptionStrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+LogExceptionStrRecord.fromStructure = function (str) {
+return new LogExceptionStrRecord(new LogExceptionStrRecord.RecordClass({
+logExceptionStrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+LogExceptionStrRecord._isAnonymousRecord = true;
+LogExceptionStrRecord.UniqueId = "81efb4de-1980-987d-a6e7-fc1cde0c0be8";
+LogExceptionStrRecord.init();
+return LogExceptionStrRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.LogExceptionStrRecord = LogExceptionStrRecord;
+
+});
+define("PL_MT_Logs_BL.model$ELKPlatformtIngestionPipelinesList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$ELKPlatformtIngestionPipelinesRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELKPlatformtIngestionPipelinesList = (function (_super) {
+__extends(ELKPlatformtIngestionPipelinesList, _super);
+function ELKPlatformtIngestionPipelinesList(defaults) {
+_super.apply(this, arguments);
+}
+ELKPlatformtIngestionPipelinesList.itemType = PL_MT_Settings_LibModel.ELKPlatformtIngestionPipelinesRec;
+return ELKPlatformtIngestionPipelinesList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ELKPlatformtIngestionPipelinesList = ELKPlatformtIngestionPipelinesList;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringCustomerRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$MonitoringCustomerRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringCustomerRecord = (function (_super) {
+__extends(MonitoringCustomerRecord, _super);
+function MonitoringCustomerRecord(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringCustomerRecord.attributesToDeclare = function () {
+return [
+this.attr("MonitoringCustomer", "monitoringCustomerAttr", "MonitoringCustomer", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Settings_LibModel.MonitoringCustomerRec());
+}, true, PL_MT_Settings_LibModel.MonitoringCustomerRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MonitoringCustomerRecord.fromStructure = function (str) {
+return new MonitoringCustomerRecord(new MonitoringCustomerRecord.RecordClass({
+monitoringCustomerAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MonitoringCustomerRecord._isAnonymousRecord = true;
+MonitoringCustomerRecord.UniqueId = "ded08826-bd58-ec02-777e-42ed633f4dc4";
+MonitoringCustomerRecord.init();
+return MonitoringCustomerRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.MonitoringCustomerRecord = MonitoringCustomerRecord;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringCustomerRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MonitoringCustomerRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringCustomerRecordList = (function (_super) {
+__extends(MonitoringCustomerRecordList, _super);
+function MonitoringCustomerRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringCustomerRecordList.itemType = PL_MT_Logs_BLModel.MonitoringCustomerRecord;
+return MonitoringCustomerRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MonitoringCustomerRecordList = MonitoringCustomerRecordList;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MonitoringRec"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringList = (function (_super) {
+__extends(MonitoringList, _super);
+function MonitoringList(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringList.itemType = PL_MT_Logs_BLModel.MonitoringRec;
+return MonitoringList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MonitoringList = MonitoringList;
+
+});
+define("PL_MT_Logs_BL.model$ELKPlatformPipelineTypeList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$ELKPlatformPipelineTypeRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELKPlatformPipelineTypeList = (function (_super) {
+__extends(ELKPlatformPipelineTypeList, _super);
+function ELKPlatformPipelineTypeList(defaults) {
+_super.apply(this, arguments);
+}
+ELKPlatformPipelineTypeList.itemType = PL_MT_Settings_LibModel.ELKPlatformPipelineTypeRec;
+return ELKPlatformPipelineTypeList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ELKPlatformPipelineTypeList = ELKPlatformPipelineTypeList;
+
+});
+define("PL_MT_Logs_BL.model$ExceptionTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$ExceptionTypeRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeRecord = (function (_super) {
+__extends(ExceptionTypeRecord, _super);
+function ExceptionTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("ExceptionType", "exceptionTypeAttr", "ExceptionType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Settings_LibModel.ExceptionTypeRec());
+}, true, PL_MT_Settings_LibModel.ExceptionTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExceptionTypeRecord.fromStructure = function (str) {
+return new ExceptionTypeRecord(new ExceptionTypeRecord.RecordClass({
+exceptionTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ExceptionTypeRecord._isAnonymousRecord = true;
+ExceptionTypeRecord.UniqueId = "95ad47d1-8e8e-2d48-700f-1a00533c0266";
+ExceptionTypeRecord.init();
+return ExceptionTypeRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.ExceptionTypeRecord = ExceptionTypeRecord;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringTraceRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MonitoringTraceRec"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringTraceRecord = (function (_super) {
+__extends(MonitoringTraceRecord, _super);
+function MonitoringTraceRecord(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringTraceRecord.attributesToDeclare = function () {
+return [
+this.attr("MonitoringTrace", "monitoringTraceAttr", "MonitoringTrace", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Logs_BLModel.MonitoringTraceRec());
+}, true, PL_MT_Logs_BLModel.MonitoringTraceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MonitoringTraceRecord.fromStructure = function (str) {
+return new MonitoringTraceRecord(new MonitoringTraceRecord.RecordClass({
+monitoringTraceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MonitoringTraceRecord._isAnonymousRecord = true;
+MonitoringTraceRecord.UniqueId = "99f14dae-332f-9159-2332-d92a4132bc42";
+MonitoringTraceRecord.init();
+return MonitoringTraceRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.MonitoringTraceRecord = MonitoringTraceRecord;
+
+});
+define("PL_MT_Logs_BL.model$LogMonitoringToProcessList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Logs_Lib.model$LogMonitoringToProcessRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Logs_Lib"], function (exports, OutSystems, PL_MT_Logs_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var LogMonitoringToProcessList = (function (_super) {
+__extends(LogMonitoringToProcessList, _super);
+function LogMonitoringToProcessList(defaults) {
+_super.apply(this, arguments);
+}
+LogMonitoringToProcessList.itemType = PL_MT_Logs_LibModel.LogMonitoringToProcessRec;
+return LogMonitoringToProcessList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.LogMonitoringToProcessList = LogMonitoringToProcessList;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringTraceRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MonitoringTraceRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringTraceRecordList = (function (_super) {
+__extends(MonitoringTraceRecordList, _super);
+function MonitoringTraceRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringTraceRecordList.itemType = PL_MT_Logs_BLModel.MonitoringTraceRecord;
+return MonitoringTraceRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MonitoringTraceRecordList = MonitoringTraceRecordList;
+
+});
+define("PL_MT_Logs_BL.model$Create_PL_Monitoring_LogRequestRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$Create_PL_Monitoring_LogRequestRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var Create_PL_Monitoring_LogRequestRecordList = (function (_super) {
+__extends(Create_PL_Monitoring_LogRequestRecordList, _super);
+function Create_PL_Monitoring_LogRequestRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Create_PL_Monitoring_LogRequestRecordList.itemType = PL_MT_Logs_BLModel.Create_PL_Monitoring_LogRequestRecord;
+return Create_PL_Monitoring_LogRequestRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.Create_PL_Monitoring_LogRequestRecordList = Create_PL_Monitoring_LogRequestRecordList;
+
+});
+define("PL_MT_Logs_BL.model$AuxJSONToMonitoringRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$AuxJSONToMonitoringRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var AuxJSONToMonitoringRecordList = (function (_super) {
+__extends(AuxJSONToMonitoringRecordList, _super);
+function AuxJSONToMonitoringRecordList(defaults) {
+_super.apply(this, arguments);
+}
+AuxJSONToMonitoringRecordList.itemType = PL_MT_Logs_BLModel.AuxJSONToMonitoringRecord;
+return AuxJSONToMonitoringRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.AuxJSONToMonitoringRecordList = AuxJSONToMonitoringRecordList;
+
+});
+define("PL_MT_Logs_BL.model$FlowTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_Logs_BL.model", "PL_MT_Customer_Data.model$FlowTypeRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var FlowTypeRecord = (function (_super) {
+__extends(FlowTypeRecord, _super);
+function FlowTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("FlowType", "flowTypeAttr", "FlowType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Customer_DataModel.FlowTypeRec());
+}, true, PL_MT_Customer_DataModel.FlowTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+FlowTypeRecord.fromStructure = function (str) {
+return new FlowTypeRecord(new FlowTypeRecord.RecordClass({
+flowTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+FlowTypeRecord._isAnonymousRecord = true;
+FlowTypeRecord.UniqueId = "f7930230-e456-48d0-4263-d440d8543804";
+FlowTypeRecord.init();
+return FlowTypeRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.FlowTypeRecord = FlowTypeRecord;
+
+});
+define("PL_MT_Logs_BL.model$FlowTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$FlowTypeRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var FlowTypeRecordList = (function (_super) {
+__extends(FlowTypeRecordList, _super);
+function FlowTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+FlowTypeRecordList.itemType = PL_MT_Logs_BLModel.FlowTypeRecord;
+return FlowTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.FlowTypeRecordList = FlowTypeRecordList;
+
+});
+define("PL_MT_Logs_BL.model$GlobalTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Customer_Data.model", "PL_MT_Logs_BL.model", "PL_MT_Customer_Data.model$GlobalTypeRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Customer_Data"], function (exports, OutSystems, PL_MT_Customer_DataModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var GlobalTypeRecord = (function (_super) {
+__extends(GlobalTypeRecord, _super);
+function GlobalTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+GlobalTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("GlobalType", "globalTypeAttr", "GlobalType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PL_MT_Customer_DataModel.GlobalTypeRec());
+}, true, PL_MT_Customer_DataModel.GlobalTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GlobalTypeRecord.fromStructure = function (str) {
+return new GlobalTypeRecord(new GlobalTypeRecord.RecordClass({
+globalTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GlobalTypeRecord._isAnonymousRecord = true;
+GlobalTypeRecord.UniqueId = "c1a07a62-0850-ea56-a432-abd9c36da832";
+GlobalTypeRecord.init();
+return GlobalTypeRecord;
+})(OS.DataTypes.GenericRecord);
+PL_MT_Logs_BLModel.GlobalTypeRecord = GlobalTypeRecord;
+
+});
+define("PL_MT_Logs_BL.model$MonitoringRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$MonitoringRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MonitoringRecordList = (function (_super) {
+__extends(MonitoringRecordList, _super);
+function MonitoringRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MonitoringRecordList.itemType = PL_MT_Logs_BLModel.MonitoringRecord;
+return MonitoringRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MonitoringRecordList = MonitoringRecordList;
+
+});
+define("PL_MT_Logs_BL.model$ElasticRequestStructureList", ["exports", "OutSystems/ClientRuntime/Main", "Extension.ElasticNestIntegration.model", "PL_MT_Logs_BL.model", "Extension.ElasticNestIntegration.model$ElasticRequestStructureRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$ElasticNestIntegration"], function (exports, OutSystems, Extension_ElasticNestIntegrationModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ElasticRequestStructureList = (function (_super) {
+__extends(ElasticRequestStructureList, _super);
+function ElasticRequestStructureList(defaults) {
+_super.apply(this, arguments);
+}
+ElasticRequestStructureList.itemType = Extension_ElasticNestIntegrationModel.ElasticRequestStructureRec;
+return ElasticRequestStructureList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ElasticRequestStructureList = ElasticRequestStructureList;
+
+});
+define("PL_MT_Logs_BL.model$ElasticRequestRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$ElasticRequestRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ElasticRequestRecordList = (function (_super) {
+__extends(ElasticRequestRecordList, _super);
+function ElasticRequestRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ElasticRequestRecordList.itemType = PL_MT_Logs_BLModel.ElasticRequestRecord;
+return ElasticRequestRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ElasticRequestRecordList = ElasticRequestRecordList;
+
+});
+define("PL_MT_Logs_BL.model$GlobalTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$GlobalTypeRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var GlobalTypeRecordList = (function (_super) {
+__extends(GlobalTypeRecordList, _super);
+function GlobalTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+GlobalTypeRecordList.itemType = PL_MT_Logs_BLModel.GlobalTypeRecord;
+return GlobalTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.GlobalTypeRecordList = GlobalTypeRecordList;
+
+});
+define("PL_MT_Logs_BL.model$ExceptionTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$ExceptionTypeRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeRecordList = (function (_super) {
+__extends(ExceptionTypeRecordList, _super);
+function ExceptionTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeRecordList.itemType = PL_MT_Logs_BLModel.ExceptionTypeRecord;
+return ExceptionTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ExceptionTypeRecordList = ExceptionTypeRecordList;
+
+});
+define("PL_MT_Logs_BL.model$ElasticRequestStructureRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$ElasticRequestStructureRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ElasticRequestStructureRecordList = (function (_super) {
+__extends(ElasticRequestStructureRecordList, _super);
+function ElasticRequestStructureRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ElasticRequestStructureRecordList.itemType = PL_MT_Logs_BLModel.ElasticRequestStructureRecord;
+return ElasticRequestStructureRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ElasticRequestStructureRecordList = ElasticRequestStructureRecordList;
+
+});
+define("PL_MT_Logs_BL.model$LogExceptionStrList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$LogExceptionStrRec"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrList = (function (_super) {
+__extends(LogExceptionStrList, _super);
+function LogExceptionStrList(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrList.itemType = PL_MT_Logs_BLModel.LogExceptionStrRec;
+return LogExceptionStrList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.LogExceptionStrList = LogExceptionStrList;
+
+});
+define("PL_MT_Logs_BL.model$MTApplicationList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Settings_Lib.model", "PL_MT_Logs_BL.model", "PL_MT_Settings_Lib.model$MTApplicationRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Settings_Lib"], function (exports, OutSystems, PL_MT_Settings_LibModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var MTApplicationList = (function (_super) {
+__extends(MTApplicationList, _super);
+function MTApplicationList(defaults) {
+_super.apply(this, arguments);
+}
+MTApplicationList.itemType = PL_MT_Settings_LibModel.MTApplicationRec;
+return MTApplicationList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.MTApplicationList = MTApplicationList;
+
+});
+define("PL_MT_Logs_BL.model$ELKPlatformPipelineTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$ELKPlatformPipelineTypeRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var ELKPlatformPipelineTypeRecordList = (function (_super) {
+__extends(ELKPlatformPipelineTypeRecordList, _super);
+function ELKPlatformPipelineTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ELKPlatformPipelineTypeRecordList.itemType = PL_MT_Logs_BLModel.ELKPlatformPipelineTypeRecord;
+return ELKPlatformPipelineTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.ELKPlatformPipelineTypeRecordList = ELKPlatformPipelineTypeRecordList;
+
+});
+define("PL_MT_Logs_BL.model$Create_PL_Monitoring_LogRequestList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_IS.model", "PL_MT_Logs_BL.model", "PL_MT_Logs_IS.model$Create_PL_Monitoring_LogRequestRec", "PL_MT_Logs_BL.referencesHealth", "PL_MT_Logs_BL.referencesHealth$PL_MT_Logs_IS"], function (exports, OutSystems, PL_MT_Logs_ISModel, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var Create_PL_Monitoring_LogRequestList = (function (_super) {
+__extends(Create_PL_Monitoring_LogRequestList, _super);
+function Create_PL_Monitoring_LogRequestList(defaults) {
+_super.apply(this, arguments);
+}
+Create_PL_Monitoring_LogRequestList.itemType = PL_MT_Logs_ISModel.Create_PL_Monitoring_LogRequestRec;
+return Create_PL_Monitoring_LogRequestList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.Create_PL_Monitoring_LogRequestList = Create_PL_Monitoring_LogRequestList;
+
+});
+define("PL_MT_Logs_BL.model$LogExceptionStrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_Logs_BL.model", "PL_MT_Logs_BL.model$LogExceptionStrRecord"], function (exports, OutSystems, PL_MT_Logs_BLModel) {
+var OS = OutSystems.Internal;
+var LogExceptionStrRecordList = (function (_super) {
+__extends(LogExceptionStrRecordList, _super);
+function LogExceptionStrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+LogExceptionStrRecordList.itemType = PL_MT_Logs_BLModel.LogExceptionStrRecord;
+return LogExceptionStrRecordList;
+})(OS.DataTypes.GenericRecordList);
+PL_MT_Logs_BLModel.LogExceptionStrRecordList = LogExceptionStrRecordList;
+
+});
+define("PL_MT_Logs_BL.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var PL_MT_Logs_BLModel = exports;
+Object.defineProperty(PL_MT_Logs_BLModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["c65cb2f5-209f-4def-a3d7-cc347b85cb87"];
+}
+});
+
+PL_MT_Logs_BLModel.staticEntities = {};
+PL_MT_Logs_BLModel.staticEntities.flowType = {};
+var getFlowTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["0db7a3aa-3ba8-4c90-8413-acb9b60cff25"].staticEntities["6bb428b5-7018-45ca-af8b-185e2335aebb"][record];
+};
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "conversationDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0c128578-608d-4617-9f4c-1e735a421035"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "addProductList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0c5897ff-67e2-4c89-af03-8785ad01368c"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "winkelNewsfeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("0fecb8a2-c489-445b-91f6-1a7cb93e3d60"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "winkelNewsFeedLoadFeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("15ab26bf-a902-43ba-b498-437142abe656"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "checkOutOrders", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("2f2bf013-4dc8-4787-a8ae-01aeb75db8e5"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator2_ADP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("44d96a4e-28fe-4683-95d1-afb3dfba2339"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator3_AFAS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5a1a5fcc-3587-4a14-bf4c-68e39e020c4e"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator7_ChangedUsers", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5c37b6e0-3236-4778-914b-8480762ea110"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "conversation", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5c920beb-407d-49f9-8346-1f53e6411fc3"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "pCMP_CouponSave", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("5ebc8f83-c547-4ef5-a0df-372c5670a96b"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFCAPI_StoreMate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("6254fa35-fd69-4363-8649-a16cc5746c7e"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "orderList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("710003ed-d828-4334-ab43-e5a1bb7105a1"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator4_ProcessIdentities", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("712b5f02-6506-48f8-b77d-bc14a84b03af"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator5_InStagingObjects", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("72900b32-c6ff-4a68-8c71-5debb5e1e078"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFCAPI_ADP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("78d2ab42-14d4-4471-b6f8-96e166efccbb"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "conversationList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7a65e7eb-762d-4cb4-b297-0ad1d6b910b9"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "planningCreateRoosters", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7dc371a1-6b4a-4494-a7b0-8770dfa133e0"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iCTPostsLoadFeet", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7dda6a51-b2b2-4a65-81da-d204f493f4a7"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "login", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("7ddde5eb-0b5b-4d2a-bd1c-08d2f73523d0"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator10_UserEvents", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("8c986199-70ab-4f35-bd0e-f3d97e31e7e5"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "planning", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("8e911bb2-8a3d-4500-bd39-a6cfd3a1f018"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator8_ChangedGroups", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("973f86dd-42da-4885-b064-ba57502aa0b8"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "mAPP_MedewerkersAppLoad", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("9a93dc30-48b8-468b-ac49-3f89f3d33fca"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "syncConversation", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("9f1de325-ded4-4e26-bd3b-afc52f206653"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "vanServicekantoorNewsFeedLoadFeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("a59bea59-7865-4b36-8976-bbc5d33589c8"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator1_DotWeb", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("a7db7aa0-915f-4d3a-8366-cb7fa4a35d4a"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "productCategoriesList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("adbcdc4a-68d7-414c-b285-7d968746ad0f"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "addProductDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("b0c0654b-7d44-4019-8995-f22401cea21a"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iCTPosts", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bb56cb1c-961a-4007-9af9-69ccaccad35e"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iCTPostsPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bd25654a-79a6-47d0-9b9b-c3d157d0e69a"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "cMP_SaveFlow", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("bef92209-6859-41b9-b1b7-787d508db955"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "productsList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("c3c69dcd-f766-4834-b299-a79221ab3e92"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "winkelNewsFeedPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("c6029504-b25e-48d4-9f3f-685b81050586"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "vanServicekantoor", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("ccfddc94-f28b-473a-a578-14a21bf02abb"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "planningLoadRoosters", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("ced63398-7e05-4ef5-9615-2f3876213c73"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFCAPI_CGO", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("e0479c8d-fee0-4fc6-8e04-970d5d31ce07"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "promotions", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("e4f7130c-6bf0-4b54-843b-8d48aea67a80"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator6_AppsAndRoles", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("efa2b28a-e129-4b5c-9109-71ef66ef0acb"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "vanServicekantoorNewsFeedPost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f0fb6723-cb8e-4ebd-8c26-9dd85ffe93e6"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "iFC_Orchestrator9_QueuedUsers", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f1282986-e2e2-4b73-8510-7a1f46948e35"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "searchProduct", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f5f46627-8177-4079-8674-584ceb4eb986"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.flowType, "pCMP_CouponDelete", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFlowTypeRecord("f7aac01c-b75b-493f-b38c-1d6bd4e3cc9e"));
+}
+});
+
+PL_MT_Logs_BLModel.staticEntities.applications = {};
+var getApplicationsRecord = function (record) {
+return OS.ApplicationInfo.getModules()["0db7a3aa-3ba8-4c90-8413-acb9b60cff25"].staticEntities["90dfab80-bd0d-4cd4-9b5a-2902c5afc8bc"][record];
+};
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "mongoDB", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("0561ecde-1255-4a00-ac58-0488c0e080a4"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "eCOP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("16a6c588-ccd9-410a-9f19-f8b1455ac2a0"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "cM", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("192d0b31-f8ee-4228-a171-3b8e7805925d"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "pLUS_ESB", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("269f9ef4-f385-4abe-8a04-cd23636794e0"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "aBeta", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("53d0e67e-a929-41ee-a951-4b7ddd7420a0"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "mAPP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("5ec5d759-a914-4599-aae8-288c9298f090"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "nativeApp_API", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("6719f544-2a14-4d0b-be58-b95ffee17d77"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "contentful", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("813bd9d7-aedc-4065-ac6e-511a08440343"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "tweakwise", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("866d0fca-4585-4cee-bd08-84d6ddc6b984"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "storeOpsDIPS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("c6a0b20d-ed2d-4dc7-a929-62ea00d532ea"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "medewerkersApp", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("ce35a07f-52e4-4321-8ed6-c877d5b32fd8"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "cOMS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("d28711c6-3f17-48df-a1f0-af46bc499f39"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "commerceTools", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("e5b38bd3-dd5d-4ccd-90ec-206c0fb2a43c"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "eCOPApp", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("eb33f148-9994-46e7-ba42-c81a2ca5fdfd"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.applications, "oneWelcome", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getApplicationsRecord("febdd9b6-1b45-4f26-8d28-1b7b438b4ed0"));
+}
+});
+
+PL_MT_Logs_BLModel.staticEntities.globalType = {};
+var getGlobalTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["0db7a3aa-3ba8-4c90-8413-acb9b60cff25"].staticEntities["bd7f798f-6e49-4f68-91b1-20c4a0d24249"][record];
+};
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "searchProduct", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0bcf10af-16d0-4ae7-ab22-d19636d08efa"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "iCTPosts", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0cb64fef-7578-4dae-9c80-bec674b97f74"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "images", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0cfe40ea-372d-4b09-8eab-7f1c3c99bb84"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "iDP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("0e20dd17-3500-497e-bed4-4b790cd1f239"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "timeslotExceptionsUpdate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("110ccb5c-7b51-4a17-8194-0d2f04a3940b"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "cOMS_Store", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("12d11902-6e19-462f-b54c-35bccb04e770"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "dynamicOrderCost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("1d7d934a-3a8e-44d7-bd58-bcabaca99b52"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "promotions", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("209f9e3b-7d0a-42b7-ae1e-adb16c2a52ee"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "iFC", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("2eab98a9-2839-4951-82fc-0cbe5878db25"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "checkOutOrders", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("31eebc09-8bf4-4d40-a56c-294d6981973a"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "localAD", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("320dbb97-4abc-45d6-814f-b938ec319c22"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "conversationList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("3589f0f2-8232-45a2-b5ec-d471ba3de392"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "ordersCanceled", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("3c707c76-36b3-4dc7-9a5b-c9762b13d875"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "addProductDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("4196a2e6-f0ae-4cbc-b9f0-83ea8bffe359"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "dataFeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("43c8822f-640b-4283-b861-7136c879892b"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "productsSynchronization", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("45b4f817-d491-4e92-8a1a-8bf526d8b83c"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "login", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("46493d71-839f-4248-9e65-c5a586ef0175"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "ecoDynamicOrderCost", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("47fc614f-3957-48e7-a5de-d9f0d5d237c4"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "bundleEMS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("4beb84d4-0621-40b4-aef4-7ea22612465e"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "addProductList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("5a9725e8-58f7-4449-b625-1406a9f1c9fc"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "aPI_Duration", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("68373b57-845c-4a87-93c8-664569d8686e"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "legacyLDAP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("6bbfd9ea-b916-40c7-9b4c-9290407810a3"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "productCategoriesList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("6d6437e6-5ec2-4724-93df-562ce24caddf"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "tweakwiseDataSync", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("6e5ede59-aafd-4a59-b94e-1326209762a3"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "winkelNewsfeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("766196c9-ae04-4071-b757-b159d00501c2"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "orderCouponRedeem", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("7e7da676-5fae-401a-87cf-c51aab8d9202"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "orderConfirmation", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("7f5c6543-6b74-4282-8b7e-6e5aa0c94962"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "productsList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("80c4675b-0e0e-4e46-bfd1-3b923062b56b"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "orderList", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("85db8df5-32b8-4e43-8f6f-4557f19fe7f9"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "sMS_Send", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("87b09a6e-3f05-4af1-99f7-eed8758927e6"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "timer", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("8842d3c7-13ad-4b2e-a372-636fe76e4ee7"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "timeslotInstanceUpdate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("8a3d9ba5-f541-4297-ad17-753af40d4457"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "circuitBreaker", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("8fc03cdd-319a-44ff-a83b-8d1ac2c158e5"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "orderAsyncProcess", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("9a35cfef-1339-4fe5-80c8-111ad64e5944"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "dataObject", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("9ba1226c-f1e3-4553-b787-a820972e19cf"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "timeslotTemplateUpdate", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("9c8f239a-a2f8-4cf4-b6fc-96e405771106"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "iFCAPI", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("a19eb789-0d91-4c7d-8857-352eb734e26e"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "vanServicekantoorNewsfeed", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("a40d83ac-230e-42a8-808e-367c6c56676f"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "sperwerAD", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("a78cbebd-f008-4779-b0c7-c8814caf9a25"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "retailMedia", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("b5835e60-6c09-45fe-8684-e6ad86ef0da8"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "screenError", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("be37c48a-1190-4a6c-8fe0-74cc8f55781d"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "generic", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("c7cc97a7-cb5e-4012-9eba-1a7620c02d54"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "oneWelcomeAPI", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("d0f34340-4f73-479a-842e-72aa1dc84303"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "ordersCreated", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("d3afd0c8-0dce-4011-9120-01beb1c85164"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "storeOps", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("d3fad33a-2838-46c3-b6e1-00088ec048ec"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "eMS", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("e4feffbc-8ca9-4505-baaf-0d2a284bf9e9"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "azureAD", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("ef331aba-e2bc-4ea3-a4e7-3ab937fc1932"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "ordersWithErrors", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("f1afd47d-10b9-4cd3-a889-4b8534ab33cd"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "planning", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("f7a9ddcc-de33-4e0e-9580-4c0adbee7119"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.globalType, "conversationDetail", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getGlobalTypeRecord("fb6b9bc2-268c-4fe4-8646-bbaf5b8a4b21"));
+}
+});
+
+PL_MT_Logs_BLModel.staticEntities.exceptionType = {};
+var getExceptionTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["7cc666b3-f0fe-4bfa-89a0-8a114439bd7b"].staticEntities["3f1e4964-34c1-409c-85aa-446253d90218"][record];
+};
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.exceptionType, "integration", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionTypeRecord("0013a738-029f-42cf-8f2e-a6996bc36b99"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.exceptionType, "performance", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionTypeRecord("3efae6ac-8b85-4a82-bd14-84ec66362bfe"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.exceptionType, "error", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionTypeRecord("66c600ac-cc93-4d5f-b77f-5e4e3e2cb914"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.exceptionType, "other", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionTypeRecord("82580e1b-e552-49cd-b5b1-50cc60b1631f"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.exceptionType, "network", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionTypeRecord("b24e1f3d-05d2-4a80-a819-348d83f6d571"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.exceptionType, "communication", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionTypeRecord("bb632b24-3687-4293-bd17-128e8bcac732"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.exceptionType, "database", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionTypeRecord("bf735632-c6a3-434b-bc30-877b77dd8cc6"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.exceptionType, "security", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getExceptionTypeRecord("e113d5d3-ba09-4568-be47-c1180830481b"));
+}
+});
+
+PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType = {};
+var getELKPlatformPipelineTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["7cc666b3-f0fe-4bfa-89a0-8a114439bd7b"].staticEntities["e97bcc4e-82e3-418b-9fb9-a259c9ba63cf"][record];
+};
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "mAPP_Global", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("0315b1bf-2110-4686-8bba-bedceae16df7"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "webRequest", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("0b6289e9-c53f-4568-8458-84adcb90163e"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "integration", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("16a76df6-b712-4174-8047-5d2488c67d38"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "exceptionHandling", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("31feed6e-b6f5-4986-ad83-3e78102ea94d"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "error", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("3720e8a0-9d17-45ba-b902-bf685e959a54"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "extension", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("40840af0-69c4-4d4e-bc4b-e9aef5fdeaa6"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "order_Event", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("4e40d930-a26e-42dc-9efb-41c51e320b8c"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "global", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("59774d81-0dd0-4079-85c4-d828e91afab9"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "mobileRequest", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("63f626d5-c8dd-4c22-a082-cbefb5763513"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "general", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("75e0e814-eb73-4e22-b460-3c8179d67054"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "order_ECOP", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("95cd281e-ae0b-4c0b-a0af-5a91a8e97f2a"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "logs", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("ae0664fb-5fbd-4ea5-bc60-14eee1ce347d"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "requestEvent", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("cf685687-f87b-4f09-8f3e-6913492d0de2"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "generic", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("df4523fe-c974-468a-838d-fec6ba9ff6f1"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "timer", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("ebdd764c-f16d-45e6-b738-dcb5f4060d5f"));
+}
+});
+
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLKPlatformPipelineType, "lightHouse", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELKPlatformPipelineTypeRecord("f0d657c8-1d02-40a6-945f-b41ca4f57731"));
+}
+});
+
+PL_MT_Logs_BLModel.staticEntities.eLK_API = {};
+var getELK_APIRecord = function (record) {
+return OS.ApplicationInfo.getModules()["9f329975-1c55-433c-a74c-e9f0cfc881da"].staticEntities["d2ec2a89-d675-4db4-8d83-3936453369d2"][record];
+};
+Object.defineProperty(PL_MT_Logs_BLModel.staticEntities.eLK_API, "pL_Log_Pipeline_ELK", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getELK_APIRecord("a6897fb1-a5d4-4d2d-9520-de61b4e9e710"));
+}
+});
+
+});

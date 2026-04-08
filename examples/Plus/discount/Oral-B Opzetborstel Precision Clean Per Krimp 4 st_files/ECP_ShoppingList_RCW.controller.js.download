@@ -1,0 +1,21 @@
+﻿define("ECP_ShoppingList_RCW.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.controller$translationsResources"], function (exports, OutSystems, ECP_ShoppingList_RCWModel, ECP_ShoppingList_RCW_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECP_ShoppingList_RCWController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 60;
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_ShoppingList_RCWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECP_ShoppingList_RCWController.default = new Controller(ECP_ShoppingList_RCW_Controller_translationsResources, "ECP_ShoppingList_RCW");
+});
+define("ECP_ShoppingList_RCW.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

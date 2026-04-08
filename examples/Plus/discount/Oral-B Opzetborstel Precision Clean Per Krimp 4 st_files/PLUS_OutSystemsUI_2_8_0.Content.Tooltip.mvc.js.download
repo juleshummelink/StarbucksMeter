@@ -1,0 +1,405 @@
+﻿define("PLUS_OutSystemsUI_2_8_0.Content.Tooltip.mvc$model", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "PLUS_OutSystemsUI_2_8_0.model$Tooltip_InternalConfigRec", "PLUS_OutSystemsUI_2_8_0.controller$TooltipInitialize", "PLUS_OutSystemsUI_2_8_0.controller$LogEvent", "PLUS_OutSystemsUI_2_8_0.controller$TooltipChangeTextProperty", "PLUS_OutSystemsUI_2_8_0.controller$TooltipChangeBooleanProperty", "PLUS_OutSystemsUI_2_8_0.controller$TooltipDestroy", "PLUS_OutSystemsUI_2_8_0.controller$TooltipCreate", "PLUS_OutSystemsUI_2_8_0.controller$GenerateUniqueId"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("Internal_Configs", "internal_ConfigsVar", "Internal_Configs", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.Tooltip_InternalConfigRec());
+}, false, PLUS_OutSystemsUI_2_8_0Model.Tooltip_InternalConfigRec), 
+this.attr("Position", "positionIn", "Position", true, false, OS.Types.Text, function () {
+return PLUS_OutSystemsUI_2_8_0Model.staticEntities.position.right;
+}, false), 
+this.attr("_positionInDataFetchStatus", "_positionInDataFetchStatus", "_positionInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("StartsOpen", "startsOpenIn", "StartsOpen", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_startsOpenInDataFetchStatus", "_startsOpenInDataFetchStatus", "_startsOpenInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Trigger", "triggerIn", "Trigger", true, false, OS.Types.Text, function () {
+return PLUS_OutSystemsUI_2_8_0Model.staticEntities.trigger.onHover;
+}, false), 
+this.attr("_triggerInDataFetchStatus", "_triggerInDataFetchStatus", "_triggerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("Position" in inputs) {
+this.variables.positionIn = inputs.Position;
+if("_positionInDataFetchStatus" in inputs) {
+this.variables._positionInDataFetchStatus = inputs._positionInDataFetchStatus;
+}
+
+}
+
+if("StartsOpen" in inputs) {
+this.variables.startsOpenIn = inputs.StartsOpen;
+if("_startsOpenInDataFetchStatus" in inputs) {
+this.variables._startsOpenInDataFetchStatus = inputs._startsOpenInDataFetchStatus;
+}
+
+}
+
+if("Trigger" in inputs) {
+this.variables.triggerIn = inputs.Trigger;
+if("_triggerInDataFetchStatus" in inputs) {
+this.variables._triggerInDataFetchStatus = inputs._triggerInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Content.Tooltip");
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.Tooltip.mvc$view", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "react", "OutSystems/ReactView/Main", "PLUS_OutSystemsUI_2_8_0.Content.Tooltip.mvc$model", "PLUS_OutSystemsUI_2_8_0.Content.Tooltip.mvc$controller", "OutSystems/ReactWidgets/Main", "PLUS_OutSystemsUI_2_8_0.model$Tooltip_InternalConfigRec", "PLUS_OutSystemsUI_2_8_0.controller$TooltipInitialize", "PLUS_OutSystemsUI_2_8_0.controller$LogEvent", "PLUS_OutSystemsUI_2_8_0.controller$TooltipChangeTextProperty", "PLUS_OutSystemsUI_2_8_0.controller$TooltipChangeBooleanProperty", "PLUS_OutSystemsUI_2_8_0.controller$TooltipDestroy", "PLUS_OutSystemsUI_2_8_0.controller$TooltipCreate", "PLUS_OutSystemsUI_2_8_0.controller$GenerateUniqueId"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, React, OSView, PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvc_model, PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Content.Tooltip";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return ["scripts/PLUS_OutSystemsUI_2_8_0.OutSystemsUI.js"];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return PLUS_OutSystemsUI_2_8_0_Content_Tooltip_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+name: model.variables.internal_ConfigsVar.uniqueIdAttr
+},
+style: "osui-tooltip",
+visible: true,
+_idProps: {
+service: idService,
+name: "TooltipWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.content,
+style: "osui-tooltip__content",
+_idProps: {
+service: idService,
+name: "Content"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), $if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "osui-tooltip__balloon-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+name: "TooltipBallonWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.tooltip,
+gridProperties: {
+classes: "OSInline"
+},
+style: "osui-tooltip__balloon-wrapper__balloon",
+_idProps: {
+service: idService,
+name: "Tooltip"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.Tooltip.mvc$controller", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "PLUS_OutSystemsUI_2_8_0.languageResources", "PLUS_OutSystemsUI_2_8_0.model$Tooltip_InternalConfigRec", "PLUS_OutSystemsUI_2_8_0.controller$TooltipInitialize", "PLUS_OutSystemsUI_2_8_0.controller$LogEvent", "PLUS_OutSystemsUI_2_8_0.controller$TooltipChangeTextProperty", "PLUS_OutSystemsUI_2_8_0.controller$TooltipChangeBooleanProperty", "PLUS_OutSystemsUI_2_8_0.controller$TooltipDestroy", "PLUS_OutSystemsUI_2_8_0.controller$TooltipCreate", "PLUS_OutSystemsUI_2_8_0.controller$GenerateUniqueId"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, PLUS_OutSystemsUI_2_8_0LanguageResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+// Execute Action: TooltipInitialize
+PLUS_OutSystemsUI_2_8_0Controller.default.tooltipInitialize$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, callContext);
+// Execute Action: LogEnd
+PLUS_OutSystemsUI_2_8_0Controller.default.logEvent$Action(PLUS_OutSystemsUI_2_8_0Model.staticEntities.logType.general, "Tooltip created", callContext);
+};
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+// Position?
+if((((model.variables.positionIn) !== (model.variables.internal_ConfigsVar.positionAttr)))) {
+// Set Position
+// Internal_Configs.Position = Position
+model.variables.internal_ConfigsVar.positionAttr = model.variables.positionIn;
+// Execute Action: UpdatePosition
+PLUS_OutSystemsUI_2_8_0Controller.default.tooltipChangeTextProperty$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, "Position", model.variables.internal_ConfigsVar.positionAttr, callContext);
+}
+
+// StartVisible?
+if((((model.variables.startsOpenIn) !== (model.variables.internal_ConfigsVar.startVisibleAttr)))) {
+// Set StartVisible
+// Internal_Configs.StartVisible = StartsOpen
+model.variables.internal_ConfigsVar.startVisibleAttr = model.variables.startsOpenIn;
+// Execute Action: UpdateStartVisible
+PLUS_OutSystemsUI_2_8_0Controller.default.tooltipChangeBooleanProperty$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, "StartVisible", model.variables.internal_ConfigsVar.startVisibleAttr, callContext);
+}
+
+// IsHover?
+if(((((model.variables.triggerIn === PLUS_OutSystemsUI_2_8_0Model.staticEntities.trigger.onHover)) !== (model.variables.internal_ConfigsVar.isHoverAttr)))) {
+// Set IsHover
+// Internal_Configs.IsHover = Trigger = OnHover
+model.variables.internal_ConfigsVar.isHoverAttr = (model.variables.triggerIn === PLUS_OutSystemsUI_2_8_0Model.staticEntities.trigger.onHover);
+// Execute Action: UpdateIsHover
+PLUS_OutSystemsUI_2_8_0Controller.default.tooltipChangeBooleanProperty$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, "IsHover", model.variables.internal_ConfigsVar.isHoverAttr, callContext);
+}
+
+// ExtendedClass?
+if((((model.variables.extendedClassIn) !== (model.variables.internal_ConfigsVar.extendedClassAttr)))) {
+// Set ExtendedClass
+// Internal_Configs.ExtendedClass = ExtendedClass
+model.variables.internal_ConfigsVar.extendedClassAttr = model.variables.extendedClassIn;
+// Execute Action: UpdateExtendedClass
+PLUS_OutSystemsUI_2_8_0Controller.default.tooltipChangeTextProperty$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, "ExtendedClass", model.variables.internal_ConfigsVar.extendedClassAttr, callContext);
+}
+
+};
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+// Execute Action: TooltipDestroy
+PLUS_OutSystemsUI_2_8_0Controller.default.tooltipDestroy$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, callContext);
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var generateUniqueIdVar = new OS.DataTypes.VariableHolder();
+// Execute Action: LogStart
+PLUS_OutSystemsUI_2_8_0Controller.default.logEvent$Action(PLUS_OutSystemsUI_2_8_0Model.staticEntities.logType.general, "Going to create Tooltip", callContext);
+// Execute Action: GenerateUniqueId
+generateUniqueIdVar.value = PLUS_OutSystemsUI_2_8_0Controller.default.generateUniqueId$Action(model.variables.internal_ConfigsVar.uniqueIdAttr, callContext);
+
+// Set Internal Configs
+// Internal_Configs.UniqueId = GenerateUniqueId.Unique_ID
+model.variables.internal_ConfigsVar.uniqueIdAttr = generateUniqueIdVar.value.unique_IDOut;
+// Internal_Configs.Position = Position
+model.variables.internal_ConfigsVar.positionAttr = model.variables.positionIn;
+// Internal_Configs.StartVisible = StartsOpen
+model.variables.internal_ConfigsVar.startVisibleAttr = model.variables.startsOpenIn;
+// Internal_Configs.IsHover = Trigger = OnHover
+model.variables.internal_ConfigsVar.isHoverAttr = (model.variables.triggerIn === PLUS_OutSystemsUI_2_8_0Model.staticEntities.trigger.onHover);
+// Internal_Configs.ExtendedClass = ExtendedClass
+model.variables.internal_ConfigsVar.extendedClassAttr = model.variables.extendedClassIn;
+// Execute Action: TooltipCreate
+PLUS_OutSystemsUI_2_8_0Controller.default.tooltipCreate$Action(model.variables.internal_ConfigsVar, callContext);
+};
+
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return PLUS_OutSystemsUI_2_8_0Controller.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, PLUS_OutSystemsUI_2_8_0LanguageResources);
+});
+

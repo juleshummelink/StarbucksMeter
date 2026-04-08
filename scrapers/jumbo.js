@@ -2,9 +2,11 @@
 
 const {
   priceFromJsonLd,
+  originalPriceFromJsonLd,
   originalPriceFromVanText,
   firstEuroPriceOnPage,
   diagnose,
+  parsePromo,
 } = require('./utils');
 
 async function scrape(page, url) {
@@ -35,13 +37,58 @@ async function scrape(page, url) {
 
   if (currentPrice === null) await diagnose(page, 'Jumbo');
 
-  const originalPrice = await originalPriceFromVanText(page);
+  // Detect multi-buy promotions (1+1 gratis, 2 voor X)
+  const promoText = await page.evaluate(() => {
+    // Jumbo uses .promo-tag span and data-testid="jum-tag"
+    const selectors = [
+      '[data-testid="jum-tag"]',
+      '[class*="promo-tag"]',
+      '[class*="promotion-tag"]',
+      '[class*="promo-label"]',
+      '[class*="promotionTag"]',
+      '[class*="PromotionTag"]',
+    ];
+    for (const sel of selectors) {
+      for (const el of document.querySelectorAll(sel)) {
+        const text = el.innerText?.trim() ?? '';
+        if (text && /1\s*\+\s*1\s*gratis|\d+\s+voor\s+/i.test(text)) return text;
+      }
+    }
+    return null;
+  });
+
+  const promoData = parsePromo(promoText, currentPrice);
+
+  // Strategy 1: AggregateOffer highPrice > lowPrice indicates a sale
+  let originalPrice = await originalPriceFromJsonLd(page);
+
+  // Strategy 2: "Oude prijs" in screenreader-only divs
+  if (originalPrice === null) {
+    originalPrice = await page.evaluate(() => {
+      for (const el of document.querySelectorAll('.screenreader-only, [class*="screenreader"]')) {
+        const text = el.textContent?.trim() ?? '';
+        const m = text.match(/oude prijs[:\s]*€?\s*(\d+)[,.](\d{2})/i);
+        if (m) return parseFloat(`${m[1]}.${m[2]}`);
+      }
+      return null;
+    });
+  }
+
+  // Strategy 3: "van X,XX" text pattern
+  if (originalPrice === null) originalPrice = await originalPriceFromVanText(page);
+
   const validOriginal =
     originalPrice !== null && currentPrice !== null && originalPrice > currentPrice
       ? originalPrice
       : null;
 
-  return { currentPrice, originalPrice: validOriginal };
+  return {
+    currentPrice,
+    originalPrice: validOriginal,
+    promoLabel: promoData?.promoLabel ?? null,
+    effectivePrice: promoData?.effectivePrice ?? null,
+    minQty: promoData?.minQty ?? null,
+  };
 }
 
 module.exports = { scrape };

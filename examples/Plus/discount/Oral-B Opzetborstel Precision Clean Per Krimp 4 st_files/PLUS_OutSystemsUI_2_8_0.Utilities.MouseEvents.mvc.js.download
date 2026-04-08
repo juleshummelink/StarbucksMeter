@@ -1,0 +1,555 @@
+﻿define("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$model", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsBound", "isBoundVar", "IsBound", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("MouseObj", "mouseObjVar", "MouseObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("WidgetId", "widgetIdIn", "WidgetId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_widgetIdInDataFetchStatus", "_widgetIdInDataFetchStatus", "_widgetIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("PreventDefaults", "preventDefaultsIn", "PreventDefaults", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_preventDefaultsInDataFetchStatus", "_preventDefaultsInDataFetchStatus", "_preventDefaultsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("WidgetId" in inputs) {
+this.variables.widgetIdIn = inputs.WidgetId;
+if("_widgetIdInDataFetchStatus" in inputs) {
+this.variables._widgetIdInDataFetchStatus = inputs._widgetIdInDataFetchStatus;
+}
+
+}
+
+if("PreventDefaults" in inputs) {
+this.variables.preventDefaultsIn = inputs.PreventDefaults;
+if("_preventDefaultsInDataFetchStatus" in inputs) {
+this.variables._preventDefaultsInDataFetchStatus = inputs._preventDefaultsInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Utilities.MouseEvents");
+});
+define("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$view", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "react", "OutSystems/ReactView/Main", "PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$model", "PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$controller"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, React, OSView, PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_model, PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_controller) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Utilities.MouseEvents";
+        View.getCssDependencies = function() {
+            return [];
+        };
+        View.getJsDependencies = function() {
+            return ["scripts/PLUS_OutSystemsUI_2_8_0.BundledJS.js"];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), $if(false, false, this, function () {
+return [];
+}, function () {
+return [];
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$controller", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "PLUS_OutSystemsUI_2_8_0.languageResources", "PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$controller.OnDestroy.DestroyJS", "PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$controller.OnReady.BindEventsJS", "PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$controller.OnParametersChanged.SetPreventDefaultJS"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, PLUS_OutSystemsUI_2_8_0LanguageResources, PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_controller_OnDestroy_DestroyJS, PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_controller_OnReady_BindEventsJS, PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_controller_OnParametersChanged_SetPreventDefaultJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+onStart$Action: function (xIn, yIn) {
+xIn = (xIn === undefined) ? 0 : xIn;
+yIn = (yIn === undefined) ? 0 : yIn;
+return controller.executeActionInsideJSNode(controller._onStart$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(xIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(yIn, OS.Types.Integer)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnStart");
+},
+onMove$Action: function (evtIn, xIn, yIn, offsetXIn, offsetYIn) {
+evtIn = (evtIn === undefined) ? null : evtIn;
+xIn = (xIn === undefined) ? 0 : xIn;
+yIn = (yIn === undefined) ? 0 : yIn;
+offsetXIn = (offsetXIn === undefined) ? 0 : offsetXIn;
+offsetYIn = (offsetYIn === undefined) ? 0 : offsetYIn;
+return controller.executeActionInsideJSNode(controller._onMove$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(evtIn, OS.Types.Object), OS.DataConversion.JSNodeParamConverter.from(xIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(yIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(offsetXIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(offsetYIn, OS.Types.Integer)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnMove");
+},
+onEnd$Action: function (xIn, yIn, offsetXIn, offsetYIn, timeTakenIn) {
+xIn = (xIn === undefined) ? 0 : xIn;
+yIn = (yIn === undefined) ? 0 : yIn;
+offsetXIn = (offsetXIn === undefined) ? 0 : offsetXIn;
+offsetYIn = (offsetYIn === undefined) ? 0 : offsetYIn;
+timeTakenIn = (timeTakenIn === undefined) ? 0 : timeTakenIn;
+return controller.executeActionInsideJSNode(controller._onEnd$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(xIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(yIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(offsetXIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(offsetYIn, OS.Types.Integer), OS.DataConversion.JSNodeParamConverter.from(timeTakenIn, OS.Types.Integer)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnEnd");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onMove$Action = function (evtIn, xIn, yIn, offsetXIn, offsetYIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnMove");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.OnMove$vars"))());
+vars.value.evtInLocal = evtIn;
+vars.value.xInLocal = xIn;
+vars.value.yInLocal = yIn;
+vars.value.offsetXInLocal = offsetXIn;
+vars.value.offsetYInLocal = offsetYIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: Move
+return controller.move$Action(OS.BuiltinFunctions.integerToDecimal(vars.value.xInLocal), OS.BuiltinFunctions.integerToDecimal(vars.value.yInLocal), OS.BuiltinFunctions.integerToDecimal(vars.value.offsetXInLocal), OS.BuiltinFunctions.integerToDecimal(vars.value.offsetYInLocal), vars.value.evtInLocal, callContext);
+});
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.OnMove$vars", [{
+name: "Evt",
+attrName: "evtInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "X",
+attrName: "xInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Y",
+attrName: "yInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "OffsetX",
+attrName: "offsetXInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "OffsetY",
+attrName: "offsetYInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._onEnd$Action = function (xIn, yIn, offsetXIn, offsetYIn, timeTakenIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnEnd");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.OnEnd$vars"))());
+vars.value.xInLocal = xIn;
+vars.value.yInLocal = yIn;
+vars.value.offsetXInLocal = offsetXIn;
+vars.value.offsetYInLocal = offsetYIn;
+vars.value.timeTakenInLocal = timeTakenIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: End
+return controller.end$Action(OS.BuiltinFunctions.integerToDecimal(vars.value.xInLocal), OS.BuiltinFunctions.integerToDecimal(vars.value.yInLocal), OS.BuiltinFunctions.integerToDecimal(vars.value.offsetXInLocal), OS.BuiltinFunctions.integerToDecimal(vars.value.offsetYInLocal), OS.BuiltinFunctions.integerToDecimal(vars.value.timeTakenInLocal), callContext);
+});
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.OnEnd$vars", [{
+name: "X",
+attrName: "xInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Y",
+attrName: "yInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "OffsetX",
+attrName: "offsetXInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "OffsetY",
+attrName: "offsetYInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "TimeTaken",
+attrName: "timeTakenInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+// IsBound = False
+model.variables.isBoundVar = false;
+};
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_controller_OnDestroy_DestroyJS, "Destroy", "OnDestroy", {
+Obj: OS.DataConversion.JSNodeParamConverter.to(model.variables.mouseObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var bindEventsJSResult = new OS.DataTypes.VariableHolder();
+bindEventsJSResult.value = controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_controller_OnReady_BindEventsJS, "BindEvents", "OnReady", {
+PreventDefaults: OS.DataConversion.JSNodeParamConverter.to(model.variables.preventDefaultsIn, OS.Types.Boolean),
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(model.variables.widgetIdIn, OS.Types.Text),
+isBound: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+Obj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.OnReady$bindEventsJSResult"))();
+jsNodeResult.isBoundOut = OS.DataConversion.JSNodeParamConverter.from($parameters.isBound, OS.Types.Boolean);
+jsNodeResult.objOut = OS.DataConversion.JSNodeParamConverter.from($parameters.Obj, OS.Types.Object);
+return jsNodeResult;
+}, {
+OnStart: controller.clientActionProxies.onStart$Action,
+OnMove: controller.clientActionProxies.onMove$Action,
+OnEnd: controller.clientActionProxies.onEnd$Action
+}, {});
+// IsBound = BindEvents.isBound
+model.variables.isBoundVar = bindEventsJSResult.value.isBoundOut;
+// MouseObj = BindEvents.Obj
+model.variables.mouseObjVar = bindEventsJSResult.value.objOut;
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.OnReady$bindEventsJSResult", [{
+name: "isBound",
+attrName: "isBoundOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "Obj",
+attrName: "objOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Utilities_MouseEvents_mvc_controller_OnParametersChanged_SetPreventDefaultJS, "SetPreventDefault", "OnParametersChanged", {
+Obj: OS.DataConversion.JSNodeParamConverter.to(model.variables.mouseObjVar, OS.Types.Object),
+Prevent: OS.DataConversion.JSNodeParamConverter.to(model.variables.preventDefaultsIn, OS.Types.Boolean)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onStart$Action = function (xIn, yIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnStart");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.OnStart$vars"))());
+vars.value.xInLocal = xIn;
+vars.value.yInLocal = yIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: Start
+return controller.start$Action(OS.BuiltinFunctions.integerToDecimal(vars.value.xInLocal), OS.BuiltinFunctions.integerToDecimal(vars.value.yInLocal), callContext);
+});
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.OnStart$vars", [{
+name: "X",
+attrName: "xInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "Y",
+attrName: "yInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+
+Controller.prototype.onMove$Action = function (evtIn, xIn, yIn, offsetXIn, offsetYIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onMove$Action, callContext, evtIn, xIn, yIn, offsetXIn, offsetYIn);
+
+};
+Controller.prototype.onEnd$Action = function (xIn, yIn, offsetXIn, offsetYIn, timeTakenIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onEnd$Action, callContext, xIn, yIn, offsetXIn, offsetYIn, timeTakenIn);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.onStart$Action = function (xIn, yIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onStart$Action, callContext, xIn, yIn);
+
+};
+Controller.prototype.move$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.start$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.end$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return PLUS_OutSystemsUI_2_8_0Controller.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, PLUS_OutSystemsUI_2_8_0LanguageResources);
+});
+define("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$controller.OnDestroy.DestroyJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.Obj.destroy();
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$controller.OnReady.BindEventsJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var mouseTrack = new MouseTrack();
+$parameters.isBound = false;
+
+var el = document.getElementById($parameters.WidgetId);
+
+if (el) {
+    mouseTrack.init(el, $actions.OnStart, $actions.OnMove, $actions.OnEnd);
+    mouseTrack.setPreventDefault($parameters.PreventDefaults);
+    $parameters.isBound = true;
+}
+
+
+$parameters.Obj = mouseTrack;
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Utilities.MouseEvents.mvc$controller.OnParametersChanged.SetPreventDefaultJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.Obj.setPreventDefault($parameters.Prevent);
+};
+});
+

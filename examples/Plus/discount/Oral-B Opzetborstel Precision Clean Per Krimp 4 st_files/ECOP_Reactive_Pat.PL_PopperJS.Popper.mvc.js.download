@@ -1,0 +1,666 @@
+﻿define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("popperObj", "popperObjVar", "popperObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("IsOpened", "isOpenedVar", "IsOpened", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("PopperActionId", "popperActionIdIn", "PopperActionId", true, false, OS.Types.Text, function () {
+return ECOP_Reactive_PatModel.staticEntities.popperAction.click;
+}, false), 
+this.attr("_popperActionIdInDataFetchStatus", "_popperActionIdInDataFetchStatus", "_popperActionIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("PopperPositionId", "popperPositionIdIn", "PopperPositionId", true, false, OS.Types.Text, function () {
+return ECOP_Reactive_PatModel.staticEntities.popperPosition.auto;
+}, false), 
+this.attr("_popperPositionIdInDataFetchStatus", "_popperPositionIdInDataFetchStatus", "_popperPositionIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("EnableClickOutsideToClose", "enableClickOutsideToCloseIn", "EnableClickOutsideToClose", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_enableClickOutsideToCloseInDataFetchStatus", "_enableClickOutsideToCloseInDataFetchStatus", "_enableClickOutsideToCloseInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CloseAllOnClick", "closeAllOnClickIn", "CloseAllOnClick", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_closeAllOnClickInDataFetchStatus", "_closeAllOnClickInDataFetchStatus", "_closeAllOnClickInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("TabIndex", "tabIndexIn", "TabIndex", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_tabIndexInDataFetchStatus", "_tabIndexInDataFetchStatus", "_tabIndexInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("PopperActionId" in inputs) {
+this.variables.popperActionIdIn = inputs.PopperActionId;
+if("_popperActionIdInDataFetchStatus" in inputs) {
+this.variables._popperActionIdInDataFetchStatus = inputs._popperActionIdInDataFetchStatus;
+}
+
+}
+
+if("PopperPositionId" in inputs) {
+this.variables.popperPositionIdIn = inputs.PopperPositionId;
+if("_popperPositionIdInDataFetchStatus" in inputs) {
+this.variables._popperPositionIdInDataFetchStatus = inputs._popperPositionIdInDataFetchStatus;
+}
+
+}
+
+if("EnableClickOutsideToClose" in inputs) {
+this.variables.enableClickOutsideToCloseIn = inputs.EnableClickOutsideToClose;
+if("_enableClickOutsideToCloseInDataFetchStatus" in inputs) {
+this.variables._enableClickOutsideToCloseInDataFetchStatus = inputs._enableClickOutsideToCloseInDataFetchStatus;
+}
+
+}
+
+if("CloseAllOnClick" in inputs) {
+this.variables.closeAllOnClickIn = inputs.CloseAllOnClick;
+if("_closeAllOnClickInDataFetchStatus" in inputs) {
+this.variables._closeAllOnClickInDataFetchStatus = inputs._closeAllOnClickInDataFetchStatus;
+}
+
+}
+
+if("TabIndex" in inputs) {
+this.variables.tabIndexIn = inputs.TabIndex;
+if("_tabIndexInDataFetchStatus" in inputs) {
+this.variables._tabIndexInDataFetchStatus = inputs._tabIndexInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "PL_PopperJS.Popper");
+});
+define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$model", "ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller", "OutSystems/ReactWidgets/Main"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, React, OSView, ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_model, ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "PL_PopperJS.Popper";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return ["scripts/ECOP_Reactive_Pat.Popper_min.js"];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "popper-relative",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+gridProperties: {
+classes: "OSInline"
+},
+style: "popper-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+name: "PopperItemWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.popperItem,
+extendedProperties: {
+"data-popper-item": model.getCachedValue(idService.getId("PopperItem.data-popper-item"), function () {
+return ((model.variables.isOpenedVar) ? ("opened") : ("closed"));
+}, function () {
+return model.variables.isOpenedVar;
+}),
+tabIndex: (model.variables.tabIndexIn).toString()
+},
+gridProperties: {
+classes: "OSInline"
+},
+style: "popper-item",
+_idProps: {
+service: idService,
+name: "PopperItem"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("PopperContent.Style"), function () {
+return ("popper-popup" + ((model.variables.isOpenedVar) ? (" show-popper") : ("")));
+}, function () {
+return model.variables.isOpenedVar;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "PopperContent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.content,
+_idProps: {
+service: idService,
+name: "Content"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "popper-arrow",
+visible: true,
+_idProps: {
+service: idService,
+name: "PopperArrow"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), $if(model.variables.enableClickOutsideToCloseIn, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.closePopper$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+style: "popper-overlay",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}, function () {
+return [];
+}))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.languageResources", "ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$translationsResources", "ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.CloseAll.CloseAllPoppersJS", "ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.CreatePopper.init_PopperJS", "ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.OnReady.JavaScript1JS", "ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.OnReady.JavaScript2JS", "ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.DestroyPopper.destroyJS"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_PatLanguageResources, ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_TranslationsResources, ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_CloseAll_CloseAllPoppersJS, ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_CreatePopper_init_PopperJS, ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_OnReady_JavaScript1JS, ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_OnReady_JavaScript2JS, ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_DestroyPopper_destroyJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+togglePopper_Open$Action: function () {
+return controller.executeActionInsideJSNode(controller._togglePopper_Open$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "TogglePopper_Open");
+},
+togglePopper_Close$Action: function () {
+return controller.executeActionInsideJSNode(controller._togglePopper_Close$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "TogglePopper_Close");
+},
+togglePopper$Action: function () {
+return controller.executeActionInsideJSNode(controller._togglePopper$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "TogglePopper");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._closeAll$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CloseAll");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_CloseAll_CloseAllPoppersJS, "CloseAllPoppers", "CloseAll", {
+PopperId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("PopperItem"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._createPopper$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CreatePopper");
+callContext = controller.callContext(callContext);
+var init_PopperJSResult = new OS.DataTypes.VariableHolder();
+init_PopperJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_CreatePopper_init_PopperJS, "init_Popper", "CreatePopper", {
+ItemId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("PopperItem"), OS.Types.Text),
+ArrowId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("PopperArrow"), OS.Types.Text),
+PopperPositionId: OS.DataConversion.JSNodeParamConverter.to(((((model.variables.popperPositionIdIn) !== (OS.BuiltinFunctions.nullTextIdentifier()))) ? (model.variables.popperPositionIdIn) : (ECOP_Reactive_PatModel.staticEntities.popperPosition.auto)), OS.Types.Text),
+ContentId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("PopperContent"), OS.Types.Text),
+popperObj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.PL_PopperJS.Popper.CreatePopper$init_PopperJSResult"))();
+jsNodeResult.popperObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.popperObj, OS.Types.Object);
+return jsNodeResult;
+}, {}, {});
+// popperObj = init_Popper.popperObj
+model.variables.popperObjVar = init_PopperJSResult.value.popperObjOut;
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.PL_PopperJS.Popper.CreatePopper$init_PopperJSResult", [{
+name: "popperObj",
+attrName: "popperObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._togglePopper_Close$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("TogglePopper_Close");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// IsOpened = False
+model.variables.isOpenedVar = false;
+// Execute Action: DestroyPopper
+controller._destroyPopper$Action(callContext);
+// Trigger Event: Click
+return controller.click$Action(model.variables.isOpenedVar, callContext).then(function () {
+if((model.variables.closeAllOnClickIn)) {
+// Execute Action: CloseAll
+controller._closeAll$Action(callContext);
+}
+
+});
+});
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+// Hover
+if(((model.variables.popperActionIdIn === ECOP_Reactive_PatModel.staticEntities.popperAction.hover))) {
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_OnReady_JavaScript1JS, "JavaScript1", "OnReady", {
+PopperElemId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("PopperItemWrapper"), OS.Types.Text)
+}, function ($parameters) {
+}, {
+TogglePopper_Open: controller.clientActionProxies.togglePopper_Open$Action,
+TogglePopper_Close: controller.clientActionProxies.togglePopper_Close$Action
+}, {});
+} else {
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_OnReady_JavaScript2JS, "JavaScript2", "OnReady", {
+PopperElemId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("PopperItem"), OS.Types.Text)
+}, function ($parameters) {
+}, {
+TogglePopper: controller.clientActionProxies.togglePopper$Action
+}, {});
+}
+
+};
+Controller.prototype._closePopper$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ClosePopper");
+callContext = controller.callContext(callContext);
+// IsOpened=False
+// IsOpened = False
+model.variables.isOpenedVar = false;
+// Execute Action: DestroyPopper
+controller._destroyPopper$Action(callContext);
+};
+Controller.prototype._togglePopper_Open$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("TogglePopper_Open");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// IsOpened = True
+model.variables.isOpenedVar = true;
+// Execute Action: CreatePopper
+controller._createPopper$Action(callContext);
+// Trigger Event: Click
+return controller.click$Action(model.variables.isOpenedVar, callContext).then(function () {
+if((model.variables.closeAllOnClickIn)) {
+// Execute Action: CloseAll
+controller._closeAll$Action(callContext);
+}
+
+});
+});
+};
+Controller.prototype._destroyPopper$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("DestroyPopper");
+callContext = controller.callContext(callContext);
+var destroyJSResult = new OS.DataTypes.VariableHolder();
+destroyJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_PL_PopperJS_Popper_mvc_controller_DestroyPopper_destroyJS, "destroy", "DestroyPopper", {
+popperObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.popperObjVar, OS.Types.Object),
+popperObj_Out: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.PL_PopperJS.Popper.DestroyPopper$destroyJSResult"))();
+jsNodeResult.popperObj_OutOut = OS.DataConversion.JSNodeParamConverter.from($parameters.popperObj_Out, OS.Types.Object);
+return jsNodeResult;
+}, {}, {});
+// popperObj = destroy.popperObj_Out
+model.variables.popperObjVar = destroyJSResult.value.popperObj_OutOut;
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.PL_PopperJS.Popper.DestroyPopper$destroyJSResult", [{
+name: "popperObj_Out",
+attrName: "popperObj_OutOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._togglePopper$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("TogglePopper");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// IsOpened = notIsOpened
+model.variables.isOpenedVar = !(model.variables.isOpenedVar);
+if((model.variables.isOpenedVar)) {
+// Execute Action: CreatePopper
+controller._createPopper$Action(callContext);
+} else {
+// Execute Action: DestroyPopper
+controller._destroyPopper$Action(callContext);
+}
+
+// Trigger Event: Click
+return controller.click$Action(model.variables.isOpenedVar, callContext).then(function () {
+if((model.variables.closeAllOnClickIn)) {
+// Execute Action: CloseAll
+controller._closeAll$Action(callContext);
+}
+
+});
+});
+};
+
+Controller.prototype.closeAll$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._closeAll$Action, callContext);
+
+};
+Controller.prototype.createPopper$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._createPopper$Action, callContext);
+
+};
+Controller.prototype.togglePopper_Close$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._togglePopper_Close$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.closePopper$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._closePopper$Action, callContext);
+
+};
+Controller.prototype.togglePopper_Open$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._togglePopper_Open$Action, callContext);
+
+};
+Controller.prototype.destroyPopper$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._destroyPopper$Action, callContext);
+
+};
+Controller.prototype.togglePopper$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._togglePopper$Action, callContext);
+
+};
+Controller.prototype.click$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.destroyPopper$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Reactive_PatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Reactive_PatLanguageResources);
+});
+define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.CloseAll.CloseAllPoppersJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var poperHTML = document.getElementById($parameters.PopperId); 
+var pops = document.querySelectorAll('[data-popper-item="opened"]');
+for(var i=0; i<pops.length; i++){
+    if(poperHTML && pops[i] !== poperHTML && pops.length > 1){
+       pops[i].click(); 
+    }
+}
+
+};
+});
+define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.CreatePopper.init_PopperJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+var popcorn = document.getElementById($parameters.ItemId);
+var content = document.getElementById($parameters.ContentId);
+var arrow = document.getElementById($parameters.ArrowId);
+
+
+$parameters.popperObj = Popper.createPopper(popcorn, content, {
+    placement: $parameters.PopperPositionId, //preferred placement of popper
+    modifiers: [
+      {
+        name: "offset", //offsets popper from the reference/button
+        options: {
+          offset: [0, 8]
+        }
+      }
+    ]
+});
+
+// Update its position
+$parameters.popperObj.update();
+ 
+
+ 
+};
+});
+define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.OnReady.JavaScript1JS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var showEvents = ['mouseenter', 'focus'];
+var hideEvents = ['mouseleave', 'blur'];
+var button = document.getElementById($parameters.PopperElemId);
+
+showEvents.forEach(function(event){
+  button.addEventListener(event, $actions.TogglePopper_Open);
+});
+
+hideEvents.forEach(function(event) {
+  button.addEventListener(event, $actions.TogglePopper_Close);
+});
+};
+});
+define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.OnReady.JavaScript2JS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+var button = document.getElementById($parameters.PopperElemId);
+
+
+button.addEventListener("click", $actions.TogglePopper);
+
+
+};
+});
+define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$controller.DestroyPopper.destroyJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if ($parameters.popperObj) {
+    $parameters.popperObj.destroy();
+    $parameters.popperObj = null;
+}
+
+$parameters.popperObj_Out = $parameters.popperObj;
+};
+});
+
+define("ECOP_Reactive_Pat.PL_PopperJS.Popper.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

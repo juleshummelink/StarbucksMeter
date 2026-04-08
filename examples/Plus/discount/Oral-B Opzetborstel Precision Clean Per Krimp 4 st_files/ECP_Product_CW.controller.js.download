@@ -1,0 +1,293 @@
+﻿define("ECP_Product_CW.controller$ClientCache_GetMenuCategories", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller", "ECP_Category_CS.model", "ECP_Product_CW.controller$ClientCache_GetMenuCategories.GetCategoriesFromJSGlobalVarJS", "ECP_Product_CW.model$AncestorRecListList", "ECP_Product_CW.model$ScreenCategoryRecordList", "ECP_Product_CW.model$Category_strRecordList", "ECP_Category_CS.model$Category_strRec", "ECP_Product_CW.referencesHealth", "ECP_Product_CW.referencesHealth$ECP_Category_CS"], function (exports, OutSystems, ECP_Product_CWModel, ECP_Product_CWController, ECP_Category_CSModel, ECP_Product_CW_controller_ClientCache_GetMenuCategories_GetCategoriesFromJSGlobalVarJS) {
+var OS = OutSystems.Internal;
+ECP_Product_CWController.default.clientCache_GetMenuCategories$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var getCategoriesFromJSGlobalVarJSResult = new OS.DataTypes.VariableHolder();
+var jSONDeserializeCategoriesVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_Product_CWModel.ScreenCategoryRecordList))());
+var jSONDeserializeAncestorVar = new OS.DataTypes.VariableHolder(new (OS.Controller.BaseController.getJSONDeserializeOutputType(ECP_Product_CWModel.AncestorRecListList))());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.ClientCache_GetMenuCategories$outVars"))());
+getCategoriesFromJSGlobalVarJSResult.value = controller.safeExecuteJSNode(ECP_Product_CW_controller_ClientCache_GetMenuCategories_GetCategoriesFromJSGlobalVarJS, "GetCategoriesFromJSGlobalVar", "ClientCache_GetMenuCategories", {
+IsCacheValid: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+CategoriesJson: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text),
+AncestorRecListJson: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Product_CW.ClientCache_GetMenuCategories$getCategoriesFromJSGlobalVarJSResult"))();
+jsNodeResult.isCacheValidOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsCacheValid, OS.Types.Boolean);
+jsNodeResult.categoriesJsonOut = OS.DataConversion.JSNodeParamConverter.from($parameters.CategoriesJson, OS.Types.Text);
+jsNodeResult.ancestorRecListJsonOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AncestorRecListJson, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// IsCacheSet = GetCategoriesFromJSGlobalVar.IsCacheValid
+outVars.value.isCacheSetOut = getCategoriesFromJSGlobalVarJSResult.value.isCacheValidOut;
+if((outVars.value.isCacheSetOut)) {
+// JSON Deserialize: JSONDeserializeCategories
+jSONDeserializeCategoriesVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(getCategoriesFromJSGlobalVarJSResult.value.categoriesJsonOut, ECP_Product_CWModel.ScreenCategoryRecordList, false);
+// JSON Deserialize: JSONDeserializeAncestor
+jSONDeserializeAncestorVar.value.dataOut = OS.JSONUtils.deserializeFromJSON(getCategoriesFromJSGlobalVarJSResult.value.ancestorRecListJsonOut, ECP_Product_CWModel.AncestorRecListList, false);
+// Categories = JSONDeserializeCategories.Data
+outVars.value.categoriesOut = OS.DataConversion.JSConversions.typeConvertRecordList(jSONDeserializeCategoriesVar.value.dataOut, new ECP_Product_CWModel.Category_strRecordList(), function (source, target) {
+target.categoryAttr = source.category_strAttr;
+return target;
+});
+// AncestorRecList = JSONDeserializeAncestor.Data
+outVars.value.ancestorRecListOut = jSONDeserializeAncestorVar.value.dataOut;
+}
+
+return outVars.value;
+};
+var controller = ECP_Product_CWController.default;
+ECP_Product_CWController.default.constructor.registerVariableGroupType("ECP_Product_CW.ClientCache_GetMenuCategories$getCategoriesFromJSGlobalVarJSResult", [{
+name: "IsCacheValid",
+attrName: "isCacheValidOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "CategoriesJson",
+attrName: "categoriesJsonOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AncestorRecListJson",
+attrName: "ancestorRecListJsonOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Product_CWController.default.constructor.registerVariableGroupType("ECP_Product_CW.ClientCache_GetMenuCategories$outVars", [{
+name: "IsCacheSet",
+attrName: "isCacheSetOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "Categories",
+attrName: "categoriesOut",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Product_CWModel.Category_strRecordList();
+},
+complexType: ECP_Product_CWModel.Category_strRecordList
+}, {
+name: "AncestorRecList",
+attrName: "ancestorRecListOut",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Product_CWModel.AncestorRecListList();
+},
+complexType: ECP_Product_CWModel.AncestorRecListList
+}]);
+ECP_Product_CWController.default.clientActionProxies.clientCache_GetMenuCategories$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Product_CWController.default.clientCache_GetMenuCategories$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+IsCacheSet: OS.DataConversion.JSNodeParamConverter.to(actionResults.isCacheSetOut, OS.Types.Boolean),
+Categories: actionResults.categoriesOut,
+AncestorRecList: actionResults.ancestorRecListOut
+};
+});
+};
+});
+define("ECP_Product_CW.controller$ClientCache_GetMenuCategories.GetCategoriesFromJSGlobalVarJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+//Cache is set if all content pieces are set and the timeout period was not reached yet.
+if(globalThis.categoriesJson && globalThis.categoriesAncestorRecsJson !== undefined)
+{
+    $parameters.IsCacheValid = globalThis.categoriesTimeout > new Date();
+    $parameters.CategoriesJson = globalThis.categoriesJson;
+    $parameters.AncestorRecListJson = globalThis.categoriesAncestorRecsJson;
+}
+else
+{
+    $parameters.IsCacheValid = false;
+}
+};
+});
+
+define("ECP_Product_CW.controller$ClientCache_Invalidate", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller", "ECP_Product_CW.controller$ClientCache_Invalidate.SetJSGlobalVarJS"], function (exports, OutSystems, ECP_Product_CWModel, ECP_Product_CWController, ECP_Product_CW_controller_ClientCache_Invalidate_SetJSGlobalVarJS) {
+var OS = OutSystems.Internal;
+ECP_Product_CWController.default.clientCache_Invalidate$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECP_Product_CW_controller_ClientCache_Invalidate_SetJSGlobalVarJS, "SetJSGlobalVar", "ClientCache_Invalidate", null, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECP_Product_CWController.default;
+ECP_Product_CWController.default.clientActionProxies.clientCache_Invalidate$Action = function () {
+return controller.executeActionInsideJSNode(ECP_Product_CWController.default.clientCache_Invalidate$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECP_Product_CW.controller$ClientCache_Invalidate.SetJSGlobalVarJS", [], function () {
+return function ($actions, $roles, $public) {
+var categoriesTimeoutPeriod = new Date();
+categoriesTimeoutPeriod.setMinutes(categoriesTimeoutPeriod.getMinutes() - 60);
+globalThis.categoriesTimeout = categoriesTimeoutPeriod;
+};
+});
+
+define("ECP_Product_CW.controller$ClientCache_SetMenuCategories", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller", "ECP_Product_CW.controller$ClientCache_SetMenuCategories.SetJSGlobalVarJS"], function (exports, OutSystems, ECP_Product_CWModel, ECP_Product_CWController, ECP_Product_CW_controller_ClientCache_SetMenuCategories_SetJSGlobalVarJS) {
+var OS = OutSystems.Internal;
+ECP_Product_CWController.default.clientCache_SetMenuCategories$Action = function (categoriesJsonIn, ancestorRecListJsonIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.ClientCache_SetMenuCategories$vars"))());
+vars.value.categoriesJsonInLocal = categoriesJsonIn;
+vars.value.ancestorRecListJsonInLocal = ancestorRecListJsonIn;
+controller.safeExecuteJSNode(ECP_Product_CW_controller_ClientCache_SetMenuCategories_SetJSGlobalVarJS, "SetJSGlobalVar", "ClientCache_SetMenuCategories", {
+TimeoutPeriod: OS.DataConversion.JSNodeParamConverter.to(60, OS.Types.Integer),
+CategoriesJson: OS.DataConversion.JSNodeParamConverter.to(vars.value.categoriesJsonInLocal, OS.Types.Text),
+AncestorRecListJson: OS.DataConversion.JSNodeParamConverter.to(vars.value.ancestorRecListJsonInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+return ;
+};
+var controller = ECP_Product_CWController.default;
+ECP_Product_CWController.default.constructor.registerVariableGroupType("ECP_Product_CW.ClientCache_SetMenuCategories$vars", [{
+name: "CategoriesJson",
+attrName: "categoriesJsonInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AncestorRecListJson",
+attrName: "ancestorRecListJsonInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Product_CWController.default.clientActionProxies.clientCache_SetMenuCategories$Action = function (categoriesJsonIn, ancestorRecListJsonIn) {
+categoriesJsonIn = (categoriesJsonIn === undefined) ? "" : categoriesJsonIn;
+ancestorRecListJsonIn = (ancestorRecListJsonIn === undefined) ? "" : ancestorRecListJsonIn;
+return controller.executeActionInsideJSNode(ECP_Product_CWController.default.clientCache_SetMenuCategories$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(categoriesJsonIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(ancestorRecListJsonIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {};
+});
+};
+});
+define("ECP_Product_CW.controller$ClientCache_SetMenuCategories.SetJSGlobalVarJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+globalThis.categoriesJson =  $parameters.CategoriesJson;
+globalThis.categoriesAncestorRecsJson =  $parameters.AncestorRecListJson;
+
+//Sets local cache invaliation period
+var categoriesTimeoutPeriod = new Date();
+categoriesTimeoutPeriod.setMinutes(categoriesTimeoutPeriod.getMinutes() + $parameters.TimeoutPeriod);
+globalThis.categoriesTimeout = categoriesTimeoutPeriod;
+};
+});
+
+define("ECP_Product_CW.controller$GetPLPInputCategories", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller", "ECP_Product_CW.model$TextTextIntegerRecordList"], function (exports, OutSystems, ECP_Product_CWModel, ECP_Product_CWController) {
+var OS = OutSystems.Internal;
+ECP_Product_CWController.default.getPLPInputCategories$Action = function (ancestorRecListIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.GetPLPInputCategories$vars"))());
+vars.value.ancestorRecListInLocal = ancestorRecListIn.clone();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Product_CW.GetPLPInputCategories$outVars"))());
+if(((vars.value.ancestorRecListInLocal.length === 3))) {
+// Category1 = AncestorRecList[0].Slug
+outVars.value.category1Out = vars.value.ancestorRecListInLocal.getItem(0).slugAttr;
+// Category2 = AncestorRecList[1].Slug
+outVars.value.category2Out = vars.value.ancestorRecListInLocal.getItem(1).slugAttr;
+// Category3 = AncestorRecList[2].Slug
+outVars.value.category3Out = vars.value.ancestorRecListInLocal.getItem(2).slugAttr;
+} else {
+if((vars.value.ancestorRecListInLocal.length === 2)) {
+// Category1 = AncestorRecList[0].Slug
+outVars.value.category1Out = vars.value.ancestorRecListInLocal.getItem(0).slugAttr;
+// Category2 = AncestorRecList[1].Slug
+outVars.value.category2Out = vars.value.ancestorRecListInLocal.getItem(1).slugAttr;
+} else {
+if((vars.value.ancestorRecListInLocal.length === 1)) {
+// Category1 = AncestorRecList[0].Slug
+outVars.value.category1Out = vars.value.ancestorRecListInLocal.getItem(0).slugAttr;
+}
+
+}
+
+}
+
+return outVars.value;
+};
+var controller = ECP_Product_CWController.default;
+ECP_Product_CWController.default.constructor.registerVariableGroupType("ECP_Product_CW.GetPLPInputCategories$vars", [{
+name: "AncestorRecList",
+attrName: "ancestorRecListInLocal",
+mandatory: false,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECP_Product_CWModel.TextTextIntegerRecordList();
+},
+complexType: ECP_Product_CWModel.TextTextIntegerRecordList
+}]);
+ECP_Product_CWController.default.constructor.registerVariableGroupType("ECP_Product_CW.GetPLPInputCategories$outVars", [{
+name: "Category1",
+attrName: "category1Out",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Category2",
+attrName: "category2Out",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Category3",
+attrName: "category3Out",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+ECP_Product_CWController.default.clientActionProxies.getPLPInputCategories$Action = function (ancestorRecListIn) {
+ancestorRecListIn = (ancestorRecListIn === undefined) ? new ECP_Product_CWModel.TextTextIntegerRecordList() : ancestorRecListIn;
+return controller.executeActionInsideJSNode(ECP_Product_CWController.default.getPLPInputCategories$Action.bind(controller, ancestorRecListIn), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Category1: OS.DataConversion.JSNodeParamConverter.to(actionResults.category1Out, OS.Types.Text),
+Category2: OS.DataConversion.JSNodeParamConverter.to(actionResults.category2Out, OS.Types.Text),
+Category3: OS.DataConversion.JSNodeParamConverter.to(actionResults.category3Out, OS.Types.Text)
+};
+});
+};
+});
+
+define("ECP_Product_CW.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_CW.model", "ECP_Product_CW.controller$translationsResources"], function (exports, OutSystems, ECP_Product_CWModel, ECP_Product_CW_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECP_Product_CWController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Product_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+ECP_Product_CWController.default = new Controller(ECP_Product_CW_Controller_translationsResources, "ECP_Product_CW");
+});
+define("ECP_Product_CW.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

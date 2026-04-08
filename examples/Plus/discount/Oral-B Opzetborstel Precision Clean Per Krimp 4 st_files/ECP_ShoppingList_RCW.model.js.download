@@ -1,0 +1,4119 @@
+﻿define("ECP_ShoppingList_RCW.model$GutterSizeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_ShoppingList_RCW.model", "PLUS_OutSystemsUI_2_8_0.model$GutterSizeRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var GutterSizeRecord = (function (_super) {
+__extends(GutterSizeRecord, _super);
+function GutterSizeRecord(defaults) {
+_super.apply(this, arguments);
+}
+GutterSizeRecord.attributesToDeclare = function () {
+return [
+this.attr("GutterSize", "gutterSizeAttr", "GutterSize", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.GutterSizeRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.GutterSizeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GutterSizeRecord.fromStructure = function (str) {
+return new GutterSizeRecord(new GutterSizeRecord.RecordClass({
+gutterSizeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GutterSizeRecord._isAnonymousRecord = true;
+GutterSizeRecord.UniqueId = "05a08da7-e917-622f-0e17-39afb519237b";
+GutterSizeRecord.init();
+return GutterSizeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.GutterSizeRecord = GutterSizeRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$TextTextDecimalRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var TextTextDecimalRecord = (function (_super) {
+__extends(TextTextDecimalRecord, _super);
+function TextTextDecimalRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextDecimalRecord.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Webkey", "webkeyAttr", "Webkey", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderHint", "orderHintAttr", "OrderHint", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextDecimalRecord._isAnonymousRecord = true;
+TextTextDecimalRecord.UniqueId = "d99b6224-2f6c-59fe-b2c8-0a7c429cfbcd";
+TextTextDecimalRecord.init();
+return TextTextDecimalRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.TextTextDecimalRecord = TextTextDecimalRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$TextTextRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var TextTextRecord = (function (_super) {
+__extends(TextTextRecord, _super);
+function TextTextRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextRecord.attributesToDeclare = function () {
+return [
+this.attr("Label", "labelAttr", "Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("URL", "uRLAttr", "URL", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextRecord._isAnonymousRecord = true;
+TextTextRecord.UniqueId = "629e7732-61c2-8a00-ccee-573f075880ed";
+TextTextRecord.init();
+return TextTextRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.TextTextRecord = TextTextRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$TextTextTextDecimalBooleanRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var TextTextTextDecimalBooleanRecord = (function (_super) {
+__extends(TextTextTextDecimalBooleanRecord, _super);
+function TextTextTextDecimalBooleanRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextTextTextDecimalBooleanRecord.attributesToDeclare = function () {
+return [
+this.attr("BasedLabel", "basedLabelAttr", "BasedLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StampURL", "stampURLAttr", "StampURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NewPrice", "newPriceAttr", "NewPrice", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("IsFreeDelivery", "isFreeDeliveryAttr", "IsFreeDelivery", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextTextTextDecimalBooleanRecord._isAnonymousRecord = true;
+TextTextTextDecimalBooleanRecord.UniqueId = "30b0959f-37ff-6a66-be86-8204d768a768";
+TextTextTextDecimalBooleanRecord.init();
+return TextTextTextDecimalBooleanRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.TextTextTextDecimalBooleanRecord = TextTextTextDecimalBooleanRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$LineItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$LineItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var LineItemList = (function (_super) {
+__extends(LineItemList, _super);
+function LineItemList(defaults) {
+_super.apply(this, arguments);
+}
+LineItemList.itemType = ECP_Checkout_BLModel.LineItemRec;
+return LineItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.LineItemList = LineItemList;
+
+});
+define("ECP_ShoppingList_RCW.model$PromotionLineItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$PromotionLineItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PromotionLineItemList = (function (_super) {
+__extends(PromotionLineItemList, _super);
+function PromotionLineItemList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionLineItemList.itemType = ECP_Checkout_BLModel.PromotionLineItemRec;
+return PromotionLineItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.PromotionLineItemList = PromotionLineItemList;
+
+});
+define("ECP_ShoppingList_RCW.model$VoucherLineItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$VoucherLineItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var VoucherLineItemList = (function (_super) {
+__extends(VoucherLineItemList, _super);
+function VoucherLineItemList(defaults) {
+_super.apply(this, arguments);
+}
+VoucherLineItemList.itemType = ECP_Checkout_BLModel.VoucherLineItemRec;
+return VoucherLineItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.VoucherLineItemList = VoucherLineItemList;
+
+});
+define("ECP_ShoppingList_RCW.model$PreferenceItemInfoList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$PreferenceItemInfoRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PreferenceItemInfoList = (function (_super) {
+__extends(PreferenceItemInfoList, _super);
+function PreferenceItemInfoList(defaults) {
+_super.apply(this, arguments);
+}
+PreferenceItemInfoList.itemType = ECP_Checkout_BLModel.PreferenceItemInfoRec;
+return PreferenceItemInfoList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.PreferenceItemInfoList = PreferenceItemInfoList;
+
+});
+define("ECP_ShoppingList_RCW.model$DeliveryCostBreakdownItem_StrList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Cart_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Cart_BL.model$DeliveryCostBreakdownItem_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Cart_BL"], function (exports, OutSystems, ECP_Cart_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostBreakdownItem_StrList = (function (_super) {
+__extends(DeliveryCostBreakdownItem_StrList, _super);
+function DeliveryCostBreakdownItem_StrList(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostBreakdownItem_StrList.itemType = ECP_Cart_BLModel.DeliveryCostBreakdownItem_StrRec;
+return DeliveryCostBreakdownItem_StrList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.DeliveryCostBreakdownItem_StrList = DeliveryCostBreakdownItem_StrList;
+
+});
+define("ECP_ShoppingList_RCW.model$CheckoutList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$CheckoutRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var CheckoutList = (function (_super) {
+__extends(CheckoutList, _super);
+function CheckoutList(defaults) {
+_super.apply(this, arguments);
+}
+CheckoutList.itemType = ECP_Checkout_BLModel.CheckoutRec;
+return CheckoutList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.CheckoutList = CheckoutList;
+
+});
+define("ECP_ShoppingList_RCW.model$ErrorItemList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "ECP_ShoppingList_RCW.model", "CT_Supporting_IS.model$ErrorItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_Supporting_IS"], function (exports, OutSystems, CT_Supporting_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ErrorItemList = (function (_super) {
+__extends(ErrorItemList, _super);
+function ErrorItemList(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemList.itemType = CT_Supporting_ISModel.ErrorItemRec;
+return ErrorItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ErrorItemList = ErrorItemList;
+
+});
+define("ECP_ShoppingList_RCW.model$ErrorRecord", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "ECP_ShoppingList_RCW.model", "CT_Supporting_IS.model$ErrorRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_Supporting_IS"], function (exports, OutSystems, CT_Supporting_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ErrorRecord = (function (_super) {
+__extends(ErrorRecord, _super);
+function ErrorRecord(defaults) {
+_super.apply(this, arguments);
+}
+ErrorRecord.attributesToDeclare = function () {
+return [
+this.attr("Error", "errorAttr", "Error", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.ErrorRec());
+}, true, CT_Supporting_ISModel.ErrorRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ErrorRecord.fromStructure = function (str) {
+return new ErrorRecord(new ErrorRecord.RecordClass({
+errorAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ErrorRecord._isAnonymousRecord = true;
+ErrorRecord.UniqueId = "06dd9257-a02d-4094-5c55-3bcf637d9a2f";
+ErrorRecord.init();
+return ErrorRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ErrorRecord = ErrorRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_UpdateActionRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_UpdateActionRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_UpdateActionRecord = (function (_super) {
+__extends(ShoppingList_UpdateActionRecord, _super);
+function ShoppingList_UpdateActionRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_UpdateActionRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_UpdateAction", "shoppingList_UpdateActionAttr", "ShoppingList_UpdateAction", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_BLModel.ShoppingList_UpdateActionRec());
+}, true, ECP_ShoppingList_BLModel.ShoppingList_UpdateActionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_UpdateActionRecord.fromStructure = function (str) {
+return new ShoppingList_UpdateActionRecord(new ShoppingList_UpdateActionRecord.RecordClass({
+shoppingList_UpdateActionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_UpdateActionRecord._isAnonymousRecord = true;
+ShoppingList_UpdateActionRecord.UniqueId = "0bc80cc6-8203-8946-e145-b8f578c4f602";
+ShoppingList_UpdateActionRecord.init();
+return ShoppingList_UpdateActionRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_UpdateActionRecord = ShoppingList_UpdateActionRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Logo_InfoList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Product_BL.model$Logo_InfoRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoList = (function (_super) {
+__extends(Logo_InfoList, _super);
+function Logo_InfoList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoList.itemType = ECP_Product_BLModel.Logo_InfoRec;
+return Logo_InfoList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Logo_InfoList = Logo_InfoList;
+
+});
+define("ECP_ShoppingList_RCW.model$TextRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var TextRecord = (function (_super) {
+__extends(TextRecord, _super);
+function TextRecord(defaults) {
+_super.apply(this, arguments);
+}
+TextRecord.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TextRecord.fromStructure = function (str) {
+return new TextRecord(new TextRecord.RecordClass({
+nameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+TextRecord._isAnonymousRecord = true;
+TextRecord.UniqueId = "140ae763-5b5c-550e-5f93-324b123e0b4f";
+TextRecord.init();
+return TextRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.TextRecord = TextRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$TextRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$TextRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var TextRecordList = (function (_super) {
+__extends(TextRecordList, _super);
+function TextRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextRecordList.itemType = ECP_ShoppingList_RCWModel.TextRecord;
+return TextRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.TextRecordList = TextRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$Product_PLPRecord", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$Product_PLPRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Product_PLPRecord = (function (_super) {
+__extends(Product_PLPRecord, _super);
+function Product_PLPRecord(defaults) {
+_super.apply(this, arguments);
+}
+Product_PLPRecord.attributesToDeclare = function () {
+return [
+this.attr("Product_PLP", "product_PLPAttr", "Product_PLP", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Product_PLPRec());
+}, true, CMS_MonolithModel.Product_PLPRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Product_PLPRecord.fromStructure = function (str) {
+return new Product_PLPRecord(new Product_PLPRecord.RecordClass({
+product_PLPAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Product_PLPRecord._isAnonymousRecord = true;
+Product_PLPRecord.UniqueId = "0cb6add1-fec6-651c-93fc-0eac359545f7";
+Product_PLPRecord.init();
+return Product_PLPRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.Product_PLPRecord = Product_PLPRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$GTM_ProductItemRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_FE_Core.model", "ECP_ShoppingList_RCW.model", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_FE_Core"], function (exports, OutSystems, ECOP_FE_CoreModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var GTM_ProductItemRecord = (function (_super) {
+__extends(GTM_ProductItemRecord, _super);
+function GTM_ProductItemRecord(defaults) {
+_super.apply(this, arguments);
+}
+GTM_ProductItemRecord.attributesToDeclare = function () {
+return [
+this.attr("GTM_ProductItem", "gTM_ProductItemAttr", "GTM_ProductItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_FE_CoreModel.GTM_ProductItemRec());
+}, true, ECOP_FE_CoreModel.GTM_ProductItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GTM_ProductItemRecord.fromStructure = function (str) {
+return new GTM_ProductItemRecord(new GTM_ProductItemRecord.RecordClass({
+gTM_ProductItemAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GTM_ProductItemRecord._isAnonymousRecord = true;
+GTM_ProductItemRecord.UniqueId = "c0fb6b72-524f-3d7d-bc48-390bddbb2cd0";
+GTM_ProductItemRecord.init();
+return GTM_ProductItemRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.GTM_ProductItemRecord = GTM_ProductItemRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$GTM_ProductItemRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$GTM_ProductItemRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var GTM_ProductItemRecordList = (function (_super) {
+__extends(GTM_ProductItemRecordList, _super);
+function GTM_ProductItemRecordList(defaults) {
+_super.apply(this, arguments);
+}
+GTM_ProductItemRecordList.itemType = ECP_ShoppingList_RCWModel.GTM_ProductItemRecord;
+return GTM_ProductItemRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.GTM_ProductItemRecordList = GTM_ProductItemRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_ProductRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_ProductRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_ProductRecord = (function (_super) {
+__extends(ShoppingList_ProductRecord, _super);
+function ShoppingList_ProductRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_ProductRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_Product", "shoppingList_ProductAttr", "ShoppingList_Product", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_BLModel.ShoppingList_ProductRec());
+}, true, ECP_ShoppingList_BLModel.ShoppingList_ProductRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_ProductRecord.fromStructure = function (str) {
+return new ShoppingList_ProductRecord(new ShoppingList_ProductRecord.RecordClass({
+shoppingList_ProductAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_ProductRecord._isAnonymousRecord = true;
+ShoppingList_ProductRecord.UniqueId = "b9b3cee0-42dc-659f-83cd-247cc97eac8b";
+ShoppingList_ProductRecord.init();
+return ShoppingList_ProductRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_ProductRecord = ShoppingList_ProductRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_ProductRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_ProductRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_ProductRecordList = (function (_super) {
+__extends(ShoppingList_ProductRecordList, _super);
+function ShoppingList_ProductRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_ProductRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_ProductRecord;
+return ShoppingList_ProductRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_ProductRecordList = ShoppingList_ProductRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ErrorList", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "ECP_ShoppingList_RCW.model", "CT_Supporting_IS.model$ErrorRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_Supporting_IS"], function (exports, OutSystems, CT_Supporting_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ErrorList = (function (_super) {
+__extends(ErrorList, _super);
+function ErrorList(defaults) {
+_super.apply(this, arguments);
+}
+ErrorList.itemType = CT_Supporting_ISModel.ErrorRec;
+return ErrorList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ErrorList = ErrorList;
+
+});
+define("ECP_ShoppingList_RCW.model$MyLineItem_StrList", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "ECP_ShoppingList_RCW.model", "CT_ShoppingList_IS.model$MyLineItem_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS"], function (exports, OutSystems, CT_ShoppingList_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyLineItem_StrList = (function (_super) {
+__extends(MyLineItem_StrList, _super);
+function MyLineItem_StrList(defaults) {
+_super.apply(this, arguments);
+}
+MyLineItem_StrList.itemType = CT_ShoppingList_ISModel.MyLineItem_StrRec;
+return MyLineItem_StrList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.MyLineItem_StrList = MyLineItem_StrList;
+
+});
+define("ECP_ShoppingList_RCW.model$VoucherLineItemRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$VoucherLineItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var VoucherLineItemRecord = (function (_super) {
+__extends(VoucherLineItemRecord, _super);
+function VoucherLineItemRecord(defaults) {
+_super.apply(this, arguments);
+}
+VoucherLineItemRecord.attributesToDeclare = function () {
+return [
+this.attr("VoucherLineItem", "voucherLineItemAttr", "VoucherLineItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.VoucherLineItemRec());
+}, true, ECP_Checkout_BLModel.VoucherLineItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VoucherLineItemRecord.fromStructure = function (str) {
+return new VoucherLineItemRecord(new VoucherLineItemRecord.RecordClass({
+voucherLineItemAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+VoucherLineItemRecord._isAnonymousRecord = true;
+VoucherLineItemRecord.UniqueId = "dd1e8328-61ec-6730-f9da-39e2c3e3eb6f";
+VoucherLineItemRecord.init();
+return VoucherLineItemRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.VoucherLineItemRecord = VoucherLineItemRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$VoucherLineItemRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$VoucherLineItemRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var VoucherLineItemRecordList = (function (_super) {
+__extends(VoucherLineItemRecordList, _super);
+function VoucherLineItemRecordList(defaults) {
+_super.apply(this, arguments);
+}
+VoucherLineItemRecordList.itemType = ECP_ShoppingList_RCWModel.VoucherLineItemRecord;
+return VoucherLineItemRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.VoucherLineItemRecordList = VoucherLineItemRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShapeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_ShoppingList_RCW.model", "PLUS_OutSystemsUI_2_8_0.model$ShapeRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShapeRecord = (function (_super) {
+__extends(ShapeRecord, _super);
+function ShapeRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShapeRecord.attributesToDeclare = function () {
+return [
+this.attr("Shape", "shapeAttr", "Shape", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.ShapeRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.ShapeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShapeRecord.fromStructure = function (str) {
+return new ShapeRecord(new ShapeRecord.RecordClass({
+shapeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShapeRecord._isAnonymousRecord = true;
+ShapeRecord.UniqueId = "96db0c33-40f1-a2a3-a416-4bfe9984a8d6";
+ShapeRecord.init();
+return ShapeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShapeRecord = ShapeRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShapeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShapeRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShapeRecordList = (function (_super) {
+__extends(ShapeRecordList, _super);
+function ShapeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShapeRecordList.itemType = ECP_ShoppingList_RCWModel.ShapeRecord;
+return ShapeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShapeRecordList = ShapeRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_OverviewRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_OverviewRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_OverviewRecord = (function (_super) {
+__extends(ShoppingList_OverviewRecord, _super);
+function ShoppingList_OverviewRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_OverviewRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_Overview", "shoppingList_OverviewAttr", "ShoppingList_Overview", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_BLModel.ShoppingList_OverviewRec());
+}, true, ECP_ShoppingList_BLModel.ShoppingList_OverviewRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_OverviewRecord.fromStructure = function (str) {
+return new ShoppingList_OverviewRecord(new ShoppingList_OverviewRecord.RecordClass({
+shoppingList_OverviewAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_OverviewRecord._isAnonymousRecord = true;
+ShoppingList_OverviewRecord.UniqueId = "1e82a01e-e948-6c16-75d4-66ce117c1cbb";
+ShoppingList_OverviewRecord.init();
+return ShoppingList_OverviewRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_OverviewRecord = ShoppingList_OverviewRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ReservedMomentRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReservedMomentRecord = (function (_super) {
+__extends(ReservedMomentRecord, _super);
+function ReservedMomentRecord(defaults) {
+_super.apply(this, arguments);
+}
+ReservedMomentRecord.attributesToDeclare = function () {
+return [
+this.attr("ReservedMoment", "reservedMomentAttr", "ReservedMoment", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.ReservedMomentRec());
+}, true, ECP_Checkout_BLModel.ReservedMomentRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ReservedMomentRecord.fromStructure = function (str) {
+return new ReservedMomentRecord(new ReservedMomentRecord.RecordClass({
+reservedMomentAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ReservedMomentRecord._isAnonymousRecord = true;
+ReservedMomentRecord.UniqueId = "55067f0b-c762-02f3-1960-0f6b63c8503a";
+ReservedMomentRecord.init();
+return ReservedMomentRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ReservedMomentRecord = ReservedMomentRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ReservedMomentRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ReservedMomentRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReservedMomentRecordList = (function (_super) {
+__extends(ReservedMomentRecordList, _super);
+function ReservedMomentRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ReservedMomentRecordList.itemType = ECP_ShoppingList_RCWModel.ReservedMomentRecord;
+return ReservedMomentRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ReservedMomentRecordList = ReservedMomentRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_AddMultipleRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_AddMultipleRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_AddMultipleRecord = (function (_super) {
+__extends(ShoppingList_AddMultipleRecord, _super);
+function ShoppingList_AddMultipleRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_AddMultipleRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_AddMultiple", "shoppingList_AddMultipleAttr", "ShoppingList_AddMultiple", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_BLModel.ShoppingList_AddMultipleRec());
+}, true, ECP_ShoppingList_BLModel.ShoppingList_AddMultipleRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_AddMultipleRecord.fromStructure = function (str) {
+return new ShoppingList_AddMultipleRecord(new ShoppingList_AddMultipleRecord.RecordClass({
+shoppingList_AddMultipleAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_AddMultipleRecord._isAnonymousRecord = true;
+ShoppingList_AddMultipleRecord.UniqueId = "24e35b27-7074-7398-4c8a-0bebf7431a3c";
+ShoppingList_AddMultipleRecord.init();
+return ShoppingList_AddMultipleRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_AddMultipleRecord = ShoppingList_AddMultipleRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$DeliveryCostBreakdown_StrRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Cart_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Cart_BL.model$DeliveryCostBreakdown_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Cart_BL"], function (exports, OutSystems, ECP_Cart_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostBreakdown_StrRecord = (function (_super) {
+__extends(DeliveryCostBreakdown_StrRecord, _super);
+function DeliveryCostBreakdown_StrRecord(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostBreakdown_StrRecord.attributesToDeclare = function () {
+return [
+this.attr("DeliveryCostBreakdown_Str", "deliveryCostBreakdown_StrAttr", "DeliveryCostBreakdown_Str", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Cart_BLModel.DeliveryCostBreakdown_StrRec());
+}, true, ECP_Cart_BLModel.DeliveryCostBreakdown_StrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryCostBreakdown_StrRecord.fromStructure = function (str) {
+return new DeliveryCostBreakdown_StrRecord(new DeliveryCostBreakdown_StrRecord.RecordClass({
+deliveryCostBreakdown_StrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DeliveryCostBreakdown_StrRecord._isAnonymousRecord = true;
+DeliveryCostBreakdown_StrRecord.UniqueId = "258280be-ae4a-30a4-3604-9e6dd715de3c";
+DeliveryCostBreakdown_StrRecord.init();
+return DeliveryCostBreakdown_StrRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.DeliveryCostBreakdown_StrRecord = DeliveryCostBreakdown_StrRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_SortingList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_SortingRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_SortingList = (function (_super) {
+__extends(ShoppingList_SortingList, _super);
+function ShoppingList_SortingList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_SortingList.itemType = ECP_ShoppingList_BLModel.ShoppingList_SortingRec;
+return ShoppingList_SortingList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_SortingList = ShoppingList_SortingList;
+
+});
+define("ECP_ShoppingList_RCW.model$CallbackOrderEdit2Record", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Order_BL.model$CallbackOrderEditRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Order_BL"], function (exports, OutSystems, ECP_Order_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var CallbackOrderEdit2Record = (function (_super) {
+__extends(CallbackOrderEdit2Record, _super);
+function CallbackOrderEdit2Record(defaults) {
+_super.apply(this, arguments);
+}
+CallbackOrderEdit2Record.attributesToDeclare = function () {
+return [
+this.attr("CallbackOrderEdit", "callbackOrderEditAttr", "CallbackOrderEdit2", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Order_BLModel.CallbackOrderEditRec());
+}, true, ECP_Order_BLModel.CallbackOrderEditRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CallbackOrderEdit2Record.fromStructure = function (str) {
+return new CallbackOrderEdit2Record(new CallbackOrderEdit2Record.RecordClass({
+callbackOrderEditAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+CallbackOrderEdit2Record._isAnonymousRecord = true;
+CallbackOrderEdit2Record.UniqueId = "283fe7fe-1e82-1ead-e171-19c5fd9999fb";
+CallbackOrderEdit2Record.init();
+return CallbackOrderEdit2Record;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.CallbackOrderEdit2Record = CallbackOrderEdit2Record;
+
+});
+define("ECP_ShoppingList_RCW.model$PreferenceItemInfoRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$PreferenceItemInfoRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PreferenceItemInfoRecord = (function (_super) {
+__extends(PreferenceItemInfoRecord, _super);
+function PreferenceItemInfoRecord(defaults) {
+_super.apply(this, arguments);
+}
+PreferenceItemInfoRecord.attributesToDeclare = function () {
+return [
+this.attr("PreferenceItemInfo", "preferenceItemInfoAttr", "PreferenceItemInfo", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.PreferenceItemInfoRec());
+}, true, ECP_Checkout_BLModel.PreferenceItemInfoRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PreferenceItemInfoRecord.fromStructure = function (str) {
+return new PreferenceItemInfoRecord(new PreferenceItemInfoRecord.RecordClass({
+preferenceItemInfoAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PreferenceItemInfoRecord._isAnonymousRecord = true;
+PreferenceItemInfoRecord.UniqueId = "2c31db6f-33d4-c79f-6f0d-a3307c571ebc";
+PreferenceItemInfoRecord.init();
+return PreferenceItemInfoRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.PreferenceItemInfoRecord = PreferenceItemInfoRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$MyShoppingList_StrRecord", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "ECP_ShoppingList_RCW.model", "CT_ShoppingList_IS.model$MyShoppingList_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS"], function (exports, OutSystems, CT_ShoppingList_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyShoppingList_StrRecord = (function (_super) {
+__extends(MyShoppingList_StrRecord, _super);
+function MyShoppingList_StrRecord(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingList_StrRecord.attributesToDeclare = function () {
+return [
+this.attr("MyShoppingList_Str", "myShoppingList_StrAttr", "MyShoppingList_Str", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_ShoppingList_ISModel.MyShoppingList_StrRec());
+}, true, CT_ShoppingList_ISModel.MyShoppingList_StrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyShoppingList_StrRecord.fromStructure = function (str) {
+return new MyShoppingList_StrRecord(new MyShoppingList_StrRecord.RecordClass({
+myShoppingList_StrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MyShoppingList_StrRecord._isAnonymousRecord = true;
+MyShoppingList_StrRecord.UniqueId = "a01c76f7-8970-4acd-e057-a5466edf881e";
+MyShoppingList_StrRecord.init();
+return MyShoppingList_StrRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.MyShoppingList_StrRecord = MyShoppingList_StrRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$MyShoppingList_StrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$MyShoppingList_StrRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyShoppingList_StrRecordList = (function (_super) {
+__extends(MyShoppingList_StrRecordList, _super);
+function MyShoppingList_StrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingList_StrRecordList.itemType = ECP_ShoppingList_RCWModel.MyShoppingList_StrRecord;
+return MyShoppingList_StrRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.MyShoppingList_StrRecordList = MyShoppingList_StrRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ProductTileDataList", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$ProductTileDataRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ProductTileDataList = (function (_super) {
+__extends(ProductTileDataList, _super);
+function ProductTileDataList(defaults) {
+_super.apply(this, arguments);
+}
+ProductTileDataList.itemType = CMS_MonolithModel.ProductTileDataRec;
+return ProductTileDataList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ProductTileDataList = ProductTileDataList;
+
+});
+define("ECP_ShoppingList_RCW.model$ProductComponentRecord", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$ProductComponentRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ProductComponentRecord = (function (_super) {
+__extends(ProductComponentRecord, _super);
+function ProductComponentRecord(defaults) {
+_super.apply(this, arguments);
+}
+ProductComponentRecord.attributesToDeclare = function () {
+return [
+this.attr("ProductComponent", "productComponentAttr", "ProductComponent", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.ProductComponentRec());
+}, true, CMS_MonolithModel.ProductComponentRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ProductComponentRecord.fromStructure = function (str) {
+return new ProductComponentRecord(new ProductComponentRecord.RecordClass({
+productComponentAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ProductComponentRecord._isAnonymousRecord = true;
+ProductComponentRecord.UniqueId = "39236d7a-bd55-5271-4b4f-fa3d4c21bb6c";
+ProductComponentRecord.init();
+return ProductComponentRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ProductComponentRecord = ProductComponentRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShapeList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_ShoppingList_RCW.model", "PLUS_OutSystemsUI_2_8_0.model$ShapeRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShapeList = (function (_super) {
+__extends(ShapeList, _super);
+function ShapeList(defaults) {
+_super.apply(this, arguments);
+}
+ShapeList.itemType = PLUS_OutSystemsUI_2_8_0Model.ShapeRec;
+return ShapeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShapeList = ShapeList;
+
+});
+define("ECP_ShoppingList_RCW.model$AccountScreenRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_ShoppingList_RCW.model", "ECP_Customer_CW.model$AccountScreenRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Customer_CW"], function (exports, OutSystems, ECP_Customer_CWModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var AccountScreenRecord = (function (_super) {
+__extends(AccountScreenRecord, _super);
+function AccountScreenRecord(defaults) {
+_super.apply(this, arguments);
+}
+AccountScreenRecord.attributesToDeclare = function () {
+return [
+this.attr("AccountScreen", "accountScreenAttr", "AccountScreen", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CWModel.AccountScreenRec());
+}, true, ECP_Customer_CWModel.AccountScreenRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+AccountScreenRecord.fromStructure = function (str) {
+return new AccountScreenRecord(new AccountScreenRecord.RecordClass({
+accountScreenAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+AccountScreenRecord._isAnonymousRecord = true;
+AccountScreenRecord.UniqueId = "bcb9c089-de95-fc4e-e42a-f945a83f3d2e";
+AccountScreenRecord.init();
+return AccountScreenRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.AccountScreenRecord = AccountScreenRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$AccountScreenRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$AccountScreenRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var AccountScreenRecordList = (function (_super) {
+__extends(AccountScreenRecordList, _super);
+function AccountScreenRecordList(defaults) {
+_super.apply(this, arguments);
+}
+AccountScreenRecordList.itemType = ECP_ShoppingList_RCWModel.AccountScreenRecord;
+return AccountScreenRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.AccountScreenRecordList = AccountScreenRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_CTARecord", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$Shared_CTARec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_CTARecord = (function (_super) {
+__extends(Shared_CTARecord, _super);
+function Shared_CTARecord(defaults) {
+_super.apply(this, arguments);
+}
+Shared_CTARecord.attributesToDeclare = function () {
+return [
+this.attr("Shared_CTA", "shared_CTAAttr", "Shared_CTA", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_CTARec());
+}, true, CMS_MonolithModel.Shared_CTARec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Shared_CTARecord.fromStructure = function (str) {
+return new Shared_CTARecord(new Shared_CTARecord.RecordClass({
+shared_CTAAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Shared_CTARecord._isAnonymousRecord = true;
+Shared_CTARecord.UniqueId = "e1ed439d-bcd9-cf8a-de65-6d6617b6d4ef";
+Shared_CTARecord.init();
+return Shared_CTARecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.Shared_CTARecord = Shared_CTARecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_CTARecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$Shared_CTARecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_CTARecordList = (function (_super) {
+__extends(Shared_CTARecordList, _super);
+function Shared_CTARecordList(defaults) {
+_super.apply(this, arguments);
+}
+Shared_CTARecordList.itemType = ECP_ShoppingList_RCWModel.Shared_CTARecord;
+return Shared_CTARecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Shared_CTARecordList = Shared_CTARecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ErrorRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ErrorRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ErrorRecordList = (function (_super) {
+__extends(ErrorRecordList, _super);
+function ErrorRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ErrorRecordList.itemType = ECP_ShoppingList_RCWModel.ErrorRecord;
+return ErrorRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ErrorRecordList = ErrorRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$AdditionalsRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$AdditionalsRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var AdditionalsRecord = (function (_super) {
+__extends(AdditionalsRecord, _super);
+function AdditionalsRecord(defaults) {
+_super.apply(this, arguments);
+}
+AdditionalsRecord.attributesToDeclare = function () {
+return [
+this.attr("Additionals", "additionalsAttr", "Additionals", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.AdditionalsRec());
+}, true, ECP_Checkout_BLModel.AdditionalsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+AdditionalsRecord.fromStructure = function (str) {
+return new AdditionalsRecord(new AdditionalsRecord.RecordClass({
+additionalsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+AdditionalsRecord._isAnonymousRecord = true;
+AdditionalsRecord.UniqueId = "93e0f9bb-3232-f1bc-d9a2-d4351d9e2817";
+AdditionalsRecord.init();
+return AdditionalsRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.AdditionalsRecord = AdditionalsRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$AdditionalsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$AdditionalsRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var AdditionalsRecordList = (function (_super) {
+__extends(AdditionalsRecordList, _super);
+function AdditionalsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+AdditionalsRecordList.itemType = ECP_ShoppingList_RCWModel.AdditionalsRecord;
+return AdditionalsRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.AdditionalsRecordList = AdditionalsRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ProductTileDataRecord", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$ProductTileDataRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ProductTileDataRecord = (function (_super) {
+__extends(ProductTileDataRecord, _super);
+function ProductTileDataRecord(defaults) {
+_super.apply(this, arguments);
+}
+ProductTileDataRecord.attributesToDeclare = function () {
+return [
+this.attr("ProductTileData", "productTileDataAttr", "ProductTileData", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.ProductTileDataRec());
+}, true, CMS_MonolithModel.ProductTileDataRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ProductTileDataRecord.fromStructure = function (str) {
+return new ProductTileDataRecord(new ProductTileDataRecord.RecordClass({
+productTileDataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ProductTileDataRecord._isAnonymousRecord = true;
+ProductTileDataRecord.UniqueId = "4f037f68-a3c5-bee5-3f8d-25f5e3e49516";
+ProductTileDataRecord.init();
+return ProductTileDataRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ProductTileDataRecord = ProductTileDataRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_AddToListRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_AddToListRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_AddToListRecord = (function (_super) {
+__extends(ShoppingList_AddToListRecord, _super);
+function ShoppingList_AddToListRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_AddToListRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_AddToList", "shoppingList_AddToListAttr", "ShoppingList_AddToList", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_BLModel.ShoppingList_AddToListRec());
+}, true, ECP_ShoppingList_BLModel.ShoppingList_AddToListRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_AddToListRecord.fromStructure = function (str) {
+return new ShoppingList_AddToListRecord(new ShoppingList_AddToListRecord.RecordClass({
+shoppingList_AddToListAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_AddToListRecord._isAnonymousRecord = true;
+ShoppingList_AddToListRecord.UniqueId = "733ce353-7e78-4fe4-4aa9-935f1597ddf4";
+ShoppingList_AddToListRecord.init();
+return ShoppingList_AddToListRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_AddToListRecord = ShoppingList_AddToListRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_AddToListRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_AddToListRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_AddToListRecordList = (function (_super) {
+__extends(ShoppingList_AddToListRecordList, _super);
+function ShoppingList_AddToListRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_AddToListRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_AddToListRecord;
+return ShoppingList_AddToListRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_AddToListRecordList = ShoppingList_AddToListRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_LineItemRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_LineItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_LineItemRecord = (function (_super) {
+__extends(ShoppingList_LineItemRecord, _super);
+function ShoppingList_LineItemRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_LineItemRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_LineItem", "shoppingList_LineItemAttr", "ShoppingList_LineItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_BLModel.ShoppingList_LineItemRec());
+}, true, ECP_ShoppingList_BLModel.ShoppingList_LineItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_LineItemRecord.fromStructure = function (str) {
+return new ShoppingList_LineItemRecord(new ShoppingList_LineItemRecord.RecordClass({
+shoppingList_LineItemAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_LineItemRecord._isAnonymousRecord = true;
+ShoppingList_LineItemRecord.UniqueId = "e1c12f83-286a-6313-6710-358d709a9986";
+ShoppingList_LineItemRecord.init();
+return ShoppingList_LineItemRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_LineItemRecord = ShoppingList_LineItemRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_LineItemRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_LineItemRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_LineItemRecordList = (function (_super) {
+__extends(ShoppingList_LineItemRecordList, _super);
+function ShoppingList_LineItemRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_LineItemRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_LineItemRecord;
+return ShoppingList_LineItemRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_LineItemRecordList = ShoppingList_LineItemRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ReceiptList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$ReceiptRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReceiptList = (function (_super) {
+__extends(ReceiptList, _super);
+function ReceiptList(defaults) {
+_super.apply(this, arguments);
+}
+ReceiptList.itemType = ECP_Checkout_BLModel.ReceiptRec;
+return ReceiptList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ReceiptList = ReceiptList;
+
+});
+define("ECP_ShoppingList_RCW.model$ColorRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_ShoppingList_RCW.model", "PLUS_OutSystemsUI_2_8_0.model$ColorRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ColorRecord = (function (_super) {
+__extends(ColorRecord, _super);
+function ColorRecord(defaults) {
+_super.apply(this, arguments);
+}
+ColorRecord.attributesToDeclare = function () {
+return [
+this.attr("Color", "colorAttr", "Color", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.ColorRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.ColorRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ColorRecord.fromStructure = function (str) {
+return new ColorRecord(new ColorRecord.RecordClass({
+colorAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ColorRecord._isAnonymousRecord = true;
+ColorRecord.UniqueId = "977afe8c-3ec5-3a27-2571-f14fca9df2d8";
+ColorRecord.init();
+return ColorRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ColorRecord = ColorRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ColorRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ColorRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ColorRecordList = (function (_super) {
+__extends(ColorRecordList, _super);
+function ColorRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ColorRecordList.itemType = ECP_ShoppingList_RCWModel.ColorRecord;
+return ColorRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ColorRecordList = ColorRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$Logo_PLPRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Product_BL.model$Logo_PLPRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Logo_PLPRecord = (function (_super) {
+__extends(Logo_PLPRecord, _super);
+function Logo_PLPRecord(defaults) {
+_super.apply(this, arguments);
+}
+Logo_PLPRecord.attributesToDeclare = function () {
+return [
+this.attr("Logo_PLP", "logo_PLPAttr", "Logo_PLP", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_PLPRec());
+}, true, ECP_Product_BLModel.Logo_PLPRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Logo_PLPRecord.fromStructure = function (str) {
+return new Logo_PLPRecord(new Logo_PLPRecord.RecordClass({
+logo_PLPAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Logo_PLPRecord._isAnonymousRecord = true;
+Logo_PLPRecord.UniqueId = "d0ce5b1e-2e14-41d2-04fd-3650c819a617";
+Logo_PLPRecord.init();
+return Logo_PLPRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.Logo_PLPRecord = Logo_PLPRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Logo_PLPRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$Logo_PLPRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Logo_PLPRecordList = (function (_super) {
+__extends(Logo_PLPRecordList, _super);
+function Logo_PLPRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_PLPRecordList.itemType = ECP_ShoppingList_RCWModel.Logo_PLPRecord;
+return Logo_PLPRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Logo_PLPRecordList = Logo_PLPRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$TextTextRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$TextTextRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var TextTextRecordList = (function (_super) {
+__extends(TextTextRecordList, _super);
+function TextTextRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextRecordList.itemType = ECP_ShoppingList_RCWModel.TextTextRecord;
+return TextTextRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.TextTextRecordList = TextTextRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$LineItemRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$LineItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var LineItemRecord = (function (_super) {
+__extends(LineItemRecord, _super);
+function LineItemRecord(defaults) {
+_super.apply(this, arguments);
+}
+LineItemRecord.attributesToDeclare = function () {
+return [
+this.attr("LineItem", "lineItemAttr", "LineItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.LineItemRec());
+}, true, ECP_Checkout_BLModel.LineItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+LineItemRecord.fromStructure = function (str) {
+return new LineItemRecord(new LineItemRecord.RecordClass({
+lineItemAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+LineItemRecord._isAnonymousRecord = true;
+LineItemRecord.UniqueId = "5a28b736-f238-a0f4-2428-c7fb72d2737c";
+LineItemRecord.init();
+return LineItemRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.LineItemRecord = LineItemRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$PreferenceRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$PreferenceRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PreferenceRecord = (function (_super) {
+__extends(PreferenceRecord, _super);
+function PreferenceRecord(defaults) {
+_super.apply(this, arguments);
+}
+PreferenceRecord.attributesToDeclare = function () {
+return [
+this.attr("Preference", "preferenceAttr", "Preference", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.PreferenceRec());
+}, true, ECP_Checkout_BLModel.PreferenceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PreferenceRecord.fromStructure = function (str) {
+return new PreferenceRecord(new PreferenceRecord.RecordClass({
+preferenceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PreferenceRecord._isAnonymousRecord = true;
+PreferenceRecord.UniqueId = "61b64a28-f25e-a5dc-1af1-bc2de88d29c1";
+PreferenceRecord.init();
+return PreferenceRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.PreferenceRecord = PreferenceRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$CallbackOrderEdit2List", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Order_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Order_BL.model$CallbackOrderEditRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Order_BL"], function (exports, OutSystems, ECP_Order_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var CallbackOrderEdit2List = (function (_super) {
+__extends(CallbackOrderEdit2List, _super);
+function CallbackOrderEdit2List(defaults) {
+_super.apply(this, arguments);
+}
+CallbackOrderEdit2List.itemType = ECP_Order_BLModel.CallbackOrderEditRec;
+return CallbackOrderEdit2List;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.CallbackOrderEdit2List = CallbackOrderEdit2List;
+
+});
+define("ECP_ShoppingList_RCW.model$Aux_LineItemDefinitionRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Cart_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Cart_BL.model$Aux_LineItemDefinitionRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Cart_BL"], function (exports, OutSystems, ECP_Cart_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Aux_LineItemDefinitionRecord = (function (_super) {
+__extends(Aux_LineItemDefinitionRecord, _super);
+function Aux_LineItemDefinitionRecord(defaults) {
+_super.apply(this, arguments);
+}
+Aux_LineItemDefinitionRecord.attributesToDeclare = function () {
+return [
+this.attr("Aux_LineItemDefinition", "aux_LineItemDefinitionAttr", "Aux_LineItemDefinition", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Cart_BLModel.Aux_LineItemDefinitionRec());
+}, true, ECP_Cart_BLModel.Aux_LineItemDefinitionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Aux_LineItemDefinitionRecord.fromStructure = function (str) {
+return new Aux_LineItemDefinitionRecord(new Aux_LineItemDefinitionRecord.RecordClass({
+aux_LineItemDefinitionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Aux_LineItemDefinitionRecord._isAnonymousRecord = true;
+Aux_LineItemDefinitionRecord.UniqueId = "63556b79-8302-f61a-6cd4-eecd185cde46";
+Aux_LineItemDefinitionRecord.init();
+return Aux_LineItemDefinitionRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.Aux_LineItemDefinitionRecord = Aux_LineItemDefinitionRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$AccountScreenList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_ShoppingList_RCW.model", "ECP_Customer_CW.model$AccountScreenRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Customer_CW"], function (exports, OutSystems, ECP_Customer_CWModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var AccountScreenList = (function (_super) {
+__extends(AccountScreenList, _super);
+function AccountScreenList(defaults) {
+_super.apply(this, arguments);
+}
+AccountScreenList.itemType = ECP_Customer_CWModel.AccountScreenRec;
+return AccountScreenList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.AccountScreenList = AccountScreenList;
+
+});
+define("ECP_ShoppingList_RCW.model$ReleaseToggleList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Convert_ReleaseToggles_Lib.model", "ECP_ShoppingList_RCW.model", "ECOP_Convert_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_Convert_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Convert_ReleaseToggles_LibModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleList = (function (_super) {
+__extends(ReleaseToggleList, _super);
+function ReleaseToggleList(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleList.itemType = ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec;
+return ReleaseToggleList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ReleaseToggleList = ReleaseToggleList;
+
+});
+define("ECP_ShoppingList_RCW.model$ContentfulImageResizeBehaviorRecord", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$ContentfulImageResizeBehaviorRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ContentfulImageResizeBehaviorRecord = (function (_super) {
+__extends(ContentfulImageResizeBehaviorRecord, _super);
+function ContentfulImageResizeBehaviorRecord(defaults) {
+_super.apply(this, arguments);
+}
+ContentfulImageResizeBehaviorRecord.attributesToDeclare = function () {
+return [
+this.attr("ContentfulImageResizeBehavior", "contentfulImageResizeBehaviorAttr", "ContentfulImageResizeBehavior", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.ContentfulImageResizeBehaviorRec());
+}, true, CMS_MonolithModel.ContentfulImageResizeBehaviorRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ContentfulImageResizeBehaviorRecord.fromStructure = function (str) {
+return new ContentfulImageResizeBehaviorRecord(new ContentfulImageResizeBehaviorRecord.RecordClass({
+contentfulImageResizeBehaviorAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ContentfulImageResizeBehaviorRecord._isAnonymousRecord = true;
+ContentfulImageResizeBehaviorRecord.UniqueId = "7fc0fb97-8085-0983-0362-a149b287e924";
+ContentfulImageResizeBehaviorRecord.init();
+return ContentfulImageResizeBehaviorRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ContentfulImageResizeBehaviorRecord = ContentfulImageResizeBehaviorRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ContentfulImageResizeBehaviorRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ContentfulImageResizeBehaviorRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ContentfulImageResizeBehaviorRecordList = (function (_super) {
+__extends(ContentfulImageResizeBehaviorRecordList, _super);
+function ContentfulImageResizeBehaviorRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ContentfulImageResizeBehaviorRecordList.itemType = ECP_ShoppingList_RCWModel.ContentfulImageResizeBehaviorRecord;
+return ContentfulImageResizeBehaviorRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ContentfulImageResizeBehaviorRecordList = ContentfulImageResizeBehaviorRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$DeliveryCostBreakdown_StrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$DeliveryCostBreakdown_StrRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostBreakdown_StrRecordList = (function (_super) {
+__extends(DeliveryCostBreakdown_StrRecordList, _super);
+function DeliveryCostBreakdown_StrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostBreakdown_StrRecordList.itemType = ECP_ShoppingList_RCWModel.DeliveryCostBreakdown_StrRecord;
+return DeliveryCostBreakdown_StrRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.DeliveryCostBreakdown_StrRecordList = DeliveryCostBreakdown_StrRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$PromotionLineItemRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$PromotionLineItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PromotionLineItemRecord = (function (_super) {
+__extends(PromotionLineItemRecord, _super);
+function PromotionLineItemRecord(defaults) {
+_super.apply(this, arguments);
+}
+PromotionLineItemRecord.attributesToDeclare = function () {
+return [
+this.attr("PromotionLineItem", "promotionLineItemAttr", "PromotionLineItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.PromotionLineItemRec());
+}, true, ECP_Checkout_BLModel.PromotionLineItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PromotionLineItemRecord.fromStructure = function (str) {
+return new PromotionLineItemRecord(new PromotionLineItemRecord.RecordClass({
+promotionLineItemAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PromotionLineItemRecord._isAnonymousRecord = true;
+PromotionLineItemRecord.UniqueId = "6bca9949-3f1a-b6fd-408f-8e9cd391d838";
+PromotionLineItemRecord.init();
+return PromotionLineItemRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.PromotionLineItemRecord = PromotionLineItemRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$MyLineItem_StrRecord", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "ECP_ShoppingList_RCW.model", "CT_ShoppingList_IS.model$MyLineItem_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS"], function (exports, OutSystems, CT_ShoppingList_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyLineItem_StrRecord = (function (_super) {
+__extends(MyLineItem_StrRecord, _super);
+function MyLineItem_StrRecord(defaults) {
+_super.apply(this, arguments);
+}
+MyLineItem_StrRecord.attributesToDeclare = function () {
+return [
+this.attr("MyLineItem_Str", "myLineItem_StrAttr", "MyLineItem_Str", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_ShoppingList_ISModel.MyLineItem_StrRec());
+}, true, CT_ShoppingList_ISModel.MyLineItem_StrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyLineItem_StrRecord.fromStructure = function (str) {
+return new MyLineItem_StrRecord(new MyLineItem_StrRecord.RecordClass({
+myLineItem_StrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MyLineItem_StrRecord._isAnonymousRecord = true;
+MyLineItem_StrRecord.UniqueId = "6e477e72-cd97-cdd3-af95-a9f9657f9739";
+MyLineItem_StrRecord.init();
+return MyLineItem_StrRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.MyLineItem_StrRecord = MyLineItem_StrRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Logo_InfoRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Product_BL.model$Logo_InfoRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoRecord = (function (_super) {
+__extends(Logo_InfoRecord, _super);
+function Logo_InfoRecord(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoRecord.attributesToDeclare = function () {
+return [
+this.attr("Logo_Info", "logo_InfoAttr", "Logo_Info", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Product_BLModel.Logo_InfoRec());
+}, true, ECP_Product_BLModel.Logo_InfoRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Logo_InfoRecord.fromStructure = function (str) {
+return new Logo_InfoRecord(new Logo_InfoRecord.RecordClass({
+logo_InfoAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Logo_InfoRecord._isAnonymousRecord = true;
+Logo_InfoRecord.UniqueId = "c32b9ad5-41d4-2d41-9ca7-4059e703d797";
+Logo_InfoRecord.init();
+return Logo_InfoRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.Logo_InfoRecord = Logo_InfoRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Logo_InfoRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$Logo_InfoRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Logo_InfoRecordList = (function (_super) {
+__extends(Logo_InfoRecordList, _super);
+function Logo_InfoRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_InfoRecordList.itemType = ECP_ShoppingList_RCWModel.Logo_InfoRecord;
+return Logo_InfoRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Logo_InfoRecordList = Logo_InfoRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$MyLineItem_StrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$MyLineItem_StrRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyLineItem_StrRecordList = (function (_super) {
+__extends(MyLineItem_StrRecordList, _super);
+function MyLineItem_StrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MyLineItem_StrRecordList.itemType = ECP_ShoppingList_RCWModel.MyLineItem_StrRecord;
+return MyLineItem_StrRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.MyLineItem_StrRecordList = MyLineItem_StrRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$GutterSizeList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_ShoppingList_RCW.model", "PLUS_OutSystemsUI_2_8_0.model$GutterSizeRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var GutterSizeList = (function (_super) {
+__extends(GutterSizeList, _super);
+function GutterSizeList(defaults) {
+_super.apply(this, arguments);
+}
+GutterSizeList.itemType = PLUS_OutSystemsUI_2_8_0Model.GutterSizeRec;
+return GutterSizeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.GutterSizeList = GutterSizeList;
+
+});
+define("ECP_ShoppingList_RCW.model$ExceptionTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ShoppingList_RCW.model", "ECP_ExceptionHandling_Lib.model$ExceptionTypeRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ExceptionHandling_Lib"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeRecord = (function (_super) {
+__extends(ExceptionTypeRecord, _super);
+function ExceptionTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("ExceptionType", "exceptionTypeAttr", "ExceptionType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ExceptionHandling_LibModel.ExceptionTypeRec());
+}, true, ECP_ExceptionHandling_LibModel.ExceptionTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExceptionTypeRecord.fromStructure = function (str) {
+return new ExceptionTypeRecord(new ExceptionTypeRecord.RecordClass({
+exceptionTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ExceptionTypeRecord._isAnonymousRecord = true;
+ExceptionTypeRecord.UniqueId = "77ebcb96-5e29-3b58-cf6b-d204f6c322dd";
+ExceptionTypeRecord.init();
+return ExceptionTypeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ExceptionTypeRecord = ExceptionTypeRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_ActiveDeviceRecord", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_ActiveDeviceRecord = (function (_super) {
+__extends(Shared_ActiveDeviceRecord, _super);
+function Shared_ActiveDeviceRecord(defaults) {
+_super.apply(this, arguments);
+}
+Shared_ActiveDeviceRecord.attributesToDeclare = function () {
+return [
+this.attr("Shared_ActiveDevice", "shared_ActiveDeviceAttr", "Shared_ActiveDevice", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_ActiveDeviceRec());
+}, true, CMS_MonolithModel.Shared_ActiveDeviceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Shared_ActiveDeviceRecord.fromStructure = function (str) {
+return new Shared_ActiveDeviceRecord(new Shared_ActiveDeviceRecord.RecordClass({
+shared_ActiveDeviceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Shared_ActiveDeviceRecord._isAnonymousRecord = true;
+Shared_ActiveDeviceRecord.UniqueId = "79f53c98-df32-7cc8-4adc-8f45b981a924";
+Shared_ActiveDeviceRecord.init();
+return Shared_ActiveDeviceRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.Shared_ActiveDeviceRecord = Shared_ActiveDeviceRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$CheckoutRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$CheckoutRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var CheckoutRecord = (function (_super) {
+__extends(CheckoutRecord, _super);
+function CheckoutRecord(defaults) {
+_super.apply(this, arguments);
+}
+CheckoutRecord.attributesToDeclare = function () {
+return [
+this.attr("Checkout", "checkoutAttr", "Checkout", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.CheckoutRec());
+}, true, ECP_Checkout_BLModel.CheckoutRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CheckoutRecord.fromStructure = function (str) {
+return new CheckoutRecord(new CheckoutRecord.RecordClass({
+checkoutAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+CheckoutRecord._isAnonymousRecord = true;
+CheckoutRecord.UniqueId = "997ba205-7dd4-b285-3744-1249cbf24349";
+CheckoutRecord.init();
+return CheckoutRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.CheckoutRecord = CheckoutRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$CheckoutRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$CheckoutRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var CheckoutRecordList = (function (_super) {
+__extends(CheckoutRecordList, _super);
+function CheckoutRecordList(defaults) {
+_super.apply(this, arguments);
+}
+CheckoutRecordList.itemType = ECP_ShoppingList_RCWModel.CheckoutRecord;
+return CheckoutRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.CheckoutRecordList = CheckoutRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$PreferenceItemInfoRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$PreferenceItemInfoRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PreferenceItemInfoRecordList = (function (_super) {
+__extends(PreferenceItemInfoRecordList, _super);
+function PreferenceItemInfoRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PreferenceItemInfoRecordList.itemType = ECP_ShoppingList_RCWModel.PreferenceItemInfoRecord;
+return PreferenceItemInfoRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.PreferenceItemInfoRecordList = PreferenceItemInfoRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ExceptionTypeList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ShoppingList_RCW.model", "ECP_ExceptionHandling_Lib.model$ExceptionTypeRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ExceptionHandling_Lib"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeList = (function (_super) {
+__extends(ExceptionTypeList, _super);
+function ExceptionTypeList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeList.itemType = ECP_ExceptionHandling_LibModel.ExceptionTypeRec;
+return ExceptionTypeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ExceptionTypeList = ExceptionTypeList;
+
+});
+define("ECP_ShoppingList_RCW.model$ProductTileDataRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ProductTileDataRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ProductTileDataRecordList = (function (_super) {
+__extends(ProductTileDataRecordList, _super);
+function ProductTileDataRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ProductTileDataRecordList.itemType = ECP_ShoppingList_RCWModel.ProductTileDataRecord;
+return ProductTileDataRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ProductTileDataRecordList = ProductTileDataRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_AddMultipleList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_AddMultipleRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_AddMultipleList = (function (_super) {
+__extends(ShoppingList_AddMultipleList, _super);
+function ShoppingList_AddMultipleList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_AddMultipleList.itemType = ECP_ShoppingList_BLModel.ShoppingList_AddMultipleRec;
+return ShoppingList_AddMultipleList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_AddMultipleList = ShoppingList_AddMultipleList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_LineItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_LineItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_LineItemList = (function (_super) {
+__extends(ShoppingList_LineItemList, _super);
+function ShoppingList_LineItemList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_LineItemList.itemType = ECP_ShoppingList_BLModel.ShoppingList_LineItemRec;
+return ShoppingList_LineItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_LineItemList = ShoppingList_LineItemList;
+
+});
+define("ECP_ShoppingList_RCW.model$MyShoppingListDraft_StrList", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "ECP_ShoppingList_RCW.model", "CT_ShoppingList_IS.model$MyShoppingListDraft_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS"], function (exports, OutSystems, CT_ShoppingList_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyShoppingListDraft_StrList = (function (_super) {
+__extends(MyShoppingListDraft_StrList, _super);
+function MyShoppingListDraft_StrList(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingListDraft_StrList.itemType = CT_ShoppingList_ISModel.MyShoppingListDraft_StrRec;
+return MyShoppingListDraft_StrList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.MyShoppingListDraft_StrList = MyShoppingListDraft_StrList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_ProductList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_ProductRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_ProductList = (function (_super) {
+__extends(ShoppingList_ProductList, _super);
+function ShoppingList_ProductList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_ProductList.itemType = ECP_ShoppingList_BLModel.ShoppingList_ProductRec;
+return ShoppingList_ProductList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_ProductList = ShoppingList_ProductList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_DetailRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_DetailRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_DetailRecord = (function (_super) {
+__extends(ShoppingList_DetailRecord, _super);
+function ShoppingList_DetailRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_DetailRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_Detail", "shoppingList_DetailAttr", "ShoppingList_Detail", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_BLModel.ShoppingList_DetailRec());
+}, true, ECP_ShoppingList_BLModel.ShoppingList_DetailRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_DetailRecord.fromStructure = function (str) {
+return new ShoppingList_DetailRecord(new ShoppingList_DetailRecord.RecordClass({
+shoppingList_DetailAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_DetailRecord._isAnonymousRecord = true;
+ShoppingList_DetailRecord.UniqueId = "89bb9b94-3e0c-c1c6-7a2a-33b842c0f966";
+ShoppingList_DetailRecord.init();
+return ShoppingList_DetailRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_DetailRecord = ShoppingList_DetailRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_Link2PdfOrPageRecord", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_Link2PdfOrPageRecord = (function (_super) {
+__extends(Shared_Link2PdfOrPageRecord, _super);
+function Shared_Link2PdfOrPageRecord(defaults) {
+_super.apply(this, arguments);
+}
+Shared_Link2PdfOrPageRecord.attributesToDeclare = function () {
+return [
+this.attr("Shared_Link2PdfOrPage", "shared_Link2PdfOrPageAttr", "Shared_Link2PdfOrPage", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_Link2PdfOrPageRec());
+}, true, CMS_MonolithModel.Shared_Link2PdfOrPageRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Shared_Link2PdfOrPageRecord.fromStructure = function (str) {
+return new Shared_Link2PdfOrPageRecord(new Shared_Link2PdfOrPageRecord.RecordClass({
+shared_Link2PdfOrPageAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Shared_Link2PdfOrPageRecord._isAnonymousRecord = true;
+Shared_Link2PdfOrPageRecord.UniqueId = "8c6c21e6-674e-b822-a0e5-e0a11ded45db";
+Shared_Link2PdfOrPageRecord.init();
+return Shared_Link2PdfOrPageRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.Shared_Link2PdfOrPageRecord = Shared_Link2PdfOrPageRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Product_PLPRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$Product_PLPRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Product_PLPRecordList = (function (_super) {
+__extends(Product_PLPRecordList, _super);
+function Product_PLPRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Product_PLPRecordList.itemType = ECP_ShoppingList_RCWModel.Product_PLPRecord;
+return Product_PLPRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Product_PLPRecordList = Product_PLPRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$DeliveryCostBreakdownItem_StrRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Cart_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Cart_BL.model$DeliveryCostBreakdownItem_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Cart_BL"], function (exports, OutSystems, ECP_Cart_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostBreakdownItem_StrRecord = (function (_super) {
+__extends(DeliveryCostBreakdownItem_StrRecord, _super);
+function DeliveryCostBreakdownItem_StrRecord(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostBreakdownItem_StrRecord.attributesToDeclare = function () {
+return [
+this.attr("DeliveryCostBreakdownItem_Str", "deliveryCostBreakdownItem_StrAttr", "DeliveryCostBreakdownItem_Str", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Cart_BLModel.DeliveryCostBreakdownItem_StrRec());
+}, true, ECP_Cart_BLModel.DeliveryCostBreakdownItem_StrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryCostBreakdownItem_StrRecord.fromStructure = function (str) {
+return new DeliveryCostBreakdownItem_StrRecord(new DeliveryCostBreakdownItem_StrRecord.RecordClass({
+deliveryCostBreakdownItem_StrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DeliveryCostBreakdownItem_StrRecord._isAnonymousRecord = true;
+DeliveryCostBreakdownItem_StrRecord.UniqueId = "91583f22-f25c-91f9-68bd-c8d9709ac8a9";
+DeliveryCostBreakdownItem_StrRecord.init();
+return DeliveryCostBreakdownItem_StrRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.DeliveryCostBreakdownItem_StrRecord = DeliveryCostBreakdownItem_StrRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_ActiveDeviceList", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_ActiveDeviceList = (function (_super) {
+__extends(Shared_ActiveDeviceList, _super);
+function Shared_ActiveDeviceList(defaults) {
+_super.apply(this, arguments);
+}
+Shared_ActiveDeviceList.itemType = CMS_MonolithModel.Shared_ActiveDeviceRec;
+return Shared_ActiveDeviceList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Shared_ActiveDeviceList = Shared_ActiveDeviceList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_UpdateActionList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_UpdateActionRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_UpdateActionList = (function (_super) {
+__extends(ShoppingList_UpdateActionList, _super);
+function ShoppingList_UpdateActionList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_UpdateActionList.itemType = ECP_ShoppingList_BLModel.ShoppingList_UpdateActionRec;
+return ShoppingList_UpdateActionList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_UpdateActionList = ShoppingList_UpdateActionList;
+
+});
+define("ECP_ShoppingList_RCW.model$IconSizeRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECP_ShoppingList_RCW.model", "ECOP_Base_RPat.model$IconSizeRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECOP_Base_RPatModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var IconSizeRecord = (function (_super) {
+__extends(IconSizeRecord, _super);
+function IconSizeRecord(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeRecord.attributesToDeclare = function () {
+return [
+this.attr("IconSize", "iconSizeAttr", "IconSize", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Base_RPatModel.IconSizeRec());
+}, true, ECOP_Base_RPatModel.IconSizeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+IconSizeRecord.fromStructure = function (str) {
+return new IconSizeRecord(new IconSizeRecord.RecordClass({
+iconSizeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+IconSizeRecord._isAnonymousRecord = true;
+IconSizeRecord.UniqueId = "cc34ba93-b7c0-df48-371b-92fa466ec993";
+IconSizeRecord.init();
+return IconSizeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.IconSizeRecord = IconSizeRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$IconSizeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$IconSizeRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var IconSizeRecordList = (function (_super) {
+__extends(IconSizeRecordList, _super);
+function IconSizeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeRecordList.itemType = ECP_ShoppingList_RCWModel.IconSizeRecord;
+return IconSizeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.IconSizeRecordList = IconSizeRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$LineItemRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$LineItemRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var LineItemRecordList = (function (_super) {
+__extends(LineItemRecordList, _super);
+function LineItemRecordList(defaults) {
+_super.apply(this, arguments);
+}
+LineItemRecordList.itemType = ECP_ShoppingList_RCWModel.LineItemRecord;
+return LineItemRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.LineItemRecordList = LineItemRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ErrorItemRecord", ["exports", "OutSystems/ClientRuntime/Main", "CT_Supporting_IS.model", "ECP_ShoppingList_RCW.model", "CT_Supporting_IS.model$ErrorItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_Supporting_IS"], function (exports, OutSystems, CT_Supporting_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ErrorItemRecord = (function (_super) {
+__extends(ErrorItemRecord, _super);
+function ErrorItemRecord(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemRecord.attributesToDeclare = function () {
+return [
+this.attr("ErrorItem", "errorItemAttr", "ErrorItem", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_Supporting_ISModel.ErrorItemRec());
+}, true, CT_Supporting_ISModel.ErrorItemRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ErrorItemRecord.fromStructure = function (str) {
+return new ErrorItemRecord(new ErrorItemRecord.RecordClass({
+errorItemAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ErrorItemRecord._isAnonymousRecord = true;
+ErrorItemRecord.UniqueId = "d35e2b2c-0a15-25f0-9e07-e04844c05dbc";
+ErrorItemRecord.init();
+return ErrorItemRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ErrorItemRecord = ErrorItemRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ErrorItemRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ErrorItemRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ErrorItemRecordList = (function (_super) {
+__extends(ErrorItemRecordList, _super);
+function ErrorItemRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ErrorItemRecordList.itemType = ECP_ShoppingList_RCWModel.ErrorItemRecord;
+return ErrorItemRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ErrorItemRecordList = ErrorItemRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_SortingRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_SortingRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_SortingRecord = (function (_super) {
+__extends(ShoppingList_SortingRecord, _super);
+function ShoppingList_SortingRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_SortingRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_Sorting", "shoppingList_SortingAttr", "ShoppingList_Sorting", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ShoppingList_BLModel.ShoppingList_SortingRec());
+}, true, ECP_ShoppingList_BLModel.ShoppingList_SortingRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_SortingRecord.fromStructure = function (str) {
+return new ShoppingList_SortingRecord(new ShoppingList_SortingRecord.RecordClass({
+shoppingList_SortingAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_SortingRecord._isAnonymousRecord = true;
+ShoppingList_SortingRecord.UniqueId = "c37cb9fd-2d11-94de-4776-9c8ab05b4188";
+ShoppingList_SortingRecord.init();
+return ShoppingList_SortingRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_SortingRecord = ShoppingList_SortingRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_SortingRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_SortingRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_SortingRecordList = (function (_super) {
+__extends(ShoppingList_SortingRecordList, _super);
+function ShoppingList_SortingRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_SortingRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_SortingRecord;
+return ShoppingList_SortingRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_SortingRecordList = ShoppingList_SortingRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$MyShoppingList_StrList", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "ECP_ShoppingList_RCW.model", "CT_ShoppingList_IS.model$MyShoppingList_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS"], function (exports, OutSystems, CT_ShoppingList_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyShoppingList_StrList = (function (_super) {
+__extends(MyShoppingList_StrList, _super);
+function MyShoppingList_StrList(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingList_StrList.itemType = CT_ShoppingList_ISModel.MyShoppingList_StrRec;
+return MyShoppingList_StrList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.MyShoppingList_StrList = MyShoppingList_StrList;
+
+});
+define("ECP_ShoppingList_RCW.model$PreferenceRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$PreferenceRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PreferenceRecordList = (function (_super) {
+__extends(PreferenceRecordList, _super);
+function PreferenceRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PreferenceRecordList.itemType = ECP_ShoppingList_RCWModel.PreferenceRecord;
+return PreferenceRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.PreferenceRecordList = PreferenceRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ProductComponentRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ProductComponentRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ProductComponentRecordList = (function (_super) {
+__extends(ProductComponentRecordList, _super);
+function ProductComponentRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ProductComponentRecordList.itemType = ECP_ShoppingList_RCWModel.ProductComponentRecord;
+return ProductComponentRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ProductComponentRecordList = ProductComponentRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ReceiptRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$ReceiptRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReceiptRecord = (function (_super) {
+__extends(ReceiptRecord, _super);
+function ReceiptRecord(defaults) {
+_super.apply(this, arguments);
+}
+ReceiptRecord.attributesToDeclare = function () {
+return [
+this.attr("Receipt", "receiptAttr", "Receipt", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.ReceiptRec());
+}, true, ECP_Checkout_BLModel.ReceiptRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ReceiptRecord.fromStructure = function (str) {
+return new ReceiptRecord(new ReceiptRecord.RecordClass({
+receiptAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ReceiptRecord._isAnonymousRecord = true;
+ReceiptRecord.UniqueId = "ab45b206-e568-c5a4-8f28-a3c233686b17";
+ReceiptRecord.init();
+return ReceiptRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ReceiptRecord = ReceiptRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_ActionsRecord", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "ECP_ShoppingList_RCW.model", "CT_ShoppingList_IS.model$ShoppingList_ActionsRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS"], function (exports, OutSystems, CT_ShoppingList_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_ActionsRecord = (function (_super) {
+__extends(ShoppingList_ActionsRecord, _super);
+function ShoppingList_ActionsRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_ActionsRecord.attributesToDeclare = function () {
+return [
+this.attr("ShoppingList_Actions", "shoppingList_ActionsAttr", "ShoppingList_Actions", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_ShoppingList_ISModel.ShoppingList_ActionsRec());
+}, true, CT_ShoppingList_ISModel.ShoppingList_ActionsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShoppingList_ActionsRecord.fromStructure = function (str) {
+return new ShoppingList_ActionsRecord(new ShoppingList_ActionsRecord.RecordClass({
+shoppingList_ActionsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShoppingList_ActionsRecord._isAnonymousRecord = true;
+ShoppingList_ActionsRecord.UniqueId = "ae07c5d3-89aa-ecf1-076b-c96e75a5b5e1";
+ShoppingList_ActionsRecord.init();
+return ShoppingList_ActionsRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ShoppingList_ActionsRecord = ShoppingList_ActionsRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_Link2PdfOrPageRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$Shared_Link2PdfOrPageRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_Link2PdfOrPageRecordList = (function (_super) {
+__extends(Shared_Link2PdfOrPageRecordList, _super);
+function Shared_Link2PdfOrPageRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Shared_Link2PdfOrPageRecordList.itemType = ECP_ShoppingList_RCWModel.Shared_Link2PdfOrPageRecord;
+return Shared_Link2PdfOrPageRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Shared_Link2PdfOrPageRecordList = Shared_Link2PdfOrPageRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$Aux_LineItemDefinitionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$Aux_LineItemDefinitionRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Aux_LineItemDefinitionRecordList = (function (_super) {
+__extends(Aux_LineItemDefinitionRecordList, _super);
+function Aux_LineItemDefinitionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Aux_LineItemDefinitionRecordList.itemType = ECP_ShoppingList_RCWModel.Aux_LineItemDefinitionRecord;
+return Aux_LineItemDefinitionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Aux_LineItemDefinitionRecordList = Aux_LineItemDefinitionRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$GTM_ProductItemList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_FE_Core.model", "ECP_ShoppingList_RCW.model", "ECOP_FE_Core.model$GTM_ProductItemRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_FE_Core"], function (exports, OutSystems, ECOP_FE_CoreModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var GTM_ProductItemList = (function (_super) {
+__extends(GTM_ProductItemList, _super);
+function GTM_ProductItemList(defaults) {
+_super.apply(this, arguments);
+}
+GTM_ProductItemList.itemType = ECOP_FE_CoreModel.GTM_ProductItemRec;
+return GTM_ProductItemList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.GTM_ProductItemList = GTM_ProductItemList;
+
+});
+define("ECP_ShoppingList_RCW.model$DeliveryCostBreakdownItem_StrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$DeliveryCostBreakdownItem_StrRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostBreakdownItem_StrRecordList = (function (_super) {
+__extends(DeliveryCostBreakdownItem_StrRecordList, _super);
+function DeliveryCostBreakdownItem_StrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostBreakdownItem_StrRecordList.itemType = ECP_ShoppingList_RCWModel.DeliveryCostBreakdownItem_StrRecord;
+return DeliveryCostBreakdownItem_StrRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.DeliveryCostBreakdownItem_StrRecordList = DeliveryCostBreakdownItem_StrRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_ActiveDeviceRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$Shared_ActiveDeviceRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_ActiveDeviceRecordList = (function (_super) {
+__extends(Shared_ActiveDeviceRecordList, _super);
+function Shared_ActiveDeviceRecordList(defaults) {
+_super.apply(this, arguments);
+}
+Shared_ActiveDeviceRecordList.itemType = ECP_ShoppingList_RCWModel.Shared_ActiveDeviceRecord;
+return Shared_ActiveDeviceRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Shared_ActiveDeviceRecordList = Shared_ActiveDeviceRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_DetailList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_DetailRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_DetailList = (function (_super) {
+__extends(ShoppingList_DetailList, _super);
+function ShoppingList_DetailList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_DetailList.itemType = ECP_ShoppingList_BLModel.ShoppingList_DetailRec;
+return ShoppingList_DetailList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_DetailList = ShoppingList_DetailList;
+
+});
+define("ECP_ShoppingList_RCW.model$TextTextDecimalRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$TextTextDecimalRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var TextTextDecimalRecordList = (function (_super) {
+__extends(TextTextDecimalRecordList, _super);
+function TextTextDecimalRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextDecimalRecordList.itemType = ECP_ShoppingList_RCWModel.TextTextDecimalRecord;
+return TextTextDecimalRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.TextTextDecimalRecordList = TextTextDecimalRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ColorList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECP_ShoppingList_RCW.model", "PLUS_OutSystemsUI_2_8_0.model$ColorRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ColorList = (function (_super) {
+__extends(ColorList, _super);
+function ColorList(defaults) {
+_super.apply(this, arguments);
+}
+ColorList.itemType = PLUS_OutSystemsUI_2_8_0Model.ColorRec;
+return ColorList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ColorList = ColorList;
+
+});
+define("ECP_ShoppingList_RCW.model$ContentfulImageResizeBehaviorList", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$ContentfulImageResizeBehaviorRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ContentfulImageResizeBehaviorList = (function (_super) {
+__extends(ContentfulImageResizeBehaviorList, _super);
+function ContentfulImageResizeBehaviorList(defaults) {
+_super.apply(this, arguments);
+}
+ContentfulImageResizeBehaviorList.itemType = CMS_MonolithModel.ContentfulImageResizeBehaviorRec;
+return ContentfulImageResizeBehaviorList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ContentfulImageResizeBehaviorList = ContentfulImageResizeBehaviorList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_DetailRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_DetailRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_DetailRecordList = (function (_super) {
+__extends(ShoppingList_DetailRecordList, _super);
+function ShoppingList_DetailRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_DetailRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_DetailRecord;
+return ShoppingList_DetailRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_DetailRecordList = ShoppingList_DetailRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$GutterSizeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$GutterSizeRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var GutterSizeRecordList = (function (_super) {
+__extends(GutterSizeRecordList, _super);
+function GutterSizeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+GutterSizeRecordList.itemType = ECP_ShoppingList_RCWModel.GutterSizeRecord;
+return GutterSizeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.GutterSizeRecordList = GutterSizeRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$IconSizeList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECP_ShoppingList_RCW.model", "ECOP_Base_RPat.model$IconSizeRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECOP_Base_RPatModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var IconSizeList = (function (_super) {
+__extends(IconSizeList, _super);
+function IconSizeList(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeList.itemType = ECOP_Base_RPatModel.IconSizeRec;
+return IconSizeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.IconSizeList = IconSizeList;
+
+});
+define("ECP_ShoppingList_RCW.model$DeliveryCostBreakdown_StrList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Cart_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Cart_BL.model$DeliveryCostBreakdown_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Cart_BL"], function (exports, OutSystems, ECP_Cart_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostBreakdown_StrList = (function (_super) {
+__extends(DeliveryCostBreakdown_StrList, _super);
+function DeliveryCostBreakdown_StrList(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostBreakdown_StrList.itemType = ECP_Cart_BLModel.DeliveryCostBreakdown_StrRec;
+return DeliveryCostBreakdown_StrList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.DeliveryCostBreakdown_StrList = DeliveryCostBreakdown_StrList;
+
+});
+define("ECP_ShoppingList_RCW.model$MyShoppingListDraft_StrRecord", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "ECP_ShoppingList_RCW.model", "CT_ShoppingList_IS.model$MyShoppingListDraft_StrRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS"], function (exports, OutSystems, CT_ShoppingList_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyShoppingListDraft_StrRecord = (function (_super) {
+__extends(MyShoppingListDraft_StrRecord, _super);
+function MyShoppingListDraft_StrRecord(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingListDraft_StrRecord.attributesToDeclare = function () {
+return [
+this.attr("MyShoppingListDraft_Str", "myShoppingListDraft_StrAttr", "MyShoppingListDraft_Str", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CT_ShoppingList_ISModel.MyShoppingListDraft_StrRec());
+}, true, CT_ShoppingList_ISModel.MyShoppingListDraft_StrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+MyShoppingListDraft_StrRecord.fromStructure = function (str) {
+return new MyShoppingListDraft_StrRecord(new MyShoppingListDraft_StrRecord.RecordClass({
+myShoppingListDraft_StrAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+MyShoppingListDraft_StrRecord._isAnonymousRecord = true;
+MyShoppingListDraft_StrRecord.UniqueId = "e64e3d3f-73ed-9a62-2dbd-b8c4bc75f00d";
+MyShoppingListDraft_StrRecord.init();
+return MyShoppingListDraft_StrRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.MyShoppingListDraft_StrRecord = MyShoppingListDraft_StrRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$MyShoppingListDraft_StrRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$MyShoppingListDraft_StrRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var MyShoppingListDraft_StrRecordList = (function (_super) {
+__extends(MyShoppingListDraft_StrRecordList, _super);
+function MyShoppingListDraft_StrRecordList(defaults) {
+_super.apply(this, arguments);
+}
+MyShoppingListDraft_StrRecordList.itemType = ECP_ShoppingList_RCWModel.MyShoppingListDraft_StrRecord;
+return MyShoppingListDraft_StrRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.MyShoppingListDraft_StrRecordList = MyShoppingListDraft_StrRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_OverviewList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_OverviewRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_OverviewList = (function (_super) {
+__extends(ShoppingList_OverviewList, _super);
+function ShoppingList_OverviewList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_OverviewList.itemType = ECP_ShoppingList_BLModel.ShoppingList_OverviewRec;
+return ShoppingList_OverviewList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_OverviewList = ShoppingList_OverviewList;
+
+});
+define("ECP_ShoppingList_RCW.model$TextTextTextDecimalBooleanRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$TextTextTextDecimalBooleanRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var TextTextTextDecimalBooleanRecordList = (function (_super) {
+__extends(TextTextTextDecimalBooleanRecordList, _super);
+function TextTextTextDecimalBooleanRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TextTextTextDecimalBooleanRecordList.itemType = ECP_ShoppingList_RCWModel.TextTextTextDecimalBooleanRecord;
+return TextTextTextDecimalBooleanRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.TextTextTextDecimalBooleanRecordList = TextTextTextDecimalBooleanRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$Aux_LineItemDefinitionList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Cart_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Cart_BL.model$Aux_LineItemDefinitionRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Cart_BL"], function (exports, OutSystems, ECP_Cart_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Aux_LineItemDefinitionList = (function (_super) {
+__extends(Aux_LineItemDefinitionList, _super);
+function Aux_LineItemDefinitionList(defaults) {
+_super.apply(this, arguments);
+}
+Aux_LineItemDefinitionList.itemType = ECP_Cart_BLModel.Aux_LineItemDefinitionRec;
+return Aux_LineItemDefinitionList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Aux_LineItemDefinitionList = Aux_LineItemDefinitionList;
+
+});
+define("ECP_ShoppingList_RCW.model$AdditionalsList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$AdditionalsRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var AdditionalsList = (function (_super) {
+__extends(AdditionalsList, _super);
+function AdditionalsList(defaults) {
+_super.apply(this, arguments);
+}
+AdditionalsList.itemType = ECP_Checkout_BLModel.AdditionalsRec;
+return AdditionalsList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.AdditionalsList = AdditionalsList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_AddMultipleRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_AddMultipleRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_AddMultipleRecordList = (function (_super) {
+__extends(ShoppingList_AddMultipleRecordList, _super);
+function ShoppingList_AddMultipleRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_AddMultipleRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_AddMultipleRecord;
+return ShoppingList_AddMultipleRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_AddMultipleRecordList = ShoppingList_AddMultipleRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_OverviewRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_OverviewRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_OverviewRecordList = (function (_super) {
+__extends(ShoppingList_OverviewRecordList, _super);
+function ShoppingList_OverviewRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_OverviewRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_OverviewRecord;
+return ShoppingList_OverviewRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_OverviewRecordList = ShoppingList_OverviewRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$Logo_PLPList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Product_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Product_BL.model$Logo_PLPRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Product_BL"], function (exports, OutSystems, ECP_Product_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Logo_PLPList = (function (_super) {
+__extends(Logo_PLPList, _super);
+function Logo_PLPList(defaults) {
+_super.apply(this, arguments);
+}
+Logo_PLPList.itemType = ECP_Product_BLModel.Logo_PLPRec;
+return Logo_PLPList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Logo_PLPList = Logo_PLPList;
+
+});
+define("ECP_ShoppingList_RCW.model$Product_PLPList", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$Product_PLPRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Product_PLPList = (function (_super) {
+__extends(Product_PLPList, _super);
+function Product_PLPList(defaults) {
+_super.apply(this, arguments);
+}
+Product_PLPList.itemType = CMS_MonolithModel.Product_PLPRec;
+return Product_PLPList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Product_PLPList = Product_PLPList;
+
+});
+define("ECP_ShoppingList_RCW.model$ReceiptRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ReceiptRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReceiptRecordList = (function (_super) {
+__extends(ReceiptRecordList, _super);
+function ReceiptRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ReceiptRecordList.itemType = ECP_ShoppingList_RCWModel.ReceiptRecord;
+return ReceiptRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ReceiptRecordList = ReceiptRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_UpdateActionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_UpdateActionRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_UpdateActionRecordList = (function (_super) {
+__extends(ShoppingList_UpdateActionRecordList, _super);
+function ShoppingList_UpdateActionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_UpdateActionRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_UpdateActionRecord;
+return ShoppingList_UpdateActionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_UpdateActionRecordList = ShoppingList_UpdateActionRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ReservedMomentList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReservedMomentList = (function (_super) {
+__extends(ReservedMomentList, _super);
+function ReservedMomentList(defaults) {
+_super.apply(this, arguments);
+}
+ReservedMomentList.itemType = ECP_Checkout_BLModel.ReservedMomentRec;
+return ReservedMomentList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ReservedMomentList = ReservedMomentList;
+
+});
+define("ECP_ShoppingList_RCW.model$CallbackOrderEdit2RecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$CallbackOrderEdit2Record"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var CallbackOrderEdit2RecordList = (function (_super) {
+__extends(CallbackOrderEdit2RecordList, _super);
+function CallbackOrderEdit2RecordList(defaults) {
+_super.apply(this, arguments);
+}
+CallbackOrderEdit2RecordList.itemType = ECP_ShoppingList_RCWModel.CallbackOrderEdit2Record;
+return CallbackOrderEdit2RecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.CallbackOrderEdit2RecordList = CallbackOrderEdit2RecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ProductComponentList", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$ProductComponentRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ProductComponentList = (function (_super) {
+__extends(ProductComponentList, _super);
+function ProductComponentList(defaults) {
+_super.apply(this, arguments);
+}
+ProductComponentList.itemType = CMS_MonolithModel.ProductComponentRec;
+return ProductComponentList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ProductComponentList = ProductComponentList;
+
+});
+define("ECP_ShoppingList_RCW.model$PreferenceList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Checkout_BL.model", "ECP_ShoppingList_RCW.model", "ECP_Checkout_BL.model$PreferenceRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_Checkout_BL"], function (exports, OutSystems, ECP_Checkout_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PreferenceList = (function (_super) {
+__extends(PreferenceList, _super);
+function PreferenceList(defaults) {
+_super.apply(this, arguments);
+}
+PreferenceList.itemType = ECP_Checkout_BLModel.PreferenceRec;
+return PreferenceList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.PreferenceList = PreferenceList;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_CTAList", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$Shared_CTARec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_CTAList = (function (_super) {
+__extends(Shared_CTAList, _super);
+function Shared_CTAList(defaults) {
+_super.apply(this, arguments);
+}
+Shared_CTAList.itemType = CMS_MonolithModel.Shared_CTARec;
+return Shared_CTAList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Shared_CTAList = Shared_CTAList;
+
+});
+define("ECP_ShoppingList_RCW.model$PromotionLineItemRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$PromotionLineItemRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var PromotionLineItemRecordList = (function (_super) {
+__extends(PromotionLineItemRecordList, _super);
+function PromotionLineItemRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PromotionLineItemRecordList.itemType = ECP_ShoppingList_RCWModel.PromotionLineItemRecord;
+return PromotionLineItemRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.PromotionLineItemRecordList = PromotionLineItemRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ReleaseToggleRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Convert_ReleaseToggles_Lib.model", "ECP_ShoppingList_RCW.model", "ECOP_Convert_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECOP_Convert_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Convert_ReleaseToggles_LibModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleRecord = (function (_super) {
+__extends(ReleaseToggleRecord, _super);
+function ReleaseToggleRecord(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleRecord.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggle", "releaseToggleAttr", "ReleaseToggle", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec());
+}, true, ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ReleaseToggleRecord.fromStructure = function (str) {
+return new ReleaseToggleRecord(new ReleaseToggleRecord.RecordClass({
+releaseToggleAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ReleaseToggleRecord._isAnonymousRecord = true;
+ReleaseToggleRecord.UniqueId = "f46bda88-0174-3e6e-a043-3a5d8d4d2714";
+ReleaseToggleRecord.init();
+return ReleaseToggleRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ShoppingList_RCWModel.ReleaseToggleRecord = ReleaseToggleRecord;
+
+});
+define("ECP_ShoppingList_RCW.model$ReleaseToggleRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ReleaseToggleRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleRecordList = (function (_super) {
+__extends(ReleaseToggleRecordList, _super);
+function ReleaseToggleRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleRecordList.itemType = ECP_ShoppingList_RCWModel.ReleaseToggleRecord;
+return ReleaseToggleRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ReleaseToggleRecordList = ReleaseToggleRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_AddToListList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_BL.model", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_BL.model$ShoppingList_AddToListRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$ECP_ShoppingList_BL"], function (exports, OutSystems, ECP_ShoppingList_BLModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_AddToListList = (function (_super) {
+__extends(ShoppingList_AddToListList, _super);
+function ShoppingList_AddToListList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_AddToListList.itemType = ECP_ShoppingList_BLModel.ShoppingList_AddToListRec;
+return ShoppingList_AddToListList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_AddToListList = ShoppingList_AddToListList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_ActionsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ShoppingList_ActionsRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_ActionsRecordList = (function (_super) {
+__extends(ShoppingList_ActionsRecordList, _super);
+function ShoppingList_ActionsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_ActionsRecordList.itemType = ECP_ShoppingList_RCWModel.ShoppingList_ActionsRecord;
+return ShoppingList_ActionsRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_ActionsRecordList = ShoppingList_ActionsRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ExceptionTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ShoppingList_RCW.model", "ECP_ShoppingList_RCW.model$ExceptionTypeRecord"], function (exports, OutSystems, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeRecordList = (function (_super) {
+__extends(ExceptionTypeRecordList, _super);
+function ExceptionTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeRecordList.itemType = ECP_ShoppingList_RCWModel.ExceptionTypeRecord;
+return ExceptionTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ExceptionTypeRecordList = ExceptionTypeRecordList;
+
+});
+define("ECP_ShoppingList_RCW.model$ShoppingList_ActionsList", ["exports", "OutSystems/ClientRuntime/Main", "CT_ShoppingList_IS.model", "ECP_ShoppingList_RCW.model", "CT_ShoppingList_IS.model$ShoppingList_ActionsRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CT_ShoppingList_IS"], function (exports, OutSystems, CT_ShoppingList_ISModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var ShoppingList_ActionsList = (function (_super) {
+__extends(ShoppingList_ActionsList, _super);
+function ShoppingList_ActionsList(defaults) {
+_super.apply(this, arguments);
+}
+ShoppingList_ActionsList.itemType = CT_ShoppingList_ISModel.ShoppingList_ActionsRec;
+return ShoppingList_ActionsList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.ShoppingList_ActionsList = ShoppingList_ActionsList;
+
+});
+define("ECP_ShoppingList_RCW.model$Shared_Link2PdfOrPageList", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "ECP_ShoppingList_RCW.model", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "ECP_ShoppingList_RCW.referencesHealth", "ECP_ShoppingList_RCW.referencesHealth$CMS_Monolith"], function (exports, OutSystems, CMS_MonolithModel, ECP_ShoppingList_RCWModel) {
+var OS = OutSystems.Internal;
+var Shared_Link2PdfOrPageList = (function (_super) {
+__extends(Shared_Link2PdfOrPageList, _super);
+function Shared_Link2PdfOrPageList(defaults) {
+_super.apply(this, arguments);
+}
+Shared_Link2PdfOrPageList.itemType = CMS_MonolithModel.Shared_Link2PdfOrPageRec;
+return Shared_Link2PdfOrPageList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ShoppingList_RCWModel.Shared_Link2PdfOrPageList = Shared_Link2PdfOrPageList;
+
+});
+define("ECP_ShoppingList_RCW.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_ShoppingList_RCWModel = exports;
+Object.defineProperty(ECP_ShoppingList_RCWModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["20d1d99f-c57d-4f56-898c-05ae2f1508b9"];
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities = {};
+ECP_ShoppingList_RCWModel.staticEntities.shoppingList_Actions = {};
+var getShoppingList_ActionsRecord = function (record) {
+return OS.ApplicationInfo.getModules()["1d4d806b-1c48-43ab-bf57-5dcfa4d4182e"].staticEntities["224603db-e340-411b-aa64-d3eb8d52ae16"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shoppingList_Actions, "changeLineItemQuantity", {
+get: function () {
+return getShoppingList_ActionsRecord("18ecaa42-1b90-4d41-a223-68bdc370e485");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shoppingList_Actions, "changeName", {
+get: function () {
+return getShoppingList_ActionsRecord("d311b812-4446-4c37-b9ac-e24da2b9f7a6");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shoppingList_Actions, "addLineItem", {
+get: function () {
+return getShoppingList_ActionsRecord("d941cf84-02d0-4d93-93db-be131b051962");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shoppingList_Actions, "removeLineItem", {
+get: function () {
+return getShoppingList_ActionsRecord("f2f0769e-4bfb-482d-8c3f-f7b5e0632fe1");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.releaseToggle = {};
+var getReleaseToggleRecord = function (record) {
+return OS.ApplicationInfo.getModules()["2dfb77fa-8700-4ea1-8e4f-f12257666ac9"].staticEntities["006c8f18-9f13-4ebd-b5f0-4983ee7871b1"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "deliveryBundle", {
+get: function () {
+return getReleaseToggleRecord("009e4d1f-7e40-471b-a8fe-8789d5eb2683");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7000", {
+get: function () {
+return getReleaseToggleRecord("010521ae-921c-41a0-8f86-441552f08889");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9076", {
+get: function () {
+return getReleaseToggleRecord("0198cb2c-7aa7-4881-a17e-cdeeda1cb79e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7491", {
+get: function () {
+return getReleaseToggleRecord("02d26d02-01b5-4ebf-b42e-a462c391d519");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "christmasSnow", {
+get: function () {
+return getReleaseToggleRecord("02f90f56-5130-4df8-9d55-e258a5d8e57d");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8803", {
+get: function () {
+return getReleaseToggleRecord("03bc0826-13f3-4bb2-a70b-70828a803df1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8218", {
+get: function () {
+return getReleaseToggleRecord("03d07781-fe57-4619-abbb-0432b93a6a92");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7127", {
+get: function () {
+return getReleaseToggleRecord("061ab324-b607-49ef-8958-f7e59b1cec54");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8701", {
+get: function () {
+return getReleaseToggleRecord("062679a4-f815-4933-a2a6-84fe6233ea2e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8966", {
+get: function () {
+return getReleaseToggleRecord("071b8ba3-7723-427f-8500-067203fbd237");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9602", {
+get: function () {
+return getReleaseToggleRecord("075a52c3-4443-420b-ab28-8b6fc17e2f18");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9611", {
+get: function () {
+return getReleaseToggleRecord("07e2dfb0-1f88-467b-b5d5-f5a68103ecda");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9596", {
+get: function () {
+return getReleaseToggleRecord("082ad45c-0b42-4654-8b68-0d98131b83d9");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "payOnAccount", {
+get: function () {
+return getReleaseToggleRecord("0a4cf766-11bc-49e6-b04b-be873ef9564c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8049", {
+get: function () {
+return getReleaseToggleRecord("0b8783c3-4f35-4c4e-b204-7c32cd3d008c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6467", {
+get: function () {
+return getReleaseToggleRecord("0d050683-6efb-420e-9bb4-8665718a794a");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7199", {
+get: function () {
+return getReleaseToggleRecord("0d46b913-43cc-4083-8c39-e8a5d1d76220");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8739", {
+get: function () {
+return getReleaseToggleRecord("0e57c5ad-c9c6-4c38-a16d-637a33190fac");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7541", {
+get: function () {
+return getReleaseToggleRecord("1401e84a-c2c1-42fb-9ac1-8943bc0a4148");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8491", {
+get: function () {
+return getReleaseToggleRecord("14859786-0ee2-4de7-a7f7-66e0a858a581");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7830", {
+get: function () {
+return getReleaseToggleRecord("150fb59e-f3b6-4371-bfb7-d2c8ef5d8f59");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "iNC_ExtendedPromotionPeriods", {
+get: function () {
+return getReleaseToggleRecord("154dd6fa-bd8f-442f-9aa9-c2e6199dfeb4");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "timeslotsUnder25", {
+get: function () {
+return getReleaseToggleRecord("1980c2bc-b513-44d2-b1e6-ca91e9cfc9ec");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9004", {
+get: function () {
+return getReleaseToggleRecord("199d3d54-654b-4c9d-acf8-4d5dd0054d12");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8891", {
+get: function () {
+return getReleaseToggleRecord("1a805ae3-4152-4d0d-8387-cd98af003e91");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8565", {
+get: function () {
+return getReleaseToggleRecord("1b0edc90-d386-4e25-b9e6-b0af1ae8fd4d");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9437", {
+get: function () {
+return getReleaseToggleRecord("1ef340b8-5ad5-4af0-8b76-097c09ed45a2");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7651", {
+get: function () {
+return getReleaseToggleRecord("23ebcf74-341e-4fb8-9014-8e62106dc0a3");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5370", {
+get: function () {
+return getReleaseToggleRecord("2638d07f-ac63-47d4-9bc4-0c7e6ca2ad88");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7434", {
+get: function () {
+return getReleaseToggleRecord("275ca408-2a99-41ec-9ca3-8b0419371cf1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "kPN_SMS_Connector", {
+get: function () {
+return getReleaseToggleRecord("2a9b15b2-6850-47a9-a481-ad12e2be102c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "payOnAccountPart2", {
+get: function () {
+return getReleaseToggleRecord("313ea02e-20f8-4a01-9298-e17243536212");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7888", {
+get: function () {
+return getReleaseToggleRecord("32e0f623-55ee-4ac2-81cf-4ceffa12e63f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "iNC_CustWithoutrLoyaltyCard", {
+get: function () {
+return getReleaseToggleRecord("33b7b510-9f7d-454c-8ec8-677e779d3282");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "iNC_CustWithoutrLoyaltyCard_Fix", {
+get: function () {
+return getReleaseToggleRecord("353f093e-513e-4310-a085-27dc002c96cd");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9155", {
+get: function () {
+return getReleaseToggleRecord("36ff75b6-bb28-4cad-82a0-a871050eadac");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8702", {
+get: function () {
+return getReleaseToggleRecord("38fcb6d4-f3f1-4094-8a1a-9d5972e2b2dc");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7414", {
+get: function () {
+return getReleaseToggleRecord("3a670b15-b4ad-472c-8b8b-f6d97253e2b3");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7108", {
+get: function () {
+return getReleaseToggleRecord("3aac4b01-2c5c-45db-9dd1-3e5d00bdedf0");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9501", {
+get: function () {
+return getReleaseToggleRecord("3da4619c-f651-4ef4-9c3a-f2234312df50");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8376", {
+get: function () {
+return getReleaseToggleRecord("3e4d762b-8540-4c99-89ed-414db6311af8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5691", {
+get: function () {
+return getReleaseToggleRecord("3fad6725-84b3-454c-92d0-f7a4b4a3a77c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "deliveryBundlePunchOutOrder", {
+get: function () {
+return getReleaseToggleRecord("40a25524-7b18-4f84-86e5-3ca9cdf436c2");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "deliveryBundle_APP", {
+get: function () {
+return getReleaseToggleRecord("44e63ae1-13fa-4d80-8d23-4d7d3170f80e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP6488", {
+get: function () {
+return getReleaseToggleRecord("45bc7278-03f7-41c0-a2ce-d8a0dd3762ca");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8425", {
+get: function () {
+return getReleaseToggleRecord("463fb651-7bf2-43e3-89f8-f6b71847a64c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8052", {
+get: function () {
+return getReleaseToggleRecord("4a5c2132-c8ec-4af7-b3ac-272f9f0d817f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7757", {
+get: function () {
+return getReleaseToggleRecord("4b0f30af-a02b-4cd3-b7bc-ef1b185a1116");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9628", {
+get: function () {
+return getReleaseToggleRecord("4b7a4997-86f3-4956-980a-4624655aa2c8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5328", {
+get: function () {
+return getReleaseToggleRecord("4c826897-f057-4dd1-880f-127d7629d145");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6641", {
+get: function () {
+return getReleaseToggleRecord("4e0a682d-00a3-4c25-82d1-87453ac7b3da");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8797", {
+get: function () {
+return getReleaseToggleRecord("4e95a0c3-277c-4b02-9f1f-15cb8ba49a2a");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7003", {
+get: function () {
+return getReleaseToggleRecord("4ee649d7-6660-4364-bf7d-c408ed3487c8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "optimizationCartRetry", {
+get: function () {
+return getReleaseToggleRecord("50014e59-d41a-4ee7-8755-bb42fdfacd30");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6965", {
+get: function () {
+return getReleaseToggleRecord("504b050e-ce6f-4d20-a22f-d9a36f109c13");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6260", {
+get: function () {
+return getReleaseToggleRecord("51be07e2-c7d0-405c-a9d3-0a27f7dc4083");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8174", {
+get: function () {
+return getReleaseToggleRecord("5203e4cc-572a-4e38-a352-fd853c8ffac8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6363", {
+get: function () {
+return getReleaseToggleRecord("55847c15-4fce-4345-8b10-383f303d8030");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8792", {
+get: function () {
+return getReleaseToggleRecord("569d39a9-a7e8-47b4-821a-ebce7e8d6be0");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "everyoneQRCode", {
+get: function () {
+return getReleaseToggleRecord("583fc797-5428-4b4d-90c9-cf37b5418323");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8759", {
+get: function () {
+return getReleaseToggleRecord("59e8fd84-d74c-4792-9be5-c609279a0602");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8395", {
+get: function () {
+return getReleaseToggleRecord("5f8699af-e879-4161-a132-cecdaebd3c15");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "supERP_NewERP", {
+get: function () {
+return getReleaseToggleRecord("5fb6a650-10f2-4361-90ce-0bdf630a8230");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6639", {
+get: function () {
+return getReleaseToggleRecord("62010d0d-f77e-4c82-8410-9623ab77157f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5506", {
+get: function () {
+return getReleaseToggleRecord("62a920a8-8c83-48d0-b4ae-857abf1a41e8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8703", {
+get: function () {
+return getReleaseToggleRecord("632090d6-e321-488b-a139-caeea0936483");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9375", {
+get: function () {
+return getReleaseToggleRecord("64627607-b539-40e8-8d30-f367e63f26c1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7464", {
+get: function () {
+return getReleaseToggleRecord("67339b27-333c-4924-85c8-5406d3cd5d53");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7297", {
+get: function () {
+return getReleaseToggleRecord("67651a97-a3d2-45ca-a0d9-1545cfc1eb50");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "tEST_ForceOneWelcomeUpdateErrro", {
+get: function () {
+return getReleaseToggleRecord("690a3d1a-0f29-486b-a42d-6f394e9a24d1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5708", {
+get: function () {
+return getReleaseToggleRecord("691e474a-de41-45db-a1fc-0b18462a540c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6872", {
+get: function () {
+return getReleaseToggleRecord("6b26d785-e719-49bf-bfe3-c50d4d2b7e45");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5719", {
+get: function () {
+return getReleaseToggleRecord("6b3cf775-946c-4a7a-8a7a-67b572e7c321");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5800", {
+get: function () {
+return getReleaseToggleRecord("6cd6f146-4f44-43f0-b327-955c95a32c8c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8147", {
+get: function () {
+return getReleaseToggleRecord("707bef84-d33c-4f05-8176-22f08e2b1a3d");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7798_SetRedemptionBooleanInSavingsQR", {
+get: function () {
+return getReleaseToggleRecord("70ab926a-d69d-4c3a-a73f-4b83b7771b5f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9231", {
+get: function () {
+return getReleaseToggleRecord("71602d95-bee3-4b4c-acb2-64d0790acd89");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9154", {
+get: function () {
+return getReleaseToggleRecord("71654fc0-35f4-466c-8c5b-f1383a71441d");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5833", {
+get: function () {
+return getReleaseToggleRecord("75b9f6a6-3522-460c-bb27-bbe69d9a0968");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7054", {
+get: function () {
+return getReleaseToggleRecord("75f37f38-908c-4fb1-bcb9-bafc56bf7b61");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6503", {
+get: function () {
+return getReleaseToggleRecord("7db5d8c1-4e55-437d-ad16-9089c937afba");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5889", {
+get: function () {
+return getReleaseToggleRecord("7f0c5573-4ec9-46e3-9be8-2068aaf2042f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8192", {
+get: function () {
+return getReleaseToggleRecord("8197b2a7-f211-4887-9b05-e119c37a1141");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8375", {
+get: function () {
+return getReleaseToggleRecord("81d055db-31c6-4a15-aa92-3083149a4ae1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "oS_ServiceWorker", {
+get: function () {
+return getReleaseToggleRecord("8348dfa9-ab1b-4340-95db-9db23beb6c53");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8414", {
+get: function () {
+return getReleaseToggleRecord("848b89a5-a4ee-4d46-aa4c-3eb2c28b9acf");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8513", {
+get: function () {
+return getReleaseToggleRecord("85dfe213-e0fa-424f-be9d-3a23e6e9126e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9151", {
+get: function () {
+return getReleaseToggleRecord("88360362-0299-4425-a405-bfa39683ffa1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6942", {
+get: function () {
+return getReleaseToggleRecord("891a1323-617e-4b40-8a62-c8e54f88bcee");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "deliveryBundleBanner", {
+get: function () {
+return getReleaseToggleRecord("893ae778-1a06-4728-8542-ef1815abb563");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8188", {
+get: function () {
+return getReleaseToggleRecord("89bc66b1-14b3-4e2a-89e0-aa1b3a120b2b");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "giveAwayPLUSPoints", {
+get: function () {
+return getReleaseToggleRecord("8cf27946-2280-474a-be3a-3f3a90df7ddd");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7269", {
+get: function () {
+return getReleaseToggleRecord("8e81a1cf-eb31-42f1-ab2a-2a77ff857779");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "pLCS01PLUS15983", {
+get: function () {
+return getReleaseToggleRecord("8ea9e88e-4956-4da9-a1aa-eccdca8fd3cd");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "digitalSavingOnly", {
+get: function () {
+return getReleaseToggleRecord("90270a86-e68a-4bf8-880d-5d021703ed50");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7580", {
+get: function () {
+return getReleaseToggleRecord("94f84b60-161a-4715-b99a-1e2c5d131a34");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5259", {
+get: function () {
+return getReleaseToggleRecord("972c4ca7-7d29-455d-9466-3e3e20891076");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "promotionPageOptimization", {
+get: function () {
+return getReleaseToggleRecord("99fee0f7-44ee-4ca3-833d-cb2ceb1bc5ee");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7157", {
+get: function () {
+return getReleaseToggleRecord("9ae83456-2fd0-430c-a79a-fd1ca65bdba6");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9249", {
+get: function () {
+return getReleaseToggleRecord("9af52f6b-4a12-4ef9-8727-910a52f19bec");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9545", {
+get: function () {
+return getReleaseToggleRecord("9bb6ba51-763d-4cd1-888d-a08c1a7200cc");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9272", {
+get: function () {
+return getReleaseToggleRecord("9e58ec97-7c09-4d3f-b615-8ac1d2cb3cdd");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "rFC_PersistentLogin", {
+get: function () {
+return getReleaseToggleRecord("9ef27ba9-28d6-461e-8b80-e0cdeffc8716");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "deliveryBundleAnalytics", {
+get: function () {
+return getReleaseToggleRecord("9f37adcd-ecc8-41a9-be8f-cab4e6e6c968");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8920", {
+get: function () {
+return getReleaseToggleRecord("9f98dfa8-1ec2-4fb1-ba1d-10a3fc9e6fcc");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "refactorReceipt", {
+get: function () {
+return getReleaseToggleRecord("9fd22400-16dc-4a1d-ba52-3ebb6cb18489");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7590", {
+get: function () {
+return getReleaseToggleRecord("a2739fb4-2264-4e39-b605-e41c82e96d78");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7831", {
+get: function () {
+return getReleaseToggleRecord("a52d104c-d69e-436f-9bc8-e9baf8c60cbf");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9039", {
+get: function () {
+return getReleaseToggleRecord("a5a1cff5-8a0a-44a4-8f87-2e2d3e0609c1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6686", {
+get: function () {
+return getReleaseToggleRecord("a5b69b1f-ae31-4f88-88d3-189e33168028");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6181", {
+get: function () {
+return getReleaseToggleRecord("a5f1427f-a77c-4d21-a2f8-f257153e7b19");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6341", {
+get: function () {
+return getReleaseToggleRecord("a71afe87-5726-401f-a1a1-dcf7d69549d8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8925", {
+get: function () {
+return getReleaseToggleRecord("a8166111-2d85-4e38-817b-6ccc1c41b6f6");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7501", {
+get: function () {
+return getReleaseToggleRecord("a99a6d16-8d0f-40a1-9d7d-caf380de3f5d");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8223", {
+get: function () {
+return getReleaseToggleRecord("aaa58661-dbe8-4ca4-abe8-aa5fb393872e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8163", {
+get: function () {
+return getReleaseToggleRecord("acf1cab1-ea68-43dc-a413-a64811932118");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9192", {
+get: function () {
+return getReleaseToggleRecord("ad334e7d-f242-41e1-a0dc-58646e10932a");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6204", {
+get: function () {
+return getReleaseToggleRecord("aea50ea5-43fe-4dbd-981a-584cf24f43e1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8766_1", {
+get: function () {
+return getReleaseToggleRecord("af51227b-343d-4461-bc9a-47daa1fc8af7");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "dynamicDelivery_DefaultConfig", {
+get: function () {
+return getReleaseToggleRecord("b3151c30-d916-4413-b4e3-e419999fba49");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6822", {
+get: function () {
+return getReleaseToggleRecord("b42517a1-a54e-4ded-9929-b02e0576691e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7286", {
+get: function () {
+return getReleaseToggleRecord("b46d3883-2578-42fd-8e0e-3c95bf1ebc91");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7796", {
+get: function () {
+return getReleaseToggleRecord("b48286ae-ce85-4744-ac83-7ba2654acb2f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9568", {
+get: function () {
+return getReleaseToggleRecord("b69471ff-0414-455f-9a16-3d901b355367");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9523", {
+get: function () {
+return getReleaseToggleRecord("b699241f-fcfb-4e42-879a-12dd5651ab01");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8770", {
+get: function () {
+return getReleaseToggleRecord("b750bfdb-d5f3-46a4-b424-eea625bc1fef");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "deliveryBundleTaxRate", {
+get: function () {
+return getReleaseToggleRecord("bb0ba540-852a-4f5a-8e46-7d7f8a8b8044");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8783", {
+get: function () {
+return getReleaseToggleRecord("bb776da8-1906-435c-aac1-ba63280227c5");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6353", {
+get: function () {
+return getReleaseToggleRecord("bc3dc251-96ce-408e-b235-a3ee90e0ea90");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "tEST_PromotionFolderPeriodSync", {
+get: function () {
+return getReleaseToggleRecord("bc633818-466a-4ff9-ba80-5341a46bf140");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5474", {
+get: function () {
+return getReleaseToggleRecord("bdd7d9e2-8b2b-4f76-8bdf-45d1f18661ad");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "sEOProductURL", {
+get: function () {
+return getReleaseToggleRecord("be0bc7a0-465b-4b83-9b84-9d3d2c681769");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6425", {
+get: function () {
+return getReleaseToggleRecord("c0a266e6-955b-4b7a-820c-9cfec7789b76");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "outageControlPart1", {
+get: function () {
+return getReleaseToggleRecord("c2ccb979-ee12-45eb-8217-50dbdc57eed3");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7296", {
+get: function () {
+return getReleaseToggleRecord("c380714d-f2fd-48ae-a51c-f71a02f9907b");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8157", {
+get: function () {
+return getReleaseToggleRecord("c3ed1d8d-7369-4a4d-b5eb-3c721a10eb06");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6139", {
+get: function () {
+return getReleaseToggleRecord("c437f199-810e-40a5-b76a-e2b08e57c205");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6766", {
+get: function () {
+return getReleaseToggleRecord("c51d55cc-4722-4255-8103-3d5457741f81");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6182", {
+get: function () {
+return getReleaseToggleRecord("c9000fb1-174f-4cfa-9360-e7c2412bf712");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7799", {
+get: function () {
+return getReleaseToggleRecord("ca06b47b-9d91-4a2e-8603-f9e6f21c4dc2");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9006", {
+get: function () {
+return getReleaseToggleRecord("cb633e8b-32a0-4e07-a295-f669ca5bb1d4");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8377", {
+get: function () {
+return getReleaseToggleRecord("cc733814-f028-405f-bf69-91db0576454a");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "deliveryBundleCancel", {
+get: function () {
+return getReleaseToggleRecord("ce53d084-9807-48e0-9f3e-b4a8b6d2f43b");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7793", {
+get: function () {
+return getReleaseToggleRecord("ce6af3dc-a302-4ce3-b76a-d8c822b8ba2c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8040", {
+get: function () {
+return getReleaseToggleRecord("cea7e13d-f5f2-44e5-9c20-51e92ef11c0a");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "promoFreeProduct", {
+get: function () {
+return getReleaseToggleRecord("cee4c66f-79b8-4163-bd90-a336cbea01c8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6514", {
+get: function () {
+return getReleaseToggleRecord("d0a51bea-3e2c-4d08-827f-1fa85cdf0501");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "accessibilityFeatures", {
+get: function () {
+return getReleaseToggleRecord("d28936bf-ca09-4801-bf59-ee26397c8b34");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9627", {
+get: function () {
+return getReleaseToggleRecord("d41f416b-4423-482a-aea8-50566fcb30ad");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7315", {
+get: function () {
+return getReleaseToggleRecord("d7b78448-5d38-46ba-bcad-962506f5bbb5");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7351", {
+get: function () {
+return getReleaseToggleRecord("d96084ad-27c5-47a8-a368-6c7d2dc09fe0");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7554", {
+get: function () {
+return getReleaseToggleRecord("dac3562a-c4d2-4485-8ea5-8028fe81d588");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6235", {
+get: function () {
+return getReleaseToggleRecord("db8e0a6b-7a1a-490c-96dc-b30018105142");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6233", {
+get: function () {
+return getReleaseToggleRecord("ddb30369-2762-4e95-ab89-52d3be23c89d");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6214", {
+get: function () {
+return getReleaseToggleRecord("deb8071c-9662-40ac-a15f-cc7431945a04");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6231", {
+get: function () {
+return getReleaseToggleRecord("df741f09-1474-4106-8548-cf6bee819e3a");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6878", {
+get: function () {
+return getReleaseToggleRecord("e0bd17a2-9030-49a2-af55-e35fcfda8715");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9262", {
+get: function () {
+return getReleaseToggleRecord("e14804eb-7733-4426-8812-683265533122");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "loginUsingAPI", {
+get: function () {
+return getReleaseToggleRecord("e392e913-b54d-4407-b2a0-aa016d821316");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6791", {
+get: function () {
+return getReleaseToggleRecord("e3cf51cc-2e4c-4066-a6a4-6fe670a56ef6");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "tEST_PromotionFolderPeriodSyncAPI", {
+get: function () {
+return getReleaseToggleRecord("e3f09a48-5610-4bc8-8d40-8b506d875f11");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7544", {
+get: function () {
+return getReleaseToggleRecord("e4893ee7-ba1c-4e33-b4be-20bd006080a1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9042", {
+get: function () {
+return getReleaseToggleRecord("e5597fa9-f6af-4c15-99cb-03047382ba24");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8417", {
+get: function () {
+return getReleaseToggleRecord("e664b9e2-b518-499e-880c-1f2bb86e5581");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9190", {
+get: function () {
+return getReleaseToggleRecord("e7e7c7ef-a020-4fcf-89a0-2b3acb87e2de");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7626", {
+get: function () {
+return getReleaseToggleRecord("ea2add44-03b7-4486-9ec4-0dffd424a033");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7497", {
+get: function () {
+return getReleaseToggleRecord("eaca1556-9c47-4afb-b8ab-4c73962d3fd4");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7005_ChristmasPackageShop", {
+get: function () {
+return getReleaseToggleRecord("ec2354d4-b1a5-48b7-98d1-5c951df5d658");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6255", {
+get: function () {
+return getReleaseToggleRecord("ec87c6ca-30e8-4cbe-9024-780ee7b1e1e2");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_7797", {
+get: function () {
+return getReleaseToggleRecord("ed59a13e-e1d6-4e0e-b54d-44c97678fb5e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "hideAllergensPDP", {
+get: function () {
+return getReleaseToggleRecord("ef1f19a3-5215-4f7c-80e4-77cdf9764106");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6188", {
+get: function () {
+return getReleaseToggleRecord("f59c0121-eb31-4ea3-8226-fe1c7efd72c6");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "localAssortment", {
+get: function () {
+return getReleaseToggleRecord("f6b33e62-1525-4794-8ed4-9ae2352384af");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6249", {
+get: function () {
+return getReleaseToggleRecord("f7b7f31a-eb17-4d8f-9a46-a813ced05b7b");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_5827", {
+get: function () {
+return getReleaseToggleRecord("f9ba7759-5ad1-4c8e-a28a-9d7877e9be3f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "ecoTimeSlots", {
+get: function () {
+return getReleaseToggleRecord("fbd96f5f-d944-4d9a-8fb1-a7e0b8a07460");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_8195", {
+get: function () {
+return getReleaseToggleRecord("fc004186-66fe-4ea9-8cfa-0a95a5c1e523");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_6385", {
+get: function () {
+return getReleaseToggleRecord("fdad1842-66b9-40c6-8a5d-6182814f9a94");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.releaseToggle, "eCOP_9518", {
+get: function () {
+return getReleaseToggleRecord("fddd9adf-0ca9-4681-904a-f01fecd48863");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.iconSize = {};
+var getIconSizeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["43d7ddb8-26e2-46dc-89d9-110bbee31fe6"].staticEntities["24f2b1d3-ca7f-4178-aed4-366682d9fd21"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.iconSize, "size2x", {
+get: function () {
+return getIconSizeRecord("1c026924-e833-40f9-a9b7-5ee9c2484999");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.iconSize, "size4x", {
+get: function () {
+return getIconSizeRecord("883f5137-1031-4610-8600-d0b7952b90af");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.iconSize, "size_lg", {
+get: function () {
+return getIconSizeRecord("9666c499-be59-4034-9681-68f1aef77d26");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.iconSize, "size5x", {
+get: function () {
+return getIconSizeRecord("cebb3bb7-3333-4dea-b3e1-ef1e27f45d1e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.iconSize, "size_s", {
+get: function () {
+return getIconSizeRecord("ed070b47-4b3d-4abc-9bdd-7ac3c89bcc32");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.iconSize, "size3x", {
+get: function () {
+return getIconSizeRecord("fd4844cc-e3a5-4a81-a266-c14dc099f4e4");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.callbackOrderEdit2 = {};
+var getCallbackOrderEdit2Record = function (record) {
+return OS.ApplicationInfo.getModules()["793c1a49-deef-4e22-b229-038e0bcd0cd4"].staticEntities["e1cbd0da-d29f-4a1e-adb4-19b44f7d6992"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.callbackOrderEdit2, "editApplied", {
+get: function () {
+return getCallbackOrderEdit2Record("18e2e55e-ccb3-4bbc-99d9-8aae8ad9d0d9");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.callbackOrderEdit2, "cutOffMomentExpired", {
+get: function () {
+return getCallbackOrderEdit2Record("916845b2-5c23-4ad0-b8ce-90fc1c302562");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.callbackOrderEdit2, "orderCancelled", {
+get: function () {
+return getCallbackOrderEdit2Record("ac705602-8d11-4668-abc7-405f8f454c34");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.callbackOrderEdit2, "isEditCancelled", {
+get: function () {
+return getCallbackOrderEdit2Record("b8b6dd62-9fbf-4198-8b71-6433c9e3cb6d");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.contentfulImageResizeBehavior = {};
+var getContentfulImageResizeBehaviorRecord = function (record) {
+return OS.ApplicationInfo.getModules()["a1c15895-6516-4d7b-93b3-d3eba9d86d40"].staticEntities["01fbca84-9c48-44fd-bf1a-d2d368f26b54"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.contentfulImageResizeBehavior, "fill", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("4722ee03-2d28-4a61-9cc8-5c6e9bf4273f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.contentfulImageResizeBehavior, "crop", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("5d821e67-aa78-4da9-bb81-4dd989581e9e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.contentfulImageResizeBehavior, "scale", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("d5d3c663-1955-42c8-ab52-b74520c5b9fd");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.contentfulImageResizeBehavior, "pad", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("d93f3319-2a60-4cdf-a624-ccaa9917ee7a");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.contentfulImageResizeBehavior, "thumb", {
+get: function () {
+return getContentfulImageResizeBehaviorRecord("f33881e4-6bbd-428e-94ab-dc0a336d6930");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.exceptionType = {};
+var getExceptionTypeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["a61e44f4-ecf6-4ed0-80c1-fa1b19b8fa97"].staticEntities["e1cd9323-4d37-46bc-bc24-423a0e75763c"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "contentTooLarge", {
+get: function () {
+return getExceptionTypeRecord("0f9b5b19-1705-48f1-a016-bbb6f8850334");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "openContentFailed", {
+get: function () {
+return getExceptionTypeRecord("3fdeebf8-0cc9-4178-ad8b-be68f051c2b3");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "encryptionFailed", {
+get: function () {
+return getExceptionTypeRecord("4426b484-bdc4-4884-a5a9-5965ad22f4d7");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "notFound", {
+get: function () {
+return getExceptionTypeRecord("5485f4be-ce3f-421b-95a8-a660319718c7");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "alreadyExists", {
+get: function () {
+return getExceptionTypeRecord("5bf1010b-de7e-40c0-aa89-ac856ad9035e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "inactiveUser", {
+get: function () {
+return getExceptionTypeRecord("64445ede-beca-4076-b9cd-a0aaa591dbad");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "invalidParameter", {
+get: function () {
+return getExceptionTypeRecord("a044c7cb-bef3-4d29-8b57-2d97fe066d30");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "encryptedContent", {
+get: function () {
+return getExceptionTypeRecord("a5a7d5ec-eccf-43a9-93ff-3cde3a136708");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "accessDenied", {
+get: function () {
+return getExceptionTypeRecord("b6234a9d-bc0e-4eec-8e8c-6d60dea3bc26");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "invalidData", {
+get: function () {
+return getExceptionTypeRecord("d0b0eddb-7e80-456d-9620-c0194268ccbb");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "decryptionFailed", {
+get: function () {
+return getExceptionTypeRecord("e61be486-8098-42be-ac41-f950ce982360");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "invalidToken", {
+get: function () {
+return getExceptionTypeRecord("ebe03d4c-9bcf-46b7-863f-08a824a09a5e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.exceptionType, "createOrderFromCart", {
+get: function () {
+return getExceptionTypeRecord("ec622d90-787c-4880-93db-ffddaa244f6a");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.accountScreen = {};
+var getAccountScreenRecord = function (record) {
+return OS.ApplicationInfo.getModules()["a8b576a5-fd2d-4451-a85a-26e2be96e967"].staticEntities["c515c2fc-c7d6-4131-81a6-27d9f4545b5d"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "usersOverview", {
+get: function () {
+return getAccountScreenRecord("176363f1-cb09-45ba-a17f-c372de92a52f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "preferences", {
+get: function () {
+return getAccountScreenRecord("225367b3-1820-473f-8453-2fa1bc36886c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "accountConversion", {
+get: function () {
+return getAccountScreenRecord("26d2ffac-3ea1-4ec0-a5e2-938cf6a01095");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "deliveryBundleManagement", {
+get: function () {
+return getAccountScreenRecord("2e1d461a-278f-4b57-abb3-297357662335");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "orders", {
+get: function () {
+return getAccountScreenRecord("31984229-e5c2-4f01-b48a-798248c530fc");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "companyDetails", {
+get: function () {
+return getAccountScreenRecord("5208ad7d-b024-4143-b79f-d6b232afbc36");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "personalInformation", {
+get: function () {
+return getAccountScreenRecord("78a64956-0214-4b9f-a828-b70b77435830");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "previouslyBoughtProducts", {
+get: function () {
+return getAccountScreenRecord("8ab1fa47-3a12-4b65-a3fb-7202ec90fac9");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "accountOverview", {
+get: function () {
+return getAccountScreenRecord("af9b0f54-3ba2-49c4-a965-7100a7226c8d");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "paymentMethods", {
+get: function () {
+return getAccountScreenRecord("b7316631-00df-4e64-a190-d2bb47e3f11b");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.accountScreen, "shoppingLists", {
+get: function () {
+return getAccountScreenRecord("ef2f3f29-1d76-45ac-80ff-97bc764fd5f7");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.shoppingList_Sorting = {};
+var getShoppingList_SortingRecord = function (record) {
+return OS.ApplicationInfo.getModules()["a9a26177-50c0-4e39-84db-765cf8d4fe88"].staticEntities["dcd11310-49e0-49c6-9cc1-fa7d115c504a"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shoppingList_Sorting, "mostRecent", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getShoppingList_SortingRecord("13927e80-0a16-47f6-996a-d80f6c46b8fe"));
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shoppingList_Sorting, "category", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getShoppingList_SortingRecord("d09713de-ec6f-4009-bc6e-17392b879986"));
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.gutterSize = {};
+var getGutterSizeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["2e81a1e8-4fa4-4bd0-a945-65352999b0be"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.gutterSize, "xXLarge", {
+get: function () {
+return getGutterSizeRecord("087ea4c4-96ff-4fc5-87c9-70e35c61fe6e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.gutterSize, "medium", {
+get: function () {
+return getGutterSizeRecord("12874371-fb77-4707-afda-cdddbba81173");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.gutterSize, "none", {
+get: function () {
+return getGutterSizeRecord("1a6cb2a2-b448-4f08-ba92-5bd24d30a422");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.gutterSize, "extraLarge", {
+get: function () {
+return getGutterSizeRecord("8d669ecd-b220-4b80-b57b-4700987734dd");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.gutterSize, "small", {
+get: function () {
+return getGutterSizeRecord("96f816b9-2511-49f9-8e9c-c6ab4ff8683e");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.gutterSize, "large", {
+get: function () {
+return getGutterSizeRecord("a9dce78b-0487-49ef-b5c0-d3054293816b");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.gutterSize, "base", {
+get: function () {
+return getGutterSizeRecord("b7549354-102c-45e6-8c2e-b171c6f589c5");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.gutterSize, "extraSmall", {
+get: function () {
+return getGutterSizeRecord("b8734df5-7557-4609-a566-cf5c35a6dade");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.shape = {};
+var getShapeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["6fe168a9-c16d-4cdb-9b6f-a9e6c6b79326"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shape, "sharp", {
+get: function () {
+return getShapeRecord("94deb1f5-6153-4438-92ad-cedea3c1f6f0");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shape, "softRounded", {
+get: function () {
+return getShapeRecord("d1093539-d77d-439d-8d53-03d2e0053a52");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.shape, "rounded", {
+get: function () {
+return getShapeRecord("f20c2269-270a-43b2-ba29-bd8fbff2519f");
+}
+});
+
+ECP_ShoppingList_RCWModel.staticEntities.color = {};
+var getColorRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["cb6d1da7-26d4-45d9-bc22-9a4c482e6ce2"][record];
+};
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral9", {
+get: function () {
+return getColorRecord("04a6c700-0ae5-44d5-81ce-34ec81d72c1c");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "grape", {
+get: function () {
+return getColorRecord("0d81324f-81ae-44eb-b81e-cd27ebce7460");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral7", {
+get: function () {
+return getColorRecord("1434454b-4d44-4ec7-a9ee-8353529b1621");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral10", {
+get: function () {
+return getColorRecord("1566893e-a30d-405f-878b-e64efdab7f7b");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "teal", {
+get: function () {
+return getColorRecord("19254415-08b2-4887-a6cf-36433bb1ade0");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "primary", {
+get: function () {
+return getColorRecord("1df261bf-454e-49a0-951e-87f6077cbbc1");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral4", {
+get: function () {
+return getColorRecord("20d4e7d1-c296-4853-b584-d2b004ddf9f5");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral8", {
+get: function () {
+return getColorRecord("31cd8495-438d-4825-8a93-c083bf6f016a");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "indigo", {
+get: function () {
+return getColorRecord("47b9565a-4f82-4a9d-a543-4aaa707853ac");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "orange", {
+get: function () {
+return getColorRecord("4d20d5b8-5570-4e18-9345-55772434a9ad");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "lime", {
+get: function () {
+return getColorRecord("50b20d51-09a6-43df-aa5d-6ae3c99f31e8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "cyan", {
+get: function () {
+return getColorRecord("59edafdd-089e-409e-a2d2-78298e55e0f2");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "secondary", {
+get: function () {
+return getColorRecord("61f545b9-e074-40ee-a884-8102a56d9ee7");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral6", {
+get: function () {
+return getColorRecord("69c65fbc-5ddc-4e41-afcf-03acff40e7a8");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "yellow", {
+get: function () {
+return getColorRecord("80145099-0e84-4301-902b-2bd6a933e319");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral2", {
+get: function () {
+return getColorRecord("8577e423-4296-434f-9ca1-9a18b91e0c29");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral1", {
+get: function () {
+return getColorRecord("9946980c-176a-4345-90ff-312523579ef0");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral3", {
+get: function () {
+return getColorRecord("b7447296-c2b5-4d01-883b-b49d25b1c8a6");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "transparent", {
+get: function () {
+return getColorRecord("b87c59d9-4a95-4567-876d-b978ca413429");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "violet", {
+get: function () {
+return getColorRecord("bb39306e-ce82-47a7-9c0f-a78f92ff53c6");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "blue", {
+get: function () {
+return getColorRecord("c1bb8b1b-2f09-4fe9-bec9-eeb243b903d5");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral5", {
+get: function () {
+return getColorRecord("c1d63249-fde7-4438-b4c9-d445bcfc9257");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "red", {
+get: function () {
+return getColorRecord("d6c564f5-847a-4155-ba84-91b826bd676f");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "pink", {
+get: function () {
+return getColorRecord("e9991560-a98c-431e-a583-b707840dc2f3");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "green", {
+get: function () {
+return getColorRecord("ede4099b-595f-47f0-98ed-583414f4f6bd");
+}
+});
+
+Object.defineProperty(ECP_ShoppingList_RCWModel.staticEntities.color, "neutral0", {
+get: function () {
+return getColorRecord("fb934ce5-6b33-4c96-8d40-b06352706a8d");
+}
+});
+
+});

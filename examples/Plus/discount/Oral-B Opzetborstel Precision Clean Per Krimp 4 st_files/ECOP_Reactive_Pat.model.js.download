@@ -1,0 +1,3326 @@
+﻿define("ECOP_Reactive_Pat.model$SpaceRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$SpaceRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SpaceRecord = (function (_super) {
+__extends(SpaceRecord, _super);
+function SpaceRecord(defaults) {
+_super.apply(this, arguments);
+}
+SpaceRecord.attributesToDeclare = function () {
+return [
+this.attr("Space", "spaceAttr", "Space", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.SpaceRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.SpaceRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+SpaceRecord.fromStructure = function (str) {
+return new SpaceRecord(new SpaceRecord.RecordClass({
+spaceAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SpaceRecord._isAnonymousRecord = true;
+SpaceRecord.UniqueId = "8e39d152-5764-212a-93d3-ef8ba655c299";
+SpaceRecord.init();
+return SpaceRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.SpaceRecord = SpaceRecord;
+
+});
+define("ECOP_Reactive_Pat.model$SpaceRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$SpaceRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SpaceRecordList = (function (_super) {
+__extends(SpaceRecordList, _super);
+function SpaceRecordList(defaults) {
+_super.apply(this, arguments);
+}
+SpaceRecordList.itemType = ECOP_Reactive_PatModel.SpaceRecord;
+return SpaceRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.SpaceRecordList = SpaceRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$SEO_StructRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SEO_StructRec = (function (_super) {
+__extends(SEO_StructRec, _super);
+function SEO_StructRec(defaults) {
+_super.apply(this, arguments);
+}
+SEO_StructRec.attributesToDeclare = function () {
+return [
+this.attr("Title", "titleAttr", "Title", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NoIndex", "noIndexAttr", "NoIndex", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("NoFollow", "noFollowAttr", "NoFollow", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("OGTitle", "oGTitleAttr", "OGTitle", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OGDescription", "oGDescriptionAttr", "OGDescription", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OGURL", "oGURLAttr", "OGURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OGImageURL", "oGImageURLAttr", "OGImageURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CanonicalURL", "canonicalURLAttr", "CanonicalURL", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("NoCanonicalURL", "noCanonicalURLAttr", "NoCanonicalURL", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("RelPrevious", "relPreviousAttr", "RelPrevious", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("RelNext", "relNextAttr", "RelNext", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+SEO_StructRec.init();
+return SEO_StructRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.SEO_StructRec = SEO_StructRec;
+
+});
+define("ECOP_Reactive_Pat.model$SEO_StructRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$SEO_StructRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SEO_StructRecord = (function (_super) {
+__extends(SEO_StructRecord, _super);
+function SEO_StructRecord(defaults) {
+_super.apply(this, arguments);
+}
+SEO_StructRecord.attributesToDeclare = function () {
+return [
+this.attr("SEO_Struct", "sEO_StructAttr", "SEO_Struct", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.SEO_StructRec());
+}, true, ECOP_Reactive_PatModel.SEO_StructRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+SEO_StructRecord.fromStructure = function (str) {
+return new SEO_StructRecord(new SEO_StructRecord.RecordClass({
+sEO_StructAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SEO_StructRecord._isAnonymousRecord = true;
+SEO_StructRecord.UniqueId = "07358f45-f599-002c-5f63-f9a7441e6b5e";
+SEO_StructRecord.init();
+return SEO_StructRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.SEO_StructRecord = SEO_StructRecord;
+
+});
+define("ECOP_Reactive_Pat.model$SEO_StructRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$SEO_StructRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SEO_StructRecordList = (function (_super) {
+__extends(SEO_StructRecordList, _super);
+function SEO_StructRecordList(defaults) {
+_super.apply(this, arguments);
+}
+SEO_StructRecordList.itemType = ECOP_Reactive_PatModel.SEO_StructRecord;
+return SEO_StructRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.SEO_StructRecordList = SEO_StructRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$FeedbackMessageTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var FeedbackMessageTypeRec = (function (_super) {
+__extends(FeedbackMessageTypeRec, _super);
+function FeedbackMessageTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+FeedbackMessageTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Is_Active", "is_ActiveAttr", "Is_Active", true, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+FeedbackMessageTypeRec.init();
+return FeedbackMessageTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.FeedbackMessageTypeRec = FeedbackMessageTypeRec;
+
+});
+define("ECOP_Reactive_Pat.model$FeedbackMessageTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$FeedbackMessageTypeRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var FeedbackMessageTypeRecord = (function (_super) {
+__extends(FeedbackMessageTypeRecord, _super);
+function FeedbackMessageTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+FeedbackMessageTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("FeedbackMessageType", "feedbackMessageTypeAttr", "FeedbackMessageType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.FeedbackMessageTypeRec());
+}, true, ECOP_Reactive_PatModel.FeedbackMessageTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+FeedbackMessageTypeRecord.fromStructure = function (str) {
+return new FeedbackMessageTypeRecord(new FeedbackMessageTypeRecord.RecordClass({
+feedbackMessageTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+FeedbackMessageTypeRecord._isAnonymousRecord = true;
+FeedbackMessageTypeRecord.UniqueId = "059f2fd3-754d-7b03-d229-c172e3ab11a4";
+FeedbackMessageTypeRecord.init();
+return FeedbackMessageTypeRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.FeedbackMessageTypeRecord = FeedbackMessageTypeRecord;
+
+});
+define("ECOP_Reactive_Pat.model$GutterSizeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$GutterSizeRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var GutterSizeRecord = (function (_super) {
+__extends(GutterSizeRecord, _super);
+function GutterSizeRecord(defaults) {
+_super.apply(this, arguments);
+}
+GutterSizeRecord.attributesToDeclare = function () {
+return [
+this.attr("GutterSize", "gutterSizeAttr", "GutterSize", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.GutterSizeRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.GutterSizeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GutterSizeRecord.fromStructure = function (str) {
+return new GutterSizeRecord(new GutterSizeRecord.RecordClass({
+gutterSizeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+GutterSizeRecord._isAnonymousRecord = true;
+GutterSizeRecord.UniqueId = "05a08da7-e917-622f-0e17-39afb519237b";
+GutterSizeRecord.init();
+return GutterSizeRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.GutterSizeRecord = GutterSizeRecord;
+
+});
+define("ECOP_Reactive_Pat.model$ValidationErrorRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ValidationErrorRec = (function (_super) {
+__extends(ValidationErrorRec, _super);
+function ValidationErrorRec(defaults) {
+_super.apply(this, arguments);
+}
+ValidationErrorRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ValidationErrorRec.init();
+return ValidationErrorRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.ValidationErrorRec = ValidationErrorRec;
+
+});
+define("ECOP_Reactive_Pat.model$ValidationErrorRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ValidationErrorRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ValidationErrorRecord = (function (_super) {
+__extends(ValidationErrorRecord, _super);
+function ValidationErrorRecord(defaults) {
+_super.apply(this, arguments);
+}
+ValidationErrorRecord.attributesToDeclare = function () {
+return [
+this.attr("ValidationError", "validationErrorAttr", "ValidationError", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.ValidationErrorRec());
+}, true, ECOP_Reactive_PatModel.ValidationErrorRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ValidationErrorRecord.fromStructure = function (str) {
+return new ValidationErrorRecord(new ValidationErrorRecord.RecordClass({
+validationErrorAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ValidationErrorRecord._isAnonymousRecord = true;
+ValidationErrorRecord.UniqueId = "7e803d82-c62e-1f7f-47ce-b4c659900a6e";
+ValidationErrorRecord.init();
+return ValidationErrorRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.ValidationErrorRecord = ValidationErrorRecord;
+
+});
+define("ECOP_Reactive_Pat.model$ValidationErrorRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ValidationErrorRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ValidationErrorRecordList = (function (_super) {
+__extends(ValidationErrorRecordList, _super);
+function ValidationErrorRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ValidationErrorRecordList.itemType = ECOP_Reactive_PatModel.ValidationErrorRecord;
+return ValidationErrorRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ValidationErrorRecordList = ValidationErrorRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$CountryDataRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var CountryDataRec = (function (_super) {
+__extends(CountryDataRec, _super);
+function CountryDataRec(defaults) {
+_super.apply(this, arguments);
+}
+CountryDataRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Iso2", "iso2Attr", "iso2", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DialCode", "dialCodeAttr", "dialCode", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CountryDataRec.init();
+return CountryDataRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.CountryDataRec = CountryDataRec;
+
+});
+define("ECOP_Reactive_Pat.model$CountryDataList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$CountryDataRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var CountryDataList = (function (_super) {
+__extends(CountryDataList, _super);
+function CountryDataList(defaults) {
+_super.apply(this, arguments);
+}
+CountryDataList.itemType = ECOP_Reactive_PatModel.CountryDataRec;
+return CountryDataList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.CountryDataList = CountryDataList;
+
+});
+define("ECOP_Reactive_Pat.model$SpaceList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$SpaceRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SpaceList = (function (_super) {
+__extends(SpaceList, _super);
+function SpaceList(defaults) {
+_super.apply(this, arguments);
+}
+SpaceList.itemType = PLUS_OutSystemsUI_2_8_0Model.SpaceRec;
+return SpaceList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.SpaceList = SpaceList;
+
+});
+define("ECOP_Reactive_Pat.model$CountryDataRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$CountryDataRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var CountryDataRecord = (function (_super) {
+__extends(CountryDataRecord, _super);
+function CountryDataRecord(defaults) {
+_super.apply(this, arguments);
+}
+CountryDataRecord.attributesToDeclare = function () {
+return [
+this.attr("CountryData", "countryDataAttr", "CountryData", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.CountryDataRec());
+}, true, ECOP_Reactive_PatModel.CountryDataRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+CountryDataRecord.fromStructure = function (str) {
+return new CountryDataRecord(new CountryDataRecord.RecordClass({
+countryDataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+CountryDataRecord._isAnonymousRecord = true;
+CountryDataRecord.UniqueId = "d466028e-92b5-acb0-c6ec-4cce7c4cb2e9";
+CountryDataRecord.init();
+return CountryDataRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.CountryDataRecord = CountryDataRecord;
+
+});
+define("ECOP_Reactive_Pat.model$CountryDataRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$CountryDataRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var CountryDataRecordList = (function (_super) {
+__extends(CountryDataRecordList, _super);
+function CountryDataRecordList(defaults) {
+_super.apply(this, arguments);
+}
+CountryDataRecordList.itemType = ECOP_Reactive_PatModel.CountryDataRecord;
+return CountryDataRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.CountryDataRecordList = CountryDataRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$DeviceBreakpointRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var DeviceBreakpointRec = (function (_super) {
+__extends(DeviceBreakpointRec, _super);
+function DeviceBreakpointRec(defaults) {
+_super.apply(this, arguments);
+}
+DeviceBreakpointRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("MinViewportWidth", "minViewportWidthAttr", "MinViewportWidth", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("MaxViewportWidth", "maxViewportWidthAttr", "MaxViewportWidth", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeviceBreakpointRec.init();
+return DeviceBreakpointRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.DeviceBreakpointRec = DeviceBreakpointRec;
+
+});
+define("ECOP_Reactive_Pat.model$ShapeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$ShapeRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ShapeRecord = (function (_super) {
+__extends(ShapeRecord, _super);
+function ShapeRecord(defaults) {
+_super.apply(this, arguments);
+}
+ShapeRecord.attributesToDeclare = function () {
+return [
+this.attr("Shape", "shapeAttr", "Shape", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.ShapeRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.ShapeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ShapeRecord.fromStructure = function (str) {
+return new ShapeRecord(new ShapeRecord.RecordClass({
+shapeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ShapeRecord._isAnonymousRecord = true;
+ShapeRecord.UniqueId = "96db0c33-40f1-a2a3-a416-4bfe9984a8d6";
+ShapeRecord.init();
+return ShapeRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.ShapeRecord = ShapeRecord;
+
+});
+define("ECOP_Reactive_Pat.model$ShapeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ShapeRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ShapeRecordList = (function (_super) {
+__extends(ShapeRecordList, _super);
+function ShapeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ShapeRecordList.itemType = ECOP_Reactive_PatModel.ShapeRecord;
+return ShapeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ShapeRecordList = ShapeRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$SizeList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$SizeRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SizeList = (function (_super) {
+__extends(SizeList, _super);
+function SizeList(defaults) {
+_super.apply(this, arguments);
+}
+SizeList.itemType = PLUS_OutSystemsUI_2_8_0Model.SizeRec;
+return SizeList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.SizeList = SizeList;
+
+});
+define("ECOP_Reactive_Pat.model$AnimationTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var AnimationTypeRec = (function (_super) {
+__extends(AnimationTypeRec, _super);
+function AnimationTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+AnimationTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+AnimationTypeRec.fromStructure = function (str) {
+return new AnimationTypeRec(new AnimationTypeRec.RecordClass({
+nameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+AnimationTypeRec.init();
+return AnimationTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.AnimationTypeRec = AnimationTypeRec;
+
+});
+define("ECOP_Reactive_Pat.model$AnimationTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$AnimationTypeRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var AnimationTypeRecord = (function (_super) {
+__extends(AnimationTypeRecord, _super);
+function AnimationTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+AnimationTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("AnimationType", "animationTypeAttr", "AnimationType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.AnimationTypeRec());
+}, true, ECOP_Reactive_PatModel.AnimationTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+AnimationTypeRecord.fromStructure = function (str) {
+return new AnimationTypeRecord(new AnimationTypeRecord.RecordClass({
+animationTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+AnimationTypeRecord._isAnonymousRecord = true;
+AnimationTypeRecord.UniqueId = "1c4a6518-637e-7154-d7d1-f5074206ed78";
+AnimationTypeRecord.init();
+return AnimationTypeRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.AnimationTypeRecord = AnimationTypeRecord;
+
+});
+define("ECOP_Reactive_Pat.model$FeedbackMessageTypeList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$FeedbackMessageTypeRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var FeedbackMessageTypeList = (function (_super) {
+__extends(FeedbackMessageTypeList, _super);
+function FeedbackMessageTypeList(defaults) {
+_super.apply(this, arguments);
+}
+FeedbackMessageTypeList.itemType = ECOP_Reactive_PatModel.FeedbackMessageTypeRec;
+return FeedbackMessageTypeList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.FeedbackMessageTypeList = FeedbackMessageTypeList;
+
+});
+define("ECOP_Reactive_Pat.model$PopperActionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PopperActionRec = (function (_super) {
+__extends(PopperActionRec, _super);
+function PopperActionRec(defaults) {
+_super.apply(this, arguments);
+}
+PopperActionRec.attributesToDeclare = function () {
+return [
+this.attr("Action", "actionAttr", "Action", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PopperActionRec.fromStructure = function (str) {
+return new PopperActionRec(new PopperActionRec.RecordClass({
+actionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PopperActionRec.init();
+return PopperActionRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.PopperActionRec = PopperActionRec;
+
+});
+define("ECOP_Reactive_Pat.model$DeviceBreakpointRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$DeviceBreakpointRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var DeviceBreakpointRecord = (function (_super) {
+__extends(DeviceBreakpointRecord, _super);
+function DeviceBreakpointRecord(defaults) {
+_super.apply(this, arguments);
+}
+DeviceBreakpointRecord.attributesToDeclare = function () {
+return [
+this.attr("DeviceBreakpoint", "deviceBreakpointAttr", "DeviceBreakpoint", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.DeviceBreakpointRec());
+}, true, ECOP_Reactive_PatModel.DeviceBreakpointRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeviceBreakpointRecord.fromStructure = function (str) {
+return new DeviceBreakpointRecord(new DeviceBreakpointRecord.RecordClass({
+deviceBreakpointAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DeviceBreakpointRecord._isAnonymousRecord = true;
+DeviceBreakpointRecord.UniqueId = "d8c5404d-4eac-6781-890a-e49f245eed5a";
+DeviceBreakpointRecord.init();
+return DeviceBreakpointRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.DeviceBreakpointRecord = DeviceBreakpointRecord;
+
+});
+define("ECOP_Reactive_Pat.model$DeviceBreakpointRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$DeviceBreakpointRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var DeviceBreakpointRecordList = (function (_super) {
+__extends(DeviceBreakpointRecordList, _super);
+function DeviceBreakpointRecordList(defaults) {
+_super.apply(this, arguments);
+}
+DeviceBreakpointRecordList.itemType = ECOP_Reactive_PatModel.DeviceBreakpointRecord;
+return DeviceBreakpointRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.DeviceBreakpointRecordList = DeviceBreakpointRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$DeviceBreakpointList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$DeviceBreakpointRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var DeviceBreakpointList = (function (_super) {
+__extends(DeviceBreakpointList, _super);
+function DeviceBreakpointList(defaults) {
+_super.apply(this, arguments);
+}
+DeviceBreakpointList.itemType = ECOP_Reactive_PatModel.DeviceBreakpointRec;
+return DeviceBreakpointList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.DeviceBreakpointList = DeviceBreakpointList;
+
+});
+define("ECOP_Reactive_Pat.model$ListDeviveBreakpointsRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$DeviceBreakpointList"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ListDeviveBreakpointsRec = (function (_super) {
+__extends(ListDeviveBreakpointsRec, _super);
+function ListDeviveBreakpointsRec(defaults) {
+_super.apply(this, arguments);
+}
+ListDeviveBreakpointsRec.attributesToDeclare = function () {
+return [
+this.attr("DeviceBreakpoint", "deviceBreakpointAttr", "DeviceBreakpoint", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.DeviceBreakpointList());
+}, true, ECOP_Reactive_PatModel.DeviceBreakpointList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ListDeviveBreakpointsRec.fromStructure = function (str) {
+return new ListDeviveBreakpointsRec(new ListDeviveBreakpointsRec.RecordClass({
+deviceBreakpointAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ListDeviveBreakpointsRec.init();
+return ListDeviveBreakpointsRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.ListDeviveBreakpointsRec = ListDeviveBreakpointsRec;
+
+});
+define("ECOP_Reactive_Pat.model$NumberTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var NumberTypeRec = (function (_super) {
+__extends(NumberTypeRec, _super);
+function NumberTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+NumberTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+NumberTypeRec.init();
+return NumberTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.NumberTypeRec = NumberTypeRec;
+
+});
+define("ECOP_Reactive_Pat.model$NumberTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$NumberTypeRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var NumberTypeRecord = (function (_super) {
+__extends(NumberTypeRecord, _super);
+function NumberTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+NumberTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("NumberType", "numberTypeAttr", "NumberType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.NumberTypeRec());
+}, true, ECOP_Reactive_PatModel.NumberTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+NumberTypeRecord.fromStructure = function (str) {
+return new NumberTypeRecord(new NumberTypeRecord.RecordClass({
+numberTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+NumberTypeRecord._isAnonymousRecord = true;
+NumberTypeRecord.UniqueId = "2d47c316-06b0-0471-aeef-4c9bb9907ebd";
+NumberTypeRecord.init();
+return NumberTypeRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.NumberTypeRecord = NumberTypeRecord;
+
+});
+define("ECOP_Reactive_Pat.model$TriggerRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$TriggerRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var TriggerRecord = (function (_super) {
+__extends(TriggerRecord, _super);
+function TriggerRecord(defaults) {
+_super.apply(this, arguments);
+}
+TriggerRecord.attributesToDeclare = function () {
+return [
+this.attr("Trigger", "triggerAttr", "Trigger", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.TriggerRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.TriggerRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+TriggerRecord.fromStructure = function (str) {
+return new TriggerRecord(new TriggerRecord.RecordClass({
+triggerAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+TriggerRecord._isAnonymousRecord = true;
+TriggerRecord.UniqueId = "2f4cb712-9eed-338f-a419-bc06bb285abc";
+TriggerRecord.init();
+return TriggerRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.TriggerRecord = TriggerRecord;
+
+});
+define("ECOP_Reactive_Pat.model$SizeRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$SizeRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SizeRecord = (function (_super) {
+__extends(SizeRecord, _super);
+function SizeRecord(defaults) {
+_super.apply(this, arguments);
+}
+SizeRecord.attributesToDeclare = function () {
+return [
+this.attr("Size", "sizeAttr", "Size", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.SizeRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.SizeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+SizeRecord.fromStructure = function (str) {
+return new SizeRecord(new SizeRecord.RecordClass({
+sizeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+SizeRecord._isAnonymousRecord = true;
+SizeRecord.UniqueId = "348e0a22-f7b2-e7c2-ba6b-5894b124dcd4";
+SizeRecord.init();
+return SizeRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.SizeRecord = SizeRecord;
+
+});
+define("ECOP_Reactive_Pat.model$ListDeviveBreakpointsRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ListDeviveBreakpointsRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ListDeviveBreakpointsRecord = (function (_super) {
+__extends(ListDeviveBreakpointsRecord, _super);
+function ListDeviveBreakpointsRecord(defaults) {
+_super.apply(this, arguments);
+}
+ListDeviveBreakpointsRecord.attributesToDeclare = function () {
+return [
+this.attr("ListDeviveBreakpoints", "listDeviveBreakpointsAttr", "ListDeviveBreakpoints", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.ListDeviveBreakpointsRec());
+}, true, ECOP_Reactive_PatModel.ListDeviveBreakpointsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ListDeviveBreakpointsRecord.fromStructure = function (str) {
+return new ListDeviveBreakpointsRecord(new ListDeviveBreakpointsRecord.RecordClass({
+listDeviveBreakpointsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ListDeviveBreakpointsRecord._isAnonymousRecord = true;
+ListDeviveBreakpointsRecord.UniqueId = "36a88b28-1e95-b9de-a4d4-571ea330496d";
+ListDeviveBreakpointsRecord.init();
+return ListDeviveBreakpointsRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.ListDeviveBreakpointsRecord = ListDeviveBreakpointsRecord;
+
+});
+define("ECOP_Reactive_Pat.model$PopperPositionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PopperPositionRec = (function (_super) {
+__extends(PopperPositionRec, _super);
+function PopperPositionRec(defaults) {
+_super.apply(this, arguments);
+}
+PopperPositionRec.attributesToDeclare = function () {
+return [
+this.attr("Position", "positionAttr", "Position", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PopperPositionRec.fromStructure = function (str) {
+return new PopperPositionRec(new PopperPositionRec.RecordClass({
+positionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PopperPositionRec.init();
+return PopperPositionRec;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.PopperPositionRec = PopperPositionRec;
+
+});
+define("ECOP_Reactive_Pat.model$PopperPositionRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$PopperPositionRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PopperPositionRecord = (function (_super) {
+__extends(PopperPositionRecord, _super);
+function PopperPositionRecord(defaults) {
+_super.apply(this, arguments);
+}
+PopperPositionRecord.attributesToDeclare = function () {
+return [
+this.attr("PopperPosition", "popperPositionAttr", "PopperPosition", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.PopperPositionRec());
+}, true, ECOP_Reactive_PatModel.PopperPositionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PopperPositionRecord.fromStructure = function (str) {
+return new PopperPositionRecord(new PopperPositionRecord.RecordClass({
+popperPositionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PopperPositionRecord._isAnonymousRecord = true;
+PopperPositionRecord.UniqueId = "8e981201-5313-ddc3-b16f-6dac117cc9ed";
+PopperPositionRecord.init();
+return PopperPositionRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.PopperPositionRecord = PopperPositionRecord;
+
+});
+define("ECOP_Reactive_Pat.model$PopperPositionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$PopperPositionRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PopperPositionRecordList = (function (_super) {
+__extends(PopperPositionRecordList, _super);
+function PopperPositionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PopperPositionRecordList.itemType = ECOP_Reactive_PatModel.PopperPositionRecord;
+return PopperPositionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.PopperPositionRecordList = PopperPositionRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$ShapeList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$ShapeRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ShapeList = (function (_super) {
+__extends(ShapeList, _super);
+function ShapeList(defaults) {
+_super.apply(this, arguments);
+}
+ShapeList.itemType = PLUS_OutSystemsUI_2_8_0Model.ShapeRec;
+return ShapeList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ShapeList = ShapeList;
+
+});
+define("ECOP_Reactive_Pat.model$NumberTypeList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$NumberTypeRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var NumberTypeList = (function (_super) {
+__extends(NumberTypeList, _super);
+function NumberTypeList(defaults) {
+_super.apply(this, arguments);
+}
+NumberTypeList.itemType = ECOP_Reactive_PatModel.NumberTypeRec;
+return NumberTypeList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.NumberTypeList = NumberTypeList;
+
+});
+define("ECOP_Reactive_Pat.model$AnimationTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$AnimationTypeRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var AnimationTypeRecordList = (function (_super) {
+__extends(AnimationTypeRecordList, _super);
+function AnimationTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+AnimationTypeRecordList.itemType = ECOP_Reactive_PatModel.AnimationTypeRecord;
+return AnimationTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.AnimationTypeRecordList = AnimationTypeRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$ColorRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$ColorRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ColorRecord = (function (_super) {
+__extends(ColorRecord, _super);
+function ColorRecord(defaults) {
+_super.apply(this, arguments);
+}
+ColorRecord.attributesToDeclare = function () {
+return [
+this.attr("Color", "colorAttr", "Color", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.ColorRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.ColorRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ColorRecord.fromStructure = function (str) {
+return new ColorRecord(new ColorRecord.RecordClass({
+colorAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ColorRecord._isAnonymousRecord = true;
+ColorRecord.UniqueId = "977afe8c-3ec5-3a27-2571-f14fca9df2d8";
+ColorRecord.init();
+return ColorRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.ColorRecord = ColorRecord;
+
+});
+define("ECOP_Reactive_Pat.model$ColorRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ColorRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ColorRecordList = (function (_super) {
+__extends(ColorRecordList, _super);
+function ColorRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ColorRecordList.itemType = ECOP_Reactive_PatModel.ColorRecord;
+return ColorRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ColorRecordList = ColorRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$FeedbackMessageTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$FeedbackMessageTypeRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var FeedbackMessageTypeRecordList = (function (_super) {
+__extends(FeedbackMessageTypeRecordList, _super);
+function FeedbackMessageTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+FeedbackMessageTypeRecordList.itemType = ECOP_Reactive_PatModel.FeedbackMessageTypeRecord;
+return FeedbackMessageTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.FeedbackMessageTypeRecordList = FeedbackMessageTypeRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$PopperActionList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$PopperActionRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PopperActionList = (function (_super) {
+__extends(PopperActionList, _super);
+function PopperActionList(defaults) {
+_super.apply(this, arguments);
+}
+PopperActionList.itemType = ECOP_Reactive_PatModel.PopperActionRec;
+return PopperActionList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.PopperActionList = PopperActionList;
+
+});
+define("ECOP_Reactive_Pat.model$StepsList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$StepsRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var StepsList = (function (_super) {
+__extends(StepsList, _super);
+function StepsList(defaults) {
+_super.apply(this, arguments);
+}
+StepsList.itemType = PLUS_OutSystemsUI_2_8_0Model.StepsRec;
+return StepsList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.StepsList = StepsList;
+
+});
+define("ECOP_Reactive_Pat.model$StepsRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$StepsRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var StepsRecord = (function (_super) {
+__extends(StepsRecord, _super);
+function StepsRecord(defaults) {
+_super.apply(this, arguments);
+}
+StepsRecord.attributesToDeclare = function () {
+return [
+this.attr("Steps", "stepsAttr", "Steps", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.StepsRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.StepsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+StepsRecord.fromStructure = function (str) {
+return new StepsRecord(new StepsRecord.RecordClass({
+stepsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+StepsRecord._isAnonymousRecord = true;
+StepsRecord.UniqueId = "61365fc7-4410-3e9d-b847-25ef5189efdd";
+StepsRecord.init();
+return StepsRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.StepsRecord = StepsRecord;
+
+});
+define("ECOP_Reactive_Pat.model$ReleaseToggleList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Convert_ReleaseToggles_Lib.model", "ECOP_Reactive_Pat.model", "ECOP_Convert_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$ECOP_Convert_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Convert_ReleaseToggles_LibModel, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleList = (function (_super) {
+__extends(ReleaseToggleList, _super);
+function ReleaseToggleList(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleList.itemType = ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec;
+return ReleaseToggleList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ReleaseToggleList = ReleaseToggleList;
+
+});
+define("ECOP_Reactive_Pat.model$PopperActionRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$PopperActionRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PopperActionRecord = (function (_super) {
+__extends(PopperActionRecord, _super);
+function PopperActionRecord(defaults) {
+_super.apply(this, arguments);
+}
+PopperActionRecord.attributesToDeclare = function () {
+return [
+this.attr("PopperAction", "popperActionAttr", "PopperAction", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Reactive_PatModel.PopperActionRec());
+}, true, ECOP_Reactive_PatModel.PopperActionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PopperActionRecord.fromStructure = function (str) {
+return new PopperActionRecord(new PopperActionRecord.RecordClass({
+popperActionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PopperActionRecord._isAnonymousRecord = true;
+PopperActionRecord.UniqueId = "e900c0b0-1640-64eb-9ac9-730e0de5a3af";
+PopperActionRecord.init();
+return PopperActionRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.PopperActionRecord = PopperActionRecord;
+
+});
+define("ECOP_Reactive_Pat.model$PopperActionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$PopperActionRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PopperActionRecordList = (function (_super) {
+__extends(PopperActionRecordList, _super);
+function PopperActionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PopperActionRecordList.itemType = ECOP_Reactive_PatModel.PopperActionRecord;
+return PopperActionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.PopperActionRecordList = PopperActionRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$GutterSizeList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$GutterSizeRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var GutterSizeList = (function (_super) {
+__extends(GutterSizeList, _super);
+function GutterSizeList(defaults) {
+_super.apply(this, arguments);
+}
+GutterSizeList.itemType = PLUS_OutSystemsUI_2_8_0Model.GutterSizeRec;
+return GutterSizeList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.GutterSizeList = GutterSizeList;
+
+});
+define("ECOP_Reactive_Pat.model$PositionList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$PositionRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PositionList = (function (_super) {
+__extends(PositionList, _super);
+function PositionList(defaults) {
+_super.apply(this, arguments);
+}
+PositionList.itemType = PLUS_OutSystemsUI_2_8_0Model.PositionRec;
+return PositionList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.PositionList = PositionList;
+
+});
+define("ECOP_Reactive_Pat.model$SizeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$SizeRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SizeRecordList = (function (_super) {
+__extends(SizeRecordList, _super);
+function SizeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+SizeRecordList.itemType = ECOP_Reactive_PatModel.SizeRecord;
+return SizeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.SizeRecordList = SizeRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$IconSizeRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Reactive_Pat.model", "ECOP_Base_RPat.model$IconSizeRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECOP_Base_RPatModel, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var IconSizeRecord = (function (_super) {
+__extends(IconSizeRecord, _super);
+function IconSizeRecord(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeRecord.attributesToDeclare = function () {
+return [
+this.attr("IconSize", "iconSizeAttr", "IconSize", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Base_RPatModel.IconSizeRec());
+}, true, ECOP_Base_RPatModel.IconSizeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+IconSizeRecord.fromStructure = function (str) {
+return new IconSizeRecord(new IconSizeRecord.RecordClass({
+iconSizeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+IconSizeRecord._isAnonymousRecord = true;
+IconSizeRecord.UniqueId = "cc34ba93-b7c0-df48-371b-92fa466ec993";
+IconSizeRecord.init();
+return IconSizeRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.IconSizeRecord = IconSizeRecord;
+
+});
+define("ECOP_Reactive_Pat.model$IconSizeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$IconSizeRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var IconSizeRecordList = (function (_super) {
+__extends(IconSizeRecordList, _super);
+function IconSizeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeRecordList.itemType = ECOP_Reactive_PatModel.IconSizeRecord;
+return IconSizeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.IconSizeRecordList = IconSizeRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$ValidationErrorList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ValidationErrorRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ValidationErrorList = (function (_super) {
+__extends(ValidationErrorList, _super);
+function ValidationErrorList(defaults) {
+_super.apply(this, arguments);
+}
+ValidationErrorList.itemType = ECOP_Reactive_PatModel.ValidationErrorRec;
+return ValidationErrorList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ValidationErrorList = ValidationErrorList;
+
+});
+define("ECOP_Reactive_Pat.model$ListDeviveBreakpointsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ListDeviveBreakpointsRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ListDeviveBreakpointsRecordList = (function (_super) {
+__extends(ListDeviveBreakpointsRecordList, _super);
+function ListDeviveBreakpointsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ListDeviveBreakpointsRecordList.itemType = ECOP_Reactive_PatModel.ListDeviveBreakpointsRecord;
+return ListDeviveBreakpointsRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ListDeviveBreakpointsRecordList = ListDeviveBreakpointsRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$ListDeviveBreakpointsList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ListDeviveBreakpointsRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ListDeviveBreakpointsList = (function (_super) {
+__extends(ListDeviveBreakpointsList, _super);
+function ListDeviveBreakpointsList(defaults) {
+_super.apply(this, arguments);
+}
+ListDeviveBreakpointsList.itemType = ECOP_Reactive_PatModel.ListDeviveBreakpointsRec;
+return ListDeviveBreakpointsList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ListDeviveBreakpointsList = ListDeviveBreakpointsList;
+
+});
+define("ECOP_Reactive_Pat.model$ColorList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$ColorRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ColorList = (function (_super) {
+__extends(ColorList, _super);
+function ColorList(defaults) {
+_super.apply(this, arguments);
+}
+ColorList.itemType = PLUS_OutSystemsUI_2_8_0Model.ColorRec;
+return ColorList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ColorList = ColorList;
+
+});
+define("ECOP_Reactive_Pat.model$PositionRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$PositionRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PositionRecord = (function (_super) {
+__extends(PositionRecord, _super);
+function PositionRecord(defaults) {
+_super.apply(this, arguments);
+}
+PositionRecord.attributesToDeclare = function () {
+return [
+this.attr("Position", "positionAttr", "Position", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.PositionRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.PositionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+PositionRecord.fromStructure = function (str) {
+return new PositionRecord(new PositionRecord.RecordClass({
+positionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+PositionRecord._isAnonymousRecord = true;
+PositionRecord.UniqueId = "c0f542ff-2a94-846c-a33c-971a133a882e";
+PositionRecord.init();
+return PositionRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.PositionRecord = PositionRecord;
+
+});
+define("ECOP_Reactive_Pat.model$PositionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$PositionRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PositionRecordList = (function (_super) {
+__extends(PositionRecordList, _super);
+function PositionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+PositionRecordList.itemType = ECOP_Reactive_PatModel.PositionRecord;
+return PositionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.PositionRecordList = PositionRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$GutterSizeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$GutterSizeRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var GutterSizeRecordList = (function (_super) {
+__extends(GutterSizeRecordList, _super);
+function GutterSizeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+GutterSizeRecordList.itemType = ECOP_Reactive_PatModel.GutterSizeRecord;
+return GutterSizeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.GutterSizeRecordList = GutterSizeRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$IconSizeList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Base_RPat.model", "ECOP_Reactive_Pat.model", "ECOP_Base_RPat.model$IconSizeRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$ECOP_Base_RPat"], function (exports, OutSystems, ECOP_Base_RPatModel, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var IconSizeList = (function (_super) {
+__extends(IconSizeList, _super);
+function IconSizeList(defaults) {
+_super.apply(this, arguments);
+}
+IconSizeList.itemType = ECOP_Base_RPatModel.IconSizeRec;
+return IconSizeList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.IconSizeList = IconSizeList;
+
+});
+define("ECOP_Reactive_Pat.model$BreakColumnsRecord", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$BreakColumnsRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var BreakColumnsRecord = (function (_super) {
+__extends(BreakColumnsRecord, _super);
+function BreakColumnsRecord(defaults) {
+_super.apply(this, arguments);
+}
+BreakColumnsRecord.attributesToDeclare = function () {
+return [
+this.attr("BreakColumns", "breakColumnsAttr", "BreakColumns", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new PLUS_OutSystemsUI_2_8_0Model.BreakColumnsRec());
+}, true, PLUS_OutSystemsUI_2_8_0Model.BreakColumnsRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+BreakColumnsRecord.fromStructure = function (str) {
+return new BreakColumnsRecord(new BreakColumnsRecord.RecordClass({
+breakColumnsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+BreakColumnsRecord._isAnonymousRecord = true;
+BreakColumnsRecord.UniqueId = "d57c6fba-1eb9-92c0-92bc-0bf60223948c";
+BreakColumnsRecord.init();
+return BreakColumnsRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.BreakColumnsRecord = BreakColumnsRecord;
+
+});
+define("ECOP_Reactive_Pat.model$BreakColumnsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$BreakColumnsRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var BreakColumnsRecordList = (function (_super) {
+__extends(BreakColumnsRecordList, _super);
+function BreakColumnsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+BreakColumnsRecordList.itemType = ECOP_Reactive_PatModel.BreakColumnsRecord;
+return BreakColumnsRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.BreakColumnsRecordList = BreakColumnsRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$PopperPositionList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$PopperPositionRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var PopperPositionList = (function (_super) {
+__extends(PopperPositionList, _super);
+function PopperPositionList(defaults) {
+_super.apply(this, arguments);
+}
+PopperPositionList.itemType = ECOP_Reactive_PatModel.PopperPositionRec;
+return PopperPositionList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.PopperPositionList = PopperPositionList;
+
+});
+define("ECOP_Reactive_Pat.model$NumberTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$NumberTypeRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var NumberTypeRecordList = (function (_super) {
+__extends(NumberTypeRecordList, _super);
+function NumberTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+NumberTypeRecordList.itemType = ECOP_Reactive_PatModel.NumberTypeRecord;
+return NumberTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.NumberTypeRecordList = NumberTypeRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$ReleaseToggleRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Convert_ReleaseToggles_Lib.model", "ECOP_Reactive_Pat.model", "ECOP_Convert_ReleaseToggles_Lib.model$ReleaseToggleRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$ECOP_Convert_ReleaseToggles_Lib"], function (exports, OutSystems, ECOP_Convert_ReleaseToggles_LibModel, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleRecord = (function (_super) {
+__extends(ReleaseToggleRecord, _super);
+function ReleaseToggleRecord(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleRecord.attributesToDeclare = function () {
+return [
+this.attr("ReleaseToggle", "releaseToggleAttr", "ReleaseToggle", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec());
+}, true, ECOP_Convert_ReleaseToggles_LibModel.ReleaseToggleRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ReleaseToggleRecord.fromStructure = function (str) {
+return new ReleaseToggleRecord(new ReleaseToggleRecord.RecordClass({
+releaseToggleAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ReleaseToggleRecord._isAnonymousRecord = true;
+ReleaseToggleRecord.UniqueId = "f46bda88-0174-3e6e-a043-3a5d8d4d2714";
+ReleaseToggleRecord.init();
+return ReleaseToggleRecord;
+})(OS.DataTypes.GenericRecord);
+ECOP_Reactive_PatModel.ReleaseToggleRecord = ReleaseToggleRecord;
+
+});
+define("ECOP_Reactive_Pat.model$ReleaseToggleRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$ReleaseToggleRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var ReleaseToggleRecordList = (function (_super) {
+__extends(ReleaseToggleRecordList, _super);
+function ReleaseToggleRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ReleaseToggleRecordList.itemType = ECOP_Reactive_PatModel.ReleaseToggleRecord;
+return ReleaseToggleRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.ReleaseToggleRecordList = ReleaseToggleRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$AnimationTypeList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$AnimationTypeRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var AnimationTypeList = (function (_super) {
+__extends(AnimationTypeList, _super);
+function AnimationTypeList(defaults) {
+_super.apply(this, arguments);
+}
+AnimationTypeList.itemType = ECOP_Reactive_PatModel.AnimationTypeRec;
+return AnimationTypeList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.AnimationTypeList = AnimationTypeList;
+
+});
+define("ECOP_Reactive_Pat.model$BreakColumnsList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$BreakColumnsRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var BreakColumnsList = (function (_super) {
+__extends(BreakColumnsList, _super);
+function BreakColumnsList(defaults) {
+_super.apply(this, arguments);
+}
+BreakColumnsList.itemType = PLUS_OutSystemsUI_2_8_0Model.BreakColumnsRec;
+return BreakColumnsList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.BreakColumnsList = BreakColumnsList;
+
+});
+define("ECOP_Reactive_Pat.model$TriggerList", ["exports", "OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "ECOP_Reactive_Pat.model", "PLUS_OutSystemsUI_2_8_0.model$TriggerRec", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0"], function (exports, OutSystems, PLUS_OutSystemsUI_2_8_0Model, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var TriggerList = (function (_super) {
+__extends(TriggerList, _super);
+function TriggerList(defaults) {
+_super.apply(this, arguments);
+}
+TriggerList.itemType = PLUS_OutSystemsUI_2_8_0Model.TriggerRec;
+return TriggerList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.TriggerList = TriggerList;
+
+});
+define("ECOP_Reactive_Pat.model$StepsRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$StepsRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var StepsRecordList = (function (_super) {
+__extends(StepsRecordList, _super);
+function StepsRecordList(defaults) {
+_super.apply(this, arguments);
+}
+StepsRecordList.itemType = ECOP_Reactive_PatModel.StepsRecord;
+return StepsRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.StepsRecordList = StepsRecordList;
+
+});
+define("ECOP_Reactive_Pat.model$SEO_StructList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$SEO_StructRec"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var SEO_StructList = (function (_super) {
+__extends(SEO_StructList, _super);
+function SEO_StructList(defaults) {
+_super.apply(this, arguments);
+}
+SEO_StructList.itemType = ECOP_Reactive_PatModel.SEO_StructRec;
+return SEO_StructList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.SEO_StructList = SEO_StructList;
+
+});
+define("ECOP_Reactive_Pat.model$TriggerRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.model$TriggerRecord"], function (exports, OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+var TriggerRecordList = (function (_super) {
+__extends(TriggerRecordList, _super);
+function TriggerRecordList(defaults) {
+_super.apply(this, arguments);
+}
+TriggerRecordList.itemType = ECOP_Reactive_PatModel.TriggerRecord;
+return TriggerRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECOP_Reactive_PatModel.TriggerRecordList = TriggerRecordList;
+
+});
+define("ECOP_Reactive_Pat.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECOP_Reactive_PatModel = exports;
+Object.defineProperty(ECOP_Reactive_PatModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["9bff2e13-d192-4f38-b4bd-7f3864d24ecc"];
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities = {};
+ECOP_Reactive_PatModel.staticEntities.popperAction = {};
+var getPopperActionRecord = function (record) {
+return ECOP_Reactive_PatModel.module.staticEntities["152c3094-00bb-4f97-9755-4f1478de3c9a"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.popperAction, "click", {
+get: function () {
+return getPopperActionRecord("0db0e4f6-f659-42df-a30e-7774eb2158e3");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.popperAction, "hover", {
+get: function () {
+return getPopperActionRecord("a940367e-a915-4afc-b96c-fb4ffd583ea1");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.validationError = {};
+var getValidationErrorRecord = function (record) {
+return ECOP_Reactive_PatModel.module.staticEntities["1aeb2366-a5dd-4f46-857c-3888b30b5886"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.validationError, "iS_POSSIBLE", {
+get: function () {
+return getValidationErrorRecord("40e8e92d-af1c-4ffc-bb14-471bdb4b1217");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.validationError, "nOT_A_NUMBER", {
+get: function () {
+return getValidationErrorRecord("4428df55-38c8-4cff-9975-0dcc628ff261");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.validationError, "iNVALID_COUNTRY_CODE", {
+get: function () {
+return getValidationErrorRecord("7b913c85-1cee-410b-a4e6-600ca3363e6b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.validationError, "tOO_SHORT", {
+get: function () {
+return getValidationErrorRecord("8c9fb5c5-6d88-4b7b-ae43-dd66ba5f5bb6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.validationError, "tOO_LONG", {
+get: function () {
+return getValidationErrorRecord("9426737c-9ac3-4b77-93fd-6f985f9af9bd");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.feedbackMessageType = {};
+var getFeedbackMessageTypeRecord = function (record) {
+return ECOP_Reactive_PatModel.module.staticEntities["1d49a846-0a51-4a13-a3be-7034b3cb2871"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.feedbackMessageType, "info", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFeedbackMessageTypeRecord("00a43ccc-dddb-423f-9df5-4ad67454b22f"));
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.feedbackMessageType, "success", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFeedbackMessageTypeRecord("520cc3e2-e2c2-49c8-945e-299257357c77"));
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.feedbackMessageType, "error", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFeedbackMessageTypeRecord("836a7f1f-f57d-431b-b354-7404f2857b81"));
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.feedbackMessageType, "warning", {
+get: function () {
+return OS.BuiltinFunctions.textToInteger(getFeedbackMessageTypeRecord("e1b7dd1b-a81e-4f7f-a149-e9ad3bf3e0c1"));
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.numberType = {};
+var getNumberTypeRecord = function (record) {
+return ECOP_Reactive_PatModel.module.staticEntities["8208230a-6319-47f6-af3e-f9b7bacec161"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "tOLL_FREE", {
+get: function () {
+return getNumberTypeRecord("046584e7-a704-4501-86dc-c991955276f5");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "vOIP", {
+get: function () {
+return getNumberTypeRecord("31b4bbc6-6a98-446f-b273-63c25e3504bc");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "pREMIUM_RATE", {
+get: function () {
+return getNumberTypeRecord("4a837691-6ed4-483c-8033-6f7d4a8bd892");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "uNKNOWN", {
+get: function () {
+return getNumberTypeRecord("5e296180-e3f6-4bb8-a1a3-906040c7836b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "pAGER", {
+get: function () {
+return getNumberTypeRecord("66105717-bb68-40d4-b823-702af3053927");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "fIXED_LINE", {
+get: function () {
+return getNumberTypeRecord("82578d96-35aa-48ca-9d63-07ea7152f465");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "sHARED_COST", {
+get: function () {
+return getNumberTypeRecord("84bdaab3-6865-4170-8c5a-754275f4c4be");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "mOBILE", {
+get: function () {
+return getNumberTypeRecord("8f16335d-b8bb-4f37-b490-c76e1a848325");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "uAN", {
+get: function () {
+return getNumberTypeRecord("9f38f1f3-7ce3-4a11-9207-30ea5cf1915a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "fIXED_LINE_OR_MOBILE", {
+get: function () {
+return getNumberTypeRecord("9fcf0999-428a-4140-826b-f25a984a2804");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "pERSONAL_NUMBER", {
+get: function () {
+return getNumberTypeRecord("a628ca66-a984-4f8e-89cf-8bfd712ece54");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.numberType, "vOICEMAIL", {
+get: function () {
+return getNumberTypeRecord("eaa4fe99-7af0-4ba4-a921-a20235d1b377");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.popperPosition = {};
+var getPopperPositionRecord = function (record) {
+return ECOP_Reactive_PatModel.module.staticEntities["a2c6d606-9b7e-4166-8b30-095843a0c1f6"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.popperPosition, "left", {
+get: function () {
+return getPopperPositionRecord("046ea2df-353c-4dce-9b6c-84ee0f66775b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.popperPosition, "top", {
+get: function () {
+return getPopperPositionRecord("13339cad-2778-4e79-bcf3-8fa7cc9f05ce");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.popperPosition, "bottom", {
+get: function () {
+return getPopperPositionRecord("2cb6f9a5-69e5-4ab8-93ad-9e0728c08243");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.popperPosition, "auto", {
+get: function () {
+return getPopperPositionRecord("49f3b7ec-7fb4-4d69-8f13-72948181b0d6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.popperPosition, "right", {
+get: function () {
+return getPopperPositionRecord("68075d85-f2c1-42aa-9a5e-073d19d9b489");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.animationType = {};
+var getAnimationTypeRecord = function (record) {
+return ECOP_Reactive_PatModel.module.staticEntities["bc68db04-0bf3-4de1-b809-157f169414a9"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInSine", {
+get: function () {
+return getAnimationTypeRecord("08e8315e-f31d-40cc-9e15-012ba5f19c16");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutBounce", {
+get: function () {
+return getAnimationTypeRecord("0c03eac1-2ba2-4395-8dd7-63963e4d83bb");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutCubic", {
+get: function () {
+return getAnimationTypeRecord("0c1a8021-e098-412c-a64e-a30f932720e6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutBack", {
+get: function () {
+return getAnimationTypeRecord("19a38ead-951d-4893-b620-6291565f6ca9");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutExpo", {
+get: function () {
+return getAnimationTypeRecord("1a511f0e-843c-402c-a2d7-ef134e392d1d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutBounce", {
+get: function () {
+return getAnimationTypeRecord("29f8d2a1-2693-4e26-891e-1909b91d6d2a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInQuint", {
+get: function () {
+return getAnimationTypeRecord("2b351b2f-d05d-40dd-b433-b8a1c5791f6d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInElastic", {
+get: function () {
+return getAnimationTypeRecord("329b1d05-cbc6-43cd-9134-2a9741c44f67");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInQuad", {
+get: function () {
+return getAnimationTypeRecord("35c9244e-4300-4ff5-9e0e-26725732ecf9");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutQuad", {
+get: function () {
+return getAnimationTypeRecord("36ec1f79-f22d-4a86-a24a-bc3ca4e78a03");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutExpo", {
+get: function () {
+return getAnimationTypeRecord("4648b606-be42-460d-9a83-6e5e1d1c5bc6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInCubic", {
+get: function () {
+return getAnimationTypeRecord("501a9a4c-3299-4834-8432-f99eb0e100d1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutElastic", {
+get: function () {
+return getAnimationTypeRecord("5902e871-27f3-4578-8c0e-07bdbae5f8cc");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "linear", {
+get: function () {
+return getAnimationTypeRecord("614f7ab7-d9e8-4e97-8dbb-b9f20ba0d978");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInBounce", {
+get: function () {
+return getAnimationTypeRecord("68dc4bd3-40c7-42e4-bd6b-312fb04cb117");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInExpo", {
+get: function () {
+return getAnimationTypeRecord("72bdd7c8-9bc1-49f5-8787-8c7b1faa891d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInBack", {
+get: function () {
+return getAnimationTypeRecord("7a20a78e-bb4f-4b40-b7b0-ddac3a45bb0a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutBack", {
+get: function () {
+return getAnimationTypeRecord("7af31ff2-8e60-41c6-81a1-d30ac259f50c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutCirc", {
+get: function () {
+return getAnimationTypeRecord("8f46355e-d617-4673-a586-1653c1e9ff86");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInCirc", {
+get: function () {
+return getAnimationTypeRecord("a0afff59-eb06-41bc-9d11-f12a76076148");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutQuart", {
+get: function () {
+return getAnimationTypeRecord("b4275c49-a661-4f1c-b8f6-01b88b8b608c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutQuint", {
+get: function () {
+return getAnimationTypeRecord("b490d444-63f2-4f4c-a800-c8e194b2db06");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutElastic", {
+get: function () {
+return getAnimationTypeRecord("c5e72f1c-6568-416f-a0ec-78c29f5d8d54");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutCirc", {
+get: function () {
+return getAnimationTypeRecord("c917280f-b196-4ad9-a283-1984673c8c73");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInQuart", {
+get: function () {
+return getAnimationTypeRecord("cb1940ba-f943-4f39-b7d3-8845111e9c97");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutCubic", {
+get: function () {
+return getAnimationTypeRecord("d1186092-891c-49cc-b49e-dc23aee6cba4");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutSine", {
+get: function () {
+return getAnimationTypeRecord("d333bfc1-d0b2-405d-b51f-3b18d20f8080");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutQuad", {
+get: function () {
+return getAnimationTypeRecord("d7d378a8-da9b-485c-808b-28eb53406394");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeInOutSine", {
+get: function () {
+return getAnimationTypeRecord("dac15342-929a-4378-8fc3-927dcad200eb");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutQuint", {
+get: function () {
+return getAnimationTypeRecord("dd852552-4843-404c-92d5-75c5031b93d6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.animationType, "easeOutQuart", {
+get: function () {
+return getAnimationTypeRecord("f7a50bf5-8af5-45e3-9e72-a7282ae0ea12");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.releaseToggle = {};
+var getReleaseToggleRecord = function (record) {
+return OS.ApplicationInfo.getModules()["2dfb77fa-8700-4ea1-8e4f-f12257666ac9"].staticEntities["006c8f18-9f13-4ebd-b5f0-4983ee7871b1"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "deliveryBundle", {
+get: function () {
+return getReleaseToggleRecord("009e4d1f-7e40-471b-a8fe-8789d5eb2683");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7000", {
+get: function () {
+return getReleaseToggleRecord("010521ae-921c-41a0-8f86-441552f08889");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9076", {
+get: function () {
+return getReleaseToggleRecord("0198cb2c-7aa7-4881-a17e-cdeeda1cb79e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7491", {
+get: function () {
+return getReleaseToggleRecord("02d26d02-01b5-4ebf-b42e-a462c391d519");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "christmasSnow", {
+get: function () {
+return getReleaseToggleRecord("02f90f56-5130-4df8-9d55-e258a5d8e57d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8803", {
+get: function () {
+return getReleaseToggleRecord("03bc0826-13f3-4bb2-a70b-70828a803df1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8218", {
+get: function () {
+return getReleaseToggleRecord("03d07781-fe57-4619-abbb-0432b93a6a92");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7127", {
+get: function () {
+return getReleaseToggleRecord("061ab324-b607-49ef-8958-f7e59b1cec54");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8701", {
+get: function () {
+return getReleaseToggleRecord("062679a4-f815-4933-a2a6-84fe6233ea2e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8966", {
+get: function () {
+return getReleaseToggleRecord("071b8ba3-7723-427f-8500-067203fbd237");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9602", {
+get: function () {
+return getReleaseToggleRecord("075a52c3-4443-420b-ab28-8b6fc17e2f18");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9611", {
+get: function () {
+return getReleaseToggleRecord("07e2dfb0-1f88-467b-b5d5-f5a68103ecda");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9596", {
+get: function () {
+return getReleaseToggleRecord("082ad45c-0b42-4654-8b68-0d98131b83d9");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "payOnAccount", {
+get: function () {
+return getReleaseToggleRecord("0a4cf766-11bc-49e6-b04b-be873ef9564c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8049", {
+get: function () {
+return getReleaseToggleRecord("0b8783c3-4f35-4c4e-b204-7c32cd3d008c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6467", {
+get: function () {
+return getReleaseToggleRecord("0d050683-6efb-420e-9bb4-8665718a794a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7199", {
+get: function () {
+return getReleaseToggleRecord("0d46b913-43cc-4083-8c39-e8a5d1d76220");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8739", {
+get: function () {
+return getReleaseToggleRecord("0e57c5ad-c9c6-4c38-a16d-637a33190fac");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7541", {
+get: function () {
+return getReleaseToggleRecord("1401e84a-c2c1-42fb-9ac1-8943bc0a4148");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8491", {
+get: function () {
+return getReleaseToggleRecord("14859786-0ee2-4de7-a7f7-66e0a858a581");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7830", {
+get: function () {
+return getReleaseToggleRecord("150fb59e-f3b6-4371-bfb7-d2c8ef5d8f59");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "iNC_ExtendedPromotionPeriods", {
+get: function () {
+return getReleaseToggleRecord("154dd6fa-bd8f-442f-9aa9-c2e6199dfeb4");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "timeslotsUnder25", {
+get: function () {
+return getReleaseToggleRecord("1980c2bc-b513-44d2-b1e6-ca91e9cfc9ec");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9004", {
+get: function () {
+return getReleaseToggleRecord("199d3d54-654b-4c9d-acf8-4d5dd0054d12");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8891", {
+get: function () {
+return getReleaseToggleRecord("1a805ae3-4152-4d0d-8387-cd98af003e91");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8565", {
+get: function () {
+return getReleaseToggleRecord("1b0edc90-d386-4e25-b9e6-b0af1ae8fd4d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9437", {
+get: function () {
+return getReleaseToggleRecord("1ef340b8-5ad5-4af0-8b76-097c09ed45a2");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7651", {
+get: function () {
+return getReleaseToggleRecord("23ebcf74-341e-4fb8-9014-8e62106dc0a3");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5370", {
+get: function () {
+return getReleaseToggleRecord("2638d07f-ac63-47d4-9bc4-0c7e6ca2ad88");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7434", {
+get: function () {
+return getReleaseToggleRecord("275ca408-2a99-41ec-9ca3-8b0419371cf1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "kPN_SMS_Connector", {
+get: function () {
+return getReleaseToggleRecord("2a9b15b2-6850-47a9-a481-ad12e2be102c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "payOnAccountPart2", {
+get: function () {
+return getReleaseToggleRecord("313ea02e-20f8-4a01-9298-e17243536212");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7888", {
+get: function () {
+return getReleaseToggleRecord("32e0f623-55ee-4ac2-81cf-4ceffa12e63f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "iNC_CustWithoutrLoyaltyCard", {
+get: function () {
+return getReleaseToggleRecord("33b7b510-9f7d-454c-8ec8-677e779d3282");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "iNC_CustWithoutrLoyaltyCard_Fix", {
+get: function () {
+return getReleaseToggleRecord("353f093e-513e-4310-a085-27dc002c96cd");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9155", {
+get: function () {
+return getReleaseToggleRecord("36ff75b6-bb28-4cad-82a0-a871050eadac");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8702", {
+get: function () {
+return getReleaseToggleRecord("38fcb6d4-f3f1-4094-8a1a-9d5972e2b2dc");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7414", {
+get: function () {
+return getReleaseToggleRecord("3a670b15-b4ad-472c-8b8b-f6d97253e2b3");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7108", {
+get: function () {
+return getReleaseToggleRecord("3aac4b01-2c5c-45db-9dd1-3e5d00bdedf0");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9501", {
+get: function () {
+return getReleaseToggleRecord("3da4619c-f651-4ef4-9c3a-f2234312df50");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8376", {
+get: function () {
+return getReleaseToggleRecord("3e4d762b-8540-4c99-89ed-414db6311af8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5691", {
+get: function () {
+return getReleaseToggleRecord("3fad6725-84b3-454c-92d0-f7a4b4a3a77c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "deliveryBundlePunchOutOrder", {
+get: function () {
+return getReleaseToggleRecord("40a25524-7b18-4f84-86e5-3ca9cdf436c2");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "deliveryBundle_APP", {
+get: function () {
+return getReleaseToggleRecord("44e63ae1-13fa-4d80-8d23-4d7d3170f80e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP6488", {
+get: function () {
+return getReleaseToggleRecord("45bc7278-03f7-41c0-a2ce-d8a0dd3762ca");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8425", {
+get: function () {
+return getReleaseToggleRecord("463fb651-7bf2-43e3-89f8-f6b71847a64c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8052", {
+get: function () {
+return getReleaseToggleRecord("4a5c2132-c8ec-4af7-b3ac-272f9f0d817f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7757", {
+get: function () {
+return getReleaseToggleRecord("4b0f30af-a02b-4cd3-b7bc-ef1b185a1116");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9628", {
+get: function () {
+return getReleaseToggleRecord("4b7a4997-86f3-4956-980a-4624655aa2c8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5328", {
+get: function () {
+return getReleaseToggleRecord("4c826897-f057-4dd1-880f-127d7629d145");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6641", {
+get: function () {
+return getReleaseToggleRecord("4e0a682d-00a3-4c25-82d1-87453ac7b3da");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8797", {
+get: function () {
+return getReleaseToggleRecord("4e95a0c3-277c-4b02-9f1f-15cb8ba49a2a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7003", {
+get: function () {
+return getReleaseToggleRecord("4ee649d7-6660-4364-bf7d-c408ed3487c8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "optimizationCartRetry", {
+get: function () {
+return getReleaseToggleRecord("50014e59-d41a-4ee7-8755-bb42fdfacd30");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6965", {
+get: function () {
+return getReleaseToggleRecord("504b050e-ce6f-4d20-a22f-d9a36f109c13");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6260", {
+get: function () {
+return getReleaseToggleRecord("51be07e2-c7d0-405c-a9d3-0a27f7dc4083");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8174", {
+get: function () {
+return getReleaseToggleRecord("5203e4cc-572a-4e38-a352-fd853c8ffac8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6363", {
+get: function () {
+return getReleaseToggleRecord("55847c15-4fce-4345-8b10-383f303d8030");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8792", {
+get: function () {
+return getReleaseToggleRecord("569d39a9-a7e8-47b4-821a-ebce7e8d6be0");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "everyoneQRCode", {
+get: function () {
+return getReleaseToggleRecord("583fc797-5428-4b4d-90c9-cf37b5418323");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8759", {
+get: function () {
+return getReleaseToggleRecord("59e8fd84-d74c-4792-9be5-c609279a0602");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8395", {
+get: function () {
+return getReleaseToggleRecord("5f8699af-e879-4161-a132-cecdaebd3c15");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "supERP_NewERP", {
+get: function () {
+return getReleaseToggleRecord("5fb6a650-10f2-4361-90ce-0bdf630a8230");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6639", {
+get: function () {
+return getReleaseToggleRecord("62010d0d-f77e-4c82-8410-9623ab77157f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5506", {
+get: function () {
+return getReleaseToggleRecord("62a920a8-8c83-48d0-b4ae-857abf1a41e8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8703", {
+get: function () {
+return getReleaseToggleRecord("632090d6-e321-488b-a139-caeea0936483");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9375", {
+get: function () {
+return getReleaseToggleRecord("64627607-b539-40e8-8d30-f367e63f26c1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7464", {
+get: function () {
+return getReleaseToggleRecord("67339b27-333c-4924-85c8-5406d3cd5d53");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7297", {
+get: function () {
+return getReleaseToggleRecord("67651a97-a3d2-45ca-a0d9-1545cfc1eb50");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "tEST_ForceOneWelcomeUpdateErrro", {
+get: function () {
+return getReleaseToggleRecord("690a3d1a-0f29-486b-a42d-6f394e9a24d1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5708", {
+get: function () {
+return getReleaseToggleRecord("691e474a-de41-45db-a1fc-0b18462a540c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6872", {
+get: function () {
+return getReleaseToggleRecord("6b26d785-e719-49bf-bfe3-c50d4d2b7e45");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5719", {
+get: function () {
+return getReleaseToggleRecord("6b3cf775-946c-4a7a-8a7a-67b572e7c321");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5800", {
+get: function () {
+return getReleaseToggleRecord("6cd6f146-4f44-43f0-b327-955c95a32c8c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8147", {
+get: function () {
+return getReleaseToggleRecord("707bef84-d33c-4f05-8176-22f08e2b1a3d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7798_SetRedemptionBooleanInSavingsQR", {
+get: function () {
+return getReleaseToggleRecord("70ab926a-d69d-4c3a-a73f-4b83b7771b5f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9231", {
+get: function () {
+return getReleaseToggleRecord("71602d95-bee3-4b4c-acb2-64d0790acd89");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9154", {
+get: function () {
+return getReleaseToggleRecord("71654fc0-35f4-466c-8c5b-f1383a71441d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5833", {
+get: function () {
+return getReleaseToggleRecord("75b9f6a6-3522-460c-bb27-bbe69d9a0968");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7054", {
+get: function () {
+return getReleaseToggleRecord("75f37f38-908c-4fb1-bcb9-bafc56bf7b61");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6503", {
+get: function () {
+return getReleaseToggleRecord("7db5d8c1-4e55-437d-ad16-9089c937afba");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5889", {
+get: function () {
+return getReleaseToggleRecord("7f0c5573-4ec9-46e3-9be8-2068aaf2042f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8192", {
+get: function () {
+return getReleaseToggleRecord("8197b2a7-f211-4887-9b05-e119c37a1141");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8375", {
+get: function () {
+return getReleaseToggleRecord("81d055db-31c6-4a15-aa92-3083149a4ae1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "oS_ServiceWorker", {
+get: function () {
+return getReleaseToggleRecord("8348dfa9-ab1b-4340-95db-9db23beb6c53");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8414", {
+get: function () {
+return getReleaseToggleRecord("848b89a5-a4ee-4d46-aa4c-3eb2c28b9acf");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8513", {
+get: function () {
+return getReleaseToggleRecord("85dfe213-e0fa-424f-be9d-3a23e6e9126e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9151", {
+get: function () {
+return getReleaseToggleRecord("88360362-0299-4425-a405-bfa39683ffa1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6942", {
+get: function () {
+return getReleaseToggleRecord("891a1323-617e-4b40-8a62-c8e54f88bcee");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "deliveryBundleBanner", {
+get: function () {
+return getReleaseToggleRecord("893ae778-1a06-4728-8542-ef1815abb563");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8188", {
+get: function () {
+return getReleaseToggleRecord("89bc66b1-14b3-4e2a-89e0-aa1b3a120b2b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "giveAwayPLUSPoints", {
+get: function () {
+return getReleaseToggleRecord("8cf27946-2280-474a-be3a-3f3a90df7ddd");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7269", {
+get: function () {
+return getReleaseToggleRecord("8e81a1cf-eb31-42f1-ab2a-2a77ff857779");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "pLCS01PLUS15983", {
+get: function () {
+return getReleaseToggleRecord("8ea9e88e-4956-4da9-a1aa-eccdca8fd3cd");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "digitalSavingOnly", {
+get: function () {
+return getReleaseToggleRecord("90270a86-e68a-4bf8-880d-5d021703ed50");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7580", {
+get: function () {
+return getReleaseToggleRecord("94f84b60-161a-4715-b99a-1e2c5d131a34");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5259", {
+get: function () {
+return getReleaseToggleRecord("972c4ca7-7d29-455d-9466-3e3e20891076");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "promotionPageOptimization", {
+get: function () {
+return getReleaseToggleRecord("99fee0f7-44ee-4ca3-833d-cb2ceb1bc5ee");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7157", {
+get: function () {
+return getReleaseToggleRecord("9ae83456-2fd0-430c-a79a-fd1ca65bdba6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9249", {
+get: function () {
+return getReleaseToggleRecord("9af52f6b-4a12-4ef9-8727-910a52f19bec");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9545", {
+get: function () {
+return getReleaseToggleRecord("9bb6ba51-763d-4cd1-888d-a08c1a7200cc");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9272", {
+get: function () {
+return getReleaseToggleRecord("9e58ec97-7c09-4d3f-b615-8ac1d2cb3cdd");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "rFC_PersistentLogin", {
+get: function () {
+return getReleaseToggleRecord("9ef27ba9-28d6-461e-8b80-e0cdeffc8716");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "deliveryBundleAnalytics", {
+get: function () {
+return getReleaseToggleRecord("9f37adcd-ecc8-41a9-be8f-cab4e6e6c968");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8920", {
+get: function () {
+return getReleaseToggleRecord("9f98dfa8-1ec2-4fb1-ba1d-10a3fc9e6fcc");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "refactorReceipt", {
+get: function () {
+return getReleaseToggleRecord("9fd22400-16dc-4a1d-ba52-3ebb6cb18489");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7590", {
+get: function () {
+return getReleaseToggleRecord("a2739fb4-2264-4e39-b605-e41c82e96d78");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7831", {
+get: function () {
+return getReleaseToggleRecord("a52d104c-d69e-436f-9bc8-e9baf8c60cbf");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9039", {
+get: function () {
+return getReleaseToggleRecord("a5a1cff5-8a0a-44a4-8f87-2e2d3e0609c1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6686", {
+get: function () {
+return getReleaseToggleRecord("a5b69b1f-ae31-4f88-88d3-189e33168028");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6181", {
+get: function () {
+return getReleaseToggleRecord("a5f1427f-a77c-4d21-a2f8-f257153e7b19");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6341", {
+get: function () {
+return getReleaseToggleRecord("a71afe87-5726-401f-a1a1-dcf7d69549d8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8925", {
+get: function () {
+return getReleaseToggleRecord("a8166111-2d85-4e38-817b-6ccc1c41b6f6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7501", {
+get: function () {
+return getReleaseToggleRecord("a99a6d16-8d0f-40a1-9d7d-caf380de3f5d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8223", {
+get: function () {
+return getReleaseToggleRecord("aaa58661-dbe8-4ca4-abe8-aa5fb393872e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8163", {
+get: function () {
+return getReleaseToggleRecord("acf1cab1-ea68-43dc-a413-a64811932118");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9192", {
+get: function () {
+return getReleaseToggleRecord("ad334e7d-f242-41e1-a0dc-58646e10932a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6204", {
+get: function () {
+return getReleaseToggleRecord("aea50ea5-43fe-4dbd-981a-584cf24f43e1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8766_1", {
+get: function () {
+return getReleaseToggleRecord("af51227b-343d-4461-bc9a-47daa1fc8af7");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "dynamicDelivery_DefaultConfig", {
+get: function () {
+return getReleaseToggleRecord("b3151c30-d916-4413-b4e3-e419999fba49");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6822", {
+get: function () {
+return getReleaseToggleRecord("b42517a1-a54e-4ded-9929-b02e0576691e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7796", {
+get: function () {
+return getReleaseToggleRecord("b48286ae-ce85-4744-ac83-7ba2654acb2f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9568", {
+get: function () {
+return getReleaseToggleRecord("b69471ff-0414-455f-9a16-3d901b355367");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9523", {
+get: function () {
+return getReleaseToggleRecord("b699241f-fcfb-4e42-879a-12dd5651ab01");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8770", {
+get: function () {
+return getReleaseToggleRecord("b750bfdb-d5f3-46a4-b424-eea625bc1fef");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "deliveryBundleTaxRate", {
+get: function () {
+return getReleaseToggleRecord("bb0ba540-852a-4f5a-8e46-7d7f8a8b8044");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8783", {
+get: function () {
+return getReleaseToggleRecord("bb776da8-1906-435c-aac1-ba63280227c5");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6353", {
+get: function () {
+return getReleaseToggleRecord("bc3dc251-96ce-408e-b235-a3ee90e0ea90");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "tEST_PromotionFolderPeriodSync", {
+get: function () {
+return getReleaseToggleRecord("bc633818-466a-4ff9-ba80-5341a46bf140");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5474", {
+get: function () {
+return getReleaseToggleRecord("bdd7d9e2-8b2b-4f76-8bdf-45d1f18661ad");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "sEOProductURL", {
+get: function () {
+return getReleaseToggleRecord("be0bc7a0-465b-4b83-9b84-9d3d2c681769");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6425", {
+get: function () {
+return getReleaseToggleRecord("c0a266e6-955b-4b7a-820c-9cfec7789b76");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "outageControlPart1", {
+get: function () {
+return getReleaseToggleRecord("c2ccb979-ee12-45eb-8217-50dbdc57eed3");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7296", {
+get: function () {
+return getReleaseToggleRecord("c380714d-f2fd-48ae-a51c-f71a02f9907b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8157", {
+get: function () {
+return getReleaseToggleRecord("c3ed1d8d-7369-4a4d-b5eb-3c721a10eb06");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6139", {
+get: function () {
+return getReleaseToggleRecord("c437f199-810e-40a5-b76a-e2b08e57c205");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6766", {
+get: function () {
+return getReleaseToggleRecord("c51d55cc-4722-4255-8103-3d5457741f81");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6182", {
+get: function () {
+return getReleaseToggleRecord("c9000fb1-174f-4cfa-9360-e7c2412bf712");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7799", {
+get: function () {
+return getReleaseToggleRecord("ca06b47b-9d91-4a2e-8603-f9e6f21c4dc2");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9006", {
+get: function () {
+return getReleaseToggleRecord("cb633e8b-32a0-4e07-a295-f669ca5bb1d4");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8377", {
+get: function () {
+return getReleaseToggleRecord("cc733814-f028-405f-bf69-91db0576454a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "deliveryBundleCancel", {
+get: function () {
+return getReleaseToggleRecord("ce53d084-9807-48e0-9f3e-b4a8b6d2f43b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7793", {
+get: function () {
+return getReleaseToggleRecord("ce6af3dc-a302-4ce3-b76a-d8c822b8ba2c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8040", {
+get: function () {
+return getReleaseToggleRecord("cea7e13d-f5f2-44e5-9c20-51e92ef11c0a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "promoFreeProduct", {
+get: function () {
+return getReleaseToggleRecord("cee4c66f-79b8-4163-bd90-a336cbea01c8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6514", {
+get: function () {
+return getReleaseToggleRecord("d0a51bea-3e2c-4d08-827f-1fa85cdf0501");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "accessibilityFeatures", {
+get: function () {
+return getReleaseToggleRecord("d28936bf-ca09-4801-bf59-ee26397c8b34");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9627", {
+get: function () {
+return getReleaseToggleRecord("d41f416b-4423-482a-aea8-50566fcb30ad");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7315", {
+get: function () {
+return getReleaseToggleRecord("d7b78448-5d38-46ba-bcad-962506f5bbb5");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7351", {
+get: function () {
+return getReleaseToggleRecord("d96084ad-27c5-47a8-a368-6c7d2dc09fe0");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7554", {
+get: function () {
+return getReleaseToggleRecord("dac3562a-c4d2-4485-8ea5-8028fe81d588");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6235", {
+get: function () {
+return getReleaseToggleRecord("db8e0a6b-7a1a-490c-96dc-b30018105142");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6233", {
+get: function () {
+return getReleaseToggleRecord("ddb30369-2762-4e95-ab89-52d3be23c89d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6214", {
+get: function () {
+return getReleaseToggleRecord("deb8071c-9662-40ac-a15f-cc7431945a04");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6231", {
+get: function () {
+return getReleaseToggleRecord("df741f09-1474-4106-8548-cf6bee819e3a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6878", {
+get: function () {
+return getReleaseToggleRecord("e0bd17a2-9030-49a2-af55-e35fcfda8715");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9262", {
+get: function () {
+return getReleaseToggleRecord("e14804eb-7733-4426-8812-683265533122");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "loginUsingAPI", {
+get: function () {
+return getReleaseToggleRecord("e392e913-b54d-4407-b2a0-aa016d821316");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6791", {
+get: function () {
+return getReleaseToggleRecord("e3cf51cc-2e4c-4066-a6a4-6fe670a56ef6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "tEST_PromotionFolderPeriodSyncAPI", {
+get: function () {
+return getReleaseToggleRecord("e3f09a48-5610-4bc8-8d40-8b506d875f11");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7544", {
+get: function () {
+return getReleaseToggleRecord("e4893ee7-ba1c-4e33-b4be-20bd006080a1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9042", {
+get: function () {
+return getReleaseToggleRecord("e5597fa9-f6af-4c15-99cb-03047382ba24");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8417", {
+get: function () {
+return getReleaseToggleRecord("e664b9e2-b518-499e-880c-1f2bb86e5581");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9190", {
+get: function () {
+return getReleaseToggleRecord("e7e7c7ef-a020-4fcf-89a0-2b3acb87e2de");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7626", {
+get: function () {
+return getReleaseToggleRecord("ea2add44-03b7-4486-9ec4-0dffd424a033");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7497", {
+get: function () {
+return getReleaseToggleRecord("eaca1556-9c47-4afb-b8ab-4c73962d3fd4");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7005_ChristmasPackageShop", {
+get: function () {
+return getReleaseToggleRecord("ec2354d4-b1a5-48b7-98d1-5c951df5d658");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6255", {
+get: function () {
+return getReleaseToggleRecord("ec87c6ca-30e8-4cbe-9024-780ee7b1e1e2");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_7797", {
+get: function () {
+return getReleaseToggleRecord("ed59a13e-e1d6-4e0e-b54d-44c97678fb5e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "hideAllergensPDP", {
+get: function () {
+return getReleaseToggleRecord("ef1f19a3-5215-4f7c-80e4-77cdf9764106");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6188", {
+get: function () {
+return getReleaseToggleRecord("f59c0121-eb31-4ea3-8226-fe1c7efd72c6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "localAssortment", {
+get: function () {
+return getReleaseToggleRecord("f6b33e62-1525-4794-8ed4-9ae2352384af");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6249", {
+get: function () {
+return getReleaseToggleRecord("f7b7f31a-eb17-4d8f-9a46-a813ced05b7b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_5827", {
+get: function () {
+return getReleaseToggleRecord("f9ba7759-5ad1-4c8e-a28a-9d7877e9be3f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "ecoTimeSlots", {
+get: function () {
+return getReleaseToggleRecord("fbd96f5f-d944-4d9a-8fb1-a7e0b8a07460");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_8195", {
+get: function () {
+return getReleaseToggleRecord("fc004186-66fe-4ea9-8cfa-0a95a5c1e523");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_6385", {
+get: function () {
+return getReleaseToggleRecord("fdad1842-66b9-40c6-8a5d-6182814f9a94");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.releaseToggle, "eCOP_9518", {
+get: function () {
+return getReleaseToggleRecord("fddd9adf-0ca9-4681-904a-f01fecd48863");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.iconSize = {};
+var getIconSizeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["43d7ddb8-26e2-46dc-89d9-110bbee31fe6"].staticEntities["24f2b1d3-ca7f-4178-aed4-366682d9fd21"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.iconSize, "size2x", {
+get: function () {
+return getIconSizeRecord("1c026924-e833-40f9-a9b7-5ee9c2484999");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.iconSize, "size4x", {
+get: function () {
+return getIconSizeRecord("883f5137-1031-4610-8600-d0b7952b90af");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.iconSize, "size_lg", {
+get: function () {
+return getIconSizeRecord("9666c499-be59-4034-9681-68f1aef77d26");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.iconSize, "size5x", {
+get: function () {
+return getIconSizeRecord("cebb3bb7-3333-4dea-b3e1-ef1e27f45d1e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.iconSize, "size_s", {
+get: function () {
+return getIconSizeRecord("ed070b47-4b3d-4abc-9bdd-7ac3c89bcc32");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.iconSize, "size3x", {
+get: function () {
+return getIconSizeRecord("fd4844cc-e3a5-4a81-a266-c14dc099f4e4");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.size = {};
+var getSizeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["1ac110b4-8964-470b-a6b2-81ae4a6b5bde"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.size, "medium", {
+get: function () {
+return getSizeRecord("0f4cba2c-32d2-4bef-b0e8-0ecd7eadbffa");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.size, "small", {
+get: function () {
+return getSizeRecord("9133cb8a-ca17-4e39-a9fd-4a07cf123c82");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.gutterSize = {};
+var getGutterSizeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["2e81a1e8-4fa4-4bd0-a945-65352999b0be"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.gutterSize, "xXLarge", {
+get: function () {
+return getGutterSizeRecord("087ea4c4-96ff-4fc5-87c9-70e35c61fe6e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.gutterSize, "medium", {
+get: function () {
+return getGutterSizeRecord("12874371-fb77-4707-afda-cdddbba81173");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.gutterSize, "none", {
+get: function () {
+return getGutterSizeRecord("1a6cb2a2-b448-4f08-ba92-5bd24d30a422");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.gutterSize, "extraLarge", {
+get: function () {
+return getGutterSizeRecord("8d669ecd-b220-4b80-b57b-4700987734dd");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.gutterSize, "small", {
+get: function () {
+return getGutterSizeRecord("96f816b9-2511-49f9-8e9c-c6ab4ff8683e");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.gutterSize, "large", {
+get: function () {
+return getGutterSizeRecord("a9dce78b-0487-49ef-b5c0-d3054293816b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.gutterSize, "base", {
+get: function () {
+return getGutterSizeRecord("b7549354-102c-45e6-8c2e-b171c6f589c5");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.gutterSize, "extraSmall", {
+get: function () {
+return getGutterSizeRecord("b8734df5-7557-4609-a566-cf5c35a6dade");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.breakColumns = {};
+var getBreakColumnsRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["68f74593-a5c4-4e65-858b-f44211eaf122"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.breakColumns, "none", {
+get: function () {
+return getBreakColumnsRecord("0712904e-03be-4b5f-9b9e-ecc640f84913");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.breakColumns, "first", {
+get: function () {
+return getBreakColumnsRecord("3d55ca44-9c70-4bd4-bf96-7d0a7ec1c3b6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.breakColumns, "all", {
+get: function () {
+return getBreakColumnsRecord("63e0af38-8b6c-4970-b96a-acd8c6d863e4");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.breakColumns, "middle", {
+get: function () {
+return getBreakColumnsRecord("694d423c-ce17-45a1-9993-cb57c30ec674");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.breakColumns, "last", {
+get: function () {
+return getBreakColumnsRecord("6c98320a-c178-4925-b42b-7165ed805ea0");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.shape = {};
+var getShapeRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["6fe168a9-c16d-4cdb-9b6f-a9e6c6b79326"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.shape, "sharp", {
+get: function () {
+return getShapeRecord("94deb1f5-6153-4438-92ad-cedea3c1f6f0");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.shape, "softRounded", {
+get: function () {
+return getShapeRecord("d1093539-d77d-439d-8d53-03d2e0053a52");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.shape, "rounded", {
+get: function () {
+return getShapeRecord("f20c2269-270a-43b2-ba29-bd8fbff2519f");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.position = {};
+var getPositionRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["83c073e8-bac2-4122-9772-aa6e122a5d36"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "top", {
+get: function () {
+return getPositionRecord("3bbcac35-309e-49a8-bf1b-a3c66e1ef3cd");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "left", {
+get: function () {
+return getPositionRecord("4d70c81a-67bd-4a1f-a21a-c6aa13d0f364");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "bottomRight", {
+get: function () {
+return getPositionRecord("73459c44-0160-4454-8ad0-c9bd44778a61");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "bottomLeft", {
+get: function () {
+return getPositionRecord("7352570c-243a-4f05-b6d1-608495931118");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "right", {
+get: function () {
+return getPositionRecord("bf43697b-2483-4855-a6c2-0a786bab472f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "topLeft", {
+get: function () {
+return getPositionRecord("c1d22c62-5a36-4d69-b188-02d62b8fe7c4");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "topRight", {
+get: function () {
+return getPositionRecord("d14d8aae-f1c9-4538-a4a9-91a2690e6d92");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "center", {
+get: function () {
+return getPositionRecord("dcc9ffa2-34a7-4097-86d0-dde224907425");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.position, "bottom", {
+get: function () {
+return getPositionRecord("fb8d90f9-5432-4678-932b-f468c00d3361");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.trigger = {};
+var getTriggerRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["8f0912ba-c626-4795-90a6-5311e2b970cb"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.trigger, "onClick", {
+get: function () {
+return getTriggerRecord("19fabbad-c01d-41a3-bdbb-f4f1d87b8042");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.trigger, "onHover", {
+get: function () {
+return getTriggerRecord("b60aa471-1556-46df-bc15-585543a2a05d");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.space = {};
+var getSpaceRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["8fb3d471-82a4-439c-9cc1-0555dfa91451"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.space, "large", {
+get: function () {
+return getSpaceRecord("51b55067-e608-49ed-9f00-1faf9e4a694a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.space, "medium", {
+get: function () {
+return getSpaceRecord("7340e97f-de64-4337-ad0d-1defcab8adb2");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.space, "xXLarge", {
+get: function () {
+return getSpaceRecord("823213f8-9df9-4de0-8aba-2b5566e6f87d");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.space, "extraSmall", {
+get: function () {
+return getSpaceRecord("83adf9ba-fbcf-4ce0-b4a4-bc6330956b89");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.space, "small", {
+get: function () {
+return getSpaceRecord("919210a5-6b3b-40c9-9a28-b4e2c28a46f8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.space, "base", {
+get: function () {
+return getSpaceRecord("f0572ad3-54ac-4755-8c8e-a9004171fcb1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.space, "extraLarge", {
+get: function () {
+return getSpaceRecord("f8dafab9-63b9-40b2-9755-f2f8fa3d6e84");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.space, "none", {
+get: function () {
+return getSpaceRecord("fb937b97-bd94-4ba4-80ff-446cb3bdf6ae");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.color = {};
+var getColorRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["cb6d1da7-26d4-45d9-bc22-9a4c482e6ce2"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral9", {
+get: function () {
+return getColorRecord("04a6c700-0ae5-44d5-81ce-34ec81d72c1c");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "grape", {
+get: function () {
+return getColorRecord("0d81324f-81ae-44eb-b81e-cd27ebce7460");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral7", {
+get: function () {
+return getColorRecord("1434454b-4d44-4ec7-a9ee-8353529b1621");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral10", {
+get: function () {
+return getColorRecord("1566893e-a30d-405f-878b-e64efdab7f7b");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "teal", {
+get: function () {
+return getColorRecord("19254415-08b2-4887-a6cf-36433bb1ade0");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "primary", {
+get: function () {
+return getColorRecord("1df261bf-454e-49a0-951e-87f6077cbbc1");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral4", {
+get: function () {
+return getColorRecord("20d4e7d1-c296-4853-b584-d2b004ddf9f5");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral8", {
+get: function () {
+return getColorRecord("31cd8495-438d-4825-8a93-c083bf6f016a");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "indigo", {
+get: function () {
+return getColorRecord("47b9565a-4f82-4a9d-a543-4aaa707853ac");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "orange", {
+get: function () {
+return getColorRecord("4d20d5b8-5570-4e18-9345-55772434a9ad");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "lime", {
+get: function () {
+return getColorRecord("50b20d51-09a6-43df-aa5d-6ae3c99f31e8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "cyan", {
+get: function () {
+return getColorRecord("59edafdd-089e-409e-a2d2-78298e55e0f2");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "secondary", {
+get: function () {
+return getColorRecord("61f545b9-e074-40ee-a884-8102a56d9ee7");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral6", {
+get: function () {
+return getColorRecord("69c65fbc-5ddc-4e41-afcf-03acff40e7a8");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "yellow", {
+get: function () {
+return getColorRecord("80145099-0e84-4301-902b-2bd6a933e319");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral2", {
+get: function () {
+return getColorRecord("8577e423-4296-434f-9ca1-9a18b91e0c29");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral1", {
+get: function () {
+return getColorRecord("9946980c-176a-4345-90ff-312523579ef0");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral3", {
+get: function () {
+return getColorRecord("b7447296-c2b5-4d01-883b-b49d25b1c8a6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "transparent", {
+get: function () {
+return getColorRecord("b87c59d9-4a95-4567-876d-b978ca413429");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "violet", {
+get: function () {
+return getColorRecord("bb39306e-ce82-47a7-9c0f-a78f92ff53c6");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "blue", {
+get: function () {
+return getColorRecord("c1bb8b1b-2f09-4fe9-bec9-eeb243b903d5");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral5", {
+get: function () {
+return getColorRecord("c1d63249-fde7-4438-b4c9-d445bcfc9257");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "red", {
+get: function () {
+return getColorRecord("d6c564f5-847a-4155-ba84-91b826bd676f");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "pink", {
+get: function () {
+return getColorRecord("e9991560-a98c-431e-a583-b707840dc2f3");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "green", {
+get: function () {
+return getColorRecord("ede4099b-595f-47f0-98ed-583414f4f6bd");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.color, "neutral0", {
+get: function () {
+return getColorRecord("fb934ce5-6b33-4c96-8d40-b06352706a8d");
+}
+});
+
+ECOP_Reactive_PatModel.staticEntities.steps = {};
+var getStepsRecord = function (record) {
+return OS.ApplicationInfo.getModules()["f677a84f-82da-4ad6-be45-01881dbbe8b8"].staticEntities["e4dd8e9f-a620-4df5-b619-9b8a771be5a3"][record];
+};
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.steps, "next", {
+get: function () {
+return getStepsRecord("03e9ec31-9b26-4304-b532-29aa077d99ea");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.steps, "past", {
+get: function () {
+return getStepsRecord("5452e8a1-02ca-4ff2-8d74-bff1512fc4a3");
+}
+});
+
+Object.defineProperty(ECOP_Reactive_PatModel.staticEntities.steps, "active", {
+get: function () {
+return getStepsRecord("dbde9903-8367-49e7-8302-f6758c190844");
+}
+});
+
+});

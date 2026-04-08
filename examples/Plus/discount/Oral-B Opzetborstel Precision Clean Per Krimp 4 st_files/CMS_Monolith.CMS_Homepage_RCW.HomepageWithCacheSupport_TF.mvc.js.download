@@ -1,0 +1,1773 @@
+﻿define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$model", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Product_BL.model", "ECP_Promotion_BL.model", "ECP_Category_CS.model", "PLUS_OutSystemsUI_2_8_0.controller", "CMS_Monolith.CMS_Banner_RCW.BigBanner_TF.mvc$model", "CMS_Monolith.CMS_Banner_RCW.N_ColumnContainer_TF.mvc$model", "CMS_Monolith.CMS_Link_Lib.LinkWrapper_Web.mvc$model", "ECOP_Base_RPat.CustomPatterns.TextArrow.mvc$model", "ECP_Product_CW.ProductList.ProductItem.mvc$model", "ECP_Promotion_CW.PromotionListFlow.OfferItem.mvc$model", "CMS_Monolith.CMS_Recipe_RCW.RecipeComponent_TF.mvc$model", "CMS_Monolith.CMS_ProductPromotionBanner_RCW.ProductPromotionBanner_TF.mvc$model", "CMS_Monolith.CMS_Banner_RCW.SmallBanner_TF.mvc$model", "ECOP_Base_RPat.InjectHTML.InjectHTML.mvc$model", "PLUS_OutSystemsUI_2_8_0.Adaptive.Gallery.mvc$model", "CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$model", "CMS_Monolith.CMS_Banner_RCW.DeliveryBundleBannerHome.mvc$model", "CMS_Monolith.controller$Text_Slugify", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith.model$HomepageRec", "CMS_Monolith.model$BigbannerRec", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$N_ColumnContainerRec", "CMS_Monolith.model$SmallBannerList", "ECP_Product_BL.model$PLP_StrRec", "CMS_Monolith.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith.model$Logo_InfoList", "CMS_Monolith.model$TextRecordList", "ECP_Promotion_BL.model$OfferRec", "CMS_Monolith.referencesHealth$ECP_Promotion_BL", "CMS_Monolith.model$RecipeComponentRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$RecipeItemList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith.model$ProductPromotionDetailsList", "CMS_Monolith.model$SmallBannerRec", "ECP_Category_CS.model$Category_strRec", "CMS_Monolith.referencesHealth$ECP_Category_CS", "CMS_Monolith.model$DeliveryBundleBannerHomeRec", "PLUS_OutSystemsUI_2_8_0.controller$ScrollToElement", "CMS_Monolith.referencesHealth$PLUS_OutSystemsUI_2_8_0", "CMS_Monolith.controller$Banner_HandleFocus"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Product_BLModel, ECP_Promotion_BLModel, ECP_Category_CSModel, PLUS_OutSystemsUI_2_8_0Controller, CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvcModel, CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvcModel, CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvcModel, ECOP_Base_RPat_CustomPatterns_TextArrow_mvcModel, ECP_Product_CW_ProductList_ProductItem_mvcModel, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvcModel, CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvcModel, CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvcModel, CMS_Monolith_CMS_Banner_RCW_SmallBanner_TF_mvcModel, ECOP_Base_RPat_InjectHTML_InjectHTML_mvcModel, PLUS_OutSystemsUI_2_8_0_Adaptive_Gallery_mvcModel, CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvcModel, CMS_Monolith_CMS_Banner_RCW_DeliveryBundleBannerHome_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("AssortionGrid_AmountOfCategoriesShown", "assortionGrid_AmountOfCategoriesShownVar", "AssortionGrid_AmountOfCategoriesShown", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("AssortionGrid_ObserverObject", "assortionGrid_ObserverObjectVar", "AssortionGrid_ObserverObject", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("ActiveDevice", "activeDeviceIn", "ActiveDevice", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.Shared_ActiveDeviceRec());
+}, false, CMS_MonolithModel.Shared_ActiveDeviceRec), 
+this.attr("_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", "_activeDeviceInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ChannelId", "channelIdIn", "ChannelId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_channelIdInDataFetchStatus", "_channelIdInDataFetchStatus", "_channelIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Homepage", "homepageIn", "Homepage", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.HomepageRec());
+}, false, CMS_MonolithModel.HomepageRec), 
+this.attr("_homepageInDataFetchStatus", "_homepageInDataFetchStatus", "_homepageInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsUserEntitledDB", "isUserEntitledDBIn", "IsUserEntitledDB", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isUserEntitledDBInDataFetchStatus", "_isUserEntitledDBInDataFetchStatus", "_isUserEntitledDBInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((((((((((((CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvcModel.hasValidationWidgets || CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_TextArrow_mvcModel.hasValidationWidgets) || ECP_Product_CW_ProductList_ProductItem_mvcModel.hasValidationWidgets) || ECP_Promotion_CW_PromotionListFlow_OfferItem_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Banner_RCW_SmallBanner_TF_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_InjectHTML_InjectHTML_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Adaptive_Gallery_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Banner_RCW_DeliveryBundleBannerHome_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ActiveDevice" in inputs) {
+this.variables.activeDeviceIn = inputs.ActiveDevice;
+if("_activeDeviceInDataFetchStatus" in inputs) {
+this.variables._activeDeviceInDataFetchStatus = inputs._activeDeviceInDataFetchStatus;
+}
+
+}
+
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("ChannelId" in inputs) {
+this.variables.channelIdIn = inputs.ChannelId;
+if("_channelIdInDataFetchStatus" in inputs) {
+this.variables._channelIdInDataFetchStatus = inputs._channelIdInDataFetchStatus;
+}
+
+}
+
+if("Homepage" in inputs) {
+this.variables.homepageIn = inputs.Homepage;
+if("_homepageInDataFetchStatus" in inputs) {
+this.variables._homepageInDataFetchStatus = inputs._homepageInDataFetchStatus;
+}
+
+}
+
+if("IsUserEntitledDB" in inputs) {
+this.variables.isUserEntitledDBIn = inputs.IsUserEntitledDB;
+if("_isUserEntitledDBInDataFetchStatus" in inputs) {
+this.variables._isUserEntitledDBInDataFetchStatus = inputs._isUserEntitledDBInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CMS_Homepage_RCW.HomepageWithCacheSupport_TF");
+});
+define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$view", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Product_BL.model", "ECP_Promotion_BL.model", "ECP_Category_CS.model", "PLUS_OutSystemsUI_2_8_0.controller", "react", "OutSystems/ReactView/Main", "CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$model", "CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller", "OutSystems/ReactWidgets/Main", "CMS_Monolith.CMS_Banner_RCW.BigBanner_TF.mvc$view", "CMS_Monolith.CMS_Banner_RCW.N_ColumnContainer_TF.mvc$view", "CMS_Monolith.CMS_Link_Lib.LinkWrapper_Web.mvc$view", "ECOP_Base_RPat.CustomPatterns.TextArrow.mvc$view", "ECP_Product_CW.ProductList.ProductItem.mvc$view", "ECP_Promotion_CW.PromotionListFlow.OfferItem.mvc$view", "CMS_Monolith.CMS_Recipe_RCW.RecipeComponent_TF.mvc$view", "CMS_Monolith.CMS_ProductPromotionBanner_RCW.ProductPromotionBanner_TF.mvc$view", "CMS_Monolith.CMS_Banner_RCW.SmallBanner_TF.mvc$view", "ECOP_Base_RPat.InjectHTML.InjectHTML.mvc$view", "PLUS_OutSystemsUI_2_8_0.Adaptive.Gallery.mvc$view", "CMS_Monolith.CMS_Homepage_RCW.AssortimentGrid_Item.mvc$view", "CMS_Monolith.CMS_Banner_RCW.DeliveryBundleBannerHome.mvc$view", "CMS_Monolith.controller$Text_Slugify", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith.model$HomepageRec", "CMS_Monolith.model$BigbannerRec", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$N_ColumnContainerRec", "CMS_Monolith.model$SmallBannerList", "ECP_Product_BL.model$PLP_StrRec", "CMS_Monolith.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith.model$Logo_InfoList", "CMS_Monolith.model$TextRecordList", "ECP_Promotion_BL.model$OfferRec", "CMS_Monolith.referencesHealth$ECP_Promotion_BL", "CMS_Monolith.model$RecipeComponentRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$RecipeItemList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith.model$ProductPromotionDetailsList", "CMS_Monolith.model$SmallBannerRec", "ECP_Category_CS.model$Category_strRec", "CMS_Monolith.referencesHealth$ECP_Category_CS", "CMS_Monolith.model$DeliveryBundleBannerHomeRec", "PLUS_OutSystemsUI_2_8_0.controller$ScrollToElement", "CMS_Monolith.referencesHealth$PLUS_OutSystemsUI_2_8_0", "CMS_Monolith.controller$Banner_HandleFocus"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Product_BLModel, ECP_Promotion_BLModel, ECP_Category_CSModel, PLUS_OutSystemsUI_2_8_0Controller, React, OSView, CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_model, CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller, OSWidgets, CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvc_view, CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvc_view, CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvc_view, ECOP_Base_RPat_CustomPatterns_TextArrow_mvc_view, ECP_Product_CW_ProductList_ProductItem_mvc_view, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view, CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvc_view, CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, CMS_Monolith_CMS_Banner_RCW_SmallBanner_TF_mvc_view, ECOP_Base_RPat_InjectHTML_InjectHTML_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_Gallery_mvc_view, CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_view, CMS_Monolith_CMS_Banner_RCW_DeliveryBundleBannerHome_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CMS_Homepage_RCW.HomepageWithCacheSupport_TF";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvc_view, CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvc_view, CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvc_view, ECOP_Base_RPat_CustomPatterns_TextArrow_mvc_view, ECP_Product_CW_ProductList_ProductItem_mvc_view, ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view, CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvc_view, CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, CMS_Monolith_CMS_Banner_RCW_SmallBanner_TF_mvc_view, ECOP_Base_RPat_InjectHTML_InjectHTML_mvc_view, PLUS_OutSystemsUI_2_8_0_Adaptive_Gallery_mvc_view, CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_view, CMS_Monolith_CMS_Banner_RCW_DeliveryBundleBannerHome_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+name: "HomepageMainDiv"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+"componentDidMount": function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.componentDidMount$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+style: "cf-homepage",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.homepageIn.sectionsAttr,
+style: "cf-homepage__section-list",
+tag: "div",
+_idProps: {
+service: idService,
+name: "SectionList"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+className: "cf-homepage__section"
+},
+tag: "section",
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.isUserEntitledDBIn), asPrimitiveValue(model.variables.assortionGrid_AmountOfCategoriesShownVar), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.channelIdIn), asPrimitiveValue(model.variables.activeDeviceIn), asPrimitiveValue(model.variables._isUserEntitledDBInDataFetchStatus), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._channelIdInDataFetchStatus), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables._homepageInDataFetchStatus), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.length), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).deliveryBundleBannerHomeAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.subtitleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.titleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.internalTitleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).smallBannerAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).recipeComponentAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.isUnderAgeAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.clickDelayValueAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.product_PromotionAttr.isEmpty), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.titleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.stylingAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.referenceLinkAttr.urlAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.cTAAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.internalTitleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.smallBannersAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.subtitleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.anchorLinkTitleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.titleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.internalTitleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).bigBannerAttr)]
+}, $if(((OS.BuiltinFunctions.trim(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).bigBannerAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Banner_RCW_BigBanner_TF_mvc_view, {
+inputs: {
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+Lazyload: model.getCachedValue(idService.getId("HYrD_fekz0WyPlYYCGxnyQ.Lazyload"), function () {
+return (((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext) < 3)) ? (false) : (true));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+_lazyloadInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ExtendedClass: model.getCachedValue(idService.getId("HYrD_fekz0WyPlYYCGxnyQ.ExtendedClass"), function () {
+return ((((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.homepageIn.sectionsAttr.length - 1)))) ? (((model.variables.activeDeviceIn.isDesktopAttr) ? ("margin-bottom-xl") : ("margin-bottom-l"))) : (""));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.length;
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus, model.variables._activeDeviceInDataFetchStatus),
+BigBanner: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).bigBannerAttr,
+_bigBannerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "4",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [$if(((OS.BuiltinFunctions.trim(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Banner_RCW_N_ColumnContainer_TF_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("oupYaE1Dh0+8cN0Hfnw1Gg.ExtendedClass"), function () {
+return ((((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.homepageIn.sectionsAttr.length - 1)))) ? (((model.variables.activeDeviceIn.isDesktopAttr) ? ("margin-bottom-xl") : ("margin-bottom-l"))) : (""));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.length;
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus, model.variables._activeDeviceInDataFetchStatus),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+N_ColumnContainer: model.getCachedValue(idService.getId("oupYaE1Dh0+8cN0Hfnw1Gg.N_ColumnContainer"), function () {
+return function () {
+var rec = new CMS_MonolithModel.N_ColumnContainerRec();
+rec.internalTitleAttr = model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.internalTitleAttr;
+rec.titleAttr = model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.titleAttr;
+rec.anchorLinkTitleAttr = model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.anchorLinkTitleAttr;
+rec.subtitleAttr = model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.subtitleAttr;
+rec.smallBannersAttr = model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.smallBannersAttr;
+return rec;
+}();
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.internalTitleAttr;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.titleAttr;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.anchorLinkTitleAttr;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.subtitleAttr;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).n_ColumnContainerAttr.smallBannersAttr;
+}),
+_n_ColumnContainerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+Lazyload: model.getCachedValue(idService.getId("oupYaE1Dh0+8cN0Hfnw1Gg.Lazyload"), function () {
+return (((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext) < 3)) ? (false) : (true));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+_lazyloadInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "5",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [$if(((OS.BuiltinFunctions.trim(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+className: model.getCachedValue(idService.getId("FJe+v9zodUOM8KMyJ1OSuA.class"), function () {
+return (("cf-promotional-product " + (((!(model.variables.activeDeviceIn.isDesktopAttr) && !(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.isEmpty))) ? ("cf-force-full-width ") : (""))) + ((((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.homepageIn.sectionsAttr.length - 1)))) ? (((model.variables.activeDeviceIn.isDesktopAttr) ? ("margin-bottom-m") : ("margin-bottom-base"))) : ("")));
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.isEmpty;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.length;
+})
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Link_Lib_LinkWrapper_Web_mvc_view, {
+inputs: {
+IsDisabled: (model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.cTAAttr === ""),
+_isDisabledInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+URL: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.referenceLinkAttr.urlAttr,
+_uRLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+linkWrapper: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onFocus: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_BannerFocus$Action(true, controller.callContext(eventHandlerContext));
+
+;
+},
+onBlur: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_BannerFocus$Action(false, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+extendedProperties: {
+className: model.getCachedValue(idService.getId("1YbcTHGWh0COXxMFQmug1Q.class"), function () {
+return ((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.stylingAttr + ((model.variables.activeDeviceIn.isPhoneAttr) ? (" padding-base") : (" padding-m"))) + ((!(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.isEmpty)) ? (" cf-promotional-product__content-wrapper") : (" cf-promotional-product__content-wrapper--empty")));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.stylingAttr;
+}, function () {
+return model.variables.activeDeviceIn.isPhoneAttr;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.isEmpty;
+}),
+tabIndex: "0"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.titleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-promotional-product__title-wrapper margin-bottom-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+name: model.getCachedValue(idService.getId("HBbvQzreaki5YqgYYqo4Rw.name"), function () {
+return CMS_MonolithController.default.text_Slugify$Action(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.titleAttr, callContext).slugifiedTextOut;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.titleAttr;
+}),
+className: "heading2 font-bold text-neutral-9 cf-promotional-product__title"
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.titleAttr,
+_idProps: {
+service: idService,
+name: "H2Element2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+})))];
+}, function () {
+return [];
+}), $if(((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.cTAAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-promotional-product__cta-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_TextArrow_mvc_view, {
+inputs: {
+Text: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.cTAAttr,
+_textInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ExtendedClass: "font-size-base text-neutral-9 trunc-lines-1 cf-promotional-product__cta-text"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "13",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-promotional-product__space-keeper",
+visible: true,
+_idProps: {
+service: idService,
+name: "SpaceKeeper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables._homepageInDataFetchStatus), asPrimitiveValue(model.variables.activeDeviceIn.isPhoneAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.cTAAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.titleAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.isEmpty), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.stylingAttr)]
+}), $if(!(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.product_PromotionAttr.isEmpty), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("jnUkRPCFkkuEBb1nKVF9Pg.Style"), function () {
+return ((!(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.isEmpty)) ? (" cf-promotional-product__promotion-items") : (" cf-promotional-product__promotion-items--empty"));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.isEmpty;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr,
+style: "cf-promotional-product__promotion-items-list",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-promotional-product__plp-list-item-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.channelIdIn), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._channelIdInDataFetchStatus), asPrimitiveValue(model.variables._homepageInDataFetchStatus), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.isUnderAgeAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.clickDelayValueAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext))]
+}, $if(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).isProductAttr, false, this, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+title: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).productNameAttr,
+"aria-label": ((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).productNameAttr + " ") + model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).subtitleAttr)
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(CMS_MonolithModel.staticEntities.releaseToggle.sEOProductURL, callContext).isEnabledOut) ? (model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).productSKUAttr) : (model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).slugAttr)), OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECP_Product_CW_ProductList_ProductItem_mvc_view, {
+inputs: {
+ClickDelayValue: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.clickDelayValueAttr,
+_clickDelayValueInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+IsCustomerUnderAge: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.isUnderAgeAttr,
+_isCustomerUnderAgeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ChannelId: model.variables.channelIdIn,
+_channelIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._channelIdInDataFetchStatus),
+ProductInfo: model.getCachedValue(idService.getId("NYuS8C5DY0uDTmAZMDvDoQ.ProductInfo"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext), new ECP_Product_BLModel.PLP_StrRec(), function (source, target) {
+target.sKUAttr = source.productSKUAttr;
+target.brandAttr = source.brandAttr;
+target.nameAttr = source.productNameAttr;
+target.product_SubtitleAttr = source.subtitleAttr;
+target.slugAttr = source.slugAttr;
+target.imageURLAttr = source.imageURLAttr;
+target.imageLabelAttr = source.imageLabelAttr;
+target.originalPriceAttr = source.priceOriginalAttr;
+target.newPriceAttr = source.newPriceAttr;
+target.quantityAttr = source.badgeQuantityAttr;
+target.lineItemIdAttr = source.productLineItemIdAttr;
+target.isProductOverMajorityAgeAttr = source.isProductOverMajorityAgeAttr;
+target.logosAttr = source.logosAttr;
+target.categoriesAttr = source.categoriesAttr;
+target.isAvailableAttr = true;
+target.promotionLabelAttr = source.promotionLabelAttr;
+target.promotionBasedLabelAttr = source.promotionBasedLabelAttr;
+target.promotionStartDateAttr = source.startDateAttr;
+target.promotionEndDateAttr = source.endDateAttr;
+target.isFreeDeliveryOfferAttr = source.isFreeDeliveryOfferAttr;
+target.maxOrderLimitAttr = source.maxOrderLimitAttr;
+return target;
+});
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext);
+}),
+_productInfoInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+CenterCTAButton: false,
+ItemListName: "Product Promotion Banner",
+IsPLP: false,
+ForceRowMode: true,
+IsExpandedTile: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+cartOrdered$Action: function (checkoutIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.forceRefresh$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+forceRefresh$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.forceRefresh$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "19",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [$if(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).isSingleProductPromotionAttr, false, this, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+title: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).productNameAttr,
+"aria-label": ((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).productNameAttr + " ") + model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).subtitleAttr)
+},
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(CMS_MonolithModel.staticEntities.releaseToggle.sEOProductURL, callContext).isEnabledOut) ? (model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).productSKUAttr) : (model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).slugAttr)), OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view, {
+inputs: {
+ItemListName: "Product Promotion Banner",
+StoreChannelD: model.variables.channelIdIn,
+_storeChannelDInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._channelIdInDataFetchStatus),
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+ShowStartDate_Label: model.getCachedValue(idService.getId("+OrqJmImq0mTuPezpIwf6w.ShowStartDate_Label"), function () {
+return OS.BuiltinFunctions.currDate().lt(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).startDateAttr);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).startDateAttr;
+}),
+_showStartDate_LabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ShowEndDate_Label: model.getCachedValue(idService.getId("+OrqJmImq0mTuPezpIwf6w.ShowEndDate_Label"), function () {
+return OS.BuiltinFunctions.currDate().gte(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).startDateAttr);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).startDateAttr;
+}),
+_showEndDate_LabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+IsCustomerUnderAge: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.isUnderAgeAttr,
+_isCustomerUnderAgeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ClickDelayValue: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.clickDelayValueAttr,
+_clickDelayValueInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+Offer: model.getCachedValue(idService.getId("+OrqJmImq0mTuPezpIwf6w.Offer"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext), new ECP_Promotion_BLModel.OfferRec(), function (source, target) {
+target.promotionIDAttr = source.promotionIdAttr;
+target.offer_IdAttr = source.offerIdAttr;
+target.brandAttr = source.brandAttr;
+target.nameAttr = source.productNameAttr;
+target.exampleAttr = source.subtitleAttr;
+target.variantAttr = source.promotionVariantAttr;
+target.explanationAttr = source.promotionExplanationAttr;
+target.packageAttr = source.promotionPackageAttr;
+target.slugAttr = source.slugAttr;
+target.imageURLAttr = source.imageURLAttr;
+target.imageLabelAttr = source.imageLabelAttr;
+target.newPriceAttr = source.newPriceAttr;
+target.priceOriginal_ProductAttr = source.priceOriginalAttr;
+target.priceOriginal_HighestAttr = source.priceOriginal_HighestAttr;
+target.priceOriginal_LowestAttr = source.priceOriginal_LowestAttr;
+target.isProductOverMajorityAgeAttr = source.isProductOverMajorityAgeAttr;
+target.displayInfo_LabelAttr = source.displayInfo_LabelAttr;
+target.displayInfo_PromotionBasedLabelAttr = source.displayInfo_PromotionBasedLabelAttr;
+target.startDateAttr = source.startDateAttr;
+target.endDateAttr = source.endDateAttr;
+target.isFreeDeliveryOfferAttr = source.isFreeDeliveryOfferAttr;
+target.isSingleProductAttr = source.isSingleProductPromotionAttr;
+target.product_SKUAttr = source.productSKUAttr;
+target.product_LineItemIdAttr = source.productLineItemIdAttr;
+target.product_QuantityAttr = source.badgeQuantityAttr;
+target.stampURLAttr = source.stampURLAttr;
+return target;
+});
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext);
+}),
+_offerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ForceRowMode: true,
+IsExpandedTile: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+forceRefresh$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.forceRefresh$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+cartOrdered$Action: function (checkoutIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.cartOrdered$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "21",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "aanbiedingen/:SlugParameter?/:SecondarySlugParameter?/:volgende_week?", {
+SlugParameter: OS.DataConversion.ServerDataConverter.to(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).slugAttr, OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECP_Promotion_CW_PromotionListFlow_OfferItem_mvc_view, {
+inputs: {
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+ShowStartDate_Label: model.getCachedValue(idService.getId("FpkwL6al8UC4OFcItKBUnA.ShowStartDate_Label"), function () {
+return OS.BuiltinFunctions.currDate().lt(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).startDateAttr);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).startDateAttr;
+}),
+_showStartDate_LabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+IsExpandedTile: true,
+ClickDelayValue: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.clickDelayValueAttr,
+_clickDelayValueInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ForceRowMode: true,
+ItemListName: "Product Promotion Banner",
+StoreChannelD: model.variables.channelIdIn,
+_storeChannelDInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._channelIdInDataFetchStatus),
+Offer: model.getCachedValue(idService.getId("FpkwL6al8UC4OFcItKBUnA.Offer"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext), new ECP_Promotion_BLModel.OfferRec(), function (source, target) {
+target.promotionIDAttr = source.promotionIdAttr;
+target.offer_IdAttr = source.offerIdAttr;
+target.brandAttr = source.brandAttr;
+target.nameAttr = source.promotionLabelAttr;
+target.exampleAttr = source.subtitleAttr;
+target.variantAttr = source.promotionVariantAttr;
+target.explanationAttr = source.promotionExplanationAttr;
+target.packageAttr = source.promotionPackageAttr;
+target.slugAttr = source.slugAttr;
+target.imageURLAttr = source.imageURLAttr;
+target.imageLabelAttr = source.imageLabelAttr;
+target.newPriceAttr = source.newPriceAttr;
+target.priceOriginal_ProductAttr = source.priceOriginalAttr;
+target.priceOriginal_HighestAttr = source.priceOriginal_HighestAttr;
+target.priceOriginal_LowestAttr = source.priceOriginal_LowestAttr;
+target.isProductOverMajorityAgeAttr = source.isProductOverMajorityAgeAttr;
+target.displayInfo_LabelAttr = source.displayInfo_LabelAttr;
+target.displayInfo_PromotionBasedLabelAttr = source.displayInfo_PromotionBasedLabelAttr;
+target.startDateAttr = source.startDateAttr;
+target.endDateAttr = source.endDateAttr;
+target.isFreeDeliveryOfferAttr = source.isFreeDeliveryOfferAttr;
+target.isSingleProductAttr = source.isSingleProductPromotionAttr;
+target.product_SKUAttr = source.productSKUAttr;
+target.product_LineItemIdAttr = source.productLineItemIdAttr;
+target.product_QuantityAttr = source.badgeQuantityAttr;
+target.stampURLAttr = source.stampURLAttr;
+return target;
+});
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext);
+}),
+_offerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+IsCustomerUnderAge: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.isUnderAgeAttr,
+_isCustomerUnderAgeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ShowEndDate_Label: model.getCachedValue(idService.getId("FpkwL6al8UC4OFcItKBUnA.ShowEndDate_Label"), function () {
+return OS.BuiltinFunctions.currDate().gte(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).startDateAttr);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.productPromotionTilesAttr.getCurrent(callContext.iterationContext).startDateAttr;
+}),
+_showEndDate_LabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+cartOrdered$Action: function (checkoutIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.cartOrdered$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+forceRefresh$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.forceRefresh$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "23",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+})];
+}))];
+}, callContext, idService, "2")
+},
+_dependencies: [asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.channelIdIn), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.isUnderAgeAttr), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).promotionalProductComponentAttr.clickDelayValueAttr), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._channelIdInDataFetchStatus), asPrimitiveValue(model.variables._homepageInDataFetchStatus)]
+}))];
+}, function () {
+return [];
+}))];
+}, function () {
+return [$if(!(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.recipeItemsAttr.isEmpty), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Recipe_RCW_RecipeComponent_TF_mvc_view, {
+inputs: {
+LazyLoadImages: model.getCachedValue(idService.getId("awhBJKFFIkKVOxMn4Fi6WA.LazyLoadImages"), function () {
+return (((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext) < 3)) ? (false) : (true));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+_lazyLoadImagesInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ExtendedClass: model.getCachedValue(idService.getId("awhBJKFFIkKVOxMn4Fi6WA.ExtendedClass"), function () {
+return ((((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.homepageIn.sectionsAttr.length - 1)))) ? (((((OS.BuiltinFunctions.trim(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.cTAAttr.linkAttr.urlAttr)) !== (""))) ? (((model.variables.activeDeviceIn.isDesktopAttr) ? ("margin-bottom-xl") : ("margin-bottom-l"))) : ("margin-bottom-base"))) : (""));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.length;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).recipeComponentAttr.cTAAttr.linkAttr.urlAttr;
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus, model.variables._activeDeviceInDataFetchStatus),
+RecipeComponent: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).recipeComponentAttr,
+_recipeComponentInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "24",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [$if(((OS.BuiltinFunctions.trim(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_ProductPromotionBanner_RCW_ProductPromotionBanner_TF_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("kef1x1leW028sE3SOXHRsg.ExtendedClass"), function () {
+return ((((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.homepageIn.sectionsAttr.length - 1)))) ? (((model.variables.activeDeviceIn.isDesktopAttr) ? ("margin-bottom-m") : ("margin-bottom-base"))) : (""));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.length;
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus, model.variables._activeDeviceInDataFetchStatus),
+ChannelId: model.variables.channelIdIn,
+_channelIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._channelIdInDataFetchStatus),
+ProductPromotionBanner: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).productPromotionBannerAttr,
+_productPromotionBannerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+callbackOrderEdit$Action: function (callbackOrderEditingIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditingIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.noStoreSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+forceRefresh$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.forceRefresh$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "25",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [$if(((OS.BuiltinFunctions.trim(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).smallBannerAttr.internalTitleAttr)) !== ("")), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Banner_RCW_SmallBanner_TF_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("vZ8326e8rkGpuVfOYdo_yQ.ExtendedClass"), function () {
+return (((((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.homepageIn.sectionsAttr.length - 1)))) ? (((model.variables.activeDeviceIn.isDesktopAttr) ? ("margin-bottom-m") : ("margin-bottom-base"))) : ("")) + (((model.variables.activeDeviceIn.isDesktopAttr || model.variables.activeDeviceIn.isTabletAttr)) ? (" wider-image") : ("")));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.length;
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}, function () {
+return model.variables.activeDeviceIn.isTabletAttr;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus, model.variables._activeDeviceInDataFetchStatus),
+Lazyload: model.getCachedValue(idService.getId("vZ8326e8rkGpuVfOYdo_yQ.Lazyload"), function () {
+return (((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext) < 3)) ? (false) : (true));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+_lazyloadInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+SmallBanner: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).smallBannerAttr,
+_smallBannerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "26",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [$if(((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.internalTitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+"data-uid": model.getCachedValue(idService.getId("AssortimentGridDiv.data-uid"), function () {
+return OS.BuiltinFunctions.replace((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.internalTitleAttr + (model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)).toString()), " ", "");
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.internalTitleAttr;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+"collapsed": ""
+},
+style: model.getCachedValue(idService.getId("AssortimentGridDiv.Style"), function () {
+return ("cf-assortiment-grid" + ((((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.homepageIn.sectionsAttr.length - 1)))) ? (((model.variables.activeDeviceIn.isDesktopAttr) ? (" margin-bottom-xl") : (" margin-bottom-l"))) : ("")));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.length;
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "AssortimentGridDiv"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus, model.variables._activeDeviceInDataFetchStatus)
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-assortiment-grid__title",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+name: model.getCachedValue(idService.getId("X85frnMfcEOdhQLGv0dSNg.name"), function () {
+return CMS_MonolithController.default.text_Slugify$Action(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.titleAttr, callContext).slugifiedTextOut;
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.titleAttr;
+}),
+className: "heading2"
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "29"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(false, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(ECOP_Base_RPat_InjectHTML_InjectHTML_mvc_view, {
+inputs: {
+HTML: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.titleAttr,
+_hTMLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "30",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}))), $if(((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.subtitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-assortiment-grid__subtitle margin-top-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "31"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.subtitleAttr,
+_idProps: {
+service: idService,
+uuid: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+}))];
+}, function () {
+return [];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cf-assortiment-grid__list margin-top-m",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Adaptive_Gallery_mvc_view, {
+inputs: {
+ItemsInDesktop: 5,
+ItemsInTablet: 3,
+GutterSize: model.getCachedValue(idService.getId("VrY5KI0+vUKpn3g_yMDf9g.GutterSize"), function () {
+return ((model.variables.activeDeviceIn.isDesktopAttr) ? (CMS_MonolithModel.staticEntities.space4.extraLarge) : (((model.variables.activeDeviceIn.isTabletAttr) ? (CMS_MonolithModel.staticEntities.space4.medium) : (CMS_MonolithModel.staticEntities.space4.base))));
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}, function () {
+return model.variables.activeDeviceIn.isTabletAttr;
+}),
+_gutterSizeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+ItemInPhone: "1"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "34",
+alias: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr,
+style: "list list-group",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: true,
+extendedProperties: {
+"data-is-collapse-hidden": (((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.getCurrentRowNumber(callContext.iterationContext) + 1) > model.variables.assortionGrid_AmountOfCategoriesShownVar) ? "True" : "False")
+},
+style: "cf-assortiment-grid__category-item",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.activeDeviceIn), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables._homepageInDataFetchStatus), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.getCurrent(callContext.iterationContext))]
+}, $if(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.getCurrent(callContext.iterationContext).isPromotionsCategoryAttr, false, this, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+tabIndex: (-1).toString()
+},
+style: "gtm-assortment-grid-item",
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "aanbiedingen/:SlugParameter?/:SecondarySlugParameter?/:volgende_week?", {}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_view, {
+inputs: {
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus),
+Category: model.getCachedValue(idService.getId("x3q2GTdTY0mZ8YrcWNVNrw.Category"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.getCurrent(callContext.iterationContext), new ECP_Category_CSModel.Category_strRec(), function (source, target) {
+target = source.categoryAttr;
+return target;
+});
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.getCurrent(callContext.iterationContext);
+}),
+_categoryInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "38",
+alias: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}, function () {
+return [React.createElement(OSWidgets.Link, {
+enabled: true,
+extendedProperties: {
+tabIndex: (-1).toString()
+},
+style: "gtm-assortment-grid-item",
+transition: OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default),
+url: OS.Navigation.generateScreenURL("ECOP", "producten/:Category1?/:Category2?/:Category3?", {
+Category1: OS.DataConversion.ServerDataConverter.to(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.getCurrent(callContext.iterationContext).categoryAttr.slugAttr, OS.Types.Text)
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(CMS_Monolith_CMS_Homepage_RCW_AssortimentGrid_Item_mvc_view, {
+inputs: {
+Category: model.getCachedValue(idService.getId("gHw7A2WWkUyJt0fIbFnW6g.Category"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecord(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.getCurrent(callContext.iterationContext), new ECP_Category_CSModel.Category_strRec(), function (source, target) {
+target = source.categoryAttr;
+return target;
+});
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.getCurrent(callContext.iterationContext);
+}),
+_categoryInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "40",
+alias: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}))];
+}, callContext, idService, "3")
+},
+_dependencies: [asPrimitiveValue(model.variables.activeDeviceIn), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables._homepageInDataFetchStatus), asPrimitiveValue(model.variables.assortionGrid_AmountOfCategoriesShownVar)]
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.activeDeviceIn), asPrimitiveValue(model.variables.assortionGrid_AmountOfCategoriesShownVar), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables._homepageInDataFetchStatus), asPrimitiveValue(model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr)]
+}), $if((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.length > model.variables.assortionGrid_AmountOfCategoriesShownVar), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("PNa4yT6Vn0C10PGwlsnnhg.Style"), function () {
+return ("cf-assortiment-grid__list-expand-collapse-categories " + ((model.variables.activeDeviceIn.isDesktopAttr) ? ("margin-top-l") : ("margin-top-m")));
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+}, React.createElement(OSWidgets.Button, {
+enabled: true,
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_AssortionGrid_ExpandCollapseList$Action(OS.BuiltinFunctions.replace((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.internalTitleAttr + (model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)).toString()), " ", ""), controller.callContext(eventHandlerContext));
+
+;
+},
+style: "btn gtm-assortment-grid-expand-collapse-button",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "42"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "collapsed-text",
+value: (OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("nE7WM1waS0q_Y_sTy9NF_A#ValueExpression.1687741929.1", "Show all categories +") + ((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).assortimentGridAttr.category_ExtendedAttr.length - model.variables.assortionGrid_AmountOfCategoriesShownVar)).toString()),
+_idProps: {
+service: idService,
+uuid: "43"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus)
+}), React.createElement(OSWidgets.Text, {
+style: "expanded-text",
+text: [$text(getTranslation("8jSRgfp3REKAwGdcMQf2ig#Value", "Show less"))],
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})))];
+}, function () {
+return [];
+})))];
+}, function () {
+return [$if(((model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).deliveryBundleBannerHomeAttr.internalTitleAttr) !== ("")), false, this, function () {
+return [$if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(CMS_MonolithModel.staticEntities.releaseToggle.deliveryBundle, callContext).isEnabledOut, false, this, function () {
+return [$if(!(model.variables.isUserEntitledDBIn), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Banner_RCW_DeliveryBundleBannerHome_mvc_view, {
+inputs: {
+Lazyload: model.getCachedValue(idService.getId("idEHhx0GnUie7n612F5y9w.Lazyload"), function () {
+return (((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext) < 3)) ? (false) : (true));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}),
+_lazyloadInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ExtendedClass: model.getCachedValue(idService.getId("idEHhx0GnUie7n612F5y9w.ExtendedClass"), function () {
+return (((((model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext)) !== ((model.variables.homepageIn.sectionsAttr.length - 1)))) ? (((model.variables.activeDeviceIn.isDesktopAttr) ? ("margin-bottom-xxl margin-top-m") : ("margin-bottom-base"))) : ("")) + (((model.variables.activeDeviceIn.isDesktopAttr || model.variables.activeDeviceIn.isTabletAttr)) ? (" wider-image") : ("")));
+}, function () {
+return model.variables.homepageIn.sectionsAttr.getCurrentRowNumber(callContext.iterationContext);
+}, function () {
+return model.variables.homepageIn.sectionsAttr.length;
+}, function () {
+return model.variables.activeDeviceIn.isDesktopAttr;
+}, function () {
+return model.variables.activeDeviceIn.isTabletAttr;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus, model.variables._activeDeviceInDataFetchStatus),
+DeliveryBundleBanner: model.variables.homepageIn.sectionsAttr.getCurrent(callContext.iterationContext).deliveryBundleBannerHomeAttr,
+_deliveryBundleBannerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._homepageInDataFetchStatus),
+ActiveDevice: model.variables.activeDeviceIn,
+_activeDeviceInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._activeDeviceInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "45",
+alias: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+}, function () {
+return [];
+})];
+}, function () {
+return [];
+})];
+})];
+})];
+})];
+})];
+})];
+})];
+}))];
+}, callContext, idService, "3")
+},
+_dependencies: [asPrimitiveValue(model.variables.isUserEntitledDBIn), asPrimitiveValue(model.variables.assortionGrid_AmountOfCategoriesShownVar), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.channelIdIn), asPrimitiveValue(model.variables.activeDeviceIn), asPrimitiveValue(model.variables._isUserEntitledDBInDataFetchStatus), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._channelIdInDataFetchStatus), asPrimitiveValue(model.variables._activeDeviceInDataFetchStatus), asPrimitiveValue(model.variables._homepageInDataFetchStatus)]
+}))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller", ["OutSystems/ClientRuntime/Main", "CMS_Monolith.model", "CMS_Monolith.controller", "ECOP_ReleaseTogglesReactive.controller", "ECP_Product_BL.model", "ECP_Promotion_BL.model", "ECP_Category_CS.model", "PLUS_OutSystemsUI_2_8_0.controller", "CMS_Monolith.languageResources", "CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$translationsResources", "CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller.OnInitialize.JSAddHandlerJS", "CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller.OnClick_AssortionGrid_ExpandCollapseList.JSHandleCollapsedChangeJS", "CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller.AssortionGrid_CalculateLimit.JSAmountOfCategoriesShownJS", "CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller.OnDestroy.JSRemoveHandlerJS", "CMS_Monolith.controller$Text_Slugify", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "CMS_Monolith.referencesHealth", "CMS_Monolith.referencesHealth$ECOP_ReleaseTogglesReactive", "CMS_Monolith.model$Shared_ActiveDeviceRec", "CMS_Monolith.model$HomepageRec", "CMS_Monolith.model$BigbannerRec", "CMS_Monolith.model$Shared_MediaRec", "CMS_Monolith.model$N_ColumnContainerRec", "CMS_Monolith.model$SmallBannerList", "ECP_Product_BL.model$PLP_StrRec", "CMS_Monolith.referencesHealth$ECP_Product_BL", "ECP_Product_BL.model$Logo_PLPRec", "CMS_Monolith.model$Logo_InfoList", "CMS_Monolith.model$TextRecordList", "ECP_Promotion_BL.model$OfferRec", "CMS_Monolith.referencesHealth$ECP_Promotion_BL", "CMS_Monolith.model$RecipeComponentRec", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$RecipeItemList", "CMS_Monolith.model$ProductPromotionBannerRec", "CMS_Monolith.model$ProductPromotionDetailsList", "CMS_Monolith.model$SmallBannerRec", "ECP_Category_CS.model$Category_strRec", "CMS_Monolith.referencesHealth$ECP_Category_CS", "CMS_Monolith.model$DeliveryBundleBannerHomeRec", "PLUS_OutSystemsUI_2_8_0.controller$ScrollToElement", "CMS_Monolith.referencesHealth$PLUS_OutSystemsUI_2_8_0", "CMS_Monolith.controller$Banner_HandleFocus"], function (OutSystems, CMS_MonolithModel, CMS_MonolithController, ECOP_ReleaseTogglesReactiveController, ECP_Product_BLModel, ECP_Promotion_BLModel, ECP_Category_CSModel, PLUS_OutSystemsUI_2_8_0Controller, CMS_MonolithLanguageResources, CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_TranslationsResources, CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller_OnInitialize_JSAddHandlerJS, CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller_OnClick_AssortionGrid_ExpandCollapseList_JSHandleCollapsedChangeJS, CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller_AssortionGrid_CalculateLimit_JSAmountOfCategoriesShownJS, CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller_OnDestroy_JSRemoveHandlerJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+assortionGrid_CalculateLimit$Action: function () {
+return controller.executeActionInsideJSNode(controller._assortionGrid_CalculateLimit$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "AssortionGrid_CalculateLimit");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var jSAddHandlerJSResult = new OS.DataTypes.VariableHolder();
+jSAddHandlerJSResult.value = controller.safeExecuteJSNode(CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller_OnInitialize_JSAddHandlerJS, "JSAddHandler", "OnInitialize", {
+ObserverObject: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.OnInitialize$jSAddHandlerJSResult"))();
+jsNodeResult.observerObjectOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ObserverObject, OS.Types.Object);
+return jsNodeResult;
+}, {
+AssortionGrid_CalculateLimit: controller.clientActionProxies.assortionGrid_CalculateLimit$Action
+}, {});
+// AssortionGrid_ObserverObject = JSAddHandler.ObserverObject
+model.variables.assortionGrid_ObserverObjectVar = jSAddHandlerJSResult.value.observerObjectOut;
+// Execute Action: AssortionGrid_CalculateLimit
+controller._assortionGrid_CalculateLimit$Action(callContext);
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.OnInitialize$jSAddHandlerJSResult", [{
+name: "ObserverObject",
+attrName: "observerObjectOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._onClick_AssortionGrid_ExpandCollapseList$Action = function (assortionGridDataUIDIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_AssortionGrid_ExpandCollapseList");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.OnClick_AssortionGrid_ExpandCollapseList$vars"))());
+vars.value.assortionGridDataUIDInLocal = assortionGridDataUIDIn;
+var jSHandleCollapsedChangeJSResult = new OS.DataTypes.VariableHolder();
+jSHandleCollapsedChangeJSResult.value = controller.safeExecuteJSNode(CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller_OnClick_AssortionGrid_ExpandCollapseList_JSHandleCollapsedChangeJS, "JSHandleCollapsedChange", "OnClick_AssortionGrid_ExpandCollapseList", {
+DataUID: OS.DataConversion.JSNodeParamConverter.to(vars.value.assortionGridDataUIDInLocal, OS.Types.Text),
+IsCollapsed: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+AssortionGridDivId: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.OnClick_AssortionGrid_ExpandCollapseList$jSHandleCollapsedChangeJSResult"))();
+jsNodeResult.isCollapsedOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsCollapsed, OS.Types.Boolean);
+jsNodeResult.assortionGridDivIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AssortionGridDivId, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+if((jSHandleCollapsedChangeJSResult.value.isCollapsedOut)) {
+// Execute Action: ScrollToElement
+PLUS_OutSystemsUI_2_8_0Controller.default.scrollToElement$Action(jSHandleCollapsedChangeJSResult.value.assortionGridDivIdOut, true, 0, callContext);
+}
+
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.OnClick_AssortionGrid_ExpandCollapseList$vars", [{
+name: "AssortionGridDataUID",
+attrName: "assortionGridDataUIDInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.OnClick_AssortionGrid_ExpandCollapseList$jSHandleCollapsedChangeJSResult", [{
+name: "IsCollapsed",
+attrName: "isCollapsedOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "AssortionGridDivId",
+attrName: "assortionGridDivIdOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._handler_BannerFocus$Action = function (setFocusIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_BannerFocus");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.Handler_BannerFocus$vars"))());
+vars.value.setFocusInLocal = setFocusIn;
+if((model.variables.activeDeviceIn.isDesktopAttr)) {
+// Execute Action: Banner_HandleFocus
+CMS_MonolithController.default.banner_HandleFocus$Action(vars.value.setFocusInLocal, callContext);
+}
+
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.Handler_BannerFocus$vars", [{
+name: "SetFocus",
+attrName: "setFocusInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._assortionGrid_CalculateLimit$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("AssortionGrid_CalculateLimit");
+callContext = controller.callContext(callContext);
+var jSAmountOfCategoriesShownJSResult = new OS.DataTypes.VariableHolder();
+jSAmountOfCategoriesShownJSResult.value = controller.safeExecuteJSNode(CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller_AssortionGrid_CalculateLimit_JSAmountOfCategoriesShownJS, "JSAmountOfCategoriesShown", "AssortionGrid_CalculateLimit", {
+AmountOfCategoriesShown: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.AssortionGrid_CalculateLimit$jSAmountOfCategoriesShownJSResult"))();
+jsNodeResult.amountOfCategoriesShownOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AmountOfCategoriesShown, OS.Types.Integer);
+return jsNodeResult;
+}, {}, {});
+// AssortionGrid_AmountOfCategoriesShown = JSAmountOfCategoriesShown.AmountOfCategoriesShown
+model.variables.assortionGrid_AmountOfCategoriesShownVar = jSAmountOfCategoriesShownJSResult.value.amountOfCategoriesShownOut;
+};
+Controller.registerVariableGroupType("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.AssortionGrid_CalculateLimit$jSAmountOfCategoriesShownJSResult", [{
+name: "AmountOfCategoriesShown",
+attrName: "amountOfCategoriesShownOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._componentDidMount$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ComponentDidMount");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: ContentLoaded
+return controller.contentLoaded$Action(callContext);
+});
+};
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_controller_OnDestroy_JSRemoveHandlerJS, "JSRemoveHandler", "OnDestroy", {
+ObserverObject: OS.DataConversion.JSNodeParamConverter.to(model.variables.assortionGrid_ObserverObjectVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.onClick_AssortionGrid_ExpandCollapseList$Action = function (assortionGridDataUIDIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_AssortionGrid_ExpandCollapseList$Action, callContext, assortionGridDataUIDIn);
+
+};
+Controller.prototype.handler_BannerFocus$Action = function (setFocusIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_BannerFocus$Action, callContext, setFocusIn);
+
+};
+Controller.prototype.assortionGrid_CalculateLimit$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._assortionGrid_CalculateLimit$Action, callContext);
+
+};
+Controller.prototype.componentDidMount$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._componentDidMount$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.contentLoaded$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.forceRefresh$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.cartOrdered$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.callbackOrderEdit$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.noStoreSelected$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return CMS_MonolithController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, CMS_MonolithLanguageResources);
+});
+define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller.OnInitialize.JSAddHandlerJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+//Is the "ResizeObserver" API available?
+if (typeof(ResizeObserver) !== 'undefined') {
+    $parameters.ObserverObject = new ResizeObserver(() => {
+        $actions.AssortionGrid_CalculateLimit();
+    });
+    $parameters.ObserverObject.observe(document.querySelector('body'));
+}
+};
+});
+define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller.OnClick_AssortionGrid_ExpandCollapseList.JSHandleCollapsedChangeJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.AssortionGridDivId = document.querySelector('[data-uid="' + $parameters.DataUID + '"]').id;
+
+if(document.querySelector('[data-uid="' + $parameters.DataUID + '"]').hasAttribute('collapsed'))
+{
+    document.querySelector('[data-uid="' + $parameters.DataUID + '"]').removeAttribute('collapsed');
+    $parameters.IsCollapsed = false;
+}
+else{
+    document.querySelector('[data-uid="' + $parameters.DataUID + '"]').setAttribute('collapsed','');
+    $parameters.IsCollapsed = true;
+}
+};
+});
+define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller.AssortionGrid_CalculateLimit.JSAmountOfCategoriesShownJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if(document.body.classList.contains('phone')) {
+    $parameters.AmountOfCategoriesShown = 8
+} else {
+    if(document.body.classList.contains('tablet') || (document.body.classList.contains('desktop') && window.innerWidth < 1099)) {
+        $parameters.AmountOfCategoriesShown = 9
+    } else {
+        $parameters.AmountOfCategoriesShown = window.innerWidth > 1441 ? 10 : 8;
+    }
+}
+};
+});
+define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$controller.OnDestroy.JSRemoveHandlerJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if ($parameters.ObserverObject) {
+    $parameters.ObserverObject.disconnect();
+}
+};
+});
+
+define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$translationsResources", ["exports", "CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$translationsResources.nl-NL"], function (exports, CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": CMS_Monolith_CMS_Homepage_RCW_HomepageWithCacheSupport_TF_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("CMS_Monolith.CMS_Homepage_RCW.HomepageWithCacheSupport_TF.mvc$translationsResources.nl-NL", [], function () {
+return {
+"8jSRgfp3REKAwGdcMQf2ig#Value": "Toon minder",
+"nE7WM1waS0q_Y_sTy9NF_A#ValueExpression.1687741929.1": "Toon alle categorieën +"
+};
+});

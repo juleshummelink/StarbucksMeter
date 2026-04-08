@@ -1,0 +1,620 @@
+﻿define("PL_MT_ExceptionHandling_BL.controller$GetEnvironment", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.controller", "PL_MT_ExceptionHandling_BL.controller$ServerAction.GetEnvironment"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel, PL_MT_ExceptionHandling_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_ExceptionHandling_BLController.default.getEnvironment$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var getEnvironmentVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.GetEnvironment$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GetEnvironment
+return controller.getEnvironment$ServerAction(callContext).then(function (value) {
+getEnvironmentVar.value = value;
+}).then(function () {
+// Environment = GetEnvironment.Environment
+outVars.value.environmentOut = getEnvironmentVar.value.environmentOut;
+});
+}).catch(function (ex) {
+OS.Logger.trace("GetEnvironment.GetEnvironment", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ExceptionHandling_BLController.default;
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.GetEnvironment$outVars", [{
+name: "Environment",
+attrName: "environmentOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.clientActionProxies.getEnvironment$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ExceptionHandling_BLController.default.getEnvironment$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Environment: OS.DataConversion.JSNodeParamConverter.to(actionResults.environmentOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("PL_MT_ExceptionHandling_BL.controller$GetTokenForReactive", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.controller", "PL_MT_ExceptionHandling_BL.controller$GetTokenForReactive.GetAppKeyJS", "PL_MT_ExceptionHandling_BL.controller$ServerAction.MT_GetToken"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel, PL_MT_ExceptionHandling_BLController, PL_MT_ExceptionHandling_BL_controller_GetTokenForReactive_GetAppKeyJS) {
+var OS = OutSystems.Internal;
+PL_MT_ExceptionHandling_BLController.default.getTokenForReactive$Action = function (callContext) {
+callContext = controller.callContext(callContext);
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var mT_GetTokenVar = new OS.DataTypes.VariableHolder();
+var getAppKeyJSResult = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.GetTokenForReactive$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+getAppKeyJSResult.value = controller.safeExecuteJSNode(PL_MT_ExceptionHandling_BL_controller_GetTokenForReactive_GetAppKeyJS, "GetAppKey", "GetTokenForReactive", {
+AppKey: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.GetTokenForReactive$getAppKeyJSResult"))();
+jsNodeResult.appKeyOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AppKey, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// Execute Action: MT_GetToken
+return controller.mT_GetToken$ServerAction(getAppKeyJSResult.value.appKeyOut, callContext).then(function (value) {
+mT_GetTokenVar.value = value;
+}).then(function () {
+// Key = MT_GetToken.Key
+outVars.value.keyOut = mT_GetTokenVar.value.keyOut;
+});
+}).catch(function (ex) {
+OS.Logger.trace("GetTokenForReactive.GetTokenForReactive", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ExceptionHandling_BLController.default;
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.GetTokenForReactive$getAppKeyJSResult", [{
+name: "AppKey",
+attrName: "appKeyOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.GetTokenForReactive$outVars", [{
+name: "Key",
+attrName: "keyOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.clientActionProxies.getTokenForReactive$Action = function () {
+return controller.executeActionInsideJSNode(PL_MT_ExceptionHandling_BLController.default.getTokenForReactive$Action.bind(controller), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Key: OS.DataConversion.JSNodeParamConverter.to(actionResults.keyOut, OS.Types.Text)
+};
+});
+};
+});
+define("PL_MT_ExceptionHandling_BL.controller$GetTokenForReactive.GetAppKeyJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var context = $public.ApplicationContext.getCurrentContext();
+$parameters.AppKey = context.applicationKey;
+};
+});
+
+define("PL_MT_ExceptionHandling_BL.controller$LogException", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.controller", "PL_MT_ExceptionHandling_Lib.model", "PL_MT_ExceptionHandling_BL.controller$LogException.GetAppKeyJS", "PL_MT_ExceptionHandling_BL.controller$LogException.CheckIsDeviceOnlineJSJS", "PL_MT_ExceptionHandling_BL.controller$ServerAction.MT_ExceptionHandlingJson_SA", "PL_MT_ExceptionHandling_BL.controller$GetEnvironment", "PL_MT_ExceptionHandling_BL.controller$MT_GetToken", "PL_MT_ExceptionHandling_Lib.model$LogExceptionStrRec", "PL_MT_ExceptionHandling_BL.referencesHealth", "PL_MT_ExceptionHandling_BL.referencesHealth$PL_MT_ExceptionHandling_Lib"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel, PL_MT_ExceptionHandling_BLController, PL_MT_ExceptionHandling_LibModel, PL_MT_ExceptionHandling_BL_controller_LogException_GetAppKeyJS, PL_MT_ExceptionHandling_BL_controller_LogException_CheckIsDeviceOnlineJSJS) {
+var OS = OutSystems.Internal;
+PL_MT_ExceptionHandling_BLController.default.logException$Action = function (exceptionTypeIdIn, exceptionSubTypeNameIn, requestKeyIn, moduleIn, screenIn, actionIn, userIn, messageIn, exceptionMessageIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.LogException$vars"))());
+vars.value.exceptionTypeIdInLocal = exceptionTypeIdIn;
+vars.value.exceptionSubTypeNameInLocal = exceptionSubTypeNameIn;
+vars.value.requestKeyInLocal = requestKeyIn;
+vars.value.moduleInLocal = moduleIn;
+vars.value.screenInLocal = screenIn;
+vars.value.actionInLocal = actionIn;
+vars.value.userInLocal = userIn;
+vars.value.messageInLocal = messageIn;
+vars.value.exceptionMessageInLocal = exceptionMessageIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var mT_ExceptionHandlingJson_SAVar = new OS.DataTypes.VariableHolder();
+var getEnvironmentVar = new OS.DataTypes.VariableHolder();
+var mT_GetTokenVar = new OS.DataTypes.VariableHolder();
+var getAppKeyJSResult = new OS.DataTypes.VariableHolder();
+var checkIsDeviceOnlineJSJSResult = new OS.DataTypes.VariableHolder();
+var jSONSerialize_LogExceptionStrVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.LogException$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+checkIsDeviceOnlineJSJSResult.value = controller.safeExecuteJSNode(PL_MT_ExceptionHandling_BL_controller_LogException_CheckIsDeviceOnlineJSJS, "CheckIsDeviceOnlineJS", "LogException", {
+IsOnline: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.LogException$checkIsDeviceOnlineJSJSResult"))();
+jsNodeResult.isOnlineOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsOnline, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+return OS.Flow.executeSequence(function () {
+if((checkIsDeviceOnlineJSJSResult.value.isOnlineOut)) {
+// Execute Action: GetEnvironment
+return PL_MT_ExceptionHandling_BLController.default.getEnvironment$Action(callContext).then(function (value) {
+getEnvironmentVar.value = value;
+}).then(function () {
+// LogExceptionStr.Environment = GetEnvironment.Environment
+vars.value.logExceptionStrVar.environmentAttr = getEnvironmentVar.value.environmentOut;
+// LogExceptionStr.RequestKey = RequestKey
+vars.value.logExceptionStrVar.requestKeyAttr = vars.value.requestKeyInLocal;
+// LogExceptionStr.ExceptionSubTypeName = Replace
+vars.value.logExceptionStrVar.exceptionSubTypeNameAttr = OS.BuiltinFunctions.replace(vars.value.exceptionSubTypeNameInLocal, "|", "-");
+// LogExceptionStr.ExceptionType = ExceptionTypeId
+vars.value.logExceptionStrVar.exceptionTypeAttr = (vars.value.exceptionTypeIdInLocal).toString();
+// LogExceptionStr.Screen = Replace + " - URL: " + GetBookmarkableURL
+vars.value.logExceptionStrVar.screenAttr = ((OS.BuiltinFunctions.replace(vars.value.screenInLocal, "|", "-") + " - URL: ") + OS.BuiltinFunctions.getBookmarkableURL());
+// LogExceptionStr.Module = Replace
+vars.value.logExceptionStrVar.moduleAttr = OS.BuiltinFunctions.replace(vars.value.moduleInLocal, "|", "-");
+// LogExceptionStr.Action = Replace
+vars.value.logExceptionStrVar.actionAttr = OS.BuiltinFunctions.replace(vars.value.actionInLocal, "|", "-");
+// LogExceptionStr.User = User
+vars.value.logExceptionStrVar.userAttr = vars.value.userInLocal;
+// LogExceptionStr.Message = Replace
+vars.value.logExceptionStrVar.messageAttr = OS.BuiltinFunctions.replace(vars.value.messageInLocal, "|", "-");
+// LogExceptionStr.ExceptionMessage = Replace
+vars.value.logExceptionStrVar.exceptionMessageAttr = OS.BuiltinFunctions.replace(vars.value.exceptionMessageInLocal, "|", "-");
+// LogExceptionStr.CreatedOn = CurrDateTime
+vars.value.logExceptionStrVar.createdOnAttr = OS.BuiltinFunctions.currDateTime();
+// LogExceptionStr.CreatedBy = GetUserId
+vars.value.logExceptionStrVar.createdByAttr = (OS.BuiltinFunctions.getUserId()).toString();
+// JSON Serialize: JSONSerialize_LogExceptionStr
+jSONSerialize_LogExceptionStrVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.logExceptionStrVar, false, false);
+getAppKeyJSResult.value = controller.safeExecuteJSNode(PL_MT_ExceptionHandling_BL_controller_LogException_GetAppKeyJS, "GetAppKey", "LogException", {
+AppKey: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.LogException$getAppKeyJSResult"))();
+jsNodeResult.appKeyOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AppKey, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+// Execute Action: MT_GetToken
+return PL_MT_ExceptionHandling_BLController.default.mT_GetToken$Action(getAppKeyJSResult.value.appKeyOut, callContext).then(function (value) {
+mT_GetTokenVar.value = value;
+});
+}).then(function () {
+// Execute Action: MT_ExceptionHandlingJson_SA
+return controller.mT_ExceptionHandlingJson_SA$ServerAction(jSONSerialize_LogExceptionStrVar.value.jSONOut, mT_GetTokenVar.value.keyOut, getAppKeyJSResult.value.appKeyOut, callContext).then(function (value) {
+mT_ExceptionHandlingJson_SAVar.value = value;
+});
+}).then(function () {
+// Return_Key = MT_ExceptionHandlingJson_SA.NewToken
+outVars.value.return_KeyOut = mT_ExceptionHandlingJson_SAVar.value.newTokenOut;
+});
+}
+
+});
+}).catch(function (ex) {
+OS.Logger.trace("LogException.LogException", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ExceptionHandling_BLController.default;
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.LogException$vars", [{
+name: "ExceptionTypeId",
+attrName: "exceptionTypeIdInLocal",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "ExceptionSubTypeName",
+attrName: "exceptionSubTypeNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "RequestKey",
+attrName: "requestKeyInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Module",
+attrName: "moduleInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Screen",
+attrName: "screenInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Action",
+attrName: "actionInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "User",
+attrName: "userInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Message",
+attrName: "messageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ExceptionMessage",
+attrName: "exceptionMessageInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "LogExceptionStr",
+attrName: "logExceptionStrVar",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new PL_MT_ExceptionHandling_LibModel.LogExceptionStrRec();
+},
+complexType: PL_MT_ExceptionHandling_LibModel.LogExceptionStrRec
+}]);
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.LogException$getAppKeyJSResult", [{
+name: "AppKey",
+attrName: "appKeyOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.LogException$checkIsDeviceOnlineJSJSResult", [{
+name: "IsOnline",
+attrName: "isOnlineOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.LogException$outVars", [{
+name: "Return_Key",
+attrName: "return_KeyOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.clientActionProxies.logException$Action = function (exceptionTypeIdIn, exceptionSubTypeNameIn, requestKeyIn, moduleIn, screenIn, actionIn, userIn, messageIn, exceptionMessageIn) {
+exceptionTypeIdIn = (exceptionTypeIdIn === undefined) ? 0 : exceptionTypeIdIn;
+exceptionSubTypeNameIn = (exceptionSubTypeNameIn === undefined) ? "" : exceptionSubTypeNameIn;
+requestKeyIn = (requestKeyIn === undefined) ? "" : requestKeyIn;
+moduleIn = (moduleIn === undefined) ? "" : moduleIn;
+screenIn = (screenIn === undefined) ? "" : screenIn;
+actionIn = (actionIn === undefined) ? "" : actionIn;
+userIn = (userIn === undefined) ? "" : userIn;
+messageIn = (messageIn === undefined) ? "" : messageIn;
+exceptionMessageIn = (exceptionMessageIn === undefined) ? "" : exceptionMessageIn;
+return controller.executeActionInsideJSNode(PL_MT_ExceptionHandling_BLController.default.logException$Action.bind(controller, exceptionTypeIdIn, OS.DataConversion.JSNodeParamConverter.from(exceptionSubTypeNameIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(requestKeyIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(moduleIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(screenIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(actionIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(userIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(messageIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(exceptionMessageIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Return_Key: OS.DataConversion.JSNodeParamConverter.to(actionResults.return_KeyOut, OS.Types.Text)
+};
+});
+};
+});
+define("PL_MT_ExceptionHandling_BL.controller$LogException.GetAppKeyJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var context = $public.ApplicationContext.getCurrentContext();
+$parameters.AppKey = context.applicationKey;
+};
+});
+define("PL_MT_ExceptionHandling_BL.controller$LogException.CheckIsDeviceOnlineJSJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.IsOnline = navigator.onLine
+};
+});
+
+define("PL_MT_ExceptionHandling_BL.controller$MT_ExceptionHandlingJson_SA", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.controller", "PL_MT_ExceptionHandling_BL.controller$ServerAction.MT_ExceptionHandlingJson_SA"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel, PL_MT_ExceptionHandling_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_ExceptionHandling_BLController.default.mT_ExceptionHandlingJson_SA$Action = function (logJsonIn, keyIn, appKeyIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.MT_ExceptionHandlingJson_SA$vars"))());
+vars.value.logJsonInLocal = logJsonIn;
+vars.value.keyInLocal = keyIn;
+vars.value.appKeyInLocal = appKeyIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var mT_ExceptionHandlingJson_SAVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.MT_ExceptionHandlingJson_SA$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: MT_ExceptionHandlingJson_SA
+return controller.mT_ExceptionHandlingJson_SA$ServerAction(OS.BuiltinFunctions.replace(vars.value.logJsonInLocal, "|", "-"), vars.value.keyInLocal, vars.value.appKeyInLocal, callContext).then(function (value) {
+mT_ExceptionHandlingJson_SAVar.value = value;
+}).then(function () {
+// NewToken = MT_ExceptionHandlingJson_SA.NewToken
+outVars.value.newTokenOut = mT_ExceptionHandlingJson_SAVar.value.newTokenOut;
+// Success = True
+outVars.value.successOut = true;
+});
+}).catch(function (ex) {
+OS.Logger.trace("MT_ExceptionHandlingJson_SA.MT_ExceptionHandlingJson_SA", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+// Success = False
+outVars.value.successOut = false;
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ExceptionHandling_BLController.default;
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.MT_ExceptionHandlingJson_SA$vars", [{
+name: "LogJson",
+attrName: "logJsonInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Key",
+attrName: "keyInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "AppKey",
+attrName: "appKeyInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.MT_ExceptionHandlingJson_SA$outVars", [{
+name: "NewToken",
+attrName: "newTokenOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.clientActionProxies.mT_ExceptionHandlingJson_SA$Action = function (logJsonIn, keyIn, appKeyIn) {
+logJsonIn = (logJsonIn === undefined) ? "" : logJsonIn;
+keyIn = (keyIn === undefined) ? "" : keyIn;
+appKeyIn = (appKeyIn === undefined) ? "" : appKeyIn;
+return controller.executeActionInsideJSNode(PL_MT_ExceptionHandling_BLController.default.mT_ExceptionHandlingJson_SA$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(logJsonIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(keyIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(appKeyIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+NewToken: OS.DataConversion.JSNodeParamConverter.to(actionResults.newTokenOut, OS.Types.Text),
+Success: OS.DataConversion.JSNodeParamConverter.to(actionResults.successOut, OS.Types.Boolean)
+};
+});
+};
+});
+
+define("PL_MT_ExceptionHandling_BL.controller$MT_GetToken", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.controller", "PL_MT_ExceptionHandling_BL.controller$ServerAction.MT_GetToken"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel, PL_MT_ExceptionHandling_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_ExceptionHandling_BLController.default.mT_GetToken$Action = function (appKeyIn, callContext) {
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.MT_GetToken$vars"))());
+vars.value.appKeyInLocal = appKeyIn;
+var allExceptionsVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.ErrorHandlerOutputType());
+var mT_GetTokenVar = new OS.DataTypes.VariableHolder();
+var outVars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL.MT_GetToken$outVars"))());
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: MT_GetToken
+return controller.mT_GetToken$ServerAction(vars.value.appKeyInLocal, callContext).then(function (value) {
+mT_GetTokenVar.value = value;
+}).then(function () {
+// Key = MT_GetToken.Key
+outVars.value.keyOut = mT_GetTokenVar.value.keyOut;
+});
+}).catch(function (ex) {
+OS.Logger.trace("MT_GetToken.MT_GetToken", OS.Exceptions.getMessage(ex), ex.name);
+// Handle Error: AllExceptions
+if(!(OS.Exceptions.isSystem(ex))) {
+OS.Logger.error(null, ex);
+allExceptionsVar.value.exceptionMessageAttr = OS.Exceptions.getMessage(ex);
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.returnAsync(outVars.value);
+
+});
+}
+
+throw ex;
+}).then(function () {
+return outVars.value;
+});
+};
+var controller = PL_MT_ExceptionHandling_BLController.default;
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.MT_GetToken$vars", [{
+name: "AppKey",
+attrName: "appKeyInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL.MT_GetToken$outVars", [{
+name: "Key",
+attrName: "keyOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+PL_MT_ExceptionHandling_BLController.default.clientActionProxies.mT_GetToken$Action = function (appKeyIn) {
+appKeyIn = (appKeyIn === undefined) ? "" : appKeyIn;
+return controller.executeActionInsideJSNode(PL_MT_ExceptionHandling_BLController.default.mT_GetToken$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(appKeyIn, OS.Types.Text)), OS.Controller.BaseViewController.activeScreen ? OS.Controller.BaseViewController.activeScreen.callContext() : undefined, function (actionResults) {
+return {
+Key: OS.DataConversion.JSNodeParamConverter.to(actionResults.keyOut, OS.Types.Text)
+};
+});
+};
+});
+
+define("PL_MT_ExceptionHandling_BL.controller$ServerAction.GetEnvironment", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.controller"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel, PL_MT_ExceptionHandling_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_ExceptionHandling_BLController.default.getEnvironment$ServerAction = function (callContext) {
+var controller = this.controller;
+return controller.callServerAction("GetEnvironment", "screenservices/PL_MT_ExceptionHandling_BL/ActionGetEnvironment", "MicaSMKFzFB8CTVfDROEXQ", {}, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL$rssespacepl_mt_utils_lib_ActionGetEnvironment"))();
+executeServerActionResult.environmentOut = OS.DataConversion.ServerDataConverter.from(outputs.Environment, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL$rssespacepl_mt_utils_lib_ActionGetEnvironment", [{
+name: "Environment",
+attrName: "environmentOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ExceptionHandling_BL.controller$ServerAction.MT_ExceptionHandlingJson_SA", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.controller"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel, PL_MT_ExceptionHandling_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_ExceptionHandling_BLController.default.mT_ExceptionHandlingJson_SA$ServerAction = function (logJsonIn, keyIn, appKeyIn, callContext) {
+var controller = this.controller;
+var inputs = {
+LogJson: OS.DataConversion.ServerDataConverter.to(logJsonIn, OS.Types.Text),
+Key: OS.DataConversion.ServerDataConverter.to(keyIn, OS.Types.Text),
+AppKey: OS.DataConversion.ServerDataConverter.to(appKeyIn, OS.Types.Text)
+};
+return controller.callServerAction("MT_ExceptionHandlingJson_SA", "screenservices/PL_MT_ExceptionHandling_BL/ServiceAPIMT_ExceptionHandlingJson_SA", "ilFH5CqMnIvMdgY81DXm5w", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL$ServiceAPIMT_ExceptionHandlingJson_SA"))();
+executeServerActionResult.successOut = OS.DataConversion.ServerDataConverter.from(outputs.Success, OS.Types.Boolean);
+executeServerActionResult.newTokenOut = OS.DataConversion.ServerDataConverter.from(outputs.NewToken, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL$ServiceAPIMT_ExceptionHandlingJson_SA", [{
+name: "Success",
+attrName: "successOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "NewToken",
+attrName: "newTokenOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ExceptionHandling_BL.controller$ServerAction.MT_GetToken", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model", "PL_MT_ExceptionHandling_BL.controller"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel, PL_MT_ExceptionHandling_BLController) {
+var OS = OutSystems.Internal;
+PL_MT_ExceptionHandling_BLController.default.mT_GetToken$ServerAction = function (appKeyIn, callContext) {
+var controller = this.controller;
+var inputs = {
+AppKey: OS.DataConversion.ServerDataConverter.to(appKeyIn, OS.Types.Text)
+};
+return controller.callServerAction("MT_GetToken", "screenservices/PL_MT_ExceptionHandling_BL/ServiceAPIMT_GetToken", "yJrW6MByagiV1FQ3F75NCw", inputs, controller.callContext(callContext), undefined, undefined, false).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("PL_MT_ExceptionHandling_BL$ServiceAPIMT_GetToken"))();
+executeServerActionResult.keyOut = OS.DataConversion.ServerDataConverter.from(outputs.Key, OS.Types.Text);
+return executeServerActionResult;
+});
+};
+PL_MT_ExceptionHandling_BLController.default.constructor.registerVariableGroupType("PL_MT_ExceptionHandling_BL$ServiceAPIMT_GetToken", [{
+name: "Key",
+attrName: "keyOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+});
+define("PL_MT_ExceptionHandling_BL.controller", ["exports", "OutSystems/ClientRuntime/Main", "PL_MT_ExceptionHandling_BL.model"], function (exports, OutSystems, PL_MT_ExceptionHandling_BLModel) {
+var OS = OutSystems.Internal;
+var PL_MT_ExceptionHandling_BLController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 10;
+Controller.prototype.getDefaultTimeout = function () {
+return PL_MT_ExceptionHandling_BLController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+PL_MT_ExceptionHandling_BLController.default = new Controller(null, "PL_MT_ExceptionHandling_BL");
+});

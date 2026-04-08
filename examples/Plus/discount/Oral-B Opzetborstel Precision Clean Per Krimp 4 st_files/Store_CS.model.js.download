@@ -1,0 +1,1150 @@
+﻿define("Store_CS.model$Variable_ChannelRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var Variable_ChannelRec = (function (_super) {
+__extends(Variable_ChannelRec, _super);
+function Variable_ChannelRec(defaults) {
+_super.apply(this, arguments);
+}
+Variable_ChannelRec.attributesToDeclare = function () {
+return [
+this.attr("WhereClause", "whereClauseAttr", "whereclause", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Variable_ChannelRec.fromStructure = function (str) {
+return new Variable_ChannelRec(new Variable_ChannelRec.RecordClass({
+whereClauseAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Variable_ChannelRec.init();
+return Variable_ChannelRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.Variable_ChannelRec = Variable_ChannelRec;
+
+});
+define("Store_CS.model$Store_ExploitationRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var Store_ExploitationRec = (function (_super) {
+__extends(Store_ExploitationRec, _super);
+function Store_ExploitationRec(defaults) {
+_super.apply(this, arguments);
+}
+Store_ExploitationRec.attributesToDeclare = function () {
+return [
+this.attr("SAPLocationId", "sAPLocationIdAttr", "SAPLocationId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("EffectiveDate", "effectiveDateAttr", "EffectiveDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Store_ExploitationRec.init();
+return Store_ExploitationRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.Store_ExploitationRec = Store_ExploitationRec;
+
+});
+define("Store_CS.model$ExpressNotificationTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var ExpressNotificationTypeRec = (function (_super) {
+__extends(ExpressNotificationTypeRec, _super);
+function ExpressNotificationTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+ExpressNotificationTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExpressNotificationTypeRec.init();
+return ExpressNotificationTypeRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.ExpressNotificationTypeRec = ExpressNotificationTypeRec;
+
+});
+define("Store_CS.model$PaymentMethodRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var PaymentMethodRec = (function (_super) {
+__extends(PaymentMethodRec, _super);
+function PaymentMethodRec(defaults) {
+_super.apply(this, arguments);
+}
+PaymentMethodRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SimpleLabel", "simpleLabelAttr", "SimpleLabel", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OrderCompletionText", "orderCompletionTextAttr", "OrderCompletionText", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Order", "orderAttr", "Order", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ShowInCOMS", "showInCOMSAttr", "ShowInCOMS", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ShowInECOP", "showInECOPAttr", "ShowInECOP", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+PaymentMethodRec.init();
+return PaymentMethodRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.PaymentMethodRec = PaymentMethodRec;
+
+});
+define("Store_CS.model$StorePaymentMethodRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StorePaymentMethodRec = (function (_super) {
+__extends(StorePaymentMethodRec, _super);
+function StorePaymentMethodRec(defaults) {
+_super.apply(this, arguments);
+}
+StorePaymentMethodRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PaymentMethodId", "paymentMethodIdAttr", "PaymentMethodId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsActive", "isActiveAttr", "IsActive", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StorePaymentMethodRec.init();
+return StorePaymentMethodRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StorePaymentMethodRec = StorePaymentMethodRec;
+
+});
+define("Store_CS.model$StoreRouteRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreRouteRec = (function (_super) {
+__extends(StoreRouteRec, _super);
+function StoreRouteRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreRouteRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("FinanceHierarchy_Level", "financeHierarchy_LevelAttr", "FinanceHierarchy_Level", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("RouteTypeId", "routeTypeIdAttr", "RouteTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("SequenceNumber", "sequenceNumberAttr", "SequenceNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("FinanceHierarchy_Reference", "financeHierarchy_ReferenceAttr", "FinanceHierarchy_Reference", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("FinanceHierarchy_Name", "financeHierarchy_NameAttr", "FinanceHierarchy_Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsActive", "isActiveAttr", "IsActive", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreRouteRec.init();
+return StoreRouteRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreRouteRec = StoreRouteRec;
+
+});
+define("Store_CS.model$ResultItemRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var ResultItemRec = (function (_super) {
+__extends(ResultItemRec, _super);
+function ResultItemRec(defaults) {
+_super.apply(this, arguments);
+}
+ResultItemRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "id", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Version", "versionAttr", "version", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ResultItemRec.init();
+return ResultItemRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.ResultItemRec = ResultItemRec;
+
+});
+define("Store_CS.model$ResultItemList", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "Store_CS.model$ResultItemRec"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var ResultItemList = (function (_super) {
+__extends(ResultItemList, _super);
+function ResultItemList(defaults) {
+_super.apply(this, arguments);
+}
+ResultItemList.itemType = Store_CSModel.ResultItemRec;
+return ResultItemList;
+})(OS.DataTypes.GenericRecordList);
+Store_CSModel.ResultItemList = ResultItemList;
+
+});
+define("Store_CS.model$ChannelRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "Store_CS.model$ResultItemList"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var ChannelRec = (function (_super) {
+__extends(ChannelRec, _super);
+function ChannelRec(defaults) {
+_super.apply(this, arguments);
+}
+ChannelRec.attributesToDeclare = function () {
+return [
+this.attr("Results", "resultsAttr", "results", false, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.ResultItemList());
+}, true, Store_CSModel.ResultItemList)
+].concat(_super.attributesToDeclare.call(this));
+};
+ChannelRec.fromStructure = function (str) {
+return new ChannelRec(new ChannelRec.RecordClass({
+resultsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ChannelRec.init();
+return ChannelRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.ChannelRec = ChannelRec;
+
+});
+define("Store_CS.model$DatumRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "Store_CS.model$ChannelRec"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var DatumRec = (function (_super) {
+__extends(DatumRec, _super);
+function DatumRec(defaults) {
+_super.apply(this, arguments);
+}
+DatumRec.attributesToDeclare = function () {
+return [
+this.attr("Channels", "channelsAttr", "channels", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.ChannelRec());
+}, true, Store_CSModel.ChannelRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+DatumRec.fromStructure = function (str) {
+return new DatumRec(new DatumRec.RecordClass({
+channelsAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+DatumRec.init();
+return DatumRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.DatumRec = DatumRec;
+
+});
+define("Store_CS.model$Channel_ResponseRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "Store_CS.model$DatumRec"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var Channel_ResponseRec = (function (_super) {
+__extends(Channel_ResponseRec, _super);
+function Channel_ResponseRec(defaults) {
+_super.apply(this, arguments);
+}
+Channel_ResponseRec.attributesToDeclare = function () {
+return [
+this.attr("Data", "dataAttr", "data", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.DatumRec());
+}, true, Store_CSModel.DatumRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+Channel_ResponseRec.fromStructure = function (str) {
+return new Channel_ResponseRec(new Channel_ResponseRec.RecordClass({
+dataAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+Channel_ResponseRec.init();
+return Channel_ResponseRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.Channel_ResponseRec = Channel_ResponseRec;
+
+});
+define("Store_CS.model$V1_Pickup_B2BRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var V1_Pickup_B2BRec = (function (_super) {
+__extends(V1_Pickup_B2BRec, _super);
+function V1_Pickup_B2BRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_Pickup_B2BRec.attributesToDeclare = function () {
+return [
+this.attr("AtStore", "atStoreAttr", "AtStore", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("BillOnAccount", "billOnAccountAttr", "SaleOnAccount", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("OneTimeAuthorization", "oneTimeAuthorizationAttr", "OneTimeDebit", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ContinuedAuthorization", "continuedAuthorizationAttr", "RecurringDebit", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_Pickup_B2BRec.init();
+return V1_Pickup_B2BRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.V1_Pickup_B2BRec = V1_Pickup_B2BRec;
+
+});
+define("Store_CS.model$RouteLevelRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var RouteLevelRec = (function (_super) {
+__extends(RouteLevelRec, _super);
+function RouteLevelRec(defaults) {
+_super.apply(this, arguments);
+}
+RouteLevelRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+RouteLevelRec.init();
+return RouteLevelRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.RouteLevelRec = RouteLevelRec;
+
+});
+define("Store_CS.model$StoreOpeningHourExceptionRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreOpeningHourExceptionRec = (function (_super) {
+__extends(StoreOpeningHourExceptionRec, _super);
+function StoreOpeningHourExceptionRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreOpeningHourExceptionRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Date", "dateAttr", "Date", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsOpen", "isOpenAttr", "IsOpen", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("OpenTime", "openTimeAttr", "OpenTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CloseTime", "closeTimeAttr", "CloseTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreOpeningHourExceptionRec.init();
+return StoreOpeningHourExceptionRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreOpeningHourExceptionRec = StoreOpeningHourExceptionRec;
+
+});
+define("Store_CS.model$ExpressNotificationTimeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var ExpressNotificationTimeRec = (function (_super) {
+__extends(ExpressNotificationTimeRec, _super);
+function ExpressNotificationTimeRec(defaults) {
+_super.apply(this, arguments);
+}
+ExpressNotificationTimeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ExpressNotificationTypeId", "expressNotificationTypeIdAttr", "ExpressNotificationTypeId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StartTime", "startTimeAttr", "StartTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndTime", "endTimeAttr", "EndTime", true, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExpressNotificationTimeRec.init();
+return ExpressNotificationTimeRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.ExpressNotificationTimeRec = ExpressNotificationTimeRec;
+
+});
+define("Store_CS.model$StoreRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreRec = (function (_super) {
+__extends(StoreRec, _super);
+function StoreRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreNumber", "storeNumberAttr", "StoreNumber", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("StoreName", "storeNameAttr", "StoreName", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExternalStoreId", "externalStoreIdAttr", "ExternalStoreId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExternalChannelId", "externalChannelIdAttr", "ExternalChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ShowOnline", "showOnlineAttr", "ShowOnline", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("Email", "emailAttr", "Email", false, false, OS.Types.Email, function () {
+return "";
+}, true), 
+this.attr("Phone", "phoneAttr", "Phone", false, false, OS.Types.PhoneNumber, function () {
+return "";
+}, true), 
+this.attr("IsActive", "isActiveAttr", "IsActive", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("StartDate", "startDateAttr", "StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDate", "endDateAttr", "EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("ERPsystem", "eRPsystemAttr", "ERPsystem", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FutureERPSystem", "futureERPSystemAttr", "FutureERPSystem", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("FutureERPEffectiveDate", "futureERPEffectiveDateAttr", "FutureERPEffectiveDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("SAPLocationID", "sAPLocationIDAttr", "SAPLocationID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreRec.init();
+return StoreRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreRec = StoreRec;
+
+});
+define("Store_CS.model$StoreAddressRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreAddressRec = (function (_super) {
+__extends(StoreAddressRec, _super);
+function StoreAddressRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreAddressRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreAddressTypeId", "storeAddressTypeIdAttr", "StoreAddressTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Street", "streetAttr", "Street", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("HouseNumber", "houseNumberAttr", "HouseNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ZipCode", "zipCodeAttr", "ZipCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("City", "cityAttr", "City", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CountryAddressId", "countryAddressIdAttr", "CountryAddressId", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Longitude", "longitudeAttr", "Longitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("Latitude", "latitudeAttr", "Latitude", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreAddressRec.init();
+return StoreAddressRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreAddressRec = StoreAddressRec;
+
+});
+define("Store_CS.model$StoreSettingRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreSettingRec = (function (_super) {
+__extends(StoreSettingRec, _super);
+function StoreSettingRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreSettingRec.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StartDateDelivery", "startDateDeliveryAttr", "StartDateDelivery", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("StartDatePickUp", "startDatePickUpAttr", "StartDatePickUp", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDateDelivery", "endDateDeliveryAttr", "EndDateDelivery", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDatePickUp", "endDatePickUpAttr", "EndDatePickUp", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("HasDelivery", "hasDeliveryAttr", "HasDelivery", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("HasPickUp", "hasPickUpAttr", "HasPickUp", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("HasOrderExpressDelivery", "hasOrderExpressDeliveryAttr", "HasOrderExpressDelivery", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsStoreEmailActive", "isStoreEmailActiveAttr", "IsStoreEmailActive", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsEntrepreneurEmailActive", "isEntrepreneurEmailActiveAttr", "IsEntrepreneurEmailActive", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("HasFreeEmail", "hasFreeEmailAttr", "HasFreeEmail", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("DeliveryCostSetId", "deliveryCostSetIdAttr", "DeliveryCostSetId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("EcoDeliveryCostSetId", "ecoDeliveryCostSetIdAttr", "EcoDeliveryCostSetId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreSettingRec.init();
+return StoreSettingRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreSettingRec = StoreSettingRec;
+
+});
+define("Store_CS.model$StoreExtendedDataObjectRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "Store_CS.model$StoreRec", "Store_CS.model$StoreAddressRec", "Store_CS.model$StoreSettingRec"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreExtendedDataObjectRec = (function (_super) {
+__extends(StoreExtendedDataObjectRec, _super);
+function StoreExtendedDataObjectRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreExtendedDataObjectRec.attributesToDeclare = function () {
+return [
+this.attr("Store", "storeAttr", "Store", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.StoreRec());
+}, true, Store_CSModel.StoreRec), 
+this.attr("StoreAddress", "storeAddressAttr", "StoreAddress", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.StoreAddressRec());
+}, true, Store_CSModel.StoreAddressRec), 
+this.attr("StoreSetting", "storeSettingAttr", "StoreSetting", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.StoreSettingRec());
+}, true, Store_CSModel.StoreSettingRec), 
+this.attr("StoreSlug", "storeSlugAttr", "StoreSlug", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreExtendedDataObjectRec.init();
+return StoreExtendedDataObjectRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreExtendedDataObjectRec = StoreExtendedDataObjectRec;
+
+});
+define("Store_CS.model$V1_Pickup_B2CRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var V1_Pickup_B2CRec = (function (_super) {
+__extends(V1_Pickup_B2CRec, _super);
+function V1_Pickup_B2CRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_Pickup_B2CRec.attributesToDeclare = function () {
+return [
+this.attr("AtStore", "atStoreAttr", "AtStore", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_Pickup_B2CRec.fromStructure = function (str) {
+return new V1_Pickup_B2CRec(new V1_Pickup_B2CRec.RecordClass({
+atStoreAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+V1_Pickup_B2CRec.init();
+return V1_Pickup_B2CRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.V1_Pickup_B2CRec = V1_Pickup_B2CRec;
+
+});
+define("Store_CS.model$StoreOpeningHourRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreOpeningHourRec = (function (_super) {
+__extends(StoreOpeningHourRec, _super);
+function StoreOpeningHourRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreOpeningHourRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("WeekdayId", "weekdayIdAttr", "WeekdayId", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("OpenTime", "openTimeAttr", "OpenTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CloseTime", "closeTimeAttr", "CloseTime", false, false, OS.Types.Time, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsStoreOpened", "isStoreOpenedAttr", "IsStoreOpened", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", true, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreOpeningHourRec.init();
+return StoreOpeningHourRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreOpeningHourRec = StoreOpeningHourRec;
+
+});
+define("Store_CS.model$V1_PaymentMethods_PickUpRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "Store_CS.model$V1_Pickup_B2CRec", "Store_CS.model$V1_Pickup_B2BRec"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var V1_PaymentMethods_PickUpRec = (function (_super) {
+__extends(V1_PaymentMethods_PickUpRec, _super);
+function V1_PaymentMethods_PickUpRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_PaymentMethods_PickUpRec.attributesToDeclare = function () {
+return [
+this.attr("B2C", "b2CAttr", "B2C", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.V1_Pickup_B2CRec());
+}, true, Store_CSModel.V1_Pickup_B2CRec), 
+this.attr("B2B", "b2BAttr", "B2B", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.V1_Pickup_B2BRec());
+}, true, Store_CSModel.V1_Pickup_B2BRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_PaymentMethods_PickUpRec.init();
+return V1_PaymentMethods_PickUpRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.V1_PaymentMethods_PickUpRec = V1_PaymentMethods_PickUpRec;
+
+});
+define("Store_CS.model$RouteTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var RouteTypeRec = (function (_super) {
+__extends(RouteTypeRec, _super);
+function RouteTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+RouteTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Label", "labelAttr", "Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+RouteTypeRec.init();
+return RouteTypeRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.RouteTypeRec = RouteTypeRec;
+
+});
+define("Store_CS.model$Store_RouteSequenceRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var Store_RouteSequenceRec = (function (_super) {
+__extends(Store_RouteSequenceRec, _super);
+function Store_RouteSequenceRec(defaults) {
+_super.apply(this, arguments);
+}
+Store_RouteSequenceRec.attributesToDeclare = function () {
+return [
+this.attr("Sequence", "sequenceAttr", "Sequence", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Reference", "referenceAttr", "Reference", false, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Store_RouteSequenceRec.init();
+return Store_RouteSequenceRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.Store_RouteSequenceRec = Store_RouteSequenceRec;
+
+});
+define("Store_CS.model$V1_Delivery_B2CRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var V1_Delivery_B2CRec = (function (_super) {
+__extends(V1_Delivery_B2CRec, _super);
+function V1_Delivery_B2CRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_Delivery_B2CRec.attributesToDeclare = function () {
+return [
+this.attr("PinPayment", "pinPaymentAttr", "PIN", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_Delivery_B2CRec.fromStructure = function (str) {
+return new V1_Delivery_B2CRec(new V1_Delivery_B2CRec.RecordClass({
+pinPaymentAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+V1_Delivery_B2CRec.init();
+return V1_Delivery_B2CRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.V1_Delivery_B2CRec = V1_Delivery_B2CRec;
+
+});
+define("Store_CS.model$Store_ServicesRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var Store_ServicesRec = (function (_super) {
+__extends(Store_ServicesRec, _super);
+function Store_ServicesRec(defaults) {
+_super.apply(this, arguments);
+}
+Store_ServicesRec.attributesToDeclare = function () {
+return [
+this.attr("ShortZipCode", "shortZipCodeAttr", "ShortZipCode", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsDeliveryEnabled", "isDeliveryEnabledAttr", "IsDeliveryEnabled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("DeliveryStartDate", "deliveryStartDateAttr", "DeliveryStartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("DeliveryEndDate", "deliveryEndDateAttr", "DeliveryEndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("IsPickUpEnabled", "isPickUpEnabledAttr", "IsPickUpEnabled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PickUpStartDate", "pickUpStartDateAttr", "PickUpStartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("PickUpEndDate", "pickUpEndDateAttr", "PickUpEndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Store_ServicesRec.init();
+return Store_ServicesRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.Store_ServicesRec = Store_ServicesRec;
+
+});
+define("Store_CS.model$Store_OtherPaymentMethodRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var Store_OtherPaymentMethodRec = (function (_super) {
+__extends(Store_OtherPaymentMethodRec, _super);
+function Store_OtherPaymentMethodRec(defaults) {
+_super.apply(this, arguments);
+}
+Store_OtherPaymentMethodRec.attributesToDeclare = function () {
+return [
+this.attr("StorePaymentMethodId", "storePaymentMethodIdAttr", "StorePaymentMethodId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("PaymentMethod_Id", "paymentMethod_IdAttr", "PaymentMethod_Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PaymentMethod_Label", "paymentMethod_LabelAttr", "PaymentMethod_Label", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PaymentMethod_IsActive", "paymentMethod_IsActiveAttr", "PaymentMethod_IsActive", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PaymentMethod_Description", "paymentMethod_DescriptionAttr", "PaymentMethod_Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Store_OtherPaymentMethodRec.init();
+return Store_OtherPaymentMethodRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.Store_OtherPaymentMethodRec = Store_OtherPaymentMethodRec;
+
+});
+define("Store_CS.model$StoreAddressTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreAddressTypeRec = (function (_super) {
+__extends(StoreAddressTypeRec, _super);
+function StoreAddressTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreAddressTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreAddressTypeRec.init();
+return StoreAddressTypeRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreAddressTypeRec = StoreAddressTypeRec;
+
+});
+define("Store_CS.model$Store_OpeningHoursRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var Store_OpeningHoursRec = (function (_super) {
+__extends(Store_OpeningHoursRec, _super);
+function Store_OpeningHoursRec(defaults) {
+_super.apply(this, arguments);
+}
+Store_OpeningHoursRec.attributesToDeclare = function () {
+return [
+this.attr("Date", "dateAttr", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("WeekdayName", "weekdayNameAttr", "WeekdayName", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("OpenTime", "openTimeAttr", "OpenTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CloseTime", "closeTimeAttr", "CloseTime", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsStoreOpened", "isStoreOpenedAttr", "IsStoreOpened", true, false, OS.Types.Boolean, function () {
+return true;
+}, true), 
+this.attr("Order", "orderAttr", "Order", true, false, OS.Types.Integer, function () {
+return 0;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Store_OpeningHoursRec.init();
+return Store_OpeningHoursRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.Store_OpeningHoursRec = Store_OpeningHoursRec;
+
+});
+define("Store_CS.model$V1_StoreSummary_APIRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var V1_StoreSummary_APIRec = (function (_super) {
+__extends(V1_StoreSummary_APIRec, _super);
+function V1_StoreSummary_APIRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_StoreSummary_APIRec.attributesToDeclare = function () {
+return [
+this.attr("StoreName", "storeNameAttr", "StoreName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("TodayOpeningHours", "todayOpeningHoursAttr", "TodayOpeningHours", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PhoneNumber", "phoneNumberAttr", "PhoneNumber", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_StoreSummary_APIRec.init();
+return V1_StoreSummary_APIRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.V1_StoreSummary_APIRec = V1_StoreSummary_APIRec;
+
+});
+define("Store_CS.model$V1_Delivery_B2BRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var V1_Delivery_B2BRec = (function (_super) {
+__extends(V1_Delivery_B2BRec, _super);
+function V1_Delivery_B2BRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_Delivery_B2BRec.attributesToDeclare = function () {
+return [
+this.attr("PinPayment", "pinPaymentAttr", "PIN", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("BillOnAccount", "billOnAccountAttr", "SaleOnAccount", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("OneTimeAuthorization", "oneTimeAuthorizationAttr", "OneTimeDebit", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("ContinuedAuthorization", "continuedAuthorizationAttr", "RecurringDebit", false, false, OS.Types.Boolean, function () {
+return false;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_Delivery_B2BRec.init();
+return V1_Delivery_B2BRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.V1_Delivery_B2BRec = V1_Delivery_B2BRec;
+
+});
+define("Store_CS.model$V1_PaymentMethods_DeliveryRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "Store_CS.model$V1_Delivery_B2CRec", "Store_CS.model$V1_Delivery_B2BRec"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var V1_PaymentMethods_DeliveryRec = (function (_super) {
+__extends(V1_PaymentMethods_DeliveryRec, _super);
+function V1_PaymentMethods_DeliveryRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_PaymentMethods_DeliveryRec.attributesToDeclare = function () {
+return [
+this.attr("B2C", "b2CAttr", "B2C", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.V1_Delivery_B2CRec());
+}, true, Store_CSModel.V1_Delivery_B2CRec), 
+this.attr("B2B", "b2BAttr", "B2B", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.V1_Delivery_B2BRec());
+}, true, Store_CSModel.V1_Delivery_B2BRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_PaymentMethods_DeliveryRec.init();
+return V1_PaymentMethods_DeliveryRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.V1_PaymentMethods_DeliveryRec = V1_PaymentMethods_DeliveryRec;
+
+});
+define("Store_CS.model$V1_StorePaymentMethods_APIRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model", "Store_CS.model$V1_PaymentMethods_PickUpRec", "Store_CS.model$V1_PaymentMethods_DeliveryRec"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var V1_StorePaymentMethods_APIRec = (function (_super) {
+__extends(V1_StorePaymentMethods_APIRec, _super);
+function V1_StorePaymentMethods_APIRec(defaults) {
+_super.apply(this, arguments);
+}
+V1_StorePaymentMethods_APIRec.attributesToDeclare = function () {
+return [
+this.attr("StoreNumber", "storeNumberAttr", "StoreNumber", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("PickUp", "pickUpAttr", "PickUp", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.V1_PaymentMethods_PickUpRec());
+}, true, Store_CSModel.V1_PaymentMethods_PickUpRec), 
+this.attr("Delivery", "deliveryAttr", "Delivery", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_CSModel.V1_PaymentMethods_DeliveryRec());
+}, true, Store_CSModel.V1_PaymentMethods_DeliveryRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+V1_StorePaymentMethods_APIRec.init();
+return V1_StorePaymentMethods_APIRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.V1_StorePaymentMethods_APIRec = V1_StorePaymentMethods_APIRec;
+
+});
+define("Store_CS.model$Store_GeneralInfoRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var Store_GeneralInfoRec = (function (_super) {
+__extends(Store_GeneralInfoRec, _super);
+function Store_GeneralInfoRec(defaults) {
+_super.apply(this, arguments);
+}
+Store_GeneralInfoRec.attributesToDeclare = function () {
+return [
+this.attr("Store_Number", "store_NumberAttr", "Store_Number", true, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Store_Name", "store_NameAttr", "Store_Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Store_ShowOnline", "store_ShowOnlineAttr", "Store_ShowOnline", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Sote_IsActive", "sote_IsActiveAttr", "Sote_IsActive", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("Store_ExternalChannelId", "store_ExternalChannelIdAttr", "Store_ExternalChannelId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Store_PhoneNumber", "store_PhoneNumberAttr", "Store_PhoneNumber", false, false, OS.Types.PhoneNumber, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Store_GeneralInfoRec.init();
+return Store_GeneralInfoRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.Store_GeneralInfoRec = Store_GeneralInfoRec;
+
+});
+define("Store_CS.model$StoreExploitationRec", ["exports", "OutSystems/ClientRuntime/Main", "Store_CS.model"], function (exports, OutSystems, Store_CSModel) {
+var OS = OutSystems.Internal;
+var StoreExploitationRec = (function (_super) {
+__extends(StoreExploitationRec, _super);
+function StoreExploitationRec(defaults) {
+_super.apply(this, arguments);
+}
+StoreExploitationRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("StoreId", "storeIdAttr", "StoreId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("SAPLocationID", "sAPLocationIDAttr", "SAPLocationID", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("EffectiveDate", "effectiveDateAttr", "EffectiveDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+StoreExploitationRec.init();
+return StoreExploitationRec;
+})(OS.DataTypes.GenericRecord);
+Store_CSModel.StoreExploitationRec = StoreExploitationRec;
+
+});
+define("Store_CS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var Store_CSModel = exports;
+});

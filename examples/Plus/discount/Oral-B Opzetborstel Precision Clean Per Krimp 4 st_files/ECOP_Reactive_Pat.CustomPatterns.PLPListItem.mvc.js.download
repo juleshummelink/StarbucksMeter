@@ -1,0 +1,972 @@
+﻿define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_ReleaseTogglesReactive.controller", "PLUS_OutSystemsUI_2_8_0.Content.ListItemContent.mvc$model", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_ReleaseTogglesReactiveController, PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("TimeoutId", "timeoutIdVar", "TimeoutId", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("IsShowSlider", "isShowSliderVar", "IsShowSlider", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsItemRemoved", "isItemRemovedVar", "IsItemRemoved", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsTouch", "isTouchVar", "IsTouch", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("TimeToShowSliderActive", "timeToShowSliderActiveIn", "TimeToShowSliderActive", true, false, OS.Types.Integer, function () {
+return 2000;
+}, false), 
+this.attr("_timeToShowSliderActiveInDataFetchStatus", "_timeToShowSliderActiveInDataFetchStatus", "_timeToShowSliderActiveInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("DisableSlider", "disableSliderIn", "DisableSlider", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_disableSliderInDataFetchStatus", "_disableSliderInDataFetchStatus", "_disableSliderInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("HasBorderTop", "hasBorderTopIn", "HasBorderTop", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_hasBorderTopInDataFetchStatus", "_hasBorderTopInDataFetchStatus", "_hasBorderTopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("HasBorderBottom", "hasBorderBottomIn", "HasBorderBottom", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_hasBorderBottomInDataFetchStatus", "_hasBorderBottomInDataFetchStatus", "_hasBorderBottomInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CenterCTAButton", "centerCTAButtonIn", "CenterCTAButton", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_centerCTAButtonInDataFetchStatus", "_centerCTAButtonInDataFetchStatus", "_centerCTAButtonInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ForceRowMode", "forceRowModeIn", "ForceRowMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_forceRowModeInDataFetchStatus", "_forceRowModeInDataFetchStatus", "_forceRowModeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsExpandedTile", "isExpandedTileIn", "IsExpandedTile", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isExpandedTileInDataFetchStatus", "_isExpandedTileInDataFetchStatus", "_isExpandedTileInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsAddEnabled", "isAddEnabledIn", "IsAddEnabled", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_isAddEnabledInDataFetchStatus", "_isAddEnabledInDataFetchStatus", "_isAddEnabledInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsSponsored", "isSponsoredIn", "IsSponsored", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isSponsoredInDataFetchStatus", "_isSponsoredInDataFetchStatus", "_isSponsoredInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsLocalItem", "isLocalItemIn", "IsLocalItem", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isLocalItemInDataFetchStatus", "_isLocalItemInDataFetchStatus", "_isLocalItemInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvcModel.hasValidationWidgets;
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+if("TimeToShowSliderActive" in inputs) {
+this.variables.timeToShowSliderActiveIn = inputs.TimeToShowSliderActive;
+if("_timeToShowSliderActiveInDataFetchStatus" in inputs) {
+this.variables._timeToShowSliderActiveInDataFetchStatus = inputs._timeToShowSliderActiveInDataFetchStatus;
+}
+
+}
+
+if("DisableSlider" in inputs) {
+this.variables.disableSliderIn = inputs.DisableSlider;
+if("_disableSliderInDataFetchStatus" in inputs) {
+this.variables._disableSliderInDataFetchStatus = inputs._disableSliderInDataFetchStatus;
+}
+
+}
+
+if("HasBorderTop" in inputs) {
+this.variables.hasBorderTopIn = inputs.HasBorderTop;
+if("_hasBorderTopInDataFetchStatus" in inputs) {
+this.variables._hasBorderTopInDataFetchStatus = inputs._hasBorderTopInDataFetchStatus;
+}
+
+}
+
+if("HasBorderBottom" in inputs) {
+this.variables.hasBorderBottomIn = inputs.HasBorderBottom;
+if("_hasBorderBottomInDataFetchStatus" in inputs) {
+this.variables._hasBorderBottomInDataFetchStatus = inputs._hasBorderBottomInDataFetchStatus;
+}
+
+}
+
+if("CenterCTAButton" in inputs) {
+this.variables.centerCTAButtonIn = inputs.CenterCTAButton;
+if("_centerCTAButtonInDataFetchStatus" in inputs) {
+this.variables._centerCTAButtonInDataFetchStatus = inputs._centerCTAButtonInDataFetchStatus;
+}
+
+}
+
+if("ForceRowMode" in inputs) {
+this.variables.forceRowModeIn = inputs.ForceRowMode;
+if("_forceRowModeInDataFetchStatus" in inputs) {
+this.variables._forceRowModeInDataFetchStatus = inputs._forceRowModeInDataFetchStatus;
+}
+
+}
+
+if("IsExpandedTile" in inputs) {
+this.variables.isExpandedTileIn = inputs.IsExpandedTile;
+if("_isExpandedTileInDataFetchStatus" in inputs) {
+this.variables._isExpandedTileInDataFetchStatus = inputs._isExpandedTileInDataFetchStatus;
+}
+
+}
+
+if("IsAddEnabled" in inputs) {
+this.variables.isAddEnabledIn = inputs.IsAddEnabled;
+if("_isAddEnabledInDataFetchStatus" in inputs) {
+this.variables._isAddEnabledInDataFetchStatus = inputs._isAddEnabledInDataFetchStatus;
+}
+
+}
+
+if("IsSponsored" in inputs) {
+this.variables.isSponsoredIn = inputs.IsSponsored;
+if("_isSponsoredInDataFetchStatus" in inputs) {
+this.variables._isSponsoredInDataFetchStatus = inputs._isSponsoredInDataFetchStatus;
+}
+
+}
+
+if("IsLocalItem" in inputs) {
+this.variables.isLocalItemIn = inputs.IsLocalItem;
+if("_isLocalItemInDataFetchStatus" in inputs) {
+this.variables._isLocalItemInDataFetchStatus = inputs._isLocalItemInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.PLPListItem");
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_ReleaseTogglesReactive.controller", "react", "OutSystems/ReactView/Main", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller", "OutSystems/ReactWidgets/Main", "PLUS_OutSystemsUI_2_8_0.Content.ListItemContent.mvc$view", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_ReleaseTogglesReactiveController, React, OSView, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_model, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller, OSWidgets, PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.PLPListItem";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.ListItem, {
+extendedEvents: {
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_CartListItem$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+style: model.getCachedValue(idService.getId("CartListItem.Style"), function () {
+return (((((((("list-item cart-item-wrapper plp-item-wrapper" + ((model.variables.hasBorderTopIn) ? (" item-border-top") : (""))) + ((model.variables.hasBorderBottomIn) ? (" item-border-bottom") : (""))) + ((!(model.variables.isItemRemovedVar)) ? ("") : (" item-removed"))) + ((model.variables.centerCTAButtonIn) ? ("") : (" cta-align-bottom"))) + ((model.variables.forceRowModeIn) ? (" plp-item-row-mode") : (""))) + ((model.variables.isExpandedTileIn) ? (" expanded-product-tile") : (""))) + ((model.variables.isSponsoredIn) ? (" sponsored-product") : (""))) + ((((model.variables.extendedClassIn) !== (""))) ? ((" " + model.variables.extendedClassIn)) : ("")));
+}, function () {
+return model.variables.hasBorderTopIn;
+}, function () {
+return model.variables.hasBorderBottomIn;
+}, function () {
+return model.variables.isItemRemovedVar;
+}, function () {
+return model.variables.centerCTAButtonIn;
+}, function () {
+return model.variables.forceRowModeIn;
+}, function () {
+return model.variables.isExpandedTileIn;
+}, function () {
+return model.variables.isSponsoredIn;
+}, function () {
+return model.variables.extendedClassIn;
+}),
+triggerActionOnFullSwipeLeft: true,
+triggerActionOnFullSwipeRight: true,
+_idProps: {
+service: idService,
+name: "CartListItem"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._hasBorderTopInDataFetchStatus, model.variables._hasBorderBottomInDataFetchStatus, model.variables._centerCTAButtonInDataFetchStatus, model.variables._forceRowModeInDataFetchStatus, model.variables._isExpandedTileInDataFetchStatus, model.variables._isSponsoredInDataFetchStatus, model.variables._extendedClassInDataFetchStatus),
+placeholders: {
+leftActions: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-item-image-container",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.logo,
+style: "ph plp-image-logo",
+_idProps: {
+service: idService,
+name: "Logo"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.image,
+style: "plp-item-image",
+_idProps: {
+service: idService,
+name: "Image"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.complementaryTop,
+style: "ph plp-item-complementary-top",
+_idProps: {
+service: idService,
+name: "ComplementaryTop"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.name,
+style: "ph plp-item-name",
+_idProps: {
+service: idService,
+name: "Name"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.complementary,
+style: "ph plp-item-complementary",
+_idProps: {
+service: idService,
+name: "Complementary"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-item-price",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.priceInteger,
+style: "font-bold product-header-price-integer",
+_idProps: {
+service: idService,
+name: "PriceInteger"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.priceDecimals,
+style: "font-black product-header-price-decimals",
+_idProps: {
+service: idService,
+name: "PriceDecimals"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.pricePrevious,
+style: "ph product-header-price-previous",
+_idProps: {
+service: idService,
+name: "PricePrevious"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+right: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "cart-item-wrapper-action__link",
+visible: true,
+_idProps: {
+service: idService,
+name: "AddQuantityDiv"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.quantity,
+style: "plp-item-quantity",
+_idProps: {
+service: idService,
+name: "Quantity"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+}
+}), $if(model.variables.isSponsoredIn, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "sponsored-label__wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("xPLQe4SSWEaRGG3S3UxWfA#Value", "Advertisement")))];
+}, function () {
+return [$if((model.variables.isLocalItemIn && ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOP_Reactive_PatModel.staticEntities.releaseToggle.localAssortment, callContext).isEnabledOut), false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "local-assortment-label__wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("e87ckQYuCUeQwhsmaKU9_Q#Value", "Purchased by your PLUS")))];
+}, function () {
+return [];
+})];
+}), $if(model.variables.disableSliderIn, false, this, function () {
+return [];
+}, function () {
+return [React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.sliderContent,
+extendedEvents: {
+onTouchStart: function () {
+var eventHandlerContext = callContext.clone();
+controller.slider_TouchStart$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+onTouchEnd: function () {
+var eventHandlerContext = callContext.clone();
+controller.slider_TouchEnd$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+style: model.getCachedValue(idService.getId("SliderContent.Style"), function () {
+return ("slider-content" + ((model.variables.isShowSliderVar) ? (" show") : ("")));
+}, function () {
+return model.variables.isShowSliderVar;
+}),
+_idProps: {
+service: idService,
+name: "SliderContent"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})];
+}),
+rightActions: PlaceholderContent.Empty
+}
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_ReleaseTogglesReactive.controller", "ECOP_Reactive_Pat.languageResources", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$translationsResources", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.ResetHideTimeout.ResetTimeoutJS", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.Slider_TouchEnd.ResetTimeoutJS", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.QuantityOnClick.StopPropagationJS", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.OnDestroy.JavaScript1JS", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.OnDestroy.ClearTimeOutJS", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.OnReady.AddEventListenersJS", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.OnClick_CartListItem.IsDisabledJS", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP_Reactive_Pat.referencesHealth", "ECOP_Reactive_Pat.referencesHealth$ECOP_ReleaseTogglesReactive"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_ReleaseTogglesReactiveController, ECOP_Reactive_PatLanguageResources, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_TranslationsResources, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_ResetHideTimeout_ResetTimeoutJS, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_Slider_TouchEnd_ResetTimeoutJS, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_QuantityOnClick_StopPropagationJS, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_OnDestroy_JavaScript1JS, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_OnDestroy_ClearTimeOutJS, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_OnReady_AddEventListenersJS, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_OnClick_CartListItem_IsDisabledJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+toggleSlider$Action: function (isShowIn) {
+isShowIn = (isShowIn === undefined) ? false : isShowIn;
+return controller.executeActionInsideJSNode(controller._toggleSlider$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(isShowIn, OS.Types.Boolean)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ToggleSlider");
+},
+quantityOnClick$Action: function () {
+return controller.executeActionInsideJSNode(controller._quantityOnClick$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "QuantityOnClick");
+},
+resetHideTimeout$Action: function (isCounterClickIn) {
+isCounterClickIn = (isCounterClickIn === undefined) ? false : isCounterClickIn;
+return controller.executeActionInsideJSNode(controller._resetHideTimeout$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(isCounterClickIn, OS.Types.Boolean)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "ResetHideTimeout");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._resetHideTimeout$Action = function (isCounterClickIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ResetHideTimeout");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.ResetHideTimeout$vars"))());
+vars.value.isCounterClickInLocal = isCounterClickIn;
+var resetTimeoutJSResult = new OS.DataTypes.VariableHolder();
+// ValidTimout
+if(((((model.variables.timeoutIdVar) !== (0)) || vars.value.isCounterClickInLocal))) {
+resetTimeoutJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_ResetHideTimeout_ResetTimeoutJS, "ResetTimeout", "ResetHideTimeout", {
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(model.variables.timeoutIdVar, OS.Types.Integer),
+TimeToShowSliderActive: OS.DataConversion.JSNodeParamConverter.to(model.variables.timeToShowSliderActiveIn, OS.Types.Integer),
+NewTimeoutId: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.ResetHideTimeout$resetTimeoutJSResult"))();
+jsNodeResult.newTimeoutIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.NewTimeoutId, OS.Types.Integer);
+return jsNodeResult;
+}, {
+ToggleSlider: controller.clientActionProxies.toggleSlider$Action
+}, {});
+// TimeoutId = ResetTimeout.NewTimeoutId
+model.variables.timeoutIdVar = resetTimeoutJSResult.value.newTimeoutIdOut;
+}
+
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.ResetHideTimeout$vars", [{
+name: "IsCounterClick",
+attrName: "isCounterClickInLocal",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.ResetHideTimeout$resetTimeoutJSResult", [{
+name: "NewTimeoutId",
+attrName: "newTimeoutIdOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._slider_TouchEnd$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Slider_TouchEnd");
+callContext = controller.callContext(callContext);
+var resetTimeoutJSResult = new OS.DataTypes.VariableHolder();
+// IsTouch = False
+model.variables.isTouchVar = false;
+resetTimeoutJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_Slider_TouchEnd_ResetTimeoutJS, "ResetTimeout", "Slider_TouchEnd", {
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(model.variables.timeoutIdVar, OS.Types.Integer),
+TimeToShowSliderActive: OS.DataConversion.JSNodeParamConverter.to(model.variables.timeToShowSliderActiveIn, OS.Types.Integer),
+NewTimeoutId: OS.DataConversion.JSNodeParamConverter.to(0, OS.Types.Integer)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.Slider_TouchEnd$resetTimeoutJSResult"))();
+jsNodeResult.newTimeoutIdOut = OS.DataConversion.JSNodeParamConverter.from($parameters.NewTimeoutId, OS.Types.Integer);
+return jsNodeResult;
+}, {
+ToggleSlider: controller.clientActionProxies.toggleSlider$Action
+}, {});
+// TimeoutId = ResetTimeout.NewTimeoutId
+model.variables.timeoutIdVar = resetTimeoutJSResult.value.newTimeoutIdOut;
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.Slider_TouchEnd$resetTimeoutJSResult", [{
+name: "NewTimeoutId",
+attrName: "newTimeoutIdOut",
+mandatory: true,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+Controller.prototype._quantityOnClick$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("QuantityOnClick");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+if((!(model.variables.disableSliderIn))) {
+// Execute Action: ToggleSlider
+controller._toggleSlider$Action(true, callContext);
+// Execute Action: ResetHideTimeout
+controller._resetHideTimeout$Action(true, callContext);
+}
+
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_QuantityOnClick_StopPropagationJS, "StopPropagation", "QuantityOnClick", null, function ($parameters) {
+}, {}, {});
+// Trigger Event: QuantityClick
+return controller.quantityClick$Action(callContext);
+});
+};
+Controller.prototype._onDestroy$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnDestroy");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_OnDestroy_ClearTimeOutJS, "ClearTimeOut", "OnDestroy", {
+TimeoutId: OS.DataConversion.JSNodeParamConverter.to(model.variables.timeoutIdVar, OS.Types.Integer)
+}, function ($parameters) {
+}, {}, {});
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_OnDestroy_JavaScript1JS, "JavaScript1", "OnDestroy", {
+AddProductLink_Id: OS.DataConversion.JSNodeParamConverter.to(idService.getId("AddQuantityDiv"), OS.Types.Text)
+}, function ($parameters) {
+}, {
+QuantityOnClick: controller.clientActionProxies.quantityOnClick$Action
+}, {});
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+// IsShowSlider = False
+model.variables.isShowSliderVar = false;
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_OnReady_AddEventListenersJS, "AddEventListeners", "OnReady", {
+AddProductLink_Id: OS.DataConversion.JSNodeParamConverter.to(idService.getId("AddQuantityDiv"), OS.Types.Text),
+SliderId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("SliderContent"), OS.Types.Text)
+}, function ($parameters) {
+}, {
+ResetHideTimeout: controller.clientActionProxies.resetHideTimeout$Action,
+QuantityOnClick: controller.clientActionProxies.quantityOnClick$Action
+}, {});
+};
+Controller.prototype._onClick_CartListItem$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_CartListItem");
+callContext = controller.callContext(callContext);
+var isDisabledJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.isShowSliderVar))) {
+isDisabledJSResult.value = controller.safeExecuteJSNode(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_controller_OnClick_CartListItem_IsDisabledJS, "IsDisabled", "OnClick_CartListItem", {
+BlockId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("CartListItem"), OS.Types.Text),
+IsDisabled: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.OnClick_CartListItem$isDisabledJSResult"))();
+jsNodeResult.isDisabledOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsDisabled, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+return OS.Flow.executeSequence(function () {
+if((!(isDisabledJSResult.value.isDisabledOut))) {
+// Trigger Event: ProductClick
+return controller.productClick$Action(callContext);
+}
+
+});
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.OnClick_CartListItem$isDisabledJSResult", [{
+name: "IsDisabled",
+attrName: "isDisabledOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._toggleSlider$Action = function (isShowIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ToggleSlider");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.ToggleSlider$vars"))());
+vars.value.isShowInLocal = isShowIn;
+if((!(model.variables.isTouchVar))) {
+// IsShowSlider = IsShow
+model.variables.isShowSliderVar = vars.value.isShowInLocal;
+}
+
+};
+Controller.registerVariableGroupType("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.ToggleSlider$vars", [{
+name: "IsShow",
+attrName: "isShowInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._slider_TouchStart$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Slider_TouchStart");
+callContext = controller.callContext(callContext);
+// IsTouch = True
+model.variables.isTouchVar = true;
+};
+
+Controller.prototype.resetHideTimeout$Action = function (isCounterClickIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._resetHideTimeout$Action, callContext, isCounterClickIn);
+
+};
+Controller.prototype.slider_TouchEnd$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._slider_TouchEnd$Action, callContext);
+
+};
+Controller.prototype.quantityOnClick$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._quantityOnClick$Action, callContext);
+
+};
+Controller.prototype.onDestroy$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onDestroy$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.onClick_CartListItem$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_CartListItem$Action, callContext);
+
+};
+Controller.prototype.toggleSlider$Action = function (isShowIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toggleSlider$Action, callContext, isShowIn);
+
+};
+Controller.prototype.slider_TouchStart$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._slider_TouchStart$Action, callContext);
+
+};
+Controller.prototype.quantityClick$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.productClick$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onDestroy$Action(callContext);
+
+};
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Reactive_PatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Reactive_PatLanguageResources);
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.ResetHideTimeout.ResetTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+clearTimeout($parameters.TimeoutId);
+$parameters.NewTimeoutId = setTimeout(function(){
+     $actions.ToggleSlider(false); 
+},$parameters.TimeToShowSliderActive);
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.Slider_TouchEnd.ResetTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+clearTimeout($parameters.TimeoutId);
+$parameters.NewTimeoutId = setTimeout(function(){
+     $actions.ToggleSlider(false); 
+},$parameters.TimeToShowSliderActive);
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.QuantityOnClick.StopPropagationJS", [], function () {
+return function ($actions, $roles, $public) {
+window.event.stopImmediatePropagation();
+window.event.stopPropagation();
+window.event.preventDefault();
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.OnDestroy.JavaScript1JS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+let addProdEl = document.getElementById($parameters.AddProductLink_Id);
+if(addProdEl){
+    addProdEl.removeEventListener("click", $actions.QuantityOnClick);
+}
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.OnDestroy.ClearTimeOutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+clearTimeout($parameters.TimeoutId);
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.OnReady.AddEventListenersJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+let sliderContent = document.getElementById($parameters.SliderId);
+
+if(sliderContent) {
+    sliderContent.addEventListener('click', function(e){
+        $actions.ResetHideTimeout();
+        if(e.target.closest('.btn, a') === null || (e.target === sliderContent)){
+            e.stopPropagation();        
+        }
+    });
+
+    //Add Remove pattern middle column click 
+    let middleColumn = sliderContent.querySelector(".add-remove_middle-column");
+    if(middleColumn) {
+        middleColumn.addEventListener("click", function() {
+            $actions.ResetHideTimeout();
+        });
+    }
+}
+
+
+let addProdEl = document.getElementById($parameters.AddProductLink_Id);
+if(addProdEl){
+    addProdEl.addEventListener("click", $actions.QuantityOnClick);
+}
+
+
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$controller.OnClick_CartListItem.IsDisabledJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+let listItem = document.getElementById($parameters.BlockId);
+
+// Check if the list item element has a child element with the class "disable-link"
+$parameters.IsDisabled = listItem.classList.contains('disable-link')
+};
+});
+
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$translationsResources", ["exports", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$translationsResources.nl-NL"], function (exports, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$translationsResources.nl-NL", [], function () {
+return {
+"e87ckQYuCUeQwhsmaKU9_Q#Value": "Ingekocht door jouw PLUS",
+"xPLQe4SSWEaRGG3S3UxWfA#Value": "Advertentie"
+};
+});

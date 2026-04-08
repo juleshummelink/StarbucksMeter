@@ -1,0 +1,28 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[7358],{19871:(e,t,n)=>{"use strict";var o=n(8637),r=n(42145);let i="https://faro-collector-prod-eu-west-2.grafana.net/collect",s={tst:`${i}/45508a70985bb5e627f9154770a05623`,acc:`${i}/e996c37b769b1b39e0e8c929eb6edb6f`,prd:`${i}/4a12df41aca8bb2d8515ded5c146b7c1`},c=async e=>{try{o.P?.api||(({appName:e,appVersion:t,url:n,options:o={}})=>{let i=window.location.hostname;if(i.includes("localhost")||i.includes("127.0.0.1")||i.includes("local.ah."))return console.warn("Observability is disabled in local environment");let c=i.includes("acc")?"acc":"prd",l=i.includes("tst")?"tst":c,a=n||s[l];if(a)try{((e="consentBeta")=>{let t;return t=function(e="consentBeta"){let t=(e=>{if("u"<typeof document||!document.cookie)return null;let t=RegExp(`(^| )${e}=([^;]+)`),n=document.cookie.match(t);if(n){let e=n[2];try{return atob(e)}catch(e){return n[2]}}return null})(e);if(t)try{let e=decodeURIComponent(t);return JSON.parse(e)}catch(e){console.error("Error decoding or parsing the string:",e)}return null}(e),t?.consentStatus==="accepted"})()&&((0,r.pu)({app:{name:e,version:t},url:a,instrumentations:(0,r.wt)(),...o}),console.log("Observability initialization was successful"))}catch(e){console.error("Observability initialization failed",e)}})({appName:"ah-products",appVersion:"1.25.3",options:e})}catch{}};console.log(`
+\x1b[34m
+                            (((
+                        ((((((((((
+                    (((((((((((((((
+               (((((((((((((((((((((
+           (((((((((((((((((((((((((((
+       (((((((((((((((((((((((((((((((
+     (((((((((((((((((( ((((((((((((((((
+     (((((        (((   (((        (((((((
+    (((((    *(     (   (     (     (((((((
+   ((((((   (((((          (((((    ((((((((
+  (((((((   (((((((     ((((((((    ((((((((
+  (((((((   (((((((     ((((((((    ((((((((
+ ((((((((    ((((       ((((((((    ((((((((
+(((((((((           (   ((((((((    (((((((
+(((((((((((      .(((   ((((((((    ((((((
+ (((((((((((((((((((((((((((((((((((((((((
+         ((((((((((((((((((((((((((((((((
+                 (((((((((((((((((((((((
+                          (((((((((((((
+                                 (((
+\x1b[0m
+
+We're Albert Heijn, food retail reinventors. 🚀
+Apply now at https://werk.ah.nl/?utm_source=${window.location.host}&utm_medium=codelink&utm_campaign=easteregg
+
+        `),c()},90722:(e,t,n)=>{Promise.resolve().then(n.t.bind(n,10693,23)),Promise.resolve().then(n.t.bind(n,90746,23)),Promise.resolve().then(n.t.bind(n,33966,23)),Promise.resolve().then(n.t.bind(n,94643,23)),Promise.resolve().then(n.t.bind(n,15999,23)),Promise.resolve().then(n.t.bind(n,61955,23)),Promise.resolve().then(n.t.bind(n,37686,23)),Promise.resolve().then(n.bind(n,49203))}},e=>{var t=t=>e(e.s=t);e.O(0,[5142,4302],()=>(t(79883),t(90722))),_N_E=e.O()}]);

@@ -1,0 +1,45 @@
+﻿define("ECOP.languageResources", ["OutSystems/ClientRuntime/Main", "ECOP.languageResources.translationsResources"], function (OutSystems, ECOPLanguageResources_translationsResources) {
+var OS = OutSystems.Internal;
+var MessagesProvider = (function (_super) {
+__extends(MessagesProvider, _super);
+function MessagesProvider(translationResources) {
+_super.apply(this, arguments);
+this.setMessage("Validation.Mandatory", "Required field!");
+this.setMessage("Validation.Integer", "Integer expected!");
+this.setMessage("Validation.LongInteger", "Integer expected!");
+this.setMessage("Validation.Decimal", "Decimal expected!");
+this.setMessage("Validation.Currency", "Currency expected!");
+this.setMessage("Validation.Date", "Date expected!");
+this.setMessage("Validation.Time", "Time expected!");
+this.setMessage("Validation.DateTime", "DateTime expected!");
+this.setMessage("Validation.Text", "Text expected!");
+this.setMessage("Validation.PhoneNumber", "Phone Number expected!");
+this.setMessage("Validation.Email", "Email expected!");
+this.setMessage("UpgradeComplete", "");
+this.setMessage("AppInitError.Generic", "An error occurred while trying to update the app. If you want to retry the update, restart the app.");
+this.setMessage("AppInitError.Resources", "An error occurred while trying to update the app. If you want to retry the update, restart the app.");
+this.setMessage("AppInitError.DataModel", "An error occurred while trying to update the app. If you want to retry the update, restart the app. If the problem persists you can reinstall, but all local data will be lost.");
+this.setMessage("UpgradeRequired", "Your application needs to be updated. Click here to update.");
+this.setMessage("UpgradeRequiredDataLoss", "Your application needs to be updated. Unsaved data will be lost. Click here to update.");
+}
+return MessagesProvider;
+})(OS.LanguageResources.BaseMessagesProvider);
+return new MessagesProvider(ECOPLanguageResources_translationsResources);
+});
+define("ECOP.languageResources.translationsResources", ["exports", "ECOP.languageResources.translationsResources.nl-NL"], function (exports, ECOP_languageResources_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECOP_languageResources_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECOP.languageResources.translationsResources.nl-NL", [], function () {
+return {
+"AppInitError.Generic": "Er is een error opgetreden tijdens het updaten van de app, herstart de app.",
+"AppInitError.DataModel": "Er is iets fout gegaan met het automatisch updaten van de app. Herstart de app om opnieuw te proberen. Als dit niet lukt, verwijder de app en installeer hem opnieuw. We moeten dan wel je lokale data opnieuw ophalen.",
+"AppInitError.Resources": "Er is een error opgetreden tijdens het updaten van de app, herstart de app.",
+"UpgradeRequiredDataLoss": "Er staan verbeteringen klaar, klik hier om ze automatisch aan de app toe te voegen. Data die niet opgeslagen is zal verloren gaan.",
+"UpgradeRequired": "Er staan verbeteringen klaar, klik hier om ze automatisch aan de app toe te voegen."
+};
+});

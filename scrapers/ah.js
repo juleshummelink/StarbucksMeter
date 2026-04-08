@@ -5,6 +5,7 @@ const {
   originalPriceFromVanText,
   firstEuroPriceOnPage,
   diagnose,
+  parsePromo,
 } = require('./utils');
 
 async function scrape(page, url) {
@@ -103,6 +104,46 @@ async function scrape(page, url) {
 
   if (currentPrice === null) await diagnose(page, 'AH');
 
+  // Detect multi-buy promotions (1+1 gratis, 2 voor X)
+  const promoText = await page.evaluate(() => {
+    // Strategy 1: look inside __NEXT_DATA__ for shields/promotions
+    try {
+      const nd = document.getElementById('__NEXT_DATA__');
+      if (nd) {
+        const data = JSON.parse(nd.textContent);
+        const product =
+          data?.props?.pageProps?.product ??
+          data?.props?.pageProps?.initialData?.product;
+        const shields = product?.shields ?? product?.promotions ?? [];
+        for (const s of Array.isArray(shields) ? shields : []) {
+          const t = s?.title ?? s?.text ?? s?.label ?? '';
+          if (/1\s*\+\s*1\s*gratis|\d+\s+voor\s+/i.test(t)) return t;
+        }
+      }
+    } catch (_) {}
+
+    // Strategy 2: aria-label on any element matching a promo pattern
+    for (const el of document.querySelectorAll('[aria-label]')) {
+      const label = el.getAttribute('aria-label') ?? '';
+      if (label.length > 40) continue; // promo labels are short
+      if (/1\s*\+\s*1\s*gratis|\d+\s+voor\s+/i.test(label)) {
+        if (!el.closest('nav, header, footer, [role="navigation"]')) return label;
+      }
+    }
+
+    // Strategy 3: inner text of elements with "promotion" in their class
+    for (const el of document.querySelectorAll('[class*="promotion"],[class*="Promotion"],[class*="promo"],[class*="Promo"],[class*="shield"],[class*="Shield"]')) {
+      const text = el.innerText?.trim() ?? '';
+      if (text.length > 0 && text.length < 40 && /1\s*\+\s*1\s*gratis|\d+\s+voor\s+/i.test(text)) {
+        return text;
+      }
+    }
+
+    return null;
+  });
+
+  const promoData = parsePromo(promoText, currentPrice);
+
   // Original price
   let originalPrice = await originalPriceFromVanText(page);
 
@@ -128,12 +169,34 @@ async function scrape(page, url) {
     });
   }
 
+  // DOM fallback: scoped to the main product's price_originalPrice container.
+  // We look for old-price-strikethrough WITHIN that container only — this avoids
+  // picking up recommendation-carousel prices further down the page.
+  if (originalPrice === null) {
+    originalPrice = await page.evaluate(() => {
+      const container = document.querySelector('[class*="price_originalPrice"]');
+      if (!container) return null;
+      const el = container.querySelector('[class*="old-price-strikethrough"]');
+      if (!el) return null;
+      const text = el.textContent?.trim() ?? '';
+      const tm = text.match(/^(\d+)[,.](\d{2})$/);
+      if (tm) return parseFloat(`${tm[1]}.${tm[2]}`);
+      return null;
+    });
+  }
+
   const validOriginal =
     originalPrice !== null && currentPrice !== null && originalPrice > currentPrice
       ? originalPrice
       : null;
 
-  return { currentPrice, originalPrice: validOriginal };
+  return {
+    currentPrice,
+    originalPrice: validOriginal,
+    promoLabel: promoData?.promoLabel ?? null,
+    effectivePrice: promoData?.effectivePrice ?? null,
+    minQty: promoData?.minQty ?? null,
+  };
 }
 
 module.exports = { scrape };

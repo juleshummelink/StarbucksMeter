@@ -1,0 +1,400 @@
+﻿define("ECOP_Reactive_Pat.CustomPatterns.ProductInfo_Logo.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$model", "ECOP_Reactive_Pat.controller$CreateGUID"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("GUID", "gUIDVar", "GUID", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("Name", "nameIn", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_nameInDataFetchStatus", "_nameInDataFetchStatus", "_nameInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ImageURL", "imageURLIn", "ImageURL", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_imageURLInDataFetchStatus", "_imageURLInDataFetchStatus", "_imageURLInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("TooltipContent", "tooltipContentIn", "TooltipContent", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_tooltipContentInDataFetchStatus", "_tooltipContentInDataFetchStatus", "_tooltipContentInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowTooltipOnlyOnClick", "showTooltipOnlyOnClickIn", "ShowTooltipOnlyOnClick", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_showTooltipOnlyOnClickInDataFetchStatus", "_showTooltipOnlyOnClickInDataFetchStatus", "_showTooltipOnlyOnClickInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("LongDescription", "longDescriptionIn", "LongDescription", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_longDescriptionInDataFetchStatus", "_longDescriptionInDataFetchStatus", "_longDescriptionInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("Name" in inputs) {
+this.variables.nameIn = inputs.Name;
+if("_nameInDataFetchStatus" in inputs) {
+this.variables._nameInDataFetchStatus = inputs._nameInDataFetchStatus;
+}
+
+}
+
+if("ImageURL" in inputs) {
+this.variables.imageURLIn = inputs.ImageURL;
+if("_imageURLInDataFetchStatus" in inputs) {
+this.variables._imageURLInDataFetchStatus = inputs._imageURLInDataFetchStatus;
+}
+
+}
+
+if("TooltipContent" in inputs) {
+this.variables.tooltipContentIn = inputs.TooltipContent;
+if("_tooltipContentInDataFetchStatus" in inputs) {
+this.variables._tooltipContentInDataFetchStatus = inputs._tooltipContentInDataFetchStatus;
+}
+
+}
+
+if("ShowTooltipOnlyOnClick" in inputs) {
+this.variables.showTooltipOnlyOnClickIn = inputs.ShowTooltipOnlyOnClick;
+if("_showTooltipOnlyOnClickInDataFetchStatus" in inputs) {
+this.variables._showTooltipOnlyOnClickInDataFetchStatus = inputs._showTooltipOnlyOnClickInDataFetchStatus;
+}
+
+}
+
+if("LongDescription" in inputs) {
+this.variables.longDescriptionIn = inputs.LongDescription;
+if("_longDescriptionInDataFetchStatus" in inputs) {
+this.variables._longDescriptionInDataFetchStatus = inputs._longDescriptionInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.ProductInfo_Logo");
+});
+define("ECOP_Reactive_Pat.CustomPatterns.ProductInfo_Logo.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Reactive_Pat.CustomPatterns.ProductInfo_Logo.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.ProductInfo_Logo.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.OnHoverTooltip.mvc$view", "ECOP_Reactive_Pat.controller$CreateGUID"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, React, OSView, ECOP_Reactive_Pat_CustomPatterns_ProductInfo_Logo_mvc_model, ECOP_Reactive_Pat_CustomPatterns_ProductInfo_Logo_mvc_controller, OSWidgets, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.ProductInfo_Logo";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_ProductInfo_Logo_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_ProductInfo_Logo_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: (("product-info-logo-wrapper" + " hover-tooltip-") + model.variables.gUIDVar),
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageURL: model.variables.imageURLIn,
+_imageURLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._imageURLInDataFetchStatus),
+ExtendedClass: "place"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECOP_Reactive_PatModel.staticEntities.iconSize.size2x,
+Name: "home",
+ExtendedClass: "text-neutral-2"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "4",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+style: "place",
+value: model.variables.longDescriptionIn,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._longDescriptionInDataFetchStatus)
+}))), React.createElement(ECOP_Base_RPat_CustomPatterns_OnHoverTooltip_mvc_view, {
+inputs: {
+HoverContainerClass: "layout",
+TooltipWidth: 304,
+OnClickOnly: model.variables.showTooltipOnlyOnClickIn,
+_onClickOnlyInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._showTooltipOnlyOnClickInDataFetchStatus),
+HoverElementsClass: ("hover-tooltip-" + model.variables.gUIDVar)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+tooltipContent: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.tooltipContentIn,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._tooltipContentInDataFetchStatus)
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._tooltipContentInDataFetchStatus), asPrimitiveValue(model.variables.tooltipContentIn)]
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Reactive_Pat.CustomPatterns.ProductInfo_Logo.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.languageResources", "ECOP_Reactive_Pat.CustomPatterns.ProductInfo_Logo.mvc$translationsResources", "ECOP_Reactive_Pat.controller$CreateGUID"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_PatLanguageResources, ECOP_Reactive_Pat_CustomPatterns_ProductInfo_Logo_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Reactive_Pat_CustomPatterns_ProductInfo_Logo_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var createGUIDVar = new OS.DataTypes.VariableHolder();
+// Execute Action: CreateGUID
+createGUIDVar.value = ECOP_Reactive_PatController.default.createGUID$Action(callContext);
+
+// GUID = CreateGUID.GUID
+model.variables.gUIDVar = createGUIDVar.value.gUIDOut;
+};
+
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Reactive_PatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Reactive_PatLanguageResources);
+});
+
+define("ECOP_Reactive_Pat.CustomPatterns.ProductInfo_Logo.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

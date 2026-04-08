@@ -1,0 +1,939 @@
+﻿define("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Cart_CW.controller", "ECOP_ReleaseTogglesReactive.controller", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "PLUS_OutSystemsUI_2_8_0.Navigation.Submenu.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$model", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$model", "ECP_Store_CW.StoreFlow.StoreSelection_Deprecated.mvc$model", "ECP_Order_CW.Checkout.ReserveMoment.mvc$model", "ECP_Cart_CW.controller$GetClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_Base_RPat.controller$OpenSubmenu", "ECP_Store_CW.referencesHealth$ECOP_Base_RPat", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP_Base_RPat.controller$CloseSubmenu", "ECOP_FE_Core.controller$GTMEvent_ReserveMoment_Close", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECP_Store_CW.model$Aux_ItemInCartList"], function (OutSystems, ECP_Store_CWModel, ECP_Cart_CWController, ECOP_ReleaseTogglesReactiveController, ECOP_Base_RPatController, ECOP_FE_CoreController, PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECP_Store_CW_StoreFlow_StoreInfoContent_mvcModel, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvcModel, ECP_Store_CW_StoreFlow_StoreSelection_Deprecated_mvcModel, ECP_Order_CW_Checkout_ReserveMoment_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("JS_refresh_StoreInfoContent", "jS_refresh_StoreInfoContentVar", "JS_refresh_StoreInfoContent", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("ShowStoreInfo", "showStoreInfoVar", "ShowStoreInfo", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("OneWelcomeUserId", "oneWelcomeUserIdIn", "OneWelcomeUserId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", "_oneWelcomeUserIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowStorePicker", "showStorePickerIn", "ShowStorePicker", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_showStorePickerInDataFetchStatus", "_showStorePickerInDataFetchStatus", "_showStorePickerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowReserveMoment", "showReserveMomentIn", "ShowReserveMoment", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_showReserveMomentInDataFetchStatus", "_showReserveMomentInDataFetchStatus", "_showReserveMomentInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("UserStoreId", "userStoreIdIn", "UserStoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("_userStoreIdInDataFetchStatus", "_userStoreIdInDataFetchStatus", "_userStoreIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsOrderEditMode", "isOrderEditModeIn", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", "_isOrderEditModeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowReserveMomentTopOptions", "showReserveMomentTopOptionsIn", "ShowReserveMomentTopOptions", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_showReserveMomentTopOptionsInDataFetchStatus", "_showReserveMomentTopOptionsInDataFetchStatus", "_showReserveMomentTopOptionsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((((PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECP_Store_CW_StoreFlow_StoreInfoContent_mvcModel.hasValidationWidgets) || ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvcModel.hasValidationWidgets) || ECP_Store_CW_StoreFlow_StoreSelection_Deprecated_mvcModel.hasValidationWidgets) || ECP_Order_CW_Checkout_ReserveMoment_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("OneWelcomeUserId" in inputs) {
+this.variables.oneWelcomeUserIdIn = inputs.OneWelcomeUserId;
+if("_oneWelcomeUserIdInDataFetchStatus" in inputs) {
+this.variables._oneWelcomeUserIdInDataFetchStatus = inputs._oneWelcomeUserIdInDataFetchStatus;
+}
+
+}
+
+if("ShowStorePicker" in inputs) {
+this.variables.showStorePickerIn = inputs.ShowStorePicker;
+if("_showStorePickerInDataFetchStatus" in inputs) {
+this.variables._showStorePickerInDataFetchStatus = inputs._showStorePickerInDataFetchStatus;
+}
+
+}
+
+if("ShowReserveMoment" in inputs) {
+this.variables.showReserveMomentIn = inputs.ShowReserveMoment;
+if("_showReserveMomentInDataFetchStatus" in inputs) {
+this.variables._showReserveMomentInDataFetchStatus = inputs._showReserveMomentInDataFetchStatus;
+}
+
+}
+
+if("UserStoreId" in inputs) {
+this.variables.userStoreIdIn = inputs.UserStoreId;
+if("_userStoreIdInDataFetchStatus" in inputs) {
+this.variables._userStoreIdInDataFetchStatus = inputs._userStoreIdInDataFetchStatus;
+}
+
+}
+
+if("IsOrderEditMode" in inputs) {
+this.variables.isOrderEditModeIn = inputs.IsOrderEditMode;
+if("_isOrderEditModeInDataFetchStatus" in inputs) {
+this.variables._isOrderEditModeInDataFetchStatus = inputs._isOrderEditModeInDataFetchStatus;
+}
+
+}
+
+if("ShowReserveMomentTopOptions" in inputs) {
+this.variables.showReserveMomentTopOptionsIn = inputs.ShowReserveMomentTopOptions;
+if("_showReserveMomentTopOptionsInDataFetchStatus" in inputs) {
+this.variables._showReserveMomentTopOptionsInDataFetchStatus = inputs._showReserveMomentTopOptionsInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "StoreFlow.StoreInfoMenuItem_Phone");
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECP_Cart_CW.controller", "ECOP_ReleaseTogglesReactive.controller", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "react", "OutSystems/ReactView/Main", "ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$model", "ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$controller", "ECP_Store_CW.clientVariables", "OutSystems/ReactWidgets/Main", "PLUS_OutSystemsUI_2_8_0.Navigation.Submenu.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECP_Store_CW.StoreFlow.StoreInfoContent.mvc$view", "ECP_Store_CW.StoreFlow.StoreSelection_FlyIIn.mvc$view", "ECP_Store_CW.StoreFlow.StoreSelection_Deprecated.mvc$view", "ECP_Order_CW.Checkout.ReserveMoment.mvc$view", "ECP_Cart_CW.controller$GetClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_Base_RPat.controller$OpenSubmenu", "ECP_Store_CW.referencesHealth$ECOP_Base_RPat", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP_Base_RPat.controller$CloseSubmenu", "ECOP_FE_Core.controller$GTMEvent_ReserveMoment_Close", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECP_Store_CW.model$Aux_ItemInCartList"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECP_Cart_CWController, ECOP_ReleaseTogglesReactiveController, ECOP_Base_RPatController, ECOP_FE_CoreController, React, OSView, ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_model, ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_controller, ECP_Store_CWClientVariables, OSWidgets, PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_view, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_view, ECP_Store_CW_StoreFlow_StoreSelection_Deprecated_mvc_view, ECP_Order_CW_Checkout_ReserveMoment_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "StoreFlow.StoreInfoMenuItem_Phone";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_view, ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_view, ECP_Store_CW_StoreFlow_StoreSelection_Deprecated_mvc_view, ECP_Order_CW_Checkout_ReserveMoment_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "link-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("StoreInfo_Submenu.ExtendedClass"), function () {
+return ("store-info-submenu" + ((!(model.variables.userStoreIdIn.equals(OS.BuiltinFunctions.integerToLongInteger(OS.BuiltinFunctions.nullIdentifier())))) ? ("") : (" hidden")));
+}, function () {
+return model.variables.userStoreIdIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._userStoreIdInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "StoreInfo_Submenu",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+menu: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "gtm-your-store-info display-flex justify-content-space-between",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "margin-right-s",
+Name: "location"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Expression, {
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("zCouQ15hTkynLo9kKI5wcw#ValueExpression.-2011755193.1", "Your PLUS"),
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+items: new PlaceholderContent(function () {
+return [React.createElement(ECP_Store_CW_StoreFlow_StoreInfoContent_mvc_view, {
+inputs: {
+IsOrderEditMode: model.variables.isOrderEditModeIn,
+_isOrderEditModeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isOrderEditModeInDataFetchStatus),
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+UserStoreId: model.variables.userStoreIdIn,
+_userStoreIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._userStoreIdInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+storePickerOpened$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_StorePicker_Open$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+linkToStorePage$Action: function (slugIn) {
+var eventHandlerContext = callContext.clone();
+controller.linkToStorePage$Action(slugIn, controller.callContext(eventHandlerContext));
+
+;
+},
+storeInfoActionsExposed$Action: function (jS_refreshStoreInfoIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_StoreInfo_ExposedActions$Action(jS_refreshStoreInfoIn, controller.callContext(eventHandlerContext));
+
+;
+},
+reserveMomentOpened$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.toggle_ReserveMoment$Action(true, controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "5",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.userStoreIdIn), asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables._userStoreIdInDataFetchStatus), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._isOrderEditModeInDataFetchStatus), asPrimitiveValue(model.variables.isOrderEditModeIn)]
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("StorePicker_Submenu.ExtendedClass"), function () {
+return (("store-picker-submenu" + (((model.variables.userStoreIdIn.equals(OS.BuiltinFunctions.integerToLongInteger(OS.BuiltinFunctions.nullIdentifier())) || model.variables.showStorePickerIn)) ? ("") : (" hidden"))) + ((((ECP_Cart_CWController.default.getClientVar_ClickedProductSKU$Action(callContext).sKUOut) !== (""))) ? (" has-product-conflict") : ("")));
+}, function () {
+return model.variables.userStoreIdIn;
+}, function () {
+return model.variables.showStorePickerIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._userStoreIdInDataFetchStatus, model.variables._showStorePickerInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "StorePicker_Submenu",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+menu: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "gtm-choose-store-link display-flex justify-content-space-between",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "margin-right-s",
+Name: "location"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "8",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), $text(getTranslation("QZ4Vo8QuPU+2xCn_deDYpg#Value", "Choose your store")))];
+}),
+items: new PlaceholderContent(function () {
+return [$if(ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECP_Store_CWModel.staticEntities.releaseToggle.eCOP_9004, callContext).isEnabledOut, false, this, function () {
+return [React.createElement(ECP_Store_CW_StoreFlow_StoreSelection_FlyIIn_mvc_view, {
+inputs: {
+IsOpen: true,
+IsPhoneMenu: true,
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus),
+ShowCloseLink: false
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+productConflictOpened$Action: function (unavailableProductListIn, storeIdIn, storeNameIn, productConflictTypeIn) {
+var eventHandlerContext = callContext.clone();
+controller.productConflictOpened$Action(unavailableProductListIn, storeIdIn, storeNameIn, productConflictTypeIn, controller.callContext(eventHandlerContext));
+
+;
+},
+closeClicked$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_StorePicker_Close$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+storeChanged$Action: function (storeIdIn, isCloseAllIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_StoreChanged$Action(storeIdIn, isCloseAllIn, controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [React.createElement(ECP_Store_CW_StoreFlow_StoreSelection_Deprecated_mvc_view, {
+inputs: {
+ShowCloseLink: false,
+ShowMapVersion: false,
+IsOpen: true,
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+storeChanged$Action: function (storeIdIn, isCloseAllIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_StoreChanged$Action(storeIdIn, isCloseAllIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+productConflictOpened$Action: function (unavailableProductListIn, storeIdIn, storeNameIn, productConflictTypeIn) {
+var eventHandlerContext = callContext.clone();
+controller.productConflictOpened$Action(unavailableProductListIn, storeIdIn, storeNameIn, productConflictTypeIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables.oneWelcomeUserIdIn)]
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Navigation_Submenu_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("ReserveMoment_Submenu.ExtendedClass"), function () {
+return ("reserve-moment-submenu reserve-moment-wrapper" + (((!(model.variables.userStoreIdIn.equals(OS.BuiltinFunctions.integerToLongInteger(OS.BuiltinFunctions.nullIdentifier()))) && model.variables.showReserveMomentIn)) ? ("") : (" hidden")));
+}, function () {
+return model.variables.userStoreIdIn;
+}, function () {
+return model.variables.showReserveMomentIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._userStoreIdInDataFetchStatus, model.variables._showReserveMomentInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ReserveMoment_Submenu",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+menu: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("8HFv41k9R0mN5VY7t075Aw#ValueExpression.519118340.1", "Reserve moment"),
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+items: new PlaceholderContent(function () {
+return [$if(model.variables.showReserveMomentIn, false, this, function () {
+return [React.createElement(ECP_Order_CW_Checkout_ReserveMoment_mvc_view, {
+inputs: {
+ShowTopOptions: model.variables.showReserveMomentTopOptionsIn,
+_showTopOptionsInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._showReserveMomentTopOptionsInDataFetchStatus),
+IsOrderEditMode: model.variables.isOrderEditModeIn,
+_isOrderEditModeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isOrderEditModeInDataFetchStatus),
+ExtendedClass: "gtm-reserve-moment",
+OneWelcomeUserId: model.variables.oneWelcomeUserIdIn,
+_oneWelcomeUserIdInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._oneWelcomeUserIdInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.callbackOrderEdit$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+openStorePicker$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_StorePicker_Open$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+timeslotSaved$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_TimeslotConfirm$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "13",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.oneWelcomeUserIdIn), asPrimitiveValue(model.variables.isOrderEditModeIn), asPrimitiveValue(model.variables.showReserveMomentTopOptionsIn), asPrimitiveValue(model.variables._oneWelcomeUserIdInDataFetchStatus), asPrimitiveValue(model.variables._isOrderEditModeInDataFetchStatus), asPrimitiveValue(model.variables._showReserveMomentTopOptionsInDataFetchStatus), asPrimitiveValue(model.variables._showReserveMomentInDataFetchStatus), asPrimitiveValue(model.variables.showReserveMomentIn)]
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Store_CW.model", "ECP_Store_CW.controller", "ECP_Cart_CW.controller", "ECOP_ReleaseTogglesReactive.controller", "ECOP_Base_RPat.controller", "ECOP_FE_Core.controller", "ECP_Store_CW.languageResources", "ECP_Store_CW.clientVariables", "ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$translationsResources", "ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$controller.OnReady.ExposeStorePickerMenuJS", "ECP_Cart_CW.controller$GetClientVar_ClickedProductSKU", "ECP_Store_CW.referencesHealth", "ECP_Store_CW.referencesHealth$ECP_Cart_CW", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECP_Store_CW.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_Base_RPat.controller$OpenSubmenu", "ECP_Store_CW.referencesHealth$ECOP_Base_RPat", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP_Base_RPat.controller$CloseSubmenu", "ECOP_FE_Core.controller$GTMEvent_ReserveMoment_Close", "ECP_Store_CW.referencesHealth$ECOP_FE_Core", "ECP_Store_CW.model$Aux_ItemInCartList"], function (OutSystems, ECP_Store_CWModel, ECP_Store_CWController, ECP_Cart_CWController, ECOP_ReleaseTogglesReactiveController, ECOP_Base_RPatController, ECOP_FE_CoreController, ECP_Store_CWLanguageResources, ECP_Store_CWClientVariables, ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_TranslationsResources, ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_controller_OnReady_ExposeStorePickerMenuJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+handler_StorePicker_Open$Action: function () {
+return controller.executeActionInsideJSNode(controller._handler_StorePicker_Open$Action.bind(controller), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Handler_StorePicker_Open");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._handler_StoreChanged$Action = function (storeIdIn, isCloseAllIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StoreChanged");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.Handler_StoreChanged$vars"))());
+vars.value.storeIdInLocal = storeIdIn;
+vars.value.isCloseAllInLocal = isCloseAllIn;
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: StoreChanged
+return controller.storeChanged$Action(vars.value.storeIdInLocal, callContext).then(function () {
+// Execute Action: Handler_StorePicker_Close
+return controller._handler_StorePicker_Close$Action(callContext);
+}).then(function () {
+return OS.Flow.executeSequence(function () {
+if((vars.value.isCloseAllInLocal)) {
+// Trigger Event: CloseMenu
+return controller.closeMenu$Action(callContext);
+} else {
+// Execute Action: OpenSubmenu_StoreInfo
+ECOP_Base_RPatController.default.openSubmenu$Action(idService.getId("StoreInfo_Submenu"), callContext);
+}
+
+});
+}).then(function () {
+// ShowStoreInfo = True
+// ShowStoreInfo = True
+model.variables.showStoreInfoVar = true;
+// Execute Action: refresh_StoreInfoContent
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.jS_refresh_StoreInfoContentVar, callContext);
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.Handler_StoreChanged$vars", [{
+name: "StoreId",
+attrName: "storeIdInLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}, {
+name: "IsCloseAll",
+attrName: "isCloseAllInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._handler_TimeslotConfirm$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_TimeslotConfirm");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: CloseMenu
+return controller.closeMenu$Action(callContext).then(function () {
+// CloseAll
+// ShowReserveMoment = False
+model.variables.showReserveMomentIn = false;
+// ShowStoreInfo = False
+model.variables.showStoreInfoVar = false;
+// Execute Action: Handler_StorePicker_Close
+return controller._handler_StorePicker_Close$Action(callContext);
+}).then(function () {
+// Execute Action: CloseSubmenu_StoreInfo
+ECOP_Base_RPatController.default.closeSubmenu$Action(idService.getId("StoreInfo_Submenu"), callContext);
+// Execute Action: CloseSubmenu_ReserveMoment
+ECOP_Base_RPatController.default.closeSubmenu$Action(idService.getId("ReserveMoment_Submenu"), callContext);
+});
+});
+};
+Controller.prototype._toggle_ReserveMoment$Action = function (isOpenIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Toggle_ReserveMoment");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.Toggle_ReserveMoment$vars"))());
+vars.value.isOpenInLocal = isOpenIn;
+return OS.Flow.executeAsyncFlow(function () {
+if((vars.value.isOpenInLocal)) {
+// Execute Action: OpenSubmenu_ReserveMoment
+ECOP_Base_RPatController.default.openSubmenu$Action(idService.getId("ReserveMoment_Submenu"), callContext);
+} else {
+// Execute Action: CloseSubmenu_ReserveMoment
+ECOP_Base_RPatController.default.closeSubmenu$Action(idService.getId("ReserveMoment_Submenu"), callContext);
+}
+
+// ShowReserveMoment = IsOpen
+model.variables.showReserveMomentIn = vars.value.isOpenInLocal;
+// Trigger Event: ToggleReserveMoment
+return controller.toggleReserveMoment$Action(vars.value.isOpenInLocal, callContext).then(function () {
+if((!(vars.value.isOpenInLocal))) {
+// Execute Action: GTMEvent_ReserveMoment_Close
+ECOP_FE_CoreController.default.gTMEvent_ReserveMoment_Close$Action(callContext);
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.Toggle_ReserveMoment$vars", [{
+name: "IsOpen",
+attrName: "isOpenInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var exposeStorePickerMenuJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+exposeStorePickerMenuJSResult.value = controller.safeExecuteJSNode(ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_controller_OnReady_ExposeStorePickerMenuJS, "ExposeStorePickerMenu", "OnReady", {
+OpenMenuStorePicker_JS: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.OnReady$exposeStorePickerMenuJSResult"))();
+jsNodeResult.openMenuStorePicker_JSOut = OS.DataConversion.JSNodeParamConverter.from($parameters.OpenMenuStorePicker_JS, OS.Types.Object);
+return jsNodeResult;
+}, {
+Handler_StorePicker_Open: controller.clientActionProxies.handler_StorePicker_Open$Action
+}, {});
+// Trigger Event: OpenStorePickerActionExposed
+return controller.openStorePickerActionExposed$Action(exposeStorePickerMenuJSResult.value.openMenuStorePicker_JSOut, callContext).then(function () {
+return OS.Flow.executeSequence(function () {
+if((model.variables.showStorePickerIn)) {
+// Execute Action: Handler_StorePicker_Open
+return controller._handler_StorePicker_Open$Action(callContext);
+} else {
+return OS.Flow.executeSequence(function () {
+if((model.variables.showReserveMomentIn)) {
+// Execute Action: Toggle_ReserveMoment
+return controller._toggle_ReserveMoment$Action(true, callContext);
+}
+
+});
+}
+
+});
+});
+});
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.OnReady$exposeStorePickerMenuJSResult", [{
+name: "OpenMenuStorePicker_JS",
+attrName: "openMenuStorePicker_JSOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._handler_StorePicker_Open$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StorePicker_Open");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// ShowStorePicker
+// ShowStorePicker = True
+model.variables.showStorePickerIn = true;
+// ShowReserveMoment = False
+model.variables.showReserveMomentIn = false;
+// Execute Action: OpenSubmenu_StorePicker
+ECOP_Base_RPatController.default.openSubmenu$Action(idService.getId("StorePicker_Submenu"), callContext);
+return OS.Flow.executeSequence(function () {
+if((model.variables.showReserveMomentIn)) {
+// Execute Action: Toggle_ReserveMoment
+return controller._toggle_ReserveMoment$Action(false, callContext);
+}
+
+}).then(function () {
+// Trigger Event: ToggleStorePicker
+return controller.toggleStorePicker$Action(true, callContext);
+});
+});
+};
+Controller.prototype._handler_StorePicker_Close$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StorePicker_Close");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// HideStorePicker
+// ShowStorePicker = False
+model.variables.showStorePickerIn = false;
+// Execute Action: CloseSubmenu_StorePicker
+ECOP_Base_RPatController.default.closeSubmenu$Action(idService.getId("StorePicker_Submenu"), callContext);
+// Trigger Event: ToggleStorePicker
+return controller.toggleStorePicker$Action(false, callContext);
+});
+};
+Controller.prototype._handler_StoreInfo_ExposedActions$Action = function (jS_refreshStoreInfoIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StoreInfo_ExposedActions");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.Handler_StoreInfo_ExposedActions$vars"))());
+vars.value.jS_refreshStoreInfoInLocal = jS_refreshStoreInfoIn;
+// JS_refresh_StoreInfoContent = JS_refreshStoreInfo
+model.variables.jS_refresh_StoreInfoContentVar = vars.value.jS_refreshStoreInfoInLocal;
+};
+Controller.registerVariableGroupType("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.Handler_StoreInfo_ExposedActions$vars", [{
+name: "JS_refreshStoreInfo",
+attrName: "jS_refreshStoreInfoInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+
+Controller.prototype.handler_StoreChanged$Action = function (storeIdIn, isCloseAllIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StoreChanged$Action, callContext, storeIdIn, isCloseAllIn);
+
+};
+Controller.prototype.handler_TimeslotConfirm$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_TimeslotConfirm$Action, callContext);
+
+};
+Controller.prototype.toggle_ReserveMoment$Action = function (isOpenIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toggle_ReserveMoment$Action, callContext, isOpenIn);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.handler_StorePicker_Open$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StorePicker_Open$Action, callContext);
+
+};
+Controller.prototype.handler_StorePicker_Close$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StorePicker_Close$Action, callContext);
+
+};
+Controller.prototype.handler_StoreInfo_ExposedActions$Action = function (jS_refreshStoreInfoIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StoreInfo_ExposedActions$Action, callContext, jS_refreshStoreInfoIn);
+
+};
+Controller.prototype.storeChanged$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.openStorePickerActionExposed$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.closeMenu$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.toggleStorePicker$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.linkToStorePage$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.toggleReserveMoment$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.callbackOrderEdit$Action = function () {
+return Promise.resolve();
+};
+Controller.prototype.productConflictOpened$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Store_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Store_CWLanguageResources);
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$controller.OnReady.ExposeStorePickerMenuJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+$parameters.OpenMenuStorePicker_JS = $actions.Handler_StorePicker_Open;
+
+};
+});
+
+define("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$translationsResources", ["exports", "ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$translationsResources.nl-NL"], function (exports, ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Store_CW_StoreFlow_StoreInfoMenuItem_Phone_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Store_CW.StoreFlow.StoreInfoMenuItem_Phone.mvc$translationsResources.nl-NL", [], function () {
+return {
+"8HFv41k9R0mN5VY7t075Aw#ValueExpression.519118340.1": "Moment reserveren",
+"QZ4Vo8QuPU+2xCn_deDYpg#Value": "Kies jouw winkel",
+"zCouQ15hTkynLo9kKI5wcw#ValueExpression.-2011755193.1": "Jouw PLUS"
+};
+});

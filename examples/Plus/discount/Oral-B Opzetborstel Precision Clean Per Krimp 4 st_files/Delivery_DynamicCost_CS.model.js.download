@@ -1,0 +1,352 @@
+﻿define("Delivery_DynamicCost_CS.model$EcoDeliveryCostSetLineRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var EcoDeliveryCostSetLineRec = (function (_super) {
+__extends(EcoDeliveryCostSetLineRec, _super);
+function EcoDeliveryCostSetLineRec(defaults) {
+_super.apply(this, arguments);
+}
+EcoDeliveryCostSetLineRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ClientTypeId", "clientTypeIdAttr", "ClientTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DelRegServiceCTArticleId", "delRegServiceCTArticleIdAttr", "DelRegServiceCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DelRegOrderCTArticleId", "delRegOrderCTArticleIdAttr", "DelRegOrderCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("EcoDeliveryCostSetId", "ecoDeliveryCostSetIdAttr", "EcoDeliveryCostSetId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("EcoSlotTemplateId", "ecoSlotTemplateIdAttr", "EcoSlotTemplateId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("LineIndex", "lineIndexAttr", "LineIndex", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EcoDeliveryCostThresholdId", "ecoDeliveryCostThresholdIdAttr", "EcoDeliveryCostThresholdId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EcoDeliveryCostSetLineRec.init();
+return EcoDeliveryCostSetLineRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.EcoDeliveryCostSetLineRec = EcoDeliveryCostSetLineRec;
+
+});
+define("Delivery_DynamicCost_CS.model$DeliveryCostArticleRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostArticleRec = (function (_super) {
+__extends(DeliveryCostArticleRec, _super);
+function DeliveryCostArticleRec(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostArticleRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ArticleSKU", "articleSKUAttr", "ArticleSKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ArticleName", "articleNameAttr", "ArticleName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("CTExternalId", "cTExternalIdAttr", "CTExternalId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CTExternalVersionNumber", "cTExternalVersionNumberAttr", "CTExternalVersionNumber", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryCostArticleRec.init();
+return DeliveryCostArticleRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.DeliveryCostArticleRec = DeliveryCostArticleRec;
+
+});
+define("Delivery_DynamicCost_CS.model$EcoDeliveryCostSetRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var EcoDeliveryCostSetRec = (function (_super) {
+__extends(EcoDeliveryCostSetRec, _super);
+function EcoDeliveryCostSetRec(defaults) {
+_super.apply(this, arguments);
+}
+EcoDeliveryCostSetRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsDefault", "isDefaultAttr", "IsDefault", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsValid", "isValidAttr", "IsValid", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EcoDeliveryCostSetRec.init();
+return EcoDeliveryCostSetRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.EcoDeliveryCostSetRec = EcoDeliveryCostSetRec;
+
+});
+define("Delivery_DynamicCost_CS.model$ClientTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var ClientTypeRec = (function (_super) {
+__extends(ClientTypeRec, _super);
+function ClientTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+ClientTypeRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ClientTypeRec.init();
+return ClientTypeRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.ClientTypeRec = ClientTypeRec;
+
+});
+define("Delivery_DynamicCost_CS.model$DeliveryCostSetRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostSetRec = (function (_super) {
+__extends(DeliveryCostSetRec, _super);
+function DeliveryCostSetRec(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostSetRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Name", "nameAttr", "Name", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("IsDefault", "isDefaultAttr", "IsDefault", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("IsValid", "isValidAttr", "IsValid", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CreatedBy", "createdByAttr", "CreatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("UpdatedBy", "updatedByAttr", "UpdatedBy", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("CreatedOn", "createdOnAttr", "CreatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("UpdatedOn", "updatedOnAttr", "UpdatedOn", false, false, OS.Types.DateTime, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryCostSetRec.init();
+return DeliveryCostSetRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.DeliveryCostSetRec = DeliveryCostSetRec;
+
+});
+define("Delivery_DynamicCost_CS.model$DeliveryCostSetLineRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var DeliveryCostSetLineRec = (function (_super) {
+__extends(DeliveryCostSetLineRec, _super);
+function DeliveryCostSetLineRec(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryCostSetLineRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("DeliveryCostSetId", "deliveryCostSetIdAttr", "DeliveryCostSetId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("MinimumThreshold", "minimumThresholdAttr", "MinimumThreshold", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("MaximumThreshold", "maximumThresholdAttr", "MaximumThreshold", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("ClientTypeId", "clientTypeIdAttr", "ClientTypeId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LineIndex", "lineIndexAttr", "LineIndex", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("DelRegServiceCTArticleId", "delRegServiceCTArticleIdAttr", "DelRegServiceCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DelRegOrderCTArticleId", "delRegOrderCTArticleIdAttr", "DelRegOrderCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DelExpServiceCTArticleId", "delExpServiceCTArticleIdAttr", "DelExpServiceCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("DelExpOrderCTArticleId", "delExpOrderCTArticleIdAttr", "DelExpOrderCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PickRegServiceCTArticleId", "pickRegServiceCTArticleIdAttr", "PickRegServiceCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PickRegOrderCTArticleId", "pickRegOrderCTArticleIdAttr", "PickRegOrderCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PickExpServiceCTArticleId", "pickExpServiceCTArticleIdAttr", "PickExpServiceCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("PickExpOrderCTArticleId", "pickExpOrderCTArticleIdAttr", "PickExpOrderCTArticleId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryCostSetLineRec.init();
+return DeliveryCostSetLineRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.DeliveryCostSetLineRec = DeliveryCostSetLineRec;
+
+});
+define("Delivery_DynamicCost_CS.model$Thresholds_StrRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var Thresholds_StrRec = (function (_super) {
+__extends(Thresholds_StrRec, _super);
+function Thresholds_StrRec(defaults) {
+_super.apply(this, arguments);
+}
+Thresholds_StrRec.attributesToDeclare = function () {
+return [
+this.attr("Index", "indexAttr", "Index", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("MinValue", "minValueAttr", "MinValue", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("MaxValue", "maxValueAttr", "MaxValue", false, false, OS.Types.Integer, function () {
+return 1;
+}, true), 
+this.attr("IsValid", "isValidAttr", "IsValid", false, false, OS.Types.Boolean, function () {
+return true;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+Thresholds_StrRec.init();
+return Thresholds_StrRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.Thresholds_StrRec = Thresholds_StrRec;
+
+});
+define("Delivery_DynamicCost_CS.model$EcoDeliveryCostSetThresholdRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var EcoDeliveryCostSetThresholdRec = (function (_super) {
+__extends(EcoDeliveryCostSetThresholdRec, _super);
+function EcoDeliveryCostSetThresholdRec(defaults) {
+_super.apply(this, arguments);
+}
+EcoDeliveryCostSetThresholdRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("Index", "indexAttr", "Index", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("MinThreshold", "minThresholdAttr", "MinThreshold", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("MaxThreshold", "maxThresholdAttr", "MaxThreshold", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("EcoDeliveryCostSetId", "ecoDeliveryCostSetIdAttr", "EcoDeliveryCostSetId", false, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+EcoDeliveryCostSetThresholdRec.init();
+return EcoDeliveryCostSetThresholdRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.EcoDeliveryCostSetThresholdRec = EcoDeliveryCostSetThresholdRec;
+
+});
+define("Delivery_DynamicCost_CS.model$ServiceFeeArticleRec", ["exports", "OutSystems/ClientRuntime/Main", "Delivery_DynamicCost_CS.model"], function (exports, OutSystems, Delivery_DynamicCost_CSModel) {
+var OS = OutSystems.Internal;
+var ServiceFeeArticleRec = (function (_super) {
+__extends(ServiceFeeArticleRec, _super);
+function ServiceFeeArticleRec(defaults) {
+_super.apply(this, arguments);
+}
+ServiceFeeArticleRec.attributesToDeclare = function () {
+return [
+this.attr("Id", "idAttr", "Id", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, true), 
+this.attr("ArticleSKU", "articleSKUAttr", "ArticleSKU", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ArticleName", "articleNameAttr", "ArticleName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ServiceFeeArticleRec.init();
+return ServiceFeeArticleRec;
+})(OS.DataTypes.GenericRecord);
+Delivery_DynamicCost_CSModel.ServiceFeeArticleRec = ServiceFeeArticleRec;
+
+});
+define("Delivery_DynamicCost_CS.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var Delivery_DynamicCost_CSModel = exports;
+});

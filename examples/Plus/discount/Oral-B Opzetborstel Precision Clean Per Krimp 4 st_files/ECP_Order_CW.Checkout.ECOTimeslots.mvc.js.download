@@ -1,0 +1,667 @@
+﻿define("ECP_Order_CW.Checkout.ECOTimeslots.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "Store_Capacity_CS.model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.CustomPatterns.ListItemSelect.mvc$model", "ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$model", "Store_Capacity_CS.model$TimeslotItemRec", "ECP_Order_CW.referencesHealth", "ECP_Order_CW.referencesHealth$Store_Capacity_CS", "ECP_Order_CW.model$StoreEcoTimeslotInstanceRecordList"], function (OutSystems, ECP_Order_CWModel, Store_Capacity_CSModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_CustomPatterns_ListItemSelect_mvcModel, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvcModel) {
+var OS = OutSystems.Internal;
+var GetStoreEcoTimeslotInstancesByStoreIdAggrRec = (function (_super) {
+__extends(GetStoreEcoTimeslotInstancesByStoreIdAggrRec, _super);
+function GetStoreEcoTimeslotInstancesByStoreIdAggrRec(defaults) {
+_super.apply(this, arguments);
+}
+GetStoreEcoTimeslotInstancesByStoreIdAggrRec.RecordListType = ECP_Order_CWModel.StoreEcoTimeslotInstanceRecordList;
+GetStoreEcoTimeslotInstancesByStoreIdAggrRec.init();
+return GetStoreEcoTimeslotInstancesByStoreIdAggrRec;
+})(OS.Model.AggregateRecord);
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("StoreId", "storeIdVar", "StoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("Date", "dateVar", "Date", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, false), 
+this.attr("SelectedSlotItem", "selectedSlotItemVar", "SelectedSlotItem", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new Store_Capacity_CSModel.TimeslotItemRec());
+}, false, Store_Capacity_CSModel.TimeslotItemRec), 
+this.attr("IsPopUpInformationEcoTimeslot", "isPopUpInformationEcoTimeslotVar", "IsPopUpInformationEcoTimeslot", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("GetStoreEcoTimeslotInstancesByStoreId", "getStoreEcoTimeslotInstancesByStoreIdAggr", "getStoreEcoTimeslotInstancesByStoreIdAggr", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetStoreEcoTimeslotInstancesByStoreIdAggrRec());
+}, true, GetStoreEcoTimeslotInstancesByStoreIdAggrRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ((ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_ListItemSelect_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Checkout.ECOTimeslots");
+});
+define("ECP_Order_CW.Checkout.ECOTimeslots.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "Store_Capacity_CS.model", "react", "OutSystems/ReactView/Main", "ECP_Order_CW.Checkout.ECOTimeslots.mvc$model", "ECP_Order_CW.Checkout.ECOTimeslots.mvc$controller", "ECP_Order_CW.clientVariables", "OutSystems/ReactWidgets/Main", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.ListItemSelect.mvc$view", "ECOP_Base_RPat.CustomPatterns.LayoutPopup.mvc$view", "Store_Capacity_CS.model$TimeslotItemRec", "ECP_Order_CW.referencesHealth", "ECP_Order_CW.referencesHealth$Store_Capacity_CS", "ECP_Order_CW.model$StoreEcoTimeslotInstanceRecordList"], function (OutSystems, ECP_Order_CWModel, ECP_Order_CWController, Store_Capacity_CSModel, React, OSView, ECP_Order_CW_Checkout_ECOTimeslots_mvc_model, ECP_Order_CW_Checkout_ECOTimeslots_mvc_controller, ECP_Order_CWClientVariables, OSWidgets, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_ListItemSelect_mvc_view, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Checkout.ECOTimeslots";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_ListItemSelect_mvc_view, ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Order_CW_Checkout_ECOTimeslots_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Order_CW_Checkout_ECOTimeslots_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "display-flex align-items-center justify-content-space-between margin-bottom-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "display-flex align-items-center",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "leaf",
+ExtendedClass: "icon_leaf_ecotimeslot font-size-h3"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-left-s",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "font-bold white-space-nowrap",
+text: [$text(getTranslation("soH85ZWqkEih2TGvXQGK9w#Value", "More sustainable"))],
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "display-flex align-items-center",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_InfoEcoTimeslot$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "text-neutral-7 font-size-h1",
+Size: ECP_Order_CWModel.staticEntities.iconSize.size_lg,
+Name: "tabler-info-circle"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-m",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedEvents: {
+"componentDidMount": function () {
+var eventHandlerContext = callContext.clone();
+controller.focusTimeSlot$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+"componentDidUpdate": function () {
+var eventHandlerContext = callContext.clone();
+controller.focusTimeSlot$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+extendedProperties: {
+"disable-virtualization": "True",
+role: "radiogroup",
+"aria-label": OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("ufwMeOcotkKJPsq9Ks2iqA#Value.1982422865.1", "Time slot")
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut,
+style: "list list-group",
+tag: "div",
+_idProps: {
+service: idService,
+name: "TimeSlotList"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.dataFetchStatusAttr),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+role: "radio",
+tabIndex: "0"
+},
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: [asPrimitiveValue(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.dataFetchStatusAttr), asPrimitiveValue(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut.getCurrent(callContext.iterationContext).storeEcoTimeslotInstanceAttr.endTimeAttr), asPrimitiveValue(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut.getCurrent(callContext.iterationContext).storeEcoTimeslotInstanceAttr.startTimeAttr), asPrimitiveValue(model.variables.selectedSlotItemVar.slot_IsSelectedAttr)]
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_ListItemSelect_mvc_view, {
+inputs: {
+ExtendedClass: "place ",
+RadioButtonTabIndex: -1,
+IsSelected: model.variables.selectedSlotItemVar.slot_IsSelectedAttr,
+ShowBottomLineSeparator: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+leftLabel: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: model.getCachedValue(idService.getId("7gDck6rDvUihxUmN7lIShg.Style"), function () {
+return ("place" + ((model.variables.selectedSlotItemVar.slot_IsSelectedAttr) ? (" text-secondary font-semi-bold") : ("")));
+}, function () {
+return model.variables.selectedSlotItemVar.slot_IsSelectedAttr;
+}),
+value: model.getCachedValue(idService.getId("7gDck6rDvUihxUmN7lIShg.Value"), function () {
+return ((OS.BuiltinFunctions.substr(OS.BuiltinFunctions.timeToText(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut.getCurrent(callContext.iterationContext).storeEcoTimeslotInstanceAttr.startTimeAttr), 0, 5) + " - ") + OS.BuiltinFunctions.substr(OS.BuiltinFunctions.timeToText(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut.getCurrent(callContext.iterationContext).storeEcoTimeslotInstanceAttr.endTimeAttr), 0, 5));
+}, function () {
+return model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut.getCurrent(callContext.iterationContext).storeEcoTimeslotInstanceAttr.startTimeAttr;
+}, function () {
+return model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut.getCurrent(callContext.iterationContext).storeEcoTimeslotInstanceAttr.endTimeAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.dataFetchStatusAttr)
+})];
+}),
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "leaf",
+ExtendedClass: "icon_leaf_ecotimeslot font-size-h3"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "14",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+rightLabel: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place text-tertiary",
+value: "6.00",
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.selectedSlotItemVar.slot_IsSelectedAttr), asPrimitiveValue(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.dataFetchStatusAttr), asPrimitiveValue(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut.getCurrent(callContext.iterationContext).storeEcoTimeslotInstanceAttr.endTimeAttr), asPrimitiveValue(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.listOut.getCurrent(callContext.iterationContext).storeEcoTimeslotInstanceAttr.startTimeAttr)]
+}))];
+}, callContext, idService, "1")
+},
+_dependencies: [asPrimitiveValue(model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.dataFetchStatusAttr), asPrimitiveValue(model.variables.selectedSlotItemVar.slot_IsSelectedAttr)]
+}))), React.createElement(OSWidgets.Popup, {
+showPopup: model.variables.isPopUpInformationEcoTimeslotVar,
+style: "popup-dialog",
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_LayoutPopup_mvc_view, {
+inputs: {
+FullWidthBtns: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+close$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_InfoEcoTimeslot$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "17",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+header: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("wAdqwJYp1UqGuRlcOhG8ag#ValueExpression.999155330.1", "More sustainable delivery"),
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-bottom-l",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "19"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("nY91JqutsUOVQ1wSE1dP2g#ValueExpression.-1526255993.1", "We combine your delivery with other deliveries in your neighborhood. As a result, we drive fewer kilometers: more sustainable and more economical! And you will notice this directly in the costs, because you will receive a 1.50 discount."),
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("dcfDtzhf6EmWkrudEKPtzw#ValueExpression.-940096293.1", "If you have signed up for updates on your order, you will receive a one-hour time frame on the day of delivery. That way you know exactly when we will come to your place!"),
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+}),
+footerLeftButton: PlaceholderContent.Empty,
+footerRightButtom: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+isDefault: false,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_InfoEcoTimeslot$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "btn btn-primary ",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("wfK0chrE3UiVs08Ee2u1mg#Value", "Close")))];
+})
+},
+_dependencies: []
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Order_CW.Checkout.ECOTimeslots.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Order_CW.model", "ECP_Order_CW.controller", "Store_Capacity_CS.model", "ECP_Order_CW.languageResources", "ECP_Order_CW.clientVariables", "ECP_Order_CW.Checkout.ECOTimeslots.mvc$translationsResources", "ECP_Order_CW.Checkout.ECOTimeslots.mvc$controller.FocusTimeSlot.FocusWithTimeoutJS", "Store_Capacity_CS.model$TimeslotItemRec", "ECP_Order_CW.referencesHealth", "ECP_Order_CW.referencesHealth$Store_Capacity_CS", "ECP_Order_CW.model$StoreEcoTimeslotInstanceRecordList"], function (OutSystems, ECP_Order_CWModel, ECP_Order_CWController, Store_Capacity_CSModel, ECP_Order_CWLanguageResources, ECP_Order_CWClientVariables, ECP_Order_CW_Checkout_ECOTimeslots_mvc_TranslationsResources, ECP_Order_CW_Checkout_ECOTimeslots_mvc_controller_FocusTimeSlot_FocusWithTimeoutJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+getStoreEcoTimeslotInstancesByStoreId$AggrRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getStoreEcoTimeslotInstancesByStoreId$AggrRefresh: []
+};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECP_Order_CW_Checkout_ECOTimeslots_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+Controller.prototype.getStoreEcoTimeslotInstancesByStoreId$AggrRefresh = function (maxRecords, startIndex, callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callAggregateWithStartIndexAndClientVars("ScreenDataSetGetStoreEcoTimeslotInstancesByStoreId", "screenservices/ECP_Order_CW/Checkout/ECOTimeslots/ScreenDataSetGetStoreEcoTimeslotInstancesByStoreId", "YQHBWRTGFK_1Apf3pjpo+A", maxRecords, startIndex, function (b) {
+model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getStoreEcoTimeslotInstancesByStoreIdAggr.constructor));
+}, undefined, undefined, undefined, callContext, ECP_Order_CWClientVariables, true);
+};
+
+Controller.prototype.dataFetchActionNames = ["getStoreEcoTimeslotInstancesByStoreId$AggrRefresh"];
+// Client Actions
+Controller.prototype._onClick_InfoEcoTimeslot$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_InfoEcoTimeslot");
+callContext = controller.callContext(callContext);
+// IsPopUpInformationEcoTimeslot = notIsPopUpInformationEcoTimeslot
+model.variables.isPopUpInformationEcoTimeslotVar = !(model.variables.isPopUpInformationEcoTimeslotVar);
+};
+Controller.prototype._onParametersChanged$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnParametersChanged");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Refresh Query: GetStoreEcoTimeslotInstancesByStoreId
+var result = controller.getStoreEcoTimeslotInstancesByStoreId$AggrRefresh(50, 0, callContext);
+model.flush();
+return result;
+});
+};
+Controller.prototype._focusTimeSlot$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("FocusTimeSlot");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECP_Order_CW_Checkout_ECOTimeslots_mvc_controller_FocusTimeSlot_FocusWithTimeoutJS, "FocusWithTimeout", "FocusTimeSlot", {
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("TimeSlotList"), OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+};
+
+Controller.prototype.onClick_InfoEcoTimeslot$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_InfoEcoTimeslot$Action, callContext);
+
+};
+Controller.prototype.onParametersChanged$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onParametersChanged$Action, callContext);
+
+};
+Controller.prototype.focusTimeSlot$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._focusTimeSlot$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onParametersChanged$Action(callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Order_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Order_CWLanguageResources);
+});
+define("ECP_Order_CW.Checkout.ECOTimeslots.mvc$controller.FocusTimeSlot.FocusWithTimeoutJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var z = document.getElementById($parameters.WidgetId);
+
+if (z && z.getElementsByTagName('div').length > 0) {
+    setTimeout(
+        function() {
+            z.getElementsByTagName('div')[0].focus();
+        },
+    0);
+}
+};
+});
+
+define("ECP_Order_CW.Checkout.ECOTimeslots.mvc$translationsResources", ["exports", "ECP_Order_CW.Checkout.ECOTimeslots.mvc$translationsResources.nl-NL"], function (exports, ECP_Order_CW_Checkout_ECOTimeslots_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Order_CW_Checkout_ECOTimeslots_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Order_CW.Checkout.ECOTimeslots.mvc$translationsResources.nl-NL", [], function () {
+return {
+"wfK0chrE3UiVs08Ee2u1mg#Value": "Sluit",
+"dcfDtzhf6EmWkrudEKPtzw#ValueExpression.-940096293.1": "Als je je hebt aangemeld voor updates over je bestelling, ontvang je op de dag van levering een tijdvak van één uur. Zo weet je precies wanneer we bij je langskomen!",
+"nY91JqutsUOVQ1wSE1dP2g#ValueExpression.-1526255993.1": "We combineren je bezorging met andere leveringen bij jou in de buurt. Daardoor rijden we minder kilometers: duurzamer én voordeliger! En dat merk je direct in de kosten, want je ontvangt 1.50 korting.",
+"wAdqwJYp1UqGuRlcOhG8ag#ValueExpression.999155330.1": "Duurzamer bezorgen",
+"ufwMeOcotkKJPsq9Ks2iqA#Value.1982422865.1": "Tijdslot",
+"soH85ZWqkEih2TGvXQGK9w#Value": "Duurzamer"
+};
+});

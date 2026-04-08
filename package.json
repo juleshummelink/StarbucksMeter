@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "install-browsers": "npx playwright install chromium"
+    "install-browsers": "npx playwright install chromium",
+    "test-scrape": "node test-scrape.js",
+    "demo": "node server.js --demo"
   },
   "dependencies": {
     "csv-parse": "^5.5.6",

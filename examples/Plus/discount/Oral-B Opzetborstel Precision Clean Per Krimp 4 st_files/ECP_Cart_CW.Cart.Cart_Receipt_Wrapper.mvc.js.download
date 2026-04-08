@@ -1,0 +1,404 @@
+﻿define("ECP_Cart_CW.Cart.Cart_Receipt_Wrapper.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Cart_CW.model", "ECP_Checkout_BL.model", "ECP_Cart_CW.Cart.Cart_Receipt.mvc$model", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_Cart_CW.referencesHealth", "ECP_Cart_CW.referencesHealth$ECP_Checkout_BL"], function (OutSystems, ECP_Cart_CWModel, ECP_Checkout_BLModel, ECP_Cart_CW_Cart_Cart_Receipt_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("HideReserveMomentBanner", "hideReserveMomentBannerIn", "HideReserveMomentBanner", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_hideReserveMomentBannerInDataFetchStatus", "_hideReserveMomentBannerInDataFetchStatus", "_hideReserveMomentBannerInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDataFetched", "isDataFetchedIn", "IsDataFetched", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDataFetchedInDataFetchStatus", "_isDataFetchedInDataFetchStatus", "_isDataFetchedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ShowAdditionals", "showAdditionalsIn", "ShowAdditionals", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_showAdditionalsInDataFetchStatus", "_showAdditionalsInDataFetchStatus", "_showAdditionalsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("NoMomentReserved", "noMomentReservedIn", "NoMomentReserved", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_noMomentReservedInDataFetchStatus", "_noMomentReservedInDataFetchStatus", "_noMomentReservedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("Temp_ShippingCosts", "temp_ShippingCostsIn", "Temp_ShippingCosts", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, false), 
+this.attr("_temp_ShippingCostsInDataFetchStatus", "_temp_ShippingCostsInDataFetchStatus", "_temp_ShippingCostsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ReservedMoment", "reservedMomentIn", "ReservedMoment", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Checkout_BLModel.ReservedMomentRec());
+}, false, ECP_Checkout_BLModel.ReservedMomentRec), 
+this.attr("_reservedMomentInDataFetchStatus", "_reservedMomentInDataFetchStatus", "_reservedMomentInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("MinimalAmountForDelivery", "minimalAmountForDeliveryIn", "MinimalAmountForDelivery", true, false, OS.Types.Decimal, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, false), 
+this.attr("_minimalAmountForDeliveryInDataFetchStatus", "_minimalAmountForDeliveryInDataFetchStatus", "_minimalAmountForDeliveryInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("DeliveryCostBreakdown", "deliveryCostBreakdownIn", "DeliveryCostBreakdown", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_deliveryCostBreakdownInDataFetchStatus", "_deliveryCostBreakdownInDataFetchStatus", "_deliveryCostBreakdownInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("SelectedDeliveryType", "selectedDeliveryTypeIn", "SelectedDeliveryType", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_selectedDeliveryTypeInDataFetchStatus", "_selectedDeliveryTypeInDataFetchStatus", "_selectedDeliveryTypeInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("SelectedDeliveryDate", "selectedDeliveryDateIn", "SelectedDeliveryDate", true, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, false), 
+this.attr("_selectedDeliveryDateInDataFetchStatus", "_selectedDeliveryDateInDataFetchStatus", "_selectedDeliveryDateInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CheckoutStep", "checkoutStepIn", "CheckoutStep", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_checkoutStepInDataFetchStatus", "_checkoutStepInDataFetchStatus", "_checkoutStepInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = ECP_Cart_CW_Cart_Cart_Receipt_mvcModel.hasValidationWidgets;
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("HideReserveMomentBanner" in inputs) {
+this.variables.hideReserveMomentBannerIn = inputs.HideReserveMomentBanner;
+if("_hideReserveMomentBannerInDataFetchStatus" in inputs) {
+this.variables._hideReserveMomentBannerInDataFetchStatus = inputs._hideReserveMomentBannerInDataFetchStatus;
+}
+
+}
+
+if("IsDataFetched" in inputs) {
+this.variables.isDataFetchedIn = inputs.IsDataFetched;
+if("_isDataFetchedInDataFetchStatus" in inputs) {
+this.variables._isDataFetchedInDataFetchStatus = inputs._isDataFetchedInDataFetchStatus;
+}
+
+}
+
+if("ShowAdditionals" in inputs) {
+this.variables.showAdditionalsIn = inputs.ShowAdditionals;
+if("_showAdditionalsInDataFetchStatus" in inputs) {
+this.variables._showAdditionalsInDataFetchStatus = inputs._showAdditionalsInDataFetchStatus;
+}
+
+}
+
+if("NoMomentReserved" in inputs) {
+this.variables.noMomentReservedIn = inputs.NoMomentReserved;
+if("_noMomentReservedInDataFetchStatus" in inputs) {
+this.variables._noMomentReservedInDataFetchStatus = inputs._noMomentReservedInDataFetchStatus;
+}
+
+}
+
+if("Temp_ShippingCosts" in inputs) {
+this.variables.temp_ShippingCostsIn = inputs.Temp_ShippingCosts;
+if("_temp_ShippingCostsInDataFetchStatus" in inputs) {
+this.variables._temp_ShippingCostsInDataFetchStatus = inputs._temp_ShippingCostsInDataFetchStatus;
+}
+
+}
+
+if("ReservedMoment" in inputs) {
+this.variables.reservedMomentIn = inputs.ReservedMoment;
+if("_reservedMomentInDataFetchStatus" in inputs) {
+this.variables._reservedMomentInDataFetchStatus = inputs._reservedMomentInDataFetchStatus;
+}
+
+}
+
+if("MinimalAmountForDelivery" in inputs) {
+this.variables.minimalAmountForDeliveryIn = inputs.MinimalAmountForDelivery;
+if("_minimalAmountForDeliveryInDataFetchStatus" in inputs) {
+this.variables._minimalAmountForDeliveryInDataFetchStatus = inputs._minimalAmountForDeliveryInDataFetchStatus;
+}
+
+}
+
+if("DeliveryCostBreakdown" in inputs) {
+this.variables.deliveryCostBreakdownIn = inputs.DeliveryCostBreakdown;
+if("_deliveryCostBreakdownInDataFetchStatus" in inputs) {
+this.variables._deliveryCostBreakdownInDataFetchStatus = inputs._deliveryCostBreakdownInDataFetchStatus;
+}
+
+}
+
+if("SelectedDeliveryType" in inputs) {
+this.variables.selectedDeliveryTypeIn = inputs.SelectedDeliveryType;
+if("_selectedDeliveryTypeInDataFetchStatus" in inputs) {
+this.variables._selectedDeliveryTypeInDataFetchStatus = inputs._selectedDeliveryTypeInDataFetchStatus;
+}
+
+}
+
+if("SelectedDeliveryDate" in inputs) {
+this.variables.selectedDeliveryDateIn = inputs.SelectedDeliveryDate;
+if("_selectedDeliveryDateInDataFetchStatus" in inputs) {
+this.variables._selectedDeliveryDateInDataFetchStatus = inputs._selectedDeliveryDateInDataFetchStatus;
+}
+
+}
+
+if("CheckoutStep" in inputs) {
+this.variables.checkoutStepIn = inputs.CheckoutStep;
+if("_checkoutStepInDataFetchStatus" in inputs) {
+this.variables._checkoutStepInDataFetchStatus = inputs._checkoutStepInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Cart.Cart_Receipt_Wrapper");
+});
+define("ECP_Cart_CW.Cart.Cart_Receipt_Wrapper.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Cart_CW.model", "ECP_Cart_CW.controller", "ECP_Checkout_BL.model", "react", "OutSystems/ReactView/Main", "ECP_Cart_CW.Cart.Cart_Receipt_Wrapper.mvc$model", "ECP_Cart_CW.Cart.Cart_Receipt_Wrapper.mvc$controller", "ECP_Cart_CW.clientVariables", "ECP_Cart_CW.Cart.Cart_Receipt.mvc$view", "OutSystems/ReactWidgets/Main", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_Cart_CW.referencesHealth", "ECP_Cart_CW.referencesHealth$ECP_Checkout_BL"], function (OutSystems, ECP_Cart_CWModel, ECP_Cart_CWController, ECP_Checkout_BLModel, React, OSView, ECP_Cart_CW_Cart_Cart_Receipt_Wrapper_mvc_model, ECP_Cart_CW_Cart_Cart_Receipt_Wrapper_mvc_controller, ECP_Cart_CWClientVariables, ECP_Cart_CW_Cart_Cart_Receipt_mvc_view, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Cart.Cart_Receipt_Wrapper";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECP_Cart_CW_Cart_Cart_Receipt_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Cart_CW_Cart_Cart_Receipt_Wrapper_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Cart_CW_Cart_Cart_Receipt_Wrapper_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECP_Cart_CW_Cart_Cart_Receipt_mvc_view, {
+inputs: {
+CheckoutStep: model.variables.checkoutStepIn,
+_checkoutStepInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._checkoutStepInDataFetchStatus),
+ReservedMoment: model.variables.reservedMomentIn,
+_reservedMomentInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._reservedMomentInDataFetchStatus),
+SelectedDeliveryType: model.variables.selectedDeliveryTypeIn,
+_selectedDeliveryTypeInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._selectedDeliveryTypeInDataFetchStatus),
+IsDataFetched: model.variables.isDataFetchedIn,
+_isDataFetchedInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isDataFetchedInDataFetchStatus),
+ShippingCosts: model.getCachedValue(idService.getId("AKtci_6Xpkibd9w1hMNQvA.ShippingCosts"), function () {
+return ((!(model.variables.temp_ShippingCostsIn.equals(OS.BuiltinFunctions.integerToDecimal(0)))) ? (model.variables.temp_ShippingCostsIn) : (ECP_Cart_CWClientVariables.getShippingCosts()));
+}, function () {
+return model.variables.temp_ShippingCostsIn;
+}, function () {
+return ECP_Cart_CWClientVariables.getShippingCosts();
+}),
+_shippingCostsInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._temp_ShippingCostsInDataFetchStatus),
+SelectedDeliveryDate: model.variables.selectedDeliveryDateIn,
+_selectedDeliveryDateInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._selectedDeliveryDateInDataFetchStatus),
+IsEntitlementActivated: ECP_Cart_CWClientVariables.getIsEntitlementActivated(),
+HideReserveMomentBanner: model.variables.hideReserveMomentBannerIn,
+_hideReserveMomentBannerInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._hideReserveMomentBannerInDataFetchStatus),
+JSONVoucherList_P: ECP_Cart_CWClientVariables.getCartVoucherList_P(),
+DeliveryCostBreakdown: model.variables.deliveryCostBreakdownIn,
+_deliveryCostBreakdownInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._deliveryCostBreakdownInDataFetchStatus),
+NoMomentReserved: model.variables.noMomentReservedIn,
+_noMomentReservedInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._noMomentReservedInDataFetchStatus),
+TotalProdCosts: ECP_Cart_CWClientVariables.getTotalProductsCosts(),
+JSONVoucherList_RM: ECP_Cart_CWClientVariables.getCartVoucherList_RM(),
+JSONVoucherList_Temp_RM: ECP_Cart_CWClientVariables.getCartVoucherList_Temp_RM(),
+DepositFeeCosts: ECP_Cart_CWClientVariables.getTotalDepositFee(),
+JSONVoucherList_Temp_P: ECP_Cart_CWClientVariables.getCartVoucherList_Temp_P(),
+ShowAdditionals: model.variables.showAdditionalsIn,
+_showAdditionalsInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._showAdditionalsInDataFetchStatus),
+MinimalAmountForDelivery: model.variables.minimalAmountForDeliveryIn,
+_minimalAmountForDeliveryInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._minimalAmountForDeliveryInDataFetchStatus),
+PLUSpuntenCosts: ECP_Cart_CWClientVariables.getTotalPLUSPunten()
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+momentReserved$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_ReserveMoment$Action(controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Cart_CW.Cart.Cart_Receipt_Wrapper.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Cart_CW.model", "ECP_Cart_CW.controller", "ECP_Checkout_BL.model", "ECP_Cart_CW.languageResources", "ECP_Cart_CW.clientVariables", "ECP_Cart_CW.Cart.Cart_Receipt_Wrapper.mvc$translationsResources", "ECP_Checkout_BL.model$ReservedMomentRec", "ECP_Cart_CW.referencesHealth", "ECP_Cart_CW.referencesHealth$ECP_Checkout_BL"], function (OutSystems, ECP_Cart_CWModel, ECP_Cart_CWController, ECP_Checkout_BLModel, ECP_Cart_CWLanguageResources, ECP_Cart_CWClientVariables, ECP_Cart_CW_Cart_Cart_Receipt_Wrapper_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECP_Cart_CW_Cart_Cart_Receipt_Wrapper_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onClick_ReserveMoment$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_ReserveMoment");
+callContext = controller.callContext(callContext);
+return OS.Flow.executeAsyncFlow(function () {
+// Trigger Event: MomentReserved
+return controller.momentReserved$Action(callContext);
+});
+};
+
+Controller.prototype.onClick_ReserveMoment$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_ReserveMoment$Action, callContext);
+
+};
+Controller.prototype.momentReserved$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Cart_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Cart_CWLanguageResources);
+});
+
+define("ECP_Cart_CW.Cart.Cart_Receipt_Wrapper.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

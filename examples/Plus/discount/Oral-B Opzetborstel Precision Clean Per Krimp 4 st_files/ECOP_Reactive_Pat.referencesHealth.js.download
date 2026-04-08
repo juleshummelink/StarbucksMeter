@@ -1,0 +1,23 @@
+﻿define("ECOP_Reactive_Pat.referencesHealth$ECOP_Base_Assets", [], function () {
+// Reference to producer 'ECOP_Base_Assets' is OK.
+});
+define("ECOP_Reactive_Pat.referencesHealth$ECOP_Base_RPat", [], function () {
+// Reference to producer 'ECOP_Base_RPat' is OK.
+});
+define("ECOP_Reactive_Pat.referencesHealth$ECOP_Convert_ReleaseToggles_Lib", [], function () {
+// Reference to producer 'ECOP_Convert_ReleaseToggles_Lib' is OK.
+});
+define("ECOP_Reactive_Pat.referencesHealth$ECOP_ReleaseTogglesReactive", [], function () {
+// Reference to producer 'ECOP_ReleaseTogglesReactive' is OK.
+});
+define("ECOP_Reactive_Pat.referencesHealth$PLUS_OutSystemsUI_2_8_0", [], function () {
+// Reference to producer 'PLUS_OutSystemsUI_2_8_0' is OK.
+});
+define("ECOP_Reactive_Pat.referencesHealth$ServiceCenter", [], function () {
+// Reference to producer 'ServiceCenter' is OK.
+});
+define("ECOP_Reactive_Pat.referencesHealth$Users", [], function () {
+// Reference to producer 'Users' is OK.
+});
+define("ECOP_Reactive_Pat.referencesHealth", [], function () {
+});

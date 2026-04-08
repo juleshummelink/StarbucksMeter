@@ -1,0 +1,26 @@
+﻿define("ECOP.CMSBlogOverviewPageFlow.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP.AA_Common.controller", "ECOP.clientVariables", "ECOP.CMSBlogOverviewPageFlow.controller$translationsResources"], function (exports, OutSystems, ECOPModel, ECOPController, ECOP_AA_CommonController, ECOPClientVariables, ECOP_CMSBlogOverviewPageFlow_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECOP_CMSBlogOverviewPageFlowController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+Controller.prototype.handleError = function (ex, callContext) {
+var controller = this.controller;
+OS.Logger.trace("CMSBlogOverviewPageFlow", OS.Exceptions.getMessage(ex), ex.name);
+return ECOP_AA_CommonController.default.handleError(ex, callContext);
+
+
+};
+return Controller;
+})(OS.Controller.BaseController);
+ECOP_CMSBlogOverviewPageFlowController.default = new Controller(ECOP_CMSBlogOverviewPageFlow_Controller_translationsResources);
+});
+
+define("ECOP.CMSBlogOverviewPageFlow.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

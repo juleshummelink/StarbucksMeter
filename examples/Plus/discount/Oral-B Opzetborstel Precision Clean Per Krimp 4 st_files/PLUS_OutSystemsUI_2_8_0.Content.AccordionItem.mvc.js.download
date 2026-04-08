@@ -1,0 +1,1088 @@
+﻿define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$model", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "PLUS_OutSystemsUI_2_8_0.controller$IsWebApp", "PLUS_OutSystemsUI_2_8_0.controller$IsLayoutNative"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsMultipleItems", "isMultipleItemsVar", "IsMultipleItems", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("AccordionObj", "accordionObjVar", "AccordionObj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("HasWrapper", "hasWrapperVar", "HasWrapper", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("IsWebApp", "isWebAppVar", "IsWebApp", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("HasContent", "hasContentVar", "HasContent", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("IsExpanded", "isExpandedIn", "IsExpanded", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isExpandedInDataFetchStatus", "_isExpandedInDataFetchStatus", "_isExpandedInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("UsePadding", "usePaddingIn", "UsePadding", true, false, OS.Types.Boolean, function () {
+return true;
+}, false), 
+this.attr("_usePaddingInDataFetchStatus", "_usePaddingInDataFetchStatus", "_usePaddingInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsDisabled", "isDisabledIn", "IsDisabled", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDisabledInDataFetchStatus", "_isDisabledInDataFetchStatus", "_isDisabledInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("IsExpanded" in inputs) {
+this.variables.isExpandedIn = inputs.IsExpanded;
+if("_isExpandedInDataFetchStatus" in inputs) {
+this.variables._isExpandedInDataFetchStatus = inputs._isExpandedInDataFetchStatus;
+}
+
+}
+
+if("UsePadding" in inputs) {
+this.variables.usePaddingIn = inputs.UsePadding;
+if("_usePaddingInDataFetchStatus" in inputs) {
+this.variables._usePaddingInDataFetchStatus = inputs._usePaddingInDataFetchStatus;
+}
+
+}
+
+if("IsDisabled" in inputs) {
+this.variables.isDisabledIn = inputs.IsDisabled;
+if("_isDisabledInDataFetchStatus" in inputs) {
+this.variables._isDisabledInDataFetchStatus = inputs._isDisabledInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "Content.AccordionItem");
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$view", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "react", "OutSystems/ReactView/Main", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$model", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller", "OutSystems/ReactWidgets/Main", "PLUS_OutSystemsUI_2_8_0.controller$IsWebApp", "PLUS_OutSystemsUI_2_8_0.controller$IsLayoutNative"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, React, OSView, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_model, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "Content.AccordionItem";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+"data-expanded": model.getCachedValue(idService.getId("SectionItem.data-expanded"), function () {
+return OS.BuiltinFunctions.toLower((model.variables.isExpandedIn ? "True" : "False"));
+}, function () {
+return model.variables.isExpandedIn;
+}),
+"aria-expanded": model.getCachedValue(idService.getId("SectionItem.aria-expanded"), function () {
+return OS.BuiltinFunctions.toLower((model.variables.isExpandedIn ? "True" : "False"));
+}, function () {
+return model.variables.isExpandedIn;
+}),
+"aria-disabled": model.getCachedValue(idService.getId("SectionItem.aria-disabled"), function () {
+return ((!(model.variables.isDisabledIn)) ? ("false") : ("true"));
+}, function () {
+return model.variables.isDisabledIn;
+}),
+role: "tab"
+},
+style: model.getCachedValue(idService.getId("SectionItem.Style"), function () {
+return (((("section-expandable " + ((model.variables.isExpandedIn) ? (" open is--open") : ("is--closed"))) + ((model.variables.isDisabledIn) ? (" is--disabled") : (""))) + " ") + model.variables.extendedClassIn);
+}, function () {
+return model.variables.isExpandedIn;
+}, function () {
+return model.variables.isDisabledIn;
+}, function () {
+return model.variables.extendedClassIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionItem"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isExpandedInDataFetchStatus, model.variables._isDisabledInDataFetchStatus, model.variables._extendedClassInDataFetchStatus)
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedEvents: {
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick$Action(idService.getId("SectionItem"), false, controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+extendedProperties: {
+role: "button",
+"aria-hidden": model.getCachedValue(idService.getId("TitleWrapper.aria-hidden"), function () {
+return OS.BuiltinFunctions.toLower((model.variables.isDisabledIn ? "True" : "False"));
+}, function () {
+return model.variables.isDisabledIn;
+}),
+"aria-expanded": model.getCachedValue(idService.getId("TitleWrapper.aria-expanded"), function () {
+return OS.BuiltinFunctions.toLower((model.variables.isExpandedIn ? "True" : "False"));
+}, function () {
+return model.variables.isExpandedIn;
+}),
+tabIndex: model.getCachedValue(idService.getId("TitleWrapper.tabindex"), function () {
+return (((model.variables.isDisabledIn || !(model.variables.hasContentVar))) ? ("-1") : ("0"));
+}, function () {
+return model.variables.isDisabledIn;
+}, function () {
+return model.variables.hasContentVar;
+}),
+"aria-controls": idService.getId("Content")
+},
+style: "section-expandable-title",
+visible: true,
+_idProps: {
+service: idService,
+name: "TitleWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.title,
+style: model.getCachedValue(idService.getId("Title.Style"), function () {
+return ("dividers full-width" + ((model.variables.isWebAppVar) ? ("") : (" text-ellipsis")));
+}, function () {
+return model.variables.isWebAppVar;
+}),
+_idProps: {
+service: idService,
+name: "Title"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+"aria-hidden": "true"
+},
+style: "section-expandable-icon",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+extendedProperties: {
+tabIndex: model.getCachedValue(idService.getId("ContentWrapper.tabindex"), function () {
+return ((model.variables.hasContentVar) ? ("0") : ("-1"));
+}, function () {
+return model.variables.hasContentVar;
+}),
+"aria-hidden": model.getCachedValue(idService.getId("ContentWrapper.aria-hidden"), function () {
+return ((model.variables.isExpandedIn) ? ("false") : ("true"));
+}, function () {
+return model.variables.isExpandedIn;
+}),
+"aria-labelledby": idService.getId("TitleWrapper")
+},
+style: model.getCachedValue(idService.getId("ContentWrapper.Style"), function () {
+return ("section-expandable-content is--collapsed" + ((model.variables.usePaddingIn) ? ("") : (" no-padding")));
+}, function () {
+return model.variables.usePaddingIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "ContentWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._usePaddingInDataFetchStatus)
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.content,
+extendedProperties: {
+role: "tabpanel"
+},
+_idProps: {
+service: idService,
+name: "Content"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller", ["OutSystems/ClientRuntime/Main", "PLUS_OutSystemsUI_2_8_0.model", "PLUS_OutSystemsUI_2_8_0.controller", "PLUS_OutSystemsUI_2_8_0.languageResources", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnClick.ToggleClassJS", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnClick.UpdateAttributeJS", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnClick.CloseAllJS", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.Collapse.CollapseJS", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnReady.InitJS", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnReady.SetGlobalActionsJS", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.SetAriaAttributes.SetAttributesJS", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.Expand.ExpandJS", "PLUS_OutSystemsUI_2_8_0.controller$IsWebApp", "PLUS_OutSystemsUI_2_8_0.controller$IsLayoutNative"], function (OutSystems, PLUS_OutSystemsUI_2_8_0Model, PLUS_OutSystemsUI_2_8_0Controller, PLUS_OutSystemsUI_2_8_0LanguageResources, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnClick_ToggleClassJS, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnClick_UpdateAttributeJS, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnClick_CloseAllJS, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_Collapse_CollapseJS, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnReady_InitJS, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnReady_SetGlobalActionsJS, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_SetAriaAttributes_SetAttributesJS, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_Expand_ExpandJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {
+setAriaAttributes$Action: function (isExpandIn, elemIdIn) {
+isExpandIn = (isExpandIn === undefined) ? false : isExpandIn;
+elemIdIn = (elemIdIn === undefined) ? "" : elemIdIn;
+return controller.executeActionInsideJSNode(controller._setAriaAttributes$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(isExpandIn, OS.Types.Boolean), OS.DataConversion.JSNodeParamConverter.from(elemIdIn, OS.Types.Text)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "SetAriaAttributes");
+},
+expand$Action: function (isKeypressIn) {
+isKeypressIn = (isKeypressIn === undefined) ? false : isKeypressIn;
+return controller.executeActionInsideJSNode(controller._expand$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(isKeypressIn, OS.Types.Boolean)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Expand");
+},
+collapse$Action: function (isKeypressIn) {
+isKeypressIn = (isKeypressIn === undefined) ? false : isKeypressIn;
+return controller.executeActionInsideJSNode(controller._collapse$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(isKeypressIn, OS.Types.Boolean)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "Collapse");
+},
+onClick$Action: function (elemIdIn, isKeypressIn) {
+elemIdIn = (elemIdIn === undefined) ? "" : elemIdIn;
+isKeypressIn = (isKeypressIn === undefined) ? false : isKeypressIn;
+return controller.executeActionInsideJSNode(controller._onClick$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(elemIdIn, OS.Types.Text), OS.DataConversion.JSNodeParamConverter.from(isKeypressIn, OS.Types.Boolean)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnClick");
+},
+onUpdate$Action: function (multipleItemsIn) {
+multipleItemsIn = (multipleItemsIn === undefined) ? false : multipleItemsIn;
+return controller.executeActionInsideJSNode(controller._onUpdate$Action.bind(controller, OS.DataConversion.JSNodeParamConverter.from(multipleItemsIn, OS.Types.Boolean)), controller.callContext(), function (actionResults) {
+return {};
+}, function () {
+return;
+}, "OnUpdate");
+}
+};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onClick$Action = function (elemIdIn, isKeypressIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnClick$vars"))());
+vars.value.elemIdInLocal = elemIdIn;
+vars.value.isKeypressInLocal = isKeypressIn;
+var toggleClassJSResult = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+return OS.Flow.executeSequence(function () {
+if((!(model.variables.isDisabledIn))) {
+return OS.Flow.executeSequence(function () {
+if((model.variables.hasContentVar)) {
+if((model.variables.hasWrapperVar)) {
+if((!(model.variables.isMultipleItemsVar))) {
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnClick_CloseAllJS, "CloseAll", "OnClick", {
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(vars.value.elemIdInLocal, OS.Types.Text),
+AccordionObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.accordionObjVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+}
+
+}
+
+if((model.variables.isExpandedIn)) {
+// Execute Action: Collapse
+controller._collapse$Action(vars.value.isKeypressInLocal, callContext);
+} else {
+// Execute Action: Expand
+controller._expand$Action(vars.value.isKeypressInLocal, callContext);
+}
+
+// Trigger Event: OnToggle
+return controller.onToggle$Action(model.variables.isExpandedIn, callContext).then(function () {
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnClick_UpdateAttributeJS, "UpdateAttribute", "OnClick", {
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(vars.value.elemIdInLocal, OS.Types.Text),
+IsExpanded: OS.DataConversion.JSNodeParamConverter.to(model.variables.isExpandedIn, OS.Types.Boolean)
+}, function ($parameters) {
+}, {}, {});
+});
+} else {
+toggleClassJSResult.value = controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnClick_ToggleClassJS, "ToggleClass", "OnClick", {
+IsExpanded: OS.DataConversion.JSNodeParamConverter.to(model.variables.isExpandedIn, OS.Types.Boolean),
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("SectionItem"), OS.Types.Text),
+IsOpen: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnClick$toggleClassJSResult"))();
+jsNodeResult.isOpenOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsOpen, OS.Types.Boolean);
+return jsNodeResult;
+}, {}, {});
+// IsExpanded = ToggleClass.IsOpen
+model.variables.isExpandedIn = toggleClassJSResult.value.isOpenOut;
+// Trigger Event: OnToggle2
+return controller.onToggle$Action(model.variables.isExpandedIn, callContext);
+}
+
+});
+}
+
+});
+});
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnClick$vars", [{
+name: "ElemId",
+attrName: "elemIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "IsKeypress",
+attrName: "isKeypressInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnClick$toggleClassJSResult", [{
+name: "IsOpen",
+attrName: "isOpenOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._collapse$Action = function (isKeypressIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Collapse");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.Collapse$vars"))());
+vars.value.isKeypressInLocal = isKeypressIn;
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_Collapse_CollapseJS, "Collapse", "Collapse", {
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("SectionItem"), OS.Types.Text),
+IsKeypress: OS.DataConversion.JSNodeParamConverter.to(vars.value.isKeypressInLocal, OS.Types.Boolean)
+}, function ($parameters) {
+}, {
+SetAriaAttributes: controller.clientActionProxies.setAriaAttributes$Action
+}, {});
+// IsExpanded = False
+model.variables.isExpandedIn = false;
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.Collapse$vars", [{
+name: "IsKeypress",
+attrName: "isKeypressInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._onReady$Action = function (idIn, isParameterChangeIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnReady$vars"))());
+vars.value.idInLocal = idIn;
+vars.value.isParameterChangeInLocal = isParameterChangeIn;
+var initJSResult = new OS.DataTypes.VariableHolder();
+initJSResult.value = controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnReady_InitJS, "Init", "OnReady", {
+TitleId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("TitleWrapper"), OS.Types.Text),
+Id: OS.DataConversion.JSNodeParamConverter.to(vars.value.idInLocal, OS.Types.Text),
+IsExpanded: OS.DataConversion.JSNodeParamConverter.to(model.variables.isExpandedIn, OS.Types.Boolean),
+IsParameterChange: OS.DataConversion.JSNodeParamConverter.to(vars.value.isParameterChangeInLocal, OS.Types.Boolean),
+ContentPlaceholderId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("Content"), OS.Types.Text),
+ContentId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("ContentWrapper"), OS.Types.Text),
+IsMultipleItems: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+AccordionObj: OS.DataConversion.JSNodeParamConverter.to(null, OS.Types.Object),
+HasWrapper: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean),
+HasContent: OS.DataConversion.JSNodeParamConverter.to(false, OS.Types.Boolean)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnReady$initJSResult"))();
+jsNodeResult.isMultipleItemsOut = OS.DataConversion.JSNodeParamConverter.from($parameters.IsMultipleItems, OS.Types.Boolean);
+jsNodeResult.accordionObjOut = OS.DataConversion.JSNodeParamConverter.from($parameters.AccordionObj, OS.Types.Object);
+jsNodeResult.hasWrapperOut = OS.DataConversion.JSNodeParamConverter.from($parameters.HasWrapper, OS.Types.Boolean);
+jsNodeResult.hasContentOut = OS.DataConversion.JSNodeParamConverter.from($parameters.HasContent, OS.Types.Boolean);
+return jsNodeResult;
+}, {
+Expand: controller.clientActionProxies.expand$Action,
+Collapse: controller.clientActionProxies.collapse$Action,
+OnClick: controller.clientActionProxies.onClick$Action
+}, {});
+// IsMultipleItems = Init.IsMultipleItems
+model.variables.isMultipleItemsVar = initJSResult.value.isMultipleItemsOut;
+// AccordionObj = Init.AccordionObj
+model.variables.accordionObjVar = initJSResult.value.accordionObjOut;
+// HasWrapper = Init.HasWrapper
+model.variables.hasWrapperVar = initJSResult.value.hasWrapperOut;
+// IsWebApp = IsWebApp() or IsLayoutNative()
+model.variables.isWebAppVar = (PLUS_OutSystemsUI_2_8_0Controller.default.isWebApp$Action(callContext).isWebAppOut || PLUS_OutSystemsUI_2_8_0Controller.default.isLayoutNative$Action(callContext).isNativeOut);
+// HasContent = Init.HasContent
+model.variables.hasContentVar = initJSResult.value.hasContentOut;
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_OnReady_SetGlobalActionsJS, "SetGlobalActions", "OnReady", {
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("SectionItem"), OS.Types.Text)
+}, function ($parameters) {
+}, {
+Collapse: controller.clientActionProxies.collapse$Action,
+Expand: controller.clientActionProxies.expand$Action,
+OnUpdate: controller.clientActionProxies.onUpdate$Action
+}, {});
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnReady$vars", [{
+name: "Id",
+attrName: "idInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "IsParameterChange",
+attrName: "isParameterChangeInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnReady$initJSResult", [{
+name: "IsMultipleItems",
+attrName: "isMultipleItemsOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "AccordionObj",
+attrName: "accordionObjOut",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "HasWrapper",
+attrName: "hasWrapperOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "HasContent",
+attrName: "hasContentOut",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._setAriaAttributes$Action = function (isExpandIn, elemIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("SetAriaAttributes");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.SetAriaAttributes$vars"))());
+vars.value.isExpandInLocal = isExpandIn;
+vars.value.elemIdInLocal = elemIdIn;
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_SetAriaAttributes_SetAttributesJS, "SetAttributes", "SetAriaAttributes", {
+IsExpand: OS.DataConversion.JSNodeParamConverter.to(vars.value.isExpandInLocal, OS.Types.Boolean),
+ElementId: OS.DataConversion.JSNodeParamConverter.to(vars.value.elemIdInLocal, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.SetAriaAttributes$vars", [{
+name: "IsExpand",
+attrName: "isExpandInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}, {
+name: "ElemId",
+attrName: "elemIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._onUpdate$Action = function (multipleItemsIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnUpdate");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnUpdate$vars"))());
+vars.value.multipleItemsInLocal = multipleItemsIn;
+// IsMultipleItems = MultipleItems
+model.variables.isMultipleItemsVar = vars.value.multipleItemsInLocal;
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.OnUpdate$vars", [{
+name: "MultipleItems",
+attrName: "multipleItemsInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+Controller.prototype._expand$Action = function (isKeypressIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Expand");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.Expand$vars"))());
+vars.value.isKeypressInLocal = isKeypressIn;
+controller.safeExecuteJSNode(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_controller_Expand_ExpandJS, "Expand", "Expand", {
+IsKeypress: OS.DataConversion.JSNodeParamConverter.to(vars.value.isKeypressInLocal, OS.Types.Boolean),
+WidgetId: OS.DataConversion.JSNodeParamConverter.to(idService.getId("SectionItem"), OS.Types.Text)
+}, function ($parameters) {
+}, {
+SetAriaAttributes: controller.clientActionProxies.setAriaAttributes$Action
+}, {});
+// IsExpanded = True
+model.variables.isExpandedIn = true;
+};
+Controller.registerVariableGroupType("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.Expand$vars", [{
+name: "IsKeypress",
+attrName: "isKeypressInLocal",
+mandatory: true,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+
+Controller.prototype.onClick$Action = function (elemIdIn, isKeypressIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick$Action, callContext, elemIdIn, isKeypressIn);
+
+};
+Controller.prototype.collapse$Action = function (isKeypressIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._collapse$Action, callContext, isKeypressIn);
+
+};
+Controller.prototype.onReady$Action = function (idIn, isParameterChangeIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext, idIn, isParameterChangeIn);
+
+};
+Controller.prototype.setAriaAttributes$Action = function (isExpandIn, elemIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._setAriaAttributes$Action, callContext, isExpandIn, elemIdIn);
+
+};
+Controller.prototype.onUpdate$Action = function (multipleItemsIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onUpdate$Action, callContext, multipleItemsIn);
+
+};
+Controller.prototype.expand$Action = function (isKeypressIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._expand$Action, callContext, isKeypressIn);
+
+};
+Controller.prototype.onToggle$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(idService.getId("SectionItem"), false, callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(idService.getId("SectionItem"), true, callContext);
+
+};
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return PLUS_OutSystemsUI_2_8_0Controller.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, PLUS_OutSystemsUI_2_8_0LanguageResources);
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnClick.ToggleClassJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var currentAccordionItem = document.getElementById($parameters.WidgetId);
+var currentAccordionItemContent = currentAccordionItem.querySelector('.section-expandable-content');
+
+// Toggle is--closed/is--open class from current accordion item
+if($parameters.IsExpanded) {
+    currentAccordionItem.classList.add('is--closed');
+    currentAccordionItem.classList.remove('is--open');
+    $parameters.IsOpen = false;
+} else {
+    currentAccordionItem.classList.add('is--open');
+    currentAccordionItem.classList.remove('is--closed');
+    $parameters.IsOpen = true;
+}
+
+
+
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnClick.UpdateAttributeJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var accordionItem  = document.getElementById($parameters.WidgetId);
+
+accordionItem.setAttribute('data-expanded', $parameters.IsExpanded);
+
+
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnClick.CloseAllJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var accordion = $parameters.AccordionObj;
+var accordionItems = accordion.querySelectorAll('.section-expandable');
+var thisElem = document.getElementById($parameters.WidgetId);
+
+var isClosed = function(currentAccordionItem) {
+    if(currentAccordionItem.classList.contains('is--closed')) {
+        return true;
+    }
+    
+    return false;
+};
+
+currAccordionItem = thisElem;
+
+for(var i = 0; i < accordionItems.length; i++) {
+    var accordionItem = accordionItems[i];
+    if(accordionItem !== currAccordionItem && !isClosed(accordionItem)) {
+        accordionItem.CollapseItem();
+    }
+}
+
+
+
+
+
+
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.Collapse.CollapseJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+var currentAccordionItem = document.getElementById($parameters.WidgetId);
+
+var currentAccordionItemContent = currentAccordionItem.querySelector('.section-expandable-content');
+
+currentAccordionItemContent.removeAttribute('style');
+
+// Gets initial height value
+var expandedHeight = currentAccordionItemContent.getBoundingClientRect().height;
+
+// Toggle is--closed/is--open class from current accordion item
+currentAccordionItem.classList.add('is--closed');
+currentAccordionItem.classList.remove('is--open');
+
+// Removes expanded class and adds the collapsed class to obtain the collapsed height value
+currentAccordionItemContent.classList.remove('is--expanded');
+currentAccordionItemContent.classList.add('is--collapsed');
+
+var collapsedHeight = currentAccordionItemContent.getBoundingClientRect().height;
+
+currentAccordionItemContent.style.height = expandedHeight + 'px';
+
+// Removes collapsed class and adds the expanded class to animate
+currentAccordionItemContent.classList.add('is--expanded');
+currentAccordionItemContent.classList.remove('is--collapsed');
+
+// This setTimeout (0ms) will ensure that the DOM received the height 0 before actually starts the transition
+var waitDomIterateTimeout = setTimeout(function() {
+    
+    // Adds is--animating class to current accordion item content to obtain the final height value
+    currentAccordionItemContent.classList.add('is--animating');
+    
+    // Removes is--expanded class from current accordion item content
+    currentAccordionItemContent.classList.remove('is--expanded');
+    
+    currentAccordionItemContent.style.height = collapsedHeight + 'px';
+    
+    // Adds event listener to transition end
+    currentAccordionItemContent.addEventListener('transitionend', transitionEndHandler);
+    
+    // Adds is--collapsed class to current accordion item content
+    currentAccordionItemContent.classList.add('is--collapsed');
+    
+    // Clear timeout
+    clearTimeout(waitDomIterateTimeout);
+}, 100);
+
+var transitionEndHandler = function() {
+    var currentElement = currentAccordionItemContent;
+    var currentElementHeader = currentAccordionItem.querySelector('.section-expandable-title');
+    
+    if(currentElement) {
+        // Removes is--animating class
+        currentElement.classList.remove('is--animating');
+        
+        // Remove height and pointer events inline style
+        currentElement.style.height = '';
+        currentElementHeader.style.pointerEvents = '';
+        
+        // Verify if the currentElement has inline-styles and remove attribute if are empty
+        if(currentElement.style.cssText.length === 0) {
+            currentElement.removeAttribute('style');
+        }
+        
+        if($parameters.IsKeypress) {
+            // Add focus for Accessibility
+            currentElementHeader.focus();
+        }
+        
+        // Set visibility through ARIA states - Accessibility
+        $actions.SetAriaAttributes(false, $parameters.WidgetId);
+        
+        // Removes transitionend event listener
+        currentElement.removeEventListener('transitionend', transitionEndHandler, false);   
+    }
+};
+
+
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnReady.InitJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var sectionItem = document.getElementById($parameters.Id);
+var sectionTitle = document.getElementById($parameters.TitleId);
+var sectionContent = document.getElementById($parameters.ContentId);
+var contentPlaceholder = document.getElementById($parameters.ContentPlaceholderId);
+var accordion;
+var isExpanded;
+$parameters.HasContent = contentPlaceholder.innerHTML !== "";
+
+accordion = sectionItem.closest('.accordion');
+
+// If accordion selector with closest returns null, change to work with parent nodes
+if(accordion === null){
+    accordion = sectionItem.parentNode.parentNode;
+}
+
+var multipleItemsData = accordion.getAttribute('data-multiple-items');
+
+// Check if is inside Accordion
+if(accordion.classList.contains('accordion')) {
+    $parameters.HasWrapper = true;
+} 
+
+// Check if MultipleItems is False
+if(multipleItemsData === 'True') {
+    $parameters.IsMultipleItems = true;
+}
+
+// Add classes if expanded set as true. Doing here, instead of using Platform If on div, to avoid conflict with FLIP animation
+if($parameters.IsParameterChange) {
+    if($parameters.IsExpanded) {
+        $actions.Expand(false);
+    } else {
+        $actions.Collapse(false);
+    }
+} else if($parameters.IsExpanded) {
+    sectionContent.classList.remove('is--collapsed');
+    sectionContent.classList.add('is--expanded');
+}
+
+
+var onKeyDownPress = function(e){
+    isExpanded = sectionTitle.getAttribute('aria-expanded');
+
+    //If esc, Close AccordionItem
+    if(isExpanded === "true" && e.keyCode == "27") {
+        $actions.OnClick($parameters.Id, true);
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    //If enter or space use the onAccordionClick to validate
+    if (e.keyCode == "32" || e.keyCode == "13") {
+        $actions.OnClick($parameters.Id, true);
+        e.preventDefault();
+        e.stopPropagation();
+    }
+};
+
+if($parameters.HasContent) {
+    sectionTitle.addEventListener('keydown', onKeyDownPress);
+}
+
+$parameters.AccordionObj = accordion;
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.OnReady.SetGlobalActionsJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var element = document.getElementById($parameters.WidgetId);
+
+// Add actions
+element.CollapseItem = function() { 
+    $actions.Collapse();
+};
+
+element.ExpandItem = function() { 
+    $actions.Expand();
+};
+
+element.updateAccordion = function(i) { 
+    $actions.OnUpdate(i);
+};
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.SetAriaAttributes.SetAttributesJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var currentAccordionItem = document.getElementById($parameters.ElementId);
+
+// Set visibility through ARIA states - Accessibility
+var setAriaExpanded = function(currentAccordionItem, status, ariaHidden) {
+    if(currentAccordionItem) {
+        currentAccordionItem.setAttribute('aria-expanded', status);
+        currentAccordionItem.querySelector('.section-expandable-title').setAttribute('aria-expanded', status);
+        currentAccordionItem.querySelector('.section-expandable-content').setAttribute('aria-hidden', ariaHidden);   
+    }
+};
+
+if($parameters.IsExpand) {
+    setAriaExpanded(currentAccordionItem, 'true', 'false');
+} else {
+    setAriaExpanded(currentAccordionItem, 'false', 'true');
+}
+};
+});
+define("PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$controller.Expand.ExpandJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+var currentAccordionItem = document.getElementById($parameters.WidgetId);
+
+var currentAccordionItemContent = currentAccordionItem.querySelector('.section-expandable-content');
+var currentAccordionItemHeader = currentAccordionItem.querySelector('.section-expandable-title');
+
+// Gets initial height value
+var collapsedHeight = currentAccordionItemContent.getBoundingClientRect().height;
+
+// Toggle is--closed/is--open class from current accordion item
+currentAccordionItem.classList.remove('is--closed');
+currentAccordionItem.classList.add('is--open');
+
+// Prevents multiple clicks on Accordion when it's animating
+currentAccordionItemHeader.style.pointerEvents = 'none';
+
+// Toggle is--collapsed/is--expanded class from current accordion item
+currentAccordionItemContent.classList.remove('is--collapsed');
+currentAccordionItemContent.classList.add('is--expanded');
+
+currentAccordionItemContent.removeAttribute('style');
+
+// Gets final height value
+var expandedHeight = currentAccordionItemContent.getBoundingClientRect().height;
+
+// Removes is--expanded class from current accordion item content to animate
+currentAccordionItemContent.classList.remove('is--expanded');
+
+currentAccordionItemContent.style.height = collapsedHeight + 'px';
+
+// This setTimeout (0ms) will ensure that the DOM received the height 0 before actually starts the transition
+var waitDomIterateTimeout = setTimeout(function() {
+    
+    // Adds is--animating class to current accordion item content to obtain the final height value
+    currentAccordionItemContent.classList.add('is--animating');
+    
+    currentAccordionItemContent.style.height = expandedHeight + 'px';
+    
+    // Adds event listener to transition end
+    currentAccordionItemContent.addEventListener('transitionend', transitionEndHandler);
+    
+    // Adds is--expanded class to current accordion item content
+    currentAccordionItemContent.classList.add('is--expanded');
+    
+    // Clear timeout
+    clearTimeout(waitDomIterateTimeout);
+}, 100);
+
+var transitionEndHandler = function() {
+    var currentElement = currentAccordionItemContent;
+    var currentElementHeader = currentAccordionItemHeader;
+    
+    if(currentElement) {
+        // Removes is--animating class
+        currentElement.classList.remove('is--animating');
+        
+        // Remove height and pointer events inline style
+        currentElement.style.height = '';
+        currentElementHeader.style.pointerEvents = '';
+        
+        // Verify if the currentElement has inline-styles and remove attribute if are empty
+        if(currentElement.style.cssText.length === 0) {
+            currentElement.removeAttribute('style');
+        }
+        
+        if($parameters.IsKeypress) {
+            // Add focus for Accessibility
+            currentElement.focus();
+        }
+        
+        // Set visibility through ARIA states - Accessibility
+        $actions.SetAriaAttributes(true, $parameters.WidgetId);
+        
+        // Removes transitionend event listener
+        currentElement.removeEventListener('transitionend', transitionEndHandler, false);   
+    }
+};
+};
+});
+

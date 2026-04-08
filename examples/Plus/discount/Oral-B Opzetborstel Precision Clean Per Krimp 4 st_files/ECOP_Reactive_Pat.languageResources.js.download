@@ -1,0 +1,31 @@
+﻿define("ECOP_Reactive_Pat.languageResources", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.languageResources.translationsResources"], function (OutSystems, ECOP_Reactive_PatLanguageResources_translationsResources) {
+var OS = OutSystems.Internal;
+var MessagesProvider = (function (_super) {
+__extends(MessagesProvider, _super);
+function MessagesProvider(translationResources) {
+_super.apply(this, arguments);
+this.setMessage("Validation.Mandatory", "");
+this.setMessage("Validation.Integer", "");
+this.setMessage("Validation.LongInteger", "");
+this.setMessage("Validation.Decimal", "");
+this.setMessage("Validation.Currency", "");
+this.setMessage("Validation.Date", "");
+this.setMessage("Validation.Time", "");
+this.setMessage("Validation.DateTime", "");
+this.setMessage("Validation.Text", "");
+this.setMessage("Validation.PhoneNumber", "");
+this.setMessage("Validation.Email", "");
+this.setMessage("UpgradeComplete", "");
+this.setMessage("AppInitError.Generic", "");
+this.setMessage("AppInitError.Resources", "");
+this.setMessage("AppInitError.DataModel", "");
+this.setMessage("UpgradeRequired", "");
+this.setMessage("UpgradeRequiredDataLoss", "");
+}
+return MessagesProvider;
+})(OS.LanguageResources.BaseMessagesProvider);
+return new MessagesProvider(ECOP_Reactive_PatLanguageResources_translationsResources);
+});
+define("ECOP_Reactive_Pat.languageResources.translationsResources", ["exports"], function (exports) {
+return {};
+});

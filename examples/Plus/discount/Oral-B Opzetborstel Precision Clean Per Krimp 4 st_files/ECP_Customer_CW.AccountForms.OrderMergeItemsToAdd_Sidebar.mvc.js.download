@@ -1,0 +1,706 @@
+﻿define("ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Checkout_BL.model", "ECP_Cart_CW.controller", "ECP_Cart_BL.model", "ECOP_Base_RPat.CustomPatterns.Sidebar_Content_Layout.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$model", "PLUS_OutSystemsUI_2_8_0.Utilities.ButtonLoading.mvc$model", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Customer_CW.referencesHealth", "ECP_Customer_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ContentfulImageOptimization", "ECP_Customer_CW.model$LineItemList", "ECOP_FE_Core.controller$OrderEditId_Set", "ECP_Customer_CW.referencesHealth$ECOP_FE_Core", "ECP_Checkout_BL.model$CheckoutRec", "ECP_Customer_CW.referencesHealth$ECP_Checkout_BL", "ECP_Cart_CW.controller$Cart_SetItemsList", "ECP_Customer_CW.referencesHealth$ECP_Cart_CW", "ECP_Cart_CW.controller$Cart_SetPreviousItemsList", "ECP_Customer_CW.model$PromotionLineItemList", "ECP_Cart_BL.model$DeliveryCostBreakdown_StrRec", "ECP_Customer_CW.referencesHealth$ECP_Cart_BL", "ECP_Cart_CW.controller$Cart_SetTotals"], function (OutSystems, ECP_Customer_CWModel, CMS_MonolithController, ECOP_FE_CoreController, ECP_Checkout_BLModel, ECP_Cart_CWController, ECP_Cart_BLModel, ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvcModel, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_CustomPatterns_Badge_mvcModel, PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsLoading", "isLoadingVar", "IsLoading", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("LineItemList", "lineItemListIn", "LineItemList", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Customer_CWModel.LineItemList());
+}, false, ECP_Customer_CWModel.LineItemList), 
+this.attr("_lineItemListInDataFetchStatus", "_lineItemListInDataFetchStatus", "_lineItemListInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OrderEditId", "orderEditIdIn", "OrderEditId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_orderEditIdInDataFetchStatus", "_orderEditIdInDataFetchStatus", "_orderEditIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CartId", "cartIdIn", "CartId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_cartIdInDataFetchStatus", "_cartIdInDataFetchStatus", "_cartIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("CartVersion", "cartVersionIn", "CartVersion", true, false, OS.Types.Integer, function () {
+return 0;
+}, false), 
+this.attr("_cartVersionInDataFetchStatus", "_cartVersionInDataFetchStatus", "_cartVersionInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ChannelId", "channelIdIn", "ChannelId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_channelIdInDataFetchStatus", "_channelIdInDataFetchStatus", "_channelIdInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("OWGUID", "oWGUIDIn", "OWGUID", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_oWGUIDInDataFetchStatus", "_oWGUIDInDataFetchStatus", "_oWGUIDInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((((ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvcModel.hasValidationWidgets || ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_Badge_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("LineItemList" in inputs) {
+this.variables.lineItemListIn = inputs.LineItemList;
+if("_lineItemListInDataFetchStatus" in inputs) {
+this.variables._lineItemListInDataFetchStatus = inputs._lineItemListInDataFetchStatus;
+}
+
+}
+
+if("OrderEditId" in inputs) {
+this.variables.orderEditIdIn = inputs.OrderEditId;
+if("_orderEditIdInDataFetchStatus" in inputs) {
+this.variables._orderEditIdInDataFetchStatus = inputs._orderEditIdInDataFetchStatus;
+}
+
+}
+
+if("CartId" in inputs) {
+this.variables.cartIdIn = inputs.CartId;
+if("_cartIdInDataFetchStatus" in inputs) {
+this.variables._cartIdInDataFetchStatus = inputs._cartIdInDataFetchStatus;
+}
+
+}
+
+if("CartVersion" in inputs) {
+this.variables.cartVersionIn = inputs.CartVersion;
+if("_cartVersionInDataFetchStatus" in inputs) {
+this.variables._cartVersionInDataFetchStatus = inputs._cartVersionInDataFetchStatus;
+}
+
+}
+
+if("ChannelId" in inputs) {
+this.variables.channelIdIn = inputs.ChannelId;
+if("_channelIdInDataFetchStatus" in inputs) {
+this.variables._channelIdInDataFetchStatus = inputs._channelIdInDataFetchStatus;
+}
+
+}
+
+if("OWGUID" in inputs) {
+this.variables.oWGUIDIn = inputs.OWGUID;
+if("_oWGUIDInDataFetchStatus" in inputs) {
+this.variables._oWGUIDInDataFetchStatus = inputs._oWGUIDInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "AccountForms.OrderMergeItemsToAdd_Sidebar");
+});
+define("ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Checkout_BL.model", "ECP_Cart_CW.controller", "ECP_Cart_BL.model", "react", "OutSystems/ReactView/Main", "ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$model", "ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$controller", "ECOP_Base_RPat.CustomPatterns.Sidebar_Content_Layout.mvc$view", "OutSystems/ReactWidgets/Main", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.Badge.mvc$view", "PLUS_OutSystemsUI_2_8_0.Utilities.ButtonLoading.mvc$view", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Customer_CW.referencesHealth", "ECP_Customer_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ContentfulImageOptimization", "ECP_Customer_CW.model$LineItemList", "ECOP_FE_Core.controller$OrderEditId_Set", "ECP_Customer_CW.referencesHealth$ECOP_FE_Core", "ECP_Checkout_BL.model$CheckoutRec", "ECP_Customer_CW.referencesHealth$ECP_Checkout_BL", "ECP_Cart_CW.controller$Cart_SetItemsList", "ECP_Customer_CW.referencesHealth$ECP_Cart_CW", "ECP_Cart_CW.controller$Cart_SetPreviousItemsList", "ECP_Customer_CW.model$PromotionLineItemList", "ECP_Cart_BL.model$DeliveryCostBreakdown_StrRec", "ECP_Customer_CW.referencesHealth$ECP_Cart_BL", "ECP_Cart_CW.controller$Cart_SetTotals"], function (OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController, CMS_MonolithController, ECOP_FE_CoreController, ECP_Checkout_BLModel, ECP_Cart_CWController, ECP_Cart_BLModel, React, OSView, ECP_Customer_CW_AccountForms_OrderMergeItemsToAdd_Sidebar_mvc_model, ECP_Customer_CW_AccountForms_OrderMergeItemsToAdd_Sidebar_mvc_controller, ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvc_view, OSWidgets, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "AccountForms.OrderMergeItemsToAdd_Sidebar";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvc_view, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Customer_CW_AccountForms_OrderMergeItemsToAdd_Sidebar_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Customer_CW_AccountForms_OrderMergeItemsToAdd_Sidebar_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECOP_Base_RPat_CustomPatterns_Sidebar_Content_Layout_mvc_view, {
+inputs: {
+RemovePhonePaddingX: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "unavailable-products__description",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+gridProperties: {
+marginLeft: "0"
+},
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("1Fued1Fx0kWGov+y1BIm0w#ValueExpression.-992769517.1", "You still have products in your shopping cart. You can add these products to the order that you are going to change."),
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.List, {
+animateItems: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.lineItemListIn,
+style: "list list-group margin-bottom-base",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+source_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._lineItemListInDataFetchStatus),
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+HasBorderBottom: true,
+ExtendedClass: "plp-item-row-mode",
+DisableSlider: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "4",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageLabel: model.variables.lineItemListIn.getCurrent(callContext.iterationContext).imageAttr.labelAttr,
+_imageLabelInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._lineItemListInDataFetchStatus),
+ImageURL: model.getCachedValue(idService.getId("IjIdRETsK0Ktu2TPZsGsdw.ImageURL"), function () {
+return CMS_MonolithController.default.contentfulImageOptimization$Action(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).imageAttr.uRLAttr, 104, 104, CMS_MonolithController.default.imageUtils_GetCDNImgFormat$Action(callContext).cDNImgFormatOut, 85, ECP_Customer_CWModel.staticEntities.contentfulImageResizeBehavior.pad, callContext).newURLOut;
+}, function () {
+return model.variables.lineItemListIn.getCurrent(callContext.iterationContext).imageAttr.uRLAttr;
+}),
+_imageURLInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._lineItemListInDataFetchStatus)
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "5",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "home",
+Size: ECP_Customer_CWModel.staticEntities.iconSize.size3x,
+ExtendedClass: "text-neutral-2"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "6",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: PlaceholderContent.Empty,
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+value: model.variables.lineItemListIn.getCurrent(callContext.iterationContext).nameAttr,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._lineItemListInDataFetchStatus)
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [$if(((model.variables.lineItemListIn.getCurrent(callContext.iterationContext).subtitleAttr) !== ("")), false, this, function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.variables.lineItemListIn.getCurrent(callContext.iterationContext).subtitleAttr,
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._lineItemListInDataFetchStatus)
+})];
+}, function () {
+return [];
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.getCachedValue(idService.getId("lKSaOOTLG0aTzYVl7UGsTQ.Value"), function () {
+return (OS.BuiltinFunctions.decimalToText(OS.BuiltinFunctions.trunc(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).priceAttr)) + ".");
+}, function () {
+return model.variables.lineItemListIn.getCurrent(callContext.iterationContext).priceAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._lineItemListInDataFetchStatus)
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+value: model.getCachedValue(idService.getId("MpDE+BT420asK+bMlQ8Plg.Value"), function () {
+return (((OS.BuiltinFunctions.index(OS.BuiltinFunctions.decimalToText(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).priceAttr), ".", 0, false, false) > -1)) ? (OS.BuiltinFunctions.substr(OS.BuiltinFunctions.formatDecimal(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).priceAttr, 2, ".", ","), (OS.BuiltinFunctions.index(OS.BuiltinFunctions.decimalToText(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).priceAttr), ".", 0, false, false) + 1), 2)) : ("00"));
+}, function () {
+return model.variables.lineItemListIn.getCurrent(callContext.iterationContext).priceAttr;
+}),
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+value_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._lineItemListInDataFetchStatus)
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "disabled-badge-quantity background-transparent",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_Badge_mvc_view, {
+inputs: {
+ExtendedClass: "disabled-quantity__badge",
+Size: model.getCachedValue(idService.getId("k18nD9yiCkiM2hPO0wfysw.Size"), function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}),
+Shape: ECP_Customer_CWModel.staticEntities.shape.rounded,
+Number: OS.BuiltinFunctions.integerToLongInteger(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).quantityAttr),
+_numberInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._lineItemListInDataFetchStatus),
+ShowFullNumber: true,
+Color: ECP_Customer_CWModel.staticEntities.color.neutral0
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "12",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: [asPrimitiveValue(model.variables._lineItemListInDataFetchStatus), asPrimitiveValue(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).quantityAttr), asPrimitiveValue(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).priceAttr), asPrimitiveValue(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).subtitleAttr), asPrimitiveValue(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).nameAttr), asPrimitiveValue(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).imageAttr.uRLAttr), asPrimitiveValue(model.variables.lineItemListIn.getCurrent(callContext.iterationContext).imageAttr.labelAttr)]
+})];
+}, callContext, idService, "1")
+},
+_dependencies: [asPrimitiveValue(model.variables._lineItemListInDataFetchStatus)]
+})];
+}),
+footer: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "unavailable-products__footer vertical-align",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.closed$Action(false, controller.callContext(eventHandlerContext));
+
+;
+},
+style: "unavailable-products__link link-with-icon gtm-order-merge-cart-cancel-close",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("v62y7oeGOkKiGPO4cSzYSw#Value", "Don\'t add"))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "unavailable-products-button__wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_ButtonLoading_mvc_view, {
+inputs: {
+ShowLabelOnLoading: true,
+IsLoading: model.variables.isLoadingVar,
+ExtendedClass: "min--width__button"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "16",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+button: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Button, {
+enabled: true,
+gridProperties: {
+classes: "OSFillParent"
+},
+isDefault: false,
+onClick: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_MergeProducts$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+style: "btn btn-primary gtm-order-merge-cart",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "osui-btn-loading__spinner-animation",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}), $text(getTranslation("fUrcGpEq20eNfBSlLmdR5g#Value", "Add")))];
+})
+},
+_dependencies: []
+})))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.isLoadingVar), asPrimitiveValue(model.variables._lineItemListInDataFetchStatus), asPrimitiveValue(model.variables.lineItemListIn)]
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Customer_CW.model", "ECP_Customer_CW.controller", "CMS_Monolith.controller", "ECOP_FE_Core.controller", "ECP_Checkout_BL.model", "ECP_Cart_CW.controller", "ECP_Cart_BL.model", "ECP_Customer_CW.languageResources", "ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$translationsResources", "CMS_Monolith.controller$ImageUtils_GetCDNImgFormat", "ECP_Customer_CW.referencesHealth", "ECP_Customer_CW.referencesHealth$CMS_Monolith", "CMS_Monolith.controller$ContentfulImageOptimization", "ECP_Customer_CW.model$LineItemList", "ECOP_FE_Core.controller$OrderEditId_Set", "ECP_Customer_CW.referencesHealth$ECOP_FE_Core", "ECP_Checkout_BL.model$CheckoutRec", "ECP_Customer_CW.referencesHealth$ECP_Checkout_BL", "ECP_Cart_CW.controller$Cart_SetItemsList", "ECP_Customer_CW.referencesHealth$ECP_Cart_CW", "ECP_Cart_CW.controller$Cart_SetPreviousItemsList", "ECP_Customer_CW.model$PromotionLineItemList", "ECP_Cart_BL.model$DeliveryCostBreakdown_StrRec", "ECP_Customer_CW.referencesHealth$ECP_Cart_BL", "ECP_Cart_CW.controller$Cart_SetTotals"], function (OutSystems, ECP_Customer_CWModel, ECP_Customer_CWController, CMS_MonolithController, ECOP_FE_CoreController, ECP_Checkout_BLModel, ECP_Cart_CWController, ECP_Cart_BLModel, ECP_Customer_CWLanguageResources, ECP_Customer_CW_AccountForms_OrderMergeItemsToAdd_Sidebar_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Customer_CW_AccountForms_OrderMergeItemsToAdd_Sidebar_mvc_TranslationsResources;
+// Server Actions
+Controller.prototype.merge_CartWithOrder$ServerAction = function (orderEditIdIn, cartIdIn, cartVersionIn, lineItemListIn, channelIdIn, oWGUIDIn, callContext) {
+var controller = this.controller;
+var inputs = {
+OrderEditId: OS.DataConversion.ServerDataConverter.to(orderEditIdIn, OS.Types.Text),
+CartId: OS.DataConversion.ServerDataConverter.to(cartIdIn, OS.Types.Text),
+CartVersion: OS.DataConversion.ServerDataConverter.to(cartVersionIn, OS.Types.Integer),
+LineItemList: OS.DataConversion.ServerDataConverter.to(lineItemListIn, OS.Types.RecordList),
+ChannelId: OS.DataConversion.ServerDataConverter.to(channelIdIn, OS.Types.Text),
+OWGUID: OS.DataConversion.ServerDataConverter.to(oWGUIDIn, OS.Types.Text)
+};
+return controller.callServerAction("Merge_CartWithOrder", "screenservices/ECP_Customer_CW/AccountForms/OrderMergeItemsToAdd_Sidebar/ActionMerge_CartWithOrder", "dBaM6_jOoIaJcPm1hdVrFw", inputs, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar$rssespaceecp_checkout_bl_ActionMerge_CartWithOrder"))();
+executeServerActionResult.checkoutOut = OS.DataConversion.ServerDataConverter.from(outputs.Checkout, ECP_Checkout_BLModel.CheckoutRec);
+executeServerActionResult.editVersionOut = OS.DataConversion.ServerDataConverter.from(outputs.EditVersion, OS.Types.Integer);
+executeServerActionResult.callbackOrderEditIdOut = OS.DataConversion.ServerDataConverter.from(outputs.CallbackOrderEditId, OS.Types.Text);
+executeServerActionResult.noUpdateOut = OS.DataConversion.ServerDataConverter.from(outputs.NoUpdate, OS.Types.Boolean);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar$rssespaceecp_checkout_bl_ActionMerge_CartWithOrder", [{
+name: "Checkout",
+attrName: "checkoutOut",
+mandatory: false,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new ECP_Checkout_BLModel.CheckoutRec();
+},
+complexType: ECP_Checkout_BLModel.CheckoutRec
+}, {
+name: "EditVersion",
+attrName: "editVersionOut",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}, {
+name: "CallbackOrderEditId",
+attrName: "callbackOrderEditIdOut",
+mandatory: false,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return OS.BuiltinFunctions.nullTextIdentifier();
+}
+}, {
+name: "NoUpdate",
+attrName: "noUpdateOut",
+mandatory: false,
+dataType: OS.Types.Boolean,
+defaultValue: function () {
+return false;
+}
+}]);
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onClick_MergeProducts$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_MergeProducts");
+callContext = controller.callContext(callContext);
+var merge_CartWithOrderVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// IsLoading = True
+model.variables.isLoadingVar = true;
+// Execute Action: Merge_CartWithOrder
+model.flush();
+return controller.merge_CartWithOrder$ServerAction(model.variables.orderEditIdIn, model.variables.cartIdIn, model.variables.cartVersionIn, model.variables.lineItemListIn, model.variables.channelIdIn, model.variables.oWGUIDIn, callContext).then(function (value) {
+merge_CartWithOrderVar.value = value;
+}).then(function () {
+// Execute Action: OrderEditId_Set
+ECOP_FE_CoreController.default.orderEditId_Set$Action(model.variables.orderEditIdIn, merge_CartWithOrderVar.value.editVersionOut, callContext);
+// IsLoading = False
+model.variables.isLoadingVar = false;
+// Execute Action: Cart_SetTotals
+ECP_Cart_CWController.default.cart_SetTotals$Action(merge_CartWithOrderVar.value.checkoutOut.receiptAttr.priceAttr, merge_CartWithOrderVar.value.checkoutOut.receiptAttr.discountedPriceAttr, merge_CartWithOrderVar.value.checkoutOut.receiptAttr.lineItemQuantityAttr, merge_CartWithOrderVar.value.checkoutOut.idAttr, merge_CartWithOrderVar.value.checkoutOut.versionAttr, merge_CartWithOrderVar.value.checkoutOut.receiptAttr.shippingCostsAttr, merge_CartWithOrderVar.value.checkoutOut.receiptAttr.depositFeeCostsAttr, merge_CartWithOrderVar.value.checkoutOut.receiptAttr.pLUSPointsCostsAttr, merge_CartWithOrderVar.value.checkoutOut.receiptAttr.productCostsAttr, merge_CartWithOrderVar.value.checkoutOut.receiptAttr.promotionListAttr, ((merge_CartWithOrderVar.value.checkoutOut.reservedMomentAttr.deliveryDateAttr.equals(OS.BuiltinFunctions.nullDate())) ? (OS.BuiltinFunctions.currDate()) : (merge_CartWithOrderVar.value.checkoutOut.reservedMomentAttr.deliveryDateAttr)), merge_CartWithOrderVar.value.checkoutOut.deliverySaveValueAttr, merge_CartWithOrderVar.value.checkoutOut.nextThresholdValueAttr, merge_CartWithOrderVar.value.checkoutOut.minThreshold_NoServiceFeeAttr, merge_CartWithOrderVar.value.checkoutOut.store_ServiceCostAttr, ((((merge_CartWithOrderVar.value.checkoutOut.reservedMomentAttr.deliveryTypeIdAttr) !== (OS.BuiltinFunctions.nullIdentifier())) && !(merge_CartWithOrderVar.value.checkoutOut.reservedMomentAttr.slotStartTimeAttr.equals(merge_CartWithOrderVar.value.checkoutOut.reservedMomentAttr.slotEndTimeAttr))) ? 1 : 0), false, merge_CartWithOrderVar.value.checkoutOut.deliveryCostBreakDownAttr, merge_CartWithOrderVar.value.checkoutOut.isEntitlementAppliedAttr, merge_CartWithOrderVar.value.checkoutOut.isBundleEntitlementShowAttr, OS.DataTypes.Decimal.defaultValue, merge_CartWithOrderVar.value.checkoutOut.userHasEntitlementAttr, callContext);
+// Execute Action: Cart_SetItemsList
+ECP_Cart_CWController.default.cart_SetItemsList$Action(merge_CartWithOrderVar.value.checkoutOut.lineItemListAttr, callContext);
+// Execute Action: Cart_SetPreviousItemsList
+ECP_Cart_CWController.default.cart_SetPreviousItemsList$Action(new ECP_Customer_CWModel.LineItemList(), callContext);
+// Trigger Event: Closed
+return controller.closed$Action(true, callContext);
+});
+});
+};
+
+Controller.prototype.onClick_MergeProducts$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_MergeProducts$Action, callContext);
+
+};
+Controller.prototype.closed$Action = function () {
+return Promise.resolve();
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Customer_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Customer_CWLanguageResources);
+});
+
+define("ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$translationsResources", ["exports", "ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$translationsResources.nl-NL"], function (exports, ECP_Customer_CW_AccountForms_OrderMergeItemsToAdd_Sidebar_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Customer_CW_AccountForms_OrderMergeItemsToAdd_Sidebar_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Customer_CW.AccountForms.OrderMergeItemsToAdd_Sidebar.mvc$translationsResources.nl-NL", [], function () {
+return {
+"fUrcGpEq20eNfBSlLmdR5g#Value": "Toevoegen",
+"v62y7oeGOkKiGPO4cSzYSw#Value": "Niet toevoegen",
+"1Fued1Fx0kWGov+y1BIm0w#ValueExpression.-992769517.1": "Je hebt nog producten in je winkelwagen. Je kunt deze producten toevoegen aan de bestelling die je gaat wijzigen."
+};
+});

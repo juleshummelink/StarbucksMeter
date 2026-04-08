@@ -1,0 +1,1729 @@
+﻿define("ECOP.MainFlow.Cart.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP_ReleaseTogglesReactive.controller", "ECOP_FE_Core.controller", "CMS_Monolith.model", "ECOP.controller", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Base_RPat.controller", "ECP_Cart_CW.controller", "PLUS_OutSystemsUI_2_8_0.controller", "CT_Cart_IS.model", "ECOP.AA_AppLayouts.ECOP_Layout.mvc$model", "ECP_Cart_CW.Cart.CartContent.mvc$model", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$model", "PLUS_OutSystemsUI_2_8_0.Interaction.Sidebar_v2.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECP_Order_CW.Checkout.ReserveMoment.mvc$model", "ECP_ShoppingList_RCW.ShoppingLists.CreateShoppingList.mvc$model", "ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$model", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP.model$MyCart_LineItemList", "CMS_Monolith.model$ProductComponentRec", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$ProductTileDataList", "ECOP.model$TextRecordList", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECOP.model$MyShoppingListDraft_StrList", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Cart_CW.controller$Cart_Recalculate", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP.controller$Login_OneWelcome", "PLUS_OutSystemsUI_2_8_0.controller$SidebarOpen", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "PLUS_OutSystemsUI_2_8_0.controller$SidebarClose", "CT_Cart_IS.model$MyCart_LineItemRec", "ECOP.referencesHealth$CT_Cart_IS", "ECOP.controller$RemovePreloadHTML", "ECOP.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "CT_Cart_IS.model$FieldLineItemRec", "CT_Cart_IS.model$TypeRec", "ECOP.model$AttributeItemList", "ECOP.controller$FormatPDPInput"], function (OutSystems, ECOPModel, ECOP_ReleaseTogglesReactiveController, ECOP_FE_CoreController, CMS_MonolithModel, ECOPController, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Base_RPatController, ECP_Cart_CWController, PLUS_OutSystemsUI_2_8_0Controller, CT_Cart_ISModel, ECOP_AA_AppLayouts_ECOP_Layout_mvcModel, ECP_Cart_CW_Cart_CartContent_mvcModel, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvcModel, PLUS_OutSystemsUI_2_8_0_Interaction_Sidebar_v2_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECP_Order_CW_Checkout_ReserveMoment_mvcModel, ECP_ShoppingList_RCW_ShoppingLists_CreateShoppingList_mvcModel, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvcModel) {
+var OS = OutSystems.Internal;
+
+var GetDataDataActRec = (function (_super) {
+__extends(GetDataDataActRec, _super);
+function GetDataDataActRec(defaults) {
+_super.apply(this, arguments);
+}
+GetDataDataActRec.attributesToDeclare = function () {
+return [
+this.attr("HasShoppingLists", "hasShoppingListsOut", "HasShoppingLists", true, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("UpsellComponentInternalTitle", "upsellComponentInternalTitleOut", "UpsellComponentInternalTitle", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CustomerId", "customerIdOut", "CustomerId", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("UpSellProductComponent", "upSellProductComponentOut", "UpSellProductComponent", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new CMS_MonolithModel.ProductComponentRec());
+}, true, CMS_MonolithModel.ProductComponentRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+GetDataDataActRec.init();
+return GetDataDataActRec;
+})(OS.Model.DataSourceRecord);
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("Handler_RefreshCart_JS", "handler_RefreshCart_JSVar", "Handler_RefreshCart_JS", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("Layout_OpenReserveMoment_JS", "layout_OpenReserveMoment_JSVar", "Layout_OpenReserveMoment_JS", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("ShowReserveMomentSidebar", "showReserveMomentSidebarVar", "ShowReserveMomentSidebar", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("ShowStorePicker", "showStorePickerVar", "ShowStorePicker", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("UserStoreId", "userStoreIdVar", "UserStoreId", true, false, OS.Types.LongInteger, function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}, false), 
+this.attr("ShowContent", "showContentVar", "ShowContent", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("Layout_OpenStorePicker_JS", "layout_OpenStorePicker_JSVar", "Layout_OpenStorePicker_JS", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("IsOrderEditMode", "isOrderEditModeVar", "IsOrderEditMode", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("Layout_ToggleShowStopEditModePopup", "layout_ToggleShowStopEditModePopupVar", "Layout_ToggleShowStopEditModePopup", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("IsCartLoaded", "isCartLoadedVar", "IsCartLoaded", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("Products_InCart", "products_InCartVar", "Products_InCart", true, false, OS.Types.RecordList, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECOPModel.MyCart_LineItemList());
+}, false, ECOPModel.MyCart_LineItemList), 
+this.attr("ChannelId", "channelIdVar", "ChannelId", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("CartProductList_ToggleOptionsSidebar_JS", "cartProductList_ToggleOptionsSidebar_JSVar", "CartProductList_ToggleOptionsSidebar_JS", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("AppendToCart_UpsellProduct_Obj", "appendToCart_UpsellProduct_ObjVar", "AppendToCart_UpsellProduct_Obj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("OWGUID", "oWGUIDVar", "OWGUID", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("OpenProductsEditingMode_Obj", "openProductsEditingMode_ObjVar", "OpenProductsEditingMode_Obj", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("AddToShopList_RefreshShoppingLists_JS", "addToShopList_RefreshShoppingLists_JSVar", "AddToShopList_RefreshShoppingLists_JS", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("AddToShopList_TogglePopup_JS", "addToShopList_TogglePopup_JSVar", "AddToShopList_TogglePopup_JS", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("CreateShopList_TogglePopup_JS", "createShopList_TogglePopup_JSVar", "CreateShopList_TogglePopup_JS", true, false, OS.Types.Object, function () {
+return null;
+}, false), 
+this.attr("IsToValidateOrderMergeItems", "isToValidateOrderMergeItemsIn", "IsToValidateOrderMergeItems", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isToValidateOrderMergeItemsInDataFetchStatus", "_isToValidateOrderMergeItemsInDataFetchStatus", "_isToValidateOrderMergeItemsInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("GetData", "getDataDataAct", "getDataDataAct", true, true, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new GetDataDataActRec());
+}, true, GetDataDataActRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((((((ECOP_AA_AppLayouts_ECOP_Layout_mvcModel.hasValidationWidgets || ECP_Cart_CW_Cart_CartContent_mvcModel.hasValidationWidgets) || CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Interaction_Sidebar_v2_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECP_Order_CW_Checkout_ReserveMoment_mvcModel.hasValidationWidgets) || ECP_ShoppingList_RCW_ShoppingLists_CreateShoppingList_mvcModel.hasValidationWidgets) || ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("IsToValidateOrderMergeItems" in inputs) {
+this.variables.isToValidateOrderMergeItemsIn = OS.DataConversion.ServerDataConverter.from(inputs.IsToValidateOrderMergeItems, OS.Types.Boolean);
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "MainFlow.Cart");
+});
+define("ECOP.MainFlow.Cart.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP_ReleaseTogglesReactive.controller", "ECOP_FE_Core.controller", "CMS_Monolith.model", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Base_RPat.controller", "ECP_Cart_CW.controller", "PLUS_OutSystemsUI_2_8_0.controller", "CT_Cart_IS.model", "react", "OutSystems/ReactView/Main", "ECOP.MainFlow.Cart.mvc$model", "ECOP.MainFlow.Cart.mvc$controller", "ECOP.clientVariables", "ECOP.AA_AppLayouts.ECOP_Layout.mvc$view", "OutSystems/ReactWidgets/Main", "ECP_Cart_CW.Cart.CartContent.mvc$view", "CMS_Monolith.CMS_Product_RCW.ProductComponent_TF.mvc$view", "PLUS_OutSystemsUI_2_8_0.Interaction.Sidebar_v2.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECP_Order_CW.Checkout.ReserveMoment.mvc$view", "ECP_ShoppingList_RCW.ShoppingLists.CreateShoppingList.mvc$view", "ECP_ShoppingList_RCW.ShoppingLists.AddToShoppingList.mvc$view", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP.model$MyCart_LineItemList", "CMS_Monolith.model$ProductComponentRec", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$ProductTileDataList", "ECOP.model$TextRecordList", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECOP.model$MyShoppingListDraft_StrList", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Cart_CW.controller$Cart_Recalculate", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP.controller$Login_OneWelcome", "PLUS_OutSystemsUI_2_8_0.controller$SidebarOpen", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "PLUS_OutSystemsUI_2_8_0.controller$SidebarClose", "CT_Cart_IS.model$MyCart_LineItemRec", "ECOP.referencesHealth$CT_Cart_IS", "ECOP.controller$RemovePreloadHTML", "ECOP.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "CT_Cart_IS.model$FieldLineItemRec", "CT_Cart_IS.model$TypeRec", "ECOP.model$AttributeItemList", "ECOP.controller$FormatPDPInput"], function (OutSystems, ECOPModel, ECOPController, ECOP_ReleaseTogglesReactiveController, ECOP_FE_CoreController, CMS_MonolithModel, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Base_RPatController, ECP_Cart_CWController, PLUS_OutSystemsUI_2_8_0Controller, CT_Cart_ISModel, React, OSView, ECOP_MainFlow_Cart_mvc_model, ECOP_MainFlow_Cart_mvc_controller, ECOPClientVariables, ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, OSWidgets, ECP_Cart_CW_Cart_CartContent_mvc_view, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_view, PLUS_OutSystemsUI_2_8_0_Interaction_Sidebar_v2_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECP_Order_CW_Checkout_ReserveMoment_mvc_view, ECP_ShoppingList_RCW_ShoppingLists_CreateShoppingList_mvc_view, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "MainFlow.Cart";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css", "css/PLUS_OutSystemsUI_2_8_0.OutSystemsUI.css", "css/ECOP_Base_Theme.ECOP_Base_Theme.css", "css/ECOP_Reactive_Theme.ECOP_Reactive_Theme.css", "css/ECOP_Reactive_Theme.ECOP_Reactive_Theme.extra.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, ECP_Cart_CW_Cart_CartContent_mvc_view, CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_view, PLUS_OutSystemsUI_2_8_0_Interaction_Sidebar_v2_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECP_Order_CW_Checkout_ReserveMoment_mvc_view, ECP_ShoppingList_RCW_ShoppingLists_CreateShoppingList_mvc_view, ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_MainFlow_Cart_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_MainFlow_Cart_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                var model = this.model;
+                var controller = this.controller;
+                var idService = this.idService;
+                var validationService = controller.validationService;
+                var callContext = controller.callContext();
+                var asPrimitiveValue = View.asPrimitiveValue;
+                var getTranslation = View.getTranslation;
+                var _this = this;
+
+                return OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("yU97U1PSkkSTNWAxt8g7xg#TitleExpression.-1975979792.1", "Winkelwagen");
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(ECOP_AA_AppLayouts_ECOP_Layout_mvc_view, {
+inputs: {
+IsForceCartRecalculate: true,
+ActiveItem: ECOPModel.staticEntities.pagesNames.shoppingCart,
+EnableAccessibilityFeatures: model.getCachedValue(idService.getId("0Hvmyr5Zu0iFlOkNS1998A.EnableAccessibilityFeatures"), function () {
+return ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.accessibilityFeatures, callContext).isEnabledOut;
+}),
+ExtendedClass: "cart-screen-layout",
+IsToValidateOrderMergeItems: model.variables.isToValidateOrderMergeItemsIn,
+ValidateIsCartCreated: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+timeslotUpdated$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_RefreshCart$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+cartRecalculated$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_ECOP_LayoutTopMenuCartRecalculated$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+orderEditModeCanceled$Action: function (orderIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_StopOrderChanging$Action(orderIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+storeUpdated$Action: function (userStoreIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.eCOP_LayoutTopMenu_StoreUpdated$Action(userStoreIdIn, controller.callContext(eventHandlerContext));
+
+;
+},
+actionsExposed$Action: function (openStoreSelector_JSIn, openReserveMoment_JSIn, toggleShowStopEditModePopupIn, openProductsEditingMode_JSIn) {
+var eventHandlerContext = callContext.clone();
+controller.eCOP_LayoutTopMenu_ExposedActions$Action(openReserveMoment_JSIn, openStoreSelector_JSIn, toggleShowStopEditModePopupIn, openProductsEditingMode_JSIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "0",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+breadcrumbs: PlaceholderContent.Empty,
+mainContent: new PlaceholderContent(function () {
+return [React.createElement(ECP_Cart_CW_Cart_CartContent_mvc_view, {
+inputs: {
+IsDesktop: ECOPClientVariables.getIsDesktop(),
+UserStoreId: model.variables.userStoreIdVar,
+ShowContent: model.variables.showContentVar,
+ChannelId: model.variables.channelIdVar,
+IsPhone: ECOPClientVariables.getIsPhone(),
+OneWelcomeUserId: model.getCachedValue(idService.getId("6ZnShYrgakqyqXMoaOwPzg.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+}),
+IsOrderEditMode: model.variables.isOrderEditModeVar
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+momentReserved$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_ReserveMomentClicked$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CallbackOrderEditing$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.toogle_StorePickerSidebar$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+orderClicked$Action: function () {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.onClick_CartContent_Order$Action(controller.callContext(eventHandlerContext));
+});
+;
+},
+stopChangingClicked$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_StopChangingLinkClick$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+viewOffersClicked$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_ViewOffers$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+saveToShoppingListClicked$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_SaveToShoppingList$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+cartFetched$Action: function (productsInCartIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_CartContent_CartFetched$Action(productsInCartIn, controller.callContext(eventHandlerContext));
+
+;
+},
+openProductsEditingMode$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_CartContent_OpenProductsEditingMode$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+productClicked$Action: function (productSKUIn, productNameIn, slugIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_ProductClicked$Action(productSKUIn, productNameIn, slugIn, controller.callContext(eventHandlerContext));
+
+;
+},
+viewProductsClicked$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_ViewProducts$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+cartActionsExposed$Action: function (handler_RefreshCartIn, appendToCart_UpsellProductIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_CartContent_ExposedActions$Action(handler_RefreshCartIn, appendToCart_UpsellProductIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "1",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+productComponentPlaceholder_Desktop: new PlaceholderContent(function () {
+return [$if(((!(model.variables.userStoreIdVar.equals(OS.BuiltinFunctions.integerToLongInteger(OS.BuiltinFunctions.nullIdentifier()))) && model.variables.isCartLoadedVar) && model.variables.getDataDataAct.isDataFetchedAttr), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("tDkiHlIcf06P4BxTiNraZg.ExtendedClass"), function () {
+return ((ECOPClientVariables.getIsPhone()) ? ("padding-top-base") : ("padding-top-xl"));
+}, function () {
+return ECOPClientVariables.getIsPhone();
+}),
+ChannelId: model.getCachedValue(idService.getId("tDkiHlIcf06P4BxTiNraZg.ChannelId"), function () {
+return ECOP_FE_CoreController.default.get_Client_UserStoreChannelId$Action(callContext).userStoreChannelIdOut;
+}),
+OneWelcomeUserId: model.getCachedValue(idService.getId("tDkiHlIcf06P4BxTiNraZg.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+}),
+ClickDelayValue: 2000,
+ActiveDevice: model.getCachedValue(idService.getId("tDkiHlIcf06P4BxTiNraZg.ActiveDevice"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_ActiveDeviceRec();
+rec.isPhoneAttr = ECOPClientVariables.getIsPhone();
+rec.isTabletAttr = ECOPClientVariables.getIsTablet();
+rec.isDesktopAttr = ECOPClientVariables.getIsDesktop();
+return rec;
+}();
+}, function () {
+return ECOPClientVariables.getIsPhone();
+}, function () {
+return ECOPClientVariables.getIsTablet();
+}, function () {
+return ECOPClientVariables.getIsDesktop();
+}),
+ProductSKUsInCart: model.getCachedValue(idService.getId("tDkiHlIcf06P4BxTiNraZg.ProductSKUsInCart"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.products_InCartVar, new OS.DataTypes.TextList(), function (source, target) {
+target = source.sKUAttr;
+return target;
+});
+}, function () {
+return model.variables.products_InCartVar;
+}),
+ProductComponent: model.variables.getDataDataAct.upSellProductComponentOut,
+_productComponentInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getDataDataAct.dataFetchStatusAttr),
+UsedInCartScreen: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+refreshCart$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_RefreshCart$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+addedToCartElement$Action: function (productElementIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_ProductComponent_AddedToCartElement$Action(OS.DataConversion.JSConversions.typeConvertRecord(productElementIn, new CT_Cart_ISModel.MyCart_LineItemRec(), function (source, target) {
+target.lineItemIdAttr = source.lineItemIdAttr;
+target.sKUAttr = source.sKUAttr;
+target.quantityAttr = source.badgeQuantityAttr;
+target.nameAttr = source.nameAttr;
+target.slugAttr = source.slugAttr;
+target.imageURLAttr = source.imageURLAttr;
+target.imageLabelAttr = source.imageLabelAttr;
+target.priceAttr = source.priceAttr;
+return target;
+}), controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.toogle_StorePickerSidebar$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditingIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CallbackOrderEditing$Action(callbackOrderEditingIdIn, controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+}),
+productComponentPlaceholder_Others: new PlaceholderContent(function () {
+return [$if(((!(model.variables.userStoreIdVar.equals(OS.BuiltinFunctions.integerToLongInteger(OS.BuiltinFunctions.nullIdentifier()))) && model.variables.isCartLoadedVar) && model.variables.getDataDataAct.isDataFetchedAttr), false, this, function () {
+return [React.createElement(CMS_Monolith_CMS_Product_RCW_ProductComponent_TF_mvc_view, {
+inputs: {
+OneWelcomeUserId: model.getCachedValue(idService.getId("iJxnrC5bNkeWI27LK+z9+g.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+}),
+ActiveDevice: model.getCachedValue(idService.getId("iJxnrC5bNkeWI27LK+z9+g.ActiveDevice"), function () {
+return function () {
+var rec = new CMS_MonolithModel.Shared_ActiveDeviceRec();
+rec.isPhoneAttr = ECOPClientVariables.getIsPhone();
+rec.isTabletAttr = ECOPClientVariables.getIsTablet();
+rec.isDesktopAttr = ECOPClientVariables.getIsDesktop();
+return rec;
+}();
+}, function () {
+return ECOPClientVariables.getIsPhone();
+}, function () {
+return ECOPClientVariables.getIsTablet();
+}, function () {
+return ECOPClientVariables.getIsDesktop();
+}),
+ChannelId: model.getCachedValue(idService.getId("iJxnrC5bNkeWI27LK+z9+g.ChannelId"), function () {
+return ECOP_FE_CoreController.default.get_Client_UserStoreChannelId$Action(callContext).userStoreChannelIdOut;
+}),
+UsedInCartScreen: true,
+ProductSKUsInCart: model.getCachedValue(idService.getId("iJxnrC5bNkeWI27LK+z9+g.ProductSKUsInCart"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.products_InCartVar, new OS.DataTypes.TextList(), function (source, target) {
+target = source.sKUAttr;
+return target;
+});
+}, function () {
+return model.variables.products_InCartVar;
+}),
+ClickDelayValue: 2000,
+ProductComponent: model.variables.getDataDataAct.upSellProductComponentOut,
+_productComponentInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables.getDataDataAct.dataFetchStatusAttr),
+ExtendedClass: model.getCachedValue(idService.getId("iJxnrC5bNkeWI27LK+z9+g.ExtendedClass"), function () {
+return ((ECOPClientVariables.getIsPhone()) ? (("padding-top-base" + ((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.eCOP_5691, callContext).isEnabledOut) ? ((" " + "padding-x-base")) : ("")))) : ("padding-top-xl"));
+}, function () {
+return ECOPClientVariables.getIsPhone();
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+callbackOrderEdit$Action: function (callbackOrderEditingIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CallbackOrderEditing$Action(callbackOrderEditingIdIn, controller.callContext(eventHandlerContext));
+});
+;
+},
+refreshCart$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_RefreshCart$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+noStoreSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.toogle_StorePickerSidebar$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+addedToCartElement$Action: function (productElementIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_ProductComponent_AddedToCartElement$Action(OS.DataConversion.JSConversions.typeConvertRecord(productElementIn, new CT_Cart_ISModel.MyCart_LineItemRec(), function (source, target) {
+target.lineItemIdAttr = source.lineItemIdAttr;
+target.sKUAttr = source.sKUAttr;
+target.quantityAttr = source.badgeQuantityAttr;
+target.nameAttr = source.nameAttr;
+target.slugAttr = source.slugAttr;
+target.imageURLAttr = source.imageURLAttr;
+target.imageLabelAttr = source.imageLabelAttr;
+target.priceAttr = source.priceAttr;
+return target;
+}), controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "3",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.getDataDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.products_InCartVar), asPrimitiveValue(ECOPClientVariables.getIsDesktop()), asPrimitiveValue(ECOPClientVariables.getIsTablet()), asPrimitiveValue(ECOPClientVariables.getIsPhone()), asPrimitiveValue(model.variables.getDataDataAct.upSellProductComponentOut), asPrimitiveValue(model.variables.getDataDataAct.isDataFetchedAttr), asPrimitiveValue(model.variables.isCartLoadedVar), asPrimitiveValue(model.variables.userStoreIdVar)]
+}), $if(ECOPClientVariables.getIsPhone(), false, this, function () {
+return [React.createElement(PLUS_OutSystemsUI_2_8_0_Interaction_Sidebar_v2_mvc_view, {
+inputs: {
+Width: "100vw",
+SidebarName: "flyin-kies-moment-bezorging",
+IsECOP_7434ToggleActive: model.getCachedValue(idService.getId("ReserveMomentSidebar.IsECOP_7434ToggleActive"), function () {
+return ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.eCOP_7434, callContext).isEnabledOut;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "ReserveMomentSidebar",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+header: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $text(getTranslation("PVEvBU83ZkOWWzGUVYiiVA#Value", "Reserve moment"))), React.createElement(OSWidgets.Link, {
+enabled: true,
+onClick: function () {
+var eventHandlerContext = callContext.clone();
+controller.onClick_Close_ReserveMomentSidebar$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+style: "gtm-close-store-selector",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "close",
+Size: ECOPModel.staticEntities.iconSize.size_s
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+content: new PlaceholderContent(function () {
+return [React.createElement(ECP_Order_CW_Checkout_ReserveMoment_mvc_view, {
+inputs: {
+IsOrderEditMode: model.variables.isOrderEditModeVar,
+ShowTopOptions: true,
+ExtendedClass: "gtm-reserve-moment",
+OneWelcomeUserId: model.getCachedValue(idService.getId("sCsK5xgoQkmZjyAXFh8h4Q.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+openStorePicker$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_ReserveMoment_OpenStorePicker$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+timeslotSaved$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_TimeslotConfirmed$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+callbackOrderEdit$Action: function (callbackOrderEditIdIn) {
+return Promise.resolve().then(function () {
+var eventHandlerContext = callContext.clone();
+return controller.handler_CallbackOrderEditing$Action(callbackOrderEditIdIn, controller.callContext(eventHandlerContext));
+});
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "8",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.isOrderEditModeVar)]
+})];
+}, function () {
+return [];
+}), $if(((model.variables.isCartLoadedVar && !(model.variables.products_InCartVar.isEmpty)) && ((model.variables.oWGUIDVar) !== (""))), false, this, function () {
+return [React.createElement(ECP_ShoppingList_RCW_ShoppingLists_CreateShoppingList_mvc_view, {
+inputs: {
+Products: model.getCachedValue(idService.getId("CreateListBlock.Products"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.products_InCartVar, new ECOPModel.MyShoppingListDraft_StrList(), function (source, target) {
+target.sKUAttr = source.sKUAttr;
+target.quantityAttr = OS.BuiltinFunctions.integerToLongInteger(source.quantityAttr);
+return target;
+});
+}, function () {
+return model.variables.products_InCartVar;
+}),
+OneWelcomeUserId: model.getCachedValue(idService.getId("CreateListBlock.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+shoppingListCreated$Action: function (shoppingListIdIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_ShoppingListCreated$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+exposedActions$Action: function (togglePopup_CreateShopList_JSIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_CreateList_ExposedActions$Action(togglePopup_CreateShopList_JSIn, controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "CreateListBlock",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}), React.createElement(ECP_ShoppingList_RCW_ShoppingLists_AddToShoppingList_mvc_view, {
+inputs: {
+Products: model.getCachedValue(idService.getId("AddToShoppingListBlock.Products"), function () {
+return OS.DataConversion.JSConversions.typeConvertRecordList(model.variables.products_InCartVar, new ECOPModel.MyShoppingListDraft_StrList(), function (source, target) {
+target.sKUAttr = source.sKUAttr;
+target.quantityAttr = OS.BuiltinFunctions.integerToLongInteger(source.quantityAttr);
+return target;
+});
+}, function () {
+return model.variables.products_InCartVar;
+}),
+OneWelcomeUserId: model.getCachedValue(idService.getId("AddToShoppingListBlock.OneWelcomeUserId"), function () {
+return ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut;
+})
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+},
+exposedActions$Action: function (refreshShoppingLists_JSIn, togglePopup_JSIn) {
+var eventHandlerContext = callContext.clone();
+controller.handler_AddToShoppingList_ExposedActions$Action(refreshShoppingLists_JSIn, togglePopup_JSIn, controller.callContext(eventHandlerContext));
+
+;
+},
+addedToLists$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_AddedToShoppingLists$Action(controller.callContext(eventHandlerContext));
+
+;
+},
+createNewListSelected$Action: function () {
+var eventHandlerContext = callContext.clone();
+controller.handler_CreateNewListSelected$Action(controller.callContext(eventHandlerContext));
+
+;
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+name: "AddToShoppingListBlock",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}, function () {
+return [];
+})];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.oWGUIDVar), asPrimitiveValue(model.variables.getDataDataAct.dataFetchStatusAttr), asPrimitiveValue(model.variables.products_InCartVar), asPrimitiveValue(ECOPClientVariables.getIsTablet()), asPrimitiveValue(model.variables.getDataDataAct.upSellProductComponentOut), asPrimitiveValue(model.variables.getDataDataAct.isDataFetchedAttr), asPrimitiveValue(model.variables.isCartLoadedVar), asPrimitiveValue(model.variables.isOrderEditModeVar), asPrimitiveValue(ECOPClientVariables.getIsPhone()), asPrimitiveValue(model.variables.channelIdVar), asPrimitiveValue(model.variables.showContentVar), asPrimitiveValue(model.variables.userStoreIdVar), asPrimitiveValue(ECOPClientVariables.getIsDesktop())]
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebScreen);
+	
+    return View;
+});
+define("ECOP.MainFlow.Cart.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP_ReleaseTogglesReactive.controller", "ECOP_FE_Core.controller", "CMS_Monolith.model", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Base_RPat.controller", "ECP_Cart_CW.controller", "PLUS_OutSystemsUI_2_8_0.controller", "CT_Cart_IS.model", "ECOP.languageResources", "ECOP.clientVariables", "ECOP.MainFlow.Cart.mvc$translationsResources", "ECOP.MainFlow.controller", "ECOP.MainFlow.Cart.mvc$controller.CartProductList_ToggleOptionsSidebar_JS.CallToggleOptionsSidebarActionJS", "ECOP.MainFlow.Cart.mvc$controller.Handler_StopChangingLinkClick.Execute_ActionJS", "ECOP.MainFlow.Cart.mvc$controller.Handler_ProductComponent_AddedToCartElement.CallToggleOptionsSidebarActionJS", "ECOP_ReleaseTogglesReactive.controller$Convert_ReleaseToggle_IsEnabled", "ECOP.referencesHealth", "ECOP.referencesHealth$ECOP_ReleaseTogglesReactive", "ECOP_FE_Core.controller$Get_Client_OWGUID", "ECOP.referencesHealth$ECOP_FE_Core", "ECOP_FE_Core.controller$Get_Client_UserStoreChannelId", "ECOP.model$MyCart_LineItemList", "CMS_Monolith.model$ProductComponentRec", "ECOP.referencesHealth$CMS_Monolith", "ECOP.model$ProductTileDataList", "ECOP.model$TextRecordList", "CMS_Monolith.model$Shared_CTARec", "CMS_Monolith.model$Shared_Link2PdfOrPageRec", "CMS_Monolith.model$Shared_ActiveDeviceRec", "ECOP.model$MyShoppingListDraft_StrList", "ECOP.controller$Callback_OrderEdit", "ECOP_Reactive_Pat.model$SEO_StructRec", "ECOP.referencesHealth$ECOP_Reactive_Pat", "ECOP_Reactive_Pat.controller$SEOMetadta_Inject", "ECOP_Base_RPat.controller$JS_ExecuteObjFunction", "ECOP.referencesHealth$ECOP_Base_RPat", "ECOP_FE_Core.controller$IsOrderEditMode_Get", "ECOP_FE_Core.controller$Get_Client_UserStoreId", "ECP_Cart_CW.controller$Cart_Recalculate", "ECOP.referencesHealth$ECP_Cart_CW", "ECOP.controller$Login_OneWelcome", "PLUS_OutSystemsUI_2_8_0.controller$SidebarOpen", "ECOP.referencesHealth$PLUS_OutSystemsUI_2_8_0", "PLUS_OutSystemsUI_2_8_0.controller$SidebarClose", "CT_Cart_IS.model$MyCart_LineItemRec", "ECOP.referencesHealth$CT_Cart_IS", "ECOP.controller$RemovePreloadHTML", "ECOP.model$LineItemList", "ECP_Cart_CW.controller$Cart_GetItemsList", "CT_Cart_IS.model$FieldLineItemRec", "CT_Cart_IS.model$TypeRec", "ECOP.model$AttributeItemList", "ECOP.controller$FormatPDPInput"], function (OutSystems, ECOPModel, ECOPController, ECOP_ReleaseTogglesReactiveController, ECOP_FE_CoreController, CMS_MonolithModel, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Base_RPatController, ECP_Cart_CWController, PLUS_OutSystemsUI_2_8_0Controller, CT_Cart_ISModel, ECOPLanguageResources, ECOPClientVariables, ECOP_MainFlow_Cart_mvc_TranslationsResources, ECOP_MainFlowController, ECOP_MainFlow_Cart_mvc_controller_CartProductList_ToggleOptionsSidebar_JS_CallToggleOptionsSidebarActionJS, ECOP_MainFlow_Cart_mvc_controller_Handler_StopChangingLinkClick_Execute_ActionJS, ECOP_MainFlow_Cart_mvc_controller_Handler_ProductComponent_AddedToCartElement_CallToggleOptionsSidebarActionJS) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {
+getData$DataActRefresh: 0
+};
+this.dataFetchDependentsGraph = {
+getData$DataActRefresh: []
+};
+this.shouldSendClientVarsToDataSources = true;
+}
+Controller.prototype.translationResources = ECOP_MainFlow_Cart_mvc_TranslationsResources;
+// Server Actions
+Controller.prototype.getUserId_Server$ServerAction = function (callContext) {
+var controller = this.controller;
+return controller.callServerAction("GetUserId_Server", "screenservices/ECOP/MainFlow/Cart/ActionGetUserId_Server", "8OSuGTe8VbX1ttMOrHe3Jg", {}, controller.callContext(callContext), undefined, undefined, true).then(function (outputs) {
+var executeServerActionResult = new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart$ActionGetUserId_Server"))();
+executeServerActionResult.userIdOut = OS.DataConversion.ServerDataConverter.from(outputs.UserId, OS.Types.Integer);
+return executeServerActionResult;
+});
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart$ActionGetUserId_Server", [{
+name: "UserId",
+attrName: "userIdOut",
+mandatory: false,
+dataType: OS.Types.Integer,
+defaultValue: function () {
+return 0;
+}
+}]);
+
+// Aggregates and Data Actions
+Controller.prototype.getData$DataActRefresh = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var callContext = controller.callContext(callContext);
+return controller.callDataAction("DataActionGetData", "screenservices/ECOP/MainFlow/Cart/DataActionGetData", "37MW43fmWGzkRsq8v2iWxQ", function (b) {
+model.variables.getDataDataAct.dataFetchStatusAttr = b;
+}, function (json) {
+model.variables.getDataDataAct.replaceWith(OS.DataConversion.ServerDataConverter.from(json, model.variables.getDataDataAct.constructor));
+}, undefined, undefined, undefined, callContext, ECOPClientVariables, true);
+};
+
+Controller.prototype.dataFetchActionNames = ["getData$DataActRefresh"];
+// Client Actions
+Controller.prototype._handler_ECOP_LayoutTopMenuCartRecalculated$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ECOP_LayoutTopMenuCartRecalculated");
+callContext = controller.callContext(callContext);
+// ShowContent = True
+model.variables.showContentVar = true;
+};
+Controller.prototype._handler_CallbackOrderEditing$Action = function (callbackOrderEditingIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CallbackOrderEditing");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_CallbackOrderEditing$vars"))());
+vars.value.callbackOrderEditingIdInLocal = callbackOrderEditingIdIn;
+var orderIsCancelledVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: OrderIsCancelled
+model.flush();
+return ECOPController.default.callback_OrderEdit$Action(vars.value.callbackOrderEditingIdInLocal, callContext).then(function (value) {
+orderIsCancelledVar.value = value;
+}).then(function () {
+// Destination: /ECOP/order-details
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "order-details", {
+OrderId: OS.DataConversion.ServerDataConverter.to(orderIsCancelledVar.value.orderIdOut, OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+});
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_CallbackOrderEditing$vars", [{
+name: "CallbackOrderEditingId",
+attrName: "callbackOrderEditingIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._cartProductList_ToggleOptionsSidebar_JS$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("CartProductList_ToggleOptionsSidebar_JS");
+callContext = controller.callContext(callContext);
+controller.safeExecuteJSNode(ECOP_MainFlow_Cart_mvc_controller_CartProductList_ToggleOptionsSidebar_JS_CallToggleOptionsSidebarActionJS, "CallToggleOptionsSidebarAction", "CartProductList_ToggleOptionsSidebar_JS", {
+CartProductList_ToggleOptionsSidebar_JS: OS.DataConversion.JSNodeParamConverter.to(model.variables.cartProductList_ToggleOptionsSidebar_JSVar, OS.Types.Object)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.prototype._onClick_Close_ReserveMomentSidebar$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_Close_ReserveMomentSidebar");
+callContext = controller.callContext(callContext);
+// ShowSidebar = False
+// ShowReserveMomentSidebar = False
+model.variables.showReserveMomentSidebarVar = false;
+// Execute Action: Toogle_ReserveMomentSidebar
+controller._toogle_ReserveMomentSidebar$Action(callContext);
+};
+Controller.prototype._onReady$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnReady");
+callContext = controller.callContext(callContext);
+// Execute Action: SEOMetadta_Inject
+ECOP_Reactive_PatController.default.sEOMetadta_Inject$Action(function () {
+var rec = new ECOP_Reactive_PatModel.SEO_StructRec();
+rec.noIndexAttr = true;
+rec.noFollowAttr = false;
+rec.noCanonicalURLAttr = true;
+return rec;
+}(), callContext);
+};
+Controller.prototype._handler_StopChangingLinkClick$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StopChangingLinkClick");
+callContext = controller.callContext(callContext);
+var execute_ActionJSResult = new OS.DataTypes.VariableHolder();
+execute_ActionJSResult.value = controller.safeExecuteJSNode(ECOP_MainFlow_Cart_mvc_controller_Handler_StopChangingLinkClick_Execute_ActionJS, "Execute_Action", "Handler_StopChangingLinkClick", {
+FunctionObj: OS.DataConversion.JSNodeParamConverter.to(model.variables.layout_ToggleShowStopEditModePopupVar, OS.Types.Object),
+ErrorMessage: OS.DataConversion.JSNodeParamConverter.to("", OS.Types.Text)
+}, function ($parameters) {
+var jsNodeResult = new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_StopChangingLinkClick$execute_ActionJSResult"))();
+jsNodeResult.errorMessageOut = OS.DataConversion.JSNodeParamConverter.from($parameters.ErrorMessage, OS.Types.Text);
+return jsNodeResult;
+}, {}, {});
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_StopChangingLinkClick$execute_ActionJSResult", [{
+name: "ErrorMessage",
+attrName: "errorMessageOut",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._handler_ViewProducts$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ViewProducts");
+callContext = controller.callContext(callContext);
+// Destination: /ECOP/producten
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "producten/:Category1?/:Category2?/:Category3?", {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.prototype._eCOP_LayoutTopMenu_StoreUpdated$Action = function (userStoreId2In, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ECOP_LayoutTopMenu_StoreUpdated");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.ECOP_LayoutTopMenu_StoreUpdated$vars"))());
+vars.value.userStoreId2InLocal = userStoreId2In;
+// Execute Action: Handler_RefreshCart
+controller._handler_RefreshCart$Action(callContext);
+// UserStoreId = UserStoreId2
+model.variables.userStoreIdVar = vars.value.userStoreId2InLocal;
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.ECOP_LayoutTopMenu_StoreUpdated$vars", [{
+name: "UserStoreId2",
+attrName: "userStoreId2InLocal",
+mandatory: true,
+dataType: OS.Types.LongInteger,
+defaultValue: function () {
+return OS.DataTypes.LongInteger.defaultValue;
+}
+}]);
+Controller.prototype._handler_CartContent_ExposedActions$Action = function (handler_RefreshCartIn, appendToCart_UpsellProductIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CartContent_ExposedActions");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_CartContent_ExposedActions$vars"))());
+vars.value.handler_RefreshCartInLocal = handler_RefreshCartIn;
+vars.value.appendToCart_UpsellProductInLocal = appendToCart_UpsellProductIn;
+// Exposed Actions Objects
+// Handler_RefreshCart_JS = Handler_RefreshCart
+model.variables.handler_RefreshCart_JSVar = vars.value.handler_RefreshCartInLocal;
+// AppendToCart_UpsellProduct_Obj = AppendToCart_UpsellProduct
+model.variables.appendToCart_UpsellProduct_ObjVar = vars.value.appendToCart_UpsellProductInLocal;
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_CartContent_ExposedActions$vars", [{
+name: "Handler_RefreshCart",
+attrName: "handler_RefreshCartInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "AppendToCart_UpsellProduct",
+attrName: "appendToCart_UpsellProductInLocal",
+mandatory: false,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._handler_AddToShoppingList_ExposedActions$Action = function (refreshShoppingLists_JSIn, togglePopup_JSIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_AddToShoppingList_ExposedActions");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_AddToShoppingList_ExposedActions$vars"))());
+vars.value.refreshShoppingLists_JSInLocal = refreshShoppingLists_JSIn;
+vars.value.togglePopup_JSInLocal = togglePopup_JSIn;
+// AddToShoppingList_JS_Objs
+// AddToShopList_RefreshShoppingLists_JS = RefreshShoppingLists_JS
+model.variables.addToShopList_RefreshShoppingLists_JSVar = vars.value.refreshShoppingLists_JSInLocal;
+// AddToShopList_TogglePopup_JS = TogglePopup_JS
+model.variables.addToShopList_TogglePopup_JSVar = vars.value.togglePopup_JSInLocal;
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_AddToShoppingList_ExposedActions$vars", [{
+name: "RefreshShoppingLists_JS",
+attrName: "refreshShoppingLists_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "TogglePopup_JS",
+attrName: "togglePopup_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._eCOP_LayoutTopMenu_ExposedActions$Action = function (openReserveMoment_JSIn, openStorePicker_JSIn, toggleShowStopEditModePopup_JSIn, openProductsEditingMode_JSIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("ECOP_LayoutTopMenu_ExposedActions");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.ECOP_LayoutTopMenu_ExposedActions$vars"))());
+vars.value.openReserveMoment_JSInLocal = openReserveMoment_JSIn;
+vars.value.openStorePicker_JSInLocal = openStorePicker_JSIn;
+vars.value.toggleShowStopEditModePopup_JSInLocal = toggleShowStopEditModePopup_JSIn;
+vars.value.openProductsEditingMode_JSInLocal = openProductsEditingMode_JSIn;
+// Layout_OpenReserveMoment_JS = OpenReserveMoment_JS
+model.variables.layout_OpenReserveMoment_JSVar = vars.value.openReserveMoment_JSInLocal;
+// Layout_OpenStorePicker_JS = OpenStorePicker_JS
+model.variables.layout_OpenStorePicker_JSVar = vars.value.openStorePicker_JSInLocal;
+// Layout_ToggleShowStopEditModePopup = ToggleShowStopEditModePopup_JS
+model.variables.layout_ToggleShowStopEditModePopupVar = vars.value.toggleShowStopEditModePopup_JSInLocal;
+// OpenProductsEditingMode_Obj = OpenProductsEditingMode_JS
+model.variables.openProductsEditingMode_ObjVar = vars.value.openProductsEditingMode_JSInLocal;
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.ECOP_LayoutTopMenu_ExposedActions$vars", [{
+name: "OpenReserveMoment_JS",
+attrName: "openReserveMoment_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "OpenStorePicker_JS",
+attrName: "openStorePicker_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "ToggleShowStopEditModePopup_JS",
+attrName: "toggleShowStopEditModePopup_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}, {
+name: "OpenProductsEditingMode_JS",
+attrName: "openProductsEditingMode_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._handler_CartContent_OpenProductsEditingMode$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CartContent_OpenProductsEditingMode");
+callContext = controller.callContext(callContext);
+// Execute Action: JS_ExecuteObjFunction
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.openProductsEditingMode_ObjVar, callContext);
+};
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var get_Client_UserStoreChannelIdVar = new OS.DataTypes.VariableHolder();
+var get_Client_OWGUIDVar = new OS.DataTypes.VariableHolder();
+var isOrderEditMode_GetVar = new OS.DataTypes.VariableHolder();
+var get_Client_UserStoreIdVar = new OS.DataTypes.VariableHolder();
+// Execute Action: Get_Client_OWGUID
+get_Client_OWGUIDVar.value = ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext);
+
+// Execute Action: Get_Client_UserStoreId
+get_Client_UserStoreIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreId$Action(callContext);
+
+// Execute Action: Get_Client_UserStoreChannelId
+get_Client_UserStoreChannelIdVar.value = ECOP_FE_CoreController.default.get_Client_UserStoreChannelId$Action(callContext);
+
+// Execute Action: IsOrderEditMode_Get
+isOrderEditMode_GetVar.value = ECOP_FE_CoreController.default.isOrderEditMode_Get$Action(callContext);
+
+// Set Parameters
+// UserStoreId = Get_Client_UserStoreId.UserStoreId
+model.variables.userStoreIdVar = get_Client_UserStoreIdVar.value.userStoreIdOut;
+// IsOrderEditMode = IsOrderEditMode_Get.IsActive
+model.variables.isOrderEditModeVar = isOrderEditMode_GetVar.value.isActiveOut;
+// ChannelId = Get_Client_UserStoreChannelId.UserStoreChannelId
+model.variables.channelIdVar = get_Client_UserStoreChannelIdVar.value.userStoreChannelIdOut;
+// OWGUID = Get_Client_OWGUID.OWGUID
+model.variables.oWGUIDVar = get_Client_OWGUIDVar.value.oWGUIDOut;
+};
+Controller.prototype._onClick_CartContent_Order$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnClick_CartContent_Order");
+callContext = controller.callContext(callContext);
+var getUserId_ServerVar = new OS.DataTypes.VariableHolder();
+var cart_RecalculateVar = new OS.DataTypes.VariableHolder();
+var login_OneWelcomeVar = new OS.DataTypes.VariableHolder();
+return OS.Flow.executeAsyncFlow(function () {
+// Execute Action: GetUserId_Server
+model.flush();
+return controller.getUserId_Server$ServerAction(callContext).then(function (value) {
+getUserId_ServerVar.value = value;
+}).then(function () {
+// ValidUser
+return OS.Flow.executeSequence(function () {
+if((((getUserId_ServerVar.value.userIdOut) !== (OS.BuiltinFunctions.nullIdentifier())))) {
+// Execute Action: Cart_Recalculate
+model.flush();
+return ECP_Cart_CWController.default.cart_Recalculate$Action(ECOP_FE_CoreController.default.get_Client_OWGUID$Action(callContext).oWGUIDOut, true, callContext).then(function (value) {
+cart_RecalculateVar.value = value;
+}).then(function () {
+// Destination: /ECOP/checkout
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "checkout/:CheckoutStep?", {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true));
+});
+} else {
+// Execute Action: Login_OneWelcome
+model.flush();
+return ECOPController.default.login_OneWelcome$Action(callContext).then(function (value) {
+login_OneWelcomeVar.value = value;
+}).then(function () {
+// Destination: /ECOP/
+return OS.Flow.returnAsync(OS.Navigation.navigateTo(OS.Navigation.generateScreenURL(login_OneWelcomeVar.value.loginURLOut, {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Fade), callContext, true));
+});
+}
+
+});
+});
+});
+};
+Controller.prototype._handler_CreateList_ExposedActions$Action = function (togglePopup_CreateShopList_JSIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CreateList_ExposedActions");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_CreateList_ExposedActions$vars"))());
+vars.value.togglePopup_CreateShopList_JSInLocal = togglePopup_CreateShopList_JSIn;
+// CreateShopList_TogglePopup_JS = TogglePopup_CreateShopList_JS
+model.variables.createShopList_TogglePopup_JSVar = vars.value.togglePopup_CreateShopList_JSInLocal;
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_CreateList_ExposedActions$vars", [{
+name: "TogglePopup_CreateShopList_JS",
+attrName: "togglePopup_CreateShopList_JSInLocal",
+mandatory: true,
+dataType: OS.Types.Object,
+defaultValue: function () {
+return null;
+}
+}]);
+Controller.prototype._handler_AddedToShoppingLists$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_AddedToShoppingLists");
+callContext = controller.callContext(callContext);
+// Execute Action: CartProductList_ToggleOptionsSidebar_JS2
+controller._cartProductList_ToggleOptionsSidebar_JS$Action(callContext);
+};
+Controller.prototype._handler_StopOrderChanging$Action = function (orderIdIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_StopOrderChanging");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_StopOrderChanging$vars"))());
+vars.value.orderIdInLocal = orderIdIn;
+// Destination: /ECOP/order-details
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "order-details", {
+OrderId: OS.DataConversion.ServerDataConverter.to(vars.value.orderIdInLocal, OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_StopOrderChanging$vars", [{
+name: "OrderId",
+attrName: "orderIdInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+Controller.prototype._toogle_ReserveMomentSidebar$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Toogle_ReserveMomentSidebar");
+callContext = controller.callContext(callContext);
+// Is phone?
+if((ECOPClientVariables.getIsPhone())) {
+// Show sidebar?
+if((model.variables.showReserveMomentSidebarVar)) {
+// Execute Action: SidebarOpen
+PLUS_OutSystemsUI_2_8_0Controller.default.sidebarOpen$Action(idService.getId("ReserveMomentSidebar"), callContext);
+} else {
+// Execute Action: SidebarClose
+PLUS_OutSystemsUI_2_8_0Controller.default.sidebarClose$Action(idService.getId("ReserveMomentSidebar"), callContext);
+}
+
+}
+
+};
+Controller.prototype._handler_CreateNewListSelected$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CreateNewListSelected");
+callContext = controller.callContext(callContext);
+// Execute Action: JS_ExecuteObjFunction2
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.createShopList_TogglePopup_JSVar, callContext);
+};
+Controller.prototype._handler_ReserveMoment_OpenStorePicker$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ReserveMoment_OpenStorePicker");
+callContext = controller.callContext(callContext);
+// ShowStorePicker = True
+// ShowStorePicker = True
+model.variables.showStorePickerVar = true;
+// ShowReserveMomentSidebar = False
+model.variables.showReserveMomentSidebarVar = false;
+// Execute Action: Toogle_ReserveMomentSidebar
+controller._toogle_ReserveMomentSidebar$Action(callContext);
+// Execute Action: Toogle_StorePickerSidebar
+controller._toogle_StorePickerSidebar$Action(callContext);
+};
+Controller.prototype._handler_ProductComponent_AddedToCartElement$Action = function (productElementIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ProductComponent_AddedToCartElement");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_ProductComponent_AddedToCartElement$vars"))());
+vars.value.productElementInLocal = productElementIn.clone();
+var jSONSerialize_ProductElementVar = new OS.DataTypes.VariableHolder(new OS.DataTypes.JSONSerializeOutputType());
+// JSON Serialize: JSONSerialize_ProductElement
+jSONSerialize_ProductElementVar.value.jSONOut = OS.JSONUtils.serializeToJSON(vars.value.productElementInLocal, false, false);
+controller.safeExecuteJSNode(ECOP_MainFlow_Cart_mvc_controller_Handler_ProductComponent_AddedToCartElement_CallToggleOptionsSidebarActionJS, "CallToggleOptionsSidebarAction", "Handler_ProductComponent_AddedToCartElement", {
+CartContent_UpsellComponent_AppendToCart: OS.DataConversion.JSNodeParamConverter.to(model.variables.appendToCart_UpsellProduct_ObjVar, OS.Types.Object),
+ProductElement: OS.DataConversion.JSNodeParamConverter.to(jSONSerialize_ProductElementVar.value.jSONOut, OS.Types.Text)
+}, function ($parameters) {
+}, {}, {});
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_ProductComponent_AddedToCartElement$vars", [{
+name: "ProductElement",
+attrName: "productElementInLocal",
+mandatory: true,
+dataType: OS.Types.Record,
+defaultValue: function () {
+return new CT_Cart_ISModel.MyCart_LineItemRec();
+},
+complexType: CT_Cart_ISModel.MyCart_LineItemRec
+}]);
+Controller.prototype._handler_ShoppingListCreated$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ShoppingListCreated");
+callContext = controller.callContext(callContext);
+// Success message
+OS.FeedbackMessageService.showFeedbackMessage(OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("ZYCuwT8d5EChMWSITZt2nQ#Message.843031812.1", "Your shopping list has been created and the product has been added."), /*Success*/ 1);
+// HasShoppingLists = True
+// GetData.HasShoppingLists = True
+model.variables.getDataDataAct.hasShoppingListsOut = true;
+// Execute Action: JS_ExecuteObjFunction
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.addToShopList_RefreshShoppingLists_JSVar, callContext);
+// Execute Action: CartProductList_ToggleOptionsSidebar_JS2
+controller._cartProductList_ToggleOptionsSidebar_JS$Action(callContext);
+};
+Controller.prototype._handler_ReserveMomentClicked$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ReserveMomentClicked");
+callContext = controller.callContext(callContext);
+// Is phone?
+if((ECOPClientVariables.getIsPhone())) {
+// ShowSidebar = True
+// ShowReserveMomentSidebar = True
+model.variables.showReserveMomentSidebarVar = true;
+// Execute Action: Toogle_ReserveMomentSidebar
+controller._toogle_ReserveMomentSidebar$Action(callContext);
+} else {
+// Execute Action: JS_ExecuteObjFunction
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.layout_OpenReserveMoment_JSVar, callContext);
+}
+
+};
+Controller.prototype._handler_RefreshCart$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_RefreshCart");
+callContext = controller.callContext(callContext);
+// Execute Action: JS_ExecuteObjFunction
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.handler_RefreshCart_JSVar, callContext);
+};
+Controller.prototype._handler_CartContent_CartFetched$Action = function (productssInCartIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_CartContent_CartFetched");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_CartContent_CartFetched$vars"))());
+vars.value.productssInCartInLocal = productssInCartIn.clone();
+// IsCartLoaded = True
+model.variables.isCartLoadedVar = true;
+// Products_InCart = ProductssInCart
+model.variables.products_InCartVar = vars.value.productssInCartInLocal;
+// Execute Action: RemovePreloadHTML
+ECOPController.default.removePreloadHTML$Action(callContext);
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_CartContent_CartFetched$vars", [{
+name: "ProductssInCart",
+attrName: "productssInCartInLocal",
+mandatory: true,
+dataType: OS.Types.RecordList,
+defaultValue: function () {
+return new ECOPModel.MyCart_LineItemList();
+},
+complexType: ECOPModel.MyCart_LineItemList
+}]);
+Controller.prototype._handler_ViewOffers$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ViewOffers");
+callContext = controller.callContext(callContext);
+// Destination: /ECOP/aanbiedingen
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "aanbiedingen/:SlugParameter?/:SecondarySlugParameter?/:volgende_week?", {}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.prototype._handler_TimeslotConfirmed$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_TimeslotConfirmed");
+callContext = controller.callContext(callContext);
+// Execute Action: Handler_RefreshCart
+controller._handler_RefreshCart$Action(callContext);
+// ShowSidebar = False
+// ShowReserveMomentSidebar = False
+model.variables.showReserveMomentSidebarVar = false;
+// Execute Action: Toogle_ReserveMomentSidebar
+controller._toogle_ReserveMomentSidebar$Action(callContext);
+};
+Controller.prototype._toogle_StorePickerSidebar$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Toogle_StorePickerSidebar");
+callContext = controller.callContext(callContext);
+// Is phone?
+if((ECOPClientVariables.getIsPhone())) {
+// Is to show store picker?
+if((model.variables.showStorePickerVar)) {
+// Execute Action: OpenStorePicker
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.layout_OpenStorePicker_JSVar, callContext);
+}
+
+}
+
+};
+Controller.prototype._handler_SaveToShoppingList$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_SaveToShoppingList");
+callContext = controller.callContext(callContext);
+var cart_GetItemsListVar = new OS.DataTypes.VariableHolder();
+// User logged in?
+if((((OS.BuiltinFunctions.getUserId()) !== (OS.BuiltinFunctions.nullIdentifier())))) {
+// Execute Action: Cart_GetItemsList
+cart_GetItemsListVar.value = ECP_Cart_CWController.default.cart_GetItemsList$Action(callContext);
+
+// Products_InCart = Cart_GetItemsList.ItemsList
+model.variables.products_InCartVar = OS.DataConversion.JSConversions.typeConvertRecordList(cart_GetItemsListVar.value.itemsListOut, new ECOPModel.MyCart_LineItemList(), function (source, target) {
+target.lineItemIdAttr = source.lineItemIdAttr;
+target.sKUAttr = source.sKUAttr;
+target.quantityAttr = source.quantityAttr;
+target.nameAttr = source.nameAttr;
+target.slugAttr = source.slugAttr;
+target.imageURLAttr = source.imageAttr.uRLAttr;
+target.imageLabelAttr = source.imageAttr.labelAttr;
+target.channelIdAttr = source.channelIdAttr;
+target.priceAttr = source.priceAttr;
+return target;
+});
+// No Shopping Lists?
+if((!(model.variables.getDataDataAct.hasShoppingListsOut))) {
+// Execute Action: JS_ExecuteObjFunction2
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.createShopList_TogglePopup_JSVar, callContext);
+} else {
+// Execute Action: JS_ExecuteObjFunction
+ECOP_Base_RPatController.default.jS_ExecuteObjFunction$Action(model.variables.addToShopList_TogglePopup_JSVar, callContext);
+}
+
+} else {
+// Raise Error: NotRegistered
+throw new OS.Exceptions.Exceptions.NotRegisteredException("NotRegistered", "User not logged in.");
+}
+
+};
+Controller.prototype._handler_ProductClicked$Action = function (productSKUIn, productNameIn, slugIn, callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("Handler_ProductClicked");
+callContext = controller.callContext(callContext);
+var vars = new OS.DataTypes.VariableHolder(new (controller.constructor.getVariableGroupType("ECOP.MainFlow.Cart.Handler_ProductClicked$vars"))());
+vars.value.productSKUInLocal = productSKUIn;
+vars.value.productNameInLocal = productNameIn;
+vars.value.slugInLocal = slugIn;
+// Destination: /ECOP/product
+return OS.Navigation.navigateTo(OS.Navigation.generateScreenURL("ECOP", "product/:slug", {
+slug: OS.DataConversion.ServerDataConverter.to(((ECOP_ReleaseTogglesReactiveController.default.convert_ReleaseToggle_IsEnabled$Action(ECOPModel.staticEntities.releaseToggle_Convert.sEOProductURL, callContext).isEnabledOut) ? (vars.value.productSKUInLocal) : (((((vars.value.slugInLocal === "") || (OS.BuiltinFunctions.index(vars.value.slugInLocal, "-", 0, false, false) === -1))) ? (ECOPController.default.formatPDPInput$Action(vars.value.productNameInLocal, vars.value.productSKUInLocal, callContext).pDPInputOut) : (vars.value.slugInLocal)))), OS.Types.Text)
+}), OS.Transitions.createTransition(OS.Transitions.TransitionAnimation.Default), callContext, true);
+};
+Controller.registerVariableGroupType("ECOP.MainFlow.Cart.Handler_ProductClicked$vars", [{
+name: "ProductSKU",
+attrName: "productSKUInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "ProductName",
+attrName: "productNameInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}, {
+name: "slug",
+attrName: "slugInLocal",
+mandatory: true,
+dataType: OS.Types.Text,
+defaultValue: function () {
+return "";
+}
+}]);
+
+Controller.prototype.handler_ECOP_LayoutTopMenuCartRecalculated$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ECOP_LayoutTopMenuCartRecalculated$Action, callContext);
+
+};
+Controller.prototype.handler_CallbackOrderEditing$Action = function (callbackOrderEditingIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CallbackOrderEditing$Action, callContext, callbackOrderEditingIdIn);
+
+};
+Controller.prototype.cartProductList_ToggleOptionsSidebar_JS$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._cartProductList_ToggleOptionsSidebar_JS$Action, callContext);
+
+};
+Controller.prototype.onClick_Close_ReserveMomentSidebar$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_Close_ReserveMomentSidebar$Action, callContext);
+
+};
+Controller.prototype.onReady$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onReady$Action, callContext);
+
+};
+Controller.prototype.handler_StopChangingLinkClick$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StopChangingLinkClick$Action, callContext);
+
+};
+Controller.prototype.handler_ViewProducts$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ViewProducts$Action, callContext);
+
+};
+Controller.prototype.eCOP_LayoutTopMenu_StoreUpdated$Action = function (userStoreId2In, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._eCOP_LayoutTopMenu_StoreUpdated$Action, callContext, userStoreId2In);
+
+};
+Controller.prototype.handler_CartContent_ExposedActions$Action = function (handler_RefreshCartIn, appendToCart_UpsellProductIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CartContent_ExposedActions$Action, callContext, handler_RefreshCartIn, appendToCart_UpsellProductIn);
+
+};
+Controller.prototype.handler_AddToShoppingList_ExposedActions$Action = function (refreshShoppingLists_JSIn, togglePopup_JSIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_AddToShoppingList_ExposedActions$Action, callContext, refreshShoppingLists_JSIn, togglePopup_JSIn);
+
+};
+Controller.prototype.eCOP_LayoutTopMenu_ExposedActions$Action = function (openReserveMoment_JSIn, openStorePicker_JSIn, toggleShowStopEditModePopup_JSIn, openProductsEditingMode_JSIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._eCOP_LayoutTopMenu_ExposedActions$Action, callContext, openReserveMoment_JSIn, openStorePicker_JSIn, toggleShowStopEditModePopup_JSIn, openProductsEditingMode_JSIn);
+
+};
+Controller.prototype.handler_CartContent_OpenProductsEditingMode$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CartContent_OpenProductsEditingMode$Action, callContext);
+
+};
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+Controller.prototype.onClick_CartContent_Order$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onClick_CartContent_Order$Action, callContext);
+
+};
+Controller.prototype.handler_CreateList_ExposedActions$Action = function (togglePopup_CreateShopList_JSIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CreateList_ExposedActions$Action, callContext, togglePopup_CreateShopList_JSIn);
+
+};
+Controller.prototype.handler_AddedToShoppingLists$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_AddedToShoppingLists$Action, callContext);
+
+};
+Controller.prototype.handler_StopOrderChanging$Action = function (orderIdIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_StopOrderChanging$Action, callContext, orderIdIn);
+
+};
+Controller.prototype.toogle_ReserveMomentSidebar$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toogle_ReserveMomentSidebar$Action, callContext);
+
+};
+Controller.prototype.handler_CreateNewListSelected$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CreateNewListSelected$Action, callContext);
+
+};
+Controller.prototype.handler_ReserveMoment_OpenStorePicker$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ReserveMoment_OpenStorePicker$Action, callContext);
+
+};
+Controller.prototype.handler_ProductComponent_AddedToCartElement$Action = function (productElementIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ProductComponent_AddedToCartElement$Action, callContext, productElementIn);
+
+};
+Controller.prototype.handler_ShoppingListCreated$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ShoppingListCreated$Action, callContext);
+
+};
+Controller.prototype.handler_ReserveMomentClicked$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ReserveMomentClicked$Action, callContext);
+
+};
+Controller.prototype.handler_RefreshCart$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_RefreshCart$Action, callContext);
+
+};
+Controller.prototype.handler_CartContent_CartFetched$Action = function (productssInCartIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_CartContent_CartFetched$Action, callContext, productssInCartIn);
+
+};
+Controller.prototype.handler_ViewOffers$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ViewOffers$Action, callContext);
+
+};
+Controller.prototype.handler_TimeslotConfirmed$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_TimeslotConfirmed$Action, callContext);
+
+};
+Controller.prototype.toogle_StorePickerSidebar$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._toogle_StorePickerSidebar$Action, callContext);
+
+};
+Controller.prototype.handler_SaveToShoppingList$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_SaveToShoppingList$Action, callContext);
+
+};
+Controller.prototype.handler_ProductClicked$Action = function (productSKUIn, productNameIn, slugIn, callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._handler_ProductClicked$Action, callContext, productSKUIn, productNameIn, slugIn);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onReady$Action(callContext);
+
+};
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return ECOP_MainFlowController.default.handleError(ex, this.callContext());
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOPLanguageResources);
+});
+define("ECOP.MainFlow.Cart.mvc$controller.CartProductList_ToggleOptionsSidebar_JS.CallToggleOptionsSidebarActionJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.CartProductList_ToggleOptionsSidebar_JS)
+    $parameters.CartProductList_ToggleOptionsSidebar_JS(false);
+};
+});
+define("ECOP.MainFlow.Cart.mvc$controller.Handler_StopChangingLinkClick.Execute_ActionJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+
+if($parameters.FunctionObj){
+    try{
+        $parameters.FunctionObj(true);
+    }
+    catch(e){
+        $parameters.ErrorMessage = e.message;
+    }
+}
+    
+};
+});
+define("ECOP.MainFlow.Cart.mvc$controller.Handler_ProductComponent_AddedToCartElement.CallToggleOptionsSidebarActionJS", [], function () {
+return function ($parameters, $actions, $roles, $public) {
+if($parameters.CartContent_UpsellComponent_AppendToCart)
+    $parameters.CartContent_UpsellComponent_AppendToCart($parameters.ProductElement);
+};
+});
+
+define("ECOP.MainFlow.Cart.mvc$translationsResources", ["exports", "ECOP.MainFlow.Cart.mvc$translationsResources.nl-NL"], function (exports, ECOP_MainFlow_Cart_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECOP_MainFlow_Cart_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECOP.MainFlow.Cart.mvc$translationsResources.nl-NL", [], function () {
+return {
+"PVEvBU83ZkOWWzGUVYiiVA#Value": "Wijzig moment",
+"ZYCuwT8d5EChMWSITZt2nQ#Message.843031812.1": "Je boodschappenlijstje is aangemaakt en je producten zijn toegevoegd.",
+"yU97U1PSkkSTNWAxt8g7xg#Title": "Winkelwagen",
+"yU97U1PSkkSTNWAxt8g7xg#TitleExpression.-1975979792.1": "Winkelwagen"
+};
+});

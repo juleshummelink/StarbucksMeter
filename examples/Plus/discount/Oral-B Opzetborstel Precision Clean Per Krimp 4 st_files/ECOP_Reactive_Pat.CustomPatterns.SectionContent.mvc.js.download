@@ -1,0 +1,286 @@
+﻿define("ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$model", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model"], function (OutSystems, ECOP_Reactive_PatModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("BackgroundCSSClass", "backgroundCSSClassIn", "BackgroundCSSClass", true, false, OS.Types.Text, function () {
+return "background-transparent";
+}, false), 
+this.attr("_backgroundCSSClassInDataFetchStatus", "_backgroundCSSClassInDataFetchStatus", "_backgroundCSSClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("NoPaddingTop", "noPaddingTopIn", "NoPaddingTop", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_noPaddingTopInDataFetchStatus", "_noPaddingTopInDataFetchStatus", "_noPaddingTopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("NoPaddingBottom", "noPaddingBottomIn", "NoPaddingBottom", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_noPaddingBottomInDataFetchStatus", "_noPaddingBottomInDataFetchStatus", "_noPaddingBottomInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("NoPaddingLeft", "noPaddingLeftIn", "NoPaddingLeft", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_noPaddingLeftInDataFetchStatus", "_noPaddingLeftInDataFetchStatus", "_noPaddingLeftInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("NoPaddingRight", "noPaddingRightIn", "NoPaddingRight", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_noPaddingRightInDataFetchStatus", "_noPaddingRightInDataFetchStatus", "_noPaddingRightInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("ExtendedClass", "extendedClassIn", "ExtendedClass", true, false, OS.Types.Text, function () {
+return "";
+}, false), 
+this.attr("_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", "_extendedClassInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+return false;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("BackgroundCSSClass" in inputs) {
+this.variables.backgroundCSSClassIn = inputs.BackgroundCSSClass;
+if("_backgroundCSSClassInDataFetchStatus" in inputs) {
+this.variables._backgroundCSSClassInDataFetchStatus = inputs._backgroundCSSClassInDataFetchStatus;
+}
+
+}
+
+if("NoPaddingTop" in inputs) {
+this.variables.noPaddingTopIn = inputs.NoPaddingTop;
+if("_noPaddingTopInDataFetchStatus" in inputs) {
+this.variables._noPaddingTopInDataFetchStatus = inputs._noPaddingTopInDataFetchStatus;
+}
+
+}
+
+if("NoPaddingBottom" in inputs) {
+this.variables.noPaddingBottomIn = inputs.NoPaddingBottom;
+if("_noPaddingBottomInDataFetchStatus" in inputs) {
+this.variables._noPaddingBottomInDataFetchStatus = inputs._noPaddingBottomInDataFetchStatus;
+}
+
+}
+
+if("NoPaddingLeft" in inputs) {
+this.variables.noPaddingLeftIn = inputs.NoPaddingLeft;
+if("_noPaddingLeftInDataFetchStatus" in inputs) {
+this.variables._noPaddingLeftInDataFetchStatus = inputs._noPaddingLeftInDataFetchStatus;
+}
+
+}
+
+if("NoPaddingRight" in inputs) {
+this.variables.noPaddingRightIn = inputs.NoPaddingRight;
+if("_noPaddingRightInDataFetchStatus" in inputs) {
+this.variables._noPaddingRightInDataFetchStatus = inputs._noPaddingRightInDataFetchStatus;
+}
+
+}
+
+if("ExtendedClass" in inputs) {
+this.variables.extendedClassIn = inputs.ExtendedClass;
+if("_extendedClassInDataFetchStatus" in inputs) {
+this.variables._extendedClassInDataFetchStatus = inputs._extendedClassInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "CustomPatterns.SectionContent");
+});
+define("ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$view", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "react", "OutSystems/ReactView/Main", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$controller", "OutSystems/ReactWidgets/Main"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, React, OSView, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_model, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_controller, OSWidgets) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "CustomPatterns.SectionContent";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: model.getCachedValue(idService.getId("SectionWrapper.Style"), function () {
+return (model.variables.backgroundCSSClassIn + ((((model.variables.extendedClassIn) !== (""))) ? ((" " + model.variables.extendedClassIn)) : ("")));
+}, function () {
+return model.variables.backgroundCSSClassIn;
+}, function () {
+return model.variables.extendedClassIn;
+}),
+visible: true,
+_idProps: {
+service: idService,
+name: "SectionWrapper"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._backgroundCSSClassInDataFetchStatus, model.variables._extendedClassInDataFetchStatus)
+}, React.createElement(OSWidgets.Placeholder, {
+align: /*Default*/ 0,
+content: _this.props.placeholders.content,
+style: model.getCachedValue(idService.getId("Content.Style"), function () {
+return (((("ThemeGrid_Container content-section-full" + ((model.variables.noPaddingTopIn) ? (" no-padding-top") : (""))) + ((model.variables.noPaddingBottomIn) ? (" no-padding-bottom") : (""))) + ((model.variables.noPaddingLeftIn) ? (" no-padding-left") : (""))) + ((model.variables.noPaddingRightIn) ? (" no-padding-right") : ("")));
+}, function () {
+return model.variables.noPaddingTopIn;
+}, function () {
+return model.variables.noPaddingBottomIn;
+}, function () {
+return model.variables.noPaddingLeftIn;
+}, function () {
+return model.variables.noPaddingRightIn;
+}),
+_idProps: {
+service: idService,
+name: "Content"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+style_dataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._noPaddingTopInDataFetchStatus, model.variables._noPaddingBottomInDataFetchStatus, model.variables._noPaddingLeftInDataFetchStatus, model.variables._noPaddingRightInDataFetchStatus)
+})));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECOP_Reactive_Pat.model", "ECOP_Reactive_Pat.controller", "ECOP_Reactive_Pat.languageResources", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$translationsResources"], function (OutSystems, ECOP_Reactive_PatModel, ECOP_Reactive_PatController, ECOP_Reactive_PatLanguageResources, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECOP_Reactive_PatController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECOP_Reactive_PatLanguageResources);
+});
+
+define("ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$translationsResources", ["exports"], function (exports) {
+return {};
+});

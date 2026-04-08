@@ -1,0 +1,18 @@
+﻿define("CMS_Monolith_CW.controller", ["exports", "OutSystems/ClientRuntime/Main", "CMS_Monolith_CW.model"], function (exports, OutSystems, CMS_Monolith_CWModel) {
+var OS = OutSystems.Internal;
+var CMS_Monolith_CWController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.clientActionProxies = {};
+Controller.prototype.roles = {};
+Controller.prototype.defaultTimeout = 60;
+Controller.prototype.getDefaultTimeout = function () {
+return CMS_Monolith_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseModuleController);
+CMS_Monolith_CWController.default = new Controller(null, "CMS_Monolith_CW");
+});

@@ -1,0 +1,326 @@
+﻿define("ECP_ExceptionHandling_Lib.model$ExceptionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ExceptionRec = (function (_super) {
+__extends(ExceptionRec, _super);
+function ExceptionRec(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionRec.attributesToDeclare = function () {
+return [
+this.attr("ExceptionName", "exceptionNameAttr", "ExceptionName", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionMessage", "exceptionMessageAttr", "ExceptionMessage", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExceptionRec.init();
+return ExceptionRec;
+})(OS.DataTypes.GenericRecord);
+ECP_ExceptionHandling_LibModel.ExceptionRec = ExceptionRec;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ExceptionRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ExceptionRecord = (function (_super) {
+__extends(ExceptionRecord, _super);
+function ExceptionRecord(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionRecord.attributesToDeclare = function () {
+return [
+this.attr("Exception", "exceptionAttr", "Exception", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ExceptionHandling_LibModel.ExceptionRec());
+}, true, ECP_ExceptionHandling_LibModel.ExceptionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExceptionRecord.fromStructure = function (str) {
+return new ExceptionRecord(new ExceptionRecord.RecordClass({
+exceptionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ExceptionRecord._isAnonymousRecord = true;
+ExceptionRecord.UniqueId = "3df79437-1414-686c-7b42-ad1e861c8aca";
+ExceptionRecord.init();
+return ExceptionRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ExceptionHandling_LibModel.ExceptionRecord = ExceptionRecord;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ApplicationExceptionRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ApplicationExceptionRec = (function (_super) {
+__extends(ApplicationExceptionRec, _super);
+function ApplicationExceptionRec(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationExceptionRec.attributesToDeclare = function () {
+return [
+this.attr("ExceptionCode", "exceptionCodeAttr", "ExceptionCode", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionName", "exceptionNameAttr", "ExceptionName", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ExceptionMessage", "exceptionMessageAttr", "ExceptionMessage", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ApplicationExceptionRec.init();
+return ApplicationExceptionRec;
+})(OS.DataTypes.GenericRecord);
+ECP_ExceptionHandling_LibModel.ApplicationExceptionRec = ApplicationExceptionRec;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ApplicationExceptionRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ApplicationExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ApplicationExceptionRecord = (function (_super) {
+__extends(ApplicationExceptionRecord, _super);
+function ApplicationExceptionRecord(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationExceptionRecord.attributesToDeclare = function () {
+return [
+this.attr("ApplicationException", "applicationExceptionAttr", "ApplicationException", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ExceptionHandling_LibModel.ApplicationExceptionRec());
+}, true, ECP_ExceptionHandling_LibModel.ApplicationExceptionRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ApplicationExceptionRecord.fromStructure = function (str) {
+return new ApplicationExceptionRecord(new ApplicationExceptionRecord.RecordClass({
+applicationExceptionAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ApplicationExceptionRecord._isAnonymousRecord = true;
+ApplicationExceptionRecord.UniqueId = "660a70ff-ae67-11a1-34eb-1df11e4883af";
+ApplicationExceptionRecord.init();
+return ApplicationExceptionRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ExceptionHandling_LibModel.ApplicationExceptionRecord = ApplicationExceptionRecord;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ExceptionTypeRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeRec = (function (_super) {
+__extends(ExceptionTypeRec, _super);
+function ExceptionTypeRec(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeRec.attributesToDeclare = function () {
+return [
+this.attr("ExceptionName", "exceptionNameAttr", "ExceptionName", true, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExceptionTypeRec.fromStructure = function (str) {
+return new ExceptionTypeRec(new ExceptionTypeRec.RecordClass({
+exceptionNameAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ExceptionTypeRec.init();
+return ExceptionTypeRec;
+})(OS.DataTypes.GenericRecord);
+ECP_ExceptionHandling_LibModel.ExceptionTypeRec = ExceptionTypeRec;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ExceptionTypeRecord", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ExceptionTypeRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeRecord = (function (_super) {
+__extends(ExceptionTypeRecord, _super);
+function ExceptionTypeRecord(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeRecord.attributesToDeclare = function () {
+return [
+this.attr("ExceptionType", "exceptionTypeAttr", "ExceptionType", false, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_ExceptionHandling_LibModel.ExceptionTypeRec());
+}, true, ECP_ExceptionHandling_LibModel.ExceptionTypeRec)
+].concat(_super.attributesToDeclare.call(this));
+};
+ExceptionTypeRecord.fromStructure = function (str) {
+return new ExceptionTypeRecord(new ExceptionTypeRecord.RecordClass({
+exceptionTypeAttr: OS.DataTypes.ImmutableBase.getData(str)
+}));
+};
+ExceptionTypeRecord._isAnonymousRecord = true;
+ExceptionTypeRecord.UniqueId = "77ebcb96-5e29-3b58-cf6b-d204f6c322dd";
+ExceptionTypeRecord.init();
+return ExceptionTypeRecord;
+})(OS.DataTypes.GenericRecord);
+ECP_ExceptionHandling_LibModel.ExceptionTypeRecord = ExceptionTypeRecord;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ExceptionTypeList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ExceptionTypeRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeList = (function (_super) {
+__extends(ExceptionTypeList, _super);
+function ExceptionTypeList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeList.itemType = ECP_ExceptionHandling_LibModel.ExceptionTypeRec;
+return ExceptionTypeList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ExceptionHandling_LibModel.ExceptionTypeList = ExceptionTypeList;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ApplicationExceptionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ApplicationExceptionRecord"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ApplicationExceptionRecordList = (function (_super) {
+__extends(ApplicationExceptionRecordList, _super);
+function ApplicationExceptionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationExceptionRecordList.itemType = ECP_ExceptionHandling_LibModel.ApplicationExceptionRecord;
+return ApplicationExceptionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ExceptionHandling_LibModel.ApplicationExceptionRecordList = ApplicationExceptionRecordList;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ExceptionList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ExceptionList = (function (_super) {
+__extends(ExceptionList, _super);
+function ExceptionList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionList.itemType = ECP_ExceptionHandling_LibModel.ExceptionRec;
+return ExceptionList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ExceptionHandling_LibModel.ExceptionList = ExceptionList;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ApplicationExceptionList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ApplicationExceptionRec"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ApplicationExceptionList = (function (_super) {
+__extends(ApplicationExceptionList, _super);
+function ApplicationExceptionList(defaults) {
+_super.apply(this, arguments);
+}
+ApplicationExceptionList.itemType = ECP_ExceptionHandling_LibModel.ApplicationExceptionRec;
+return ApplicationExceptionList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ExceptionHandling_LibModel.ApplicationExceptionList = ApplicationExceptionList;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ExceptionRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ExceptionRecord"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ExceptionRecordList = (function (_super) {
+__extends(ExceptionRecordList, _super);
+function ExceptionRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionRecordList.itemType = ECP_ExceptionHandling_LibModel.ExceptionRecord;
+return ExceptionRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ExceptionHandling_LibModel.ExceptionRecordList = ExceptionRecordList;
+
+});
+define("ECP_ExceptionHandling_Lib.model$ExceptionTypeRecordList", ["exports", "OutSystems/ClientRuntime/Main", "ECP_ExceptionHandling_Lib.model", "ECP_ExceptionHandling_Lib.model$ExceptionTypeRecord"], function (exports, OutSystems, ECP_ExceptionHandling_LibModel) {
+var OS = OutSystems.Internal;
+var ExceptionTypeRecordList = (function (_super) {
+__extends(ExceptionTypeRecordList, _super);
+function ExceptionTypeRecordList(defaults) {
+_super.apply(this, arguments);
+}
+ExceptionTypeRecordList.itemType = ECP_ExceptionHandling_LibModel.ExceptionTypeRecord;
+return ExceptionTypeRecordList;
+})(OS.DataTypes.GenericRecordList);
+ECP_ExceptionHandling_LibModel.ExceptionTypeRecordList = ExceptionTypeRecordList;
+
+});
+define("ECP_ExceptionHandling_Lib.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_ExceptionHandling_LibModel = exports;
+Object.defineProperty(ECP_ExceptionHandling_LibModel, "module", {
+get: function () {
+return OS.ApplicationInfo.getModules()["a61e44f4-ecf6-4ed0-80c1-fa1b19b8fa97"];
+}
+});
+
+ECP_ExceptionHandling_LibModel.staticEntities = {};
+ECP_ExceptionHandling_LibModel.staticEntities.exceptionType = {};
+var getExceptionTypeRecord = function (record) {
+return ECP_ExceptionHandling_LibModel.module.staticEntities["e1cd9323-4d37-46bc-bc24-423a0e75763c"][record];
+};
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "contentTooLarge", {
+get: function () {
+return getExceptionTypeRecord("0f9b5b19-1705-48f1-a016-bbb6f8850334");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "openContentFailed", {
+get: function () {
+return getExceptionTypeRecord("3fdeebf8-0cc9-4178-ad8b-be68f051c2b3");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "encryptionFailed", {
+get: function () {
+return getExceptionTypeRecord("4426b484-bdc4-4884-a5a9-5965ad22f4d7");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "notFound", {
+get: function () {
+return getExceptionTypeRecord("5485f4be-ce3f-421b-95a8-a660319718c7");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "alreadyExists", {
+get: function () {
+return getExceptionTypeRecord("5bf1010b-de7e-40c0-aa89-ac856ad9035e");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "inactiveUser", {
+get: function () {
+return getExceptionTypeRecord("64445ede-beca-4076-b9cd-a0aaa591dbad");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "invalidParameter", {
+get: function () {
+return getExceptionTypeRecord("a044c7cb-bef3-4d29-8b57-2d97fe066d30");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "encryptedContent", {
+get: function () {
+return getExceptionTypeRecord("a5a7d5ec-eccf-43a9-93ff-3cde3a136708");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "accessDenied", {
+get: function () {
+return getExceptionTypeRecord("b6234a9d-bc0e-4eec-8e8c-6d60dea3bc26");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "invalidData", {
+get: function () {
+return getExceptionTypeRecord("d0b0eddb-7e80-456d-9620-c0194268ccbb");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "decryptionFailed", {
+get: function () {
+return getExceptionTypeRecord("e61be486-8098-42be-ac41-f950ce982360");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "invalidToken", {
+get: function () {
+return getExceptionTypeRecord("ebe03d4c-9bcf-46b7-863f-08a824a09a5e");
+}
+});
+
+Object.defineProperty(ECP_ExceptionHandling_LibModel.staticEntities.exceptionType, "createOrderFromCart", {
+get: function () {
+return getExceptionTypeRecord("ec622d90-787c-4880-93db-ffddaa244f6a");
+}
+});
+
+});

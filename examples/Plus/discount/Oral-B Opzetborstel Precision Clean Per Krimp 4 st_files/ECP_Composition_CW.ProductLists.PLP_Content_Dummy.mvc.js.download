@@ -1,0 +1,827 @@
+﻿define("ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "PLUS_OutSystemsUI_2_8_0.Content.ListItemContent.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "PLUS_OutSystemsUI_2_8_0.Content.Accordion.mvc$model", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$model", "PLUS_OutSystemsUI_2_8_0.Utilities.AlignCenter.mvc$model", "ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$model"], function (OutSystems, ECP_Composition_CWModel, PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, PLUS_OutSystemsUI_2_8_0_Content_Accordion_mvcModel, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvcModel, PLUS_OutSystemsUI_2_8_0_Utilities_AlignCenter_mvcModel, ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("IsDesktop", "isDesktopIn", "IsDesktop", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDesktopInDataFetchStatus", "_isDesktopInDataFetchStatus", "_isDesktopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((((PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvcModel.hasValidationWidgets || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Content_Accordion_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvcModel.hasValidationWidgets) || PLUS_OutSystemsUI_2_8_0_Utilities_AlignCenter_mvcModel.hasValidationWidgets) || ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("IsDesktop" in inputs) {
+this.variables.isDesktopIn = inputs.IsDesktop;
+if("_isDesktopInDataFetchStatus" in inputs) {
+this.variables._isDesktopInDataFetchStatus = inputs._isDesktopInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "ProductLists.PLP_Content_Dummy");
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Composition_CW.controller", "react", "OutSystems/ReactView/Main", "ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$model", "ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$controller", "OutSystems/ReactWidgets/Main", "PLUS_OutSystemsUI_2_8_0.Content.ListItemContent.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "PLUS_OutSystemsUI_2_8_0.Content.Accordion.mvc$view", "PLUS_OutSystemsUI_2_8_0.Content.AccordionItem.mvc$view", "PLUS_OutSystemsUI_2_8_0.Utilities.AlignCenter.mvc$view", "ECP_Composition_CW.ProductLists.PLP_Content_NoSidebar_Dummy.mvc$view"], function (OutSystems, ECP_Composition_CWModel, ECP_Composition_CWController, React, OSView, ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_model, ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_controller, OSWidgets, PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_Accordion_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_AlignCenter_mvc_view, ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "ProductLists.PLP_Content_Dummy";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_Accordion_mvc_view, PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view, PLUS_OutSystemsUI_2_8_0_Utilities_AlignCenter_mvc_view, ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-content-wrapper padding-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-filters-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, $if(model.variables.isDesktopIn, false, this, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "category-list-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {
+ExtendedClass: "search-list-item"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "4",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "font-size-s place",
+Name: "arrow-left"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "5",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+}),
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "font-regular place",
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("zFv+TBW8ZEC3faZu_VjgNw#ValueExpression.560353819.1", "All categories"),
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: PlaceholderContent.Empty
+},
+_dependencies: []
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {
+ExtendedClass: "search-list-item"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "7",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: PlaceholderContent.Empty,
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "text-green place",
+value: "Category Name",
+_idProps: {
+service: idService,
+uuid: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: PlaceholderContent.Empty
+},
+_dependencies: []
+}), React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {
+ExtendedClass: "search-list-item"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: PlaceholderContent.Empty,
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "font-regular place",
+value: OS.Injector.resolve(OS.ServiceNames.TranslationsService).getMessage("b0g4kQxsuEeNRW6dl1cirw#ValueExpression.155041806.1", "All Category Name"),
+_idProps: {
+service: idService,
+uuid: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: PlaceholderContent.Empty
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "search-content-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {
+ExtendedClass: "search-list-item"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "13",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: PlaceholderContent.Empty,
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "font-regular place",
+value: "Category Name",
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: PlaceholderContent.Empty
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {
+ExtendedClass: "search-list-item"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "16",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: PlaceholderContent.Empty,
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "font-regular place",
+value: "Category Name",
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: PlaceholderContent.Empty
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "18"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {
+ExtendedClass: "search-list-item"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "19",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: PlaceholderContent.Empty,
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "font-regular place",
+value: "Category Name",
+_idProps: {
+service: idService,
+uuid: "20"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: PlaceholderContent.Empty
+},
+_dependencies: []
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_ListItemContent_mvc_view, {
+inputs: {
+ExtendedClass: "search-list-item"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "22",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+left: PlaceholderContent.Empty,
+title: PlaceholderContent.Empty,
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "font-regular place",
+value: "Category Name",
+_idProps: {
+service: idService,
+uuid: "23"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+right: PlaceholderContent.Empty
+},
+_dependencies: []
+}))))];
+}, function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-filters-header",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "24"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "25"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Text, {
+style: "heading2 place",
+text: [$text(getTranslation("r9KmPd7+E0ax4Z_e2Iqq0w#Value", "Filters"))],
+_idProps: {
+service: idService,
+uuid: "26"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Size: ECP_Composition_CWModel.staticEntities.iconSize.size_s,
+ExtendedClass: "place",
+Name: "close"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "27",
+alias: "9"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "accordion-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "28"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_Accordion_mvc_view, {
+inputs: {
+MultipleItems: true,
+ExtendedClass: "gtm-filters-accordions"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "29",
+alias: "10"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "30"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(PLUS_OutSystemsUI_2_8_0_Content_AccordionItem_mvc_view, {
+inputs: {
+IsExpanded: true,
+ExtendedClass: "place"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "31",
+alias: "11"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "Merk",
+_idProps: {
+service: idService,
+uuid: "32"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "33"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS",
+_idProps: {
+service: idService,
+uuid: "34"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "35"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS",
+_idProps: {
+service: idService,
+uuid: "36"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "margin-top-base",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "37"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS",
+_idProps: {
+service: idService,
+uuid: "38"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+},
+_dependencies: []
+}))];
+})
+},
+_dependencies: []
+}))), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-results-wrapper",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "39"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-results-header",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "40"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.AdvancedHtml, {
+tag: "h1",
+_idProps: {
+service: idService,
+uuid: "41"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "Category Name",
+_idProps: {
+service: idService,
+uuid: "42"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(PLUS_OutSystemsUI_2_8_0_Utilities_AlignCenter_mvc_view, {
+inputs: {
+ExtendedClass: "top-information"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "43",
+alias: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "display-flex",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "44"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "font-semi-bold place",
+value: "8 products",
+_idProps: {
+service: idService,
+uuid: "45"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}))];
+})
+},
+_dependencies: []
+})), React.createElement(ECP_Composition_CW_ProductLists_PLP_Content_NoSidebar_Dummy_mvc_view, {
+inputs: {},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "46",
+alias: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Composition_CW.model", "ECP_Composition_CW.controller", "ECP_Composition_CW.languageResources", "ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$translationsResources"], function (OutSystems, ECP_Composition_CWModel, ECP_Composition_CWController, ECP_Composition_CWLanguageResources, ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = null;
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Composition_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Composition_CWLanguageResources);
+});
+
+define("ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$translationsResources", ["exports", "ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$translationsResources.nl-NL"], function (exports, ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Composition_CW_ProductLists_PLP_Content_Dummy_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Composition_CW.ProductLists.PLP_Content_Dummy.mvc$translationsResources.nl-NL", [], function () {
+return {
+"r9KmPd7+E0ax4Z_e2Iqq0w#Value": "Filteren",
+"b0g4kQxsuEeNRW6dl1cirw#ValueExpression.155041806.1": "Alle ",
+"zFv+TBW8ZEC3faZu_VjgNw#ValueExpression.560353819.1": "Alle categorieën"
+};
+});

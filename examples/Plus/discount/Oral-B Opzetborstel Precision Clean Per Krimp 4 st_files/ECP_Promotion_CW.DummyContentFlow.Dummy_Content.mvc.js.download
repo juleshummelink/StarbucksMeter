@@ -1,0 +1,652 @@
+﻿define("ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$model", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_BL.model", "ECP_Promotion_CW.controller", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$model", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$model", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$model", "ECOP_Base_RPat.CustomPatterns.PromotionOfferLabel.mvc$model", "ECOP_Base_RPat.CustomPatterns.ComplementaryInformation.mvc$model", "ECP_Promotion_BL.model$PromotionRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.controller$Temp_Promotion_DummyData_Get"], function (OutSystems, ECP_Promotion_CWModel, ECP_Promotion_BLModel, ECP_Promotion_CWController, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel, ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel, ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvcModel, ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvcModel) {
+var OS = OutSystems.Internal;
+
+
+var VariablesRecord = (function (_super) {
+__extends(VariablesRecord, _super);
+function VariablesRecord(defaults) {
+_super.apply(this, arguments);
+}
+VariablesRecord.attributesToDeclare = function () {
+return [
+this.attr("Promotion_All", "promotion_AllVar", "Promotion_All", true, false, OS.Types.Record, function () {
+return OS.DataTypes.ImmutableBase.getData(new ECP_Promotion_BLModel.PromotionRec());
+}, false, ECP_Promotion_BLModel.PromotionRec), 
+this.attr("IsDesktop", "isDesktopIn", "IsDesktop", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isDesktopInDataFetchStatus", "_isDesktopInDataFetchStatus", "_isDesktopInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsTablet", "isTabletIn", "IsTablet", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isTabletInDataFetchStatus", "_isTabletInDataFetchStatus", "_isTabletInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false), 
+this.attr("IsPhone", "isPhoneIn", "IsPhone", true, false, OS.Types.Boolean, function () {
+return false;
+}, false), 
+this.attr("_isPhoneInDataFetchStatus", "_isPhoneInDataFetchStatus", "_isPhoneInDataFetchStatus", true, false, OS.Types.Integer, function () {
+return /*Fetched*/ 1;
+}, false)
+].concat(_super.attributesToDeclare.call(this));
+};
+VariablesRecord.init();
+return VariablesRecord;
+})(OS.DataTypes.GenericRecord);
+var WidgetsRecord = (function (_super) {
+__extends(WidgetsRecord, _super);
+function WidgetsRecord() {
+_super.apply(this, arguments);
+}
+WidgetsRecord.getWidgetsType = function () {
+return {};
+};
+
+return WidgetsRecord;
+})(OS.Model.BaseWidgetRecordMap);
+var Model = (function (_super) {
+__extends(Model, _super);
+function Model() {
+_super.apply(this, arguments);
+}
+Model.getVariablesRecordConstructor = function () {
+return VariablesRecord;
+};
+Model.getWidgetsRecordConstructor = function () {
+return WidgetsRecord;
+};
+Model._hasValidationWidgetsValue = undefined;
+Object.defineProperty(Model, "hasValidationWidgets", {
+enumerable: true,
+configurable: true,
+get: function () {
+if((Model._hasValidationWidgetsValue === undefined)) {
+Model._hasValidationWidgetsValue = (((((ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvcModel.hasValidationWidgets || ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvcModel.hasValidationWidgets) || ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_IconPlus_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvcModel.hasValidationWidgets) || ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvcModel.hasValidationWidgets);
+}
+
+return Model._hasValidationWidgetsValue;
+}
+});
+
+Model.prototype.setInputs = function (inputs) {
+if("IsDesktop" in inputs) {
+this.variables.isDesktopIn = inputs.IsDesktop;
+if("_isDesktopInDataFetchStatus" in inputs) {
+this.variables._isDesktopInDataFetchStatus = inputs._isDesktopInDataFetchStatus;
+}
+
+}
+
+if("IsTablet" in inputs) {
+this.variables.isTabletIn = inputs.IsTablet;
+if("_isTabletInDataFetchStatus" in inputs) {
+this.variables._isTabletInDataFetchStatus = inputs._isTabletInDataFetchStatus;
+}
+
+}
+
+if("IsPhone" in inputs) {
+this.variables.isPhoneIn = inputs.IsPhone;
+if("_isPhoneInDataFetchStatus" in inputs) {
+this.variables._isPhoneInDataFetchStatus = inputs._isPhoneInDataFetchStatus;
+}
+
+}
+
+};
+return Model;
+})(OS.Model.BaseViewModel);
+return new OS.Model.ModelFactory(Model, "DummyContentFlow.Dummy_Content");
+});
+define("ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$view", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "ECP_Promotion_BL.model", "react", "OutSystems/ReactView/Main", "ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$model", "ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$controller", "OutSystems/ReactWidgets/Main", "ECOP_Reactive_Pat.CustomPatterns.SectionContent.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.PLPListItem.mvc$view", "ECOP_Reactive_Pat.CustomPatterns.ImageLoader.mvc$view", "ECOP_Base_RPat.CustomPatterns.IconPlus.mvc$view", "ECOP_Base_RPat.CustomPatterns.PromotionOfferLabel.mvc$view", "ECOP_Base_RPat.CustomPatterns.ComplementaryInformation.mvc$view", "ECP_Promotion_BL.model$PromotionRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.controller$Temp_Promotion_DummyData_Get"], function (OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, ECP_Promotion_BLModel, React, OSView, ECP_Promotion_CW_DummyContentFlow_Dummy_Content_mvc_model, ECP_Promotion_CW_DummyContentFlow_Dummy_Content_mvc_controller, OSWidgets, ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvc_view) {
+    var OS = OutSystems.Internal;
+var PlaceholderContent = OSView.Widget.PlaceholderContent;
+var IteratorPlaceholderContent = OSView.Widget.IteratorPlaceholderContent;
+
+
+    var View = (function (_super) {
+        __extends(View,_super);
+        function View() {
+            try {
+                this.initialize.apply(this, arguments);
+            } catch (error) {
+                View.handleError(error);
+                throw error;
+            }
+        }
+        View.prototype.initialize = function() {
+            _super.apply(this, arguments);
+        };
+        View.displayName = "DummyContentFlow.Dummy_Content";
+        View.getCssDependencies = function() {
+            return ["css/OutSystemsReactWidgets.css"];
+        };
+        View.getJsDependencies = function() {
+            return [];
+        };
+        View.getBlocks = function() {
+            return [ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvc_view];
+        };
+        Object.defineProperty(View.prototype, "modelFactory", {
+            get: function () {
+                return ECP_Promotion_CW_DummyContentFlow_Dummy_Content_mvc_model;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "controllerFactory", {
+            get: function () {
+                return ECP_Promotion_CW_DummyContentFlow_Dummy_Content_mvc_controller;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(View.prototype, "title", {
+            get: function () {
+                return "";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        View.prototype.internalRender = function() {
+            var model = this.model;
+            var controller = this.controller;
+            var idService = this.idService;
+            var validationService = controller.validationService;
+            var widgetsRecordProvider = this.widgetsRecordProvider;
+            var callContext = controller.callContext();
+            var $if = View.ifWidget;
+            var $text = View.textWidget;
+            var asPrimitiveValue = View.asPrimitiveValue;
+            var getTranslation = View.getTranslation;
+            var _this = this;
+
+            return React.createElement("div", this.getRootNodeProperties(), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "0"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: false,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.promotion_AllVar.categoriesAttr,
+style: "list list-group ",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, {
+inputs: {
+NoPaddingRight: model.variables.isPhoneIn,
+_noPaddingRightInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus),
+NoPaddingLeft: model.variables.isPhoneIn,
+_noPaddingLeftInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus),
+NoPaddingBottom: true,
+NoPaddingTop: true,
+BackgroundCSSClass: "background-neutral-0"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "2",
+alias: "1"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.AdvancedHtml, {
+extendedProperties: {
+className: model.getCachedValue(idService.getId("ga+yChScLU6jEvsW67pimA.class"), function () {
+return ("promo-category-offer" + ((model.variables.isPhoneIn) ? (" padding-x-base") : ("")));
+}, function () {
+return model.variables.isPhoneIn;
+})
+},
+tag: "h2",
+_idProps: {
+service: idService,
+uuid: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "Aardappelen, groente, fruit",
+_idProps: {
+service: idService,
+uuid: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})), React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "plp-results-wrapper promotions-list-section",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(OSWidgets.List, {
+animateItems: true,
+extendedProperties: {
+"disable-virtualization": "True"
+},
+gridProperties: {
+classes: "OSFillParent"
+},
+mode: /*Default*/ 0,
+source: model.variables.promotion_AllVar.categoriesAttr.getCurrent(callContext.iterationContext).offersAttr,
+style: "list list-group plp-results-list",
+tag: "div",
+_idProps: {
+service: idService,
+uuid: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new IteratorPlaceholderContent(function (idService, callContext) {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+visible: true,
+_idProps: {
+service: idService,
+uuid: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}, React.createElement(ECOP_Reactive_Pat_CustomPatterns_PLPListItem_mvc_view, {
+inputs: {
+ExtendedClass: "plp-item-wrapper__promo",
+DisableSlider: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "8",
+alias: "2"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+logo: PlaceholderContent.Empty,
+image: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Reactive_Pat_CustomPatterns_ImageLoader_mvc_view, {
+inputs: {
+ImageLabel: "",
+ImageURL: ""
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "9",
+alias: "3"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+noImagePlaceholder: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+Name: "home",
+ExtendedClass: "text-neutral-2 place",
+Size: ECP_Promotion_CWModel.staticEntities.iconSize.size2x
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "10",
+alias: "4"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+})];
+}),
+complementaryTop: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_PromotionOfferLabel_mvc_view, {
+inputs: {
+PromotionOfferStyleId: ECP_Promotion_CWModel.staticEntities.promotionOfferStyle.orange
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "11",
+alias: "5"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+offerLabel: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2 voor 5.00",
+_idProps: {
+service: idService,
+uuid: "12"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+}),
+name: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "PLUS Kipfilet Voordeelverpakking",
+_idProps: {
+service: idService,
+uuid: "13"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+complementary: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+gridProperties: {
+classes: "OSFillParent"
+},
+style: "place",
+value: "Per 1 stuks",
+_idProps: {
+service: idService,
+uuid: "14"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceInteger: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "2.",
+_idProps: {
+service: idService,
+uuid: "15"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+priceDecimals: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Expression, {
+style: "place",
+value: "20",
+_idProps: {
+service: idService,
+uuid: "16"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+pricePrevious: PlaceholderContent.Empty,
+quantity: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Container, {
+align: /*Default*/ 0,
+animate: false,
+style: "btn btn-action add",
+visible: true,
+_idProps: {
+service: idService,
+uuid: "17"
+},
+_widgetRecordProvider: widgetsRecordProvider
+}, React.createElement(ECOP_Base_RPat_CustomPatterns_IconPlus_mvc_view, {
+inputs: {
+ExtendedClass: "place",
+Name: "add-to-cart"
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "18",
+alias: "6"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+_dependencies: []
+}))];
+}),
+sliderContent: PlaceholderContent.Empty
+},
+_dependencies: []
+}))];
+}, callContext, idService, "2")
+},
+_dependencies: []
+}))];
+})
+},
+_dependencies: [asPrimitiveValue(model.variables.promotion_AllVar.categoriesAttr.getCurrent(callContext.iterationContext).offersAttr), asPrimitiveValue(model.variables._isPhoneInDataFetchStatus), asPrimitiveValue(model.variables.isPhoneIn)]
+})];
+}, callContext, idService, "2")
+},
+_dependencies: [asPrimitiveValue(model.variables._isPhoneInDataFetchStatus), asPrimitiveValue(model.variables.isPhoneIn)]
+})), React.createElement(ECOP_Reactive_Pat_CustomPatterns_SectionContent_mvc_view, {
+inputs: {
+ExtendedClass: model.getCachedValue(idService.getId("1wxxRHjY9EKRcsGK8kNfJQ.ExtendedClass"), function () {
+return ((((model.variables.isDesktopIn) ? ("padding-bottom-xxxxl") : ("")) + ((model.variables.isTabletIn) ? (" padding-bottom-xxl") : (""))) + ((model.variables.isPhoneIn) ? (" padding-bottom-xl") : ("")));
+}, function () {
+return model.variables.isDesktopIn;
+}, function () {
+return model.variables.isTabletIn;
+}, function () {
+return model.variables.isPhoneIn;
+}),
+_extendedClassInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isDesktopInDataFetchStatus, model.variables._isTabletInDataFetchStatus, model.variables._isPhoneInDataFetchStatus),
+NoPaddingBottom: true,
+BackgroundCSSClass: "background-neutral-0",
+NoPaddingRight: model.variables.isPhoneIn,
+_noPaddingRightInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus),
+NoPaddingLeft: model.variables.isPhoneIn,
+_noPaddingLeftInDataFetchStatus: OS.Model.calculateDataFetchStatus(model.variables._isPhoneInDataFetchStatus),
+NoPaddingTop: true
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "19",
+alias: "7"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+content: new PlaceholderContent(function () {
+return [React.createElement(ECOP_Base_RPat_CustomPatterns_ComplementaryInformation_mvc_view, {
+inputs: {
+ExtendedClass: "pdp-complementary-info",
+BackgroundColor: ECP_Promotion_CWModel.staticEntities.color.neutral2,
+TextColor: ECP_Promotion_CWModel.staticEntities.color.neutral7
+},
+events: {
+_handleError: function (ex) {
+controller.handleError(ex);
+}
+},
+_validationProps: {
+validationService: validationService
+},
+_idProps: {
+service: idService,
+uuid: "20",
+alias: "8"
+},
+_widgetRecordProvider: widgetsRecordProvider,
+placeholders: {
+title: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("tGGRTJ8gqECX4pBLCSuNmQ#Value", "Promotions"))],
+_idProps: {
+service: idService,
+uuid: "21"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+}),
+message: new PlaceholderContent(function () {
+return [React.createElement(OSWidgets.Text, {
+style: "place",
+text: [$text(getTranslation("hJ0hanL4cE2rvCJhAhHD3A#Value", "Unless stated otherwise, a maximum of 5 identical offers per customer applies to all products on this page. With 6 or more of the same offers, the discount will expire. *Liquor store offers are only available at liquor stores."))],
+_idProps: {
+service: idService,
+uuid: "22"
+},
+_widgetRecordProvider: widgetsRecordProvider
+})];
+})
+},
+_dependencies: []
+})];
+})
+},
+_dependencies: []
+}));
+        };
+        return View;
+    })(OSView.BaseView.BaseWebBlock);
+	
+    return View;
+});
+define("ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$controller", ["OutSystems/ClientRuntime/Main", "ECP_Promotion_CW.model", "ECP_Promotion_CW.controller", "ECP_Promotion_BL.model", "ECP_Promotion_CW.languageResources", "ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$translationsResources", "ECP_Promotion_BL.model$PromotionRec", "ECP_Promotion_CW.referencesHealth", "ECP_Promotion_CW.referencesHealth$ECP_Promotion_BL", "ECP_Promotion_CW.controller$Temp_Promotion_DummyData_Get"], function (OutSystems, ECP_Promotion_CWModel, ECP_Promotion_CWController, ECP_Promotion_BLModel, ECP_Promotion_CWLanguageResources, ECP_Promotion_CW_DummyContentFlow_Dummy_Content_mvc_TranslationsResources) {
+var OS = OutSystems.Internal;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+var controller = this.controller;
+this.clientActionProxies = {};
+this.dataFetchDependenciesOriginal = {};
+this.dataFetchDependentsGraph = {};
+this.shouldSendClientVarsToDataSources = false;
+}
+Controller.prototype.translationResources = ECP_Promotion_CW_DummyContentFlow_Dummy_Content_mvc_TranslationsResources;
+// Server Actions
+
+// Aggregates and Data Actions
+
+Controller.prototype.dataFetchActionNames = [];
+// Client Actions
+Controller.prototype._onInitialize$Action = function (callContext) {
+var model = this.model;
+var controller = this.controller;
+var idService = this.idService;
+controller.ensureControllerAlive("OnInitialize");
+callContext = controller.callContext(callContext);
+var temp_Promotion_DummyData_GetVar = new OS.DataTypes.VariableHolder();
+// Execute Action: Temp_Promotion_DummyData_Get
+temp_Promotion_DummyData_GetVar.value = ECP_Promotion_CWController.default.temp_Promotion_DummyData_Get$Action(callContext);
+
+// Promotion_All = Temp_Promotion_DummyData_Get.PromotionOfferList
+model.variables.promotion_AllVar = temp_Promotion_DummyData_GetVar.value.promotionOfferListOut;
+};
+
+Controller.prototype.onInitialize$Action = function (callContext) {
+var controller = this.controller;
+return controller.safeExecuteClientAction(controller._onInitialize$Action, callContext);
+
+};
+
+// Event Handler Actions
+Controller.prototype.onInitializeEventHandler = function (callContext) {
+var controller = this.controller;
+var model = this.model;
+var idService = this.idService;
+
+return controller.onInitialize$Action(callContext);
+
+};
+Controller.prototype.onReadyEventHandler = null;
+Controller.prototype.onRenderEventHandler = null;
+Controller.prototype.onDestroyEventHandler = null;
+Controller.prototype.onParametersChangedEventHandler = null;
+Controller.prototype.handleError = function (ex) {
+return controller.handleError(ex);
+};
+Controller.checkPermissions = function () {
+};
+Controller.prototype.getDefaultTimeout = function () {
+return ECP_Promotion_CWController.default.defaultTimeout;
+};
+return Controller;
+})(OS.Controller.BaseViewController);
+return new OS.Controller.ControllerFactory(Controller, ECP_Promotion_CWLanguageResources);
+});
+
+define("ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$translationsResources", ["exports", "ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$translationsResources.nl-NL"], function (exports, ECP_Promotion_CW_DummyContentFlow_Dummy_Content_mvc_translationsResources_nlNL) {
+return {
+"nl-NL": {
+"translations": ECP_Promotion_CW_DummyContentFlow_Dummy_Content_mvc_translationsResources_nlNL,
+"isRTL": false
+}
+};
+});
+define("ECP_Promotion_CW.DummyContentFlow.Dummy_Content.mvc$translationsResources.nl-NL", [], function () {
+return {
+"hJ0hanL4cE2rvCJhAhHD3A#Value": "Voor alle producten op deze pagina geldt, tenzij anders vermeld, maximaal 5 dezelfde aanbiedingen per klant. Bij 6 of meer dezelfde aanbiedingen vervalt de korting. *Slijterij aanbiedingen zijn enkel beschikbaar bij winkels met een slijterij.",
+"tGGRTJ8gqECX4pBLCSuNmQ#Value": "Aanbiedingen"
+};
+});

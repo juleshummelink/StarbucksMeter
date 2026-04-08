@@ -26,8 +26,8 @@ const TYPE_META = {
   TrippleShotNoSugar:{ label: 'Triple Shot No Added Sugar', image: 'trippleshotnosugar' },
 };
 
-function loadUrls() {
-  const raw = fs.readFileSync('./recourses/urls.csv', 'utf-8');
+function loadUrls(csvPath = './recourses/urls.csv') {
+  const raw = fs.readFileSync(csvPath, 'utf-8');
   return parse(raw, {
     columns: true,
     skip_empty_lines: true,
@@ -35,8 +35,8 @@ function loadUrls() {
   });
 }
 
-async function scrapeAll(onProgress = () => {}) {
-  const records = loadUrls();
+async function scrapeAll(onProgress = () => {}, csvPath = undefined) {
+  const records = loadUrls(csvPath);
   const total = records.length;
 
   const browser = await chromium.launch({
@@ -96,7 +96,20 @@ async function scrapeAll(onProgress = () => {}) {
     const page = await context.newPage();
 
     try {
-      const { currentPrice, originalPrice } = await scraper.scrape(page, Url);
+      const {
+        currentPrice,
+        originalPrice,
+        promoLabel = null,
+        effectivePrice = null,
+        minQty = null,
+      } = await scraper.scrape(page, Url);
+
+      // The effective display price: per-unit cost when using promo (if lower)
+      const displayPrice =
+        effectivePrice != null && (currentPrice == null || effectivePrice < currentPrice)
+          ? effectivePrice
+          : currentPrice;
+
       results.push({
         store: Store,
         type: Type,
@@ -104,12 +117,19 @@ async function scrapeAll(onProgress = () => {}) {
         url: Url,
         currentPrice,
         originalPrice,
-        onSale: originalPrice !== null && originalPrice > currentPrice,
+        promoLabel,
+        effectivePrice,
+        minQty,
+        displayPrice,
+        onSale: originalPrice !== null && currentPrice !== null && originalPrice > currentPrice,
+        onPromo: effectivePrice != null,
         error: null,
       });
-      console.log(
-        `  ${Store} ${Type}: €${currentPrice}${originalPrice ? ` (was €${originalPrice})` : ''}`
-      );
+
+      let logLine = `  ${Store} ${Type}: €${displayPrice}`;
+      if (promoLabel) logLine += ` (${promoLabel}, bij ${minQty} stuks)`;
+      else if (originalPrice) logLine += ` (was €${originalPrice})`;
+      console.log(logLine);
     } catch (err) {
       console.error(`  Error scraping ${Store} ${Type}: ${err.message}`);
       results.push({
@@ -119,7 +139,12 @@ async function scrapeAll(onProgress = () => {}) {
         url: Url,
         currentPrice: null,
         originalPrice: null,
+        promoLabel: null,
+        effectivePrice: null,
+        minQty: null,
+        displayPrice: null,
         onSale: false,
+        onPromo: false,
         error: err.message,
       });
     } finally {

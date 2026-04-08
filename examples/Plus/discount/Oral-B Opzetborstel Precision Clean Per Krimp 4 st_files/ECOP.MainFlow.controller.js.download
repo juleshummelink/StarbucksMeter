@@ -1,0 +1,26 @@
+﻿define("ECOP.MainFlow.controller", ["exports", "OutSystems/ClientRuntime/Main", "ECOP.model", "ECOP.controller", "ECOP.AA_Common.controller", "ECOP.clientVariables", "ECOP.MainFlow.controller$translationsResources"], function (exports, OutSystems, ECOPModel, ECOPController, ECOP_AA_CommonController, ECOPClientVariables, ECOP_MainFlow_Controller_translationsResources) {
+var OS = OutSystems.Internal;
+var ECOP_MainFlowController = exports;
+var Controller = (function (_super) {
+__extends(Controller, _super);
+function Controller() {
+_super.apply(this, arguments);
+}
+Controller.prototype.getDefaultTimeout = function () {
+return ECOPController.default.defaultTimeout;
+};
+Controller.prototype.handleError = function (ex, callContext) {
+var controller = this.controller;
+OS.Logger.trace("MainFlow", OS.Exceptions.getMessage(ex), ex.name);
+return ECOP_AA_CommonController.default.handleError(ex, callContext);
+
+
+};
+return Controller;
+})(OS.Controller.BaseController);
+ECOP_MainFlowController.default = new Controller(ECOP_MainFlow_Controller_translationsResources);
+});
+
+define("ECOP.MainFlow.controller$translationsResources", ["exports"], function (exports) {
+return {};
+});

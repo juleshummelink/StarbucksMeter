@@ -1,0 +1,22 @@
+﻿define("ECOP.appDefinition", ["OutSystems/ClientRuntime/Main"], function (OutSystems) {
+var OS = OutSystems.Internal;
+return {
+environmentKey: "6f303a5b-cecb-4749-9dc4-08855609e2d7",
+environmentName: "EPROD",
+applicationKey: "676aef75-1fb4-47fd-a410-77281b1c0abf",
+applicationName: "ECOP Web",
+userProviderName: "Users",
+debugEnabled: false,
+homeModuleName: "ECOP",
+homeModuleKey: "ead3e6bf-82ee-4bc9-93f5-6548f688cc21",
+homeModuleControllerName: "ECOP.controller",
+homeModuleLanguageResourcesName: "ECOP.languageResources",
+defaultTransition: "None",
+errorPageConfig: {
+showExceptionStack: false
+},
+isWeb: true,
+personalArea: null,
+showWatermark: false
+};
+});

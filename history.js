@@ -43,10 +43,20 @@ function addEntry(prices) {
 
   const entry = {};
   for (const type of ['Caramel', 'Cappuccino', 'NoSugar', 'TrippleShot', 'TrippleShotNoSugar']) {
-    const candidates = prices.filter((p) => p.type === type && p.currentPrice != null);
+    // Use displayPrice (effective per-unit incl. promo) for cheapest comparison
+    const candidates = prices.filter(
+      (p) => p.type === type && (p.displayPrice ?? p.currentPrice) != null
+    );
     if (!candidates.length) continue;
-    const cheapest = candidates.reduce((a, b) => (a.currentPrice <= b.currentPrice ? a : b));
-    entry[type] = { price: cheapest.currentPrice, store: cheapest.store };
+    const cheapest = candidates.reduce((a, b) => {
+      const ap = a.displayPrice ?? a.currentPrice;
+      const bp = b.displayPrice ?? b.currentPrice;
+      return ap <= bp ? a : b;
+    });
+    entry[type] = {
+      price: cheapest.displayPrice ?? cheapest.currentPrice,
+      store: cheapest.store,
+    };
   }
 
   history[today] = entry;

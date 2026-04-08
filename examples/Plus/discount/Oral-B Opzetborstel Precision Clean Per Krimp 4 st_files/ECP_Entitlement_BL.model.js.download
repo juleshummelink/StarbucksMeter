@@ -1,0 +1,191 @@
+﻿define("ECP_Entitlement_BL.model$TrialStructureRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Entitlement_BL.model"], function (exports, OutSystems, ECP_Entitlement_BLModel) {
+var OS = OutSystems.Internal;
+var TrialStructureRec = (function (_super) {
+__extends(TrialStructureRec, _super);
+function TrialStructureRec(defaults) {
+_super.apply(this, arguments);
+}
+TrialStructureRec.attributesToDeclare = function () {
+return [
+this.attr("TrialDuration", "trialDurationAttr", "TrialDuration", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("TrialPriceId", "trialPriceIdAttr", "TrialPriceId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+TrialStructureRec.init();
+return TrialStructureRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Entitlement_BLModel.TrialStructureRec = TrialStructureRec;
+
+});
+define("ECP_Entitlement_BL.model$UserEntitlementRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Entitlement_BL.model"], function (exports, OutSystems, ECP_Entitlement_BLModel) {
+var OS = OutSystems.Internal;
+var UserEntitlementRec = (function (_super) {
+__extends(UserEntitlementRec, _super);
+function UserEntitlementRec(defaults) {
+_super.apply(this, arguments);
+}
+UserEntitlementRec.attributesToDeclare = function () {
+return [
+this.attr("HasCurrentEntitlement", "hasCurrentEntitlementAttr", "HasCurrentEntitlement", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("HadTrialEntitlement", "hadTrialEntitlementAttr", "HadTrialEntitlement", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("EndOfEntitlement", "endOfEntitlementAttr", "EndOfEntitlement", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("WasCancelled", "wasCancelledAttr", "WasCancelled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CancelledDate", "cancelledDateAttr", "CancelledDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("NoStripeID", "noStripeIDAttr", "NoStripeID", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("PriceId", "priceIdAttr", "PriceId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StartDate", "startDateAttr", "StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+UserEntitlementRec.init();
+return UserEntitlementRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Entitlement_BLModel.UserEntitlementRec = UserEntitlementRec;
+
+});
+define("ECP_Entitlement_BL.model$CancellationBundleVariablesRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Entitlement_BL.model"], function (exports, OutSystems, ECP_Entitlement_BLModel) {
+var OS = OutSystems.Internal;
+var CancellationBundleVariablesRec = (function (_super) {
+__extends(CancellationBundleVariablesRec, _super);
+function CancellationBundleVariablesRec(defaults) {
+_super.apply(this, arguments);
+}
+CancellationBundleVariablesRec.attributesToDeclare = function () {
+return [
+this.attr("BundleHasRenewed", "bundleHasRenewedAttr", "BundleHasRenewed", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CancellationDateEndMonth", "cancellationDateEndMonthAttr", "CancellationDateEndMonth", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("CancellationDateEndPeriod", "cancellationDateEndPeriodAttr", "CancellationDateEndPeriod", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("SubscriptionId", "subscriptionIdAttr", "SubscriptionId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("LatestInvoice", "latestInvoiceAttr", "LatestInvoice", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("CancellationDate", "cancellationDateAttr", "CancellationDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+CancellationBundleVariablesRec.init();
+return CancellationBundleVariablesRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Entitlement_BLModel.CancellationBundleVariablesRec = CancellationBundleVariablesRec;
+
+});
+define("ECP_Entitlement_BL.model$UserEntitlementHistoryRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Entitlement_BL.model"], function (exports, OutSystems, ECP_Entitlement_BLModel) {
+var OS = OutSystems.Internal;
+var UserEntitlementHistoryRec = (function (_super) {
+__extends(UserEntitlementHistoryRec, _super);
+function UserEntitlementHistoryRec(defaults) {
+_super.apply(this, arguments);
+}
+UserEntitlementHistoryRec.attributesToDeclare = function () {
+return [
+this.attr("PriceId", "priceIdAttr", "PriceId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Duration", "durationAttr", "Duration", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("HasEntitlement", "hasEntitlementAttr", "HasEntitlement", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("HadEntitlement", "hadEntitlementAttr", "HadEntitlement", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("StartDate", "startDateAttr", "StartDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("EndDate", "endDateAttr", "EndDate", false, false, OS.Types.Date, function () {
+return OS.DataTypes.DateTime.defaultValue;
+}, true), 
+this.attr("WasCancelled", "wasCancelledAttr", "WasCancelled", false, false, OS.Types.Boolean, function () {
+return false;
+}, true), 
+this.attr("CustomerId", "customerIdAttr", "CustomerId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("StripeId", "stripeIdAttr", "StripeId", false, false, OS.Types.Text, function () {
+return "";
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+UserEntitlementHistoryRec.init();
+return UserEntitlementHistoryRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Entitlement_BLModel.UserEntitlementHistoryRec = UserEntitlementHistoryRec;
+
+});
+define("ECP_Entitlement_BL.model$DeliveryBundleStructureRec", ["exports", "OutSystems/ClientRuntime/Main", "ECP_Entitlement_BL.model"], function (exports, OutSystems, ECP_Entitlement_BLModel) {
+var OS = OutSystems.Internal;
+var DeliveryBundleStructureRec = (function (_super) {
+__extends(DeliveryBundleStructureRec, _super);
+function DeliveryBundleStructureRec(defaults) {
+_super.apply(this, arguments);
+}
+DeliveryBundleStructureRec.attributesToDeclare = function () {
+return [
+this.attr("PriceId", "priceIdAttr", "PriceId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("ProductId", "productIdAttr", "ProductId", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Name", "nameAttr", "Name", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Description", "descriptionAttr", "Description", true, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Duration", "durationAttr", "Duration", false, false, OS.Types.Integer, function () {
+return 0;
+}, true), 
+this.attr("Interval", "intervalAttr", "Interval", false, false, OS.Types.Text, function () {
+return "";
+}, true), 
+this.attr("Price", "priceAttr", "Price", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true), 
+this.attr("PricePerInterval", "pricePerIntervalAttr", "PricePerInterval", false, false, OS.Types.Currency, function () {
+return OS.DataTypes.Decimal.defaultValue;
+}, true)
+].concat(_super.attributesToDeclare.call(this));
+};
+DeliveryBundleStructureRec.init();
+return DeliveryBundleStructureRec;
+})(OS.DataTypes.GenericRecord);
+ECP_Entitlement_BLModel.DeliveryBundleStructureRec = DeliveryBundleStructureRec;
+
+});
+define("ECP_Entitlement_BL.model", ["exports", "OutSystems/ClientRuntime/Main"], function (exports, OutSystems) {
+var OS = OutSystems.Internal;
+var ECP_Entitlement_BLModel = exports;
+});
