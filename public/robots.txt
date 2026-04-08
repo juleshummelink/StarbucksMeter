@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://starbucks.bytemountains.com/sitemap.xml

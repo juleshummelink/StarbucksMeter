@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>StarbucksMeter – Ijskoffie Prijsvergelijker</title>
+  <title>StarbucksMeter – Starbucks Ijskoffie Prijsvergelijker Nederland</title>
+  <meta name="description" content="Vergelijk dagelijks de prijs van Starbucks gekoelde ijskoffie bij Dirk, Albert Heijn, Jumbo en Plus. Bekijk ook aanbiedingen en de prijsontwikkeling over 30 dagen." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://starbucks.bytemountains.com/" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/recourses/starbucks.png" />
@@ -11,22 +14,54 @@
 
   <!-- Open Graph / WhatsApp card -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://starbucks.bytemountains.com" />
-  <meta property="og:title"       content="StarbucksMeter – Ijskoffie Prijsvergelijker" />
+  <meta property="og:url"         content="https://starbucks.bytemountains.com/" />
+  <meta property="og:title"       content="StarbucksMeter – Starbucks Ijskoffie Prijsvergelijker Nederland" />
   <meta property="og:description" content="Vergelijk dagelijks de prijs van Starbucks ijskoffie bij Dirk, Albert Heijn, Jumbo en Plus. Altijd de goedkoopste op een rij." />
   <meta property="og:image"       content="https://starbucks.bytemountains.com/recourses/starbucks.png" />
   <meta property="og:image:width"  content="500" />
   <meta property="og:image:height" content="500" />
   <meta property="og:locale"      content="nl_NL" />
+  <meta property="og:site_name"   content="StarbucksMeter" />
 
   <!-- Twitter / general summary card -->
   <meta name="twitter:card"        content="summary" />
-  <meta name="twitter:title"       content="StarbucksMeter – Ijskoffie Prijsvergelijker" />
+  <meta name="twitter:title"       content="StarbucksMeter – Starbucks Ijskoffie Prijsvergelijker Nederland" />
   <meta name="twitter:description" content="Vergelijk dagelijks de prijs van Starbucks ijskoffie bij Dirk, Albert Heijn, Jumbo en Plus." />
   <meta name="twitter:image"       content="https://starbucks.bytemountains.com/recourses/starbucks.png" />
 
   <!-- Browser chrome colour -->
   <meta name="theme-color" content="#1E3932" />
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "StarbucksMeter",
+    "url": "https://starbucks.bytemountains.com/",
+    "description": "Dagelijkse prijsvergelijker voor Starbucks gekoelde ijskoffie bij Nederlandse supermarkten: Dirk, Albert Heijn, Jumbo en Plus.",
+    "applicationCategory": "ShoppingApplication",
+    "operatingSystem": "All",
+    "inLanguage": "nl-NL",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "about": {
+      "@type": "Product",
+      "name": "Starbucks Gekoelde Ijskoffie",
+      "brand": {
+        "@type": "Brand",
+        "name": "Starbucks"
+      }
+    }
+  }
+  </script>
+
+  <!-- Preconnect to CDN for faster chart load -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
   <link rel="stylesheet" href="/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.49.0/dist/apexcharts.min.js"></script>
