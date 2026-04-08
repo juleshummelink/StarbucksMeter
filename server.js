@@ -2,10 +2,14 @@
 
 const express = require('express');
 const path = require('path');
+const cron = require('node-cron');
 const { scrapeAll } = require('./scrapers/index');
+const history = require('./history');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+history.init();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/recourses', express.static(path.join(__dirname, 'recourses')));
@@ -66,6 +70,7 @@ app.get('/api/prices', async (req, res) => {
   try {
     cachedPrices = await scrapeAll(pushProgress);
     lastUpdated = new Date().toISOString();
+    history.addEntry(cachedPrices);
     // Signal completion to all SSE clients
     pushProgress({ done: true });
     res.json({ prices: cachedPrices, lastUpdated });
@@ -78,10 +83,38 @@ app.get('/api/prices', async (req, res) => {
   }
 });
 
+app.get('/api/history', (_req, res) => {
+  res.json(history.get());
+});
+
 app.get('/api/status', (_req, res) => {
   res.json({ scraping: scrapeInProgress, lastUpdated, hasCachedData: cachedPrices !== null });
 });
 
+// ── Scheduled daily scrape at 06:00 ──────────────────────────────────────────
+async function runScheduledScrape() {
+  if (scrapeInProgress) return;
+  console.log('[cron] Starting scheduled 06:00 scrape…');
+  scrapeInProgress = true;
+  currentProgress = null;
+  try {
+    cachedPrices = await scrapeAll(pushProgress);
+    lastUpdated = new Date().toISOString();
+    history.addEntry(cachedPrices);
+    pushProgress({ done: true });
+    console.log('[cron] Scheduled scrape complete.');
+  } catch (err) {
+    console.error('[cron] Scheduled scrape failed:', err.message);
+    pushProgress({ error: err.message });
+  } finally {
+    scrapeInProgress = false;
+  }
+}
+
+// Cron expression: minute=0, hour=6, every day
+cron.schedule('0 6 * * *', runScheduledScrape, { timezone: 'Europe/Amsterdam' });
+
 app.listen(PORT, () => {
   console.log(`StarbucksMeter running at http://localhost:${PORT}`);
+  console.log('[cron] Daily scrape scheduled at 06:00 Europe/Amsterdam');
 });

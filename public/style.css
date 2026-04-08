@@ -423,6 +423,94 @@ tbody tr:hover { background: #f6faf8; }
 }
 .price-link:hover { opacity: 1; text-decoration: underline; }
 
+/* ===== History chart ===== */
+.history-section {
+  max-width: 1100px;
+  margin: 24px auto 0;
+  padding: 0 20px 60px;
+}
+.history-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 28px 24px;
+}
+.history-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+.chart-wrap {
+  width: 100%;
+  margin: 0 -4px; /* compensate ApexCharts left padding */
+}
+
+/* ── ApexCharts custom tooltip ── */
+.apex-tooltip {
+  background: #1E3932;
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+  min-width: 230px;
+  pointer-events: none;
+}
+.apex-tt-date {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #8fbbac;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+.apex-tt-row {
+  display: grid;
+  grid-template-columns: 10px 1fr auto auto;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 0;
+}
+.apex-tt-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.apex-tt-name {
+  font-size: 0.8rem;
+  color: #c8ddd8;
+}
+.apex-tt-price {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: right;
+}
+.apex-tt-store {
+  font-size: 0.75rem;
+  color: #8fbbac;
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+
+/* ===== Legal footer ===== */
+.legal {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 32px;
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.legal a {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+.legal a:hover { color: var(--green-primary); }
+
 /* ===== Mobile card view ===== */
 /* Cards are hidden on desktop; shown instead of the table on mobile */
 #price-cards { display: none; }
@@ -518,6 +606,9 @@ tbody tr:hover { background: #f6faf8; }
 @media (max-width: 640px) {
   /* Header */
   main { margin: 16px auto; padding: 0 12px 40px; }
+  .history-section { padding: 0 12px 40px; margin-top: 16px; }
+  .history-card { padding: 18px 14px 16px; }
+  .history-title { font-size: 0.88rem; }
   .header-inner { height: 60px; }
   h1 { font-size: 1.1rem; }
   .subtitle { display: none; }

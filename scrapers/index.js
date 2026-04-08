@@ -19,9 +19,11 @@ const SCRAPERS = {
 
 // Map CSV type values to display names and image keys
 const TYPE_META = {
-  Caramel: { label: 'Caramel Macchiato', image: 'caramel' },
-  Cappuccino: { label: 'Cappuccino', image: 'cappuccino' },
-  NoSugar: { label: 'No Added Sugar', image: 'nosugar' },
+  Caramel:           { label: 'Caramel Macchiato',          image: 'caramel' },
+  Cappuccino:        { label: 'Cappuccino',                 image: 'cappuccino' },
+  NoSugar:           { label: 'No Added Sugar',             image: 'nosugar' },
+  TrippleShot:       { label: 'Triple Shot Espresso',       image: 'trippleshot' },
+  TrippleShotNoSugar:{ label: 'Triple Shot No Added Sugar', image: 'trippleshotnosugar' },
 };
 
 function loadUrls() {
@@ -60,6 +62,15 @@ async function scrapeAll(onProgress = () => {}) {
   // Hide webdriver flag so bot-detection is less likely to trigger
   await context.addInitScript(() => {
     Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+  });
+
+  // Always scrape in a fixed store order regardless of CSV ordering
+  const STORE_ORDER = ['Dirk', 'AH', 'Jumbo', 'Plus'];
+  const TYPE_ORDER  = ['Caramel', 'Cappuccino', 'NoSugar', 'TrippleShot', 'TrippleShotNoSugar'];
+  records.sort((a, b) => {
+    const si = STORE_ORDER.indexOf(a.Store) - STORE_ORDER.indexOf(b.Store);
+    if (si !== 0) return si;
+    return TYPE_ORDER.indexOf(a.Type) - TYPE_ORDER.indexOf(b.Type);
   });
 
   const results = [];

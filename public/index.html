@@ -4,7 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StarbucksMeter – Ijskoffie Prijsvergelijker</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/recourses/starbucks.png" />
+  <link rel="apple-touch-icon" href="/recourses/starbucks.png" />
+
+  <!-- Open Graph / WhatsApp card -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://starbucks.bytemountains.com" />
+  <meta property="og:title"       content="StarbucksMeter – Ijskoffie Prijsvergelijker" />
+  <meta property="og:description" content="Vergelijk dagelijks de prijs van Starbucks ijskoffie bij Dirk, Albert Heijn, Jumbo en Plus. Altijd de goedkoopste op een rij." />
+  <meta property="og:image"       content="https://starbucks.bytemountains.com/recourses/starbucks.png" />
+  <meta property="og:image:width"  content="500" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:locale"      content="nl_NL" />
+
+  <!-- Twitter / general summary card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="StarbucksMeter – Ijskoffie Prijsvergelijker" />
+  <meta name="twitter:description" content="Vergelijk dagelijks de prijs van Starbucks ijskoffie bij Dirk, Albert Heijn, Jumbo en Plus." />
+  <meta name="twitter:image"       content="https://starbucks.bytemountains.com/recourses/starbucks.png" />
+
+  <!-- Browser chrome colour -->
+  <meta name="theme-color" content="#1E3932" />
+
   <link rel="stylesheet" href="/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.49.0/dist/apexcharts.min.js"></script>
 </head>
 <body>
   <header>
@@ -92,6 +117,25 @@
       </table>
     </div>
   </main>
+
+  <!-- Price history chart -->
+  <section id="history-section" class="history-section hidden">
+    <div class="history-card">
+      <h2 class="history-title">Prijsontwikkeling – goedkoopste per dag</h2>
+      <div class="chart-wrap">
+        <div id="history-chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="legal">
+    <p>
+      StarbucksMeter is een onafhankelijke prijsvergelijker en is niet verbonden aan Starbucks Corporation.
+      De naam Starbucks®, het logo en alle productafbeeldingen zijn eigendom van
+      <a href="https://www.starbucks.com" target="_blank" rel="noopener">Starbucks Corporation</a>.
+      Winkellogo's zijn eigendom van de respectieve supermarktketens.
+    </p>
+  </footer>
 
   <script src="/app.js"></script>
 </body>

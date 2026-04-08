@@ -1,5 +1,21 @@
 'use strict';
 
+// ── Coffee colours (used for chart and cards) ────────────────────────────────
+const COFFEE_COLORS = {
+  Caramel:             '#E8810A', // orange/caramel
+  Cappuccino:          '#6B3A2A', // dark brown
+  NoSugar:             '#5BA4CF', // light blue
+  TrippleShot:         '#B03A2E', // deep espresso red
+  TrippleShotNoSugar:  '#7D3C98', // purple
+};
+const COFFEE_LABELS = {
+  Caramel:             'Caramel Macchiato',
+  Cappuccino:          'Cappuccino',
+  NoSugar:             'No Added Sugar',
+  TrippleShot:         'Triple Shot Espresso',
+  TrippleShotNoSugar:  'Triple Shot No Added Sugar',
+};
+
 // ── Store & type metadata ────────────────────────────────────────────────────
 const STORE_META = {
   Dirk:  { name: 'Dirk',         logo: '/recourses/stores/dirk.png'  },
@@ -9,11 +25,13 @@ const STORE_META = {
 };
 const STORE_ORDER = ['Dirk', 'AH', 'Jumbo', 'Plus'];
 
-const TYPE_ORDER  = ['Caramel', 'Cappuccino', 'NoSugar'];
+const TYPE_ORDER  = ['Caramel', 'Cappuccino', 'NoSugar', 'TrippleShot', 'TrippleShotNoSugar'];
 const TYPE_IMAGES = {
-  Caramel:    '/recourses/coffee/caramel.jpg',
-  Cappuccino: '/recourses/coffee/cappuccino.jpg',
-  NoSugar:    '/recourses/coffee/nosugar.jpg',
+  Caramel:             '/recourses/coffee/caramel.jpg',
+  Cappuccino:          '/recourses/coffee/cappuccino.jpg',
+  NoSugar:             '/recourses/coffee/nosugar.jpg',
+  TrippleShot:         '/recourses/coffee/trippleshot.jpg',
+  TrippleShotNoSugar:  '/recourses/coffee/trippleshotnosugar.jpg',
 };
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -322,6 +340,7 @@ async function loadPrices(forceRefresh = false) {
     buildTable(prices);
     buildCards(prices);
     setState('price-table-wrap');
+    loadHistory();
 
     if (lastUpdated) {
       const d = new Date(lastUpdated);
@@ -338,10 +357,174 @@ async function loadPrices(forceRefresh = false) {
   }
 }
 
-// On first load check for cached data
+// ── History chart (ApexCharts) ────────────────────────────────────────────────
+let chartInstance = null;
+
+async function loadHistory() {
+  try {
+    const res = await fetch('/api/history');
+    if (!res.ok) return;
+    const data = await res.json();
+
+    const dates = Object.keys(data).sort();
+    if (dates.length < 1) return;
+
+    // Build series — store name travels inside each data point.
+    // Only include a series if at least one day has real data for that type.
+    const builtSeries = TYPE_ORDER.map((typeKey) => ({
+      typeKey,
+      name: COFFEE_LABELS[typeKey],
+      data: dates.map((date) => {
+        const entry = data[date]?.[typeKey];
+        return {
+          x: new Date(date).getTime(),
+          y: entry?.price ?? null,
+          store: entry?.store ?? null,
+        };
+      }),
+    })).filter((s) => s.data.some((d) => d.y != null));
+
+    if (!builtSeries.length) return;
+
+    const activeTypes  = builtSeries.map((s) => s.typeKey);
+    const seriesColors = builtSeries.map((s) => COFFEE_COLORS[s.typeKey]);
+    // Strip internal typeKey before passing to ApexCharts
+    const series = builtSeries.map(({ typeKey, ...rest }) => rest);
+
+    const section = document.getElementById('history-section');
+    section.classList.remove('hidden');
+
+    if (chartInstance) { chartInstance.destroy(); chartInstance = null; }
+
+    const isMobile = window.innerWidth < 640;
+
+    const options = {
+      chart: {
+        type: 'area',
+        height: isMobile ? 220 : 300,
+        toolbar: { show: false },
+        zoom: { enabled: false },
+        animations: {
+          enabled: true,
+          easing: 'easeinout',
+          speed: 700,
+          animateGradually: { enabled: true, delay: 80 },
+        },
+        fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif",
+        background: 'transparent',
+      },
+      series,
+      colors: seriesColors,
+      stroke: { curve: 'smooth', width: 2.5 },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shadeIntensity: 1,
+          opacityFrom: 0.28,
+          opacityTo: 0.01,
+          stops: [0, 90],
+        },
+      },
+      markers: {
+        size: 4,
+        strokeWidth: 2,
+        strokeColors: '#ffffff',
+        hover: { size: 7 },
+      },
+      xaxis: {
+        type: 'datetime',
+        labels: {
+          format: 'd MMM',
+          datetimeUTC: false,
+          style: { colors: '#54554B', fontSize: '11px' },
+        },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+        tooltip: { enabled: false },
+      },
+      yaxis: {
+        tickAmount: 4,
+        labels: {
+          formatter: (v) => v == null ? '' : '€\u00a0' + v.toFixed(2).replace('.', ','),
+          style: { colors: '#54554B', fontSize: '11px' },
+          offsetX: -4,
+        },
+      },
+      grid: {
+        borderColor: 'rgba(0,0,0,0.07)',
+        strokeDashArray: 5,
+        xaxis: { lines: { show: false } },
+        yaxis: { lines: { show: true } },
+        padding: { left: 0, right: 12 },
+      },
+      dataLabels: { enabled: false },
+      legend: {
+        show: true,
+        position: 'top',
+        horizontalAlign: 'left',
+        fontSize: '12px',
+        fontWeight: 600,
+        labels: { colors: '#1E3932' },
+        markers: {
+          width: 10, height: 10,
+          radius: 3,
+          offsetX: -2,
+        },
+        itemMargin: { horizontal: 14, vertical: 0 },
+        onItemClick: { toggleDataSeries: true },
+        onItemHover: { highlightDataSeries: true },
+      },
+      tooltip: {
+        shared: true,
+        intersect: false,
+        followCursor: false,
+        custom: ({ series: s, dataPointIndex, w }) => {
+          const ts = w.globals.seriesX[0]?.[dataPointIndex];
+          const dateStr = ts
+            ? new Date(ts).toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })
+            : '';
+
+          const rows = activeTypes.map((typeKey, idx) => {
+            const price = s[idx]?.[dataPointIndex];
+            const rawStore = w.config.series[idx]?.data[dataPointIndex]?.store;
+            const storeName = STORE_META[rawStore]?.name ?? rawStore ?? '–';
+            const color = COFFEE_COLORS[typeKey];
+            const priceStr = price != null
+              ? '€\u00a0' + price.toFixed(2).replace('.', ',')
+              : '–';
+            return `
+              <div class="apex-tt-row">
+                <span class="apex-tt-dot" style="background:${color}"></span>
+                <span class="apex-tt-name">${COFFEE_LABELS[typeKey]}</span>
+                <span class="apex-tt-price">${priceStr}</span>
+                <span class="apex-tt-store">${storeName}</span>
+              </div>`;
+          }).join('');
+
+          return `
+            <div class="apex-tooltip">
+              <div class="apex-tt-date">${dateStr}</div>
+              ${rows}
+            </div>`;
+        },
+      },
+      theme: { mode: 'light' },
+    };
+
+    chartInstance = new ApexCharts(document.getElementById('history-chart'), options);
+    await chartInstance.render();
+  } catch (err) {
+    console.warn('Could not load price history:', err.message);
+  }
+}
+
+// ── On first load check for cached data ──────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
   fetch('/api/status')
     .then((r) => r.json())
-    .then(({ hasCachedData }) => { if (hasCachedData) loadPrices(false); })
+    .then(({ hasCachedData }) => {
+      if (hasCachedData) loadPrices(false);
+      loadHistory(); // always try to show the chart from persisted data
+    })
     .catch(() => {});
 });
