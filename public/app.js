@@ -317,6 +317,41 @@ function buildCards(prices) {
   }
 }
 
+// ── Refresh cooldown ──────────────────────────────────────────────────────────
+const COOLDOWN_MS = 60 * 60 * 1000; // must match server
+let cooldownTimer = null;
+
+function applyCooldown(lastUpdatedStr) {
+  const nextRefresh = new Date(new Date(lastUpdatedStr).getTime() + COOLDOWN_MS);
+
+  function tick() {
+    const remaining = nextRefresh - Date.now();
+    const btn = document.getElementById('refresh-btn');
+    const label = btn.querySelector('.btn-label');
+
+    if (remaining <= 0) {
+      clearInterval(cooldownTimer);
+      cooldownTimer = null;
+      btn.disabled = false;
+      btn.classList.remove('cooldown');
+      btn.removeAttribute('title');
+      label.textContent = 'Vernieuwen';
+      return;
+    }
+
+    const mins = Math.ceil(remaining / 60000);
+    btn.disabled = true;
+    btn.classList.add('cooldown');
+    label.textContent = `Over ${mins} min`;
+    btn.title = 'Beschikbaar om ' +
+      nextRefresh.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  clearInterval(cooldownTimer);
+  tick(); // run immediately
+  cooldownTimer = setInterval(tick, 60000);
+}
+
 // ── Main load function ────────────────────────────────────────────────────────
 async function loadPrices(forceRefresh = false) {
   const btn = document.getElementById('refresh-btn');
@@ -339,6 +374,22 @@ async function loadPrices(forceRefresh = false) {
       return;
     }
 
+    // Server enforced cooldown — fetch cached data and show cooldown UI
+    if (res.status === 429) {
+      closeProgressStream();
+      const body = await res.json().catch(() => ({}));
+      if (body.lastUpdated) applyCooldown(body.lastUpdated);
+      // Load the cached prices without forcing a refresh
+      const cached = await fetch('/api/prices').then((r) => r.json()).catch(() => null);
+      if (cached?.prices) {
+        buildTable(cached.prices);
+        buildCards(cached.prices);
+        setState('price-table-wrap');
+        loadHistory();
+      }
+      return;
+    }
+
     if (!res.ok) {
       const body = await res.json().catch(() => ({}));
       document.getElementById('error-msg').textContent = body.error ?? `Server fout (${res.status})`;
@@ -357,13 +408,18 @@ async function loadPrices(forceRefresh = false) {
       const d = new Date(lastUpdated);
       document.getElementById('last-updated').textContent =
         'Bijgewerkt: ' + d.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
+      // Apply cooldown whenever we have fresh data
+      applyCooldown(lastUpdated);
     }
   } catch (err) {
     closeProgressStream();
     document.getElementById('error-msg').textContent = err.message;
     setState('state-error');
   } finally {
-    btn.disabled = false;
+    // Only re-enable the button if the cooldown hasn't taken over
+    if (!cooldownTimer) {
+      btn.disabled = false;
+    }
     btn.classList.remove('spinning');
   }
 }

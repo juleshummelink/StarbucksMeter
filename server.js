@@ -56,6 +56,8 @@ app.get('/api/scrape-stream', (req, res) => {
 });
 
 // ── Prices endpoint ───────────────────────────────────────────────────────────
+const REFRESH_COOLDOWN_MS = 60 * 60 * 1000; // 1 hour
+
 app.get('/api/prices', async (req, res) => {
   // Demo mode: return synthetic data immediately, no scrape, no history write
   if (DEMO_MODE) {
@@ -66,6 +68,15 @@ app.get('/api/prices', async (req, res) => {
 
   if (scrapeInProgress) {
     return res.status(202).json({ status: 'scraping' });
+  }
+
+  // Cooldown: block manual refresh if data is less than 1 hour old
+  if (forceRefresh && cachedPrices && lastUpdated) {
+    const age = Date.now() - new Date(lastUpdated).getTime();
+    if (age < REFRESH_COOLDOWN_MS) {
+      const nextRefresh = new Date(new Date(lastUpdated).getTime() + REFRESH_COOLDOWN_MS).toISOString();
+      return res.status(429).json({ status: 'cooldown', lastUpdated, nextRefresh });
+    }
   }
 
   if (!forceRefresh && cachedPrices) {

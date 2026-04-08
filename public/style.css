@@ -99,6 +99,11 @@ h1 {
 .btn-refresh:hover { background: #005c38; }
 .btn-refresh:active { transform: scale(0.97); }
 .btn-refresh:disabled { background: #54776c; cursor: not-allowed; }
+.btn-refresh.cooldown  { background: #54776c; cursor: not-allowed; }
+.btn-refresh.cooldown::before {
+  content: '⏱\00a0';
+  font-size: 0.85em;
+}
 .btn-refresh.spinning svg { animation: spin 0.8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
