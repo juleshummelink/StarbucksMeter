@@ -1,0 +1,87 @@
+'use strict';
+
+const express = require('express');
+const path = require('path');
+const { scrapeAll } = require('./scrapers/index');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/recourses', express.static(path.join(__dirname, 'recourses')));
+
+// ── In-memory state ──────────────────────────────────────────────────────────
+let cachedPrices = null;
+let lastUpdated = null;
+let scrapeInProgress = false;
+
+// SSE progress broadcasting
+let progressClients = [];
+let currentProgress = null;
+
+function pushProgress(data) {
+  currentProgress = data;
+  const payload = `data: ${JSON.stringify(data)}\n\n`;
+  progressClients.forEach((res) => res.write(payload));
+}
+
+// ── SSE progress stream ───────────────────────────────────────────────────────
+app.get('/api/scrape-stream', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders();
+
+  // Immediately send current state so late-connecting clients get context
+  if (currentProgress) {
+    res.write(`data: ${JSON.stringify(currentProgress)}\n\n`);
+  }
+
+  progressClients.push(res);
+
+  // Keep-alive heartbeat every 15 s
+  const heartbeat = setInterval(() => res.write(': ping\n\n'), 15000);
+
+  req.on('close', () => {
+    clearInterval(heartbeat);
+    progressClients = progressClients.filter((c) => c !== res);
+  });
+});
+
+// ── Prices endpoint ───────────────────────────────────────────────────────────
+app.get('/api/prices', async (req, res) => {
+  const forceRefresh = req.query.refresh === 'true';
+
+  if (scrapeInProgress) {
+    return res.status(202).json({ status: 'scraping' });
+  }
+
+  if (!forceRefresh && cachedPrices) {
+    return res.json({ prices: cachedPrices, lastUpdated });
+  }
+
+  scrapeInProgress = true;
+  currentProgress = null;
+
+  try {
+    cachedPrices = await scrapeAll(pushProgress);
+    lastUpdated = new Date().toISOString();
+    // Signal completion to all SSE clients
+    pushProgress({ done: true });
+    res.json({ prices: cachedPrices, lastUpdated });
+  } catch (err) {
+    console.error('Scrape failed:', err);
+    pushProgress({ error: err.message });
+    res.status(500).json({ error: err.message });
+  } finally {
+    scrapeInProgress = false;
+  }
+});
+
+app.get('/api/status', (_req, res) => {
+  res.json({ scraping: scrapeInProgress, lastUpdated, hasCachedData: cachedPrices !== null });
+});
+
+app.listen(PORT, () => {
+  console.log(`StarbucksMeter running at http://localhost:${PORT}`);
+});

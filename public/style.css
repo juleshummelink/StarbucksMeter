@@ -1,0 +1,552 @@
+/* ===== Variables ===== */
+:root {
+  --green-dark:    #1E3932;
+  --green-primary: #00704A;
+  --green-light:   #D4E9E2;
+  --gold:          #CBA258;
+  --sale-red:      #C8102E;
+  --white:         #FFFFFF;
+  --off-white:     #F2F0EB;
+  --text-dark:     #1E3932;
+  --text-muted:    #54554B;
+  --border:        #D9D8D4;
+  --shadow:        0 2px 12px rgba(0,0,0,0.10);
+  --radius:        10px;
+  --font:          'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--off-white);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+header {
+  background: var(--green-dark);
+  color: var(--white);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  gap: 16px;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.starbucks-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--white);
+  line-height: 1.1;
+}
+.subtitle {
+  font-size: 0.78rem;
+  color: var(--green-light);
+  margin-top: 1px;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.last-updated {
+  font-size: 0.75rem;
+  color: #8fbbac;
+  white-space: nowrap;
+}
+
+/* ===== Refresh button ===== */
+.btn-refresh {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--green-primary);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 9px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.1s;
+  white-space: nowrap;
+}
+.btn-refresh svg { width: 15px; height: 15px; }
+.btn-refresh:hover { background: #005c38; }
+.btn-refresh:active { transform: scale(0.97); }
+.btn-refresh:disabled { background: #54776c; cursor: not-allowed; }
+.btn-refresh.spinning svg { animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ===== Main ===== */
+main {
+  max-width: 1100px;
+  margin: 36px auto;
+  padding: 0 20px 60px;
+}
+
+/* ===== State cards ===== */
+.state-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.hidden { display: none !important; }
+
+/* ===== Spinner ===== */
+.spinner {
+  width: 40px; height: 40px;
+  border: 4px solid var(--green-light);
+  border-top-color: var(--green-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ===== Loading / Scanner state ===== */
+.loading-card {
+  gap: 28px;
+  padding: 44px 36px 36px;
+  min-height: 320px;
+  justify-content: center;
+}
+
+/* Centre store display – fades in/out on store transitions */
+.scrape-store-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  transition: opacity 0.35s ease;
+}
+.scrape-store-display.fading { opacity: 0; }
+
+.scrape-store-logo {
+  height: 72px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: var(--off-white);
+  padding: 8px 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.scrape-store-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* Progress bar */
+.progress-track {
+  width: 100%;
+  max-width: 480px;
+  height: 8px;
+  background: var(--green-light);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--green-primary), #00a060);
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: -12px;
+}
+
+/* Store indicator dots */
+.store-indicators {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 4px;
+}
+.store-dot-connector {
+  height: 2px;
+  width: 28px;
+  background: var(--border);
+  flex-shrink: 0;
+  transition: background 0.4s ease;
+}
+.store-dot-connector.done { background: var(--green-primary); }
+
+.store-dot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+}
+.store-dot img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: white;
+  padding: 4px 6px;
+  border: 2px solid var(--border);
+  opacity: 0.35;
+  transition: opacity 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+.store-dot .dot-check {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--green-primary);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Active store: full opacity + glowing ring + slight scale */
+.store-dot.active img {
+  opacity: 1;
+  border-color: var(--green-primary);
+  box-shadow: 0 0 0 3px var(--green-light);
+  transform: scale(1.12);
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+/* Done store: full opacity + checkmark */
+.store-dot.done img {
+  opacity: 1;
+  border-color: var(--green-primary);
+}
+.store-dot.done .dot-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 3px var(--green-light); }
+  50%       { box-shadow: 0 0 0 6px rgba(0,112,74,0.15); }
+}
+
+/* ===== Table ===== */
+#price-table-wrap {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+#price-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Type column (leftmost – coffee type) */
+.type-col {
+  width: 180px;
+  min-width: 150px;
+}
+
+/* Header row */
+thead tr {
+  background: var(--green-dark);
+  color: var(--white);
+}
+thead th {
+  padding: 14px 18px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+thead th:last-child { border-right: none; }
+
+/* Store header cell */
+.store-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.store-logo {
+  height: 36px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  border-radius: 5px;
+  background: white;
+  padding: 3px 6px;
+}
+.store-name {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--green-light);
+  letter-spacing: 0.3px;
+}
+
+/* Body rows */
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+}
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #f6faf8; }
+
+/* Type cell */
+.type-cell {
+  padding: 18px 16px;
+  text-align: left;
+  border-right: 1px solid var(--border);
+}
+.type-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.coffee-img {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.type-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+/* Price cell */
+.price-cell {
+  padding: 18px 12px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  vertical-align: middle;
+  position: relative;
+}
+.price-cell:last-child { border-right: none; }
+
+/* Cheapest highlight */
+.price-cell.cheapest {
+  background: var(--green-light);
+}
+.price-cell.cheapest::after {
+  content: '🏆';
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 0.8rem;
+}
+
+/* Price values */
+.price-current {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+.price-cell.cheapest .price-current {
+  color: var(--green-primary);
+}
+.price-original {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  margin-top: 3px;
+}
+.badge-sale {
+  display: inline-block;
+  background: var(--sale-red);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+.price-unavailable {
+  color: var(--text-muted);
+  font-size: 1.3rem;
+}
+.price-link {
+  display: block;
+  margin-top: 7px;
+  font-size: 0.73rem;
+  color: var(--green-primary);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+.price-link:hover { opacity: 1; text-decoration: underline; }
+
+/* ===== Mobile card view ===== */
+/* Cards are hidden on desktop; shown instead of the table on mobile */
+#price-cards { display: none; }
+
+.price-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.price-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.price-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--green-dark);
+  color: var(--white);
+}
+.price-card-header .coffee-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.price-card-header .type-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.price-card-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.price-card-row:last-child { border-bottom: none; }
+.price-card-row.cheapest { background: var(--green-light); }
+
+.store-logo-sm {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: var(--white);
+  padding: 3px 4px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.store-name-sm {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  min-width: 80px;
+}
+.price-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1;
+  gap: 2px;
+}
+.price-card-right .price-current {
+  font-size: 1.25rem;
+}
+.price-card-right .price-original {
+  font-size: 0.75rem;
+}
+.price-card-right .badge-sale {
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  margin-top: 0;
+}
+.price-card-trophy {
+  font-size: 1rem;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+.price-card-row a.price-link {
+  display: none; /* shown via long-press or tap on the row instead */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  /* Header */
+  main { margin: 16px auto; padding: 0 12px 40px; }
+  .header-inner { height: 60px; }
+  h1 { font-size: 1.1rem; }
+  .subtitle { display: none; }
+  .last-updated { display: none; }
+  .starbucks-logo { width: 38px; height: 38px; }
+
+  /* Refresh button: icon only */
+  .btn-refresh { padding: 9px 12px; }
+  .btn-refresh .btn-label { display: none; }
+
+  /* Loading scanner */
+  .loading-card { padding: 32px 16px 28px; gap: 20px; }
+  .scrape-store-logo { height: 56px; }
+  .scrape-store-text { font-size: 0.95rem; }
+  .store-dot img { width: 36px; height: 36px; }
+  .store-dot-connector { width: 16px; }
+
+  /* Show cards, hide table */
+  #price-table-wrap { display: none !important; }
+  #price-cards:not(.hidden) { display: block; }
+}
+
+/* Tablet: table fits but tighter */
+@media (min-width: 641px) and (max-width: 860px) {
+  main { padding: 0 12px 48px; }
+  .type-col { width: 130px; min-width: 110px; }
+  .coffee-img { width: 40px; height: 40px; }
+  .type-label { font-size: 0.82rem; }
+  .store-logo { height: 28px; }
+  .price-current { font-size: 1.2rem; }
+  thead th, .price-cell { padding: 12px 8px; }
+}
