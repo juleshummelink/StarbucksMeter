@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StarbucksMeter – Starbucks Ijskoffie Prijsvergelijker Nederland</title>
+  <meta name="description" content="Vergelijk dagelijks de prijs van Starbucks gekoelde ijskoffie bij Dirk, Albert Heijn, Jumbo en Plus. Bekijk ook aanbiedingen en de prijsontwikkeling over 30 dagen." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://starbucks.bytemountains.com/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/recourses/starbucks.png" />
+  <link rel="apple-touch-icon" href="/recourses/starbucks.png" />
+
+  <!-- Open Graph / WhatsApp card -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://starbucks.bytemountains.com/" />
+  <meta property="og:title"       content="StarbucksMeter – Starbucks Ijskoffie Prijsvergelijker Nederland" />
+  <meta property="og:description" content="Vergelijk dagelijks de prijs van Starbucks ijskoffie bij Dirk, Albert Heijn, Jumbo en Plus. Altijd de goedkoopste op een rij." />
+  <meta property="og:image"       content="https://starbucks.bytemountains.com/recourses/starbucks.png" />
+  <meta property="og:image:width"  content="500" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:locale"      content="nl_NL" />
+  <meta property="og:site_name"   content="StarbucksMeter" />
+
+  <!-- Twitter / general summary card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="StarbucksMeter – Starbucks Ijskoffie Prijsvergelijker Nederland" />
+  <meta name="twitter:description" content="Vergelijk dagelijks de prijs van Starbucks ijskoffie bij Dirk, Albert Heijn, Jumbo en Plus." />
+  <meta name="twitter:image"       content="https://starbucks.bytemountains.com/recourses/starbucks.png" />
+
+  <!-- Browser chrome colour -->
+  <meta name="theme-color" content="#1E3932" />
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "StarbucksMeter",
+    "url": "https://starbucks.bytemountains.com/",
+    "description": "Dagelijkse prijsvergelijker voor Starbucks gekoelde ijskoffie bij Nederlandse supermarkten: Dirk, Albert Heijn, Jumbo en Plus.",
+    "applicationCategory": "ShoppingApplication",
+    "operatingSystem": "All",
+    "inLanguage": "nl-NL",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+
+  <!-- Preconnect to CDN for faster chart load -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.49.0/dist/apexcharts.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-logo">
+        <img src="/recourses/starbucks.png" class="starbucks-logo" alt="Starbucks" />
+        <div>
+          <h1>StarbucksMeter</h1>
+          <p class="subtitle">Ijskoffie prijsvergelijker</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span id="last-updated" class="last-updated"></span>
+        <button id="refresh-btn" class="btn-refresh" onclick="loadPrices(true)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+          </svg>
+          <span class="btn-label">Vernieuwen</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="state-empty" class="state-card">
+      <p>Klik op <strong>Vernieuwen</strong> om de actuele prijzen op te halen.</p>
+    </div>
+
+    <div id="state-loading" class="state-card loading-card hidden">
+      <!-- Fading store display -->
+      <div id="scrape-store-display" class="scrape-store-display">
+        <img id="scrape-store-logo" class="scrape-store-logo" src="" alt="" />
+        <p id="scrape-store-text" class="scrape-store-text">Prijzen ophalen…</p>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-track">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <p id="progress-label" class="progress-label">0 / 12 producten</p>
+
+      <!-- Store indicators row -->
+      <div class="store-indicators">
+        <div class="store-dot" id="dot-Dirk"  data-store="Dirk">
+          <img src="/recourses/stores/dirk.png"  alt="Dirk" />
+          <span class="dot-check">✓</span>
+        </div>
+        <div class="store-dot-connector"></div>
+        <div class="store-dot" id="dot-AH"    data-store="AH">
+          <img src="/recourses/stores/ah.png"   alt="Albert Heijn" />
+          <span class="dot-check">✓</span>
+        </div>
+        <div class="store-dot-connector"></div>
+        <div class="store-dot" id="dot-Jumbo" data-store="Jumbo">
+          <img src="/recourses/stores/jumbo.jpg" alt="Jumbo" />
+          <span class="dot-check">✓</span>
+        </div>
+        <div class="store-dot-connector"></div>
+        <div class="store-dot" id="dot-Plus"  data-store="Plus">
+          <img src="/recourses/stores/plus.png"  alt="Plus" />
+          <span class="dot-check">✓</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="state-error" class="state-card hidden">
+      <p id="error-msg">Er is een fout opgetreden.</p>
+    </div>
+
+    <!-- Mobile card view (shown on small screens instead of table) -->
+    <div id="price-cards" class="hidden"></div>
+
+    <div id="price-table-wrap" class="hidden">
+      <table id="price-table"><!-- SNAPSHOT_TABLE --></table>
+    </div>
+  </main>
+
+  <!-- Price history chart -->
+  <section id="history-section" class="history-section hidden">
+    <div class="history-card">
+      <h2 class="history-title">Prijsontwikkeling – goedkoopste per dag</h2>
+      <div class="chart-wrap">
+        <div id="history-chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="legal">
+    <p>
+      StarbucksMeter is een onafhankelijke prijsvergelijker en is niet verbonden aan Starbucks Corporation.
+      De naam Starbucks®, het logo en alle productafbeeldingen zijn eigendom van
+      <a href="https://www.starbucks.com" target="_blank" rel="noopener">Starbucks Corporation</a>.
+      Winkellogo's zijn eigendom van de respectieve supermarktketens.
+    </p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
