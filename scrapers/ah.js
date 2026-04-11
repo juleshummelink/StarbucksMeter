@@ -9,15 +9,38 @@ const {
 } = require('./utils');
 
 async function scrape(page, url) {
+  // Track navigations so we can report them when an eval context is destroyed
+  const navLog = [];
+  page.on('framenavigated', (frame) => {
+    if (frame === page.mainFrame()) {
+      navLog.push({ time: Date.now(), url: frame.url() });
+      console.warn(`[DIAG AH] navigation → ${frame.url()}`);
+    }
+  });
+
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
 
   // AH is a React/Next.js SPA — wait a moment for hydration
   await page.waitForTimeout(3000);
 
+  // Wrapper that adds context to "execution context was destroyed" errors
+  async function safeEval(label, fn) {
+    try {
+      return await page.evaluate(fn);
+    } catch (err) {
+      if (/execution context was destroyed/i.test(err.message)) {
+        console.warn(`[DIAG AH] eval context destroyed during "${label}"`);
+        console.warn(`[DIAG AH] current URL: ${page.url()}`);
+        console.warn(`[DIAG AH] navigations so far: ${JSON.stringify(navLog)}`);
+      }
+      throw err;
+    }
+  }
+
   let currentPrice = null;
 
   // Strategy 1: __NEXT_DATA__ (Next.js server props)
-  currentPrice = await page.evaluate(() => {
+  currentPrice = await safeEval('strategy-1 __NEXT_DATA__', () => {
     try {
       const el = document.getElementById('__NEXT_DATA__');
       if (!el) return null;
@@ -45,7 +68,7 @@ async function scrape(page, url) {
 
   // Strategy 3: screen-reader price text (AH uses visually-hidden spans with full "€ X,XX")
   if (currentPrice === null) {
-    currentPrice = await page.evaluate(() => {
+    currentPrice = await safeEval('strategy-3 screen-reader spans', () => {
       const selectors = [
         '.sr-only',
         '.visually-hidden',
@@ -66,7 +89,7 @@ async function scrape(page, url) {
 
   // Strategy 4: data-testhook / data-testid / aria-label containing a price
   if (currentPrice === null) {
-    currentPrice = await page.evaluate(() => {
+    currentPrice = await safeEval('strategy-4 data-testid attrs', () => {
       const attrs = ['data-testhook', 'data-testid', 'aria-label'];
       for (const attr of attrs) {
         for (const el of document.querySelectorAll(`[${attr}]`)) {
@@ -86,7 +109,7 @@ async function scrape(page, url) {
 
   // Strategy 5: any element whose class contains "price" (case-insensitive)
   if (currentPrice === null) {
-    currentPrice = await page.evaluate(() => {
+    currentPrice = await safeEval('strategy-5 class*=price', () => {
       for (const el of document.querySelectorAll('[class*="price"],[class*="Price"]')) {
         const text = el.innerText?.trim() ?? '';
         const m = text.match(/€?\s*(\d+)[,.](\d{2})/);
@@ -105,7 +128,7 @@ async function scrape(page, url) {
   if (currentPrice === null) await diagnose(page, 'AH');
 
   // Detect multi-buy promotions (1+1 gratis, 2 voor X)
-  const promoText = await page.evaluate(() => {
+  const promoText = await safeEval('promo detection', () => {
     // Strategy 1: look inside __NEXT_DATA__ for shields/promotions
     try {
       const nd = document.getElementById('__NEXT_DATA__');
@@ -151,7 +174,7 @@ async function scrape(page, url) {
 
   // Also check for "was" price in __NEXT_DATA__
   if (originalPrice === null) {
-    originalPrice = await page.evaluate(() => {
+    originalPrice = await safeEval('original-price __NEXT_DATA__', () => {
       try {
         const el = document.getElementById('__NEXT_DATA__');
         if (!el) return null;
@@ -175,7 +198,7 @@ async function scrape(page, url) {
   // We look for old-price-strikethrough WITHIN that container only — this avoids
   // picking up recommendation-carousel prices further down the page.
   if (originalPrice === null) {
-    originalPrice = await page.evaluate(() => {
+    originalPrice = await safeEval('original-price DOM strikethrough', () => {
       const container = document.querySelector('[class*="price_originalPrice"]');
       if (!container) return null;
       const el = container.querySelector('[class*="old-price-strikethrough"]');
