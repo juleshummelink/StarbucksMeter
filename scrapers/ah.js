@@ -122,8 +122,10 @@ async function scrape(page, url) {
       }
     } catch (_) {}
 
-    // Strategy 2: aria-label on any element matching a promo pattern
-    for (const el of document.querySelectorAll('[aria-label]')) {
+    // Strategy 2: aria-label on any element matching a promo pattern (scoped to main product)
+    const hero = document.querySelector('[data-testid="pdp-hero"]');
+    const promoScope = hero ?? document;
+    for (const el of promoScope.querySelectorAll('[aria-label]')) {
       const label = el.getAttribute('aria-label') ?? '';
       if (label.length > 40) continue; // promo labels are short
       if (/1\s*\+\s*1\s*gratis|\d+\s+voor\s+/i.test(label)) {
@@ -131,8 +133,8 @@ async function scrape(page, url) {
       }
     }
 
-    // Strategy 3: inner text of elements with "promotion" in their class
-    for (const el of document.querySelectorAll('[class*="promotion"],[class*="Promotion"],[class*="promo"],[class*="Promo"],[class*="shield"],[class*="Shield"]')) {
+    // Strategy 3: inner text of elements with "promotion" in their class (scoped to main product)
+    for (const el of promoScope.querySelectorAll('[class*="promotion"],[class*="Promotion"],[class*="promo"],[class*="Promo"],[class*="shield"],[class*="Shield"]')) {
       const text = el.innerText?.trim() ?? '';
       if (text.length > 0 && text.length < 40 && /1\s*\+\s*1\s*gratis|\d+\s+voor\s+/i.test(text)) {
         return text;
