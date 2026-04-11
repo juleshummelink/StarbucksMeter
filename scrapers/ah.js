@@ -20,8 +20,10 @@ async function scrape(page, url) {
 
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
 
-  // AH is a React/Next.js SPA — wait a moment for hydration
+  // AH is a React/Next.js SPA — wait for hydration, then let any pending
+  // navigations (e.g. slug-canonicalization redirect) finish before evaluating.
   await page.waitForTimeout(3000);
+  await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
 
   // Wrapper that adds context to "execution context was destroyed" errors
   async function safeEval(label, fn) {
