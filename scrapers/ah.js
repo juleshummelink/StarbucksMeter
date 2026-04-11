@@ -18,22 +18,16 @@ async function scrape(page, url) {
     }
   });
 
+  const t0 = Date.now();
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+  console.warn(`[DIAG AH] goto done in ${Date.now() - t0}ms`);
 
-  // AH is a React/Next.js SPA — wait until __NEXT_DATA__ contains a product
-  // object before evaluating. This is more reliable than a fixed timeout or
-  // networkidle, which can both return before the SPA's second navigation settles.
-  await page.waitForFunction(() => {
-    const el = document.getElementById('__NEXT_DATA__');
-    if (!el) return false;
-    try {
-      const data = JSON.parse(el.textContent);
-      const product =
-        data?.props?.pageProps?.product ??
-        data?.props?.pageProps?.initialData?.product;
-      return !!product;
-    } catch (_) { return false; }
-  }, { timeout: 20000 }).catch(() => {});
+  // AH is a React/Next.js SPA — wait until the main product hero renders.
+  // This survives the SPA's internal navigations and works regardless of
+  // how __NEXT_DATA__ is structured on the server.
+  const t1 = Date.now();
+  await page.waitForSelector('[data-testid="pdp-hero"]', { timeout: 20000 }).catch(() => {});
+  console.warn(`[DIAG AH] waitForSelector done in ${Date.now() - t1}ms`);
 
   // Wrapper that adds context to "execution context was destroyed" errors
   async function safeEval(label, fn) {
